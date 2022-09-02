@@ -10,10 +10,10 @@ morea_readings:
   - reading-introduction-news-release
   - reading-ci-tracs-project-description
 morea_experiences:
-  - experience-register
+  - experience-ci-tracs-onboarding
 morea_assessments:
 morea_type: module
-morea_icon_url: /morea/introduction/introduction.jpg
+morea_icon_url: /morea/intro-ci-tracs/introduction.jpg
 morea_labels:
   - Background
 morea_sort_order: 10
