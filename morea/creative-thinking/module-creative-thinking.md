@@ -1,15 +1,15 @@
 ---
-title: "Scientific Software Basics"
+title: "Creative Thinking"
 published: true
 morea_coming_soon: false
-morea_id: scientific-software-basics
+morea_id: creative-thinking
 morea_outcomes:
 morea_readings:
 morea_experiences:
 morea_assessments:
 morea_prerequisites:
 morea_type: module
-morea_icon_url: /morea/scientific-software-basics/logo.jpg
+morea_icon_url: /morea/creative-thinking/logo.jpg
 morea_labels:
 - Workshop
 morea_sort_order: 40
