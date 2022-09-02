@@ -16,7 +16,7 @@ morea_type: module
 morea_icon_url: /morea/intro-ci-tracs/introduction.jpg
 morea_labels:
   - Background
-morea_sort_order: 10
+morea_sort_order: 01
 ---
 
 This module provides background reading for the CI-TRACS (CyberInsfrastructure TRaining to Advance Climate Science) project.

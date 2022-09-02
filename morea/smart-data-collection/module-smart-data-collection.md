@@ -22,7 +22,7 @@ morea_type: module
 morea_icon_url: /morea/smart-data-collection/tapis-logo.png
 morea_labels:
     - Workshop
-morea_sort_order: 40
+morea_sort_order: 90
 ---
 
 This workshop presents the Tapis framework and how to use its APIs to store and process streaming sensor data.

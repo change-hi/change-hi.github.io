@@ -1,18 +1,18 @@
 ---
-title: "Data Wrangling"
+title: "JEDI Training for Data Science"
 published: true
 morea_coming_soon: false
-morea_id: data-wrangling
+morea_id: jedi
 morea_outcomes:
 morea_readings:
 morea_experiences:
 morea_assessments:
 morea_prerequisites:
 morea_type: module
-morea_icon_url: /morea/data-wrangling/logo.png
+morea_icon_url: /morea/jedi/logo.jpg
 morea_labels:
 - Workshop
-morea_sort_order: 50
+morea_sort_order: 100
 ---
 
 (Module not yet available)

@@ -20,7 +20,7 @@ morea_prerequisites:
   - prerequisite-python-jupyter
 morea_icon_url: /morea/hpc/Mana-Logo.jpg
 morea_type: module
-morea_sort_order: 30
+morea_sort_order: 20
 morea_labels:
   - Workshop
 ---
