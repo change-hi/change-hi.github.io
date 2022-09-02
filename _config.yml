@@ -22,7 +22,7 @@ logger_factory:
 # morea_domain: http://morea-framework.github.io/
 # morea_google_analytics_tracking_id: "<your tracking id here>"
 # morea_head_breadcrumb_link: "http://cnn.com"
-# morea_head_breadcrumb_label: "CNN Site here2"
+# morea_head_breadcrumb_label: "CNN Site here3"
 
 # INTERNAL CONFIGURATION: The following fields are not normally edited by users.
 markdown: kramdown
