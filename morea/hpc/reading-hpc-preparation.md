@@ -16,6 +16,8 @@ Here are the things you need to do to be prepared for this workshop.
 
 We recommend you go through the [Software Carpentry shell-novice tutorial](https://swcarpentry.github.io/shell-novice/) if you are new to the command-line.
 
+The video [Introduction to Shell for Data Science](https://www.youtube.com/watch?v=V7TfE8_F_oc) also provides helpful information.
+
 ### Enable UH Multi-factor authentication
 
 You must enable MFA on your UH account to use Mana. You can do that at [https://www.hawaii.edu/its/uhlogin/](https://www.hawaii.edu/its/uhlogin/).
