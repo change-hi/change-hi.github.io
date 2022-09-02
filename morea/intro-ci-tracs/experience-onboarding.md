@@ -16,7 +16,7 @@ Please complete these tasks as soon as possible.
 
 The National Science Foundation (NSF) requests that our project collect the following metrics for reporting purposes. Aggregated information collected through this survey will be used in NSF reports and grant applications. No personally identifiable information is reported to NSF. Data is kept in encrypted storage. Your cooperation in providing the following information is greatly appreciated.
 
-[http://go.hawaii.edu/PWt](http://go.hawaii.edu/PWt)
+Instructions for demographic information will be emailed out to each participant.
 
 
 ### 2. Biography and Headshots
