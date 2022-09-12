@@ -5,6 +5,7 @@ morea_coming_soon: false
 morea_id: machine-learning-climate-science
 morea_outcomes:
 morea_readings:
+  - reading-screencast-workshop-machine-learning-s22
 morea_experiences:
 morea_assessments:
 morea_prerequisites:

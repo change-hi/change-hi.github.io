@@ -5,6 +5,7 @@ morea_coming_soon: false
 morea_id: scientific-software-basics
 morea_outcomes:
 morea_readings:
+  - reading-screencast-workshop-sci-software-basics-s22
 morea_experiences:
 morea_assessments:
 morea_prerequisites:

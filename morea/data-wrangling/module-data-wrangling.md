@@ -5,6 +5,7 @@ morea_coming_soon: false
 morea_id: data-wrangling
 morea_outcomes:
 morea_readings:
+  - reading-screencast-workshop-data-wrangling-s22
 morea_experiences:
 morea_assessments:
 morea_prerequisites:

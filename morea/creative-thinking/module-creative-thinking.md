@@ -5,6 +5,7 @@ morea_coming_soon: false
 morea_id: creative-thinking
 morea_outcomes:
 morea_readings:
+  - reading-screencast-workshop-creative-thinking-s22
 morea_experiences:
 morea_assessments:
 morea_prerequisites:
