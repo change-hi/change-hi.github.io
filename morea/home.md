@@ -5,7 +5,7 @@ morea_type: home
 published: true
 ---
 
-## Welcome to Change-HI
+## Welcome to Change-HI/EDU
 
 You have reached the home page for the curriculum modules associated with the [University of Hawaii EPSCOR Change-HI Program](https://hawaii.edu/epscor/).  These modules are designed to support the various programs associated with the [Hawaii Data Science Institute](https://datascience.hawaii.edu/), including CI-TRACS, CITRUS, and the Data Fellows program.
 
