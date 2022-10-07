@@ -1,26 +1,10 @@
 ---
 title: "Findable"
-teaching: 8
-exercises: 2
-questions:
-  - "What is a persistent identifier or PID?"
-  - "What types of PIDs are there?"
-objectives:
-  - "Explain what globally unique, persistent, resolvable identifiers are and how they make data and metadata findable"
-  - "Articulate what metadata is and how metadata makes data findable"
-  - "Articulate how metadata can be explicitly linked to data and vice versa"
-  - "Understand how and where to find data discovery platforms"
-  - "Articulate the role of data repositories in enabling findable data"
-keypoints:
-  - "Findable, means findable long-term. This requires persistent identifiers (PIDs)."
-  - "DOIs are one of more common PIDs and can be used to persistently identify software and datasets."
-
-title: "Findable"
 published: true
 morea_id: Findable
 morea_type: teaching
 morea_summary: "What is a persistent identifier or PID? What types of PIDs are there?"
-morea_sort_order: 4
+morea_sort_order: 5
 morea_labels:
   - 10 min (Teaching)
 morea_enable_toc: true
@@ -58,7 +42,7 @@ A DOI has three main parts:
 - Prefix which is unique to the registrant or member
 - Suffix, a unique identifier assigned locally by the registrant to an object
 
-![Anatomy of a DOI](../fig/anatomy-of-a-doi.jpeg)
+![Anatomy of a DOI](./fig/anatomy-of-a-doi.jpeg)
 
 In the example above, the prefix is used by the Australian National Data Service (ANDS) now called the Australia Research Data Commons (ARDC) and the suffix is a unique identifier for an object at Griffith University. DataCite provides DOI [display guidance](https://support.datacite.org/docs/datacite-doi-display-guidelines) so that they are easy to recognize and use, for both humans and machines.
 
@@ -102,7 +86,7 @@ images
 3D models
 grey literature
 
-![Connecting Research Outputs](../fig/datacite-arxiv-crossref.png)
+![Connecting Research Outputs](./fig/datacite-arxiv-crossref.png)
 
 https://support.datacite.org/docs/connecting-research-outputs
 

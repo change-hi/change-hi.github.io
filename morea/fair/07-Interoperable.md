@@ -1,21 +1,5 @@
 ---
 title: "Interoperable"
-teaching: 8
-exercises: 0
-questions:
-  - What does interoperability mean?
-  - What is a controlled vocabulary, a metadata schema and linked data?
-  - How do I describe data so that humans and computers can understand?
-objectives:
-  - "Explain what makes data and software (more) interoperable for machines"
-  - "Identify widely used metadata standards for research, including generic and discipline-focussed examples"
-  - "Explain the role of controlled vocabularies for encoding data and for annotating metadata in enabling interoperability"
-  - "Understand how linked data standards and conventions for metadata schema documentation relate to interoperability"
-keypoints:
-  - "Understand that FAIR is about both humans and machines understanding data."
-  - "Interoperability means choosing a data format or knowledge representation language that helps machines to understand the data."
-
-title: "Interoperable"
 published: true
 morea_id: Interoperable
 morea_type: teaching

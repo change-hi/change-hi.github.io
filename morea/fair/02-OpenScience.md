@@ -59,7 +59,7 @@ reproducibility crisis, trust in the public science sector etc...) that we face 
 Open Science is the movement to increase transparency and reproducibility of research, through using
 the open best practices.
 
-![Figure 1. Open Science Building Blocks](../fig/OpenScienceBuildingBlocks.jpeg)
+![Figure 1. Open Science Building Blocks](./fig/OpenScienceBuildingBlocks.jpeg)
 
 _Attribution [Gema Bueno de la Fuente](https://www.fosteropenscience.eu/content/what-open-science-introduction)_
 

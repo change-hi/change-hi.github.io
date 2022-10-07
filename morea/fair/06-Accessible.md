@@ -1,19 +1,5 @@
 ---
 title: "Accessible"
-teaching: 8
-exercises: 2
-questions:
-  - "What is a protocol?"
-  - "What types of protocol are FAIR?"
-objectives:
-  - "Understand what a protocol is"
-  - "Understand authentication protocols and their role in FAIR"
-  - "Articulate the value of landing pages"
-  - "Explain closed, open and mediated access to data"
-keypoints:
-  - "Research repositories often use the OAI-PMH or REST API protocols."
-
-title: "Accessible"
 published: true
 morea_id: Accessible
 morea_type: teaching
@@ -62,7 +48,7 @@ Thankfully, a number of research systems are now integrating ORCID into their au
 2. You will receive a confirmation email. Click the link in the email...
 3. Go to [Hydroshare](hydroshare.org) and select Log in.
 
-![Hydroshare Registration](../fig/hydrosharesignup.png)
+![Hydroshare Registration](./fig/hydrosharesignup.png)
 
 ## Understanding whether something is open, free, and universally implementable
 

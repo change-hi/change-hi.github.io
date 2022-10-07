@@ -1,25 +1,5 @@
 ---
 title: "FAIR Introduction"
-teaching: 5
-exercises: 0
-questions:
-  - "What are the FAIR principles?"
-  - "Why should I care to be FAIR?"
-  - "How do I get started?"
-
-objectives:
-  - "Identify the FAIR principles"
-  - "Recognize the importance of moving towards FAIR in research"
-  - "Relate the components of this lesson to the FAIR principles"
-
-keypoints:
-  - "The FAIR principles state that data should be Findable, Accessible,
-    Interoperable, and Reusable."
-  - "FAIR data enhance impact, reuse, and transparancy of research."
-  - "FAIRification is an ongoing effort accross many different fields."
-  - "FAIR principles are a set of guiding principles, not rules or standards."
-
-title: "FAIR Introduction"
 published: true
 morea_id: FAIR_Intro
 morea_type: teaching

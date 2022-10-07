@@ -25,7 +25,7 @@ which was deposited in a Public Omero Server
 [Project](https://publicomero.bio.ed.ac.uk/webclient/?show=project-58)  
 [Figure1 set](https://publicomero.bio.ed.ac.uk/webclient/?show=dataset-231)
 
-<img src="../fig/04-microscopy_with_metadata.png" alt="nematode_confocal_microscopy_image" width="600"/>
+<img src="./fig/04-microscopy_with_metadata.png" alt="nematode_confocal_microscopy_image" width="600"/>
 *Figure credits: María Eugenia Goya*
 
 .
@@ -127,7 +127,7 @@ continuously** throughout the project.
 >
 > Here we have an excel spreadsheet that contains project metadata for
 > a made-up experiment of plant metabolites
-> ![Metadata in data table example](../fig/04-metadatafull_spreadsheet.png) > _Figure credits: Tomasz Zielinski and Andrés Romanowski_
+> ![Metadata in data table example](./fig/04-metadatafull_spreadsheet.png) > _Figure credits: Tomasz Zielinski and Andrés Romanowski_
 >
 > In groups, identify different types of metadata (administrative,
 > descriptive, structural) present in this example.
@@ -137,7 +137,7 @@ continuously** throughout the project.
 > > - Administrative metadata marked in blue
 > > - Descriptive metadata marked in orange
 > > - Structural metadata marked in green
-> >   ![metadata-full-spreadhseet](../fig/04-metadatafull_spreadsheet_solution.png) > >_Figure credits: Tomasz Zielinski and Andrés Romanowski_
+> >   ![metadata-full-spreadhseet](./fig/04-metadatafull_spreadsheet_solution.png) > >_Figure credits: Tomasz Zielinski and Andrés Romanowski_
 > >   {: .solution}
 > >   {: .challenge}
 
