@@ -4,7 +4,7 @@ published: true
 morea_id: introduction
 morea_type: teaching
 morea_summary: "Who are we and what are we going to learn?"
-morea_sort_order: 2
+morea_sort_order: 1
 morea_labels:
   - 10 min (Teaching)
 morea_enable_toc: true
