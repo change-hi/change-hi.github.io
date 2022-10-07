@@ -6,7 +6,8 @@ morea_type: teaching
 morea_summary: "What is metadata? What do we use metadata for?"
 morea_sort_order: 9
 morea_labels:
-  - 5 min (Teaching)
+  - 8 min (Teaching)
+  - 14 min (Exercise)
 morea_enable_toc: true
 ---
 

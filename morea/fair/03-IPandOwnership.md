@@ -6,7 +6,8 @@ morea_type: teaching
 morea_summary: "What is intellectual property? Why should I consider IP in Open Science?"
 morea_sort_order: 3
 morea_labels:
-  - 10 min (Teaching)
+  - 8 min (Teaching)
+  - 2 min (Exercise)
 morea_enable_toc: true
 ---
 

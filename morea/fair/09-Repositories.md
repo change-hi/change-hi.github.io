@@ -6,7 +6,8 @@ morea_type: teaching
 morea_summary: "Where can I deposit datasets? What are general data repositories? How to find a repository?"
 morea_sort_order: 10
 morea_labels:
-  - 12 min (Teaching)
+  - 8 min (Teaching)
+  - 2 min (Exercise)
 morea_enable_toc: true
 ---
 

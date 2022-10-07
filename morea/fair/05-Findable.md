@@ -6,7 +6,7 @@ morea_type: teaching
 morea_summary: "What is a persistent identifier or PID? What types of PIDs are there?"
 morea_sort_order: 5
 morea_labels:
-  - 10 min (Teaching)
+  - 5 min (Teaching)
 morea_enable_toc: true
 ---
 

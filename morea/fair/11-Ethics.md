@@ -6,7 +6,7 @@ morea_type: teaching
 morea_summary: "What ethical considerations are there when making data public?"
 morea_sort_order: 11
 morea_labels:
-  - 12 min (Teaching)
+  - 8 min (Teaching)
 morea_enable_toc: true
 ---
 

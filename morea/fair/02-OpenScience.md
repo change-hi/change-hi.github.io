@@ -6,8 +6,8 @@ morea_type: teaching
 morea_summary: "What is Open Science? How can I benefit from Open Science? Why has Open Science become a hot topic?"
 morea_sort_order: 2
 morea_labels:
-  - 6 min (Teaching)
-  - 6 min (Exercises)
+  - 8 min (Teaching)
+  - 4 min (Exercises)
 morea_enable_toc: true
 ---
 

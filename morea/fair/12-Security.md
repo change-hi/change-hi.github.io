@@ -6,7 +6,7 @@ morea_type: teaching
 morea_summary: "What measures will you take to secure your data?"
 morea_sort_order: 12
 morea_labels:
-  - 12 min (Teaching)
+  - 8 min (Teaching)
 morea_enable_toc: true
 ---
 

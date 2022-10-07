@@ -6,7 +6,8 @@ morea_type: teaching
 morea_summary: "What is a protocol? What types of protocol are FAIR?"
 morea_sort_order: 6
 morea_labels:
-  - 10 min (Teaching)
+  - 8 min (Teaching)
+  - 2 min (Teaching)
 morea_enable_toc: true
 ---
 

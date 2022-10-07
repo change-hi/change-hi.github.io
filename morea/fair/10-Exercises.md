@@ -6,7 +6,8 @@ morea_type: teaching
 morea_summary: "What makes this dataset FAIR?"
 morea_sort_order: 11
 morea_labels:
-  - 12 min (Teaching)
+  - 0 min (Teaching)
+  - 10 min (Exercise)
 morea_enable_toc: true
 ---
 

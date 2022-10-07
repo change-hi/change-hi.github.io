@@ -6,7 +6,8 @@ morea_type: teaching
 morea_summary: "What are the FAIR principles? Why should I care to be FAIR? How do I get started?"
 morea_sort_order: 4
 morea_labels:
-  - 10 min (Teaching)
+  - 8 min (Teaching)
+  - 2 min (Exercise)
 morea_enable_toc: true
 ---
 

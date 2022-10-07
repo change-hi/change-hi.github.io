@@ -6,7 +6,7 @@ morea_type: teaching
 morea_summary: "What makes data reusable?"
 morea_sort_order: 8
 morea_labels:
-  - 10 min (Teaching)
+  - 8 min (Teaching)
 morea_enable_toc: true
 ---
 

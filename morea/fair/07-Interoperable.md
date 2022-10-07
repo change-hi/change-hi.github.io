@@ -6,7 +6,8 @@ morea_type: teaching
 morea_summary: "What does interoperability mean? What is a controlled vocabulary, a metadata schema and linked data? How do I describe data so that humans and computers can understand?"
 morea_sort_order: 7
 morea_labels:
-  - 10 min (Teaching)
+  - 8 min (Teaching)
+  - 2 min (Exercise)
 morea_enable_toc: true
 ---
 
