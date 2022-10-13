@@ -99,4 +99,4 @@ morea_enable_toc: true
 > - @@(https://carpentries-incubator.github.io/fair-bio-practice/)
 >   {: .callout}
 
-{% include links.md %}
+

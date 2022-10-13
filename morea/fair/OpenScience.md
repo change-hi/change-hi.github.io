@@ -2,13 +2,13 @@
 title: "Open Science"
 published: true
 morea_id: OpenScience
-morea_type: teaching
+morea_type: reading
 morea_summary: "What is Open Science? How can I benefit from Open Science? Why has Open Science become a hot topic?"
 morea_sort_order: 2
 morea_labels:
   - 8 min (Teaching)
   - 4 min (Exercises)
-morea_enable_toc: true
+#morea_enable_toc: true
 ---
 
 Science works best by exchanging ideas and building on them. Most efficient science involves both questions and
@@ -278,4 +278,4 @@ making such data accessible for 10 years involves serious financial commitment.
 > - @@(https://carpentries-incubator.github.io/fair-bio-practice/)
 >   {: .callout}
 
-{% include links.md %}
+

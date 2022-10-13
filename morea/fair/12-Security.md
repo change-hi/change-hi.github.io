@@ -1,7 +1,7 @@
 ---
 title: "Ethics"
 published: true
-morea_id: Ethics
+morea_id: FairSecurity
 morea_type: teaching
 morea_summary: "What measures will you take to secure your data?"
 morea_sort_order: 12
@@ -68,4 +68,3 @@ Small datasets and files are often stored on laptops and computer hard drives. W
 > their [BioRDM wiki](https://www.wiki.ed.ac.uk/display/RDMS/).
 > {: .callout}
 
-{% include links.md %}

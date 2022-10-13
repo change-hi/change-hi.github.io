@@ -1,7 +1,7 @@
 ---
 title: "Exercises"
 published: true
-morea_id: Exercises
+morea_id: FairExercises
 morea_type: teaching
 morea_summary: "What makes this dataset FAIR?"
 morea_sort_order: 11
@@ -81,4 +81,3 @@ morea_enable_toc: true
 > - [MIBBI](https://fairsharing.org/collection/MIBBI)
 >   {: .callout}
 
-{% include links.md %}

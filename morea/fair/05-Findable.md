@@ -184,4 +184,3 @@ Candela, L. , Castelli, D. , Manghi, P. and Tani, A. (2015), Data Journals: A Su
 
 Adapted from: Library Carpentry. September 2019. https://librarycarpentry.org/lc-fair-research.
 
-{% include links.md %}

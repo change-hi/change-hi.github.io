@@ -86,5 +86,3 @@ If a DOI is no longer available and the data center does not have the resources 
 - Figshare tombstone: [https://figshare.com/articles/Climate_Change/1381402](https://figshare.com/articles/Climate_Change/1381402)
 
 Adapted from: Library Carpentry. September 2019. https://librarycarpentry.org/lc-fair-research.
-
-{% include links.md %}

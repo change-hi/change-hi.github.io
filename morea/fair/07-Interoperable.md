@@ -109,4 +109,3 @@ Scholix - related indentifiers - Zenodo example linking data/software to papers
 https://dliservice.research-infrastructures.eu/#/
 https://authorcarpentry.github.io/dois-citation-data/01-register-doi.html
 
-{% include links.md %}

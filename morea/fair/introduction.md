@@ -1,13 +1,13 @@
 ---
 title: "Introduction"
 published: true
-morea_id: introduction
-morea_type: teaching
+morea_id: FairIntroduction
+morea_type: reading
 morea_summary: "Who are we and what are we going to learn?"
 morea_sort_order: 1
 morea_labels:
   - 8 min (Teaching)
-morea_enable_toc: true
+#morea_enable_toc: true
 ---
 
 ## Introductions
@@ -41,4 +41,3 @@ _Figure credits: Tomasz Zielinski and Andrés Romanowski from https://carpentrie
 
 In this workshop we will discuss how your research outputs can be made readily available for re-use by others.
 
-{% include links.md %}

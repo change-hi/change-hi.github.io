@@ -1,7 +1,7 @@
 ---
 title: "Public repositories"
 published: true
-morea_id: Repositories
+morea_id: FairRepositories
 morea_type: teaching
 morea_summary: "Where can I deposit datasets? What are general data repositories? How to find a repository?"
 morea_sort_order: 10
@@ -173,4 +173,3 @@ You can evaluate the repositories by following this criteria:
 > - [Criteria for succesful repositories](https://blogs.ch.cam.ac.uk/pmr/2011/08/19/criteria-for-successful-repositories/)
 >   {: .callout}
 
-{% include links.md %}

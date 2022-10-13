@@ -101,4 +101,3 @@ way.
 > - @@(https://esciencecenter-digital-skills.github.io/Lesson-FAIR-Data-Climate/)
 >   {: .callout}
 
-{% include links.md %}

@@ -275,5 +275,3 @@ so that they can interlink or be reasoned about by computer systems.
 > - [Metadata - How to FAIR](https://howtofair.dk/how-to-fair/metadata/)
 > - [MIBBI](https://fairsharing.org/collection/MIBBI)
 >   {: .callout}
-
-{% include links.md %}
