@@ -22,7 +22,7 @@ morea_experiences:
   - FairExercises
 morea_assessments:
 morea_prerequisites:
-  - prerequisite-hydroshare
+  - hydroshare
 morea_type: module
 morea_icon_url: /morea/fair/logo.jpg
 morea_labels:
