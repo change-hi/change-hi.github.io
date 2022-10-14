@@ -1,8 +1,8 @@
 ---
 title: "Findable"
 published: true
-morea_id: Findable
-morea_type: teaching
+morea_id: reading
+morea_type: reading
 morea_summary: "What is a persistent identifier or PID? What types of PIDs are there?"
 morea_sort_order: 5
 morea_labels:
@@ -183,4 +183,3 @@ Candela, L. , Castelli, D. , Manghi, P. and Tani, A. (2015), Data Journals: A Su
 > {: .discussion}
 
 Adapted from: Library Carpentry. September 2019. https://librarycarpentry.org/lc-fair-research.
-

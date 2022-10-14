@@ -2,7 +2,7 @@
 title: "Accessible"
 published: true
 morea_id: Accessible
-morea_type: teaching
+morea_type: experience
 morea_summary: "What is a protocol? What types of protocol are FAIR?"
 morea_sort_order: 6
 morea_labels:

@@ -2,7 +2,7 @@
 title: "Public repositories"
 published: true
 morea_id: FairRepositories
-morea_type: teaching
+morea_type: experience
 morea_summary: "Where can I deposit datasets? What are general data repositories? How to find a repository?"
 morea_sort_order: 10
 morea_labels:
@@ -172,4 +172,3 @@ You can evaluate the repositories by following this criteria:
 > - [DCC - How can we evaluate data repositories?](https://www.dcc.ac.uk/news/how-can-we-evaluate-data-repositories-pointers-dryaduk)
 > - [Criteria for succesful repositories](https://blogs.ch.cam.ac.uk/pmr/2011/08/19/criteria-for-successful-repositories/)
 >   {: .callout}
-

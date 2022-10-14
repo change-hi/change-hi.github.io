@@ -2,7 +2,7 @@
 title: "Intellectual Property, Licensing, and Openness"
 published: true
 morea_id: IPandOwnership
-morea_type: teaching
+morea_type: experience
 morea_summary: "What is intellectual property? Why should I consider IP in Open Science?"
 morea_sort_order: 3
 morea_labels:
@@ -98,5 +98,3 @@ morea_enable_toc: true
 >
 > - @@(https://carpentries-incubator.github.io/fair-bio-practice/)
 >   {: .callout}
-
-

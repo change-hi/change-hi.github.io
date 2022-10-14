@@ -2,7 +2,7 @@
 title: "FAIR Introduction"
 published: true
 morea_id: FAIR_Intro
-morea_type: teaching
+morea_type: experience
 morea_summary: "What are the FAIR principles? Why should I care to be FAIR? How do I get started?"
 morea_sort_order: 4
 morea_labels:
@@ -100,4 +100,3 @@ way.
 >
 > - @@(https://esciencecenter-digital-skills.github.io/Lesson-FAIR-Data-Climate/)
 >   {: .callout}
-

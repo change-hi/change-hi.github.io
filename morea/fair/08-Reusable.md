@@ -2,7 +2,7 @@
 title: "Reusable"
 published: true
 morea_id: Reusable
-morea_type: teaching
+morea_type: reading
 morea_summary: "What makes data reusable?"
 morea_sort_order: 8
 morea_labels:

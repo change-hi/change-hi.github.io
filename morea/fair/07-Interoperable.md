@@ -2,7 +2,7 @@
 title: "Interoperable"
 published: true
 morea_id: Interoperable
-morea_type: teaching
+morea_type: experience
 morea_summary: "What does interoperability mean? What is a controlled vocabulary, a metadata schema and linked data? How do I describe data so that humans and computers can understand?"
 morea_sort_order: 7
 morea_labels:
@@ -108,4 +108,3 @@ Using community accepted code style guidelines such as PEP 8 for Python (PEP 8 i
 Scholix - related indentifiers - Zenodo example linking data/software to papers
 https://dliservice.research-infrastructures.eu/#/
 https://authorcarpentry.github.io/dois-citation-data/01-register-doi.html
-

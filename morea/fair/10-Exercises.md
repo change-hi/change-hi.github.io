@@ -2,7 +2,7 @@
 title: "Exercises"
 published: true
 morea_id: FairExercises
-morea_type: teaching
+morea_type: experience
 morea_summary: "What makes this dataset FAIR?"
 morea_sort_order: 11
 morea_labels:
@@ -80,4 +80,3 @@ morea_enable_toc: true
 > - [Metadata - How to FAIR](https://howtofair.dk/how-to-fair/metadata/)
 > - [MIBBI](https://fairsharing.org/collection/MIBBI)
 >   {: .callout}
-

@@ -2,7 +2,7 @@
 title: "Metadata"
 published: true
 morea_id: Metadata
-morea_type: teaching
+morea_type: experience
 morea_summary: "What is metadata? What do we use metadata for?"
 morea_sort_order: 9
 morea_labels:
