@@ -59,7 +59,9 @@ reproducibility crisis, trust in the public science sector etc...) that we face 
 Open Science is the movement to increase transparency and reproducibility of research, through using
 the open best practices.
 
-![Figure 1. Open Science Building Blocks](./fig/OpenScienceBuildingBlocks.jpeg)
+{% include figure.html url="" max-width="80%"
+file="/morea/fair/fig/OpenScienceBuildingBlocks.jpeg"
+alt="Figure 1. Open Science Building Blocks" caption="" %}
 
 _Attribution [Gema Bueno de la Fuente](https://www.fosteropenscience.eu/content/what-open-science-introduction)_
 
@@ -275,7 +277,7 @@ making such data accessible for 10 years involves serious financial commitment.
 > - Wiki [Open Science](https://en.wikipedia.org/wiki/Open_science)
 > - [European Open Science Cloud](https://www.eosc-hub.eu/open-science-info)
 > - [Science is necessarily collaborative - The Biochemist article](https://portlandpress.com/biochemist/article/42/3/58/225220/Science-is-necessarily-collaborative).
-> - @@(https://carpentries-incubator.github.io/fair-bio-practice/)
+> - [https://carpentries-incubator.github.io/fair-bio-practice/](https://carpentries-incubator.github.io/fair-bio-practice/)
 >   {: .callout}
 
 

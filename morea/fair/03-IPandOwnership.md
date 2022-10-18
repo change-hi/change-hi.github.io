@@ -96,5 +96,5 @@ morea_enable_toc: true
 >
 > Content of this episode was adapted from:
 >
-> - @@(https://carpentries-incubator.github.io/fair-bio-practice/)
+> - [https://carpentries-incubator.github.io/fair-bio-practice/](https://carpentries-incubator.github.io/fair-bio-practice/)
 >   {: .callout}

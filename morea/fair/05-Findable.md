@@ -42,7 +42,9 @@ A DOI has three main parts:
 - Prefix which is unique to the registrant or member
 - Suffix, a unique identifier assigned locally by the registrant to an object
 
-![Anatomy of a DOI](./fig/anatomy-of-a-doi.jpeg)
+{% include figure.html url="" max-width="80%"
+file="/morea/fair/fig/anatomy-of-a-doi.jpeg"
+alt="Anatomy of a DOI" caption="" %}
 
 In the example above, the prefix is used by the Australian National Data Service (ANDS) now called the Australia Research Data Commons (ARDC) and the suffix is a unique identifier for an object at Griffith University. DataCite provides DOI [display guidance](https://support.datacite.org/docs/datacite-doi-display-guidelines) so that they are easy to recognize and use, for both humans and machines.
 
@@ -86,12 +88,15 @@ images
 3D models
 grey literature
 
-![Connecting Research Outputs](./fig/datacite-arxiv-crossref.png)
-
+{% include figure.html url="" max-width="80%"
+file="/morea/fair/fig/datacite-arxiv-crossref.png"
+alt="Connecting Research Outputs" caption="" %}
+[https://support.datacite.org/docs/connecting-research-outputs](https://support.datacite.org/docs/connecting-research-outputs)
 https://support.datacite.org/docs/connecting-research-outputs
 
 Bullet points about the current state of linking...
-https://blog.datacite.org/citation-analysis-scholix-rda/
+[https://blog.datacite.org/citation-analysis-scholix-rda/](https://blog.datacite.org/citation-analysis-scholix-rda/)
+
 
 ## Provenance?
 
@@ -144,7 +149,7 @@ Some recommendations:
 → look for certifications (DSA / Core Trust Seal, DINI/nestor, WDS, …)
 
 Searching re3data w/ exercise
-https://www.re3data.org/
+[https://www.re3data.org/](https://www.re3data.org/)
 Out of more than 2115 repository systems listed in re3data.org in July 2018, only 809 (less than 39 %!) state to provide a PID service, with 524 of them using the DOI system
 
 Search open access repos
@@ -182,4 +187,4 @@ Candela, L. , Castelli, D. , Manghi, P. and Tani, A. (2015), Data Journals: A Su
 > Does your discipline have a data journal? Or some other mechanism to share data? For example, the American Astronomical Society (AAS) via the publisher IOP Physics offers a [supplement series](http://iopscience.iop.org/journal/0067-0049/page/article-data) as a way for astronomers to publish data.
 > {: .discussion}
 
-Adapted from: Library Carpentry. September 2019. https://librarycarpentry.org/lc-fair-research.
+Adapted from: Library Carpentry. September 2019. [https://librarycarpentry.org/lc-fair-research](https://librarycarpentry.org/lc-fair-research).

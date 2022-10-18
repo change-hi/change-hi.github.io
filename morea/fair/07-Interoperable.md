@@ -55,15 +55,15 @@ See <https://librarycarpentry.org/Top-10-FAIR//2018/12/01/historical-research/#t
 
 Publishers, librarians, researchers, developers, funders, they have all been working towards a future where we can move beyond the PDF, from 'static and disparate data and knowledge representations to richly integrated content which grows and changes the more we learn." Research objects of the future will capture all aspects of scholarship: hypotheses, data, methods, results, presentations etc.) that are semantically enriched, interoperable and easily transmitted and comprehended.
 Attribution, Evaluation, Archiving, Impact
-https://sites.google.com/site/beyondthepdf/
+[https://sites.google.com/site/beyondthepdf/](https://sites.google.com/site/beyondthepdf/)
 
 Beyond the PDF has now grown into FORCE...
 Towards a vision where research will move from document- to knowledge-based information flows
 semantic descriptions of research data & their structures
 aggregation, development & teaching of subject-specific vocabularies, ontologies & knowledge graphs
 Paper of the Future
-https://www.authorea.com/users/23/articles/8762-the-paper-of-the-future to Jupyter Notebooks/Stencilia
-https://stenci.la/
+[https://www.authorea.com/users/23/articles/8762-the-paper-of-the-future](https://www.authorea.com/users/23/articles/8762-the-paper-of-the-future) to Jupyter Notebooks/Stencilia
+[https://stenci.la/](https://stenci.la/)
 
 ### Making Metadata Interoperable
 
@@ -87,24 +87,24 @@ If others can use your code, convey the meaning of updates with SemVer.org (CC B
 
 [Top 10 FAIR things: Linked Open Data](https://librarycarpentry.org/Top-10-FAIR//2019/09/05/linked-open-data/)
 
-Standards: https://fairsharing.org/standards/
-schema.org: http://schema.org/
+Standards: [https://fairsharing.org/standards/](https://fairsharing.org/standards/)
+schema.org: [http://schema.org/](http://schema.org/)
 
-ISA framework: 'Investigation' (the project context), 'Study' (a unit of research) and 'Assay' (analytical measurement) - https://isa-tools.github.io/
+ISA framework: 'Investigation' (the project context), 'Study' (a unit of research) and 'Assay' (analytical measurement) - [https://isa-tools.github.io/](https://isa-tools.github.io/)
 
 Example of schema.org: rOpenSci/codemetar
 
 Modularity
-http://bioschemas.org
+[http://bioschemas.org](http://bioschemas.org)
 
 codemeta croswalks to other standards
-https://codemeta.github.io/crosswalk/
+[https://codemeta.github.io/crosswalk/](https://codemeta.github.io/crosswalk/)
 
 DCAT
-https://www.w3.org/TR/vocab-dcat/
+[https://www.w3.org/TR/vocab-dcat/](https://www.w3.org/TR/vocab-dcat/)
 
 Using community accepted code style guidelines such as PEP 8 for Python (PEP 8 itself is FAIR)
 
 Scholix - related indentifiers - Zenodo example linking data/software to papers
-https://dliservice.research-infrastructures.eu/#/
-https://authorcarpentry.github.io/dois-citation-data/01-register-doi.html
+[https://dliservice.research-infrastructures.eu/#/](https://dliservice.research-infrastructures.eu/#/)
+[https://authorcarpentry.github.io/dois-citation-data/01-register-doi.html](https://authorcarpentry.github.io/dois-citation-data/01-register-doi.html)

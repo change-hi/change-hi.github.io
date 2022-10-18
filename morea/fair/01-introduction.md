@@ -28,8 +28,9 @@ is our bad timing and lack of planning.
 
 **Data management is a continuous process**
 
-![Figure 5.2. Sharing as part of the workflow](./fig/01-sharing_as_part_of_workflow.jpeg)
-_Figure credits: Tomasz Zielinski and Andrés Romanowski from https://carpentries-incubator.github.io/fair-bio-practice/06-being-precise/index.html_
+{% include figure.html url="" max-width="80%"
+file="/morea/fair/fig/01-sharing_as_part_of_workflow.jpeg"
+alt="Figure 5.2. Sharing as part of the workflo" caption="_Figure credits: Tomasz Zielinski and Andrés Romanowski from https://carpentries-incubator.github.io/fair-bio-practice/06-being-precise/index.html_" %}
 
 ## When should you engage in data sharing and open practices?
 

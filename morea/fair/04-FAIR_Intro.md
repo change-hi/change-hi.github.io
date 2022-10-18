@@ -98,5 +98,5 @@ way.
 >
 > Content of this episode was adapted from:
 >
-> - @@(https://esciencecenter-digital-skills.github.io/Lesson-FAIR-Data-Climate/)
+> - [https://esciencecenter-digital-skills.github.io/Lesson-FAIR-Data-Climate/](https://esciencecenter-digital-skills.github.io/Lesson-FAIR-Data-Climate/)
 >   {: .callout}

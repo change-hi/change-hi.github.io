@@ -4,9 +4,9 @@ published: true
 morea_id: hydroshare
 morea_type: experience
 morea_summary: "Setup account for Hydroshare website"
-morea_sort_order: 12
+morea_sort_order: 0
 morea_labels:
-  - 10 min (setup)
+  - 10 min (Prerequisite)
 morea_enable_toc: true
 ---
 
