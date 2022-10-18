@@ -22,6 +22,7 @@ morea_experiences:
   - FairRepositories
   - FairExercises
 morea_assessments:
+  - assessment-fair-workshop
 morea_prerequisites:
 morea_type: module
 morea_icon_url: /morea/fair/logo.jpg
@@ -30,4 +31,4 @@ morea_labels:
 morea_sort_order: 80
 ---
 
-Workshop on FAIR Data
+This module provides readings, experiences, and an assessment to support the FAIR Data Management workshop held on Friday, October 21, 2022.  
