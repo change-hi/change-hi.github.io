@@ -8,6 +8,7 @@ morea_outcomes:
 morea_readings:
   - reading-code-of-conduct
   - reading-smart-data-collection-preparation
+  - reading-screencast-workshop-smart-data-collection-s22
 morea_experiences:
     - experience-smart-data-collection-introduction
     - experience-smart-data-collection-jupyter

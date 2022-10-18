@@ -8,6 +8,7 @@ morea_outcomes:
 morea_readings:
   - reading-code-of-conduct
   - reading-hpc-preparation
+  - reading-screencast-workshop-hpc-s22
 morea_experiences:
   - experience-hpc-intro
   - experience-hpc-connecting

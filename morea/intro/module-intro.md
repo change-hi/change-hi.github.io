@@ -10,6 +10,7 @@ morea_readings:
   - reading-introduction-news-release
   - reading-ci-tracs-project-description
   - reading-data-science-fellows-kickoff-slides-sep-2022
+  - reading-data-fellows-schedule-2022-23
 morea_experiences:
   - experience-ci-tracs-onboarding
 morea_assessments:
