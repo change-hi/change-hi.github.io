@@ -10,6 +10,8 @@ morea_labels:
 morea_enable_toc: true
 ---
 
+# Ethics
+
 Technology poses ethical challenges. There are several areas of research in data ethics. This will serve as a primer for them, additional reading is included.
 
 - Privacy

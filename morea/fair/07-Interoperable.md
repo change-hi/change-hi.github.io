@@ -11,6 +11,9 @@ morea_labels:
 morea_enable_toc: true
 ---
 
+# Interoperable
+This section will describe what it means for research to be interoperable
+
 > ## For data & software to be interoperable:
 >
 > I1. (meta)data use a formal, accessible, shared, and broadly applicable language for knowledge representation  

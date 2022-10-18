@@ -11,7 +11,8 @@ morea_labels:
 morea_enable_toc: true
 ---
 
-(5 min teaching)
+# Metadata
+This section will describe what metadata is.
 
 ## What is (or are) metadata?
 
@@ -126,7 +127,10 @@ Descriptive and structural **metadata should be added
 continuously** throughout the project.
 
 > ## Exercise 6: Identifying metadata types (4 min)
->
+<div class="alert alert-secondary" role="alert" markdown="1">
+<i class="fa-solid fa-user-pen fa-xl"></i>  **Open Science**
+<hr/>
+
 > Here we have an excel spreadsheet that contains project metadata for
 > a made-up experiment of plant metabolites
 {% include figure.html url="" max-width="80%"
@@ -135,19 +139,23 @@ alt="Metadata in data table example" caption="_Figure credits: Tomasz Zielinski 
 >
 > In groups, identify different types of metadata (administrative,
 > descriptive, structural) present in this example.
->
-> > ## Solution
-> >
-> > - Administrative metadata marked in blue
-> > - Descriptive metadata marked in orange
-> > - Structural metadata marked in green
+
+<details>
+  <summary>Solution</summary>
+
 {% include figure.html url="" max-width="80%"
 file="/morea/fair/fig/04-metadatafull_spreadsheet_solution.png"
 alt="metadata-full-spreadhseet" caption="_Figure credits: Tomasz Zielinski and Andrés Romanowski_" %}
-> >   {: .solution}
-> >   {: .challenge}
 
-(6 min teaching)
+<ul>
+<li>Administrative metadata marked in blue</li>
+<li>Descriptive metadata marked in orange</li>
+<li>Structural metadata marked in green</li>
+</ul>
+
+</details>
+</div>
+
 
 > ## Where does data end and metadata start?
 >
@@ -200,7 +208,10 @@ and guidelines called **Minimal Information Standards**.
 > {: .callout}
 
 > ## Exercise 7: Minimal information standard example (2 min)
->
+<div class="alert alert-secondary" role="alert" markdown="1">
+<i class="fa-solid fa-user-pen fa-xl"></i>  **Metadata**
+<hr/>
+
 > Look at **_Minimum Information about a Neuroscience Investigation (MINI) Electrophysiology_** > [Gibson, F. et al. Nat Prec (2008)](https://www.nature.com/articles/npre.2008.1720.1.pdf).
 > which contains recommendations for reporting the use of electrophysiology in a neuroscience study.  
 > (_Neuroscience (or neurobiology) is the scientific study of the nervous system_).
@@ -210,56 +221,73 @@ and guidelines called **Minimal Information Standards**.
 > - a) important for understanding and reuse of data
 > - b) important for technical replication
 > - c) could be applied to other experiments in neuroscience
->
-> > ## Solution
-> >
+<details>
+  <summary>Solution</summary>
+
 > > Possible answers:
 > >
-> > - a) 2, 3, 4, 5, 6, 8a-b
-> > - b) 3, 7
-> > - c) 2, 3, 4, 5, 6
-> >
-> > {: .solution}
-> > {: .challenge}
-
+> > - a) 
+> > - b) 
+> > - c) 
+<ul>
+<li>2, 3, 4, 5, 6, 8a-b</li>
+<li>3, 7</li>
+<li>2, 3, 4, 5, 6</li>
+</ul>
+<p>
 What if there are no metadata standards defined for your data / field of research?
+</p>
 
+<p>
 Think about the minimum information that someone else (from your lab or from any
 other lab in the world) would need to know to be able to work with your dataset
 without any further input from you.
+</p>
+Think as a consumer of your data not the producer!
 
-**Think as a consumer** of your data not the producer!
+</details>
+</div>
+
+
+
+
 
 > ## Exercise 8: What to include - discussion (2 minutes)
->
-> Think of the data you generate in your projects,
-> and imagine you are going to share them.
->
-> What information would another researcher need to understand or reproduce your data
-> (the structural metadata)?
->
-> For example, we believe that any dataset should have:
->
+
+<div class="alert alert-secondary" role="alert" markdown="1">
+<i class="fa-solid fa-user-pen fa-xl"></i>  **Metadata**
+<hr/>
+
+Think of the data you generate in your projects,and imagine you are going to share them.
+
+What information would another researcher need to understand or reproduce your data (the structural metadata)?
+
+For example, we believe that any dataset should have:
 > - a name/title
 > - its purpose or experimental hypothesis
->
+
 > Write down and compare your proposals, can we find some common elements?
->
-> > ## Solution
-> >
-> > Some typical elements are:
-> >
-> > - biological material, e.g. Species, Genotypes, Tissue type, Age, Health conditions
-> > - biological context, e.g. speciment growth, entrainment, samples preparation
-> > - experimental factors and conditions, e.g. drug treatments, stress factors
-> > - primers, plasmid sequences, cell line information, plasmid construction
-> > - specifics of data acquisition
-> > - specifics of data processing and analysis
-> > - definition of variables
-> > - accompanying code, software used (version nr), parameters applied, statistical tests used, seed for randomisation
-> > - LOT numbers
-> >   {: .solution}
-> >   {: .challenge}
+
+<details>
+  <summary>Solution</summary>
+
+Some typical elements are:
+<ul>
+<li>Biological material, e.g. Species, Genotypes, Tissue type, Age, Health conditions</li>
+<li>Biological context, e.g. speciment growth, entrainment, samples preparation</li>
+<li>Experimental factors and conditions, e.g. drug treatments, stress factors</li>
+<li>Primers, plasmid sequences, cell line information, plasmid construction</li>
+<li>Specifics of data acquisition</li>
+<li>Specifics of data processing and analysis</li>
+<li>Definition of variables</li>
+<li>Accompanying code, software used (version nr), parameters applied, statistical tests used, seed for randomisation</li>
+<li>LOT numbers</li>
+</ul>
+
+
+</details>
+</div>
+
 
 ## Metadata and FAIR guidelines
 

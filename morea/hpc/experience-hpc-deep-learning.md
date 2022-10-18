@@ -49,7 +49,7 @@ can understand off of the user.
 <i class="fa-solid fa-user-pen fa-xl"></i>  **Startup Jupyter Lab and Open Jupyter**
 <hr/>
 
-As we will be working in Jupyter Lab to explore some concepts when working with HPC systems and deep learning, your challenge is to start an interactive application of Jupyter Lab with the following parameters:
+As we will be working in Jupyter Lab to explore some concepts when working with HPC systems and deep learning, your challenge is to start an interactive application of Jupyter Lab with the following parametexrs:
 
 * **Partition:** workshop
 * **Number of hours:** 3

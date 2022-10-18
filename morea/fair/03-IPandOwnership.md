@@ -11,7 +11,7 @@ morea_labels:
 morea_enable_toc: true
 ---
 
-## Open Science and Intellectual property
+# Intellectual Property, Licensing, and Openness
 
 > Intellectual property (IP) is something that you create using your
 > mind - for example, a story, an invention, an artistic work
@@ -73,7 +73,10 @@ morea_enable_toc: true
 > {: .callout}
 
 > ## Exercise 3: Checking common licenses
->
+<div class="alert alert-secondary" role="alert" markdown="1">
+<i class="fa-solid fa-user-pen fa-xl"></i>  **Intellectual Property**
+<hr/>
+
 > 1. Open CC BY license summary [https://creativecommons.org/licenses/by/4.0/](https://creativecommons.org/licenses/by/4.0/)
 >    is it clear how you can use the data under this licence and why it is popular in academia?
 >
@@ -83,14 +86,22 @@ morea_enable_toc: true
 > 3. Compare the full wording of CC BY
 >    [https://creativecommons.org/licenses/by/4.0/legalcode](https://creativecommons.org/licenses/by/4.0/legalcode)
 >    can you guess why the MIT licence is currently the most popular for open source code?
->
-> > ## Solution
-> >
-> > 1.  CC BY license states material can be reproduced, shared, in whole or in part, unless where exceptions and limitations are stated. Attributions must be made to the Licensor.
-> > 2.  MIT license states that Software can by used without restriction (to copy, modify, publish, distribute etc...)
-> > 3.  The MIT license is short, to the point and optimised for software developers as it offers flexibility.
-> >     {: .solution}
-> >     {: .challenge}
+
+<details>
+  <summary>Solution</summary>
+ Possible benefits and consequences for each part:
+
+<ol>
+<li>CC BY license states material can be reproduced, shared, in whole or in part, unless where exceptions and limitations are stated. Attributions must be made to the Licensor.</li>
+<li>MIT license states that Software can by used without restriction (to copy, modify, publish, distribute etc...)</li>
+<li>The MIT license is short, to the point and optimised for software developers as it offers flexibility.</li>
+</ol>
+
+
+</details>
+</div>
+
+
 
 > ## Attribution
 >

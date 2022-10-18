@@ -10,7 +10,7 @@ morea_labels:
 morea_enable_toc: true
 ---
 
-> ## Getting a Hydroshare Account
+> # Getting a Hydroshare Account
 >
 > 1. Go to [https://www.hydroshare.org/](https://www.hydroshare.org/)
 > 2. Click on ‘Sign Up Now’

@@ -11,6 +11,10 @@ morea_labels:
 morea_enable_toc: true
 ---
 
+# Accessible
+
+This section will describe what it means for research to be accessible
+
 > ## For data & software to be accessible:
 >
 > A1. (meta)data are retrievable by their identifier using a standardized communications protocol  
@@ -60,21 +64,30 @@ alt="Hydroshare Registration" caption="" %}
 ## Understanding whether something is open, free, and universally implementable
 
 > ## Exercise 5
->
+<div class="alert alert-secondary" role="alert" markdown="1">
+<i class="fa-solid fa-user-pen fa-xl"></i>  **Open Science**
+<hr/>
+
 > ORCID features a [principles page](https://orcid.org/about/what-is-orcid/principles) where we can assess where it lies on the spectrum of these criteria. Can you identify statements that speak to these conditions: open, free, and universally implemetable?
->
-> > ## Solution
-> >
-> > - ORCID is a non-profit that collects fees from its members to sustain its operations
-> >   [Creative Commons CC0 1.0 Universal (CC0)](https://tldrlegal.com/license/creative-commons-cc0-1.0-universal) license releases data into the public domain, or otherwise grants permission to use it for any purpose
-> > - It is open to any organization and transcends borders
-> >   Followup Questions:
-> >
-> > * Where can you download the freely available data?
-> > * How does ORCID solicit community input outside of its governance?
-> > * Are the tools used to create, read, update, delete ORCID data open?
-> >   {: .solution}
-> >   {: .challenge}
+
+<details>
+  <summary>Solution</summary>
+<ol>
+<li>ORCID is a non-profit that collects fees from its members to sustain its operations [Creative Commons CC0 1.0 Universal (CC0)](https://tldrlegal.com/license/creative-commons-cc0-1.0-universal) license releases data into the public domain, or otherwise grants permission to use it for any purpose</li>
+<li>It is open to any organization and transcends borders</li>
+</ol>
+Followup Questions:
+
+<ul>
+<li>Where can you download the freely available data?</li>
+<li>How does ORCID solicit community input outside of its governance?</li>
+<li>Are the tools used to create, read, update, delete ORCID data open?</li>
+</ul>
+
+
+</details>
+</div>
+
 
 ## Tombstones, a very grave subject
 

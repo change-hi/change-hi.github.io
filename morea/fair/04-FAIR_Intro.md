@@ -11,7 +11,7 @@ morea_labels:
 morea_enable_toc: true
 ---
 
-## What is FAIR?
+# FAIR Introduction
 
 The FAIR principles for research data, originally published in a [2016 Nature
 paper](https://doi.org/10.1038/sdata.2016.18), are intended as "a guideline for

@@ -10,6 +10,10 @@ morea_labels:
 morea_enable_toc: true
 ---
 
+# Findable
+
+This section will describe what it means for a scholarly resource to be findable.
+
 > ## For data & software to be findable:
 >
 > F1. (meta)data are assigned a globally unique and eternally persistent identifier or PID  
@@ -49,17 +53,21 @@ alt="Anatomy of a DOI" caption="" %}
 In the example above, the prefix is used by the Australian National Data Service (ANDS) now called the Australia Research Data Commons (ARDC) and the suffix is a unique identifier for an object at Griffith University. DataCite provides DOI [display guidance](https://support.datacite.org/docs/datacite-doi-display-guidelines) so that they are easy to recognize and use, for both humans and machines.
 
 > ## Exercise 4
->
-> HydroShare is a data repository for water data from a variety of biological disciplines.
-> It allows researchers to share and access water data for research.
-> Visit the HydroShare resource search at [Discover](https://www.hydroshare.org/search/).
-> Choose any dataset by clicking on the link. Now use <kbd>control</kbd> + <kbd>F</kbd> or <kbd>command</kbd> + <kbd>F</kbd> and search for 'http'. Did the author use DOIs or persistent link from HydroShare for their data and software?
->
-> > ## Solution
-> >
-> > Authors will often link to platforms such as GitHub where they have shared their software and/or they will link to their website where they are hosting the data used in the paper. The danger here is that platforms like GitHub and personal websites are not permanent. Instead, authors can use repositories to deposit and preserve their data and software while minting a DOI. Links to software sharing platforms or personal websites might move but DOIs will always resolve to information about the software and/or data. See DataCite's [Best Practices for a Tombstone Page](https://support.datacite.org/docs/tombstone-pages).
-> > {: .solution}
-> > {: .challenge}
+<div class="alert alert-secondary" role="alert" markdown="1">
+<i class="fa-solid fa-user-pen fa-xl"></i>  **Hydroshare**
+<hr/>
+
+* HydroShare is a data repository for water data from a variety of biological disciplines.
+* It allows researchers to share and access water data for research.
+* Visit the HydroShare resource search at [Discover](https://www.hydroshare.org/search/).
+* Choose any dataset by clicking on the link. Now use <kbd>control</kbd> + <kbd>F</kbd> or <kbd>command</kbd> + <kbd>F</kbd> and search for 'http'. 
+* Did the author use DOIs or persistent link from HydroShare for their data and software?
+
+<details>
+  <summary>Solution</summary>
+ Authors will often link to platforms such as GitHub where they have shared their software and/or they will link to their website where they are hosting the data used in the paper. The danger here is that platforms like GitHub and personal websites are not permanent. Instead, authors can use repositories to deposit and preserve their data and software while minting a DOI. Links to software sharing platforms or personal websites might move but DOIs will always resolve to information about the software and/or data. See DataCite's <a href="https://support.datacite.org/docs/tombstone-pages">Best Practices for a Tombstone Page</a>.
+</details>
+</div>
 
 ## Rich Metadata
 

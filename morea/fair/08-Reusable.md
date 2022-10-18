@@ -10,6 +10,9 @@ morea_labels:
 morea_enable_toc: true
 ---
 
+# Reusable
+This section will describe what it means for research to be reusable
+
 ## Exercise 6: Thanks, but no thanks!
 
 In groups discuss:
@@ -19,10 +22,10 @@ In groups discuss:
 
 > ## For data & software to be reusable:
 >
-> R1. (meta)data have a plurality of accurate and relevant attributes  
->  R1.1 (meta)data are released with a clear and accessible data usage licence  
->  R1.2 (meta)data are associated with their provenance  
-> R1.3 (meta)data meet domain-relevant community standards
+> R1. (meta) data have a plurality of accurate and relevant attributes  
+>  R1.1 (meta) data are released with a clear and accessible data usage licence  
+>  R1.2 (meta) data are associated with their provenance  
+> R1.3 (meta) data meet domain-relevant community standards
 > {: .checklist}
 
 ## File naming best practices
