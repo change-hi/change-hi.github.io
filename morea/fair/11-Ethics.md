@@ -10,6 +10,8 @@ morea_labels:
 morea_enable_toc: true
 ---
 
+# Ethics
+
 Technology poses ethical challenges. There are several areas of research in data ethics. This will serve as a primer for them, additional reading is included.
 
 - Privacy
@@ -43,4 +45,6 @@ Both public and private entities should conduct disparate impact assessments. So
 
 > ## Resources
 >
-> - https://www.brookings.edu/research/fairness-in-algorithmic-decision-making/
+> - [https://www.brookings.edu/research/fairness-in-algorithmic-decision-making/](https://www.brookings.edu/research/fairness-in-algorithmic-decision-making/)
+
+

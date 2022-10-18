@@ -11,6 +11,10 @@ morea_labels:
 morea_enable_toc: true
 ---
 
+# Accessible
+
+This section will describe what it means for research to be accessible
+
 > ## For data & software to be accessible:
 >
 > A1. (meta)data are retrievable by their identifier using a standardized communications protocol  
@@ -23,7 +27,9 @@ morea_enable_toc: true
 
 Simply put, it's an access method of exchanging data over a computer network. Each protocol has its rules for how data is formatted, compressed, checked for errors. Research repositories often use the OAI-PMH or REST API protocols to interface with data in the repository. The following image from [TutorialEdge.net: What is a RESTful API by Elliot Forbes](https://tutorialedge.net/general/what-is-a-rest-api/) provides a useful overview of how RESTful interfaces work:
 
-![TutorialEdge.net: What is a RESTful API? by Elliot Forbes](../fig/rest-api.png)
+{% include figure.html url="" max-width="80%"
+file="/morea/fair/fig/rest-api.png"
+alt="TutorialEdge.net: What is a RESTful API? by Elliot Forbes" caption="" %}
 
 Hydroshare offers a REST API protocol which will enable many of the functions that are accessible through the web user interface, to be done programmatically:
 
@@ -39,7 +45,9 @@ Alternatively, for sensitive/protected data, if the protocol cannot guarantee se
 
 Across the research ecosystem, publishers, repositories, funders, research information systems, have recognized the need to address the problem of author disambiguation. The illustrative example below of the many variations of the name _Jens Åge Smærup Sørensen demonstrations_ the challenge of wrangling the correct name for each individual author or contributor:
 
-![Jens Åge Smærup Sørensen](https://slideplayer.com/13579783/82/images/5/Jens+%C3%85ge+Sm%C3%A6rup+S%C3%B8rensen.jpg)
+{% include figure.html url="https://slideplayer.com/13579783/82/images/5/Jens+%C3%85ge+Sm%C3%A6rup+S%C3%B8rensen.jpg" max-width="80%"
+file="https://slideplayer.com/13579783/82/images/5/Jens+%C3%85ge+Sm%C3%A6rup+S%C3%B8rensen.jpg"
+alt="Jens Åge Smærup Sørensen" caption="" %}
 
 Thankfully, a number of research systems are now integrating ORCID into their authentication systems. Zenodo provides the login ORCID authentication option. Once logged in, your ORCID will be assigned to your authored and deposited works.
 
@@ -49,26 +57,37 @@ Thankfully, a number of research systems are now integrating ORCID into their au
 2. You will receive a confirmation email. Click the link in the email...
 3. Go to [Hydroshare](hydroshare.org) and select Log in.
 
-![Hydroshare Registration](./fig/hydrosharesignup.png)
+{% include figure.html url="" max-width="80%"
+file="/morea/fair/fig/hydrosharesignup.png"
+alt="Hydroshare Registration" caption="" %}
 
 ## Understanding whether something is open, free, and universally implementable
 
 > ## Exercise 5
->
+<div class="alert alert-secondary" role="alert" markdown="1">
+<i class="fa-solid fa-user-pen fa-xl"></i>  **Open Science**
+<hr/>
+
 > ORCID features a [principles page](https://orcid.org/about/what-is-orcid/principles) where we can assess where it lies on the spectrum of these criteria. Can you identify statements that speak to these conditions: open, free, and universally implemetable?
->
-> > ## Solution
-> >
-> > - ORCID is a non-profit that collects fees from its members to sustain its operations
-> >   [Creative Commons CC0 1.0 Universal (CC0)](https://tldrlegal.com/license/creative-commons-cc0-1.0-universal) license releases data into the public domain, or otherwise grants permission to use it for any purpose
-> > - It is open to any organization and transcends borders
-> >   Followup Questions:
-> >
-> > * Where can you download the freely available data?
-> > * How does ORCID solicit community input outside of its governance?
-> > * Are the tools used to create, read, update, delete ORCID data open?
-> >   {: .solution}
-> >   {: .challenge}
+
+<details>
+  <summary>Solution</summary>
+<ol>
+<li>ORCID is a non-profit that collects fees from its members to sustain its operations [Creative Commons CC0 1.0 Universal (CC0)](https://tldrlegal.com/license/creative-commons-cc0-1.0-universal) license releases data into the public domain, or otherwise grants permission to use it for any purpose</li>
+<li>It is open to any organization and transcends borders</li>
+</ol>
+Followup Questions:
+
+<ul>
+<li>Where can you download the freely available data?</li>
+<li>How does ORCID solicit community input outside of its governance?</li>
+<li>Are the tools used to create, read, update, delete ORCID data open?</li>
+</ul>
+
+
+</details>
+</div>
+
 
 ## Tombstones, a very grave subject
 
@@ -76,7 +95,9 @@ There are a variety of reasons why a placeholder with metadata or tombstone of t
 
 DataCite offers [statistics](https://stats.datacite.org/) where the failure to resolve DOIs after a certain number of attempts is reported (see [DataCite statistics support page](https://support.datacite.org/docs/datacite-statistics)for more information). In the case of Zenodo and the GitHub issue above, the hidden field reveals thousands of records that are a result of spam.
 
-![DataCite Statistics Page](../fig/datacite_statistics.png)
+{% include figure.html url="" max-width="80%"
+file="/morea/fair/fig/datacite_statistics.png"
+alt="DataCite Statistics Page" caption="" %}
 
 If a DOI is no longer available and the data center does not have the resources to create a tombstone page, DataCite provides a generic [tombstone page](https://support.datacite.org/docs/tombstone-pages).
 
@@ -85,4 +106,4 @@ If a DOI is no longer available and the data center does not have the resources 
 - Zenodo tombstone: [https://zenodo.org/record/1098445](https://zenodo.org/record/1098445)
 - Figshare tombstone: [https://figshare.com/articles/Climate_Change/1381402](https://figshare.com/articles/Climate_Change/1381402)
 
-Adapted from: Library Carpentry. September 2019. https://librarycarpentry.org/lc-fair-research.
+Adapted from: Library Carpentry. September 2019. [https://librarycarpentry.org/lc-fair-research](https://librarycarpentry.org/lc-fair-research).

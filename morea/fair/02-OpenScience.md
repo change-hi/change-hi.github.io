@@ -11,6 +11,8 @@ morea_labels:
 #morea_enable_toc: true
 ---
 
+# Open Science
+
 Science works best by exchanging ideas and building on them. Most efficient science involves both questions and
 experiments being made as fully informed as possible, which requires the free exchange of data and information.
 
@@ -59,7 +61,9 @@ reproducibility crisis, trust in the public science sector etc...) that we face 
 Open Science is the movement to increase transparency and reproducibility of research, through using
 the open best practices.
 
-![Figure 1. Open Science Building Blocks](./fig/OpenScienceBuildingBlocks.jpeg)
+{% include figure.html url="" max-width="80%"
+file="/morea/fair/fig/OpenScienceBuildingBlocks.jpeg"
+alt="Figure 1. Open Science Building Blocks" caption="" %}
 
 _Attribution [Gema Bueno de la Fuente](https://www.fosteropenscience.eu/content/what-open-science-introduction)_
 
@@ -95,12 +99,15 @@ _Attribution [Gema Bueno de la Fuente](https://www.fosteropenscience.eu/content/
   process from project funding to collecting and analysing data.
 
 > ## Exercise 1: Benefits of Open Science
->
+<div class="alert alert-secondary" role="alert" markdown="1">
+<i class="fa-solid fa-user-pen fa-xl"></i>  **Open Science**
+<hr/>
+
 > Being open has other outcomes/consequences beyond giving the free access to information.
 > For example, Open educational resources:
 >
-> - enables collaborative development of courses
-> - improves teachers/instructors skills by sharing ideas
+> - Enables collaborative development of courses
+> - Improves teachers/instructors skills by sharing ideas
 >
 > Select one or two of the following OS parts:
 >
@@ -112,65 +119,71 @@ _Attribution [Gema Bueno de la Fuente](https://www.fosteropenscience.eu/content/
 >
 > and discuss what are the benefits or what problems are solved
 > by adaption of those Open initiatives.
->
-> > ## Solution
-> >
-> > Possible benefits and consequences for each part:
-> >
-> > **Open Access**
-> >
-> > - speed of knowledge distribution
-> > - leveling field for underfunded sites which otherwise wouldn’t be able to navigate the paywall
-> > - prevent articles being paid for ‘thrice’ (first to produce, second to publish, third to access) by institutions.
-> > - greater access to work by others, increasing chance for exposure & citations
-> > - access to work by lay audiences, thus increases social exposure of research
-> >
-> > **Open Data**
-> >
-> > - ensures data isn’t lost overtime - reusability
-> > - acceleration of scientific discovery rate
-> > - value for money/reduced redundancy
-> > - permits statistical re-analysis of the data to validate findings
-> > - gives access to datasets which were not published as papers (e.g. negative results, large screening data sets)
-> > - provides an avenue to generate new hypotheses
-> > - permits combination of multiple data sources to address questions, provides greater power than a single data source
-> >
-> > **Open Software**
-> >
-> > - great source to learn programming skills
-> > - the ability to modify creates a supportive community of users and rapid innovation
-> > - saves time
-> > - faster bug fixes
-> > - better error scrutiny
-> > - use of the same software/code allows better reproducibility between experiments
-> > - need funds to maintain and update software
-> >
-> > **Open Notebooks**
-> >
-> > - 100% transparent science, allowing input from others at early stages of experiments
-> > - source of learning about the process of how science is actually conducted
-> > - allows access to experiments and data which otherwise never get published
-> > - provides access to ‘negative’ results and failed experiments
-> > - anyone, anywhere around the world, at any time, can check in on projects, including many users simultaneously
-> > - possibility of immediate feedback
-> > - thorough evidence of originality of ideas and experiments, negating effect of ‘scooping’
-> >
-> > **Open Peer Review**
-> >
-> > - visibility leads to more constructive reviews
-> > - mitigates against editorial conflicts of interest and/or biases
-> > - mitigates against reviewers conflicts of interest and/or biases
-> > - allows readers to learn/benefit from comments of the reviewers
-> >
-> > **Open Educational Materials**
-> >
-> > - Foster collaboration between educators/others
-> > - Show clearly how method was taught (e.g. Carpentries materials) which can be reproduces anywhere, anytime
-> > - protects materials from becoming technologically obsolete
-> > - authors preparing the material or contribute all earn credit (e.g. GitHub)
-> > - recycle animations and material that is excellent (why reinvent the wheel?)
-> >   {: .solution}
-> >   {: .challenge}
+<details>
+  <summary>Solution</summary>
+ Possible benefits and consequences for each part:
+
+ <h2>Open Access</h2>
+ <ul>
+  <li>Speed of knowledge distribution </li>
+  <li>Leveling field for underfunded sites which otherwise wouldn’t be able to navigate the paywall</li>
+  <li>Prevent articles being paid for ‘thrice’ (first to produce, second to publish, third to access) by institutions.</li>
+  <li>Greater access to work by others, increasing chance for exposure & citations </li>
+  <li>Access to work by lay audiences, thus increases social exposure of research</li>
+ </ul>
+
+ <h2>Open Data</h2>
+ <ul>
+  <li>Ensures data isn’t lost overtime - reusability</li>
+  <li>Acceleration of scientific discovery rate</li>
+  <li>Value for money/reduced redundancy</li>
+  <li>Permits statistical re-analysis of the data to validate findings </li>
+  <li>Gives access to datasets which were not published as papers (e.g. negative results, large screening data sets)</li>
+  <li>Provides an avenue to generate new hypotheses</li>
+  <li>Permits combination of multiple data sources to address questions, provides greater power than a single data source</li>
+ </ul>
+ 
+  <h2>Open Software</h2>
+ <ul>
+  <li>Great source to learn programming skills</li>
+  <li>The ability to modify creates a supportive community of users and rapid innovation</li>
+  <li>Saves time</li>
+  <li>Faster bug fixes </li>
+  <li>Better error scrutiny</li>
+  <li>Use of the same software/code allows better reproducibility between experiments</li>
+  <li>Need funds to maintain and update software</li>
+ </ul>
+
+   <h2>Open Notebooks</h2>
+ <ul>
+  <li>100% transparent science, allowing input from others at early stages of experiments</li>
+  <li>Source of learning about the process of how science is actually conducted</li>
+  <li>Allows access to experiments and data which otherwise never get published</li>
+  <li>Provides access to ‘negative’ results and failed experiments</li>
+  <li>Anyone, anywhere around the world, at any time, can check in on projects, including many users simultaneously</li>
+  <li>Possibility of immediate feedback</li>
+  <li>Thorough evidence of originality of ideas and experiments, negating effect of ‘scooping’</li>
+ </ul>
+
+  <h2>Open Peer Review</h2>
+ <ul>
+  <li>Visibility leads to more constructive reviews</li>
+  <li>Mitigates against editorial conflicts of interest and/or biases</li>
+  <li>Allows readers to learn/benefit from comments of the reviewers</li>
+ </ul>
+
+  <h2>Open Educational Materials</h2>
+ <ul>
+  <li>Foster collaboration between educators/others</li>
+  <li>Show clearly how method was taught (e.g. Carpentries materials) which can be reproduces anywhere, anytime</li>
+  <li>Protects materials from becoming technologically obsolete</li>
+  <li>Authors preparing the material or contribute all earn credit (e.g. GitHub)</li>
+  <li>Recycle animations and material that is excellent (why reinvent the wheel?)</li>
+ </ul>
+
+</details>
+</div>
+
 
 ### Motivation: Money
 
@@ -214,38 +227,48 @@ cycle.
 ### Barriers and risks of OS movement:
 
 > ## Exercise 2: Why we are not doing Open Science already
->
+<div class="alert alert-secondary" role="alert" markdown="1">
+<i class="fa-solid fa-user-pen fa-xl"></i>  **Open Science**
+<hr/>
+
 > Discuss Open Science barriers, mention the reasons for not already being open:
->
-> > ## Solution
-> >
-> > - sensitive data (anonymising data from administrative health records can be difficult)
-> > - IP
-> > - misuse (fake news)
-> > - lack of confidence (the fear of critics)
-> > - lack of expertise
-> > - the costs in $ and in time
-> > - novelty of data
-> > - it is not mandatory
-> > - lack of credit (publishing negative results is of little benefit to you)
-> >
-> > {: .solution}
-> > {: .discussion}
 
+<details>
+  <summary>Solution</summary>
+ Possible benefits and consequences for each part:
+
+<ul>
+<li>Sensitive data (anonymising data from administrative health records can be difficult)</li>
+<li>IP</li>
+<li>Misuse (fake news)</li>
+<li>Lack of confidence (the fear of critics)</li>
+<li>Lack of expertise</li>
+<li>The costs in $ and in time</li>
+<li>Novelty of data</li>
+<li>It is not mandatory</li>
+<li>Lack of credit (publishing negative results is of little benefit to you)</li>
+</ul>
+<p>
 It may seem obvious that we should adopt open science practices, but there are associated challenges with doing so.
+</p>
 
+<p>
 Sensitivity of data is sometimes considered a barrier.
 Shared data needs to be compliant with data privacy laws, leading
 many to shy away from hosting it publicly. Anonymising data to desensitise it can help overcome this barrier.
-
+</p>
+<p>
 The potential for intellectual property on research can dissuade some from adopting open practices. Again, much can be
 shared if the data is filtered carefully to protect anything relating to intellectual property.
-
+</p>
+<p>
 Another risk could be seen with work on Covid19: pre-prints.
 A manuscript hosted publicly prior to peer review, may
 accelerate access to knowledge, but can also be misused and/or misunderstood. This can result in political and health
 decision making based on faulty data, which is counter to societies’ best interest.
+</p>
 
+<p>
 One concern is that opening up ones
 data to the scientific community can lead to the identification of errors, which may lead to feelings of
 embarrassment. However, this could be considered an upside - we should seek for our work to be scrutinized and errors to
@@ -253,12 +276,18 @@ be pointed out, and is the sign of a competent scientist.
 One should rather have errors pointed out rather than risking
 that irreproducible data might cause
 even more embarrassment and disaster.
-
-One of **the biggest barriers are the costs** involved in "being Open".
+</p>
+<p>
+One of <strong>the biggest barriers are the costs</strong> involved in "being Open".
 Firstly, making outputs readily available and usable to others takes time
 and significant effort. Secondly, there are costs of hosting and storage.
 For example, microscopy datasets reach sizes in terabytes,
 making such data accessible for 10 years involves serious financial commitment.
+</p>
+
+</details>
+</div>
+
 
 ## Where to next
 
@@ -275,7 +304,7 @@ making such data accessible for 10 years involves serious financial commitment.
 > - Wiki [Open Science](https://en.wikipedia.org/wiki/Open_science)
 > - [European Open Science Cloud](https://www.eosc-hub.eu/open-science-info)
 > - [Science is necessarily collaborative - The Biochemist article](https://portlandpress.com/biochemist/article/42/3/58/225220/Science-is-necessarily-collaborative).
-> - @@(https://carpentries-incubator.github.io/fair-bio-practice/)
+> - [https://carpentries-incubator.github.io/fair-bio-practice/](https://carpentries-incubator.github.io/fair-bio-practice/)
 >   {: .callout}
 
 

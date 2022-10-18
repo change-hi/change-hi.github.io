@@ -11,6 +11,9 @@ morea_labels:
 morea_enable_toc: true
 ---
 
+# Public repositories
+This section will describe what are public repositories.
+
 ## What are research data repositories?
 
 (13 min teaching)
@@ -36,42 +39,66 @@ Research data repositories are a key resource to help in data FAIRification as t
 assure Findability and Accessibility.
 
 > ## Exercise 9: Public general record (8 min)
->
+<div class="alert alert-secondary" role="alert" markdown="1">
+<i class="fa-solid fa-user-pen fa-xl"></i>  **Public Repository**
+<hr/>
+
 > Have a look at the following record for data set in Hydroshare repository:
 > [Hydroshare](http://www.hydroshare.org/resource/96310f82dd5247ba8201955750093923).
 > What elements make it FAIR?
->
-> > ## Solution
-> >
-> > The elements that make this deposit FAIR are:
-> >
-> > Findable (persistent identifiers, easy to find data and metadata):
-> >
-> > - F1. (Meta)data are assigned a globally unique and persistent identifier - YES
-> > - F2. Data are described with rich metadata (defined by R1 below)- YES
-> > - F3. Metadata clearly and explicitly include the identifier of the data they describe - YES
-> > - F4. (Meta)data are registered or indexed in a searchable resource - YES
-> >
-> > Accessible (The (meta)data retrievable by their identifier using a standard web protocols):
-> >
-> > - A1. (Meta)data are retrievable by their identifier using a standardised communications protocol - YES
-> > - A2. Metadata are accessible, even when the data are no longer available - YES
-> >
-> > Interoperable (The format of the data should be open and interpretable for various tools):
-> >
-> > - I1. (Meta)data use a formal, accessible, shared, and broadly applicable language for knowledge representation. - YES
-> > - I2. (Meta)data use vocabularies that follow FAIR principles - PARTIALLY
-> > - I3. (Meta)data include qualified references to other (meta)data - YES
-> >
-> > Reusable (data should be well-described so that they can be replicated and/or combined in different settings, reuse states with a clear licence):
-> >
-> > - R1. (Meta)data are richly described with a plurality of accurate and relevant attributes - YES
-> >   - R1.1. (Meta)data are released with a clear and accessible data usage license - YES
-> >   - R1.2. (Meta)data are associated with detailed provenance - YES
-> >   - R1.3. (Meta)data meet domain-relevant community standards - YES/PARTIALLY
-> >
-> > {: .solution}
-> > {: .challenge}
+
+<details>
+  <summary>Solution</summary>
+<p>
+The elements that make this deposit FAIR are:
+</p>
+<p>
+Findable (persistent identifiers, easy to find data and metadata):
+</p>
+
+<ul>
+<li>F1. (Meta)data are assigned a globally unique and persistent identifier - YES</li>
+<li>F2. Data are described with rich metadata (defined by R1 below)- YES</li>
+<li>F3. Metadata clearly and explicitly include the identifier of the data they describe - YES</li>
+<li>F4. (Meta)data are registered or indexed in a searchable resource - YES</li>
+</ul>
+
+
+<p>
+Accessible (The (meta)data retrievable by their identifier using a standard web protocols):</p>
+
+<ul>
+<li>A1. (Meta)data are retrievable by their identifier using a standardised communications protocol - YES</li>
+<li>A2. Metadata are accessible, even when the data are no longer available - YES</li>
+</ul>
+
+
+<p>
+Interoperable (The format of the data should be open and interpretable for various tools):
+</p>
+
+<ul>
+<li>I1. (Meta)data use a formal, accessible, shared, and broadly applicable language for knowledge representation. - YES</li>
+<li>I2. (Meta)data use vocabularies that follow FAIR principles - PARTIALLY</li>
+<li>I3. (Meta)data include qualified references to other (meta)data - YES</li>
+</ul>
+
+
+<p>
+Reusable (data should be well-described so that they can be replicated and/or combined in different settings, reuse states with a clear licence):
+</p>
+
+<ul>
+<li>R1. (Meta)data are richly described with a plurality of accurate and relevant attributes - YES</li>
+<li>R1.1. (Meta)data are released with a clear and accessible data usage license - YES</li>
+<li>R1.2. (Meta)data are associated with detailed provenance - YES</li>
+<li>R1.3. (Meta)data meet domain-relevant community standards - YES/PARTIALLY</li>
+</ul>
+
+</details>
+</div>
+
+
 
 (4 min discussion)
 
@@ -116,21 +143,27 @@ So how do you go about finding a repository:
   - alternatively, check the [Registry of research data repositories - re3data](https://www.re3data.org/)
 
 > ## Exercise 10: Finding a repository (5 min + 4 min discussion).
->
+<div class="alert alert-secondary" role="alert" markdown="1">
+<i class="fa-solid fa-user-pen fa-xl"></i>  **Public Repository**
+<hr/>
+
 > a) Find a repo for genomics data.  
 > b) Find a repo for microscopy data.  
 > Note to instructor: Fairsharing gives few options, people may give different answer follow up why they selected particular ones.
->
-> > ## Solution
-> >
-> > a) GEO/SRA and ENA/ArrayExpress are good examples. Interestingly these repositories do not issue a DOI.  
-> > b) IDR is good examples.  
-> > {: .solution}  
-> > {: .challenge}
 
-(6 min teaching)
+<details>
+  <summary>Solution</summary>
 
-A list of UoE BioRDM's recommended data repositories can be found [here](https://www.wiki.ed.ac.uk/display/RDMS/Suggested+data+repositories).
+<ul>
+<li>GEO/SRA and ENA/ArrayExpress are good examples. Interestingly these repositories do not issue a DOI.  </li>
+<li>IDR is good examples.  </li>
+</ul>
+A list of UoE BioRDM's recommended data repositories can be found <a href="https://www.wiki.ed.ac.uk/display/RDMS/Suggested+data+repositories">here</a>.
+
+</details>
+</div>
+
+
 
 > ## What comes first? the repository or the metadata?
 >

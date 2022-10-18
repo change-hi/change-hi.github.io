@@ -10,6 +10,8 @@ morea_labels:
 morea_enable_toc: true
 ---
 
+# Security
+
 Today, we will approach two different aspcets of data security.
 
 - Securing data from hostile people and groups that would compromise the system.

@@ -12,6 +12,7 @@ morea_readings:
   - FairEthics
   - FairSecurity
 morea_experiences:
+  - hydroshare
   - OpenScience
   - IPandOwnership
   - FAIR_Intro
@@ -22,7 +23,6 @@ morea_experiences:
   - FairExercises
 morea_assessments:
 morea_prerequisites:
-  - hydroshare
 morea_type: module
 morea_icon_url: /morea/fair/logo.jpg
 morea_labels:

@@ -10,6 +10,9 @@ morea_labels:
 morea_enable_toc: true
 ---
 
+# Reusable
+This section will describe what it means for research to be reusable
+
 ## Exercise 6: Thanks, but no thanks!
 
 In groups discuss:
@@ -19,10 +22,10 @@ In groups discuss:
 
 > ## For data & software to be reusable:
 >
-> R1. (meta)data have a plurality of accurate and relevant attributes  
->  R1.1 (meta)data are released with a clear and accessible data usage licence  
->  R1.2 (meta)data are associated with their provenance  
-> R1.3 (meta)data meet domain-relevant community standards
+> R1. (meta) data have a plurality of accurate and relevant attributes  
+>  R1.1 (meta) data are released with a clear and accessible data usage licence  
+>  R1.2 (meta) data are associated with their provenance  
+> R1.3 (meta) data meet domain-relevant community standards
 > {: .checklist}
 
 ## File naming best practices
@@ -62,7 +65,7 @@ A file name should be unique, consistent and descriptive. This allows for increa
 
 A clear directory structure will make it easier to locate files and versions and this is particularly important when collaborating with others. Consider a hierarchical file structure starting from broad topics to more specific ones nested inside, restricting the level of folders to 3 or 4 with a limited number of items inside each of them.
 
-The UK data services offers an example of directory structure and naming: https://ukdataservice.ac.uk/manage-data/format/organising.aspx
+The UK data services offers an example of directory structure and naming: [https://ukdataservice.ac.uk/manage-data/format/organising.aspx](https://ukdataservice.ac.uk/manage-data/format/organising.aspx)
 
 For others to reuse your research, it is important to include a README file and to organize your files in a logical way. Consider the following file structure examples from Dryad:
 
@@ -71,14 +74,14 @@ For others to reuse your research, it is important to include a README file and 
 It is also good practice to include README files to describe how the data was collected, processed, and analyzed. In other words, README files help others correctly interpret and reanalyze your data. A README file can include file names/directory structure, glossary/definitions of acronyms/terms, description of the parameters/variables and units of measurement, report precision/accuracy/uncertainty in measurements, standards/calibrations used, environment/experimental conditions, quality assurance/quality control applied, known problems, research date information, description of relationships/dependencies, additional resources/references, methods/software/data used, example records, and other supplemental information.
 
 - Dryad README file example:
-  https://doi.org/10.5061/dryad.j512f21p
+  [https://doi.org/10.5061/dryad.j512f21p](https://doi.org/10.5061/dryad.j512f21p)
 
 - Awesome README list (for software):
-  https://github.com/matiassingers/awesome-readme
+[https://github.com/matiassingers/awesome-readme](https://github.com/matiassingers/awesome-readme)
 
 - Different Format Types
-  https://data.library.virginia.edu/data-management/plan/format-types/
-
+[https://data.library.virginia.edu/data-management/plan/format-types/](https://data.library.virginia.edu/data-management/plan/format-types/)
+  
 ## Disciplinary Data Formats
 
 Many disciplines have developed formal metadata standards that enable re-use of data; however, these standards are not universal and often it requires background knowledge to indentify, contextualize, and interpret the underlying data. Interoperability between disciplines is still a challenge based on the continued use of custom metadata schmes, and the development of new, incompatiable standards. Thankfully, DataCite is providing a common, overarching metadata standard across disciplinary datasets, albeit at a generic vs granular level.
@@ -108,43 +111,43 @@ Consider the following practices:
 
 Example:
 UK Data service version control guide:
-https://www.ukdataservice.ac.uk/manage-data/format/versioning.aspx
+[https://www.ukdataservice.ac.uk/manage-data/format/versioning.aspx](https://www.ukdataservice.ac.uk/manage-data/format/versioning.aspx)
 
 ## Research vocabularies
 
-Research Vocabularies Australia https://vocabs.ands.org.au/
-AGROVOC & VocBench http://aims.fao.org/vest-registry/vocabularies/agrovoc
-Dimensions Fields of Research https://dimensions.freshdesk.com/support/solutions/articles/23000012844-what-are-fields-of-research-
+Research Vocabularies Australia [https://vocabs.ands.org.au/](https://vocabs.ands.org.au/)
+AGROVOC & VocBench [http://aims.fao.org/vest-registry/vocabularies/agrovoc](http://aims.fao.org/vest-registry/vocabularies/agrovoc)
+Dimensions Fields of Research [https://dimensions.freshdesk.com/support/solutions/articles/23000012844-what-are-fields-of-research-](https://dimensions.freshdesk.com/support/solutions/articles/23000012844-what-are-fields-of-research-)
 
 Versioning/SHA
-https://swcarpentry.github.io/git-novice/reference
+[https://swcarpentry.github.io/git-novice/reference](https://swcarpentry.github.io/git-novice/reference)
 
 Binder - executable environment, making your code immediately reproducible by anyone, anywhere.
-https://blog.jupyter.org/binder-2-0-a-tech-guide-2017-fd40515a3a84
+[https://blog.jupyter.org/binder-2-0-a-tech-guide-2017-fd40515a3a84](https://blog.jupyter.org/binder-2-0-a-tech-guide-2017-fd40515a3a84)
 
 Narrative & Documentation
 Jupyter Notebooks
-https://www.contentful.com/blog/2018/06/01/create-interactive-tutorials-jupyter-notebooks/
+[https://www.contentful.com/blog/2018/06/01/create-interactive-tutorials-jupyter-notebooks/](https://www.contentful.com/blog/2018/06/01/create-interactive-tutorials-jupyter-notebooks/)
 
 Licenses
-From GitHub https://blog.github.com/2015-03-09-open-source-license-usage-on-github-com/
+From GitHub [https://blog.github.com/2015-03-09-open-source-license-usage-on-github-com/](https://blog.github.com/2015-03-09-open-source-license-usage-on-github-com/)
 
 Lack of licenses provide friction, understanding of whether can reuse
 Peter Murray Project - ContentMine - The Right to Read is the Right to Mine - OpenMinTed
 Creative Commons Wizard and GitHub software licensing wizards (highlight attribution, non commercial)
 
 Useful content for Licenses
-Note: TIB Hannover Slides https://docs.google.com/presentation/d/1mSeanQqO0Y2khA8KK48wtQQ_JGYncGexjnspzs7cWLU/edit#slide=id.g3a64c782ff_1_138
+Note: TIB Hannover Slides [https://docs.google.com/presentation/d/1mSeanQqO0Y2khA8KK48wtQQ_JGYncGexjnspzs7cWLU/edit#slide=id.g3a64c782ff_1_138](https://docs.google.com/presentation/d/1mSeanQqO0Y2khA8KK48wtQQ_JGYncGexjnspzs7cWLU/edit#slide=id.g3a64c782ff_1_138)
 
 > ## Resources
 >
-> - Choose an open source license: https://choosealicense.com/
-> - 4 Simple recommendations for Open Source Software https://softdev4research.github.io/4OSS-lesson/
-> - Top 10 FAIR Imaging https://librarycarpentry.org/Top-10-FAIR//2019/06/27/imaging/
-> - Licensing your work: https://librarycarpentry.org/Top-10-FAIR//2019/06/27/imaging/#9-licensing-your-work
-> - The Turing Way a Guide for reproducible Research: https://the-turing-way.netlify.app/welcome
-> - The Open Science Training Handbook: https://open-science-training-handbook.gitbook.io/book/
-> - Open Licensing and file formats https://open-science-training-handbook.gitbook.io/book/open-science-basics/open-licensing-and-file-formats#6-open-licensing-and-file-formats
-> - DCC How to license research data https://www.dcc.ac.uk/guidance/how-guides/license-research-data
+> - Choose an open source license: [https://choosealicense.com/](https://choosealicense.com/)
+> - 4 Simple recommendations for Open Source Software [https://softdev4research.github.io/4OSS-lesson/](https://softdev4research.github.io/4OSS-lesson/)
+> - Top 10 FAIR Imaging [https://librarycarpentry.org/Top-10-FAIR//2019/06/27/imaging/](https://librarycarpentry.org/Top-10-FAIR//2019/06/27/imaging/)
+> - Licensing your work: [https://librarycarpentry.org/Top-10-FAIR//2019/06/27/imaging/#9-licensing-your-work](https://librarycarpentry.org/Top-10-FAIR//2019/06/27/imaging/#9-licensing-your-work)
+> - The Turing Way a Guide for reproducible Research: [https://the-turing-way.netlify.app/welcome](https://the-turing-way.netlify.app/welcome)
+> - The Open Science Training Handbook: [https://open-science-training-handbook.gitbook.io/book/](https://open-science-training-handbook.gitbook.io/book/)
+> - Open Licensing and file formats [https://open-science-training-handbook.gitbook.io/book/open-science-basics/](https://open-science-training-handbook.gitbook.io/book/open-science-basics/)open-licensing-and-file-formats#6-open-licensing-and-file-formats
+> - DCC How to license research data [https://www.dcc.ac.uk/guidance/how-guides/license-research-data](https://www.dcc.ac.uk/guidance/how-guides/license-research-data)
 
-Adapted from: Library Carpentry. September 2019. https://librarycarpentry.org/lc-fair-research.
+Adapted from: Library Carpentry. September 2019. [https://librarycarpentry.org/lc-fair-research](https://librarycarpentry.org/lc-fair-research).

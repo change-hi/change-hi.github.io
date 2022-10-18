@@ -10,6 +10,10 @@ morea_labels:
 morea_enable_toc: true
 ---
 
+# Findable
+
+This section will describe what it means for a scholarly resource to be findable.
+
 > ## For data & software to be findable:
 >
 > F1. (meta)data are assigned a globally unique and eternally persistent identifier or PID  
@@ -42,22 +46,28 @@ A DOI has three main parts:
 - Prefix which is unique to the registrant or member
 - Suffix, a unique identifier assigned locally by the registrant to an object
 
-![Anatomy of a DOI](./fig/anatomy-of-a-doi.jpeg)
+{% include figure.html url="" max-width="80%"
+file="/morea/fair/fig/anatomy-of-a-doi.jpeg"
+alt="Anatomy of a DOI" caption="" %}
 
 In the example above, the prefix is used by the Australian National Data Service (ANDS) now called the Australia Research Data Commons (ARDC) and the suffix is a unique identifier for an object at Griffith University. DataCite provides DOI [display guidance](https://support.datacite.org/docs/datacite-doi-display-guidelines) so that they are easy to recognize and use, for both humans and machines.
 
 > ## Exercise 4
->
-> HydroShare is a data repository for water data from a variety of biological disciplines.
-> It allows researchers to share and access water data for research.
-> Visit the HydroShare resource search at [Discover](https://www.hydroshare.org/search/).
-> Choose any dataset by clicking on the link. Now use <kbd>control</kbd> + <kbd>F</kbd> or <kbd>command</kbd> + <kbd>F</kbd> and search for 'http'. Did the author use DOIs or persistent link from HydroShare for their data and software?
->
-> > ## Solution
-> >
-> > Authors will often link to platforms such as GitHub where they have shared their software and/or they will link to their website where they are hosting the data used in the paper. The danger here is that platforms like GitHub and personal websites are not permanent. Instead, authors can use repositories to deposit and preserve their data and software while minting a DOI. Links to software sharing platforms or personal websites might move but DOIs will always resolve to information about the software and/or data. See DataCite's [Best Practices for a Tombstone Page](https://support.datacite.org/docs/tombstone-pages).
-> > {: .solution}
-> > {: .challenge}
+<div class="alert alert-secondary" role="alert" markdown="1">
+<i class="fa-solid fa-user-pen fa-xl"></i>  **Hydroshare**
+<hr/>
+
+* HydroShare is a data repository for water data from a variety of biological disciplines.
+* It allows researchers to share and access water data for research.
+* Visit the HydroShare resource search at [Discover](https://www.hydroshare.org/search/).
+* Choose any dataset by clicking on the link. Now use <kbd>control</kbd> + <kbd>F</kbd> or <kbd>command</kbd> + <kbd>F</kbd> and search for 'http'. 
+* Did the author use DOIs or persistent link from HydroShare for their data and software?
+
+<details>
+  <summary>Solution</summary>
+ Authors will often link to platforms such as GitHub where they have shared their software and/or they will link to their website where they are hosting the data used in the paper. The danger here is that platforms like GitHub and personal websites are not permanent. Instead, authors can use repositories to deposit and preserve their data and software while minting a DOI. Links to software sharing platforms or personal websites might move but DOIs will always resolve to information about the software and/or data. See DataCite's <a href="https://support.datacite.org/docs/tombstone-pages">Best Practices for a Tombstone Page</a>.
+</details>
+</div>
 
 ## Rich Metadata
 
@@ -86,12 +96,15 @@ images
 3D models
 grey literature
 
-![Connecting Research Outputs](./fig/datacite-arxiv-crossref.png)
-
+{% include figure.html url="" max-width="80%"
+file="/morea/fair/fig/datacite-arxiv-crossref.png"
+alt="Connecting Research Outputs" caption="" %}
+[https://support.datacite.org/docs/connecting-research-outputs](https://support.datacite.org/docs/connecting-research-outputs)
 https://support.datacite.org/docs/connecting-research-outputs
 
 Bullet points about the current state of linking...
-https://blog.datacite.org/citation-analysis-scholix-rda/
+[https://blog.datacite.org/citation-analysis-scholix-rda/](https://blog.datacite.org/citation-analysis-scholix-rda/)
+
 
 ## Provenance?
 
@@ -144,7 +157,7 @@ Some recommendations:
 → look for certifications (DSA / Core Trust Seal, DINI/nestor, WDS, …)
 
 Searching re3data w/ exercise
-https://www.re3data.org/
+[https://www.re3data.org/](https://www.re3data.org/)
 Out of more than 2115 repository systems listed in re3data.org in July 2018, only 809 (less than 39 %!) state to provide a PID service, with 524 of them using the DOI system
 
 Search open access repos
@@ -182,4 +195,4 @@ Candela, L. , Castelli, D. , Manghi, P. and Tani, A. (2015), Data Journals: A Su
 > Does your discipline have a data journal? Or some other mechanism to share data? For example, the American Astronomical Society (AAS) via the publisher IOP Physics offers a [supplement series](http://iopscience.iop.org/journal/0067-0049/page/article-data) as a way for astronomers to publish data.
 > {: .discussion}
 
-Adapted from: Library Carpentry. September 2019. https://librarycarpentry.org/lc-fair-research.
+Adapted from: Library Carpentry. September 2019. [https://librarycarpentry.org/lc-fair-research](https://librarycarpentry.org/lc-fair-research).
