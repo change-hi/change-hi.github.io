@@ -1,5 +1,5 @@
 ---
-title: "Open Science"
+title: "2. Open Science"
 published: true
 morea_id: OpenScience
 morea_type: reading
@@ -306,5 +306,3 @@ making such data accessible for 10 years involves serious financial commitment.
 > - [Science is necessarily collaborative - The Biochemist article](https://portlandpress.com/biochemist/article/42/3/58/225220/Science-is-necessarily-collaborative).
 > - [https://carpentries-incubator.github.io/fair-bio-practice/](https://carpentries-incubator.github.io/fair-bio-practice/)
 >   {: .callout}
-
-

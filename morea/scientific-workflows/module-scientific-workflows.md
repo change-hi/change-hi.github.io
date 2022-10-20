@@ -12,7 +12,7 @@ morea_type: module
 morea_icon_url: /morea/scientific-workflows/logo.jpg
 morea_labels:
 - Workshop
-morea_sort_order: 70
+morea_sort_order: 120
 ---
 
 (Module not yet available)

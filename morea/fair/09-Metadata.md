@@ -1,5 +1,5 @@
 ---
-title: "Metadata"
+title: "9. Metadata"
 published: true
 morea_id: Metadata
 morea_type: experience

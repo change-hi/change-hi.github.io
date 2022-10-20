@@ -13,7 +13,7 @@ morea_type: module
 morea_icon_url: /morea/data-biases/logo.png
 morea_labels:
     - Workshop
-morea_sort_order: 60
+morea_sort_order: 130
 ---
 
 (Module not yet available)

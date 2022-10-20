@@ -1,5 +1,5 @@
 ---
-title: "Intellectual Property, Licensing, and Openness"
+title: "3. Intellectual Property, Licensing, and Openness"
 published: true
 morea_id: IPandOwnership
 morea_type: experience

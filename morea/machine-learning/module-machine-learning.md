@@ -13,7 +13,7 @@ morea_type: module
 morea_icon_url: /morea/machine-learning/logo.png
 morea_labels:
 - Workshop
-morea_sort_order: 110
+morea_sort_order: 80
 ---
 
 (Module not yet available)

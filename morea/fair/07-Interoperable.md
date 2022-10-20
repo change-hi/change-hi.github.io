@@ -1,5 +1,5 @@
 ---
-title: "Interoperable"
+title: "7. Interoperable"
 published: true
 morea_id: Interoperable
 morea_type: experience

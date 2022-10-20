@@ -13,7 +13,7 @@ morea_type: module
 morea_icon_url: /morea/scientific-software-basics/logo.jpg
 morea_labels:
 - Workshop
-morea_sort_order: 10
+morea_sort_order: 40
 ---
 
 (Module not yet available)

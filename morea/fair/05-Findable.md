@@ -1,5 +1,5 @@
 ---
-title: "Findable"
+title: "5. Findable"
 published: true
 morea_id: Findable
 morea_type: reading

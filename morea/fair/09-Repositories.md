@@ -1,5 +1,5 @@
 ---
-title: "Public repositories"
+title: "10. Public repositories"
 published: true
 morea_id: FairRepositories
 morea_type: experience

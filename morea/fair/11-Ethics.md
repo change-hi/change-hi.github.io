@@ -1,5 +1,5 @@
 ---
-title: "Ethics"
+title: "12. Ethics"
 published: true
 morea_id: FairEthics
 morea_type: reading
@@ -46,5 +46,3 @@ Both public and private entities should conduct disparate impact assessments. So
 > ## Resources
 >
 > - [https://www.brookings.edu/research/fairness-in-algorithmic-decision-making/](https://www.brookings.edu/research/fairness-in-algorithmic-decision-making/)
-
-

@@ -1,5 +1,5 @@
 ---
-title: "Introduction"
+title: "1. Introduction"
 published: true
 morea_id: FairIntroduction
 morea_type: reading
@@ -41,4 +41,3 @@ alt="Figure 5.2. Sharing as part of the workflo" caption="_Figure credits: Tomas
   benefit you and your group
 
 In this workshop we will discuss how your research outputs can be made readily available for re-use by others.
-

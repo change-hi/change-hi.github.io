@@ -1,5 +1,5 @@
 ---
-title: "Exercises"
+title: "11. Exercises"
 published: true
 morea_id: FairExercises
 morea_type: experience
