@@ -30,21 +30,21 @@ The FAIR principles have a strong focus on "machine-actionability". This means
 that the data should be easily readable by computers (and not only by humans).
 This is particularly relevant for working with and discovering new data.
 
-> ## What the FAIR principles are **not**
->
-> - A standard: The FAIR principles need to be adopted and followed as much as
->   possible by considering the research practices in your field.
->
-> - All or nothing: making a dataset (more) FAIR can be done in small,
->   incremental steps.
->
-> - Open data: FAIR data does not necessarily mean openly available. For
->   example, some data cannot be shared openly because of privacy
->   considerations. As a rule of thumb, data should be _"as open as possible, as
->   closed as necessary."_
->
-> - Tied to a particular technology or tool. There might be different tools that
->   enable FAIR data within different disciplines or research workflows.
+## What the FAIR principles are **not**
+
+- A standard: The FAIR principles need to be adopted and followed as much as
+  possible by considering the research practices in your field.
+
+- All or nothing: making a dataset (more) FAIR can be done in small,
+  incremental steps.
+
+- Open data: FAIR data does not necessarily mean openly available. For
+  example, some data cannot be shared openly because of privacy
+  considerations. As a rule of thumb, data should be _"as open as possible, as
+  closed as necessary."_
+
+- Tied to a particular technology or tool. There might be different tools that
+  enable FAIR data within different disciplines or research workflows.
 
 ## Why FAIR?
 
@@ -55,18 +55,17 @@ re-usable, this lowers the barriers to repeat, verify, and build upon previous
 work. The authors also state that this vision applies not just to data, but to
 all aspects of the research process.
 
-> ## What's in it for you?
->
-> FAIR data sounds like a lot of work. Is it worth it? Here are some of the benefits:
->
-> - Funder requirements
-> - It makes your work more visible
-> - Increase the reproducibility of your work
-> - If others can use it easily, you will get cited more often
-> - You can create more impact if it's easier for others to use your data
-> - ...
->
-> {: .checklist}
+## What's in it for you?
+
+FAIR data sounds like a lot of work. Is it worth it? Here are some of the benefits:
+
+- Funder requirements
+- It makes your work more visible
+- Increase the reproducibility of your work
+- If others can use it easily, you will get cited more often
+- You can create more impact if it's easier for others to use your data
+- ...
+
 
 ## Getting started with FAIR (climate) data
 
@@ -80,23 +79,21 @@ without realizing it. NetCDF files, for example, already implement some of the
 FAIR principles around data modeling. But sometimes you need to find your own
 way.
 
-> ## Challenge for yourself - Evaluate one of your own datasets
->
-> Pick one dataset that you've created or worked with recently, and answer the
-> following questions:
->
-> - If somebody gets this dataset from you, would they be able to understand
->   the structure and content without asking you?
-> - Do you know who has access to this dataset? Could somebody easily have access
->   to this dataset? How?
-> - Does this dataset needs proprietary software to be used?
-> - Does this dataset have a persistent identifier or usage licence?
->
-> {: .challenge}
+## Challenge for yourself - Evaluate one of your own datasets
 
-> ## Attribution
->
-> Content of this episode was adapted from:
->
-> - [https://esciencecenter-digital-skills.github.io/Lesson-FAIR-Data-Climate/](https://esciencecenter-digital-skills.github.io/Lesson-FAIR-Data-Climate/)
->   {: .callout}
+Pick one dataset that you've created or worked with recently, and answer the
+following questions:
+
+- If somebody gets this dataset from you, would they be able to understand
+  the structure and content without asking you?
+- Do you know who has access to this dataset? Could somebody easily have access
+  to this dataset? How?
+- Does this dataset needs proprietary software to be used?
+- Does this dataset have a persistent identifier or usage licence?
+
+
+## Attribution
+
+Content of this episode was adapted from:
+
+- [https://esciencecenter-digital-skills.github.io/Lesson-FAIR-Data-Climate/](https://esciencecenter-digital-skills.github.io/Lesson-FAIR-Data-Climate/)

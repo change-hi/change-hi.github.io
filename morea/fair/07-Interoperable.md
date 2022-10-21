@@ -14,12 +14,12 @@ morea_enable_toc: true
 # Interoperable
 This section will describe what it means for research to be interoperable
 
-> ## For data & software to be interoperable:
->
-> I1. (meta)data use a formal, accessible, shared, and broadly applicable language for knowledge representation  
-> I2. (meta)data use vocabularies that follow FAIR principles  
-> I3. (meta)data include qualified references to other (meta)data
-> {: .checklist}
+## For data & software to be interoperable:
+
+* I1. (meta)data use a formal, accessible, shared, and broadly applicable language for knowledge representation  
+* I2. (meta)data use vocabularies that follow FAIR principles  
+* I3. (meta)data include qualified references to other (meta)data
+
 
 ## What is interoperability for data and software?
 
@@ -29,18 +29,17 @@ Shared understanding of concepts, for humans as well as machines.
 
 According to the [Open Data Handbook](http://opendatahandbook.org/glossary/en/):
 
-> _Human Readable_  
-> "Data in a format that can be conveniently read by a human. Some human-readable formats, such as PDF, are not machine-readable as they are not structured data, i.e. the representation of the data on disk does not represent the actual relationships present in the data."
+_Human Readable_  
+"Data in a format that can be conveniently read by a human. Some human-readable formats, such as PDF, are not machine-readable as they are not structured data, i.e. the representation of the data on disk does not represent the actual relationships present in the data."
 
-> _Machine Readable_  
-> "Data in a data format that can be automatically read and processed by a computer, such as CSV, JSON, XML, etc. Machine-readable data must be structured data. Compare human-readable.
-> Non-digital material (for example printed or hand-written documents) is by its non-digital nature not machine-readable. But even digital material need not be machine-readable. For example, consider a PDF document containing tables of data. These are definitely digital but are not machine-readable because a computer would struggle to access the tabular information - even though they are very human readable. The equivalent tables in a format such as a spreadsheet would be machine readable.
-> As another example scans (photographs) of text are not machine-readable (but are human readable!) but the equivalent text in a format such as a simple ASCII text file can machine readable and processable."
+_Machine Readable_  
+"Data in a data format that can be automatically read and processed by a computer, such as CSV, JSON, XML, etc. Machine-readable data must be structured data. Compare human-readable.
+Non-digital material (for example printed or hand-written documents) is by its non-digital nature not machine-readable. But even digital material need not be machine-readable. For example, consider a PDF document containing tables of data. These are definitely digital but are not machine-readable because a computer would struggle to access the tabular information - even though they are very human readable. The equivalent tables in a format such as a spreadsheet would be machine readable.
+As another example scans (photographs) of text are not machine-readable (but are human readable!) but the equivalent text in a format such as a simple ASCII text file can machine readable and processable."
 
-> Software uses community accepted standards and platforms, making it possible for users to run the software.
-> [Top 10 FAIR things for research software][10ftrs]
+Software uses community accepted standards and platforms, making it possible for users to run the software.
 
-[10ftrs]: https://librarycarpentry.org/Top-10-FAIR//2018/12/01/research-software/
+[Top 10 FAIR things for research software](https://librarycarpentry.org/Top-10-FAIR//2018/12/01/research-software/)
 
 ## Describing data and software with shared, controlled vocabularies
 
