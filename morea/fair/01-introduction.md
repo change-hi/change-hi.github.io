@@ -12,10 +12,6 @@ morea_labels:
 
 # Introductions
 
-* Sean Cleveland, Cyberinfrastructure Scientist, The University of Hawai'i Cyberinfrastructure & Hawaii Data Science Institute
-
-* Bjarne Bartlett, CI-TRACS Data Science Fellow, The University of Hawai'i Cyberinfrastructure & Hawaii Data Science Institute
-
 Hello everyone, and welcome to the **FAIR Data Management Security and Ethics** workshop.
 
 ## Better research by better sharing
@@ -39,3 +35,5 @@ alt="Figure 5.2. Sharing as part of the workflo" caption="_Figure credits: Tomas
   benefit you and your group
 
 In this workshop we will discuss how your research outputs can be made readily available for re-use by others.
+
+[Go To -> Open Science](../../morea//fair/02-OpenScience.html)

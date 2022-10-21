@@ -295,11 +295,16 @@ Further reading/links:
 - [Centre for Open Science](https://www.cos.io/)
 - [Ted talk supporting OS](https://www.youtube.com/watch?v=c-bemNZ-IqA)
 
-## Attribution
 
-Content of this episode was adapted from:
+> ## Attribution
+>
+> Content of this episode was adapted from:
+>
+> - Wiki [Open Science](https://en.wikipedia.org/wiki/Open_science)
+> - [European Open Science Cloud](https://www.eosc-hub.eu/open-science-info)
+> - [Science is necessarily collaborative - The Biochemist article](https://portlandpress.com/biochemist/article/42/3/58/225220/Science-is-necessarily-collaborative).
+> - [https://carpentries-incubator.github.io/fair-bio-practice/](https://carpentries-incubator.github.io/fair-bio-practice/)
 
-- Wiki [Open Science](https://en.wikipedia.org/wiki/Open_science)
-- [European Open Science Cloud](https://www.eosc-hub.eu/open-science-info)
-- [Science is necessarily collaborative - The Biochemist article](https://portlandpress.com/biochemist/article/42/3/58/225220/Science-is-necessarily-collaborative).
-- [https://carpentries-incubator.github.io/fair-bio-practice/](https://carpentries-incubator.github.io/fair-bio-practice/)
+
+[Go To -> IP and Ownership](../../morea//fair/03-IPandOwnership.html)
+
