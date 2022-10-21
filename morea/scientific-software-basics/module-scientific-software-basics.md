@@ -7,6 +7,7 @@ morea_outcomes:
 morea_readings:
   - reading-screencast-workshop-sci-software-basics-s22
 morea_experiences:
+  - experience-ssb-intro
 morea_assessments:
 morea_prerequisites:
 morea_type: module
@@ -16,4 +17,4 @@ morea_labels:
 morea_sort_order: 10
 ---
 
-(Module not yet available)
+This workshop will cover basics of Scientific Software and will be held on October 28, 2022.
