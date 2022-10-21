@@ -2,7 +2,7 @@
 title: "13. Security"
 published: true
 morea_id: FairSecurity
-morea_type: reading
+morea_type: experience
 morea_summary: "What measures will you take to secure your data?"
 morea_sort_order: 12
 morea_labels:
@@ -63,9 +63,8 @@ Small datasets and files are often stored on laptops and computer hard drives. W
 - OneDrive
 - iCloud
 
-> ## Resources
->
-> [Attribution](https://onlinedegrees.und.edu/blog/types-of-cyber-security-threats/) > [RAID](https://en.wikipedia.org/wiki/Standard_RAID_levels)
-> The BioRDM team has a lot of information about the here taught course material on
-> their [BioRDM wiki](https://www.wiki.ed.ac.uk/display/RDMS/).
-> {: .callout}
+## Resources
+
+[Attribution](https://onlinedegrees.und.edu/blog/types-of-cyber-security-threats/) [RAID](https://en.wikipedia.org/wiki/Standard_RAID_levels)
+The BioRDM team has a lot of information about the here taught course material on
+their [BioRDM wiki](https://www.wiki.ed.ac.uk/display/RDMS/).

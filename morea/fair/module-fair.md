@@ -6,21 +6,21 @@ morea_id: fair
 morea_outcomes:
   - outcome-fair
 morea_readings:
-  - FairIntroduction
-  - Findable
-  - Reusable
-  - FairEthics
-  - FairSecurity
-morea_experiences:
   - hydroshare
+morea_experiences:
+  - FairIntroduction
   - OpenScience
   - IPandOwnership
   - FAIR_Intro
+  - Findable
   - Accessible
   - Interoperable
+  - Reusable
   - Metadata
   - FairRepositories
   - FairExercises
+  - FairEthics
+  - FairSecurity
 morea_assessments:
   - assessment-fair-workshop
 morea_prerequisites:

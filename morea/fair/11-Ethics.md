@@ -2,7 +2,7 @@
 title: "12. Ethics"
 published: true
 morea_id: FairEthics
-morea_type: reading
+morea_type: experience
 morea_summary: "What ethical considerations are there when making data public?"
 morea_sort_order: 11
 morea_labels:
@@ -43,6 +43,6 @@ Anti-discrimination laws cover machine learning algorithms and, even if variable
 
 Both public and private entities should conduct disparate impact assessments. Software developers should perform disparate impact analyses before publishing or using their algorithms.
 
-> ## Resources
->
-> - [https://www.brookings.edu/research/fairness-in-algorithmic-decision-making/](https://www.brookings.edu/research/fairness-in-algorithmic-decision-making/)
+## Resources
+
+- [https://www.brookings.edu/research/fairness-in-algorithmic-decision-making/](https://www.brookings.edu/research/fairness-in-algorithmic-decision-making/)

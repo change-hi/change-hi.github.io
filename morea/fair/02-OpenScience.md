@@ -20,27 +20,25 @@ All practices that make knowledge and data **freely available** fall under the u
 Research**. It makes science **more reproducible, transparent, and accessible**. As science becomes more open, the way
 we conduct and communicate science changes continuously.
 
-> ## What is Open Science
->
-> Open science is the movement to make scientific research (including publications, data, physical samples, and software)
-> and its dissemination **accessible to all levels** of an inquiring society,
-> amateur or professional.
->
-> Open Science represents a new approach to the scientific process based on **cooperative work**
-> and new ways of diffusing knowledge by **using digital technologies** and new collaborative tools
->
-> Open science is **transparent and accessible knowledge**
-> that is shared and developed through collaborative networks.
->
-> Characteristics:
->
-> - Using web-based tools to facilitate information exchange and scientific collaboration
-> - Transparency in experimental methodology, observation, and collection of data
-> - Public availability and reusability of scientific data, methods and communications
->
-> {: .callout}
+## What is Open Science
 
-### What is the Open Science movement?
+Open science is the movement to make scientific research (including publications, data, physical samples, and software)
+and its dissemination **accessible to all levels** of an inquiring society,
+amateur or professional.
+>
+Open Science represents a new approach to the scientific process based on **cooperative work**
+and new ways of diffusing knowledge by **using digital technologies** and new collaborative tools
+
+Open science is **transparent and accessible knowledge**
+that is shared and developed through collaborative networks.
+
+Characteristics:
+
+- Using web-based tools to facilitate information exchange and scientific collaboration
+- Transparency in experimental methodology, observation, and collection of data
+- Public availability and reusability of scientific data, methods and communications
+
+## What is the Open Science movement?
 
 Sharing of information is fundamental for science. This began at a significant scale with the invention of scientific
 journals in 1665. At that time this was the best available alternative to critique & disseminate research, and foster
@@ -67,7 +65,7 @@ alt="Figure 1. Open Science Building Blocks" caption="" %}
 
 _Attribution [Gema Bueno de la Fuente](https://www.fosteropenscience.eu/content/what-open-science-introduction)_
 
-### Open Science Building Blocks
+## Open Science Building Blocks
 
 - **Open Access:** Research outputs hosted in a way that make them accessible for everyone. Traditionally Open Access
   referred to journal articles, but now includes books, chapters or images.
@@ -98,27 +96,28 @@ _Attribution [Gema Bueno de la Fuente](https://www.fosteropenscience.eu/content/
 - **Citizen science:** Citizen participation of various stages of research
   process from project funding to collecting and analysing data.
 
-> ## Exercise 1: Benefits of Open Science
+## Exercise 1: Benefits of Open Science
+
 <div class="alert alert-secondary" role="alert" markdown="1">
 <i class="fa-solid fa-user-pen fa-xl"></i>  **Open Science**
 <hr/>
 
-> Being open has other outcomes/consequences beyond giving the free access to information.
-> For example, Open educational resources:
->
-> - Enables collaborative development of courses
-> - Improves teachers/instructors skills by sharing ideas
->
-> Select one or two of the following OS parts:
->
-> - Open Access
-> - Open Data
-> - Open Software
-> - Open Notebooks
-> - Open Peer Review
->
-> and discuss what are the benefits or what problems are solved
-> by adaption of those Open initiatives.
+Being open has other outcomes/consequences beyond giving the free access to information.
+For example, Open educational resources:
+
+- Enables collaborative development of courses
+- Improves teachers/instructors skills by sharing ideas
+
+Select one or two of the following OS parts:
+
+- Open Access
+- Open Data
+- Open Software
+- Open Notebooks
+- Open Peer Review
+
+and discuss what are the benefits or what problems are solved
+by adaption of those Open initiatives.
 <details>
   <summary>Solution</summary>
  Possible benefits and consequences for each part:
@@ -224,14 +223,13 @@ in years. For example, building reputation will not happen with one dataset,
 the re-use also will lead to citations/collaboration after the next research
 cycle.
 
-### Barriers and risks of OS movement:
+### Exercise 2: Why we are not doing Open Science already?
 
-> ## Exercise 2: Why we are not doing Open Science already
 <div class="alert alert-secondary" role="alert" markdown="1">
 <i class="fa-solid fa-user-pen fa-xl"></i>  **Open Science**
 <hr/>
 
-> Discuss Open Science barriers, mention the reasons for not already being open:
+Discuss Open Science barriers, mention the reasons for not already being open:
 
 <details>
   <summary>Solution</summary>
@@ -291,18 +289,17 @@ making such data accessible for 10 years involves serious financial commitment.
 
 ## Where to next
 
-> Further reading/links:
->
-> - [Challenges & benefits of OS](https://journals.plos.org/plosbiology/article?id=10.1371/journal.pbio.3000246)
-> - [Centre for Open Science](https://www.cos.io/)
-> - [Ted talk supporting OS](https://www.youtube.com/watch?v=c-bemNZ-IqA)
+Further reading/links:
 
-> ## Attribution
->
-> Content of this episode was adapted from:
->
-> - Wiki [Open Science](https://en.wikipedia.org/wiki/Open_science)
-> - [European Open Science Cloud](https://www.eosc-hub.eu/open-science-info)
-> - [Science is necessarily collaborative - The Biochemist article](https://portlandpress.com/biochemist/article/42/3/58/225220/Science-is-necessarily-collaborative).
-> - [https://carpentries-incubator.github.io/fair-bio-practice/](https://carpentries-incubator.github.io/fair-bio-practice/)
->   {: .callout}
+- [Challenges & benefits of OS](https://journals.plos.org/plosbiology/article?id=10.1371/journal.pbio.3000246)
+- [Centre for Open Science](https://www.cos.io/)
+- [Ted talk supporting OS](https://www.youtube.com/watch?v=c-bemNZ-IqA)
+
+## Attribution
+
+Content of this episode was adapted from:
+
+- Wiki [Open Science](https://en.wikipedia.org/wiki/Open_science)
+- [European Open Science Cloud](https://www.eosc-hub.eu/open-science-info)
+- [Science is necessarily collaborative - The Biochemist article](https://portlandpress.com/biochemist/article/42/3/58/225220/Science-is-necessarily-collaborative).
+- [https://carpentries-incubator.github.io/fair-bio-practice/](https://carpentries-incubator.github.io/fair-bio-practice/)

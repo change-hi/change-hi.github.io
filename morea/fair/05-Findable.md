@@ -2,7 +2,7 @@
 title: "5. Findable"
 published: true
 morea_id: Findable
-morea_type: reading
+morea_type: experience
 morea_summary: "What is a persistent identifier or PID? What types of PIDs are there?"
 morea_sort_order: 5
 morea_labels:
@@ -14,13 +14,13 @@ morea_enable_toc: true
 
 This section will describe what it means for a scholarly resource to be findable.
 
-> ## For data & software to be findable:
->
-> F1. (meta)data are assigned a globally unique and eternally persistent identifier or PID  
-> F2. data are described with rich metadata  
-> F3. (meta)data are registered or indexed in a searchable resource  
-> F4. metadata specify the data identifier  
-> {: .checklist}
+## For data & software to be findable:
+
+F1. (meta)data are assigned a globally unique and eternally persistent identifier or PID  
+F2. data are described with rich metadata  
+F3. (meta)data are registered or indexed in a searchable resource  
+F4. metadata specify the data identifier  
+
 
 ## Persistent identifiers (PIDs) 101
 
@@ -52,7 +52,8 @@ alt="Anatomy of a DOI" caption="" %}
 
 In the example above, the prefix is used by the Australian National Data Service (ANDS) now called the Australia Research Data Commons (ARDC) and the suffix is a unique identifier for an object at Griffith University. DataCite provides DOI [display guidance](https://support.datacite.org/docs/datacite-doi-display-guidelines) so that they are easy to recognize and use, for both humans and machines.
 
-> ## Exercise 4
+## Exercise 4
+
 <div class="alert alert-secondary" role="alert" markdown="1">
 <i class="fa-solid fa-user-pen fa-xl"></i>  **Hydroshare**
 <hr/>
@@ -83,18 +84,18 @@ RelatedIdentifiers linking papers, data, software in Zenodo
 
 DOIs are everywhere. Examples.
 
-Resource IDs (articles, data, software, …)
-Researcher IDs
-Organisation IDs, Funder IDs
-Projects IDs
-Instrument IDs
-Ship cruises IDs
-Physical sample IDs,
-DMP IDs…
-videos
-images
-3D models
-grey literature
+* Resource IDs (articles, data, software, …)
+* Researcher IDs
+* Organisation IDs, Funder IDs
+* Projects IDs
+* Instrument IDs
+* Ship cruises IDs
+* Physical sample IDs,
+* DMP IDs…
+* videos
+* images
+* 3D models
+* grey literature
 
 {% include figure.html url="" max-width="80%"
 file="/morea/fair/fig/datacite-arxiv-crossref.png"
@@ -109,9 +110,13 @@ Bullet points about the current state of linking...
 ## Provenance?
 
 Provenance refers to the data lineage (inputs, entitites, systems, etc.) that ultimately impact validation & credibility. A researcher should comply to good scientific practices and be sure about what should get a PID (and what not).
+
 Metadata is central to visibility and citability – metadata behind a PID should be provided with consideration.
+
 Policies behind a PID system ensure persistence in the WWW - point. At least metadata will be available for a long time.
+
 Machine readability will be an essential part of future discoverability – resources should be checked and formats should be adjusted (as far possible).
+
 Metrics (e.g. altmetrics) are supported by PID systems.
 
 ## Publishing behaviour of researchers
@@ -190,9 +195,9 @@ Examples:
 Also, the following study discusses data journals in depth and reviews over 100 data journals:
 Candela, L. , Castelli, D. , Manghi, P. and Tani, A. (2015), Data Journals: A Survey. J Assn Inf Sci Tec, 66: 1747-1762. doi:[10.1002/asi.23358](https://doi.org/10.1002/asi.23358)
 
-> ## How does your discipline share data
->
-> Does your discipline have a data journal? Or some other mechanism to share data? For example, the American Astronomical Society (AAS) via the publisher IOP Physics offers a [supplement series](http://iopscience.iop.org/journal/0067-0049/page/article-data) as a way for astronomers to publish data.
-> {: .discussion}
+## How does your discipline share data
+
+Does your discipline have a data journal? Or some other mechanism to share data? For example, the American Astronomical Society (AAS) via the publisher IOP Physics offers a [supplement series](http://iopscience.iop.org/journal/0067-0049/page/article-data) as a way for astronomers to publish data.
+
 
 Adapted from: Library Carpentry. September 2019. [https://librarycarpentry.org/lc-fair-research](https://librarycarpentry.org/lc-fair-research).

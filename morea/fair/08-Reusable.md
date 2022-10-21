@@ -2,7 +2,7 @@
 title: "8. Reusable"
 published: true
 morea_id: Reusable
-morea_type: reading
+morea_type: experience
 morea_summary: "What makes data reusable?"
 morea_sort_order: 8
 morea_labels:
@@ -20,13 +20,13 @@ In groups discuss:
 - Have you ever received data you couldn’t use? Why or why not?
 - Have you tried replicating an experiment, yours or someone else? What challenges did you face?
 
-> ## For data & software to be reusable:
->
-> R1. (meta) data have a plurality of accurate and relevant attributes  
->  R1.1 (meta) data are released with a clear and accessible data usage licence  
->  R1.2 (meta) data are associated with their provenance  
-> R1.3 (meta) data meet domain-relevant community standards
-> {: .checklist}
+## For data & software to be reusable:
+
+* R1. (meta) data have a plurality of accurate and relevant attributes  
+* R1.1 (meta) data are released with a clear and accessible data usage licence  
+* R1.2 (meta) data are associated with their provenance  
+* R1.3 (meta) data meet domain-relevant community standards
+
 
 ## File naming best practices
 
@@ -139,15 +139,15 @@ Creative Commons Wizard and GitHub software licensing wizards (highlight attribu
 Useful content for Licenses
 Note: TIB Hannover Slides [https://docs.google.com/presentation/d/1mSeanQqO0Y2khA8KK48wtQQ_JGYncGexjnspzs7cWLU/edit#slide=id.g3a64c782ff_1_138](https://docs.google.com/presentation/d/1mSeanQqO0Y2khA8KK48wtQQ_JGYncGexjnspzs7cWLU/edit#slide=id.g3a64c782ff_1_138)
 
-> ## Resources
->
-> - Choose an open source license: [https://choosealicense.com/](https://choosealicense.com/)
-> - 4 Simple recommendations for Open Source Software [https://softdev4research.github.io/4OSS-lesson/](https://softdev4research.github.io/4OSS-lesson/)
-> - Top 10 FAIR Imaging [https://librarycarpentry.org/Top-10-FAIR//2019/06/27/imaging/](https://librarycarpentry.org/Top-10-FAIR//2019/06/27/imaging/)
-> - Licensing your work: [https://librarycarpentry.org/Top-10-FAIR//2019/06/27/imaging/#9-licensing-your-work](https://librarycarpentry.org/Top-10-FAIR//2019/06/27/imaging/#9-licensing-your-work)
-> - The Turing Way a Guide for reproducible Research: [https://the-turing-way.netlify.app/welcome](https://the-turing-way.netlify.app/welcome)
-> - The Open Science Training Handbook: [https://open-science-training-handbook.gitbook.io/book/](https://open-science-training-handbook.gitbook.io/book/)
-> - Open Licensing and file formats [https://open-science-training-handbook.gitbook.io/book/open-science-basics/](https://open-science-training-handbook.gitbook.io/book/open-science-basics/)open-licensing-and-file-formats#6-open-licensing-and-file-formats
-> - DCC How to license research data [https://www.dcc.ac.uk/guidance/how-guides/license-research-data](https://www.dcc.ac.uk/guidance/how-guides/license-research-data)
+## Resources
+
+- Choose an open source license: [https://choosealicense.com/](https://choosealicense.com/)
+- 4 Simple recommendations for Open Source Software [https://softdev4research.github.io/4OSS-lesson/](https://softdev4research.github.io/4OSS-lesson/)
+- Top 10 FAIR Imaging [https://librarycarpentry.org/Top-10-FAIR//2019/06/27/imaging/](https://librarycarpentry.org/Top-10-FAIR//2019/06/27/imaging/)
+- Licensing your work: [https://librarycarpentry.org/Top-10-FAIR//2019/06/27/imaging/#9-licensing-your-work](https://librarycarpentry.org/Top-10-FAIR//2019/06/27/imaging/#9-licensing-your-work)
+- The Turing Way a Guide for reproducible Research: [https://the-turing-way.netlify.app/welcome](https://the-turing-way.netlify.app/welcome)
+- The Open Science Training Handbook: [https://open-science-training-handbook.gitbook.io/book/](https://open-science-training-handbook.gitbook.io/book/)
+- Open Licensing and file formats [https://open-science-training-handbook.gitbook.io/book/open-science-basics/](https://open-science-training-handbook.gitbook.io/book/open-science-basics/)open-licensing-and-file-formats#6-open-licensing-and-file-formats
+- DCC How to license research data [https://www.dcc.ac.uk/guidance/how-guides/license-research-data](https://www.dcc.ac.uk/guidance/how-guides/license-research-data)
 
 Adapted from: Library Carpentry. September 2019. [https://librarycarpentry.org/lc-fair-research](https://librarycarpentry.org/lc-fair-research).
