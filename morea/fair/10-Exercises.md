@@ -102,5 +102,5 @@ Content of this episode was adapted from:
 - [Metadata - How to FAIR](https://howtofair.dk/how-to-fair/metadata/)
 - [MIBBI](https://fairsharing.org/collection/MIBBI)
 
-
-[Go To -> Ethics](../../morea//fair/11-Ethics.html)
+<hr />
+[Go To -> Ethics](/morea/fair/11-Ethics.html)

@@ -305,6 +305,5 @@ Further reading/links:
 > - [Science is necessarily collaborative - The Biochemist article](https://portlandpress.com/biochemist/article/42/3/58/225220/Science-is-necessarily-collaborative).
 > - [https://carpentries-incubator.github.io/fair-bio-practice/](https://carpentries-incubator.github.io/fair-bio-practice/)
 
-
-[Go To -> IP and Ownership](../../morea//fair/03-IPandOwnership.html)
-
+<hr />
+[Go To -> IP and Ownership](/morea/fair/03-IPandOwnership.html)

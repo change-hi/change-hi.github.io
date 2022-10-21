@@ -108,4 +108,5 @@ If a DOI is no longer available and the data center does not have the resources 
 
 Adapted from: Library Carpentry. September 2019. [https://librarycarpentry.org/lc-fair-research](https://librarycarpentry.org/lc-fair-research).
 
-[Go To -> FAIR - Interoperable](../../morea//fair/07-Interoperable.html)
+<hr />
+[Go To -> FAIR - Interoperable](/morea/fair/07-Interoperable.html)

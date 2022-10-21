@@ -111,4 +111,5 @@ Scholix - related indentifiers - Zenodo example linking data/software to papers
 [https://dliservice.research-infrastructures.eu/#/](https://dliservice.research-infrastructures.eu/#/)
 [https://authorcarpentry.github.io/dois-citation-data/01-register-doi.html](https://authorcarpentry.github.io/dois-citation-data/01-register-doi.html)
 
-[Go To -> FAIR - Reusable](../../morea//fair/08-Reusable.html)
+<hr />
+[Go To -> FAIR - Reusable](/morea/fair/08-Reusable.html)

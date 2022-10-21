@@ -47,4 +47,5 @@ Both public and private entities should conduct disparate impact assessments. So
 
 - [https://www.brookings.edu/research/fairness-in-algorithmic-decision-making/](https://www.brookings.edu/research/fairness-in-algorithmic-decision-making/)
 
-[Go To -> Security](../../morea//fair/12-Security.html)
+<hr />
+[Go To -> Security](/morea/fair/12-Security.html)

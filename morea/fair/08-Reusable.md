@@ -152,5 +152,5 @@ Note: TIB Hannover Slides [https://docs.google.com/presentation/d/1mSeanQqO0Y2kh
 
 Adapted from: Library Carpentry. September 2019. [https://librarycarpentry.org/lc-fair-research](https://librarycarpentry.org/lc-fair-research).
 
-
-[Go To -> Metadata](../../morea//fair/09-Metadata.html)
+<hr />
+[Go To -> Metadata](/morea/fair/09-Metadata.html)
