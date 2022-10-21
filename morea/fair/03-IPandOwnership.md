@@ -108,3 +108,6 @@ After:
 Content of this episode was adapted from:
 
 - [https://carpentries-incubator.github.io/fair-bio-practice/](https://carpentries-incubator.github.io/fair-bio-practice/)
+
+[Go To -> FAIR Introduction](../../morea//fair/04-FAIR_Intro.html)
+

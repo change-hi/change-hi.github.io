@@ -81,6 +81,7 @@ way.
 
 ## Challenge for yourself - Evaluate one of your own datasets
 
+
 Pick one dataset that you've created or worked with recently, and answer the
 following questions:
 
@@ -97,3 +98,5 @@ following questions:
 Content of this episode was adapted from:
 
 - [https://esciencecenter-digital-skills.github.io/Lesson-FAIR-Data-Climate/](https://esciencecenter-digital-skills.github.io/Lesson-FAIR-Data-Climate/)
+
+[Go To -> FAIR - Findable](../../morea//fair/05-Findable.html)

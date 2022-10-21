@@ -39,3 +39,5 @@ alt="Figure 5.2. Sharing as part of the workflo" caption="_Figure credits: Tomas
   benefit you and your group
 
 In this workshop we will discuss how your research outputs can be made readily available for re-use by others.
+
+[Go To -> Open Science](../../morea//fair/02-OpenScience.html)

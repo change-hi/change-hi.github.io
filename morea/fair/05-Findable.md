@@ -201,3 +201,5 @@ Does your discipline have a data journal? Or some other mechanism to share data?
 
 
 Adapted from: Library Carpentry. September 2019. [https://librarycarpentry.org/lc-fair-research](https://librarycarpentry.org/lc-fair-research).
+
+[Go To -> FAIR - Accessible](../../morea//fair/06-Accessible.html)

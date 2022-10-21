@@ -151,3 +151,6 @@ Note: TIB Hannover Slides [https://docs.google.com/presentation/d/1mSeanQqO0Y2kh
 - DCC How to license research data [https://www.dcc.ac.uk/guidance/how-guides/license-research-data](https://www.dcc.ac.uk/guidance/how-guides/license-research-data)
 
 Adapted from: Library Carpentry. September 2019. [https://librarycarpentry.org/lc-fair-research](https://librarycarpentry.org/lc-fair-research).
+
+
+[Go To -> Metadata](../../morea//fair/09-Metadata.html)
