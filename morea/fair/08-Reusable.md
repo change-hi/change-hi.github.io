@@ -144,6 +144,13 @@ UK Data service version control guide:
 The content of this chapter was adapted from: [https://librarycarpentry.org/lc-fair-research](https://librarycarpentry.org/lc-fair-research).
 </div>
 
+<div class="alert alert-warning" role="alert" markdown="1">
+<i class="fa-solid fa-circle-info fa-xl"></i> **Bio Break!**
+<hr/>
+
+Let's take a brief break to stretch before moving on to the next page.  See you in a few minutes.
+</div>
+
 
 
 
