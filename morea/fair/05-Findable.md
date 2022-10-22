@@ -52,7 +52,7 @@ alt="Anatomy of a DOI" caption="" %}
 
 In the example above, the prefix is used by the Australian National Data Service (ANDS) now called the Australia Research Data Commons (ARDC) and the suffix is a unique identifier for an object at Griffith University. DataCite provides DOI [display guidance](https://support.datacite.org/docs/datacite-doi-display-guidelines) so that they are easy to recognize and use, for both humans and machines.
 
-## Exercise 4
+## Exploring Hydroshare
 
 <div class="alert alert-secondary" role="alert" markdown="1">
 <i class="fa-solid fa-user-pen fa-xl"></i>  **Exercise: Hydroshare**

@@ -71,7 +71,7 @@ better lawyers.
 See the [US Patent and Trademark page on patent basics ](https://www.uspto.gov/patents/basics)
 </div>
 
-## Exercise 3: Checking common licenses
+## Checking common licenses
  
 <div class="alert alert-secondary" role="alert" markdown="1">
 <i class="fa-solid fa-user-pen fa-xl"></i>  **Exercise: Intellectual Property**

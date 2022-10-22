@@ -151,7 +151,4 @@ The content of this chapter was adapted from: [https://librarycarpentry.org/lc-f
 Let's take a brief break to stretch before moving on to the next page.  See you in a few minutes.
 </div>
 
-
-
-
 {% include next-button.html top-label="Metadata ->" bottom-label="3:00pm" url="/morea/fair/09-Metadata.html" %}

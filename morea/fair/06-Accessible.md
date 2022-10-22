@@ -55,7 +55,11 @@ alt="Jens Åge Smærup Sørensen" caption="" %}
 
 Thankfully, a number of research systems are now integrating ORCID into their authentication systems. Zenodo provides the login ORCID authentication option. Once logged in, your ORCID will be assigned to your authored and deposited works.
 
-## Exercise to create a Hydroshare Account
+## Create a Hydroshare Account
+
+<div class="alert alert-secondary" role="alert" markdown="1">
+<i class="fa-solid fa-user-pen fa-xl"></i>  **Exercise: Create a hydroshare account**
+<hr/>
 
 1. [Register](https://www.hydroshare.org/sign-up/) for Hydroshare.
 2. You will receive a confirmation email. Click the link in the email...
@@ -65,7 +69,9 @@ Thankfully, a number of research systems are now integrating ORCID into their au
 file="/morea/fair/fig/hydrosharesignup.png"
 alt="Hydroshare Registration" caption="" %}
 
-## Understanding whether something is open, free, and universally implementable
+</div>
+
+## Understand if something is open, free, and universally implementable
 
 <div class="alert alert-secondary" role="alert" markdown="1">
 <i class="fa-solid fa-user-pen fa-xl"></i>  **Exercise: ORCID and Accessibility**

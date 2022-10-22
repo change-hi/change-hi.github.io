@@ -95,7 +95,7 @@ _Attribution [Gema Bueno de la Fuente](https://www.fosteropenscience.eu/content/
 - **Citizen science:** Citizen participation of various stages of research
   process from project funding to collecting and analysing data.
 
-## Exercise 1: Benefits of Open Science
+## Benefits of Open Science
 
 <div class="alert alert-secondary" role="alert" markdown="1">
 <i class="fa-solid fa-user-pen fa-xl"></i>  **Exercise: Open Science**
@@ -222,7 +222,7 @@ in years. For example, building reputation will not happen with one dataset,
 the re-use also will lead to citations/collaboration after the next research
 cycle.
 
-### Exercise 2: Why we are not doing Open Science already?
+### Why we are not doing Open Science already?
 
 <div class="alert alert-secondary" role="alert" markdown="1">
 <i class="fa-solid fa-user-pen fa-xl"></i>  **Exercise: Open Science Barriers**
