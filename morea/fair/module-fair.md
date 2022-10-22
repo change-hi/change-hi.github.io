@@ -29,9 +29,8 @@ morea_icon_url: /morea/fair/logo.jpg
 morea_labels:
   - Workshop
 morea_sort_order: 30
+morea_summary: This module provides readings, experiences, and an assessment to support the FAIR Data Management workshop held on Friday, October 21, 2022.
 ---
-
-This module provides readings, experiences, and an assessment to support the FAIR Data Management workshop held on Friday, October 21, 2022.  
 
 The Workshop Schedule:
 
