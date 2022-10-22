@@ -6,8 +6,7 @@ morea_type: experience
 morea_summary: "What is metadata? What do we use metadata for?"
 morea_sort_order: 9
 morea_labels:
-  - 8 min (Teaching)
-  - 14 min (Exercise)
+  - 3:00pm
 morea_enable_toc: true
 ---
 
@@ -126,10 +125,10 @@ between three main types of metadata:
 Descriptive and structural **metadata should be added
 continuously** throughout the project.
 
-## Exercise 6: Identifying metadata types (4 min)
+## Identifying metadata
 
 <div class="alert alert-secondary" role="alert" markdown="1">
-<i class="fa-solid fa-user-pen fa-xl"></i>  **Open Science**
+<i class="fa-solid fa-user-pen fa-xl"></i>  **Exercise: Identifying metadata**
 <hr/>
 
 Here we have an excel spreadsheet that contains project metadata for
@@ -206,11 +205,8 @@ is the collection of the most known standards.
 [FAIRSharing](https://fairsharing.org/standards/) offers excellent search service
 for finding standards
 
-
-## Exercise 7: Minimal information standard example (2 min)
-
 <div class="alert alert-secondary" role="alert" markdown="1">
-<i class="fa-solid fa-user-pen fa-xl"></i>  **Metadata**
+<i class="fa-solid fa-user-pen fa-xl"></i>  **Exercise: Minimum information**
 <hr/>
 
 Look at **_Minimum Information about a Neuroscience Investigation (MINI) Electrophysiology_** [Gibson, F. et al. Nat Prec (2008)](https://www.nature.com/articles/npre.2008.1720.1.pdf).
@@ -218,11 +214,10 @@ which contains recommendations for reporting the use of electrophysiology in a n
 (_Neuroscience (or neurobiology) is the scientific study of the nervous system_).
 
 Scroll to _Reporting requirement_ and decide which of the points 1-8 are:
+* important for understanding and reuse of data
+* important for technical replication
+* could be applied to other experiments in neuroscience
 
-- a) important for understanding and reuse of data
-- b) important for technical replication
-- c) could be applied to other experiments in neuroscience
-- 
 <details>
   <summary>Solution</summary>
 
@@ -250,14 +245,10 @@ Think as a consumer of your data not the producer!
 </details>
 </div>
 
-
-
-
-
-## Exercise 8: What to include - discussion (2 minutes)
+## What to include? 
 
 <div class="alert alert-secondary" role="alert" markdown="1">
-<i class="fa-solid fa-user-pen fa-xl"></i>  **Metadata**
+<i class="fa-solid fa-user-pen fa-xl"></i>  **Exercise: Sharing data**
 <hr/>
 
 Think of the data you generate in your projects,and imagine you are going to share them.
@@ -285,8 +276,6 @@ Some typical elements are:
 <li>Accompanying code, software used (version nr), parameters applied, statistical tests used, seed for randomisation</li>
 <li>LOT numbers</li>
 </ul>
-
-
 </details>
 </div>
 
@@ -302,13 +291,15 @@ Findable, Accessible, Interoperable and Reusable apply to metadata.
 Ideally, metadata should not only be machine-readable, but also interoperable
 so that they can interlink or be reasoned about by computer systems.
 
-## Attribution
+<div class="alert alert-info" role="alert" markdown="1">
+<i class="fa-solid fa-circle-info fa-xl"></i> **For more information**
+<hr/>
+The content of this chapter was adapted from:
+* [Metadata - FAIR data for climate sciences](https://esciencecenter-digital-skills.github.io/Lesson-FAIR-Data-Climate/metadata/index.html).
+* [Metadata - How to FAIR](https://howtofair.dk/how-to-fair/metadata/)
+* [MIBBI](https://fairsharing.org/collection/MIBBI)
 
-Content of this episode was adapted from:
+</div>
 
-- [Metadata - FAIR data for climate sciences](https://esciencecenter-digital-skills.github.io/Lesson-FAIR-Data-Climate/metadata/index.html).
-- [Metadata - How to FAIR](https://howtofair.dk/how-to-fair/metadata/)
-- [MIBBI](https://fairsharing.org/collection/MIBBI)
 
-<hr />
-[Go To -> Repositories](/morea/fair/09-Repositories.html)
+{% include next-button.html top-label="Repositories ->" bottom-label="3:10pm" url="/morea/fair/09-Repositories.html" %}

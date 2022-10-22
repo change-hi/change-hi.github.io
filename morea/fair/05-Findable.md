@@ -1,25 +1,25 @@
 ---
-title: "5. Findable"
+title: "5. Fair: Findable"
 published: true
 morea_id: Findable
 morea_type: experience
 morea_summary: "What is a persistent identifier or PID? What types of PIDs are there?"
 morea_sort_order: 5
 morea_labels:
-  - 5 min (Teaching)
+  - 2:25pm
 morea_enable_toc: true
 ---
 
-# Findable
+# FAIR: Findable
 
 This section will describe what it means for a scholarly resource to be findable.
 
 ## For data & software to be findable:
 
-F1. (meta)data are assigned a globally unique and eternally persistent identifier or PID  
-F2. data are described with rich metadata  
-F3. (meta)data are registered or indexed in a searchable resource  
-F4. metadata specify the data identifier  
+1. (meta)data are assigned a globally unique and eternally persistent identifier or PID  
+2. data are described with rich metadata  
+3. (meta)data are registered or indexed in a searchable resource  
+4. metadata specify the data identifier  
 
 
 ## Persistent identifiers (PIDs) 101
@@ -55,7 +55,7 @@ In the example above, the prefix is used by the Australian National Data Service
 ## Exercise 4
 
 <div class="alert alert-secondary" role="alert" markdown="1">
-<i class="fa-solid fa-user-pen fa-xl"></i>  **Hydroshare**
+<i class="fa-solid fa-user-pen fa-xl"></i>  **Exercise: Hydroshare**
 <hr/>
 
 * HydroShare is a data repository for water data from a variety of biological disciplines.
@@ -100,11 +100,13 @@ DOIs are everywhere. Examples.
 {% include figure.html url="" max-width="80%"
 file="/morea/fair/fig/datacite-arxiv-crossref.png"
 alt="Connecting Research Outputs" caption="" %}
-[https://support.datacite.org/docs/connecting-research-outputs](https://support.datacite.org/docs/connecting-research-outputs)
-https://support.datacite.org/docs/connecting-research-outputs
 
-Bullet points about the current state of linking...
-[https://blog.datacite.org/citation-analysis-scholix-rda/](https://blog.datacite.org/citation-analysis-scholix-rda/)
+<div class="alert alert-info" role="alert" markdown="1">
+<i class="fa-solid fa-circle-info fa-xl"></i> **For more information**
+<hr/>
+* [Making and using connection metadata](https://support.datacite.org/docs/connecting-research-outputs)
+* [Bullet points about the current state of linking](https://blog.datacite.org/citation-analysis-scholix-rda/)
+</div>
 
 
 ## Provenance?
@@ -121,17 +123,15 @@ Metrics (e.g. altmetrics) are supported by PID systems.
 
 ## Publishing behaviour of researchers
 
-According to:
+According to: [Questionnaire and Dataset of the TIB Survey 2017 on information procurement and publishing behavior of researchers in the natural sciences and engineering](https://doi.org/10.22000/54):
 
-Technische Informationsbibliothek (TIB) (conducted by engage AG) (2017): Questionnaire and Dataset of the TIB Survey 2017 on information procurement and publishing behavior of researchers in the natural sciences and engineering. Technische Informationsbibliothek (TIB). DOI: [https://doi.org/10.22000/54](https://doi.org/10.22000/54)
-
-- responses from 1400 scientists in the natural sciences & engineering (across Germany)
-- 70% of the researchers are using DOIs for journal publications
-- less than 10% use DOIs for research data
-  -- 56% answered that they don’t know about the option to use DOIs for other publications (datasets, conference papers etc.)
-  -- 57% stated no need for DOI counselling services
-  -- 40% of the questioned researchers need more information
-  -- 30% cannot see a benefit from a DOI
+* Responses from 1400 scientists in the natural sciences & engineering (across Germany)
+* 70% of the researchers are using DOIs for journal publications
+* Less than 10% use DOIs for research data
+* 56% answered that they don’t know about the option to use DOIs for other publications (datasets, conference papers etc.)
+* 57% stated no need for DOI counselling services
+* 40% of the questioned researchers need more information
+* 30% cannot see a benefit from a DOI
 
 ## Choosing the right repository
 
@@ -161,15 +161,16 @@ Some recommendations:
 → look for licences offered
 → look for certifications (DSA / Core Trust Seal, DINI/nestor, WDS, …)
 
-Searching re3data w/ exercise
-[https://www.re3data.org/](https://www.re3data.org/)
-Out of more than 2115 repository systems listed in re3data.org in July 2018, only 809 (less than 39 %!) state to provide a PID service, with 524 of them using the DOI system
+<div class="alert alert-info" role="alert" markdown="1">
+<i class="fa-solid fa-circle-info fa-xl"></i> **For more information**
+<hr/>
+* Results from searching <https://www.re3data.org>: 
+Out of more than 2115 repository systems listed in re3data.org in July 2018, only 809 (less than 39 %!) state to provide a PID service, with 524 of them using the DOI system.
 
-Search open access repos
-http://v2.sherpa.ac.uk/opendoar/
+* Search open access repos: <http://v2.sherpa.ac.uk/opendoar/>
 
-FAIRSharing
-https://fairsharing.org/databases/
+* FAIRSharing databases: <https://fairsharing.org/databases/>
+</div>
 
 ## Data Journals
 
@@ -199,8 +200,10 @@ Candela, L. , Castelli, D. , Manghi, P. and Tani, A. (2015), Data Journals: A Su
 
 Does your discipline have a data journal? Or some other mechanism to share data? For example, the American Astronomical Society (AAS) via the publisher IOP Physics offers a [supplement series](http://iopscience.iop.org/journal/0067-0049/page/article-data) as a way for astronomers to publish data.
 
+<div class="alert alert-info" role="alert" markdown="1">
+<i class="fa-solid fa-circle-info fa-xl"></i> **For more information**
+<hr/>
+The content is this page was adapted from: [https://librarycarpentry.org/lc-fair-research](https://librarycarpentry.org/lc-fair-research).
+</div>
 
-Adapted from: Library Carpentry. September 2019. [https://librarycarpentry.org/lc-fair-research](https://librarycarpentry.org/lc-fair-research).
-
-<hr />
-[Go To -> FAIR - Accessible](/morea/fair/06-Accessible.html)
+{% include next-button.html top-label="FAIR: Accessible ->" bottom-label="2:35pm" url="/morea/fair/06-Accessible.html" %}

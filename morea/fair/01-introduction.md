@@ -6,7 +6,7 @@ morea_type: experience
 morea_summary: "Who are we and what are we going to learn?"
 morea_sort_order: 1
 morea_labels:
-  - 8 min (Teaching)
+  - 2:00pm
 #morea_enable_toc: true
 ---
 
@@ -36,5 +36,4 @@ alt="Figure 5.2. Sharing as part of the workflo" caption="_Figure credits: Tomas
 
 In this workshop we will discuss how your research outputs can be made readily available for re-use by others.
 
-<hr />
-[Go To -> Open Science](/morea/fair/02-OpenScience.html)
+{% include next-button.html top-label="Open Science ->" bottom-label="2:10pm" url="/morea/fair/02-OpenScience.html" %}

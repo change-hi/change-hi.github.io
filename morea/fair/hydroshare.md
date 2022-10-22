@@ -6,7 +6,7 @@ morea_type: reading
 morea_summary: "Setup account for Hydroshare website"
 morea_sort_order: 0
 morea_labels:
-  - 10 min (Prerequisite)
+  - Pre-Workshop Activity (10 min)
 morea_enable_toc: false
 ---
 

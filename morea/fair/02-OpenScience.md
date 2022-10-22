@@ -6,8 +6,7 @@ morea_type: reading
 morea_summary: "What is Open Science? How can I benefit from Open Science? Why has Open Science become a hot topic?"
 morea_sort_order: 2
 morea_labels:
-  - 8 min (Teaching)
-  - 4 min (Exercises)
+  - 2:10pm
 #morea_enable_toc: true
 ---
 
@@ -99,7 +98,7 @@ _Attribution [Gema Bueno de la Fuente](https://www.fosteropenscience.eu/content/
 ## Exercise 1: Benefits of Open Science
 
 <div class="alert alert-secondary" role="alert" markdown="1">
-<i class="fa-solid fa-user-pen fa-xl"></i>  **Open Science**
+<i class="fa-solid fa-user-pen fa-xl"></i>  **Exercise: Open Science**
 <hr/>
 
 Being open has other outcomes/consequences beyond giving the free access to information.
@@ -226,7 +225,7 @@ cycle.
 ### Exercise 2: Why we are not doing Open Science already?
 
 <div class="alert alert-secondary" role="alert" markdown="1">
-<i class="fa-solid fa-user-pen fa-xl"></i>  **Open Science**
+<i class="fa-solid fa-user-pen fa-xl"></i>  **Exercise: Open Science Barriers**
 <hr/>
 
 Discuss Open Science barriers, mention the reasons for not already being open:
@@ -287,23 +286,22 @@ making such data accessible for 10 years involves serious financial commitment.
 </div>
 
 
-## Where to next
+<div class="alert alert-info" role="alert" markdown="1">
+<i class="fa-solid fa-circle-info fa-xl"></i> **For more information**
+<hr/>
 
-Further reading/links:
+Here are some links to further readings:
 
 - [Challenges & benefits of OS](https://journals.plos.org/plosbiology/article?id=10.1371/journal.pbio.3000246)
 - [Centre for Open Science](https://www.cos.io/)
 - [Ted talk supporting OS](https://www.youtube.com/watch?v=c-bemNZ-IqA)
 
+The content in this page was adapted from:
 
-> ## Attribution
->
-> Content of this episode was adapted from:
->
-> - Wiki [Open Science](https://en.wikipedia.org/wiki/Open_science)
-> - [European Open Science Cloud](https://www.eosc-hub.eu/open-science-info)
-> - [Science is necessarily collaborative - The Biochemist article](https://portlandpress.com/biochemist/article/42/3/58/225220/Science-is-necessarily-collaborative).
-> - [https://carpentries-incubator.github.io/fair-bio-practice/](https://carpentries-incubator.github.io/fair-bio-practice/)
+- [Open Science (Wikipedia)](https://en.wikipedia.org/wiki/Open_science)
+- [European Open Science Cloud](https://www.eosc-hub.eu/open-science-info)
+- [Science is necessarily collaborative - The Biochemist article](https://portlandpress.com/biochemist/article/42/3/58/225220/Science-is-necessarily-collaborative).
+- [https://carpentries-incubator.github.io/fair-bio-practice/](https://carpentries-incubator.github.io/fair-bio-practice/)
+</div>
 
-<hr />
-[Go To -> IP and Ownership](/morea/fair/03-IPandOwnership.html)
+{% include next-button.html top-label="IP and Ownership ->" bottom-label="2:15pm" url="/morea/fair/03-IPandOwnership.html" %}

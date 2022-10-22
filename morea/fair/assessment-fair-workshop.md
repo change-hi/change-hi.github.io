@@ -8,14 +8,10 @@ morea_outcomes_assessed:
 morea_type: assessment
 morea_sort_order: 12
 morea_labels:
- - 10 minutes 
+ - 3:50pm
 ---
 
 # Help us assess this workshop
-
-<div class="alert alert-danger mt-4" role="alert" markdown="1">
-<i class="fa-solid fa-circle-exclamation fa-xl"></i> To be filled out at the end of the workshop!
-</div>
 
 ## For the participants
 

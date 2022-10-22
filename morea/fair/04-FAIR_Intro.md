@@ -6,8 +6,7 @@ morea_type: experience
 morea_summary: "What are the FAIR principles? Why should I care to be FAIR? How do I get started?"
 morea_sort_order: 4
 morea_labels:
-  - 8 min (Teaching)
-  - 2 min (Exercise)
+  - 2:20pm
 morea_enable_toc: true
 ---
 
@@ -64,7 +63,6 @@ FAIR data sounds like a lot of work. Is it worth it? Here are some of the benefi
 - Increase the reproducibility of your work
 - If others can use it easily, you will get cited more often
 - You can create more impact if it's easier for others to use your data
-- ...
 
 
 ## Getting started with FAIR (climate) data
@@ -93,11 +91,12 @@ following questions:
 - Does this dataset have a persistent identifier or usage licence?
 
 
-## Attribution
+<div class="alert alert-info" role="alert" markdown="1">
+<i class="fa-solid fa-circle-info fa-xl"></i> **For more information**
+<hr/>
+See the 2016 Nature article, "[The FAIR Guiding Principles for scientific data management and stewardship](https://www.nature.com/articles/sdata201618)", Wilkinson et. al.
 
-Content of this episode was adapted from:
+The content in this page was adapted from: [https://esciencecenter-digital-skills.github.io/Lesson-FAIR-Data-Climate/](https://esciencecenter-digital-skills.github.io/Lesson-FAIR-Data-Climate/)
+</div>
 
-- [https://esciencecenter-digital-skills.github.io/Lesson-FAIR-Data-Climate/](https://esciencecenter-digital-skills.github.io/Lesson-FAIR-Data-Climate/)
-
-<hr />
-[Go To -> FAIR - Findable](/morea/fair/05-Findable.html)
+{% include next-button.html top-label="FAIR: Findable ->" bottom-label="2:25pm" url="/morea/fair/05-Findable.html" %}

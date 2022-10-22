@@ -6,8 +6,7 @@ morea_type: experience
 morea_summary: "What is intellectual property? Why should I consider IP in Open Science?"
 morea_sort_order: 3
 morea_labels:
-  - 8 min (Teaching)
-  - 2 min (Exercise)
+  - 2:15pm
 morea_enable_toc: true
 ---
 
@@ -66,15 +65,16 @@ decisions that may receive copyright protection.
 Again, it is often a case by case situation and may come down to who has
 better lawyers.
 
-After:
-
-[https://www.uspto.gov/patents/basics](https://www.uspto.gov/patents/basics)
-
+<div class="alert alert-info" role="alert" markdown="1">
+<i class="fa-solid fa-circle-info fa-xl"></i> **For more information**
+<hr/>
+See the [US Patent and Trademark page on patent basics ](https://www.uspto.gov/patents/basics)
+</div>
 
 ## Exercise 3: Checking common licenses
  
 <div class="alert alert-secondary" role="alert" markdown="1">
-<i class="fa-solid fa-user-pen fa-xl"></i>  **Intellectual Property**
+<i class="fa-solid fa-user-pen fa-xl"></i>  **Exercise: Intellectual Property**
 <hr/>
 
 1. Open CC BY license summary [https://creativecommons.org/licenses/by/4.0/](https://creativecommons.org/licenses/by/4.0/)
@@ -102,12 +102,10 @@ After:
 </div>
 
 
+<div class="alert alert-info" role="alert" markdown="1">
+<i class="fa-solid fa-circle-info fa-xl"></i> **For more information**
+<hr/>
+The content in this page was adapted from: [https://carpentries-incubator.github.io/fair-bio-practice/](https://carpentries-incubator.github.io/fair-bio-practice/)
+</div>
 
-## Attribution
-
-Content of this episode was adapted from:
-
-- [https://carpentries-incubator.github.io/fair-bio-practice/](https://carpentries-incubator.github.io/fair-bio-practice/)
-
-<hr />
-[Go To -> FAIR Introduction](/morea/fair/04-FAIR_Intro.html)
+{% include next-button.html top-label="FAIR Introduction ->" bottom-label="2:20pm" url="/morea/fair/04-FAIR_Intro.html" %}
