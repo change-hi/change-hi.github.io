@@ -61,6 +61,8 @@ Thankfully, a number of research systems are now integrating ORCID into their au
 <i class="fa-solid fa-user-pen fa-xl"></i>  **Exercise: Create a hydroshare account**
 <hr/>
 
+If you haven't already, please create a Hydroshare account now:
+
 1. [Register](https://www.hydroshare.org/sign-up/) for Hydroshare.
 2. You will receive a confirmation email. Click the link in the email...
 3. Go to [Hydroshare](hydroshare.org) and select Log in.
