@@ -6,8 +6,7 @@ morea_type: experience
 morea_summary: "A basic Deep Learning tutorial on Mana "
 morea_sort_order: 4
 morea_labels:
-  - 40 min (Teaching)
-  - 10 min (Exercises)
+ - 2:30pm
 morea_enable_toc: true
 ---
 

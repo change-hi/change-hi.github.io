@@ -6,7 +6,7 @@ morea_type: experience
 morea_summary: "What is an HPC System? What are the components of an HPC system?"
 morea_sort_order: 2
 morea_labels:
-  - 10 min (Teaching)
+  - 2:00pm
 morea_enable_toc: true
 ---
 
