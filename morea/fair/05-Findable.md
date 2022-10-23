@@ -167,7 +167,7 @@ Some recommendations:
 * Results from searching <https://www.re3data.org>: 
 Out of more than 2115 repository systems listed in re3data.org in July 2018, only 809 (less than 39 %!) state to provide a PID service, with 524 of them using the DOI system.
 
-* Search open access repos: <http://v2.sherpa.ac.uk/opendoar/>
+* Search open access repos: <https://v2.sherpa.ac.uk/opendoar/>
 
 * FAIRSharing databases: <https://fairsharing.org/databases/>
 </div>
@@ -198,7 +198,7 @@ Candela, L. , Castelli, D. , Manghi, P. and Tani, A. (2015), Data Journals: A Su
 
 ## How does your discipline share data
 
-Does your discipline have a data journal? Or some other mechanism to share data? For example, the American Astronomical Society (AAS) via the publisher IOP Physics offers a [supplement series](http://iopscience.iop.org/journal/0067-0049/page/article-data) as a way for astronomers to publish data.
+Does your discipline have a data journal? Or some other mechanism to share data? For example, the American Astronomical Society (AAS) via the publisher IOP Physics offers a [supplement series](https://iopscience.iop.org/journal/0067-0049/page/article-data) as a way for astronomers to publish data.
 
 <div class="alert alert-info" role="alert" markdown="1">
 <i class="fa-solid fa-circle-info fa-xl"></i> **For more information**

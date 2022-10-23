@@ -47,7 +47,7 @@ Solutions will probably contain the following:
 <hr/>
 
 Analyze the below dataset from HydroShare.
-[Long-term, gridded standardized precipitation index for Hawai‘i](http://ikewai.org/data/?dd=3737090897300090390-242ac1110-0001-012)
+[Long-term, gridded standardized precipitation index for Hawai‘i](https://ikewai.org/data/?dd=3737090897300090390-242ac1110-0001-012)
 
 Use the [ARDC FAIR self assessment tool](https://ardc.edu.au/resources/aboutdata/fair-data/fair-self-assessment-tool/)
 
@@ -71,7 +71,7 @@ Solutions will probably contain the following:
 <hr/>
 
 Analyze the below dataset from HydroShare.
-[‘Ike Wai: Groundwater Chemistry - Nutrient Data](http://ikewai.org/groundwater-chemistry-nutrient-data/)
+[‘Ike Wai: Groundwater Chemistry - Nutrient Data](https://ikewai.org/groundwater-chemistry-nutrient-data/)
 
 Use the [ARDC FAIR self assessment tool](https://ardc.edu.au/resources/aboutdata/fair-data/fair-self-assessment-tool/)
 

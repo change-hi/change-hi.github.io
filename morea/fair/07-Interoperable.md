@@ -26,7 +26,7 @@ Interoperability means: A shared understanding of concepts, for humans as well a
 
 ### What does it mean to be machine readable vs human readable?
 
-According to the [Open Data Handbook](http://opendatahandbook.org/glossary/en/):
+According to the [Open Data Handbook](https://opendatahandbook.org/glossary/en/):
 
 _Human Readable_  
 "Data in a format that can be conveniently read by a human. Some human-readable formats, such as PDF, are not machine-readable as they are not structured data, i.e. the representation of the data on disk does not represent the actual relationships present in the data."
@@ -91,9 +91,9 @@ If others can use your code, convey the meaning of updates with SemVer.org (CC B
 
 * [Top 10 FAIR things: Linked Open Data](https://librarycarpentry.org/Top-10-FAIR//2019/09/05/linked-open-data/)
 * Standards: <https://fairsharing.org/standards>
-* Schema.org: <http://schema.org>. Example: <https://docs.ropensci.org/codemetar/>
+* Schema.org: <https://schema.org>. Example: <https://docs.ropensci.org/codemetar/>
 * ISA framework: 'Investigation' (the project context), 'Study' (a unit of research) and 'Assay' (analytical measurement) - <https://isa-tools.github.io/>
-* Modularity: <http://bioschemas.org>
+* Modularity: <https://bioschemas.org>
 * Codemeta crosswalks to other standards: <https://codemeta.github.io/crosswalk/>
 * Data Catalog Vocabulary (DCAT): <https://www.w3.org/TR/vocab-dcat/>
 * Using community accepted code style guidelines such as PEP 8 for Python (PEP 8 itself is FAIR)

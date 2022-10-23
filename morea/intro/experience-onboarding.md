@@ -104,7 +104,7 @@ All employees should have received a PNF (personnel notification form) and compl
 All graduate students are expected to adhere to the Mānoa Student Code of Conduct: 
 
 * [https://manoa.hawaii.edu/graduate/conduct-code/](https://manoa.hawaii.edu/graduate/conduct-code/)
-* [http://studentaffairs.manoa.hawaii.edu/policies/conduct_code/](https://manoa.hawaii.edu/graduate/conduct-code/)
+* [https://studentaffairs.manoa.hawaii.edu/policies/conduct_code/](https://manoa.hawaii.edu/graduate/conduct-code/)
 
 More information for graduate students can be found on the Graduate Division website: 
 

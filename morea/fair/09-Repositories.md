@@ -19,10 +19,10 @@ Research data repositories are online repositories that enable the preservation,
 
 There are general "data agnostic" repositories, for example:
 
-- [Dryad](http://datadryad.org),
-- [Zenodo](http://zenodo.org),
-- [FigShare](http://figshare.com),
-- [Dataverse](http://thedata.org).
+- [Dryad](https://datadryad.org),
+- [Zenodo](https://zenodo.org),
+- [FigShare](https://figshare.com),
+- [Dataverse](https://thedata.org).
 
 Or domain specific, for example:
 
@@ -43,7 +43,7 @@ assure Findability and Accessibility.
 <hr/>
 
 Have a look at the following record for data set in Hydroshare repository:
-[Hydroshare](http://www.hydroshare.org/resource/96310f82dd5247ba8201955750093923).
+[Hydroshare](https://www.hydroshare.org/resource/96310f82dd5247ba8201955750093923).
 What elements make it FAIR?
 
 <details>

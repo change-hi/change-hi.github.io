@@ -89,7 +89,7 @@ the same functionality and more exist.  One such tool is Open OnDemand (OOD).
 
 Created by Ohio Supercomputer Center, U. of Buffalo CCR, and Virginia Tech
 and development funded by National Science Foundation under
-grant numbers 1534949 and 1835725. [Learn more about Open OnDemand](http://openondemand.org/)
+grant numbers 1534949 and 1835725. [Learn more about Open OnDemand](https://openondemand.org/)
 </div>
 
 

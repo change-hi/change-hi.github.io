@@ -58,7 +58,7 @@ A file name should be unique, consistent and descriptive. This allows for increa
 #### Examples:
 
 - Stanford Libraries [guidance on file naming](https://library.stanford.edu/spc/university-archives/managing-university-records/file-naming-guidelines) is a great place to start.
-- [Dryad example](http://datadryad.com/pages/reusabilityBestPractices):
+- [Dryad example](https://datadryad.com/pages/reusabilityBestPractices):
 - 1900-2000_sasquatch_migration_coordinates.csv
 - Smith-fMRI-neural-response-to-cupcakes-vs-vegetables.nii.gz
 - 2015-SimulationOfTropicalFrogEvolution.R
@@ -91,7 +91,7 @@ Many disciplines have developed formal metadata standards that enable re-use of 
 
 In the meantime, the Research Data Alliance (RDA) Metadata Standards Directory - Working Group developed a collaborative, open directory of metadata standards, applicable to scientific data, to help the research community learn about metadata standards, controlled vocabularies, and the underlying elements across the different disciplines, to potentially help with mapping data elements from different sources.
 
-[Metadata Standards Directory](http://rd-alliance.github.io/metadata-directory/standards/)  
+[Metadata Standards Directory](https://rd-alliance.github.io/metadata-directory/standards/)  
 Features: Standards, Extensions, Tools, and Use Cases
 
 ## Quality Control
@@ -119,7 +119,7 @@ UK Data service version control guide:
 ## Research vocabularies
 
 * Research Vocabularies Australia [https://vocabs.ands.org.au/](https://vocabs.ands.org.au/)
-* AGROVOC & VocBench [http://aims.fao.org/vest-registry/vocabularies/agrovoc](http://aims.fao.org/vest-registry/vocabularies/agrovoc)
+* AGROVOC & VocBench [https://aims.fao.org/vest-registry/vocabularies/agrovoc](https://aims.fao.org/vest-registry/vocabularies/agrovoc)
 * Dimensions Fields of Research [https://dimensions.freshdesk.com/support/solutions/articles/23000012844-what-are-fields-of-research-](https://dimensions.freshdesk.com/support/solutions/articles/23000012844-what-are-fields-of-research-)
 * Versioning/SHA: [https://swcarpentry.github.io/git-novice/reference](https://swcarpentry.github.io/git-novice/reference)
 * Binder - executable environment, making your code immediately reproducible by anyone, anywhere: [https://blog.jupyter.org/binder-2-0-a-tech-guide-2017-fd40515a3a84](https://blog.jupyter.org/binder-2-0-a-tech-guide-2017-fd40515a3a84)
