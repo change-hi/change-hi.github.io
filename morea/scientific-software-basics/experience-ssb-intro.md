@@ -1,12 +1,12 @@
 ---
-title: "1. What is High Performance Computing (HPC)?"
+title: "Introducing the Shell"
 published: true
 morea_id: experience-ssb-intro
 morea_type: experience
-morea_summary: "What is an HPC System? What are the components of an HPC system?"
+morea_summary: "What is a command shell and why would I use one?"
 morea_sort_order: 2
 morea_labels:
-  - 10 min (Teaching)
+  - 5 min (Teaching)
 morea_enable_toc: true
 ---
 
@@ -14,151 +14,162 @@ morea_enable_toc: true
 <i class="fa-solid fa-globe fa-xl"></i> **Overview**
 <hr/>
 
-**Questions**
-  * What is an HPC System?
-  * What are the components of an HPC System?
+**Key Points**
+  * - A shell is a program whose primary purpose is to read commands and run other programs.
+  * This lesson uses Bash, the default shell in many implementations of Unix.
+  * Programs can be run in Bash by entering commands at the command-line prompt.
+  * The shell's main advantages are its high action-to-keystroke ratio, its support for automating repetitive tasks, and its capacity to access networked machines.
+  * The shell's main disadvantages are its primarily textual nature and how cryptic its commands and operation can be.
 
 **Objectives**
-  * Understand the general HPC System architecture.
+  * Explain how the shell relates to the keyboard, the screen, the operating system, and users' programs.
+  * Explain when and why command-line interfaces should be used instead of graphical interfaces.
 </div>
 
 
-## What is High Performance Computing?
+## What is the Shell?
 
-The words "cloud" and the phrase cluster or high-performance computing (HPC)
-are used a lot in different contexts and with various related meanings.
-So what do they mean? And more importantly, how do we use them in our work?
+Humans and computers commonly interact in many different ways, such as through a keyboard and mouse,
+touch screen interfaces, or using speech recognition systems.
+The most widely used way to interact with personal computers is called a
+**graphical user interface** (GUI).
+With a GUI, we give instructions by clicking a mouse and using menu-driven interactions.
 
-The *cloud* is a generic term commonly used to refer to computing resources
-that are a) *provisioned* to users on demand or as needed and b) represent real
-or *virtual* resources that may be located anywhere on Earth. For example, a
-large company with computing resources in Brazil and Japan may manage
-those resources as its own *internal* cloud and that same company may also
-use commercial cloud resources provided by Amazon or Google. Cloud
-resources may refer to machines performing relatively simple tasks such as
-serving websites, providing shared storage, providing web services (such as
-e-mail or social media platforms), as well as more traditional compute
-intensive tasks such as running a simulation.
+While the visual aid of a GUI makes it intuitive to learn,
+this way of delivering instructions to a computer scales very poorly.
+Imagine the following task:
+for a literature search, you have to copy the third line of one thousand text files in one thousand
+different directories and paste it into a single file.
+Using a GUI, you would not only be clicking at your desk for several hours,
+but you could potentially also commit an error in the process of completing this repetitive task.
+This is where we take advantage of the Unix shell.
+The Unix shell is both a **command-line interface** (CLI) and a scripting language,
+allowing such repetitive tasks to be done automatically and fast.
+With the proper commands, the shell can repeat tasks with or without some modification
+as many times as we want.
+Using the shell, the task in the literature example can be accomplished in seconds.
 
-The term *HPC system*, on the other hand, describes a stand-alone resource for
-computationally intensive workloads. They are typically comprised of a
-multitude of integrated processing and storage elements, designed to handle
-high volumes of data and/or large numbers of floating-point operations
-([FLOPS](https://en.wikipedia.org/wiki/FLOPS)) with the highest possible
-performance. For example, all of the machines on the
-[Top-500](https://www.top500.org) list are HPC systems. To support these
-constraints, an HPC resource must exist in a specific, fixed location:
-networking cables can only stretch so far, and electrical and optical signals
-can travel only so fast.
+## The Shell
+
+The shell is a program where users can type commands.
+With the shell, it's possible to invoke complicated programs like climate modeling software
+or simple commands that create an empty directory with only one line of code.
+The most popular Unix shell is Bash (the Bourne Again SHell ---
+so-called because it's derived from a shell written by Stephen Bourne).
+Bash is the default shell on most modern implementations of Unix and in most packages that provide
+Unix-like tools for Windows.
+
+Using the shell will take some effort and some time to learn.
+While a GUI presents you with choices to select, CLI choices are not automatically presented to you,
+so you must learn a few commands like new vocabulary in a language you're studying.
+However, unlike a spoken language, a small number of "words" (i.e. commands) gets you a long way,
+and we'll cover those essential few today.
+
+The grammar of a shell allows you to combine existing tools into powerful
+pipelines and handle large volumes of data automatically. Sequences of
+commands can be written into a *script*, improving the reproducibility of
+workflows.
+
+In addition, the command line is often the easiest way to interact with remote machines
+and supercomputers.
+Familiarity with the shell is near essential to run a variety of specialized tools and resources
+including high-performance computing systems.
+As clusters and cloud computing systems become more popular for scientific data crunching,
+being able to interact with the shell is becoming a necessary skill.
+We can build on the command-line skills covered here
+to tackle a wide range of scientific questions and computational challenges.
+
+Let's get started.
+
+When the shell is first opened, you are presented with a **prompt**,
+indicating that the shell is waiting for input.
+
+~~~
+$
+~~~
+{: .language-bash}
+
+The shell typically uses `$ ` as the prompt, but may use a different symbol.
+In the examples for this lesson, we'll show the prompt as `$ `.
+Most importantly:
+when typing commands, either from these lessons or from other sources,
+*do not type the prompt*, only the commands that follow it.
+Also note that after you type a command, you have to press the <kbd>Enter</kbd> key to execute it.
+
+The prompt is followed by a **text cursor**, a character that indicates the position where your
+typing will appear.
+The cursor is usually a flashing or solid block, but it can also be an underscore or a pipe.
+You may have seen it in a text editor program, for example.
+
+So let's try our first command, `ls` which is short for listing.
+This command will list the contents of the current directory:
+
+~~~
+$ ls
+~~~
+{: .language-bash}
+
+~~~
+Desktop     Downloads   Movies      Pictures
+Documents   Library     Music       Public
+~~~
+{: .output}
 
 <div class="alert alert-info" role="alert" markdown="1">
-<i class="fa-solid fa-circle-info fa-xl"></i> **What else is an HPC system good for?**
+<i class="fa-solid fa-circle-info fa-xl"></i> **Command Not Find**
 <hr/>
-
-While HPC is typically seen as where you go if you have large problems, HPC
-clusters can be used for even smaller cases where a single server is all that you need,
-or you have a reserach problem in which the task is very short, but you need to do tens
-of thousands of iterations, which is typically known as
-[High Throughput Computing (HTC)](https://en.wikipedia.org/wiki/High-throughput_computing).
+> If the shell can't find a program whose name is the command you typed, it
+> will print an error message such as:
+>
+> ~~~
+> $ ks
+> ~~~
+> {: .language-bash}
+> ~~~
+> ks: command not found
+> ~~~
+> {: .output}
+>
+> This might happen if the command was mis-typed or if the program corresponding to that command
+> is not installed.
+{: .callout}
 </div>
 
-## Components of an HPC System
+### Nelle's Pipeline: A Typical Problem
 
-Individual computers that compose a cluster are typically called *nodes*
-(although you will also hear people call them *servers*, *computers* and
-*machines*). On a cluster, there are different types of nodes for different
-types of tasks.
+Nelle Nemo, a marine biologist,
+has just returned from a six-month survey of the
+[North Pacific Gyre](http://en.wikipedia.org/wiki/North_Pacific_Gyre),
+where she has been sampling gelatinous marine life in the
+[Great Pacific Garbage Patch](http://en.wikipedia.org/wiki/Great_Pacific_Garbage_Patch).
+She has 1520 samples that she's run through an assay machine to measure the relative abundance
+of 300 proteins.
+She needs to run these 1520 files through an imaginary program called `goostats.sh` she inherited.
+On top of this huge task, she has to write up results by the end of the month so her paper
+can appear in a special issue of *Aquatic Goo Letters*.
 
-### Anatomy of a Node
+The bad news is that if she has to run `goostats.sh` by hand using a GUI,
+she'll have to select and open a file 1520 times.
+If `goostats.sh` takes 30 seconds to run each file, the whole process will take more than 12 hours
+of Nelle's attention.
+With the shell, Nelle can instead assign her computer this mundane task while she focuses
+her attention on writing her paper.
 
-All of the nodes in an HPC system have the same components as your own laptop
-or desktop: *CPUs* (sometimes also called *processors* or *cores*), *memory*
-(or *RAM*), and *disk* space. CPUs are a computer's tool for actually running
-programs and calculations. Information about a current task is stored in the
-computer's memory. Disk refers to all storage that can be accessed like a file
-system. This is generally storage that can hold data permanently, i.e. data is
-still there even if the computer has been restarted. While this storage can be
-local (a hard drive installed inside of it), it is more common for nodes to
-connect to a shared, remote/network fileserver or cluster of servers.
+The next few lessons will explore the ways Nelle can achieve this.
+More specifically,
+they explain how she can use a command shell to run the `goostats.sh` program,
+using loops to automate the repetitive steps of entering file names,
+so that her computer can work while she writes her paper.
 
-{% include figure.html url="" max-width="40%" file="/morea/hpc/fig/node_anatomy.png" alt="Node anatomy" caption="" %}
+As a bonus,
+once she has put a processing pipeline together,
+she will be able to use it again whenever she collects more data.
 
-### Login Nodes
-
-Serves as an access point to the cluster. As a gateway,
-it is suitable for uploading and downloading small files.
-
-### Data Transfer Nodes
-
-If you want to transfer larger amounts of data to or from a cluster, some
-systems offer dedicated nodes for data transfers only. The motivation for
-this lies in the fact that larger data transfers should not obstruct
-operation of the login node. As a rule of thumb, consider all transfers of
-a volume larger than 500 MB to 1 GB as large. But these numbers change,
-e.g., depending on the network connection of yourself and of your cluster
-or other factors.
-
-<div class="alert alert-info" role="alert" markdown="1">
-<i class="fa-solid fa-circle-info fa-xl"></i> **Data transfer nodes on Mana**
-<hr/>
-
-Mana has two such [data transfer nodes](https://www.hawaii.edu/bwiki/display/HPC/Data+transfer+Questions)
-that are available for use.
-</div>
-
-### Compute Nodes
-
-The real work on a cluster gets done by the *compute* (or *worker*) *nodes*.
-Compute nodes come in many shapes and sizes, but generally are dedicated to long
-or hard tasks that require a lot of computational resources.
-
-<div class="alert alert-info" role="alert" markdown="1">
-<i class="fa-solid fa-circle-info fa-xl"></i> **Data transfer nodes on Mana**
-<hr/>
-
-Mana has two such [data transfer nodes](https://www.hawaii.edu/bwiki/display/HPC/Data+transfer+Questions)
-that are available for use.
-</div>
-
-<div class="alert alert-info" role="alert" markdown="1">
-<i class="fa-solid fa-circle-info fa-xl"></i> **Differences Between Compute Nodes**
-<hr/>
-
-Many HPC clusters have a variety of nodes optimized for particular workloads.
-Some nodes may have larger amount of memory, or specialized resources such as
-Graphical Processing Units (GPUs).
-</div>
-
-All interaction with the compute nodes is handled by a specialized piece of
-software called a scheduler.
-
-<div class="alert alert-info" role="alert" markdown="1">
-<i class="fa-solid fa-circle-info fa-xl"></i> **Mana scheduler**
-<hr/>
-
-Mana utilizes a scheduler known as the
-[Slurm Workload Manager](https://slurm.schedmd.com/overview.html).
-</div>
-
-### Support nodes
-
-There are also specialized machines used for managing disk storage, user
-authentication, and other infrastructure-related tasks. Although we do not
-typically logon to or interact with these machines directly, they enable a
-number of key features like ensuring our user account and files are available
-throughout the HPC system.
-
-## Key Points
-
-<div class="alert alert-success" role="alert" markdown="1">
-
-* High Performance Computing (HPC) typically involves connecting to very large computing systems elsewhere in the world.
-* These systems can be used to do work that would either be impossible or much slower on smaller systems.
-</div>
-
-## Acknowledgements
-
-Material used and modified from the [Introduction to High-Performance Computing Incubator workshop](https://carpentries-incubator.github.io/hpc-intro/).
-
-<hr/>
-For comparison purposes, here's the [Software Carpentry version of this page](https://ci-tracs.github.io/High_Performance_Computing/00-intro/index.html)
+In order to achieve her task, Nelle needs to know how to:
+- navigate to a file/directory
+- create a file/directory
+- check the length of a file
+- chain commands together
+- retrieve a set of files
+- iterate over files
+- run a shell script containing her pipeline
