@@ -8,6 +8,11 @@ morea_readings:
   - reading-screencast-workshop-sci-software-basics-s22
 morea_experiences:
   - experience-ssb-intro
+  - experience-ssb-filedir
+  - experience-ssb-create
+  - experience-ssb-pipefilter
+  - experience-ssb-loop
+  - experience-ssb-script
 morea_assessments:
 morea_prerequisites:
 morea_type: module
