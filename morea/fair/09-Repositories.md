@@ -22,7 +22,6 @@ There are general "data agnostic" repositories, for example:
 - [Dryad](https://datadryad.org),
 - [Zenodo](https://zenodo.org),
 - [FigShare](https://figshare.com),
-- [Dataverse](https://thedata.org).
 
 Or domain specific, for example:
 

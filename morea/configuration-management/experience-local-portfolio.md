@@ -21,7 +21,7 @@ For the work we will do in this class, you will find that the [GitHub Desktop](h
 
 Let's get started:
 
-  1. Review the [GitHub Desktop Documentation](https://help.github.com/desktop/).
+  1. Review the [GitHub Desktop Documentation](https://docs.github.com/en/desktop).
   2. Download and install [GitHub Desktop](https://desktop.github.com/).
   3. If you haven't already, watch the [screencast on GitHub Desktop](reading-screencast-github-desktop.html).
   3. Bring up your professional portfolio page in your browser.

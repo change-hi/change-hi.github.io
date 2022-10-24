@@ -25,15 +25,13 @@ Please send a short biography and headshot for Hawai‘i Data Science Institute 
 
 Please include a short description of your academic history, your research advisor/lab and degree and your research interests.
 
-Example here:
-
-[https://datascience.hawaii.edu/profile/katie-ackerman/](https://datascience.hawaii.edu/profile/katie-ackerman/)
+Example here: <https://datascience.hawaii.edu/profile/katie-ackerman/>
 
 ### 3. Media Release Waiver
 
 The Hawai‘i Data Science Institute requests Photo, Video and Sound Recording Release and Consent from participants.
 
-[https://drive.google.com/file/d/1GEDvh1hbEzqINzrpw19Anx8-dElElsl6/view?usp=sharing](https://drive.google.com/file/d/1GEDvh1hbEzqINzrpw19Anx8-dElElsl6/view?usp=sharing)
+[Consent Form](https://drive.google.com/file/d/1GEDvh1hbEzqINzrpw19Anx8-dElElsl6/view?usp=sharing)
 
 Access to any relevant Google Drive, Google Calendars, email LISTSERVs, Slack, Github and other resources
 
@@ -43,7 +41,7 @@ Access will be granted throughout the week. Please contact Maria Dumanlang if yo
 
 All federally-funded students must complete CITI Responsible Conduct of Research training. The CITI RCR course may take 4 or more hours to complete. CITI keeps track of your progress allowing you to complete the course over several sessions. It is strongly recommended that you utilize all the tools available, such as the video clips, case studies and elective modules. These tools provide a great deal of information regarding research integrity and research best practices. For questions, please contact Michelle Choe at choem3@hawaii.edu.
 
-[https://research.hawaii.edu/orc/programs/research-integrity/responsible-conduct-of-research-training/](https://research.hawaii.edu/orc/programs/research-integrity/responsible-conduct-of-research-training/)
+<https://research.hawaii.edu/orc/research-integrity/rcr-training/>
 
 Here are the steps:
 

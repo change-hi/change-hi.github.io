@@ -198,7 +198,7 @@ Candela, L. , Castelli, D. , Manghi, P. and Tani, A. (2015), Data Journals: A Su
 
 ## How does your discipline share data
 
-Does your discipline have a data journal? Or some other mechanism to share data? For example, the American Astronomical Society (AAS) via the publisher IOP Physics offers a [supplement series](https://iopscience.iop.org/journal/0067-0049/page/article-data) as a way for astronomers to publish data.
+Does your discipline have a data journal? Or some other mechanism to share data? For example, the American Astronomical Society (AAS) via the publisher IOP Physics offers a [supplement series](https://iopscience.iop.org/journal/0067-0049) as a way for astronomers to publish data.
 
 <div class="alert alert-info" role="alert" markdown="1">
 <i class="fa-solid fa-circle-info fa-xl"></i> **For more information**

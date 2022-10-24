@@ -120,7 +120,6 @@ UK Data service version control guide:
 
 * Research Vocabularies Australia [https://vocabs.ands.org.au/](https://vocabs.ands.org.au/)
 * AGROVOC & VocBench [https://aims.fao.org/vest-registry/vocabularies/agrovoc](https://aims.fao.org/vest-registry/vocabularies/agrovoc)
-* Dimensions Fields of Research [https://dimensions.freshdesk.com/support/solutions/articles/23000012844-what-are-fields-of-research-](https://dimensions.freshdesk.com/support/solutions/articles/23000012844-what-are-fields-of-research-)
 * Versioning/SHA: [https://swcarpentry.github.io/git-novice/reference](https://swcarpentry.github.io/git-novice/reference)
 * Binder - executable environment, making your code immediately reproducible by anyone, anywhere: [https://blog.jupyter.org/binder-2-0-a-tech-guide-2017-fd40515a3a84](https://blog.jupyter.org/binder-2-0-a-tech-guide-2017-fd40515a3a84)
 * Narrative & Documentation: Jupyter Notebooks

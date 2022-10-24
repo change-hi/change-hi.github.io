@@ -93,7 +93,6 @@ Solutions will probably contain the following:
 <i class="fa-solid fa-circle-info fa-xl"></i> **For more information**
 <hr/>
 The content of this chapter was adapted from:
-* [Metadata - FAIR data for climate sciences](https://escience-academy.github.io/Lesson-FAIR-Data-Climate/metadata/index.html).
 * [Metadata - How to FAIR](https://howtofair.dk/how-to-fair/metadata/)
 * [MIBBI](https://fairsharing.org/collection/MIBBI)
 </div>

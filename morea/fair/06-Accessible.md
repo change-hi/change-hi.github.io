@@ -35,7 +35,7 @@ Hydroshare offers a REST API protocol which will enable many of the functions th
 <div class="alert alert-info" role="alert" markdown="1">
 <i class="fa-solid fa-circle-info fa-xl"></i> **For more information**
 <hr/>
-See the [Hydroshare Rest API](https://www.hydroshare.org/hsapi)
+See the <a href="https://www.hydroshare.org/hsapi">Hydroshare REST API</a>
 </div>
 
 
@@ -65,7 +65,7 @@ If you haven't already, please create a Hydroshare account now:
 
 1. [Register](https://www.hydroshare.org/sign-up/) for Hydroshare.
 2. You will receive a confirmation email. Click the link in the email...
-3. Go to [Hydroshare](hydroshare.org) and select Log in.
+3. Go to [Hydroshare](https://www.hydroshare.org) and select Log in.
 
 {% include figure.html url="" max-width="80%"
 file="/morea/fair/fig/hydrosharesignup.png"
@@ -112,8 +112,8 @@ If a DOI is no longer available and the data center does not have the resources 
 
 **See the following tombstone examples:**
 
-- Zenodo tombstone: [https://zenodo.org/record/1098445](https://zenodo.org/record/1098445)
-- Figshare tombstone: [https://figshare.com/articles/Climate_Change/1381402](https://figshare.com/articles/Climate_Change/1381402)
+- Zenodo tombstone: "https://zenodo.org/record/1098445"
+- Figshare tombstone: "https://figshare.com/articles/Climate_Change/1381402"
 
 <div class="alert alert-info" role="alert" markdown="1">
 <i class="fa-solid fa-circle-info fa-xl"></i> **For more information**
