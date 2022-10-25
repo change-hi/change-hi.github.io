@@ -6,6 +6,7 @@ morea_id: fair
 morea_outcomes:
   - outcome-fair
 morea_readings:
+  - reading-code-of-conduct
   - hydroshare
 morea_experiences:
   - FairIntroduction
