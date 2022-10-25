@@ -1,22 +1,16 @@
 ---
-title: "Introduction"
+title: "1. Introduction"
 published: true
 morea_id: FairIntroduction
-morea_type: reading
+morea_type: experience
 morea_summary: "Who are we and what are we going to learn?"
 morea_sort_order: 1
 morea_labels:
-  - 8 min (Teaching)
+  - 2:00pm
 #morea_enable_toc: true
 ---
 
 # Introductions
-
-> Introductions
->
-> - Sean Cleveland, Cyberinfrastructure Scientist, The University of Hawai'i Cyberinfrastructure & Hawaii Data Science Institute
-> - Bjarne Bartlett, CI-TRACS Data Science Fellow, The University of Hawai'i Cyberinfrastructure & Hawaii Data Science Institute
->   {: .testimonial}
 
 Hello everyone, and welcome to the **FAIR Data Management Security and Ethics** workshop.
 
@@ -34,11 +28,12 @@ alt="Figure 5.2. Sharing as part of the workflo" caption="_Figure credits: Tomas
 
 ## When should you engage in data sharing and open practices?
 
-- Data management should be done throughout the duration of your project.
-- If you wait till the end, it will take a massive effort on your side and will be more of a burden than a benefit.
-- Taking the time to do effective data management will help you understand your data better and make it easier to find when you need it (for example when you need to write a manuscript or a thesis!).
-- All the practices that enable others to access and use your outcomes directly
+* Data management should be done throughout the duration of your project.
+* If you wait till the end, it will take a massive effort on your side and will be more of a burden than a benefit.
+* Taking the time to do effective data management will help you understand your data better and make it easier to find when you need it (for example when you need to write a manuscript or a thesis!).
+* All the practices that enable others to access and use your outcomes directly
   benefit you and your group
 
 In this workshop we will discuss how your research outputs can be made readily available for re-use by others.
 
+{% include next-button.html top-label="Open Science ->" bottom-label="2:10pm" url="/morea/fair/02-OpenScience.html" %}

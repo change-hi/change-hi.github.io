@@ -6,22 +6,19 @@ morea_id: hpc
 morea_outcomes:
   - outcome-hpc
 morea_readings:
-  - reading-code-of-conduct
   - reading-hpc-preparation
-  - reading-screencast-workshop-hpc-s22
 morea_experiences:
   - experience-hpc-intro
   - experience-hpc-connecting
   - experience-hpc-deep-learning
   - experience-hpc-file-systems
 morea_assessments:
-  - assessment-hpc
   - assessment-hpc-workshop
 morea_prerequisites:
   - prerequisite-python-jupyter
 morea_icon_url: /morea/hpc/Mana-Logo.jpg
 morea_type: module
-morea_sort_order: 20
+morea_sort_order: 50
 morea_labels:
   - Workshop
 ---

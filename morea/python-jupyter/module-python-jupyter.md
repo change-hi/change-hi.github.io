@@ -20,8 +20,7 @@ morea_icon_url: /morea/python-jupyter/python-logo.jpg
 morea_labels:
   - Background
 morea_sort_order: 20
+morea_summary: This module provides recommended readings and introductory tutorials on Python and Jupyter.
 ---
 
-This module provides recommended readings and introductory tutorials on Python and Jupyter. 
-
-Python and Jupyter are prerequisites for many of the workshops in CI-TRACS. This module will help bring you up to speed with these technologies if you are not already familiar with them.
+Python and Jupyter are prerequisites for many of the workshops in Change-HI. This module will help bring you up to speed with these technologies if you are not already familiar with them.

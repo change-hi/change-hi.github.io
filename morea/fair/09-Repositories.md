@@ -1,13 +1,12 @@
 ---
-title: "Public repositories"
+title: "10. Public repositories"
 published: true
 morea_id: FairRepositories
 morea_type: experience
 morea_summary: "Where can I deposit datasets? What are general data repositories? How to find a repository?"
 morea_sort_order: 10
 morea_labels:
-  - 8 min (Teaching)
-  - 2 min (Exercise)
+  - 3:10pm
 morea_enable_toc: true
 ---
 
@@ -16,15 +15,13 @@ This section will describe what are public repositories.
 
 ## What are research data repositories?
 
-(13 min teaching)
 Research data repositories are online repositories that enable the preservation, curation and publication of research 'products'. These repositories are mainly used to deposit research 'data'. However, the scope of the repositories is broader as we can also deposit/publish 'code' or 'protocols' (as we saw with protocols.io).
 
 There are general "data agnostic" repositories, for example:
 
-- [Dryad](http://datadryad.org),
-- [Zenodo](http://zenodo.org),
-- [FigShare](http://figshare.com),
-- [Dataverse](http://thedata.org).
+- [Dryad](https://datadryad.org),
+- [Zenodo](https://zenodo.org),
+- [FigShare](https://figshare.com),
 
 Or domain specific, for example:
 
@@ -38,14 +35,15 @@ Research outputs should be submitted to discipline/domain-specific repositories 
 Research data repositories are a key resource to help in data FAIRification as they
 assure Findability and Accessibility.
 
-> ## Exercise 9: Public general record (8 min)
+## What makes it FAIR?
+
 <div class="alert alert-secondary" role="alert" markdown="1">
-<i class="fa-solid fa-user-pen fa-xl"></i>  **Public Repository**
+<i class="fa-solid fa-user-pen fa-xl"></i>  **Exercise: What makes it FAIR?**
 <hr/>
 
-> Have a look at the following record for data set in Hydroshare repository:
-> [Hydroshare](http://www.hydroshare.org/resource/96310f82dd5247ba8201955750093923).
-> What elements make it FAIR?
+Have a look at the following record for data set in Hydroshare repository:
+[Hydroshare](https://www.hydroshare.org/resource/96310f82dd5247ba8201955750093923).
+What elements make it FAIR?
 
 <details>
   <summary>Solution</summary>
@@ -98,28 +96,25 @@ Reusable (data should be well-described so that they can be replicated and/or co
 </details>
 </div>
 
+## Minimal data set
 
+Minimal data set to consist of the data required to replicate all study findings reported
+in the article, as well as related metadata and methods.
 
-(4 min discussion)
+- The values behind the means, standard deviations and other measures reported;
+- The values used to build graphs;
+- The points extracted from images for analysis.
 
-> ## Minimal data set
->
-> Minimal data set to consist of the data required to replicate all study findings reported
-> in the article, as well as related metadata and methods.
->
-> - The values behind the means, standard deviations and other measures reported;
-> - The values used to build graphs;
-> - The points extracted from images for analysis.
->
-> (no need for raw data if the standard in the field is to share data that have been processed)
->
-> [PLOS](https://journals.plos.org/plosbiology/s/data-availability)
->
-> {: .callout}
+(no need for raw data if the standard in the field is to share data that have been processed)
+
+<div class="alert alert-info" role="alert" markdown="1">
+<i class="fa-solid fa-circle-info fa-xl"></i> **For more information**
+<hr/>
+See the [PLOS guidelines for data availability](https://journals.plos.org/plosbiology/s/data-availability)
+</div>
 
 ## How do we choose a research data repository?
 
-(3 min teaching)
 As a general rule, your research needs to be deposited in discipline/data specific repository. If no specific repository can be found, then you can use a generalist repository. Having said this, there are tons of data repositories to choose from. Choosing one can be time consuming and challenging as well.
 So how do you go about finding a repository:
 
@@ -142,14 +137,14 @@ So how do you go about finding a repository:
 - Check [Fairsharing recommendations](https://fairsharing.org/recommendations/?q=)
   - alternatively, check the [Registry of research data repositories - re3data](https://www.re3data.org/)
 
-> ## Exercise 10: Finding a repository (5 min + 4 min discussion).
-<div class="alert alert-secondary" role="alert" markdown="1">
-<i class="fa-solid fa-user-pen fa-xl"></i>  **Public Repository**
-<hr/>
+## Find a repository
 
-> a) Find a repo for genomics data.  
-> b) Find a repo for microscopy data.  
-> Note to instructor: Fairsharing gives few options, people may give different answer follow up why they selected particular ones.
+<div class="alert alert-secondary" role="alert" markdown="1">
+<i class="fa-solid fa-user-pen fa-xl"></i>  **Exercise: Public Repository**
+<hr/>
+Using what you've learned so far:
+1. Find a repository for genomics data.
+2. Find a repository for microscopy data.  
 
 <details>
   <summary>Solution</summary>
@@ -163,45 +158,37 @@ A list of UoE BioRDM's recommended data repositories can be found <a href="https
 </details>
 </div>
 
+## What comes first? the repository or the metadata?
 
+Finding a repository first may help in deciding what metadata to collect and how!
 
-> ## What comes first? the repository or the metadata?
->
-> Finding a repository first may help in deciding what metadata to collect and how!
->
-> {: .callout}
+## Extra features
 
-> ## Extra features
->
-> It is also worth considering that some repositories offer extra features, such as running simulations or providing visualisation. For example, [FAIRDOMhub](https://fairdomhub.org/) can run model simulations and has project structures. Do not forget to take this into account when choosing your repository. Extra features might come in handy.
->
-> {: .callout}
+It is also worth considering that some repositories offer extra features, such as running simulations or providing visualisation. For example, [FAIRDOMhub](https://fairdomhub.org/) can run model simulations and has project structures. Do not forget to take this into account when choosing your repository. Extra features might come in handy.
 
-> ## Can GitHub be cited?
->
-> To make your code repositories easier to reference in academic literature, you can create persistent identifiers for them. Particularly, you can use the data archiving tool in Zenodo to archive a GitHub repository and issue a DOI for it.
->
-> {: .callout}
+## Can GitHub be cited?
+
+To make your code repositories easier to reference in academic literature, you can create persistent identifiers for them. Particularly, you can use the data archiving tool in Zenodo to archive a GitHub repository and issue a DOI for it.
 
 ## Evaluating a research data repository
 
 You can evaluate the repositories by following this criteria:
-
 - who is behind it, what is its funding
 - quality of interaction: is the interaction for purposes of data deposit or reuse efficient, effective and satisfactory for you?
-- take-up and impact: what can I put in it? Is anyone else using it? Will others be able to find stuff deposited in it? Is the repository linked to other data repositories so I don't have to search tehre as well? Can anyone reuse the data? Can others cite the data, and will depositing boost citations to related papers?
+- take-up and impact: what can I put in it? Is anyone else using it? Will others be able to find stuff deposited in it? Is the repository linked to other data repositories so I don't have to search there as well? Can anyone reuse the data? Can others cite the data, and will depositing boost citations to related papers?
 - policy and process: does it help you meet community standards of good practice and comply with policies stipulating data deposit?
 
-> ## Resources
->
-> - An interesting take can be found at Peter Murray-Rust's blog post [Criteria for succesful repositories](https://blogs.ch.cam.ac.uk/pmr/2011/08/19/criteria-for-successful-repositories/).
+<div class="alert alert-info" role="alert" markdown="1">
+<i class="fa-solid fa-circle-info fa-xl"></i> **For more information**
+<hr/>
 
-> ## Attribution
->
-> Content of this episode was adapted or inspired by:.
->
-> - [FAIR principles](https://www.go-fair.org/fair-principles/)
-> - [BioRDM suggested data repositories](https://www.wiki.ed.ac.uk/display/RDMS/Suggested+data+repositories)
-> - [DCC - How can we evaluate data repositories?](https://www.dcc.ac.uk/news/how-can-we-evaluate-data-repositories-pointers-dryaduk)
-> - [Criteria for succesful repositories](https://blogs.ch.cam.ac.uk/pmr/2011/08/19/criteria-for-successful-repositories/)
->   {: .callout}
+An interesting take can be found at Peter Murray-Rust's blog post [Criteria for successful repositories](https://blogs.ch.cam.ac.uk/pmr/2011/08/19/criteria-for-successful-repositories/).
+
+The content of this chapter was adapted or inspired by:
+* [FAIR principles](https://www.go-fair.org/fair-principles/)
+* [BioRDM suggested data repositories](https://www.wiki.ed.ac.uk/display/RDMS/Suggested+data+repositories)
+* [DCC - How can we evaluate data repositories?](https://www.dcc.ac.uk/news/how-can-we-evaluate-data-repositories-pointers-dryaduk)
+* [Criteria for succesful repositories](https://blogs.ch.cam.ac.uk/pmr/2011/08/19/criteria-for-successful-repositories/)
+</div>
+
+{% include next-button.html top-label="Exercises ->" bottom-label="3:20pm" url="/morea/fair/10-Exercises.html" %}

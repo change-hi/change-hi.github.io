@@ -6,8 +6,7 @@ morea_type: experience
 morea_summary: "Understand how to connect to an HPC system and the basics of Open OnDemand"
 morea_sort_order: 3
 morea_labels:
-  - 10 min (Teaching)
-  - 10 min (Exercises)
+  - 2:10pm
 morea_enable_toc: true
 ---
 
@@ -90,7 +89,7 @@ the same functionality and more exist.  One such tool is Open OnDemand (OOD).
 
 Created by Ohio Supercomputer Center, U. of Buffalo CCR, and Virginia Tech
 and development funded by National Science Foundation under
-grant numbers 1534949 and 1835725. [Learn more about Open OnDemand](http://openondemand.org/)
+grant numbers 1534949 and 1835725. [Learn more about Open OnDemand](https://openondemand.org/)
 </div>
 
 

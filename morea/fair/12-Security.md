@@ -1,18 +1,18 @@
 ---
-title: "Security"
+title: "13. Security"
 published: true
 morea_id: FairSecurity
-morea_type: reading
+morea_type: experience
 morea_summary: "What measures will you take to secure your data?"
 morea_sort_order: 12
 morea_labels:
-  - 8 min (Teaching)
+  - 3:45pm
 morea_enable_toc: true
 ---
 
 # Security
 
-Today, we will approach two different aspcets of data security.
+Today, we will approach two different aspects of data security.
 
 - Securing data from hostile people and groups that would compromise the system.
 - Securing data from general threats such as power outages, fires, floods, and hardware failure.
@@ -63,9 +63,12 @@ Small datasets and files are often stored on laptops and computer hard drives. W
 - OneDrive
 - iCloud
 
-> ## Resources
->
-> [Attribution](https://onlinedegrees.und.edu/blog/types-of-cyber-security-threats/) > [RAID](https://en.wikipedia.org/wiki/Standard_RAID_levels)
-> The BioRDM team has a lot of information about the here taught course material on
-> their [BioRDM wiki](https://www.wiki.ed.ac.uk/display/RDMS/).
-> {: .callout}
+<div class="alert alert-info" role="alert" markdown="1">
+<i class="fa-solid fa-circle-info fa-xl"></i> **For more information**
+<hr/>
+* [Attribution](https://onlinedegrees.und.edu/blog/types-of-cyber-security-threats/) 
+* [RAID](https://en.wikipedia.org/wiki/Standard_RAID_levels)
+* [BioRDM wiki](https://www.wiki.ed.ac.uk/display/RDMS/).
+</div>
+
+{% include next-button.html top-label="Workshop Assessment ->" bottom-label="3:50pm" url="/morea/fair/assessment-fair-workshop.html" %}

@@ -1,13 +1,12 @@
 ---
-title: "Metadata"
+title: "9. Metadata"
 published: true
 morea_id: Metadata
 morea_type: experience
 morea_summary: "What is metadata? What do we use metadata for?"
 morea_sort_order: 9
 morea_labels:
-  - 8 min (Teaching)
-  - 14 min (Exercise)
+  - 3:00pm
 morea_enable_toc: true
 ---
 
@@ -36,69 +35,69 @@ What information **can you get** from the image, without the associated descript
 
 Let's see the associated metadata of the image and the dataset to which it belongs:
 
-> ## Image metadata
->
-> Name: OP50 D10Ad_06.czi
-> Image ID: 3485
-> Owner: Maria Eugenia Goya
-> ORCID: 0000-0002-5031-2470
->
-> Acquisition Date: 2018-12-12 17:53:55
-> Import Date: 2020-04-30 22:38:59
-> Dimensions (XY): 1344 x 1024
-> Pixels Type: uint16
-> Pixels Size (XYZ) (µm): 0.16 x 0.16 x 1.00
-> Z-sections/Timepoints: 56 x 1
-> Channels: TL DIC, TagYFP
-> ROI Count: 0
->
-> Tags: time course; day 10; adults; food switching; E. coli OP50;
-> NL5901; C. elegans
->
-> ## Dataset metadata
->
-> Name: Figure2_Figure2B
-> Dataset ID: 263
-> Owner: Maria Eugenia Goya
-> ORCID: 0000-0002-5031-2470
->
-> Description:
-> The datasets contains a time course of α-syn aggregation in NL5901 C.
-> elegans worms after a food switch at the L4 stage:
->
-> E. coli OP50 to OP50
-> Day 01 adults
-> Day 03 adults
-> Day 05 adults
-> Day 07 adults
-> Day 10 adults
-> Day 13 adults
->
-> E. coli OP50 to B. subtilis PXN21
-> Day 01 adults
-> Day 03 adults
-> Day 05 adults
-> Day 07 adults
-> Day 10 adults
-> Day 13 adults
->
-> Images were taken at 6 developmental timepoints (D1Ad, D3Ad, D5Ad,
-> D7Ad, D10Ad, D13Ad)
->
-> \* Some images contain more than one nematode.
->
-> Each image contains ~30 (or more) Z-sections, 1 µmeters apart. The
-> TagYFP channel is used to follow the alpha-synuclein particles. The TL
-> DIC channel is used to image the whole nematode head.
->
-> These images were used to construct Figure 2B of the Cell Reports
-> paper (<https://doi.org/10.1016/j.celrep.2019.12.078>).
->
-> Creation date: 2020-04-30 22:16:39
->
-> Tags: protein aggregation; time course; E. coli OP50 to B. subtilis PXN21; food switching; E. coli OP50;
-> 10.1016/j.celrep.2019.12.078; NL5901; C. elegans
-> {: .callout}
+## Image metadata
+
+Name: OP50 D10Ad_06.czi
+Image ID: 3485
+Owner: Maria Eugenia Goya
+ORCID: 0000-0002-5031-2470
+
+Acquisition Date: 2018-12-12 17:53:55
+Import Date: 2020-04-30 22:38:59
+Dimensions (XY): 1344 x 1024
+Pixels Type: uint16
+Pixels Size (XYZ) (µm): 0.16 x 0.16 x 1.00
+Z-sections/Timepoints: 56 x 1
+Channels: TL DIC, TagYFP
+ROI Count: 0
+
+Tags: time course; day 10; adults; food switching; E. coli OP50;
+NL5901; C. elegans
+
+## Dataset metadata
+
+Name: Figure2_Figure2B
+Dataset ID: 263
+Owner: Maria Eugenia Goya
+ORCID: 0000-0002-5031-2470
+
+Description:
+The datasets contains a time course of α-syn aggregation in NL5901 C.
+elegans worms after a food switch at the L4 stage:
+
+E. coli OP50 to OP50
+Day 01 adults
+Day 03 adults
+Day 05 adults
+Day 07 adults
+Day 10 adults
+Day 13 adults
+
+E. coli OP50 to B. subtilis PXN21
+Day 01 adults
+Day 03 adults
+Day 05 adults
+Day 07 adults
+Day 10 adults
+Day 13 adults
+
+Images were taken at 6 developmental timepoints (D1Ad, D3Ad, D5Ad,
+D7Ad, D10Ad, D13Ad)
+
+\* Some images contain more than one nematode.
+
+Each image contains ~30 (or more) Z-sections, 1 µmeters apart. The
+TagYFP channel is used to follow the alpha-synuclein particles. The TL
+DIC channel is used to image the whole nematode head.
+
+These images were used to construct Figure 2B of the Cell Reports
+paper (<https://doi.org/10.1016/j.celrep.2019.12.078>).
+
+Creation date: 2020-04-30 22:16:39
+
+Tags: protein aggregation; time course; E. coli OP50 to B. subtilis PXN21; food switching; E. coli OP50;
+10.1016/j.celrep.2019.12.078; NL5901; C. elegans
+
 
 This is a lot of information!
 
@@ -126,19 +125,20 @@ between three main types of metadata:
 Descriptive and structural **metadata should be added
 continuously** throughout the project.
 
-> ## Exercise 6: Identifying metadata types (4 min)
+## Identifying metadata
+
 <div class="alert alert-secondary" role="alert" markdown="1">
-<i class="fa-solid fa-user-pen fa-xl"></i>  **Open Science**
+<i class="fa-solid fa-user-pen fa-xl"></i>  **Exercise: Identifying metadata**
 <hr/>
 
-> Here we have an excel spreadsheet that contains project metadata for
-> a made-up experiment of plant metabolites
+Here we have an excel spreadsheet that contains project metadata for
+a made-up experiment of plant metabolites
 {% include figure.html url="" max-width="80%"
 file="/morea/fair/fig/04-metadatafull_spreadsheet.png"
 alt="Metadata in data table example" caption="_Figure credits: Tomasz Zielinski and Andrés Romanowski_" %}
 >
-> In groups, identify different types of metadata (administrative,
-> descriptive, structural) present in this example.
+In groups, identify different types of metadata (administrative,
+descriptive, structural) present in this example.
 
 <details>
   <summary>Solution</summary>
@@ -157,17 +157,17 @@ alt="metadata-full-spreadhseet" caption="_Figure credits: Tomasz Zielinski and A
 </div>
 
 
-> ## Where does data end and metadata start?
->
-> What is "data" and what is "metadata" can be a matter of
-> perspective: Some researchers' metadata can be other researchers'
-> data.
->
-> For example, a funding body is categorised as typical administrative metadata,
-> however, it can be used to calculate numbers of public datasets per funder
-> and then used to compare effects of different funders' policies on open practices.
->
-> {: .callout}
+## Where does data end and metadata start?
+
+What is "data" and what is "metadata" can be a matter of
+perspective: Some researchers' metadata can be other researchers'
+data.
+
+For example, a funding body is categorised as typical administrative metadata,
+however, it can be used to calculate numbers of public datasets per funder
+and then used to compare effects of different funders' policies on open practices.
+
+
 
 ## Adding metadata to your experiments
 
@@ -188,47 +188,44 @@ But,
 For many assay methods and experiment types, there are defined recommendations
 and guidelines called **Minimal Information Standards**.
 
-> ## Minimal Information Standard
->
-> The minimum information standard is a set of guidelines for reporting data
-> derived by relevant methods in biosciences.
-> If followed, it ensures that the data can be easily verified,
-> analysed and clearly interpreted by the wider scientific community.
-> Keeping with these recommendations also facilitates the foundation of structuralized
-> databases, public repositories and development of data analysis tools.
-> Individual minimum information standards are brought by the communities of cross-disciplinary
-> specialists focused on issues of the specific method used in experimental biology.
->
-> Minimum Information for Biological and Biomedical Investigations [(MIBBI)](https://fairsharing.org/collection/MIBBI)
-> is the collection of the most known standards.
->
-> [FAIRSharing](https://fairsharing.org/standards/) offers excellent search service
-> for finding standards
->
-> {: .callout}
+## Minimal Information Standard
 
-> ## Exercise 7: Minimal information standard example (2 min)
+The minimum information standard is a set of guidelines for reporting data
+derived by relevant methods in biosciences.
+If followed, it ensures that the data can be easily verified,
+analysed and clearly interpreted by the wider scientific community.
+Keeping with these recommendations also facilitates the foundation of structuralized
+databases, public repositories and development of data analysis tools.
+Individual minimum information standards are brought by the communities of cross-disciplinary
+specialists focused on issues of the specific method used in experimental biology.
+
+Minimum Information for Biological and Biomedical Investigations [(MIBBI)](https://fairsharing.org/collection/MIBBI)
+is the collection of the most known standards.
+
+[FAIRSharing](https://fairsharing.org/standards/) offers excellent search service
+for finding standards
+
 <div class="alert alert-secondary" role="alert" markdown="1">
-<i class="fa-solid fa-user-pen fa-xl"></i>  **Metadata**
+<i class="fa-solid fa-user-pen fa-xl"></i>  **Exercise: Minimum information**
 <hr/>
 
-> Look at **_Minimum Information about a Neuroscience Investigation (MINI) Electrophysiology_** > [Gibson, F. et al. Nat Prec (2008)](https://www.nature.com/articles/npre.2008.1720.1.pdf).
-> which contains recommendations for reporting the use of electrophysiology in a neuroscience study.  
-> (_Neuroscience (or neurobiology) is the scientific study of the nervous system_).
->
-> Scroll to _Reporting requirement_ and decide which of the points 1-8 are:
->
-> - a) important for understanding and reuse of data
-> - b) important for technical replication
-> - c) could be applied to other experiments in neuroscience
+Look at **_Minimum Information about a Neuroscience Investigation (MINI) Electrophysiology_** [Gibson, F. et al. Nat Prec (2008)](https://www.nature.com/articles/npre.2008.1720.1.pdf).
+which contains recommendations for reporting the use of electrophysiology in a neuroscience study.  
+(_Neuroscience (or neurobiology) is the scientific study of the nervous system_).
+
+Scroll to _Reporting requirement_ and decide which of the points 1-8 are:
+* important for understanding and reuse of data
+* important for technical replication
+* could be applied to other experiments in neuroscience
+
 <details>
   <summary>Solution</summary>
 
-> > Possible answers:
-> >
-> > - a) 
-> > - b) 
-> > - c) 
+Possible answers:
+
+- a) 
+- b) 
+- c) 
 <ul>
 <li>2, 3, 4, 5, 6, 8a-b</li>
 <li>3, 7</li>
@@ -248,14 +245,10 @@ Think as a consumer of your data not the producer!
 </details>
 </div>
 
-
-
-
-
-> ## Exercise 8: What to include - discussion (2 minutes)
+## What to include? 
 
 <div class="alert alert-secondary" role="alert" markdown="1">
-<i class="fa-solid fa-user-pen fa-xl"></i>  **Metadata**
+<i class="fa-solid fa-user-pen fa-xl"></i>  **Exercise: Sharing data**
 <hr/>
 
 Think of the data you generate in your projects,and imagine you are going to share them.
@@ -263,10 +256,10 @@ Think of the data you generate in your projects,and imagine you are going to sha
 What information would another researcher need to understand or reproduce your data (the structural metadata)?
 
 For example, we believe that any dataset should have:
-> - a name/title
-> - its purpose or experimental hypothesis
+- a name/title
+- its purpose or experimental hypothesis
 
-> Write down and compare your proposals, can we find some common elements?
+Write down and compare your proposals, can we find some common elements?
 
 <details>
   <summary>Solution</summary>
@@ -283,8 +276,6 @@ Some typical elements are:
 <li>Accompanying code, software used (version nr), parameters applied, statistical tests used, seed for randomisation</li>
 <li>LOT numbers</li>
 </ul>
-
-
 </details>
 </div>
 
@@ -300,11 +291,15 @@ Findable, Accessible, Interoperable and Reusable apply to metadata.
 Ideally, metadata should not only be machine-readable, but also interoperable
 so that they can interlink or be reasoned about by computer systems.
 
-> ## Attribution
->
-> Content of this episode was adapted from:
->
-> - [Metadata - FAIR data for climate sciences](https://esciencecenter-digital-skills.github.io/Lesson-FAIR-Data-Climate/metadata/index.html).
-> - [Metadata - How to FAIR](https://howtofair.dk/how-to-fair/metadata/)
-> - [MIBBI](https://fairsharing.org/collection/MIBBI)
->   {: .callout}
+<div class="alert alert-info" role="alert" markdown="1">
+<i class="fa-solid fa-circle-info fa-xl"></i> **For more information**
+<hr/>
+The content of this chapter was adapted from:
+* [Metadata - FAIR data for climate sciences](https://esciencecenter-digital-skills.github.io/Lesson-FAIR-Data-Climate/metadata/index.html).
+* [Metadata - How to FAIR](https://howtofair.dk/how-to-fair/metadata/)
+* [MIBBI](https://fairsharing.org/collection/MIBBI)
+
+</div>
+
+
+{% include next-button.html top-label="Repositories ->" bottom-label="3:10pm" url="/morea/fair/09-Repositories.html" %}

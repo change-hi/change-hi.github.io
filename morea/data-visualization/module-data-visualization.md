@@ -12,7 +12,7 @@ morea_type: module
 morea_icon_url: /morea/data-visualization/logo.jpg
 morea_labels:
     - Workshop
-morea_sort_order: 120
+morea_sort_order: 90
 ---
 
 (Module not yet available)

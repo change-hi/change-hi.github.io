@@ -20,7 +20,7 @@ morea_type: module
 morea_icon_url: /morea/scientific-software-basics/logo.jpg
 morea_labels:
 - Workshop
-morea_sort_order: 10
+morea_sort_order: 40
 ---
 
 This workshop will cover basics of Scientific Software and will be held on October 28, 2022.

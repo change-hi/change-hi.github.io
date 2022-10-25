@@ -13,7 +13,7 @@ morea_type: module
 morea_icon_url: /morea/data-wrangling/logo.png
 morea_labels:
 - Workshop
-morea_sort_order: 50
+morea_sort_order: 70
 ---
 
 (Module not yet available)

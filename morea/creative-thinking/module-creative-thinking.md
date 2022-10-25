@@ -13,7 +13,7 @@ morea_type: module
 morea_icon_url: /morea/creative-thinking/logo.jpg
 morea_labels:
 - Workshop
-morea_sort_order: 40
+morea_sort_order: 110
 ---
 
 (Module not yet available)

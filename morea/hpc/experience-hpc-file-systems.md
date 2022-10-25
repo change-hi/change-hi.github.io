@@ -6,8 +6,7 @@ morea_type: experience
 morea_summary: "What is a file system? What is a distributed file system? How do you optimize the file system on Mana?"
 morea_sort_order: 2
 morea_labels:
-  - 20 min (Teaching)
-  - 20 min (Exercises)
+  - 3:20pm
 morea_enable_toc: true
 ---
 

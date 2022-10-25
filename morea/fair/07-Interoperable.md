@@ -1,58 +1,57 @@
 ---
-title: "Interoperable"
+title: "7. FAIR: Interoperable"
 published: true
 morea_id: Interoperable
 morea_type: experience
 morea_summary: "What does interoperability mean? What is a controlled vocabulary, a metadata schema and linked data? How do I describe data so that humans and computers can understand?"
 morea_sort_order: 7
 morea_labels:
-  - 8 min (Teaching)
-  - 2 min (Exercise)
+  - 2:45pm
 morea_enable_toc: true
 ---
 
-# Interoperable
+# FAIR: Interoperable
+
 This section will describe what it means for research to be interoperable
 
-> ## For data & software to be interoperable:
->
-> I1. (meta)data use a formal, accessible, shared, and broadly applicable language for knowledge representation  
-> I2. (meta)data use vocabularies that follow FAIR principles  
-> I3. (meta)data include qualified references to other (meta)data
-> {: .checklist}
+## For data & software to be interoperable:
+
+* (Meta)data use a formal, accessible, shared, and broadly applicable language for knowledge representation  
+* (Meta)data use vocabularies that follow FAIR principles  
+* (Meta)data include qualified references to other (meta)data
 
 ## What is interoperability for data and software?
 
-Shared understanding of concepts, for humans as well as machines.
+Interoperability means: A shared understanding of concepts, for humans as well as machines.
 
 ### What does it mean to be machine readable vs human readable?
 
-According to the [Open Data Handbook](http://opendatahandbook.org/glossary/en/):
+According to the [Open Data Handbook](https://opendatahandbook.org/glossary/en/):
 
-> _Human Readable_  
-> "Data in a format that can be conveniently read by a human. Some human-readable formats, such as PDF, are not machine-readable as they are not structured data, i.e. the representation of the data on disk does not represent the actual relationships present in the data."
+_Human Readable_  
+"Data in a format that can be conveniently read by a human. Some human-readable formats, such as PDF, are not machine-readable as they are not structured data, i.e. the representation of the data on disk does not represent the actual relationships present in the data."
 
-> _Machine Readable_  
-> "Data in a data format that can be automatically read and processed by a computer, such as CSV, JSON, XML, etc. Machine-readable data must be structured data. Compare human-readable.
-> Non-digital material (for example printed or hand-written documents) is by its non-digital nature not machine-readable. But even digital material need not be machine-readable. For example, consider a PDF document containing tables of data. These are definitely digital but are not machine-readable because a computer would struggle to access the tabular information - even though they are very human readable. The equivalent tables in a format such as a spreadsheet would be machine readable.
-> As another example scans (photographs) of text are not machine-readable (but are human readable!) but the equivalent text in a format such as a simple ASCII text file can machine readable and processable."
+_Machine Readable_  
+"Data in a data format that can be automatically read and processed by a computer, such as CSV, JSON, XML, etc. Machine-readable data must be structured data. Compare human-readable.
+Non-digital material (for example printed or hand-written documents) is by its non-digital nature not machine-readable. But even digital material need not be machine-readable. For example, consider a PDF document containing tables of data. These are definitely digital but are not machine-readable because a computer would struggle to access the tabular information - even though they are very human readable. The equivalent tables in a format such as a spreadsheet would be machine readable.
+As another example scans (photographs) of text are not machine-readable (but are human readable!) but the equivalent text in a format such as a simple ASCII text file can machine readable and processable."
 
-> Software uses community accepted standards and platforms, making it possible for users to run the software.
-> [Top 10 FAIR things for research software][10ftrs]
+Software uses community accepted standards and platforms, making it possible for users to run the software.
 
-[10ftrs]: https://librarycarpentry.org/Top-10-FAIR//2018/12/01/research-software/
-
-## Describing data and software with shared, controlled vocabularies
-
-See
-
-- <https://librarycarpentry.org/Top-10-FAIR//2018/12/01/research-data-management/#thing-8-controlled-vocabulary>
-- <https://librarycarpentry.org/Top-10-FAIR//2019/09/06/astronomy/#thing-6-terminology>
-- <https://librarycarpentry.org/Top-10-FAIR//2018/12/01/historical-research/#thing-6-controlled-vocabularies-and-ontologies>
-
-## Representing knowledge in data and software
-
-See <https://librarycarpentry.org/Top-10-FAIR//2018/12/01/historical-research/#thing-5-data-structuring-and-organisation>.
+<div class="alert alert-info" role="alert" markdown="1">
+<i class="fa-solid fa-circle-info fa-xl"></i> **For more information**
+<hr/>
+The [Top 10 FAIR things for research software](https://librarycarpentry.org/Top-10-FAIR//2018/12/01/research-software/) is a list of suggestions for making your research software FAIR, including:
+  * Provide a description
+  * Register your software
+  * Get and use a PID
+  * Support downloading and installation
+  * Document the functionality
+  * Use standard formats for I/O
+  * Provide a license
+  * Provide a citation
+  * Follow software development best practices
+</div>
 
 ### Beyond the PDF
 
@@ -86,28 +85,20 @@ Examples of Dataste Interoperability:
 If others can use your code, convey the meaning of updates with SemVer.org (CC BY 3.0)
 “version number[ changes] convey meaning about the underlying code” (Tom Preston-Werner)
 
-## Linked Data
+<div class="alert alert-info" role="alert" markdown="1">
+<i class="fa-solid fa-circle-info fa-xl"></i> **For more information**
+<hr/>
 
-[Top 10 FAIR things: Linked Open Data](https://librarycarpentry.org/Top-10-FAIR//2019/09/05/linked-open-data/)
+* [Top 10 FAIR things: Linked Open Data](https://librarycarpentry.org/Top-10-FAIR//2019/09/05/linked-open-data/)
+* Standards: <https://fairsharing.org/standards>
+* Schema.org: <https://schema.org>. Example: <https://docs.ropensci.org/codemetar/>
+* ISA framework: 'Investigation' (the project context), 'Study' (a unit of research) and 'Assay' (analytical measurement) - <https://isa-tools.github.io/>
+* Modularity: <https://bioschemas.org>
+* Codemeta crosswalks to other standards: <https://codemeta.github.io/crosswalk/>
+* Data Catalog Vocabulary (DCAT): <https://www.w3.org/TR/vocab-dcat/>
+* Using community accepted code style guidelines such as PEP 8 for Python (PEP 8 itself is FAIR)
+* Scholix - related indentifiers - Zenodo example linking data/software to papers: <https://dliservice.research-infrastructures.eu/#/>
+* <https://authorcarpentry.github.io/dois-citation-data/01-register-doi.html>
+</div>
 
-Standards: [https://fairsharing.org/standards/](https://fairsharing.org/standards/)
-schema.org: [http://schema.org/](http://schema.org/)
-
-ISA framework: 'Investigation' (the project context), 'Study' (a unit of research) and 'Assay' (analytical measurement) - [https://isa-tools.github.io/](https://isa-tools.github.io/)
-
-Example of schema.org: rOpenSci/codemetar
-
-Modularity
-[http://bioschemas.org](http://bioschemas.org)
-
-codemeta croswalks to other standards
-[https://codemeta.github.io/crosswalk/](https://codemeta.github.io/crosswalk/)
-
-DCAT
-[https://www.w3.org/TR/vocab-dcat/](https://www.w3.org/TR/vocab-dcat/)
-
-Using community accepted code style guidelines such as PEP 8 for Python (PEP 8 itself is FAIR)
-
-Scholix - related indentifiers - Zenodo example linking data/software to papers
-[https://dliservice.research-infrastructures.eu/#/](https://dliservice.research-infrastructures.eu/#/)
-[https://authorcarpentry.github.io/dois-citation-data/01-register-doi.html](https://authorcarpentry.github.io/dois-citation-data/01-register-doi.html)
+{% include next-button.html top-label="FAIR: Reusable ->" bottom-label="2:50pm" url="/morea/fair/08-Reusable.html" %}

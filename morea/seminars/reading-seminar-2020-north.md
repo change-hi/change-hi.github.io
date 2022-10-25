@@ -17,7 +17,7 @@ I’m a Visiting Researcher at UH Manoa (HI-DSI and Lava) while on sabbatical fr
 
 ### Bio  
 
-Dr. North (http://infovis.cs.vt.edu) is a Professor of Computer Science at Virginia Tech. He is Associate Director of the Discovery Analytics Center (https://dac.cs.vt.edu), and leads the Visual Analytics research group. He was principle architect of the GigaPixel Display Laboratory at Virginia Tech. He also participates in the Center for Human-Computer Interaction (http://hci.vt.edu), and the Hume Center for National Security. He was awarded Faculty Fellow of the College of Engineering in 2007, and the Dean’s Award for Research Excellence in 2014. He earned his Ph.D. at the University of Maryland, College Park, in 2000.
+Dr. North (https://infovis.cs.vt.edu) is a Professor of Computer Science at Virginia Tech. He is Associate Director of the Discovery Analytics Center (https://dac.cs.vt.edu), and leads the Visual Analytics research group. He was principle architect of the GigaPixel Display Laboratory at Virginia Tech. He also participates in the Center for Human-Computer Interaction (https://hci.vt.edu), and the Hume Center for National Security. He was awarded Faculty Fellow of the College of Engineering in 2007, and the Dean’s Award for Research Excellence in 2014. He earned his Ph.D. at the University of Maryland, College Park, in 2000.
 
 ### Recording
 
