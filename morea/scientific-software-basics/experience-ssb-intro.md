@@ -104,16 +104,24 @@ You may have seen it in a text editor program, for example.
 So let's try our first command, `ls` which is short for listing.
 This command will list the contents of the current directory:
 
-~~~
-$ ls
-~~~
-{: .language-bash}
+<div class="alert alert-secondary" role="alert" markdown="1">
+<i class="fa-solid fa-user-pen fa-xl"></i>  **Contents of Current Directory**
+<hr/>
 
-~~~
+Input:
+
+```bash
+$ ls
+```
+
+Output:
+
+```bash
 Desktop     Downloads   Movies      Pictures
 Documents   Library     Music       Public
-~~~
-{: .output}
+```
+</div>
+
 
 <div class="alert alert-info" role="alert" markdown="1">
 <i class="fa-solid fa-circle-info fa-xl"></i> **Command Not Find**

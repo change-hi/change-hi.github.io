@@ -60,15 +60,22 @@ our **current working directory**. Commands mostly read and write files in the
 current working directory, i.e. "here", so knowing where you are before running
 a command is important. `pwd` shows you where you are:
 
-~~~
-$ pwd
-~~~
-{: .language-bash}
+<div class="alert alert-secondary" role="alert" markdown="1">
+<i class="fa-solid fa-user-pen fa-xl"></i>  **Print Working Directory**
+<hr/>
 
-~~~
+Input:
+
+```bash
+$ pwd
+```
+
+Output:
+
+```bash
 /Users/nelle
-~~~
-{: .output}
+```
+</div>
 
 Here,
 the computer's response is `/Users/nelle`,
@@ -94,7 +101,8 @@ which will be constructed in a similar way, but not be exactly identical.
 
 On Nelle's computer, the filesystem looks like this:
 
-![The File System](../fig/filesystem.svg)
+
+{% include figure.html url="" max-width="40%" file="../fig/filesystem.svg)" alt="Node anatomy" caption="" %}
 
 At the top is the **root directory**
 that holds everything else.
@@ -139,43 +147,23 @@ Now let's learn the command that will let us see the contents of our
 own filesystem.  We can see what's in our home directory by running `ls`,
 which stands for "listing":
 
-~~~
+<div class="alert alert-secondary" role="alert" markdown="1">
+<i class="fa-solid fa-user-pen fa-xl"></i>  **Contents of Current Directory**
+<hr/>
+
+Input:
+
+```bash
 $ ls
-~~~
-{: .language-bash}
+```
 
-~~~
-Applications Documents    Library      Music        Public
-Desktop      Downloads    Movies       Pictures
-~~~
-{: .output}
+Output:
 
-(Again, your results may be slightly different depending on your operating
-system and how you have customized your filesystem.)
-
-`ls` prints the names of the files and directories in the current directory.
-We can make its output more comprehensible by using the `-F` **option**
-(also known as a **switch** or a **flag**) ,
-which tells `ls` to classify the output
-by adding a marker to file and directory names to indicate what they are:
-- a trailing `/` indicates that this is a directory
-- `@` indicates a link
-- `*` indicates an executable
-
-Depending on your default options,
-the shell might also use colors to indicate whether each entry is a file or
-directory.
-
-~~~
-$ ls -F
-~~~
-{: .language-bash}
-
-~~~
-Applications/ Documents/    Library/      Music/        Public/
-Desktop/      Downloads/    Movies/       Pictures/
-~~~
-{: .output}
+```bash
+Desktop     Downloads   Movies      Pictures
+Documents   Library     Music       Public
+```
+</div>
 
 (Again, your results may be slightly different depending on your operating
 system and how you have customized your filesystem.)
@@ -193,16 +181,57 @@ Depending on your default options,
 the shell might also use colors to indicate whether each entry is a file or
 directory.
 
-~~~
-$ ls -F
-~~~
-{: .language-bash}
+<div class="alert alert-secondary" role="alert" markdown="1">
+<i class="fa-solid fa-user-pen fa-xl"></i>  **ls -F**
+<hr/>
 
-~~~
+Input:
+
+```bash
+$ ls -F
+```
+
+Output:
+
+```bash
 Applications/ Documents/    Library/      Music/        Public/
 Desktop/      Downloads/    Movies/       Pictures/
-~~~
-{: .output}
+```
+</div>
+
+(Again, your results may be slightly different depending on your operating
+system and how you have customized your filesystem.)
+
+`ls` prints the names of the files and directories in the current directory.
+We can make its output more comprehensible by using the `-F` **option**
+(also known as a **switch** or a **flag**) ,
+which tells `ls` to classify the output
+by adding a marker to file and directory names to indicate what they are:
+- a trailing `/` indicates that this is a directory
+- `@` indicates a link
+- `*` indicates an executable
+
+Depending on your default options,
+the shell might also use colors to indicate whether each entry is a file or
+directory.
+
+<div class="alert alert-secondary" role="alert" markdown="1">
+<i class="fa-solid fa-user-pen fa-xl"></i>  **ls -F with Color**
+<hr/>
+
+Input:
+
+```bash
+$ ls -F
+```
+
+Output:
+
+```bash
+Applications/ Documents/    Library/      Music/        Public/
+Desktop/      Downloads/    Movies/       Pictures/
+```
+</div>
 
 Here,
 we can see that our home directory contains mostly **sub-directories**.
@@ -214,11 +243,16 @@ are plain old **files**.
 Consider the command below as a general example of a command,
 which we will dissect into its component parts:
 
-~~~
-$ ls -F /
-~~~
-{: .language-bash}
+<div class="alert alert-secondary" role="alert" markdown="1">
+<i class="fa-solid fa-user-pen fa-xl"></i>
+<hr/>
 
+Input:
+
+```bash
+$ ls -F /
+```
+</div>
 
 `ls` is the **command**, with an **option** `-F` and an
 **argument** `/`.
@@ -237,13 +271,24 @@ Putting all that together, our command above gives us a listing
 of files and directories in the root directory `/`.
 An example of the output you might get from the above command is given below:
 
-~~~
+<div class="alert alert-secondary" role="alert" markdown="1">
+<i class="fa-solid fa-user-pen fa-xl"></i>
+<hr/>
+
+Input:
+
+```bash
 $ ls -F /
+```
+
+Output:
+
+```bash
 Applications/         System/
 Library/              Users/
 Network/              Volumes/
-~~~
-{: .output}
+```
+</div>
 
 ### Getting help
 
@@ -273,10 +318,16 @@ Many bash commands, and programs that people have written that can be
 run from within bash, support a `--help` option to display more
 information on how to use the command or program.
 
-~~~
+<div class="alert alert-secondary" role="alert" markdown="1">
+<i class="fa-solid fa-user-pen fa-xl"></i>
+<hr/>
+
+Input:
+
+```bash
 $ ls --help
-~~~
-{: .language-bash}
+```
+</div>
 
 ~~~
 Usage: ls [OPTION]... [FILE]...
@@ -398,29 +449,41 @@ or available locally via: info '(coreutils) ls invocation'
 ~~~
 {: .output}
 
-> ## Unsupported command-line options
-> If you try to use an option (flag) that is not supported, `ls` and other commands
-> will usually print an error message similar to:
->
-> ~~~
-> $ ls -j
-> ~~~
-> {: .language-bash}
->
-> ~~~
-> ls: invalid option -- 'j'
-> Try 'ls --help' for more information.
-> ~~~
-> {: .error}
-{: .callout}
+ ## Unsupported command-line options
+ If you try to use an option (flag) that is not supported, `ls` and other commands
+ will usually print an error message similar to:
+
+ <div class="alert alert-secondary" role="alert" markdown="1">
+ <i class="fa-solid fa-user-pen fa-xl"></i>
+ <hr/>
+
+ Input:
+
+ ```bash
+ $ ls -j
+ ```
+
+ Output:
+
+ ```bash
+ ls: invalid option -- 'j'
+ Try 'ls --help' for more information.
+ ```
+ </div>
 
 #### The `man` command
 
 The other way to learn about `ls` is to type
-~~~
+<div class="alert alert-secondary" role="alert" markdown="1">
+<i class="fa-solid fa-user-pen fa-xl"></i>
+<hr/>
+
+Input:
+
+```bash
 $ man ls
-~~~
-{: .bash}
+```
+</div>
 
 This will turn your terminal into a page with a description
 of the `ls` command and its options and, if you're lucky, some examples
@@ -457,7 +520,7 @@ To **quit** the `man` pages, press <kbd>Q</kbd>.
 > as file permissions and ownership), but the rest should be useful
 > nevertheless.
 >
-> > ## Solution
+### Solution
 > > The `-l` option makes `ls` use a **l**ong listing format, showing not only
 > > the file/directory names but also additional information such as the file size
 > > and the time of its last modification. If you use both the `-h` option and the `-l` option,
@@ -516,16 +579,23 @@ can do two things.
 First, we can look at its contents, using the same strategy as before, passing
 a directory name to `ls`:
 
-~~~
-$ ls -F Desktop/data-shell
-~~~
-{: .language-bash}
+<div class="alert alert-secondary" role="alert" markdown="1">
+<i class="fa-solid fa-user-pen fa-xl"></i>
+<hr/>
 
-~~~
+Input:
+
+```bash
+$ ls -F Desktop/data-shell
+```
+
+Output:
+
+```bash
 creatures/          molecules/          notes.txt           solar.pdf
 data/               north-pacific-gyre/ pizza.cfg           writing/
-~~~
-{: .output}
+```
+</div>
 
 Second, we can actually change our location to a different directory, so
 we are no longer located in
@@ -555,39 +625,55 @@ If we run `ls` without arguments now,
 it lists the contents of `/Users/nelle/Desktop/data-shell/data`,
 because that's where we now are:
 
-~~~
+<div class="alert alert-secondary" role="alert" markdown="1">
+<i class="fa-solid fa-user-pen fa-xl"></i>
+<hr/>
+
+Input:
+
+```bash
 $ pwd
-~~~
-{: .language-bash}
+```
 
-~~~
+Output:
+
+```bash
 /Users/nelle/Desktop/data-shell/data
-~~~
-{: .output}
+```
 
-~~~
+Input:
+
+```bash
 $ ls -F
-~~~
-{: .language-bash}
+```
 
-~~~
+Output:
+
+```bash
 amino-acids.txt   elements/     pdb/	        salmon.txt
 animals.txt       morse.txt     planets.txt     sunspot.txt
-~~~
-{: .output}
+```
+</div>
 
 We now know how to go down the directory tree, but
 how do we go up?  We might try the following:
 
-~~~
-$ cd data-shell
-~~~
-{: .language-bash}
+<div class="alert alert-secondary" role="alert" markdown="1">
+<i class="fa-solid fa-user-pen fa-xl"></i>
+<hr/>
 
-~~~
+Input:
+
+```bash
+$ cd data-shell
+```
+
+Output:
+
+```bash
 -bash: cd: data-shell: No such file or directory
-~~~
-{: .error}
+```
+</div>
 
 But we get an error!  Why is this?
 
@@ -598,11 +684,16 @@ with the simplest.
 
 There is a shortcut in the shell to move up one directory level
 that looks like this:
+<div class="alert alert-secondary" role="alert" markdown="1">
+<i class="fa-solid fa-user-pen fa-xl"></i>
+<hr/>
 
-~~~
+Input:
+
+```bash
 $ cd ..
-~~~
-{: .language-bash}
+```
+</div>
 
 `..` is a special directory name meaning
 "the directory containing this one",
@@ -611,29 +702,43 @@ the **parent** of the current directory.
 Sure enough,
 if we run `pwd` after running `cd ..`, we're back in `/Users/nelle/Desktop/data-shell`:
 
-~~~
-$ pwd
-~~~
-{: .language-bash}
+<div class="alert alert-secondary" role="alert" markdown="1">
+<i class="fa-solid fa-user-pen fa-xl"></i>
+<hr/>
 
-~~~
+Input:
+
+```bash
+$ pwd
+```
+
+Output:
+
+```bash
 /Users/nelle/Desktop/data-shell
-~~~
-{: .output}
+```
+</div>
 
 The special directory `..` doesn't usually show up when we run `ls`.  If we want
 to display it, we can give `ls` the `-a` option:
 
-~~~
-$ ls -F -a
-~~~
-{: .language-bash}
+<div class="alert alert-secondary" role="alert" markdown="1">
+<i class="fa-solid fa-user-pen fa-xl"></i>
+<hr/>
 
-~~~
+Input:
+
+```bash
+$ ls -F -a
+```
+
+Output:
+
+```bash
 ./   .bash_profile  data/       north-pacific-gyre/  pizza.cfg  thesis/
 ../  creatures/     molecules/  notes.txt            solar.pdf  writing/
-~~~
-{: .output}
+```
+</div>
 
 `-a` stands for "show all";
 it forces `ls` to show us file and directory names that begin with `.`,
@@ -908,3 +1013,8 @@ pressing <kbd>Tab</kbd> twice brings up a list of all the files,
 and so on.
 This is called **tab completion**,
 and we will see it in many other tools as we go on.
+
+{% include next-button.html
+           top-label="Metadata ->"
+           bottom-label="3:00pm"
+           url="/morea/fair/09-Metadata.html" %}

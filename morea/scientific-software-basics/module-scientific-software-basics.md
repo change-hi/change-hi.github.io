@@ -13,6 +13,7 @@ morea_experiences:
   - experience-ssb-pipefilter
   - experience-ssb-loop
   - experience-ssb-script
+  - experience-ssb-find
 morea_assessments:
 morea_prerequisites:
 morea_type: module
