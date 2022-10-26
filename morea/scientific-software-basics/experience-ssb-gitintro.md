@@ -1,12 +1,12 @@
 ---
-title: "Introducing the Shell"
+title: "Introducing to Version Control"
 published: true
-morea_id: experience-ssb-intro
+morea_id: experience-ssb-gitintro
 morea_type: experience
-morea_summary: "What is a command shell and why would I use one?"
+morea_summary: "What is a version control and why would I use one?"
 morea_sort_order: 2
 morea_labels:
-  - 5 min (Teaching)
+  - 15 min (Teaching)
 morea_enable_toc: true
 ---
 
@@ -14,18 +14,21 @@ morea_enable_toc: true
 <i class="fa-solid fa-globe fa-xl"></i> **Overview**
 <hr/>
 
-**Key Points**
-  * A shell is a program whose primary purpose is to read commands and run other programs.
-  * This lesson uses Bash, the default shell in many implementations of Unix.
-  * Programs can be run in Bash by entering commands at the command-line prompt.
-  * The shell's main advantages are its high action-to-keystroke ratio, its support for automating repetitive tasks, and its capacity to access networked machines.
-  * The shell's main disadvantages are its primarily textual nature and how cryptic its commands and operation can be.
-
 **Objectives**
-  * Explain how the shell relates to the keyboard, the screen, the operating system, and users' programs.
-  * Explain when and why command-line interfaces should be used instead of graphical interfaces.
-</div>
+  * Understand the benefits of an automated version control system.
+* Understand the basics of how automated version control systems work.
+* Configure `git` and understand the flags.
 
+**Key Points**
+    * Version control is like an unlimited 'undo'.
+* Version control also allows for easy collaboration.
+* Use `git config` with the `--global` option to configure a user name, email address, editor, and other preferences once per machine.
+
+
+
+
+
+</div>
 
 ## What is the Shell?
 
@@ -181,3 +184,8 @@ In order to achieve her task, Nelle needs to know how to:
 - retrieve a set of files
 - iterate over files
 - run a shell script containing her pipeline
+
+{% include next-button.html
+           top-label="Metadata ->"
+           bottom-label="3:00pm"
+           url="/morea/fair/09-Metadata.html" %}
