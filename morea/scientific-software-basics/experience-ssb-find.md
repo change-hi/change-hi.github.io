@@ -1,15 +1,16 @@
 ---
-title: "Finding Things"
+title: "7. Finding Things"
 published: true
 morea_id: experience-ssb-find
 morea_type: experience
 morea_summary: "Locating Files"
 morea_sort_order: 2
 morea_labels:
-  - 5 min (Teaching)
-  - 5 min (Exercises)
+  - 3:40pm
 morea_enable_toc: true
 ---
+
+# 7. Finding Things
 
 <div class="alert alert-success mt-3" role="alert" markdown="1">
 <i class="fa-solid fa-globe fa-xl"></i> **Overview**
@@ -697,3 +698,8 @@ about them."
 > > {: .language-bash}
 > {: .solution}
 {: .challenge}
+
+{% include next-button.html
+top-label="Assessment ->"
+bottom-label="3:50pm"
+url="/morea/scientific-software-basics/assessment-ssb-workshop.html" %}

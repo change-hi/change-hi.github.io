@@ -1,15 +1,16 @@
 ---
-title: "Working With Files and Directories"
+title: "3. Working With Files and Directories"
 published: true
 morea_id: experience-ssb-create
 morea_type: experience
 morea_summary: "Creating, Copying and Deleting Files"
 morea_sort_order: 2
 morea_labels:
-  - 30 min (Teaching)
-  - 20 min (Exercises)
+  - 2:30pm
 morea_enable_toc: true
 ---
+
+# 3. Working With Files and Directories
 
 <div class="alert alert-success mt-3" role="alert" markdown="1">
 <i class="fa-solid fa-globe fa-xl"></i> **Overview**
@@ -1015,3 +1016,8 @@ Oftentimes one needs to copy or move several files at once. This can be done by 
 > > as the 'data' directory.
 > {: .solution}
 {: .challenge}
+
+{% include next-button.html
+top-label="Pipes and Filters ->"
+bottom-label="2:45pm"
+url="/morea/scientific-software-basics/experience-ssb-pipefilter.html" %}

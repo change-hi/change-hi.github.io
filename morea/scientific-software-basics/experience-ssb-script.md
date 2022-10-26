@@ -1,15 +1,16 @@
 ---
-title: "Shell Scripts"
+title: "6. Shell Scripts"
 published: true
 morea_id: experience-ssb-script
 morea_type: experience
 morea_summary: "Saving and Reusing Commands"
 morea_sort_order: 2
 morea_labels:
-  - 15 min (Teaching)
-  - 15 min (Exercises)
+  - 3:25pm
 morea_enable_toc: true
 ---
+
+# 6. Shell Scripts
 
 <div class="alert alert-success mt-3" role="alert" markdown="1">
 <i class="fa-solid fa-globe fa-xl"></i> **Overview**
@@ -617,3 +618,8 @@ Of course, this introduces another tradeoff between flexibility and complexity.
 > > an empty string.
 > {: .solution}
 {: .challenge}
+
+{% include next-button.html
+top-label="Finding Things ->"
+bottom-label="3:40pm"
+url="/morea/scientific-software-basics/experience-ssb-find.html" %}

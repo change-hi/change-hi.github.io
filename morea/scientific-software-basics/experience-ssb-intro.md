@@ -1,14 +1,16 @@
 ---
-title: "Introducing the Shell"
+title: "1. Introducing the Shell"
 published: true
 morea_id: experience-ssb-intro
 morea_type: experience
 morea_summary: "What is a command shell and why would I use one?"
 morea_sort_order: 2
 morea_labels:
-  - 5 min (Teaching)
+  - 2:00pm
 morea_enable_toc: true
 ---
+
+# 1. Introducing the Shell
 
 <div class="alert alert-success mt-3" role="alert" markdown="1">
 <i class="fa-solid fa-globe fa-xl"></i> **Overview**
@@ -105,7 +107,7 @@ So let's try our first command, `ls` which is short for listing.
 This command will list the contents of the current directory:
 
 <div class="alert alert-secondary" role="alert" markdown="1">
-<i class="fa-solid fa-user-pen fa-xl"></i>  **Contents of Current Directory**
+<i class="fa-solid fa-user-pen fa-xl"></i>  **List Contents of Current Directory**
 <hr/>
 
 Input:
@@ -124,23 +126,22 @@ Documents   Library     Music       Public
 
 
 <div class="alert alert-info" role="alert" markdown="1">
-<i class="fa-solid fa-circle-info fa-xl"></i> **Command Not Find**
+<i class="fa-solid fa-circle-info fa-xl"></i> **Note: Command Not Found**
 <hr/>
-> If the shell can't find a program whose name is the command you typed, it
-> will print an error message such as:
+If the shell can't find a program whose name is the command you typed, it
+will print an error message such as:
 >
-> ~~~
-> $ ks
-> ~~~
-> {: .language-bash}
-> ~~~
-> ks: command not found
-> ~~~
-> {: .output}
+~~~
+$ ks
+~~~
+{: .language-bash}
+~~~
+ks: command not found
+~~~
+{: .output}
 >
-> This might happen if the command was mis-typed or if the program corresponding to that command
-> is not installed.
-{: .callout}
+This might happen if the command was mis-typed or if the program corresponding to that command
+is not installed.
 </div>
 
 ### Nelle's Pipeline: A Typical Problem
@@ -181,3 +182,8 @@ In order to achieve her task, Nelle needs to know how to:
 - retrieve a set of files
 - iterate over files
 - run a shell script containing her pipeline
+
+{% include next-button.html
+  top-label="Navigating Files and Directories ->"
+  bottom-label="2:10pm"
+  url="/morea/scientific-software-basics/experience-ssb-filedir.html" %}

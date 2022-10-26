@@ -1,15 +1,16 @@
 ---
-title: "Loops"
+title: "5. Loops"
 published: true
 morea_id: experience-ssb-loop
 morea_type: experience
 morea_summary: "Looping Functions"
 morea_sort_order: 2
 morea_labels:
-  - 20 min (Teaching)
-  - 10 min (Exercises)
+  - 3:10pm
 morea_enable_toc: true
 ---
+
+# 5. Loops
 
 <div class="alert alert-success mt-3" role="alert" markdown="1">
 <i class="fa-solid fa-globe fa-xl"></i> **Overview**
@@ -738,3 +739,8 @@ so she decides to get some coffee and catch up on her reading.
 > > Try running the code for yourself to see which directories are created!
 > {: .solution}
 {: .challenge}
+
+{% include next-button.html
+top-label="Shell Scripts ->"
+bottom-label="3:25pm"
+url="/morea/scientific-software-basics/experience-ssb-script.html" %}

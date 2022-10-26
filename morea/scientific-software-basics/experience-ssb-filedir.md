@@ -1,15 +1,16 @@
 ---
-title: "Navigating Files and Directories"
+title: "2. Navigating Files and Directories"
 published: true
 morea_id: experience-ssb-filedir
 morea_type: experience
 morea_summary: "Navigating Files and Directories"
 morea_sort_order: 2
 morea_labels:
-  - 30 min (Teaching)
-  - 10 min (Exercises)
+  - 2:10pm
 morea_enable_toc: true
 ---
+
+# 2. Navigating Files and Directories
 
 <div class="alert alert-success mt-3" role="alert" markdown="1">
 <i class="fa-solid fa-globe fa-xl"></i> **Overview**
@@ -81,16 +82,15 @@ Here,
 the computer's response is `/Users/nelle`,
 which is Nelle's **home directory**:
 
-> ## Home Directory Variation
+## Home Directory Variation
 >
-> The home directory path will look different on different operating systems.
-> On Linux it may look like `/home/nelle`,
-> and on Windows it will be similar to `C:\Documents and Settings\nelle` or
-> `C:\Users\nelle`.
-> (Note that it may look slightly different for different versions of Windows.)
-> In future examples, we've used Mac output as the default - Linux and Windows
-> output may differ slightly, but should be generally similar.
-{: .callout}
+The home directory path will look different on different operating systems.
+On Linux it may look like `/home/nelle`,
+and on Windows it will be similar to `C:\Documents and Settings\nelle` or
+`C:\Users\nelle`.
+(Note that it may look slightly different for different versions of Windows.)
+In future examples, we've used Mac output as the default - Linux and Windows
+output may differ slightly, but should be generally similar.
 
 To understand what a "home directory" is,
 let's have a look at how the file system as a whole is organized.  For the
@@ -122,13 +122,12 @@ Similarly,
 we know that `/Users` is stored inside the root directory `/`
 because its name begins with `/`.
 
-> ## Slashes
->
-> Notice that there are two meanings for the `/` character.
-> When it appears at the front of a file or directory name,
-> it refers to the root directory. When it appears *inside* a name,
-> it's just a separator.
-{: .callout}
+## Slashes
+
+Notice that there are two meanings for the `/` character.
+When it appears at the front of a file or directory name,
+it refers to the root directory. When it appears *inside* a name,
+it's just a separator.
 
 Underneath `/Users`,
 we find one directory for each user with an account on Nelle's machine,
@@ -148,7 +147,7 @@ own filesystem.  We can see what's in our home directory by running `ls`,
 which stands for "listing":
 
 <div class="alert alert-secondary" role="alert" markdown="1">
-<i class="fa-solid fa-user-pen fa-xl"></i>  **Contents of Current Directory**
+<i class="fa-solid fa-user-pen fa-xl"></i>  **List Contents of Current Directory**
 <hr/>
 
 Input:
@@ -298,7 +297,7 @@ to use a command and what options it accepts:
 1. We can pass a `--help` option to the command, such as:
 
 <div class="alert alert-secondary" role="alert" markdown="1">
-<i class="fa-solid fa-user-pen fa-xl"></i>
+<i class="fa-solid fa-user-pen fa-xl"></i> **--help**
 <hr/>
 
 Input:
@@ -311,7 +310,7 @@ $ ls --help
 2. We can read its manual with `man`, such as:
 
 <div class="alert alert-secondary" role="alert" markdown="1">
-<i class="fa-solid fa-user-pen fa-xl"></i>
+<i class="fa-solid fa-user-pen fa-xl"></i>  **man page**
 <hr/>
 
 Input:
@@ -332,7 +331,7 @@ run from within bash, support a `--help` option to display more
 information on how to use the command or program.
 
 <div class="alert alert-secondary" role="alert" markdown="1">
-<i class="fa-solid fa-user-pen fa-xl"></i>
+<i class="fa-solid fa-user-pen fa-xl"></i> **ls --help**
 <hr/>
 
 Input:
@@ -343,7 +342,7 @@ $ ls --help
 
 Output:
 
-```bash
+```
 Usage: ls [OPTION]... [FILE]...
 List information about the FILEs (the current directory by default).
 Sort entries alphabetically if none of -cftuvSUX nor --sort is specified.
@@ -468,7 +467,7 @@ or available locally via: info '(coreutils) ls invocation'
  will usually print an error message similar to:
 
  <div class="alert alert-secondary" role="alert" markdown="1">
- <i class="fa-solid fa-user-pen fa-xl"></i>
+ <i class="fa-solid fa-user-pen fa-xl"></i> **Unsupported command line options**
  <hr/>
 
  Input:
@@ -489,7 +488,7 @@ or available locally via: info '(coreutils) ls invocation'
 
 The other way to learn about `ls` is to type
 <div class="alert alert-secondary" role="alert" markdown="1">
-<i class="fa-solid fa-user-pen fa-xl"></i>
+<i class="fa-solid fa-user-pen fa-xl"></i> **man command**
 <hr/>
 
 Input:
@@ -512,7 +511,7 @@ Sometimes a search will result in multiple hits.  If so, you can move between hi
 
 To **quit** the `man` pages, press <kbd>Q</kbd>.
 
- ## Manual pages on the web
+## Manual pages on the web
 
  Of course there is a third way to access help for commands:
  searching the internet via your web browser.

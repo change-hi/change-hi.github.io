@@ -1,15 +1,16 @@
 ---
-title: "Pipes and Filters"
+title: "4. Pipes and Filters"
 published: true
 morea_id: experience-ssb-pipefilter
 morea_type: experience
 morea_summary: "Combining Existing Functions to do New Things"
 morea_sort_order: 2
 morea_labels:
-  - 25 min (Teaching)
-  - 10 min (Exercises)
+  - 2:45pm
 morea_enable_toc: true
 ---
+
+# 4. Pipes and Filters
 
 <div class="alert alert-success mt-3" role="alert" markdown="1">
 <i class="fa-solid fa-globe fa-xl"></i> **Overview**
@@ -726,3 +727,15 @@ so this matches all the valid data files she has.
 > > so this command would delete all files
 > {: .solution}
 {: .challenge}
+
+<div class="alert alert-warning" role="alert" markdown="1">
+<i class="fa-solid fa-circle-info fa-xl"></i> **Bio Break!**
+<hr/>
+
+Let's take a brief break to stretch before moving on to the next page.  See you in a few minutes.
+</div>
+
+{% include next-button.html
+top-label="Loops ->"
+bottom-label="3:10pm"
+url="/morea/scientific-software-basics/experience-ssb-loop.html" %}
