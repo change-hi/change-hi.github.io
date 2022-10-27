@@ -76,5 +76,5 @@ Go back to "my interactive sessions" in the browser and start another shell..
 
 1. Right click on [data-shell.zip](/morea/scientific-software-basics/data/data-shell.zip) and select "Save as..." to download this zip file to your computer.
 
-2. Bring up a Terminal window (MacOS) or Command shell (Windows), find the data-shell.zip file, and run `unzip data-shell.zip` to create a folder called `data-shell` with several files and directories in it that will be used in this workshop.
+2. Bring up a Terminal window (MacOS) or Command shell (Windows), find the data-shell.zip file, and run `unzip data-shell.zip` to create a folder called `data-shell` with several files and directories in it that will be used in this workshop. In MacOS (at least), you can just double-click the data-shell.zip file within the Finder to invoke the unzip command on it.  
 </div>
