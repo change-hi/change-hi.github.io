@@ -56,7 +56,7 @@ Click here:
 
 {% include figure.html url="" max-width="100%" file="/morea/scientific-software-basics/fig/host_button.png" alt="Node anatomy" caption="" %}
 
-## Your compute node is assigned
+## Assign a compute node
 
 Start a shell:
 
@@ -68,20 +68,13 @@ Warning: Permanently added ‘gpu-0016.hpc.ci.its.hawaii.edu,10.100.11.214’ (E
 
 Go back to "my interactive sessions" in the browser and start another shell..
 
-## Download data-shell.zip:
+## Download sample files for this workshop
 
 <div class="alert alert-secondary" role="alert" markdown="1">
 <i class="fa-solid fa-user-pen fa-xl"></i>  **Download data-shell.zip**
 <hr/>
 
-First:
+1. Right click on [data-shell.zip](/morea/scientific-software-basics/data/data-shell.zip) and select "Save as..." to download this zip file to your computer.
 
-```bash
-wget https://ci-tracs.github.io/Scientific_Software_Basics/data/data-shell.zip
-```
-Second:
-
-```bash
-unzip data-shell.zip
-```
+2. Bring up a Terminal window (MacOS) or Command shell (Windows), find the data-shell.zip file, and run `unzip data-shell.zip` to create a folder called `data-shell` with several files and directories in it that will be used in this workshop.
 </div>
