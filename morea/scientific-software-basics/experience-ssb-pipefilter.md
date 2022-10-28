@@ -246,7 +246,7 @@ the output is::
  6
  ```
 
-If we run sort -n on the same input, we get this instead:
+If we run `sort -n` on the same input, we get this instead:
 
  ```bash
  2
