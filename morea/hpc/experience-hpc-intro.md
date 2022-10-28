@@ -6,7 +6,7 @@ morea_type: experience
 morea_summary: "What is an HPC System? What are the components of an HPC system?"
 morea_sort_order: 2
 morea_labels:
-  - 10 min (Teaching)
+  - 2:00pm
 morea_enable_toc: true
 ---
 
@@ -162,3 +162,8 @@ Material used and modified from the [Introduction to High-Performance Computing 
 
 <hr/>
 For comparison purposes, here's the [Software Carpentry version of this page](https://ci-tracs.github.io/High_Performance_Computing/00-intro/index.html)
+
+{% include next-button.html 
+           top-label="Connecting to a remote HPC system ->" 
+           bottom-label="2:10pm" 
+           url="/morea/hpc/experience-hpc-connecting.html" %}

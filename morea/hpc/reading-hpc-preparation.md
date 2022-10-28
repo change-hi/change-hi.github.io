@@ -5,7 +5,8 @@ morea_id: reading-hpc-preparation
 morea_type: reading
 morea_summary: "Six things to know and do to prepare for this workshop"
 morea_sort_order: 1
-morea_labels:
+morea_labels: 
+    - Pre-workshop
 ---
 
 ## Preparation 
@@ -33,12 +34,3 @@ We recommend [Chrome](https://www.google.com/chrome/) or [Firefox](https://www.m
 
 Please download [participants-copy.ipynb](code/participants-copy.ipynb) to your local computer (use "save as", i.e. right click).
 
-### How to provide feedback during the workshop
-
-We encourage participants to write comments and questions in chat and use the <a href="https://support.zoom.us/hc/en-us/articles/115001286183-Nonverbal-feedback-during-meetings#:~:text=To%20provide%20nonverbal%20feedback%20or,icon%20again%20to%20remove%20it." target="_blank" >non-verbal feedback features of zoom</a>.
-
-If at any time you have a question that is easier to talk through than writing it in chat, please indicate in chat you have a question or raise your virtual hand so that we know you wish to speak.
-
-<img src="./fig/non-verbal.png" alt="non-verbal icon" >
-
-<img src="./fig/non-verbal_min.png" alt="non-verbal icon from ..." >

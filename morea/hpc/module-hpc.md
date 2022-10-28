@@ -11,6 +11,8 @@ morea_readings:
 morea_experiences:
   - experience-hpc-intro
   - experience-hpc-connecting
+  - experience-hpc-jupyter
+  - experience-hpc-environment
   - experience-hpc-deep-learning
   - experience-hpc-file-systems
 morea_assessments:
