@@ -15,10 +15,21 @@ morea_enable_toc: true
 <hr/>
 
 **Objectives**
-  * Have an account on Mana
-  * Have UH Duo/MFA enabled
+  * Have an OOD compatible browser
   * Be able to connect to the workshop in Zoom and Mana Open OnDemand via a web browser
   * Download sample data
+</div>
+
+<div class="alert alert-success mt-3" role="alert" markdown="1">
+<i class="fa-solid fa-globe fa-xl"></i> **Disclaimer**
+<hr/>
+
+**Additional Information**
+
+The material below will be covered during the workshop, so performing the steps below is not required pre-workshop.  However, a compatible browser meeting these requirements is needed, see:  
+
+<https://osc.github.io/ood-documentation/latest/requirements.html#browser-requirements>
+
 </div>
 
 

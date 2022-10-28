@@ -83,7 +83,7 @@ the computer's response is `/Users/nelle`,
 which is Nelle's **home directory**:
 
 ## Home Directory Variation
->
+
 The home directory path will look different on different operating systems.
 On Linux it may look like `/home/nelle`,
 and on Windows it will be similar to `C:\Documents and Settings\nelle` or
