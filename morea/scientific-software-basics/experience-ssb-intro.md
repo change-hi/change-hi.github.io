@@ -130,7 +130,7 @@ Documents   Library     Music       Public
 <hr/>
 If the shell can't find a program whose name is the command you typed, it
 will print an error message such as:
->
+
 ~~~
 $ ks
 ~~~
@@ -139,7 +139,7 @@ $ ks
 ks: command not found
 ~~~
 {: .output}
->
+
 This might happen if the command was mis-typed or if the program corresponding to that command
 is not installed.
 </div>
