@@ -49,8 +49,6 @@ we will use a file that contains three haikus taken from a
 we're going to be working in the writing subdirectory:
 
 <div class="alert alert-secondary" role="alert" markdown="1">
-<i class="fa-solid fa-user-pen fa-xl"></i>
-<hr/>
 
 Input:
 
@@ -71,8 +69,6 @@ $ cat haiku.txt
 Let's find lines that contain the word "not":
 
 <div class="alert alert-secondary" role="alert" markdown="1">
-<i class="fa-solid fa-user-pen fa-xl"></i>
-<hr/>
 
 Input:
 
@@ -98,8 +94,6 @@ By default, grep searches for a pattern in a case-sensitive way. In addition, th
 Let us search for the pattern: "The".
 
 <div class="alert alert-secondary" role="alert" markdown="1">
-<i class="fa-solid fa-user-pen fa-xl"></i>
-<hr/>
 
 Input:
 
@@ -125,8 +119,6 @@ This will limit matches to word boundaries.
 Later in this lesson, we will also see how we can change the search behavior of grep with respect to its case sensitivity.
 
 <div class="alert alert-secondary" role="alert" markdown="1">
-<i class="fa-solid fa-user-pen fa-xl"></i>
-<hr/>
 
 Input:
 
@@ -148,8 +140,6 @@ want to search for a single word, but a phrase. This is also easy to do with
 `grep` by putting the phrase in quotes.
 
 <div class="alert alert-secondary" role="alert" markdown="1">
-<i class="fa-solid fa-user-pen fa-xl"></i>
-<hr/>
 
 ```bash
 $ grep -w "is not" haiku.txt
@@ -168,8 +158,6 @@ We will use quotes in the remaining examples.
 Another useful option is `-n`, which numbers the lines that match:
 
 <div class="alert alert-secondary" role="alert" markdown="1">
-<i class="fa-solid fa-user-pen fa-xl"></i>
-<hr/>
 
 ```bash
 $ grep -n "it" haiku.txt
@@ -188,8 +176,6 @@ For example, let us find the lines that contain the word "the". We can combine
 the option `-w` to find the lines that contain the word "the" and `-n` to number the lines that match:
 
 <div class="alert alert-secondary" role="alert" markdown="1">
-<i class="fa-solid fa-user-pen fa-xl"></i>
-<hr/>
 
 ```bash
 $ grep -n -w "the" haiku.txt
@@ -203,8 +189,6 @@ $ grep -n -w "the" haiku.txt
 Now we want to use the option `-i` to make our search case-insensitive:
 
 <div class="alert alert-secondary" role="alert" markdown="1">
-<i class="fa-solid fa-user-pen fa-xl"></i>
-<hr/>
 
 ```bash
 $ grep -n -w -i "the" haiku.txt
@@ -221,8 +205,6 @@ Now, we want to use the option `-v` to invert our search, i.e., we want to outpu
 the lines that do not contain the word "the".
 
 <div class="alert alert-secondary" role="alert" markdown="1">
-<i class="fa-solid fa-user-pen fa-xl"></i>
-<hr/>
 
 ```bash
 $ grep -n -w -v "the" haiku.txt
@@ -243,8 +225,6 @@ $ grep -n -w -v "the" haiku.txt
 `grep` has lots of other options. To find out what they are, we can type:
 
 <div class="alert alert-secondary" role="alert" markdown="1">
-<i class="fa-solid fa-user-pen fa-xl"></i>
-<hr/>
 
 ```bash
 $ grep --help
@@ -273,29 +253,26 @@ Miscellaneous:
 </div>
 
 <div class="alert alert-info" role="alert" markdown="1">
-<i class="fa-solid fa-circle-info fa-xl"></i> **Using `grep`**
+<i class="fa-solid fa-circle-info fa-xl"></i> **Exercise: Using `grep`**
 <hr/>
- Which command would result in the following output:
- <div class="alert alert-secondary" role="alert" markdown="1">
- <i class="fa-solid fa-user-pen fa-xl"></i>
- <hr/>
 
- ```bash
+Which command would result in the following output:
+
+```bash
  and the presence of absence:
- ```
- 1. `grep "of" haiku.txt`
- 2. `grep -E "of" haiku.txt`
- 3. `grep -w "of" haiku.txt`
- 4. `grep -i "of" haiku.txt`
+```
+1. `grep "of" haiku.txt`
+2. `grep -E "of" haiku.txt`
+3. `grep -w "of" haiku.txt`
+4. `grep -i "of" haiku.txt`
 
- <details markdown="1">
-   <summary>Solution</summary>
+<details markdown="1">
+<summary>Solution</summary>
    The correct answer is 3, because the '-w' option looks only for whole-word matches.
    The other options will also match "of" when part of another word.
- </details>
- </div>
-
+</details>
 </div>
+
 
 ## Wildcards
 
@@ -308,8 +285,6 @@ Miscellaneous:
  find lines that have an 'o' in the second position like this:
 
  <div class="alert alert-secondary" role="alert" markdown="1">
- <i class="fa-solid fa-user-pen fa-xl"></i>
- <hr/>
 
  Input:
 
@@ -326,22 +301,19 @@ Miscellaneous:
  ```
  </div>
 
- We use the `-E` option and put the pattern in quotes to prevent the shell
+We use the `-E` option and put the pattern in quotes to prevent the shell
  from trying to interpret it. (If the pattern contained a `*`, for
  example, the shell would try to expand it before running `grep`.) The
  `^` in the pattern anchors the match to the start of the line. The `.`
  matches a single character (just like `?` in the shell), while the `o`
  matches an actual 'o'.
-{: .callout}
 
 ## Tracking a Species
 
- Leah has several hundred
+Leah has several hundred
  data files saved in one directory, each of which is formatted like this:
 
  <div class="alert alert-secondary" role="alert" markdown="1">
- <i class="fa-solid fa-user-pen fa-xl"></i>
- <hr/>
  Output:
 
  ```bash
@@ -359,8 +331,6 @@ Miscellaneous:
  For example using the data shown above, `rabbit.txt` would contain:
 
  <div class="alert alert-secondary" role="alert" markdown="1">
- <i class="fa-solid fa-user-pen fa-xl"></i>
- <hr/>
  Output:
 
  ```bash
@@ -369,13 +339,11 @@ Miscellaneous:
  ```
  </div>
 
- Put these commands and pipes in the right order to achieve this:
+<div class="alert alert-secondary" role="alert" markdown="1">
+<i class="fa-solid fa-circle-info fa-xl"></i> **Exercise: Help Leah**
+<hr/>
 
- <div class="alert alert-secondary" role="alert" markdown="1">
- <i class="fa-solid fa-user-pen fa-xl"></i>
- <hr/>
- Output:
-
+Put these commands and pipes in the right order to achieve Leah's goal:
  ```bash
  cut -d : -f 2
 
@@ -385,31 +353,27 @@ Miscellaneous:
  $1.txt
  cut -d , -f 1,3
  ```
- </div>
 
- Hint: use `man grep` to look for how to grep text recursively in a directory
+Hint: use `man grep` to look for how to grep text recursively in a directory
  and `man cut` to select more than one field in a line.
 
- An example of such a file is provided in `data-shell/data/animal-counts/animals.txt`
+An example of such a file is provided in `data-shell/data/animal-counts/animals.txt`
 
  <details markdown="1">
    <summary>Solution</summary>
-   <div class="alert alert-secondary" role="alert" markdown="1">
-   <i class="fa-solid fa-user-pen fa-xl"></i>
-   <hr/>
-
-   ```bash
+```bash
    grep -w $1 -r $2 | cut -d : -f 2 | cut -d , -f 1,3   $1.txt
-   ```
-  You would call the script above like this:
-  ```bash
-  $ bash count-species.sh bear
-  ```
-   </div>
- </details>
+```
+
+You would call the script above like this:
+```bash
+ $ bash count-species.sh bear
+ ```
+</details>
+</div>
 
 <div class="alert alert-info" role="alert" markdown="1">
-<i class="fa-solid fa-circle-info fa-xl"></i> **Little Women**
+<i class="fa-solid fa-circle-info fa-xl"></i> **Extra credit: Little Women**
 <hr/>
 You and your friend, having just finished reading *Little Women* by
 Louisa May Alcott, are in an argument.  Of the four sisters in the
@@ -429,35 +393,37 @@ yielding the correct result, elegance, readability, and speed.
 
 <details markdown="1">
   <summary>Solution</summary>
-  <div class="alert alert-secondary" role="alert" markdown="1">
-  <i class="fa-solid fa-user-pen fa-xl"></i>
-  <hr/>
 
-  ```bash
+```bash
   for sis in Jo Meg Beth Amy
   do
   	echo $sis:
  	grep -ow $sis LittleWomen.txt | wc -l
   done
-  ```
-  Alternative, slightly inferior solution:
- ```bash
+ ```
+
+Alternative, slightly inferior solution:
+```bash
  for sis in Jo Meg Beth Amy
  do
    echo $sis:
  grep -ocw $sis LittleWomen.txt
  done
- ```
-  </div>
-  This solution is inferior because `grep -c` only reports the number of lines matched.
-  The total number of matches reported by this method will be lower if there is more
+```
+
+This solution is inferior because `grep -c` only reports the number of lines matched.
+The total number of matches reported by this method will be lower if there is more
   than one match per line.
-  Perceptive observers may have noticed that character names sometimes appear in all-uppercase
+
+Perceptive observers may have noticed that character names sometimes appear in all-uppercase
   in chapter titles (e.g. "MEG GOES TO VANITY FAIR").
-  If you wanted to count these as well, you could add the `-i` option for case-insensitivity
+
+If you wanted to count these as well, you could add the `-i` option for case-insensitivity
   (though in this case, it doesn't affect the answer to which sister is mentioned most frequently).
 </details>
 </div>
+
+## The find command
 
 While `grep` finds lines in files,
 the `find` command finds files themselves.
@@ -477,8 +443,6 @@ For our first command,
 let's run `find .` (remember to run this command from the `data-shell/writing` folder).
 
 <div class="alert alert-secondary" role="alert" markdown="1">
-<i class="fa-solid fa-user-pen fa-xl"></i>
-<hr/>
 
 Input:
 
@@ -521,8 +485,6 @@ Sure enough,
 (including `.`):
 
 <div class="alert alert-secondary" role="alert" markdown="1">
-<i class="fa-solid fa-user-pen fa-xl"></i>
-<hr/>
 
 Input:
 
@@ -546,8 +508,6 @@ If we change `-type d` to `-type f`,
 we get a listing of all the files instead:
 
 <div class="alert alert-secondary" role="alert" markdown="1">
-<i class="fa-solid fa-user-pen fa-xl"></i>
-<hr/>
 
 Input:
 
@@ -572,8 +532,6 @@ Output:
 Now let's try matching by name:
 
 <div class="alert alert-secondary" role="alert" markdown="1">
-<i class="fa-solid fa-user-pen fa-xl"></i>
-<hr/>
 
 Input:
 
@@ -595,8 +553,6 @@ Since `*.txt` in the current directory expands to `haiku.txt`,
 the command we actually ran was:
 
 <div class="alert alert-secondary" role="alert" markdown="1">
-<i class="fa-solid fa-user-pen fa-xl"></i>
-<hr/>
 
 ```bash
 $ find . -name haiku.txt
@@ -613,8 +569,6 @@ This way,
 `find` actually gets the pattern `*.txt`, not the expanded filename `haiku.txt`:
 
 <div class="alert alert-secondary" role="alert" markdown="1">
-<i class="fa-solid fa-user-pen fa-xl"></i>
-<hr/>
 
 Input:
 
@@ -632,13 +586,14 @@ Output:
 ```
 </div>
 
- ## Listing vs. Finding
+## Listing vs. Finding
 
- `ls` and `find` can be made to do similar things given the right options,
+`ls` and `find` can be made to do similar things given the right options,
  but under normal circumstances,
- `ls` lists everything it can,
+
+`ls` lists everything it can,
  while `find` searches for things with certain properties and shows them.
-{: .callout}
+
 
 As we said earlier,
 the command line's power lies in combining tools.
@@ -651,8 +606,6 @@ How can we combine that with `wc -l` to count the lines in all those files?
 The simplest way is to put the `find` command inside `$()`:
 
 <div class="alert alert-secondary" role="alert" markdown="1">
-<i class="fa-solid fa-user-pen fa-xl"></i>
-<hr/>
 
 Input:
 
@@ -678,8 +631,6 @@ Since the output of `find` is the four filenames `./data/one.txt`, `./data/Littl
 the shell constructs the command:
 
 <div class="alert alert-secondary" role="alert" markdown="1">
-<i class="fa-solid fa-user-pen fa-xl"></i>
-<hr/>
 
 ```bash
 $ wc -l ./data/one.txt ./data/LittleWomen.txt ./data/two.txt ./haiku.txt
@@ -698,8 +649,6 @@ Here, for example, we can find PDB files that contain iron atoms
 by looking for the string "FE" in all the `.pdb` files above the current directory:
 
 <div class="alert alert-secondary" role="alert" markdown="1">
-<i class="fa-solid fa-user-pen fa-xl"></i>
-<hr/>
 
 ```bash
 $ grep "FE" $(find .. -name '*.pdb')
@@ -712,20 +661,24 @@ $ grep "FE" $(find .. -name '*.pdb')
 
 ## Matching and Subtracting
 
- The `-v` option to `grep` inverts pattern matching, so that only lines
- which do *not* match the pattern are printed. Given that, which of
- the following commands will find all files in `/data` whose names
- end in `s.txt` (e.g., `animals.txt` or `planets.txt`), but do
- *not* contain the word `net`?
- Once you have thought about your answer, you can test the commands in the `data-shell`
- directory.
- <div class="alert alert-secondary" role="alert" markdown="1">
- <i class="fa-solid fa-user-pen fa-xl"></i>
+<div class="alert alert-secondary" role="alert" markdown="1">
+ <i class="fa-solid fa-user-pen fa-xl"></i> **Exercise: matching**
  <hr/>
+
+The `-v` option to `grep` inverts pattern matching, so that only lines
+which do *not* match the pattern are printed. Given that, which of
+the following commands will find all files in `/data` whose names
+end in `s.txt` (e.g., `animals.txt` or `planets.txt`), but do
+*not* contain the word `net`?
+
  1.  `find data -name '*s.txt' | grep -v net`
  2.  `find data -name *s.txt | grep -v net`
  3.  `grep -v "temp" $(find data -name '*s.txt')`
  4.  None of the above.
+
+Once you have thought about your answer, you can test the commands in the `data-shell`
+directory.
+
  <details markdown="1">
    <summary>Solution</summary>
    The correct answer is 1. Putting the match expression in quotes prevents the shell
@@ -739,12 +692,14 @@ $ grep "FE" $(find .. -name '*.pdb')
  </details>
  </div>
 
- ## Binary Files
+<div class="alert alert-info" role="alert" markdown="1">
+<i class="fa-solid fa-circle-info fa-xl"></i> **Note: Binary Files**
+<hr/>
 
- We have focused exclusively on finding patterns in text files. What if
+We have focused exclusively on finding patterns in text files. What if
  your data is stored as images, in databases, or in some other format?
 
- A handful of tools extend `grep` to handle a few non text formats. But a
+A handful of tools extend `grep` to handle a few non text formats. But a
  more generalizable approach is to convert the data to text, or
  extract the text-like elements from the data. On the one hand, it makes simple
  things easy to do. On the other hand, complex things are usually impossible. For
@@ -753,7 +708,7 @@ $ grep "FE" $(find .. -name '*.pdb')
  write something to find values in a spreadsheet whose cells contained
  formulas?
 
- A last option is to recognize that the shell and text processing have
+A last option is to recognize that the shell and text processing have
  their limits, and to use another programming language.
  When the time comes to do this, don't be too hard on the shell: many
  modern programming languages have borrowed a lot of
@@ -771,25 +726,34 @@ North Whitehead wrote in 1911, "Civilization advances by extending the
 number of important operations which we can perform without thinking
 about them."
 
+</div>
+
 ## `find` Pipeline Reading Comprehension
 
- Write a short explanatory comment for the following shell script:
-
  <div class="alert alert-secondary" role="alert" markdown="1">
- <i class="fa-solid fa-user-pen fa-xl"></i>
+ <i class="fa-solid fa-user-pen fa-xl"></i> **Exercise: Test your understanding**
  <hr/>
+
+Write a short explanatory comment for the following shell script:
 
  ```bash
  wc -l $(find . -name '*.dat') | sort -n
  ```
- <details markdown="1">
+<details markdown="1">
    <summary>Solution</summary>
-   1. Find all files with a `.dat` extension recursively from the current directory
-   2. Count the number of lines each of these files contains
-   3. Sort the output from step 2. numerically
+```
+# 1. Find all files with a `.dat` extension recursively from the current directory
+# 2. Count the number of lines each of these files contains
+# 3. Sort the output from step 2. numerically
+```
  </details>
  </div>
+
 ## Finding Files With Different Properties
+
+<div class="alert alert-secondary" role="alert" markdown="1">
+ <i class="fa-solid fa-user-pen fa-xl"></i> **Exercise: find with properties**
+ <hr/>
 
  The `find` command can be given several other criteria known as "tests"
  to locate files with specific attributes, such as creation time, size,
@@ -801,18 +765,16 @@ about them."
 
  Hint 2: The value for `-mtime` will need to be negative---why?
 
- <details markdown="1">
-   <summary>Solution</summary>
-   <div class="alert alert-secondary" role="alert" markdown="1">
-   <i class="fa-solid fa-user-pen fa-xl"></i>
-   <hr/>
-  Assuming that Nelle’s home is our working directory we type:
-   ```bash
-  $ find ./ -type f -mtime -1 -user ahmed
-   ```
+<details markdown="1">
+<summary>Solution</summary>
+  
+Assuming that Nelle’s home is our working directory we type:
 
-   </div>
+```bash
+$ find ./ -type f -mtime -1 -user ahmed
+```
  </details>
+</div>
 
 {% include next-button.html
 top-label="Assessment ->"
