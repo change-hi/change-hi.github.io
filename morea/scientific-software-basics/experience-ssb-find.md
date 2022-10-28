@@ -288,7 +288,7 @@ Miscellaneous:
  3. `grep -w "of" haiku.txt`
  4. `grep -i "of" haiku.txt`
 
- <details>
+ <details markdown="1">
    <summary>Solution</summary>
    The correct answer is 3, because the '-w' option looks only for whole-word matches.
    The other options will also match "of" when part of another word.
@@ -392,7 +392,7 @@ Miscellaneous:
 
  An example of such a file is provided in `data-shell/data/animal-counts/animals.txt`
 
- <details>
+ <details markdown="1">
    <summary>Solution</summary>
    <div class="alert alert-secondary" role="alert" markdown="1">
    <i class="fa-solid fa-user-pen fa-xl"></i>
@@ -427,7 +427,7 @@ There is often more than one way to solve a programming task, so a
 particular solution is usually chosen based on a combination of
 yielding the correct result, elegance, readability, and speed.
 
-<details>
+<details markdown="1">
   <summary>Solution</summary>
   <div class="alert alert-secondary" role="alert" markdown="1">
   <i class="fa-solid fa-user-pen fa-xl"></i>
@@ -726,7 +726,7 @@ $ grep "FE" $(find .. -name '*.pdb')
  2.  `find data -name *s.txt | grep -v net`
  3.  `grep -v "temp" $(find data -name '*s.txt')`
  4.  None of the above.
- <details>
+ <details markdown="1">
    <summary>Solution</summary>
    The correct answer is 1. Putting the match expression in quotes prevents the shell
    expanding it, so it gets passed to the 'find' command.
@@ -782,7 +782,7 @@ about them."
  ```bash
  wc -l $(find . -name '*.dat') | sort -n
  ```
- <details>
+ <details markdown="1">
    <summary>Solution</summary>
    1. Find all files with a `.dat` extension recursively from the current directory
    2. Count the number of lines each of these files contains
@@ -801,7 +801,7 @@ about them."
 
  Hint 2: The value for `-mtime` will need to be negative---why?
 
- <details>
+ <details markdown="1">
    <summary>Solution</summary>
    <div class="alert alert-secondary" role="alert" markdown="1">
    <i class="fa-solid fa-user-pen fa-xl"></i>

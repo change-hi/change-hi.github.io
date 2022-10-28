@@ -10,6 +10,17 @@ morea_labels:
 morea_enable_toc: true
 ---
 
+
+
+<div class="alert alert-danger mt-3" role="alert" markdown="1">
+<i class="fa-solid fa-circle-exclamation fa-xl"></i> **To be done during the workshop!**
+<hr/>
+Normally this reading would be done in advance of the workshop, but this semester, the instructors have elected to do it at the start of the workshop.
+
+</div>
+
+# Setting Up Mana
+
 <div class="alert alert-success mt-3" role="alert" markdown="1">
 <i class="fa-solid fa-globe fa-xl"></i> **Overview**
 <hr/>
@@ -20,18 +31,9 @@ morea_enable_toc: true
   * Download sample data
 </div>
 
-<div class="alert alert-success mt-3" role="alert" markdown="1">
-<i class="fa-solid fa-globe fa-xl"></i> **Disclaimer**
-<hr/>
+## Ensure you are using a compatible browser
 
-**Additional Information**
-
-The material below will be covered during the workshop, so performing the steps below is not required pre-workshop.  However, a compatible browser meeting these requirements is needed, see:  
-
-<https://osc.github.io/ood-documentation/latest/requirements.html#browser-requirements>
-
-</div>
-
+Please make sure you have installed a compatible browser as specified at: <https://osc.github.io/ood-documentation/latest/requirements.html#browser-requirements>
 
 ## Connect to Mana through Open OnDemand
 

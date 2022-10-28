@@ -274,7 +274,7 @@ the output is::
  22
  ```
  Explain why -n has this effect.
- <details>
+ <details markdown="1">
   <summary>Solution</summary>
   The '-n' option specifies a numerical rather than an alphanumerical sort.
 </details>
@@ -407,7 +407,7 @@ Output:
  ```
   Hint: Try executing each command twice in a row and then examining the output files.
 
-  <details>
+  <details markdown="1">
   <summary>Solution</summary>
   In the first example with '', the string "hello" is written to   'testfile01.txt',
   but the file gets overwritten each time we run the command.
@@ -444,7 +444,7 @@ Output:
  3. The first three lines and the last two lines of `animals.txt`
  4. The second and third lines of `animals.txt`
 
-  <details>
+  <details markdown="1">
   <summary>Solution</summary>
   <li> Option 3 is correct.</li>
   <li> For option 1 to be correct we would only run the 'head' command</li>
@@ -552,7 +552,7 @@ lines. Which command listed below would work?
 4. `wc -l * | sort -n | head -n 3`
 ```
 
- <details>
+ <details markdown="1">
    <summary>Solution</summary>
  Option 4 is the solution.
  The pipe character `|` is used to connect the output from one command to
@@ -614,7 +614,7 @@ Input:
  $ cat animals.txt | head -n 5 | tail -n 3 | sort -r  final.txt
   ```
    Hint: build the pipeline up one command at a time to test your understanding
-  <details>
+  <details markdown="1">
   <summary>Solution</summary>
   The 'head' command extracts the first 5 lines from 'animals.txt'.
   Then, the last 3 lines are extracted from the previous 5 by using the 'tail' command.
@@ -680,7 +680,7 @@ Input:
  out what animals the file contains (without any duplicates in their
  names)?
 
- <details>
+ <details markdown="1">
    <summary>Solution</summary>
    <div class="alert alert-secondary" role="alert" markdown="1">
    <i class="fa-solid fa-user-pen fa-xl"></i>
@@ -722,7 +722,7 @@ Input:
  4.  `cut -d, -f 2 animals.txt | sort | uniq -c`
  5.  `cut -d, -f 2 animals.txt | sort | uniq -c | wc -l`
 
- <details>
+ <details markdown="1">
    <summary>Solution</summary>
    Option 4. is the correct answer.
    If you have difficulty understanding why, try running the commands, or sub-sections of
@@ -866,7 +866,7 @@ this.
 3.  Under what circumstances would your new expression produce an error message
     where the original one would not?
 
-    <details>
+    <details markdown="1">
       <summary>Solution</summary>
       1. A solution using two wildcard expressions:
           ~~~
@@ -894,7 +894,7 @@ and *only* the processed data files?
 3. `rm * .txt`
 4. `rm *.*`
 
-    <details>
+    <details markdown="1">
       <summary>Solution</summary>
       1. This would remove '.txt' files with one-character names
       2. This is correct answer

@@ -192,7 +192,7 @@ $ for datafile in *.pdb
 ```
  Why do these two loops give different outputs?
 
- <details>
+ <details markdown="1">
    <summary>Solution</summary>
    The first code block gives the same output on each iteration through
    the loop.
@@ -260,7 +260,7 @@ propane.pdb
  3.  Only `cubane.pdb`, `octane.pdb` and `pentane.pdb` are listed.
  4.  Only `cubane.pdb` is listed.
 
- <details>
+ <details markdown="1">
   <summary>Solution</summary>
   4 is the correct answer. ' * ' matches zero or more characters, so any file name starting with
   the letter c, followed by zero or more other characters will be matched.
@@ -285,7 +285,7 @@ propane.pdb
  4.  The files `cubane.pdb` and `octane.pdb` will be listed.
  5.  Only the file `octane.pdb` will be listed.
 
- <details>
+ <details markdown="1">
   <summary>Solution</summary>
   4 is the correct answer. ' * ' matches zero or more characters, so a file name with zero or more
   characters before a letter c and zero or more characters after the letter c will be matched.
@@ -315,7 +315,7 @@ done
     from `propane.pdb` will be saved to a file called `alkanes.pdb`.
 4.  None of the above.
 
-<details>
+<details markdown="1">
  <summary>Solution</summary>
  1. The text from each file in turn gets written to the 'alkanes.pdb' file.
  However, the file gets overwritten on each loop interation, so the final content of 'alkanes.pdb'
@@ -345,7 +345,7 @@ done
 4.  All of the text from `cubane.pdb`, `ethane.pdb`, `methane.pdb`, `octane.pdb`, `pentane.pdb`
     and `propane.pdb` would be printed to the screen and saved to a file called `all.pdb`.
 
-<details>
+<details markdown="1">
  <summary>Solution</summary>
  3. is the correct answer. `>` appends to a file, rather than overwriting it with the redirected
  output from a command.
@@ -799,7 +799,7 @@ Version 1:
    done
   ```
 
- <details>
+ <details markdown="1">
    <summary>Solution</summary>
    The second version is the one we want to run.
    This prints to screen everything enclosed in the quote marks, expanding the
@@ -837,7 +837,7 @@ $ for species in cubane ethane methane
  done
 ```
 
-<details>
+<details markdown="1">
   <summary>Solution</summary>
   We have a nested loop, i.e. contained within another loop, so for each species
   in the outer loop, the inner loop (the nested loop) iterates over the list of

@@ -62,8 +62,6 @@ current working directory, i.e. "here", so knowing where you are before running
 a command is important. `pwd` shows you where you are:
 
 <div class="alert alert-secondary" role="alert" markdown="1">
-<i class="fa-solid fa-user-pen fa-xl"></i>  **Print Working Directory**
-<hr/>
 
 Input:
 
@@ -147,8 +145,6 @@ own filesystem.  We can see what's in our home directory by running `ls`,
 which stands for "listing":
 
 <div class="alert alert-secondary" role="alert" markdown="1">
-<i class="fa-solid fa-user-pen fa-xl"></i>  **List Contents of Current Directory**
-<hr/>
 
 Input:
 
@@ -181,8 +177,6 @@ the shell might also use colors to indicate whether each entry is a file or
 directory.
 
 <div class="alert alert-secondary" role="alert" markdown="1">
-<i class="fa-solid fa-user-pen fa-xl"></i>  **ls -F**
-<hr/>
 
 Input:
 
@@ -215,8 +209,6 @@ the shell might also use colors to indicate whether each entry is a file or
 directory.
 
 <div class="alert alert-secondary" role="alert" markdown="1">
-<i class="fa-solid fa-user-pen fa-xl"></i>  **ls -F with Color**
-<hr/>
 
 Input:
 
@@ -243,8 +235,6 @@ Consider the command below as a general example of a command,
 which we will dissect into its component parts:
 
 <div class="alert alert-secondary" role="alert" markdown="1">
-<i class="fa-solid fa-user-pen fa-xl"></i>
-<hr/>
 
 Input:
 
@@ -271,8 +261,6 @@ of files and directories in the root directory `/`.
 An example of the output you might get from the above command is given below:
 
 <div class="alert alert-secondary" role="alert" markdown="1">
-<i class="fa-solid fa-user-pen fa-xl"></i>
-<hr/>
 
 Input:
 
@@ -294,11 +282,9 @@ Network/              Volumes/
 `ls` has lots of other **options**. There are two common ways to find out how
 to use a command and what options it accepts:
 
-1. We can pass a `--help` option to the command, such as:
+First, we can pass a `--help` option to the command, such as:
 
 <div class="alert alert-secondary" role="alert" markdown="1">
-<i class="fa-solid fa-user-pen fa-xl"></i> **--help**
-<hr/>
 
 Input:
 
@@ -307,11 +293,9 @@ $ ls --help
 ```
 </div>
 
-2. We can read its manual with `man`, such as:
+Second, we can read its manual with `man`, such as:
 
 <div class="alert alert-secondary" role="alert" markdown="1">
-<i class="fa-solid fa-user-pen fa-xl"></i>  **man page**
-<hr/>
 
 Input:
 
@@ -320,8 +304,9 @@ $ man ls
 ```
 </div>
 
-**Depending on your environment you might find that only one of these works
-(either `man` or `--help`).**
+Depending on your environment you might find that only one of these works
+(either `man` or `--help`).
+
 We'll describe both ways below.
 
 #### The `--help` option
@@ -331,8 +316,6 @@ run from within bash, support a `--help` option to display more
 information on how to use the command or program.
 
 <div class="alert alert-secondary" role="alert" markdown="1">
-<i class="fa-solid fa-user-pen fa-xl"></i> **ls --help**
-<hr/>
 
 Input:
 
@@ -463,33 +446,31 @@ or available locally via: info '(coreutils) ls invocation'
 </div>
 
 #### Unsupported command-line options
- If you try to use an option (flag) that is not supported, `ls` and other commands
+ 
+If you try to use an option (flag) that is not supported, `ls` and other commands
  will usually print an error message similar to:
 
- <div class="alert alert-secondary" role="alert" markdown="1">
- <i class="fa-solid fa-user-pen fa-xl"></i> **Unsupported command line options**
- <hr/>
+<div class="alert alert-secondary" role="alert" markdown="1">
 
- Input:
+Input:
 
- ```bash
+```bash
  $ ls -j
- ```
+```
 
- Output:
+Output:
 
- ```bash
- ls: invalid option -- 'j'
- Try 'ls --help' for more information.
- ```
+```bash
+ls: invalid option -- 'j'
+Try 'ls --help' for more information.
+```
  </div>
 
 #### The `man` command
 
-The other way to learn about `ls` is to type
+The other way to learn about `ls` is to use the man command.
+
 <div class="alert alert-secondary" role="alert" markdown="1">
-<i class="fa-solid fa-user-pen fa-xl"></i> **man command**
-<hr/>
 
 Input:
 
@@ -513,38 +494,40 @@ To **quit** the `man` pages, press <kbd>Q</kbd>.
 
 ## Manual pages on the web
 
- Of course there is a third way to access help for commands:
+Of course there is a third way to access help for commands:
  searching the internet via your web browser.
- When using internet search, including the phrase `unix man page` in your search
+When using internet search, including the phrase `unix man page` in your search
  query will help to find relevant results.
 
- GNU provides links to its
+GNU provides links to its
  [manuals](http://www.gnu.org/manual/manual.html) including the
  [core GNU utilities](http://www.gnu.org/software/coreutils/manual/coreutils.html),
  which covers many commands introduced within this lesson.
-{: .callout}
 
- <div class="alert alert-secondary" role="alert" markdown="1">
- <i class="fa-solid fa-user-pen fa-xl"></i>  **Exploring More `ls` Flags**
- <hr/>
-
- You can also use two options at the same time. What does the command ls do when used with the -l option? What about if you use both the -l and the -h option?
-
- Some of its output is about properties that we do not cover in this lesson (such as file permissions and ownership), but the rest should be useful nevertheless.
-
- <details>
-   <summary>Solution</summary>
-   The -l option makes ls use a long listing format, showing not only the file/directory names but also additional information such as the file size and the time of its last modification. If you use both the -h option and the -l option, this makes the file size “human readable”, i.e. displaying something like 5.3K instead of 5369.
- </details>
- </div>
 
 <div class="alert alert-secondary" role="alert" markdown="1">
-<i class="fa-solid fa-user-pen fa-xl"></i>  **Listing Recursively and By Time**
+ <i class="fa-solid fa-user-pen fa-xl"></i>  **Exercise: Exploring More `ls` Flags**
+ <hr/>
+
+You can also use two options at the same time. What does the command `ls` do when used with the `-l` option? What about if you use both the `-l` and the `-h` option?
+
+Some of its output is about properties that we do not cover in this lesson (such as file permissions and ownership), but the rest should be useful nevertheless.
+
+<details markdown="1">
+   <summary>Solution</summary>
+   The -l option makes ls use a long listing format, showing not only the file/directory names but also additional information such as the file size and the time of its last modification. If you use both the -h option and the -l option, this makes the file size “human readable”, i.e. displaying something like 5.3K instead of 5369.
+</details>
+</div>
+
+<div class="alert alert-secondary" role="alert" markdown="1">
+<i class="fa-solid fa-user-pen fa-xl"></i>  **Exercise: Listing Recursively and By Time**
 <hr/>
 
-The command ls -R lists the contents of directories recursively, i.e., lists their sub-directories, sub-sub-directories, and so on at each level. The command ls -t lists things by time of last change, with most recently changed files or directories first. In what order does ls -R -t display things? Hint: ls -l uses a long listing format to view timestamps.
+The command ls -R lists the contents of directories recursively, i.e., lists their sub-directories, sub-sub-directories, and so on at each level. The command ls -t lists things by time of last change, with most recently changed files or directories first. 
 
-<details>
+In what order does ls -R -t display things? (Hint: ls -l uses a long listing format to view timestamps.)
+
+<details markdown="1">
   <summary>Solution</summary>
 The files/directories in each directory are sorted by time of last change.
 </details>
@@ -558,8 +541,6 @@ The argument `Desktop` tells `ls` that
 we want a listing of something other than our current working directory:
 
 <div class="alert alert-secondary" role="alert" markdown="1">
-<i class="fa-solid fa-user-pen fa-xl"></i>
-<hr/>
 
 Input:
 
@@ -575,8 +556,8 @@ data-shell/
 </div>
 
 Your output should be a list of all the files and sub-directories on your
-Desktop, including the `data-shell` directory you downloaded at
-the [setup for this lesson].  Take a look at your Desktop to confirm that
+Desktop, including the `data-shell` directory you downloaded as part of
+the setup for this lesson.  Take a look at your Desktop to confirm that
 your output is accurate.
 
 As you may now see, using a bash shell is strongly dependent on the idea that
@@ -593,8 +574,6 @@ First, we can look at its contents, using the same strategy as before, passing
 a directory name to `ls`:
 
 <div class="alert alert-secondary" role="alert" markdown="1">
-<i class="fa-solid fa-user-pen fa-xl"></i>
-<hr/>
 
 Input:
 
@@ -625,8 +604,7 @@ Let's say we want to move to the `data` directory we saw above.  We can
 use the following series of commands to get there:
 
 <div class="alert alert-secondary" role="alert" markdown="1">
-<i class="fa-solid fa-user-pen fa-xl"></i>
-<hr/>
+
 ```bash
 $ cd Desktop
 $ cd data-shell
@@ -642,8 +620,6 @@ it lists the contents of `/Users/nelle/Desktop/data-shell/data`,
 because that's where we now are:
 
 <div class="alert alert-secondary" role="alert" markdown="1">
-<i class="fa-solid fa-user-pen fa-xl"></i>
-<hr/>
 
 Input:
 
@@ -675,8 +651,6 @@ We now know how to go down the directory tree, but
 how do we go up?  We might try the following:
 
 <div class="alert alert-secondary" role="alert" markdown="1">
-<i class="fa-solid fa-user-pen fa-xl"></i>
-<hr/>
 
 Input:
 
@@ -700,9 +674,8 @@ with the simplest.
 
 There is a shortcut in the shell to move up one directory level
 that looks like this:
+
 <div class="alert alert-secondary" role="alert" markdown="1">
-<i class="fa-solid fa-user-pen fa-xl"></i>
-<hr/>
 
 Input:
 
@@ -719,8 +692,6 @@ Sure enough,
 if we run `pwd` after running `cd ..`, we're back in `/Users/nelle/Desktop/data-shell`:
 
 <div class="alert alert-secondary" role="alert" markdown="1">
-<i class="fa-solid fa-user-pen fa-xl"></i>
-<hr/>
 
 Input:
 
@@ -739,8 +710,6 @@ The special directory `..` doesn't usually show up when we run `ls`.  If we want
 to display it, we can give `ls` the `-a` option:
 
 <div class="alert alert-secondary" role="alert" markdown="1">
-<i class="fa-solid fa-user-pen fa-xl"></i>
-<hr/>
 
 Input:
 
@@ -770,7 +739,7 @@ with a single `-` and no spaces between the options: `ls -F -a` is
 equivalent to `ls -Fa`.
 
 <div class="alert alert-info" role="alert" markdown="1">
-<i class="fa-solid fa-circle-info fa-xl"></i> **Other Hidden Files**
+<i class="fa-solid fa-circle-info fa-xl"></i> **Note: Other Hidden Files**
 <hr/>
 In addition to the hidden directories `..` and `.`, you may also see a file
 called `.bash_profile`. This file usually contains shell configuration
@@ -782,7 +751,7 @@ is used.
 </div>
 
 <div class="alert alert-info" role="alert" markdown="1">
-<i class="fa-solid fa-circle-info fa-xl"></i> **Orthogonality**
+<i class="fa-solid fa-circle-info fa-xl"></i> **Note: Orthogonality**
 <hr/>
 The special names `.` and `..` don't belong to `cd`;
 they are interpreted the same way by every program.
@@ -801,8 +770,6 @@ if you type `cd` on its own, without giving
 a directory?
 
 <div class="alert alert-secondary" role="alert" markdown="1">
-<i class="fa-solid fa-user-pen fa-xl"></i>
-<hr/>
 
 Input:
 
@@ -814,8 +781,6 @@ $ cd
 How can you check what happened?  `pwd` gives us the answer!
 
 <div class="alert alert-secondary" role="alert" markdown="1">
-<i class="fa-solid fa-user-pen fa-xl"></i>
-<hr/>
 
 Input:
 
@@ -837,8 +802,6 @@ three commands, but we can actually string together the list of directories
 to move to `data` in one step:
 
 <div class="alert alert-secondary" role="alert" markdown="1">
-<i class="fa-solid fa-user-pen fa-xl"></i>
-<hr/>
 
 Input:
 
@@ -870,8 +833,6 @@ we're looking for, we can use `pwd` and then extract the piece we need
 to move to `data-shell`.
 
 <div class="alert alert-secondary" role="alert" markdown="1">
-<i class="fa-solid fa-user-pen fa-xl"></i>
-<hr/>
 
 Input:
 
@@ -883,15 +844,11 @@ Output:
 ```bash
 $ /Users/nelle/Desktop/data-shell/data
 ```
-</div>
-<div class="alert alert-secondary" role="alert" markdown="1">
-<i class="fa-solid fa-user-pen fa-xl"></i>
-<hr/>
 
 Input:
 
 ```bash
-$ $ cd /Users/nelle/Desktop/data-shell
+$ cd /Users/nelle/Desktop/data-shell
 ```
 </div>
 
@@ -899,15 +856,16 @@ Run `pwd` and `ls -F` to ensure that we're in the directory we expect.
 
 
 <div class="alert alert-info" role="alert" markdown="1">
-<i class="fa-solid fa-circle-info fa-xl"></i> **Two More Shortcuts**
+<i class="fa-solid fa-circle-info fa-xl"></i> **Note: Two More Shortcuts**
 <hr/>
+
 The shell interprets the character `~` (tilde) at the start of a path to
  mean "the current user's home directory". For example, if Nelle's home
  directory is `/Users/nelle`, then `~/data` is equivalent to
  `/Users/nelle/data`. This only works if it is the first character in the
  path: `here/there/~/elsewhere` is *not* `here/there/Users/nelle/elsewhere`.
 
- Another shortcut is the `-` (dash) character.  `cd` will translate `-` into
+Another shortcut is the `-` (dash) character.  `cd` will translate `-` into
  *the previous directory I was in*, which is faster than having to remember,
  then type, the full path.  This is a *very* efficient way of moving back
  and forth between directories. The difference between `cd ..` and `cd -` is
@@ -916,7 +874,7 @@ The shell interprets the character `~` (tilde) at the start of a path to
 </div>
 
 <div class="alert alert-secondary" role="alert" markdown="1">
-<i class="fa-solid fa-user-pen fa-xl"></i>  **Absolute vs Relative Paths**
+<i class="fa-solid fa-user-pen fa-xl"></i>  **Exercise: Absolute vs Relative Paths**
 <hr/>
 Starting from `/Users/amanda/data`,
 which of the following commands could Amanda use to navigate to her home directory, which is `/Users/amanda`?
@@ -931,7 +889,7 @@ which of the following commands could Amanda use to navigate to her home directo
 8. `cd`
 9. `cd ..`
 
-<details>
+<details markdown="1">
 <summary>Solution</summary>
   1. No: . stands for the current directory.
   2. No: / stands for the root directory.
@@ -946,7 +904,7 @@ which of the following commands could Amanda use to navigate to her home directo
 </div>
 
 <div class="alert alert-secondary" role="alert" markdown="1">
-<i class="fa-solid fa-user-pen fa-xl"></i>  **Relative Path Resolution**
+<i class="fa-solid fa-user-pen fa-xl"></i>  **Exercise: Relative Path Resolution**
 <hr/>
 
 Using the filesystem diagram below, if `pwd` displays `/Users/thing`,
@@ -959,7 +917,7 @@ Using the filesystem diagram below, if `pwd` displays `/Users/thing`,
 
 {% include figure.html url="" max-width="100%" file="/morea/scientific-software-basics/fig/filesystem-challenge.svg" alt="Node anatomy" caption="" %}
 
-<details>
+<details markdown="1">
   <summary>Solution</summary>
   1. No: there *is* a directory `backup` in `/Users`.
   2. No: this is the content of `Users/thing/backup`,
@@ -971,7 +929,7 @@ Using the filesystem diagram below, if `pwd` displays `/Users/thing`,
 
 
 <div class="alert alert-secondary" role="alert" markdown="1">
-<i class="fa-solid fa-user-pen fa-xl"></i>  **`ls` Reading Comprehension**
+<i class="fa-solid fa-user-pen fa-xl"></i>  **Exercise: `ls` Reading Comprehension**
 <hr/>
 
 Using the filesystem diagram below,
@@ -979,19 +937,20 @@ Using the filesystem diagram below,
  and `-r` tells `ls` to display things in reverse order,
  what command(s) will result in the following output:
 
- Output:
+Output:
 
- ```bash
+```bash
  pnas_sub/ pnas_final/ original/
- ```
+```
 
 {% include figure.html url="" max-width="100%" file="/morea/scientific-software-basics/fig/filesystem-challenge1.svg" alt="Node anatomy" caption="" %}
 
+Is the correct command to produce the above output:
 1.  `ls pwd`
 2.  `ls -r -F`
 3.  `ls -r -F /Users/backup`
 
-<details>
+<details markdown="1">
   <summary>Solution</summary>
   1. No: `pwd` is not the name of a directory.
   2. Yes: `ls` without directory argument lists files and directories
@@ -1016,7 +975,7 @@ but she found them hard to understand after a couple of years.
 a directory called `revised-revised-results-3`.)
 
 <div class="alert alert-warning" role="alert" markdown="1">
-<i class="fa-solid fa-triangle-exclamation fa-xl"></i> **Sorting Output**
+<i class="fa-solid fa-triangle-exclamation fa-xl"></i> **Note: Sorting Output**
 <hr/>
 
 Nelle names her directories "year-month-day", with leading zeroes for months and days, because the shell displays file and directory names in alphabetical order. If she used month names, December would come before July; if she didn't use leading zeroes, November ('11') would come before July ('7'). Similarly, putting the year first means that June 2012 will come before June 2013.
@@ -1037,8 +996,6 @@ Now in her current directory `data-shell`,
 Nelle can see what files she has using the command:
 
 <div class="alert alert-secondary" role="alert" markdown="1">
-<i class="fa-solid fa-user-pen fa-xl"></i>
-<hr/>
 
 Input:
 
@@ -1052,8 +1009,6 @@ but she can let the shell do most of the work through what is called **tab compl
 If she types:
 
 <div class="alert alert-secondary" role="alert" markdown="1">
-<i class="fa-solid fa-user-pen fa-xl"></i>
-<hr/>
 
 Input:
 
@@ -1066,8 +1021,6 @@ and then presses <kbd>Tab</kbd> (the tab key on her keyboard),
 the shell automatically completes the directory name for her:
 
 <div class="alert alert-secondary" role="alert" markdown="1">
-<i class="fa-solid fa-user-pen fa-xl"></i>
-<hr/>
 
 Input:
 

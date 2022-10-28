@@ -47,8 +47,6 @@ Let's go back to our `data-shell` directory on the Desktop
 and use `ls -F` to see what it contains:
 
 <div class="alert alert-secondary" role="alert" markdown="1">
-<i class="fa-solid fa-user-pen fa-xl"></i>
-<hr/>
 
 Input:
 
@@ -64,8 +62,6 @@ Output:
 </div>
 
 <div class="alert alert-secondary" role="alert" markdown="1">
-<i class="fa-solid fa-user-pen fa-xl"></i>
-<hr/>
 
 Input:
 
@@ -86,8 +82,6 @@ Let's create a new directory called `thesis` using the command `mkdir thesis`
 (which has no output):
 
 <div class="alert alert-secondary" role="alert" markdown="1">
-<i class="fa-solid fa-user-pen fa-xl"></i>
-<hr/>
 
 Input:
 
@@ -104,8 +98,6 @@ Since `thesis` is a relative path
 the new directory is created in the current working directory:
 
 <div class="alert alert-secondary" role="alert" markdown="1">
-<i class="fa-solid fa-user-pen fa-xl"></i>
-<hr/>
 
 Input:
 
@@ -120,14 +112,14 @@ creatures/  data/  molecules/  north-pacific-gyre/  notes.txt  pizza.cfg  solar.
 </div>
 
 <div class="alert alert-info" role="alert" markdown="1">
-<i class="fa-solid fa-circle-info fa-xl"></i> **Two ways of doing the same thing**
+<i class="fa-solid fa-circle-info fa-xl"></i> **Note: Two ways of doing the same thing**
 <hr/>
 
 Using the shell to create a directory is no different than using a file explorer. If you open the current directory using your operating system’s graphical file explorer, the `thesis` directory will appear there too. While the shell and the file explorer are two different ways of interacting with the files, the files and directories themselves are the same.
 </div>
 
 <div class="alert alert-info" role="alert" markdown="1">
-<i class="fa-solid fa-circle-info fa-xl"></i> **Good names for files and directories**
+<i class="fa-solid fa-circle-info fa-xl"></i> **Note: Good names for files and directories**
 <hr/>
 
 Complicated names of files and directories can make your life painful when working on the command line. Here we provide a few useful tips for the names of your files.
@@ -150,8 +142,6 @@ If you need to refer to names of files or directories that have spaces or other 
 Since we've just created the `thesis` directory, there's nothing in it yet:
 
 <div class="alert alert-secondary" role="alert" markdown="1">
-<i class="fa-solid fa-user-pen fa-xl"></i>
-<hr/>
 
 Input:
 
@@ -161,14 +151,13 @@ $ ls -F thesis
 </div>
 
 ### Create a text file
-Let's change our working directory to `thesis` using `cd`,
-then run a text editor called Nano to create a file called `draft.txt`:
 
-* On Mana compute nodes do this first
+Let's change our working directory to `thesis` using `cd`,
+then run a text editor called Nano to create a file called `draft.txt`.
+
+On Mana compute nodes do this first:
 
 <div class="alert alert-secondary" role="alert" markdown="1">
-<i class="fa-solid fa-user-pen fa-xl"></i>
-<hr/>
 
 Input:
 
@@ -177,11 +166,9 @@ $ module load tools/nano
 ```
 </div>
 
-The login nodes have the editors, nano, vim and emacs so one can skip the module load above.
+(The login nodes have the editors, nano, vim and emacs so one can skip the module load above.)
 
 <div class="alert alert-secondary" role="alert" markdown="1">
-<i class="fa-solid fa-user-pen fa-xl"></i>
-<hr/>
 
 Input:
 
@@ -192,7 +179,7 @@ $ nano draft.txt
 </div>
 
 <div class="alert alert-info" role="alert" markdown="1">
-<i class="fa-solid fa-circle-info fa-xl"></i> **Which Editor?**
+<i class="fa-solid fa-circle-info fa-xl"></i> **Note: Which Editor?**
 <hr/>
 
 When we say, "`nano` is a text editor," we really do mean "text": it can
@@ -218,6 +205,7 @@ When we say, "`nano` is a text editor," we really do mean "text": it can
 </div>
 
 Let's type in a few lines of text.
+
 Once we're happy with our text, we can press <kbd>Ctrl</kbd>+<kbd>O</kbd> (press the Ctrl or Control key and, while
 holding it down, press the O key) to write our data to disk
 (we'll be asked what file we want to save this to:
@@ -229,7 +217,7 @@ Once our file is saved, we can use `Ctrl-X` to quit the editor and
 return to the shell.
 
 <div class="alert alert-info" role="alert" markdown="1">
-<i class="fa-solid fa-circle-info fa-xl"></i> **Control, Ctrl, or ^ Key**
+<i class="fa-solid fa-circle-info fa-xl"></i> **Note: Control, Ctrl, or ^ Key**
 <hr/>
 The Control key is also called the "Ctrl" key. There are various ways
  in which using the Control key may be described. For example, you may
@@ -252,8 +240,6 @@ The Control key is also called the "Ctrl" key. There are various ways
 but `ls` now shows that we have created a file called `draft.txt`:
 
 <div class="alert alert-secondary" role="alert" markdown="1">
-<i class="fa-solid fa-user-pen fa-xl"></i>
-<hr/>
 
 Input:
 
@@ -268,16 +254,17 @@ draft.txt
 ```
 </div>
 
-<div class="alert alert-info" role="alert" markdown="1">
-<i class="fa-solid fa-circle-info fa-xl"></i> **Creating Files a Different Way**
-<hr/>
+## Creating Files a Different Way
+
 We have seen how to create text files using the `nano` editor.
- Now, try the following command:
- <div class="alert alert-secondary" role="alert" markdown="1">
- <i class="fa-solid fa-user-pen fa-xl"></i>
+
+Now, try the following command:
+
+<div class="alert alert-secondary" role="alert" markdown="1">
+ <i class="fa-solid fa-user-pen fa-xl"></i>  **Exercise: Try touch**
  <hr/>
 
- Input:
+Input:
 
  ```bash
 $ touch my_file.txt
@@ -291,7 +278,7 @@ $ touch my_file.txt
 
  3.  When might you want to create a file this way?
 
- <details>
+ <details markdown="1">
    <summary>Solution</summary>
   1.  The `touch` command generates a new file called `my_file.txt` in
       your current directory.  You
@@ -311,11 +298,9 @@ $ touch my_file.txt
       programs.
    </details>
 </div>
-</div>
 
-<div class="alert alert-info" role="alert" markdown="1">
-<i class="fa-solid fa-circle-info fa-xl"></i> **What's in a name?**
-<hr/>
+
+## What's in a name?
 
 You may have noticed that all of Nelle's files are named "something dot
  something", and in this part of the lesson, we always used the extension
@@ -337,14 +322,12 @@ You may have noticed that all of Nelle's files are named "something dot
  magically turn it into a recording of whalesong, though it *might*
  cause the operating system to try to open it with a music player
  when someone double-clicks it.
-</div>
+
 
 ## Moving files and directories
 Returning to the `data-shell` directory,
 
 <div class="alert alert-secondary" role="alert" markdown="1">
-<i class="fa-solid fa-user-pen fa-xl"></i>
-<hr/>
 
 Input:
 
@@ -359,8 +342,6 @@ so let's change the file's name using `mv`,
 which is short for "move":
 
 <div class="alert alert-secondary" role="alert" markdown="1">
-<i class="fa-solid fa-user-pen fa-xl"></i>
-<hr/>
 
 Input:
 
@@ -378,8 +359,6 @@ Sure enough,
 `ls` shows us that `thesis` now contains one file called `quotes.txt`:
 
 <div class="alert alert-secondary" role="alert" markdown="1">
-<i class="fa-solid fa-user-pen fa-xl"></i>
-<hr/>
 
 Input:
 
@@ -410,8 +389,6 @@ In this case,
 the directory name we use is the special directory name `.` that we mentioned earlier.
 
 <div class="alert alert-secondary" role="alert" markdown="1">
-<i class="fa-solid fa-user-pen fa-xl"></i>
-<hr/>
 
 Input:
 
@@ -424,8 +401,6 @@ The effect is to move the file from the directory it was in to the current worki
 `ls` now shows us that `thesis` is empty:
 
 <div class="alert alert-secondary" role="alert" markdown="1">
-<i class="fa-solid fa-user-pen fa-xl"></i>
-<hr/>
 
 Input:
 
@@ -440,8 +415,6 @@ Further,
 We can use this to see that `quotes.txt` is still in our current directory:
 
 <div class="alert alert-secondary" role="alert" markdown="1">
-<i class="fa-solid fa-user-pen fa-xl"></i>
-<hr/>
 
 Input:
 
@@ -455,40 +428,45 @@ quotes.txt
 ```
 </div>
 
- ## Moving to the Current Folder
+## Moving to the Current Folder
 
- After running the following commands,
+After running the following commands,
  Jamie realizes that she put the files `sucrose.dat` and `maltose.dat` into the wrong folder:
 
- <div class="alert alert-secondary" role="alert" markdown="1">
- <i class="fa-solid fa-user-pen fa-xl"></i>
- <hr/>
- ```bash
- $ ls -F
+<div class="alert alert-secondary" role="alert" markdown="1">
+
+```bash
+$ ls -F
   analyzed/ raw/
- $ ls -F analyzed
+$ ls -F analyzed
  fructose.dat glucose.dat maltose.dat sucrose.dat
- $ cd raw/
- ```
+$ cd raw/
+```
  </div>
 
- Fill in the blanks to move these files to the current folder
- (i.e., the one she is currently in):
+
 
  <div class="alert alert-secondary" role="alert" markdown="1">
- <i class="fa-solid fa-user-pen fa-xl"></i>
+ <i class="fa-solid fa-user-pen fa-xl"></i> **Exercise: Moving files**
  <hr/>
- Input:
+
+Fill in the blanks to move these files to the current folder
+(i.e., the one she is currently in):
+
+Input:
 
  ```bash
  $ $ mv ___/sucrose.dat  ___/maltose.dat ___
  ```
 
- <details>
-   <summary>Solution</summary>
+<details markdown="1">
+<summary>Solution</summary>
+
+```
 $ mv ../analyzed/sucrose.dat ../analyzed/maltose.dat .
- </details>
- </div>
+```
+</details>
+</div>
 
 Recall that `..` refers to the parent directory (i.e. one above the current directory) and that `.` refers to the current directory.
 
@@ -501,8 +479,6 @@ with two paths as arguments --- like most Unix commands,
 `ls` can be given multiple paths at once:
 
 <div class="alert alert-secondary" role="alert" markdown="1">
-<i class="fa-solid fa-user-pen fa-xl"></i>
-<hr/>
 
 Input:
 
@@ -523,8 +499,6 @@ We can also copy a directory and all its contents by using the
 e.g. to back up a directory:
 
 <div class="alert alert-secondary" role="alert" markdown="1">
-<i class="fa-solid fa-user-pen fa-xl"></i>
-<hr/>
 
 Input:
 
@@ -537,8 +511,6 @@ $ cp -r thesis thesis_backup
 We can check the result by listing the contents of both the `thesis` and `thesis_backup` directory:
 
 <div class="alert alert-secondary" role="alert" markdown="1">
-<i class="fa-solid fa-user-pen fa-xl"></i>
-<hr/>
 
 Input:
 
@@ -556,14 +528,14 @@ quotations.txt
 ```
 </div>
 
-<div class="alert alert-info" role="alert" markdown="1">
-<i class="fa-solid fa-circle-info fa-xl"></i> **Renaming Files**
+<div class="alert alert-secondary" role="alert" markdown="1">
+<i class="fa-solid fa-circle-info fa-xl"></i> **Exercise: Renaming Files**
 <hr/>
 
- Suppose that you created a plain-text file in your current directory to contain a list of the
+Suppose that you created a plain-text file in your current directory to contain a list of the
  statistical tests you will need to do to analyze your data, and named it: `statstics.txt`
 
- After creating and saving this file you realize you misspelled the filename! You want to
+After creating and saving this file you realize you misspelled the filename! You want to
  correct the mistake, which of the following commands could you use to do so?
 
  1. `cp statstics.txt statistics.txt`
@@ -572,7 +544,7 @@ quotations.txt
  4. `cp statstics.txt .`
 
 
-<details>
+<details markdown="1">
   <summary>Solution</summary>
   1. No.  While this would create a file with the correct name, the incorrectly named file still exists in the directory
     and would need to be deleted.
@@ -586,85 +558,80 @@ quotations.txt
 
 ## Moving and Copying
 
- What is the output of the closing `ls` command in the sequence shown below?
+Let's start by assuming the following directory structure situation:
 
- <div class="alert alert-secondary" role="alert" markdown="1">
- <i class="fa-solid fa-user-pen fa-xl"></i> **Part 1**
- <hr/>
+<div class="alert alert-secondary" role="alert" markdown="1">
 
- Input:
+Input:
 
  ```bash
  $ pwd
  ```
 
- Output:
+Output:
 
  ```bash
  /Users/jamie/data
  ```
- Input:
 
- ```bash
+Input:
+
+```bash
  $ ls
- ```
+```
 
- Output:
+Output:
 
  ```bash
  proteins.dat
  ```
  </div>
 
- <div class="alert alert-secondary" role="alert" markdown="1">
- <i class="fa-solid fa-user-pen fa-xl"></i> **Part 2**
- <hr/>
 
- Input:
+<div class="alert alert-secondary" role="alert" markdown="1">
+<i class="fa-solid fa-user-pen fa-xl"></i> **Exercise: Understanding movement**
+<hr/>
 
- ```bash
- $ mkdir recombine
- $ mv proteins.dat recombine/
- $ cp recombine/proteins.dat ../proteins-saved.dat
- $ ls
- ```
+Now assume you run the following commands:
 
- Output:
+```bash
+$ mkdir recombine
+$ mv proteins.dat recombine/
+$ cp recombine/proteins.dat ../proteins-saved.dat
+```
 
- ```bash
- /Users/jamie/data
- ```
- Input:
+Which one of the following would be the output of running the 'ls' command?
 
- ```bash
- $ ls
- ```
 
- Output:
+1. `proteins-saved.dat recombine`
+2. `recombine`
+3. `proteins.dat recombine`
+4. `proteins-saved.dat`
 
- ```bash
- 1.   `proteins-saved.dat recombine`
- 2.   `recombine`
- 3.   `proteins.dat recombine`
- 4.   `proteins-saved.dat`
- ```
- <details>
-  <summary>Solution</summary>
-  <li>We start in the '/Users/jamie/data' directory, and create a new folder called 'recombine'.
-  The second line moves ('mv') the file 'proteins.dat' to the new folder ('recombine').
-  The third line makes a copy of the file we just moved.  The tricky part here is where the file was
-  copied to.  Recall that '..' means "go up a level", so the copied file is now in '/Users/jamie'.
-  Notice that '..' is interpreted with respect to the current working
+<details markdown="1">
+<summary>Solution</summary>
+
+Let's first recap what the commands did. 
+
+First we start in the '/Users/jamie/data' directory, and create a new folder called 'recombine'.
+
+The second command moves ('mv') the file 'proteins.dat' to the new folder ('recombine').
+  
+The third command makes a copy of the file we just moved.  The tricky part here is where the file was copied to.  Recall that '..' means "go up a level", so the copied file is now in '/Users/jamie'.
+  
+Notice that '..' is interpreted with respect to the current working
   directory, **not** with respect to the location of the file being copied.
-  So, the only thing that will show using ls (in '/Users/jamie/data') is the recombine folder.</li>
+  So, the only thing that will show using ls (in '/Users/jamie/data') is the recombine folder.
 
-  <li> 1. No, see explanation above.  'proteins-saved.dat' is located at '/Users/jamie'</li>
-  <li> 2. Yes</li>
-  <li> 3. No, see explanation above.  'proteins.dat' is located at '/Users/jamie/data/recombine'</li>
-  <li> 4. No, see explanation above.  'proteins-saved.dat' is located at '/Users/jamie'</li>
+So, here's the answer:
 
-  </details>
- </div>
+1. No, see explanation above.  'proteins-saved.dat' is located at '/Users/jamie'.
+2. Yes.
+3. No, see explanation above.  'proteins.dat' is located at '/Users/jamie/data/recombine'
+4. No, see explanation above.  'proteins-saved.dat' is located at '/Users/jamie'
+
+</details>
+</div>
 
 ## Removing files and directories
 
@@ -673,8 +640,6 @@ let's tidy up this directory by removing the `quotes.txt` file we created.
 The Unix command we'll use for this is `rm` (short for 'remove'):
 
 <div class="alert alert-secondary" role="alert" markdown="1">
-<i class="fa-solid fa-user-pen fa-xl"></i> **rm**
-<hr/>
 
 Input:
 
@@ -686,8 +651,6 @@ $ rm quotes.txt
 We can confirm the file has gone using `ls`:
 
 <div class="alert alert-secondary" role="alert" markdown="1">
-<i class="fa-solid fa-user-pen fa-xl"></i>  **ls**
-<hr/>
 
 Input:
 
@@ -702,7 +665,7 @@ cannot access 'quotes.txt': No such file or directory
 </div>
 
 <div class="alert alert-warning" role="alert" markdown="1">
-<i class="fa-solid fa-triangle-exclamation fa-xl"></i> **Deleting Is Forever**
+<i class="fa-solid fa-triangle-exclamation fa-xl"></i> **Warning: Deleting Is Forever!!!**
 <hr/>
 
 The Unix shell doesn't have a trash bin that we can recover deleted
@@ -716,26 +679,17 @@ file's disk space right away.
 
 
 <div class="alert alert-secondary" role="alert" markdown="1">
-<i class="fa-solid fa-user-pen fa-xl"></i>  **Using 'rm' Safely**
+<i class="fa-solid fa-user-pen fa-xl"></i>  **Exercise: Using 'rm' Safely**
 <hr/>
 What happens when we execute `rm -i thesis_backup/quotations.txt`?
 Why would we want this protection when using `rm`?
 
-<details>
-  <summary>Solution</summary>
-  <div class="alert alert-secondary" role="alert" markdown="1">
-  <i class="fa-solid fa-user-pen fa-xl"></i>
-  <hr/>
+<details markdown="1">
+The '-i' option will prompt before (every) removal (use <kbd>Y</kbd> to confirm deletion or <kbd>N</kbd> to keep the file).
 
-  Input:
+The Unix shell doesn't have a trash bin, so all the files removed will disappear forever.
 
-  ```bash
-  $ rm: remove regular file 'thesis_backup/quotations.txt'? y
-  ```
-  </div>
-  The '-i' option will prompt before (every) removal (use <kbd>Y</kbd> to confirm deletion or <kbd>N</kbd> to keep the file).
-  The Unix shell doesn't have a trash bin, so all the files removed will disappear forever.
-  By using the '-i' option, we have the chance to check that we are deleting only the files that we want to remove.
+By using the '-i' option, we have the chance to check that we are deleting only the files that we want to remove.
 </details>
 </div>
 
@@ -743,8 +697,6 @@ If we try to remove the `thesis` directory using `rm thesis`,
 we get an error message:
 
 <div class="alert alert-secondary" role="alert" markdown="1">
-<i class="fa-solid fa-user-pen fa-xl"></i>  **rm thesis**
-<hr/>
 
 Input:
 
@@ -829,7 +781,7 @@ Oftentimes one needs to copy or move several files at once. This can be done by 
  ```bash
  $ cp amino-acids.txt animals.txt morse.txt
  ```
- <details>
+ <details markdown="1">
    <summary>Solution</summary>
    If given more than one file name followed by a directory name (i.e. the destination directory must
    be the last argument), 'cp' copies the files to the named directory.
@@ -890,7 +842,7 @@ Oftentimes one needs to copy or move several files at once. This can be done by 
  2. `ls *t?ne.*`
  3. `ls *t??ne.pdb`
  4. `ls ethane.*`
- <details>
+ <details markdown="1">
    <summary>Solution</summary>
    The solution is (3)
 
@@ -1002,7 +954,7 @@ Oftentimes one needs to copy or move several files at once. This can be done by 
          ├── 2015-11-23-dataset2.txt
          └── 2015-11-23-dataset_overview.txt
  ```
- <details>
+ <details markdown="1">
   <summary>Solution</summary>
   <div class="alert alert-secondary" role="alert" markdown="1">
   <i class="fa-solid fa-user-pen fa-xl"></i> **Solution**
@@ -1069,7 +1021,7 @@ Oftentimes one needs to copy or move several files at once. This can be done by 
  ```bash
  fructose.dat    sucrose.dat   
  ```
- <details>
+ <details markdown="1">
   <summary>Solution</summary>
   <div class="alert alert-secondary" role="alert" markdown="1">
   <i class="fa-solid fa-user-pen fa-xl"></i>
@@ -1134,7 +1086,7 @@ Oftentimes one needs to copy or move several files at once. This can be done by 
  $ mkdir data
  $ mkdir raw processed
  ```
- <details>
+ <details markdown="1">
    <summary>Solution</summary>
    The first two sets of commands achieve this objective.
    The first set uses relative paths to create the top level directory before

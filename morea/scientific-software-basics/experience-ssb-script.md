@@ -394,7 +394,7 @@ Output:
 
  Write a shell script called `species.sh` that takes any number of
  filenames as command-line arguments, and uses and uses a variation of the above command to print a list of the unique species appearing in each of those files separately.
- <details>
+ <details markdown="1">
   <summary>Solution</summary>
   <div class="alert alert-secondary" role="alert" markdown="1">
   <i class="fa-solid fa-user-pen fa-xl"></i>
@@ -473,7 +473,7 @@ the shell has added `history` to the command log before actually
 running it. In fact, the shell *always* adds commands to the log
 before running them. Why do you think it does this?
 
-<details>
+<details markdown="1">
   <summary>Solution</summary>
   If a command causes something to crash or hang, it might be useful
   to know what that command was, in order to investigate the problem.
@@ -595,7 +595,7 @@ Of course, this introduces another tradeoff between flexibility and complexity.
  3. The first and the last line of each file in the `molecules` directory
  4. An error because of the quotes around `*.pdb`
 
- <details>
+ <details markdown="1">
   <summary>Solution</summary>
   The correct answer is 2.
 
@@ -634,7 +634,7 @@ $ tail -n 1 cubane.pdb ethane.pdb octane.pdb pentane.pdb propane.pdb
  would print the name of the `.pdb` file in `/tmp/data` that has
  the most lines.
 
- <details>
+ <details markdown="1">
    <summary>Solution</summary>
    <div class="alert alert-secondary" role="alert" markdown="1">
    <i class="fa-solid fa-user-pen fa-xl"></i>
@@ -681,7 +681,7 @@ $ tail -n 1 cubane.pdb ethane.pdb octane.pdb pentane.pdb propane.pdb
  # Script 3
  echo $@.pdb
  ```
- <details>
+ <details markdown="1">
    <summary>Solution</summary>
    <div class="alert alert-secondary" role="alert" markdown="1">
    <i class="fa-solid fa-user-pen fa-xl"></i>
@@ -734,7 +734,7 @@ $ tail -n 1 cubane.pdb ethane.pdb octane.pdb pentane.pdb propane.pdb
  ```
  What is the output showing you?
  Which line is responsible for the error?
- <details>
+ <details markdown="1">
    <summary>Solution</summary>
    The '-x' option causes 'bash' to run in debug mode.
    This prints out each command as it is run, which will help you to locate errors.

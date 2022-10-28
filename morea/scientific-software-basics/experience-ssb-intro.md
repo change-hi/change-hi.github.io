@@ -86,10 +86,9 @@ Let's get started.
 When the shell is first opened, you are presented with a **prompt**,
 indicating that the shell is waiting for input.
 
-~~~
+```bash
 $
-~~~
-{: .language-bash}
+```
 
 The shell typically uses `$ ` as the prompt, but may use a different symbol.
 In the examples for this lesson, we'll show the prompt as `$ `.
@@ -107,8 +106,6 @@ So let's try our first command, `ls` which is short for listing.
 This command will list the contents of the current directory:
 
 <div class="alert alert-secondary" role="alert" markdown="1">
-<i class="fa-solid fa-user-pen fa-xl"></i>  **List Contents of Current Directory**
-<hr/>
 
 Input:
 
