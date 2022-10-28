@@ -1,10 +1,10 @@
 ---
-title: "4. Staging and File System Choice"
+title: "6. Staging and File System Choice"
 published: true
 morea_id: experience-hpc-file-systems
 morea_type: experience
 morea_summary: "What is a file system? What is a distributed file system? How do you optimize the file system on Mana?"
-morea_sort_order: 2
+morea_sort_order: 7
 morea_labels:
   - 3:20pm
 morea_enable_toc: true
@@ -20,7 +20,7 @@ morea_enable_toc: true
   * How do you optimize the file system on Mana?
 
 **Objectives**
-  * Understand general file system and distributed file system concepts.Understand the general HPC System architecture.
+  * Understand general file system and distributed file system concepts. Understand the general HPC System architecture.
   * Be able to stage files on Mana lustre scratch.
 </div>
 
@@ -258,3 +258,8 @@ with tf.device('/device:GPU:0'):
 
 <hr/>
 For comparison purposes, here's the [Software Carpentry version of this page](https://ci-tracs.github.io/High_Performance_Computing/12-hpc-file-systems/index.html)
+
+{% include next-button.html 
+           top-label="Assessment ->" 
+           bottom-label="3:40pm" 
+           url="/morea/hpc/assessment-hpc-workshop.html" %}
