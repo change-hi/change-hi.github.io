@@ -47,8 +47,6 @@ Let's start by going back to `molecules/` and creating a new file, `middle.sh` w
 become our shell script:
 
 <div class="alert alert-secondary" role="alert" markdown="1">
-<i class="fa-solid fa-user-pen fa-xl"></i>
-<hr/>
 
 ```bash
 $ cd molecules
@@ -62,8 +60,6 @@ If the file does not exist, it will be created.
 We can use the text editor to directly edit the file -- we'll simply insert the following line:
 
 <div class="alert alert-secondary" role="alert" markdown="1">
-<i class="fa-solid fa-user-pen fa-xl"></i>
-<hr/>
 
 ```bash
 head -n 15 octane.pdb | tail -n 5
@@ -84,8 +80,6 @@ we can ask the shell to execute the commands it contains.
 Our shell is called `bash`, so we run the following command:
 
 <div class="alert alert-secondary" role="alert" markdown="1">
-<i class="fa-solid fa-user-pen fa-xl"></i>
-<hr/>
 
 Input:
 
@@ -128,8 +122,6 @@ but that would probably take longer than just retyping the command.
 Instead, let's edit `middle.sh` and make it more versatile:
 
 <div class="alert alert-secondary" role="alert" markdown="1">
-<i class="fa-solid fa-user-pen fa-xl"></i>
-<hr/>
 
 ```bash
 $ nano middle.sh
@@ -139,8 +131,6 @@ $ nano middle.sh
 Now, within "nano", replace the text `octane.pdb` with the special variable called `$1`:
 
 <div class="alert alert-secondary" role="alert" markdown="1">
-<i class="fa-solid fa-user-pen fa-xl"></i>
-<hr/>
 
 Output:
 ```bash
@@ -153,8 +143,6 @@ Inside a shell script,
 We can now run our script like this:
 
 <div class="alert alert-secondary" role="alert" markdown="1">
-<i class="fa-solid fa-user-pen fa-xl"></i>
-<hr/>
 
 Input:
 
@@ -176,8 +164,6 @@ ATOM     13  H           1      -3.172  -1.337   0.206  1.00  0.00
 or on a different file like this:
 
 <div class="alert alert-secondary" role="alert" markdown="1">
-<i class="fa-solid fa-user-pen fa-xl"></i>
-<hr/>
 
 Input:
 
@@ -196,8 +182,8 @@ ATOM     13  H           1      -1.183   0.500  -1.412  1.00  0.00
 ```
 </div>
 
- <div class="alert alert-info" role="alert" markdown="1">
- <i class="fa-solid fa-circle-info fa-xl"></i> **Double-Quotes Around Arguments**
+<div class="alert alert-info" role="alert" markdown="1">
+ <i class="fa-solid fa-circle-info fa-xl"></i> **Note: Double-Quotes Around Arguments**
  <hr/>
  For the same reason that we put the loop variable inside double-quotes,
  in case the filename happens to contain any spaces,
@@ -211,9 +197,6 @@ Let's fix that by using the special variables `$2` and `$3` for the
 number of lines to be passed to `head` and `tail` respectively:
 
 <div class="alert alert-secondary" role="alert" markdown="1">
-<i class="fa-solid fa-user-pen fa-xl"></i>
-<hr/>
-
 Input:
 
 ```bash
@@ -230,9 +213,6 @@ head -n "$2" "$1" | tail -n "$3"
 We can now run:
 
 <div class="alert alert-secondary" role="alert" markdown="1">
-<i class="fa-solid fa-user-pen fa-xl"></i>
-<hr/>
-
 Input:
 
 ```bash
@@ -254,9 +234,6 @@ By changing the arguments to our command we can change our script's
 behaviour:
 
 <div class="alert alert-secondary" role="alert" markdown="1">
-<i class="fa-solid fa-user-pen fa-xl"></i>
-<hr/>
-
 Input:
 
 ```bash
@@ -279,8 +256,6 @@ but it may take the next person who reads `middle.sh` a moment to figure out wha
 We can improve our script by adding some **comments** at the top:
 
 <div class="alert alert-secondary" role="alert" markdown="1">
-<i class="fa-solid fa-user-pen fa-xl"></i>
-<hr/>
 
 Input:
 
@@ -291,8 +266,8 @@ $ nano middle.sh
 Output:
 
 ```bash
-Select lines from the middle of a file.
-Usage: bash middle.sh filename end_line num_lines
+# Select lines from the middle of a file.
+# Usage: bash middle.sh filename end_line num_lines
 head -n "$2" "$1" | tail -n "$3"
 ```
 </div>
@@ -308,8 +283,6 @@ What if we want to process many files in a single pipeline?
 For example, if we want to sort our `.pdb` files by length, we would type:
 
 <div class="alert alert-secondary" role="alert" markdown="1">
-<i class="fa-solid fa-user-pen fa-xl"></i>
-<hr/>
 
 ```bash
 $ wc -l *.pdb | sort -n
@@ -335,8 +308,6 @@ to handle the case of arguments containing spaces
 Here's an example:
 
 <div class="alert alert-secondary" role="alert" markdown="1">
-<i class="fa-solid fa-user-pen fa-xl"></i>
-<hr/>
 
 Input:
 
@@ -372,11 +343,12 @@ Output:
 
 ## List Unique Species
 
- Leah has several hundred data files, each of which is formatted like this:
 
  <div class="alert alert-secondary" role="alert" markdown="1">
- <i class="fa-solid fa-user-pen fa-xl"></i> **Leah's Data**
+ <i class="fa-solid fa-user-pen fa-xl"></i> **Exercise: Leah's Data**
  <hr/>
+
+Leah has several hundred data files, each of which is formatted like this:
 
  ```bash
  2013-11-05,deer,5
@@ -396,11 +368,8 @@ Output:
  filenames as command-line arguments, and uses and uses a variation of the above command to print a list of the unique species appearing in each of those files separately.
  <details markdown="1">
   <summary>Solution</summary>
-  <div class="alert alert-secondary" role="alert" markdown="1">
-  <i class="fa-solid fa-user-pen fa-xl"></i>
-  <hr/>
 
-  ```bash
+```bash
   # Script to find unique species in csv files where species is the second data field
   # This script accepts any number of file names as command line arguments
 
@@ -411,10 +380,9 @@ Output:
   	# Extract species names
   	cut -d , -f 2 $file | sort | uniq
   done
-  ```
-  </div>
+ ```
 </details>
- </div>
+</div>
 
 Suppose we have just run a series of commands that did something useful --- for example,
 that created a graph we'd like to use in a paper.
@@ -425,20 +393,15 @@ Instead of typing them in again
 we can do this:
 
 <div class="alert alert-secondary" role="alert" markdown="1">
-<i class="fa-solid fa-user-pen fa-xl"></i>
-<hr/>
 
 ```bash
 $ history | tail -n 5 > redo-figure-3.sh
 ```
-
 </div>
 
 The file `redo-figure-3.sh` now contains:
 
 <div class="alert alert-secondary" role="alert" markdown="1">
-<i class="fa-solid fa-user-pen fa-xl"></i>
-<hr/>
 
 ```bash
 297 bash goostats NENE01729B.txt stats-NENE01729B.txt
@@ -454,20 +417,16 @@ After a moment's work in an editor to remove the serial numbers on the commands,
 and to remove the final line where we called the `history` command,
 we have a completely accurate record of how we created that figure.
 
-<div class="alert alert-info" role="alert" markdown="1">
-<i class="fa-solid fa-circle-info fa-xl"></i> **Why Record Commands in the History Before Running Them?**
-<hr/>
-
- If you run the command:
-
 <div class="alert alert-secondary" role="alert" markdown="1">
-<i class="fa-solid fa-user-pen fa-xl"></i>
+<i class="fa-solid fa-circle-info fa-xl"></i> **Exercise: Why Record Commands in the History Before Running Them?**
 <hr/>
+
+If you run the command:
 
 ```bash
 $ history | tail -n 5  recent.sh
 ```
-</div>
+
 the last command in the file is the `history` command itself, i.e.,
 the shell has added `history` to the command log before actually
 running it. In fact, the shell *always* adds commands to the log
@@ -498,8 +457,6 @@ Nelle's supervisor insisted that all her analytics must be reproducible. The eas
 First we return to Nelle's data directory:
 
 <div class="alert alert-secondary" role="alert" markdown="1">
-<i class="fa-solid fa-user-pen fa-xl"></i>
-<hr/>
 
 ```bash
 $ cd ../north-pacific-gyre/2012-07-03/
@@ -509,8 +466,6 @@ $ cd ../north-pacific-gyre/2012-07-03/
 She runs the editor and writes the following:
 
 <div class="alert alert-secondary" role="alert" markdown="1">
-<i class="fa-solid fa-user-pen fa-xl"></i>
-<hr/>
 
 ```bash
 # Calculate stats for data files.
@@ -526,8 +481,6 @@ She saves this in a file called `do-stats.sh`
 so that she can now re-do the first stage of her analysis by typing:
 
 <div class="alert alert-secondary" role="alert" markdown="1">
-<i class="fa-solid fa-user-pen fa-xl"></i>
-<hr/>
 
 ```bash
 $ bash do-stats.sh NENE*[AB].txt
@@ -547,8 +500,6 @@ it lets the person running it decide what files to process.
 She could have written it as:
 
 <div class="alert alert-secondary" role="alert" markdown="1">
-<i class="fa-solid fa-user-pen fa-xl"></i>
-<hr/>
 
 ```bash
 # Calculate stats for Site A and Site B data files.
@@ -573,11 +524,14 @@ Of course, this introduces another tradeoff between flexibility and complexity.
 
 ## Variables in Shell Scripts
 
- In the `molecules` directory, imagine you have a shell script called `script.sh` containing the
- following commands:
- <div class="alert alert-secondary" role="alert" markdown="1">
- <i class="fa-solid fa-user-pen fa-xl"></i> **Variables in Shell Scripts**
+ 
+
+<div class="alert alert-secondary" role="alert" markdown="1">
+ <i class="fa-solid fa-user-pen fa-xl"></i> **Exercise: Variables in Shell Scripts**
  <hr/>
+
+In the `molecules` directory, imagine you have a shell script called `script.sh` containing the
+following commands:
 
  ```bash
  head -n $2 $1
@@ -596,15 +550,11 @@ Of course, this introduces another tradeoff between flexibility and complexity.
  4. An error because of the quotes around `*.pdb`
 
  <details markdown="1">
-  <summary>Solution</summary>
-  The correct answer is 2.
+<summary>Solution</summary>
+The correct answer is 2.
 
-  The special variables $1, $2 and $3 represent the command line arguments given to the
+The special variables $1, $2 and $3 represent the command line arguments given to the
   script, such that the commands run are:
-
-<div class="alert alert-secondary" role="alert" markdown="1">
-<i class="fa-solid fa-user-pen fa-xl"></i>
-<hr/>
 
 ```bash
 $ head -n 1 cubane.pdb ethane.pdb octane.pdb pentane.pdb propane.pdb
@@ -613,20 +563,22 @@ $ tail -n 1 cubane.pdb ethane.pdb octane.pdb pentane.pdb propane.pdb
   The shell does not expand `'*.pdb'` because it is enclosed by quote marks.
   As such, the first argument to the script is `'*.pdb'` which gets expanded within the
   script by `head` and `tail`.
-</div>
 </details>
- </div>
+</div>
+
 
 ## Find the Longest File With a Given Extension
 
- Write a shell script called `longest.sh` that takes the name of a
- directory and a filename extension as its arguments, and prints
- out the name of the file with the most lines in that directory
- with that extension. For example:
+ 
 
  <div class="alert alert-secondary" role="alert" markdown="1">
- <i class="fa-solid fa-user-pen fa-xl"></i>
+ <i class="fa-solid fa-user-pen fa-xl"></i> **Exercise: Write a script**
  <hr/>
+
+Write a shell script called `longest.sh` that takes the name of a
+directory and a filename extension as its arguments, and prints
+out the name of the file with the most lines in that directory
+with that extension. For example:
 
  ```bash
  $ bash longest.sh /tmp/data pdb
@@ -636,11 +588,8 @@ $ tail -n 1 cubane.pdb ethane.pdb octane.pdb pentane.pdb propane.pdb
 
  <details markdown="1">
    <summary>Solution</summary>
-   <div class="alert alert-secondary" role="alert" markdown="1">
-   <i class="fa-solid fa-user-pen fa-xl"></i>
-   <hr/>
 
-   ```bash
+```bash
    # Shell script which takes two arguments:
    #    1. a directory name
    #    2. a file extension
@@ -648,23 +597,22 @@ $ tail -n 1 cubane.pdb ethane.pdb octane.pdb pentane.pdb propane.pdb
    # with the most lines which matches the file extension.
 
    wc -l $1/*.$2 | sort -n | tail -n 2 | head -n 1
-   ```
+```
 
-   </div>
- </details>
- </div>
+</details>
+</div>
 
 ## Script Reading Comprehension
 
- For this question, consider the `data-shell/molecules` directory once again.
- This contains a number of `.pdb` files in addition to any other files you
- may have created.
- Explain what each of the following three scripts would do when run as
- `bash script1.sh *.pdb`, `bash script2.sh *.pdb`, and `bash script3.sh *.pdb` respectively.
+<div class="alert alert-secondary" role="alert" markdown="1">
+<i class="fa-solid fa-user-pen fa-xl"></i> **Exercise: Understand some scripts**
+<hr/>
 
- <div class="alert alert-secondary" role="alert" markdown="1">
- <i class="fa-solid fa-user-pen fa-xl"></i>
- <hr/>
+For this exercise, consider the `data-shell/molecules` directory once again.
+This contains a number of `.pdb` files in addition to any other files you
+may have created.
+Explain what each of the following three scripts would do when run as
+`bash script1.sh *.pdb`, `bash script2.sh *.pdb`, and `bash script3.sh *.pdb` respectively.
 
  ```bash
  # Script 1
@@ -681,38 +629,36 @@ $ tail -n 1 cubane.pdb ethane.pdb octane.pdb pentane.pdb propane.pdb
  # Script 3
  echo $@.pdb
  ```
- <details markdown="1">
-   <summary>Solution</summary>
-   <div class="alert alert-secondary" role="alert" markdown="1">
-   <i class="fa-solid fa-user-pen fa-xl"></i>
-   <hr/>
-   In each case, the shell expands the wildcard in '* .pdb' before passing the resulting
+<details markdown="1">
+<summary>Solution</summary>
+
+In each case, the shell expands the wildcard in '* .pdb' before passing the resulting
    list of file names as arguments to the script.
 
-   Script 1 would print out a list of all files containing a dot in their name.
-   The arguments passed to the script are not actually used anywhere in the script.
+Script 1 would print out a list of all files containing a dot in their name.
+The arguments passed to the script are not actually used anywhere in the script.
 
-   Script 2 would print the contents of the first 3 files with a '.pdb' file extension.
-   '$1', '$2', and '$3' refer to the first, second, and third argument respectively.
+Script 2 would print the contents of the first 3 files with a '.pdb' file extension.
+'$1', '$2', and '$3' refer to the first, second, and third argument respectively.
 
-   Script 3 would print all the arguments to the script (i.e. all the '.pdb' files),
-   followed by '.pdb'.
-   '$@' refers to *all* the arguments given to a shell script.
-   ```bash
+Script 3 would print all the arguments to the script (i.e. all the '.pdb' files),
+followed by '.pdb'.
+'$@' refers to *all* the arguments given to a shell script.
+   
+```bash
   cubane.pdb ethane.pdb methane.pdb octane.pdb pentane.pdb propane.pdb.pdb
-   ```
-   </div>
+  ```
  </details>
  </div>
 
 ## Debugging Scripts
 
- Suppose you have saved the following script in a file called `do-errors.sh`
- in Nelle's `north-pacific-gyre/2012-07-03` directory:
-
  <div class="alert alert-secondary" role="alert" markdown="1">
- <i class="fa-solid fa-user-pen fa-xl"></i>
+ <i class="fa-solid fa-user-pen fa-xl"></i> **Exercise: Debugging**
  <hr/>
+
+Suppose you have saved the following script in a file called `do-errors.sh`
+in Nelle's `north-pacific-gyre/2012-07-03` directory:
 
  ```bash
  # Calculate stats for data files.
@@ -723,28 +669,29 @@ $ tail -n 1 cubane.pdb ethane.pdb octane.pdb pentane.pdb propane.pdb
  done
  ```
  When you run it:
+
  ```bash
  # Calculate stats for data files.
  $ bash do-errors.sh NENE*[AB].txt
  ```
- the output is blank.
- To figure out why, re-run the script using the `-x` option:
+ the output is blank. 
+ 
+To figure out why, re-run the script using the `-x` option:
  ```bash
  bash -x do-errors.sh NENE*[AB].txt
  ```
- What is the output showing you?
- Which line is responsible for the error?
- <details markdown="1">
-   <summary>Solution</summary>
-   The '-x' option causes 'bash' to run in debug mode.
-   This prints out each command as it is run, which will help you to locate errors.
-   In this example, we can see that 'echo' isn't printing anything. We have made a typo
-   in the loop variable name, and the variable 'datfile' doesn't exist, hence returning
-   an empty string.
+What is the output showing you?
 
-   </div>
- </details>
- </div>
+Which line is responsible for the error?
+<details markdown="1">
+<summary>Solution</summary>
+The '-x' option causes 'bash' to run in debug mode.
+This prints out each command as it is run, which will help you to locate errors.
+In this example, we can see that 'echo' isn't printing anything. We have made a typo
+in the loop variable name, and the variable 'datfile' doesn't exist, hence returning
+an empty string.
+</details>
+</div>
 
 {% include next-button.html
 top-label="Finding Things ->"
