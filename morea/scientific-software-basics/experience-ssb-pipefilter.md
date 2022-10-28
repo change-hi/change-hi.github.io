@@ -50,8 +50,6 @@ The `.pdb` extension indicates that these files are in Protein Data Bank format,
 a simple text format that specifies the type and position of each atom in the molecule.
 
 <div class="alert alert-secondary" role="alert" markdown="1">
-<i class="fa-solid fa-user-pen fa-xl"></i>  **Bash**
-<hr/>
 
 Input:
 
@@ -75,8 +73,6 @@ The `*` in `*.pdb` matches zero or more characters,
 so the shell turns `*.pdb` into a list of all `.pdb` files in the current directory:
 
 <div class="alert alert-secondary" role="alert" markdown="1">
-<i class="fa-solid fa-user-pen fa-xl"></i>  **wc**
-<hr/>
 
 Input:
 
@@ -102,8 +98,6 @@ If we run `wc -l` instead of just `wc`,
 the output shows only the number of lines per file:
 
 <div class="alert alert-secondary" role="alert" markdown="1">
-<i class="fa-solid fa-user-pen fa-xl"></i>  **wc -l**
-<hr/>
 
 Input:
 
@@ -133,9 +127,6 @@ Output:
  don't give it a filename? For example, what if we type:
 
  <div class="alert alert-secondary" role="alert" markdown="1">
- <i class="fa-solid fa-user-pen fa-xl"></i>  **wc -l**
- <hr/>
-
  Input:
 
  ```bash
@@ -161,8 +152,6 @@ but what if there were 6000?
 Our first step toward a solution is to run the command:
 
 <div class="alert alert-secondary" role="alert" markdown="1">
-<i class="fa-solid fa-user-pen fa-xl"></i>  **wc -l**
-<hr/>
 
 Input:
 
@@ -181,8 +170,6 @@ some caution.
 `ls lengths.txt` confirms that the file exists:
 
 <div class="alert alert-secondary" role="alert" markdown="1">
-<i class="fa-solid fa-user-pen fa-xl"></i>
-<hr/>
 
 Input:
 
@@ -203,8 +190,6 @@ There's only one file in this case,
 so `cat` just shows us what it contains:
 
 <div class="alert alert-secondary" role="alert" markdown="1">
-<i class="fa-solid fa-user-pen fa-xl"></i> **cat**
-<hr/>
 
 Input:
 
@@ -237,17 +222,12 @@ Output:
 
 Now let's use the `sort` command to sort its contents.
 
-<div class="alert alert-info" role="alert" markdown="1">
-<i class="fa-solid fa-circle-info fa-xl"></i> **What Does `sort -n` Do?**
+<div class="alert alert-secondary" role="alert" markdown="1">
+<i class="fa-solid fa-circle-info fa-xl"></i> **Exercise: What Does `sort -n` Do?**
 <hr/>
 
  If we run `sort` on a file containing the following lines:
 
- <div class="alert alert-secondary" role="alert" markdown="1">
- <i class="fa-solid fa-user-pen fa-xl"></i>  **Code**
- <hr/>
-
- If we run sort on a file containing the following lines:
  ```bash
  10
  2
@@ -255,6 +235,7 @@ Now let's use the `sort` command to sort its contents.
  22
  6
  ```
+
 the output is::
 
  ```bash
@@ -264,7 +245,8 @@ the output is::
  22
  6
  ```
- If we run sort -n on the same input, we get this instead:
+
+If we run sort -n on the same input, we get this instead:
 
  ```bash
  2
@@ -274,12 +256,13 @@ the output is::
  22
  ```
  Explain why -n has this effect.
- <details markdown="1">
+
+<details markdown="1">
   <summary>Solution</summary>
   The '-n' option specifies a numerical rather than an alphanumerical sort.
 </details>
 </div>
- </div>
+
 
 We will also use the `-n` option to specify that the sort is
 numerical instead of alphanumerical.
@@ -287,8 +270,6 @@ This does *not* change the file;
 instead, it sends the sorted result to the screen:
 
 <div class="alert alert-secondary" role="alert" markdown="1">
-<i class="fa-solid fa-user-pen fa-xl"></i>  **sort -n**
-<hr/>
 
 Input:
 
@@ -316,8 +297,6 @@ Once we've done that,
 we can run another command called `head` to get the first few lines in `sorted-lengths.txt`:
 
 <div class="alert alert-secondary" role="alert" markdown="1">
-<i class="fa-solid fa-user-pen fa-xl"></i>  **sort -n**
-<hr/>
 
 Input:
 
@@ -347,33 +326,22 @@ It's a very bad idea to try redirecting
 the output of a command that operates on a file
 to the same file. For example:
 
-<div class="alert alert-secondary" role="alert" markdown="1">
-<i class="fa-solid fa-user-pen fa-xl"></i>  **sort -n**
-<hr/>
-
-Input:
-
 ```bash
- $ sort -n lengths.txt  lengths.txt
+$ sort -n lengths.txt  lengths.txt
 ```
 Doing something like this may give you
 incorrect results and/or delete
 the contents of `lengths.txt`.
-</div>
+
 </div>
 
-<div class="alert alert-info" role="alert" markdown="1">
-<i class="fa-solid fa-circle-info fa-xl"></i> **What Does `>>` Mean?**
-<hr/>
+## What Does `>>` Mean?
 
 We have seen the use of `>`, but there is a similar operator `>>` which works slightly differently.
 We'll learn about the differences between these two operators by printing some strings.
 We can use the `echo` command to print strings e.g.
 
 <div class="alert alert-secondary" role="alert" markdown="1">
-<i class="fa-solid fa-user-pen fa-xl"></i>  **echo**
-<hr/>
-
 Input:
 
 ```bash
@@ -385,74 +353,77 @@ Output:
  The echo command prints text
 ```
 </div>
-</div>
 
- <div class="alert alert-secondary" role="alert" markdown="1">
- <i class="fa-solid fa-user-pen fa-xl"></i>  **echo**
- <hr/>
 
- Now test the commands below to reveal the difference between the two operators:
+<div class="alert alert-secondary" role="alert" markdown="1">
+<i class="fa-solid fa-user-pen fa-xl"></i>  **Exercise: echo**
+<hr/>
 
- Input:
+Now test the commands below to reveal the difference between the two operators:
+
+Input:
 
  ```bash
  $ echo hello  testfile01.txt
  ```
- and
+and
 
- Input:
+Input:
 
  ```bash
  $ echo hello > testfile02.txt
  ```
-  Hint: Try executing each command twice in a row and then examining the output files.
+Hint: Try executing each command twice in a row and then examining the output files.
 
-  <details markdown="1">
-  <summary>Solution</summary>
+<details markdown="1">
+<summary>Solution</summary>
   In the first example with '', the string "hello" is written to   'testfile01.txt',
   but the file gets overwritten each time we run the command.
 
-  We see from the second example that the '>' operator also writes "hello" to a file
+We see from the second example that the '>' operator also writes "hello" to a file
   (in this case 'testfile02.txt'),
   but appends the string to the file if it already exists (i.e. when we run it for the second time).
 </details>
- </div>
+</div>
 
- <div class="alert alert-info" role="alert" markdown="1">
- <i class="fa-solid fa-circle-info fa-xl"></i> **Appending Data**
- <hr/>
+## Appending Data
 
- We have already met the `head` command, which prints lines from the start of a file.
+We have already met the `head` command, which prints lines from the start of a file.
  `tail` is similar, but prints lines from the end of a file instead.
 
- Consider the file `data-shell/data/animals.txt`.
- After these commands, select the answer that
- corresponds to the file `animals-subset.txt`:
 
- <div class="alert alert-secondary" role="alert" markdown="1">
- <i class="fa-solid fa-user-pen fa-xl"></i>
- <hr/>
 
- Input:
+<div class="alert alert-secondary" role="alert" markdown="1">
+<i class="fa-solid fa-user-pen fa-xl"></i> **Exercise: tail**
+<hr/>
+
+Consider the file `data-shell/data/animals.txt`.
+After these commands, select the answer that
+corresponds to the file `animals-subset.txt`:
+
 
  ```bash
  $ head -n 3 animals.txt > animals-subset.txt
  $ tail -n 2 animals.txt >> animals-subset.txt
  ```
+
  1. The first three lines of `animals.txt`
  2. The last two lines of `animals.txt`
  3. The first three lines and the last two lines of `animals.txt`
  4. The second and third lines of `animals.txt`
 
-  <details markdown="1">
-  <summary>Solution</summary>
-  <li> Option 3 is correct.</li>
-  <li> For option 1 to be correct we would only run the 'head' command</li>
-  <li> For option 2 to be correct we would only run the 'tail' command.</li>
-  <li> For option 4 to be correct we would have to pipe the output of 'head' into 'tail -n 2' by doing 'head -n 3 animals.txt | tail -n 2  animals-subset.txt'</li>
+<details markdown="1">
+<summary>Solution</summary>
+
+Option 3 is correct.
+
+* For option 1 to be correct we would only run the 'head' command
+* For option 2 to be correct we would only run the 'tail' command.
+* For option 4 to be correct we would have to pipe the output of 'head' into 'tail -n 2' by doing `head -n 3 animals.txt | tail -n 2  animals-subset.txt`
+
 </details>
- </div>
- </div>
+</div>
+ 
 
 If you think this is confusing,
 you're in good company:
@@ -461,9 +432,6 @@ all those intermediate files make it hard to follow what's going on.
 We can make it easier to understand by running `sort` and `head` together:
 
 <div class="alert alert-secondary" role="alert" markdown="1">
-<i class="fa-solid fa-user-pen fa-xl"></i>  **sort -n**
-<hr/>
-
 Input:
 
 ```bash
@@ -488,8 +456,6 @@ and then the resulting output to `head`.
 Thus we first use a pipe to send the output of `wc` to `sort`:
 
 <div class="alert alert-secondary" role="alert" markdown="1">
-<i class="fa-solid fa-user-pen fa-xl"></i>  **Bash**
-<hr/>
 
 Input:
 
@@ -512,8 +478,6 @@ Output:
 And now we send the output of this pipe, through another pipe, to `head`, so that the full pipeline becomes:
 
 <div class="alert alert-secondary" role="alert" markdown="1">
-<i class="fa-solid fa-user-pen fa-xl"></i>  **Bash**
-<hr/>
 
 Input:
 
@@ -538,12 +502,14 @@ The redirection and pipes used in the last few commands are illustrated below:
 
 ## Piping Commands Together
 
-In our current directory, we want to find the 3 files which have the least number of
-lines. Which command listed below would work?
+
 
 <div class="alert alert-secondary" role="alert" markdown="1">
-<i class="fa-solid fa-user-pen fa-xl"></i>
+<i class="fa-solid fa-user-pen fa-xl"></i> **Exercise: pipes**
 <hr/>
+
+In our current directory, we want to find the 3 files which have the least number of
+lines. Which command listed below would work?
 
 ```bash
 1. `wc -l *  sort -n  head -n 3`
@@ -552,14 +518,17 @@ lines. Which command listed below would work?
 4. `wc -l * | sort -n | head -n 3`
 ```
 
- <details markdown="1">
-   <summary>Solution</summary>
+<details markdown="1">
+<summary>Solution</summary>
  Option 4 is the solution.
- The pipe character `|` is used to connect the output from one command to
+
+The pipe character `|` is used to connect the output from one command to
  the input of another.
- `>` is used to redirect standard output to a file.
- Try it in the `data-shell/molecules` directory!
- </details>
+
+`>` is used to redirect standard output to a file.
+
+Try it in the `data-shell/molecules` directory!
+</details>
 </div>
 
 This idea of linking programs together is why Unix has been so successful.
@@ -582,15 +551,11 @@ can be combined with every other program that behaves this way as well.
 You can *and should* write your programs this way
 so that you and other people can put those programs into pipes to multiply their power.
 
-<div class="alert alert-info" role="alert" markdown="1">
-<i class="fa-solid fa-circle-info fa-xl"></i> **Pipe Reading Comprehension**
+<div class="alert alert-secondary" role="alert" markdown="1">
+<i class="fa-solid fa-circle-info fa-xl"></i> **Exercise: Pipe Reading Comprehension**
 <hr/>
 
- A file called `animals.txt` (in the `data-shell/data` folder) contains the following data:
-
- <div class="alert alert-secondary" role="alert" markdown="1">
- <i class="fa-solid fa-user-pen fa-xl"></i>
- <hr/>
+A file called `animals.txt` (in the `data-shell/data` folder) contains the following data:
 
  ```bash
 2012-11-05,deer
@@ -602,67 +567,50 @@ so that you and other people can put those programs into pipes to multiply their
 2012-11-07,rabbit
 2012-11-07,bear
  ```
- </div>
-  What text passes through each of the pipes and the final redirect in the pipeline below?
 
-  <div class="alert alert-secondary" role="alert" markdown="1">
-  <i class="fa-solid fa-user-pen fa-xl"></i>
-  <hr/>
+What text passes through each of the pipes and the final redirect in the pipeline below?
 
-Input:
-  ```bash
- $ cat animals.txt | head -n 5 | tail -n 3 | sort -r  final.txt
-  ```
-   Hint: build the pipeline up one command at a time to test your understanding
-  <details markdown="1">
-  <summary>Solution</summary>
-  The 'head' command extracts the first 5 lines from 'animals.txt'.
-  Then, the last 3 lines are extracted from the previous 5 by using the 'tail' command.
-  With the 'sort -r' command those 3 lines are sorted in reverse order and finally,
+```bash
+$ cat animals.txt | head -n 5 | tail -n 3 | sort -r  final.txt
+```
+Hint: build the pipeline up one command at a time to test your understanding
+
+<details markdown="1">
+<summary>Solution</summary>
+The 'head' command extracts the first 5 lines from 'animals.txt'.
+
+Then, the last 3 lines are extracted from the previous 5 by using the 'tail' command.
+
+With the 'sort -r' command those 3 lines are sorted in reverse order and finally,
   the output is redirected to a file 'final.txt'.
-  The content of this file can be checked by executing 'cat final.txt'.
 
-  The file should contain the following lines:
-  <div class="alert alert-secondary" role="alert" markdown="1">
-  <i class="fa-solid fa-user-pen fa-xl"></i>
-  <hr/>
+The content of this file can be checked by executing 'cat final.txt'.
 
-  ```bash
+The file should contain the following lines:
+```bash
   2012-11-06,rabbit
   2012-11-06,deer
   2012-11-05,raccoon
-  ```
-  </div>
-
+```
 </details>
-  </div>
-
 </div>
 
 ## Pipe Construction
 
- For the file `animals.txt` from the previous exercise, consider the following command:
 
- <div class="alert alert-secondary" role="alert" markdown="1">
- <i class="fa-solid fa-user-pen fa-xl"></i>
- <hr/>
 
- Input:
+<div class="alert alert-secondary" role="alert" markdown="1">
+<i class="fa-solid fa-circle-info fa-xl"></i> **Exercise: More piping**
+<hr/>
+For the file `animals.txt` from the previous exercise, consider the following command:
 
  ```bash
  $ cut -d , -f 2 animals.txt
  ```
- </div>
 
- The `cut` command is used to remove or "cut out" certain sections of each line in the file. The optional `-d` flag is used to define the delimiter. A **delimiter** is a character that is used to separate each line of text into columns. The default delimiter is <kbd>Tab</kbd>, meaning that the `cut` command will automatically assume that values in different columns will be separated by a tab. The `-f` flag is used to specify the field (column) to cut out.
+The `cut` command is used to remove or "cut out" certain sections of each line in the file. The optional `-d` flag is used to define the delimiter. A **delimiter** is a character that is used to separate each line of text into columns. The default delimiter is <kbd>Tab</kbd>, meaning that the `cut` command will automatically assume that values in different columns will be separated by a tab. The `-f` flag is used to specify the field (column) to cut out.
  The command above uses the `-d` option to split each line by comma, and the `-f` option
  to print the second field in each line, to give the following output:
-
- <div class="alert alert-secondary" role="alert" markdown="1">
- <i class="fa-solid fa-user-pen fa-xl"></i>
- <hr/>
-
- Output:
 
  ```bash
  deer
@@ -681,27 +629,20 @@ Input:
  names)?
 
  <details markdown="1">
-   <summary>Solution</summary>
-   <div class="alert alert-secondary" role="alert" markdown="1">
-   <i class="fa-solid fa-user-pen fa-xl"></i>
-   <hr/>
-
-  Input:
-
+<summary>Solution</summary>
   ```bash
   $ cut -d , -f 2 animals.txt | sort | uniq
   ```
-  </div>
  </details>
  </div>
 
 ## Which Pipe?
 
- The file `animals.txt` contains 8 lines of data formatted as follows:
-
  <div class="alert alert-secondary" role="alert" markdown="1">
- <i class="fa-solid fa-user-pen fa-xl"></i> **animals.txt**
+ <i class="fa-solid fa-user-pen fa-xl"></i> **Exercise: animals.txt**
  <hr/>
+
+The file `animals.txt` contains 8 lines of data formatted as follows:
 
  ```bash
  2012-11-05,deer
@@ -709,9 +650,8 @@ Input:
  2012-11-05,raccoon
  2012-11-06,rabbit
  ```
- </div>
 
- The `uniq` command has a `-c` option which gives a count of the
+The `uniq` command has a `-c` option which gives a count of the
  number of times a line occurs in its input.  Assuming your current
  directory is `data-shell/data/`, what command would you use to produce
  a table that shows the total count of each type of animal in the file?
@@ -723,11 +663,13 @@ Input:
  5.  `cut -d, -f 2 animals.txt | sort | uniq -c | wc -l`
 
  <details markdown="1">
-   <summary>Solution</summary>
+<summary>Solution</summary>
    Option 4. is the correct answer.
+
    If you have difficulty understanding why, try running the commands, or sub-sections of
    the pipelines (make sure you are in the 'data-shell/data' directory).
  </details>
+</div>
 
 ## Nelle's Pipeline: Checking Files
 
@@ -736,8 +678,6 @@ and created 17 files in the `north-pacific-gyre/2012-07-03` directory described 
 As a quick sanity check, starting from her home directory, Nelle types:
 
 <div class="alert alert-secondary" role="alert" markdown="1">
-<i class="fa-solid fa-user-pen fa-xl"></i>
-<hr/>
 
 Input:
 ```bash
@@ -749,8 +689,6 @@ $ wc -l *.txt
 The output is 18 lines that look like this:
 
 <div class="alert alert-secondary" role="alert" markdown="1">
-<i class="fa-solid fa-user-pen fa-xl"></i>
-<hr/>
 
 Output:
 ```bash
@@ -766,14 +704,12 @@ Output:
 Now she types this:
 
 <div class="alert alert-secondary" role="alert" markdown="1">
-<i class="fa-solid fa-user-pen fa-xl"></i>
-<hr/>
-
 Input:
 ```bash
 $ wc -l *.txt | sort -n | head -n 5
 ```
 Output:
+
 ```bash
 240 NENE02018B.txt
 300 NENE01729A.txt
@@ -792,8 +728,6 @@ Before re-running that sample,
 she checks to see if any files have too much data:
 
 <div class="alert alert-secondary" role="alert" markdown="1">
-<i class="fa-solid fa-user-pen fa-xl"></i>
-<hr/>
 
 Input:
 ```bash
@@ -816,8 +750,6 @@ her lab uses 'Z' to indicate samples with missing information.
 To find others like it, she does this:
 
 <div class="alert alert-secondary" role="alert" markdown="1">
-<i class="fa-solid fa-user-pen fa-xl"></i>
-<hr/>
 
 Input:
 ```bash
@@ -843,13 +775,14 @@ the expression `[AB]` matches either an 'A' or a 'B',
 so this matches all the valid data files she has.
 
 
-<div class="alert alert-info" role="alert" markdown="1">
-<i class="fa-solid fa-circle-info fa-xl"></i> **Wildcard Expressions**
+<div class="alert alert-secondary" role="alert" markdown="1">
+<i class="fa-solid fa-circle-info fa-xl"></i> **Exercise: Wildcard Expressions**
 <hr/>
 
 Wildcard expressions can be very complex, but you can sometimes write
 them in ways that only use simple syntax, at the expense of being a bit
 more verbose.
+
 Consider the directory `data-shell/north-pacific-gyre/2012-07-03` :
 the wildcard expression `*[AB].txt`
 matches all files ending in `A.txt` or `B.txt`. Imagine you forgot about
@@ -866,23 +799,24 @@ this.
 3.  Under what circumstances would your new expression produce an error message
     where the original one would not?
 
-    <details markdown="1">
-      <summary>Solution</summary>
-      1. A solution using two wildcard expressions:
-          ~~~
-          $ ls *A.txt
-          $ ls *B.txt
-          ~~~
-          {: .language-bash}
-      2. The output from the new commands is separated because there are two commands.
-      3. When there are no files ending in 'A.txt', or there are no files ending in
-      'B.txt'.
-    </details>
+<details markdown="1">
+<summary>Solution</summary>
+1. A solution using two wildcard expressions:
+
+```
+$ ls *A.txt
+$ ls *B.txt
+```
+
+2. The output from the new commands is separated because there are two commands.
+3. When there are no files ending in 'A.txt', or there are no files ending in 'B.txt'.
+</details>
 </div>
 
-<div class="alert alert-info" role="alert" markdown="1">
-<i class="fa-solid fa-circle-info fa-xl"></i> **Removing Unneeded Files**
+<div class="alert alert-secondary" role="alert" markdown="1">
+<i class="fa-solid fa-circle-info fa-xl"></i> **Exercise: Removing Unneeded Files**
 <hr/>
+
 Suppose you want to delete your processed data files, and only keep
 your raw files and processing script to save storage.
 The raw files end in `.dat` and the processed files end in `.txt`.
@@ -894,16 +828,16 @@ and *only* the processed data files?
 3. `rm * .txt`
 4. `rm *.*`
 
-    <details markdown="1">
-      <summary>Solution</summary>
-      1. This would remove '.txt' files with one-character names
-      2. This is correct answer
-      3. The shell would expand ' * ' to match everything in the current directory,
-      so the command would try to remove all matched files and an additional
-      file called '.txt'
-      4. The shell would expand '*.*' to match all files with any extension,
-      so this command would delete all files
-    </details>
+<details markdown="1">
+<summary>Solution</summary>
+1. This would remove '.txt' files with one-character names
+2. This is correct answer
+3. The shell would expand ' * ' to match everything in the current directory,
+so the command would try to remove all matched files and an additional
+file called '.txt'
+4. The shell would expand '*.*' to match all files with any extension,
+so this command would delete all files
+</details>
 </div>
 
 <div class="alert alert-warning" role="alert" markdown="1">
