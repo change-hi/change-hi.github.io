@@ -685,6 +685,7 @@ What happens when we execute `rm -i thesis_backup/quotations.txt`?
 Why would we want this protection when using `rm`?
 
 <details markdown="1">
+<summary>Answer</summary>
 The '-i' option will prompt before (every) removal (use <kbd>Y</kbd> to confirm deletion or <kbd>N</kbd> to keep the file).
 
 The Unix shell doesn't have a trash bin, so all the files removed will disappear forever.
@@ -717,8 +718,6 @@ This happens because `rm` by default only works on files, not directories.
 recursive option `-r`, and it will do so *without any confirmation prompts*:
 
 <div class="alert alert-secondary" role="alert" markdown="1">
-<i class="fa-solid fa-user-pen fa-xl"></i>  **rm -r thesis**
-<hr/>
 
 Input:
 
@@ -731,7 +730,7 @@ Given that there is no way to retrieve files deleted using the shell,
 `rm -r` *should be used with great caution* (you might consider adding the interactive option `rm -r -i`).
 
 <div class="alert alert-info" role="alert" markdown="1">
-<i class="fa-solid fa-circle-info fa-xl"></i> **Operations with multiple files and directories**
+<i class="fa-solid fa-circle-info fa-xl"></i> **Note: Operations with multiple files and directories**
 <hr/>
 
 Oftentimes one needs to copy or move several files at once. This can be done by providing a list of individual filenames, or specifying a naming pattern using wildcards.  
@@ -739,83 +738,85 @@ Oftentimes one needs to copy or move several files at once. This can be done by 
 
 ## Copy with Multiple Filenames
 
- For this exercise, you can test the commands in the `data-shell/data` directory.
+For this exercise, you can test the commands in the `data-shell/data` directory.
 
- In the example below, what does `cp` do when given several filenames and a directory name?
 
- <div class="alert alert-secondary" role="alert" markdown="1">
- <i class="fa-solid fa-user-pen fa-xl"></i>  **cp**
- <hr/>
 
- Input:
+<div class="alert alert-secondary" role="alert" markdown="1">
+<i class="fa-solid fa-user-pen fa-xl"></i>  **Exercise: cp**
+<hr/>
+
+In the example below, what does `cp` do when given several filenames and a directory name?
 
  ```bash
  $ mkdir backup
  $ cp amino-acids.txt animals.txt backup/
  ```
- </div>
 
- In the example below, what does `cp` do when given three or more file names?
+<details markdown="1">
+<summary>Solution</summary>
+When the last argument is a directory, `cp` will copy all of the files to that directory.
+</details>
+</div>
 
- <div class="alert alert-secondary" role="alert" markdown="1">
- <i class="fa-solid fa-user-pen fa-xl"></i>  **cp**
+
+<div class="alert alert-secondary" role="alert" markdown="1">
+ <i class="fa-solid fa-user-pen fa-xl"></i>  **Exercise: another call to cp**
  <hr/>
 
- Input:
+Given the following:
 
- ```bash
+```bash
  $  ls -F
- ```
- Output:
+```
+ 
+Output:
 
  ```bash
  amino-acids.txt  animals.txt  backup/  elements/  morse.txt  pdb/  planets.txt  salmon.txt  sunspot.txt
  ```
- </div>
- <div class="alert alert-secondary" role="alert" markdown="1">
- <i class="fa-solid fa-user-pen fa-xl"></i>  **cp**
- <hr/>
 
- Input:
+In the example below, what will `cp` do when given three or more file names?
 
- ```bash
- $ cp amino-acids.txt animals.txt morse.txt
- ```
- <details markdown="1">
-   <summary>Solution</summary>
-   If given more than one file name followed by a directory name (i.e. the destination directory must
-   be the last argument), 'cp' copies the files to the named directory.
+```bash
+$ cp amino-acids.txt animals.txt morse.txt
+```
 
-   If given three file names, 'cp' throws an error such as the one below, because it is expecting a directory name as the last argument.
+<details markdown="1">
+<summary>Solution</summary>
 
-   <div class="alert alert-secondary" role="alert" markdown="1">
-   <i class="fa-solid fa-user-pen fa-xl"></i>
-   <hr/>
+If given more than one file name followed by a directory name (i.e. the destination directory must be the last argument), 'cp' copies the files to the named directory.
 
-   ```bash
-   cp: target ‘morse.txt’ is not a directory
-   ```
-   </div>
- </details>
- </div>
+If given three file names, 'cp' throws an error such as the one below, because it is expecting a directory name as the last argument:
+
+```bash
+cp: target ‘morse.txt’ is not a directory
+```
+</details>
+</div>
 
 ### Using wildcards for accessing multiple files at once
- `*`  is a **wildcard**, which matches zero or more  characters.
- Let's consider the `data-shell/molecules` directory:
- `*.pdb` matches `ethane.pdb`, `propane.pdb`, and every
- file that ends with '.pdb'. On the other hand, `p*.pdb` only matches
+ 
+Note that `*`  is a **wildcard**, which matches zero or more  characters.
+
+Let's consider the `data-shell/molecules` directory:
+1. `*.pdb` matches `ethane.pdb`, `propane.pdb`, and every
+ file that ends with '.pdb'. 
+2. On the other hand, `p*.pdb` only matches
  `pentane.pdb` and `propane.pdb`, because the 'p' at the front only
  matches filenames that begin with the letter 'p'.
 
- `?` is also a wildcard, but it matches exactly one character.
- So `?ethane.pdb` would match `methane.pdb` whereas
+The character `?` is also a wildcard, but it matches exactly one character.
+
+So `?ethane.pdb` would match `methane.pdb` whereas
  `*ethane.pdb` matches both `ethane.pdb`, and `methane.pdb`.
 
- Wildcards can be used in combination with each other
- e.g. `???ane.pdb` matches three characters followed by `ane.pdb`,
+Wildcards can be used in combination with each other.
+
+For example, `???ane.pdb` matches three characters followed by `ane.pdb`,
  giving `cubane.pdb  ethane.pdb  octane.pdb`.
 
- When the shell sees a wildcard, it expands the wildcard to create a
+When the shell sees a wildcard, it expands the wildcard to create a
  list of matching filenames *before* running the command that was
  asked for. As an exception, if a wildcard expression does not match
  any file, Bash will pass the expression as an argument to the command
@@ -829,41 +830,45 @@ Oftentimes one needs to copy or move several files at once. This can be done by 
 
 ## List filenames matching a pattern
 
- When run in the `molecules` directory, which `ls` command(s) will
- produce this output?
 
- <div class="alert alert-secondary" role="alert" markdown="1">
- <i class="fa-solid fa-user-pen fa-xl"></i>  **Startup Jupyter Lab and Open Jupyter**
- <hr/>
+
+<div class="alert alert-secondary" role="alert" markdown="1">
+<i class="fa-solid fa-user-pen fa-xl"></i>  **Exercise: wildcards**
+<hr/>
+
+When run in the `molecules` directory, which `ls` command(s) will
+produce this output?
 
  `ethane.pdb   methane.pdb`
+
+Is the correct command(s):
 
  1. `ls *t*ane.pdb`
  2. `ls *t?ne.*`
  3. `ls *t??ne.pdb`
  4. `ls ethane.*`
- <details markdown="1">
-   <summary>Solution</summary>
-   The solution is (3)
 
-  1. shows all files whose names contain zero or more characters (' * ') followed by the letter 't', then zero or more characters (' * ') followed by 'ane.pdb'. This gives 'ethane.pdb  methane.pdb  octane.pdb  pentane.pdb'.
+<details markdown="1">
+<summary>Solution</summary>
+   
+The solution is (3)
 
-  2. shows all files whose names start with zero or more characters (' * ') followed by the letter 't', then a single character (?), then 'ne.' followed by zero or more characters (' * '). This will give us 'octane.pdb' and 'pentane.pdb' but doesn't match anything which ends in 'thane.pdb'.
+1. shows all files whose names contain zero or more characters (' * ') followed by the letter 't', then zero or more characters (' * ') followed by 'ane.pdb'. This gives 'ethane.pdb  methane.pdb  octane.pdb  pentane.pdb'.
 
-  3. fixes the problems of option 2 by matching two characters (??) between 't' and 'ne'. This is the solution.
+2. shows all files whose names start with zero or more characters (' * ') followed by the letter 't', then a single character (?), then 'ne.' followed by zero or more characters (' * '). This will give us 'octane.pdb' and 'pentane.pdb' but doesn't match anything which ends in 'thane.pdb'.
 
-  4. only shows files starting with 'ethane.'.
+3. fixes the problems of option 2 by matching two characters (??) between 't' and 'ne'. This is the solution.
+
+4. only shows files starting with 'ethane.'.
  </details>
  </div>
 
 ## More on Wildcards
 
- Sam has a directory containing calibration data, datasets, and descriptions of
+Sam has a directory containing calibration data, datasets, and descriptions of
  the datasets:
 
  <div class="alert alert-secondary" role="alert" markdown="1">
- <i class="fa-solid fa-user-pen fa-xl"></i>  **Wildcards**
- <hr/>
 
  ```bash
  .
@@ -888,28 +893,23 @@ Oftentimes one needs to copy or move several files at once. This can be done by 
  ```
  </div>
 
- Before heading off to another field trip, she wants to back up her data and
- send some datasets to her colleague Bob. Sam uses the following commands
- to get the job done:
 
- <div class="alert alert-secondary" role="alert" markdown="1">
- <i class="fa-solid fa-user-pen fa-xl"></i>  **Wildcards**
- <hr/>
- Input:
- ```bash
+
+<div class="alert alert-secondary" role="alert" markdown="1">
+<i class="fa-solid fa-user-pen fa-xl"></i>  **Exercise: fill in the blanks**
+<hr/>
+
+Before heading off to another field trip, she wants to back up her data and
+ send some datasets to her colleague Bob. Sam knows that if she fills in the blanks correctly with the following commands, she can get the job done:
+
+```bash
  $ cp *dataset* backup/datasets
  $ cp ____calibration____ backup/calibration
  $ cp 2015-____-____ send_to_bob/all_november_files/
  $ cp ____ send_to_bob/all_datasets_created_on_a_23rd/
- ```
- </div>
+```
 
- Help Sam by filling in the blanks.
-
- The resulting directory structure should look like this
- <div class="alert alert-secondary" role="alert" markdown="1">
- <i class="fa-solid fa-user-pen fa-xl"></i>  **Wildcards**
- <hr/>
+Help Sam by filling in the blanks. The resulting directory structure should look like this
 
  ```bash
  .
@@ -954,102 +954,96 @@ Oftentimes one needs to copy or move several files at once. This can be done by 
          ├── 2015-11-23-dataset2.txt
          └── 2015-11-23-dataset_overview.txt
  ```
- <details markdown="1">
-  <summary>Solution</summary>
-  <div class="alert alert-secondary" role="alert" markdown="1">
-  <i class="fa-solid fa-user-pen fa-xl"></i> **Solution**
-  <hr/>
 
-  Input:
-  ```bash
-  $ cp *calibration.txt backup/calibration
-  $ cp 2015-11-* send_to_bob/all_november_files/
-  $ cp *-23-dataset* send_to_bob/all_datasets_created_on_a_23rd/
-  ```
-  </div>
+<details markdown="1">
+<summary>Solution</summary>
+
+```bash
+$ cp *calibration.txt backup/calibration
+$ cp 2015-11-* send_to_bob/all_november_files/
+$ cp *-23-dataset* send_to_bob/all_datasets_created_on_a_23rd/
+```
 </details>
- </div>
+</div>
 
 ## Organizing Directories and Files
 
- Jamie is working on a project and she sees that her files aren't very well
+Jamie is working on a project and she sees that her files aren't very well
  organized:
 
- <div class="alert alert-secondary" role="alert" markdown="1">
- <i class="fa-solid fa-user-pen fa-xl"></i>  **Organizing Files**
- <hr/>
+<div class="alert alert-secondary" role="alert" markdown="1">
 
- Input:
+Input:
 
  ```bash
  $ ls -F
  ```
 
- Output:
+Output:
 
  ```bash
  analyzed/  fructose.dat    raw/   sucrose.dat
  ```
  </div>
 
- The `fructose.dat` and `sucrose.dat` files contain output from her data
- analysis. What command(s) covered in this lesson does she need to run so that the commands below will
- produce the output shown?
- <div class="alert alert-secondary" role="alert" markdown="1">
- <i class="fa-solid fa-user-pen fa-xl"></i>  **Organizing Files**
+
+
+<div class="alert alert-secondary" role="alert" markdown="1">
+ <i class="fa-solid fa-user-pen fa-xl"></i>  **Exercise: Organizing Files**
  <hr/>
 
- Input:
+The `fructose.dat` and `sucrose.dat` files contain output from her data
+analysis. What command(s) covered in this lesson does she need to run so that the commands below will produce the output shown?
 
- ```bash
+Input:
+
+```bash
  $ ls -F
- ```
+```
 
- Output:
+Output:
 
- ```bash
+```bash
  analyzed/   raw/   
- ```
- Input:
+```
+ 
+Input:
 
- ```bash
+```bash
  $ ls analyzed
- ```
+```
 
- Output:
+Output:
 
- ```bash
+```bash
  fructose.dat    sucrose.dat   
- ```
- <details markdown="1">
-  <summary>Solution</summary>
-  <div class="alert alert-secondary" role="alert" markdown="1">
-  <i class="fa-solid fa-user-pen fa-xl"></i>
-  <hr/>
-  ```bash
-  mv *.dat analyzed
-  ```
-  </div>
-  Jamie needs to move her files 'fructose.dat' and 'sucrose.dat' to the 'analyzed' directory.
-  The shell will expand * .dat to match all .dat files in the current directory.
-  The 'mv' command then moves the list of .dat files to the "analyzed" directory.
-   </details>
-   </div>
+```
+<details markdown="1">
+<summary>Solution</summary>
+
+```bash
+$ mv *.dat analyzed
+```
+
+Jamie needs to move her files 'fructose.dat' and 'sucrose.dat' to the 'analyzed' directory.
+The shell will expand * .dat to match all .dat files in the current directory.
+The 'mv' command then moves the list of .dat files to the "analyzed" directory.
+</details>
+</div>
 
 ## Reproduce a folder structure
 
- You're starting a new experiment, and would like to duplicate the directory
+You're starting a new experiment, and would like to duplicate the directory
  structure from your previous experiment so you can add new data.
 
- Assume that the previous experiment is in a folder called '2016-05-18',
+Assume that the previous experiment is in a folder called '2016-05-18',
  which contains a `data` folder that in turn contains folders named `raw` and
  `processed` that contain data files.  The goal is to copy the folder structure
  of the `2016-05-18-data` folder into a folder called `2016-05-20`
  so that your final directory structure looks like this:
 
- <div class="alert alert-secondary" role="alert" markdown="1">
- <i class="fa-solid fa-user-pen fa-xl"></i>  **Code**
- <hr/>
+<div class="alert alert-secondary" role="alert" markdown="1">
+
 
 	2016-05-20/
 	└── data
@@ -1057,18 +1051,23 @@ Oftentimes one needs to copy or move several files at once. This can be done by 
 	    └── raw
  </div>
 
- Which of the following set of commands would achieve this objective?
- What would the other commands do?
+
 
  <div class="alert alert-secondary" role="alert" markdown="1">
- <i class="fa-solid fa-user-pen fa-xl"></i>  **Reproduce Folder Structure**
+ <i class="fa-solid fa-user-pen fa-xl"></i>  **Exercise: Reproduce Folder Structure**
  <hr/>
+
+Which of the following sequence of commands would achieve this objective? What would the other sequences do?
+
+Command sequence 1:
  ```bash
  $ mkdir 2016-05-20
  $ mkdir 2016-05-20/data
  $ mkdir 2016-05-20/data/processed
  $ mkdir 2016-05-20/data/raw
  ```
+
+Command sequence 2:
  ```bash
  $ mkdir 2016-05-20
  $ cd 2016-05-20
@@ -1076,26 +1075,35 @@ Oftentimes one needs to copy or move several files at once. This can be done by 
  $ cd data
  $ mkdir raw processed
  ```
+
+Command sequence 3:
  ```bash
  $ mkdir 2016-05-20/data/raw
  $ mkdir 2016-05-20/data/processed
  ```
+
+Command sequence 4:
  ```bash
  $ mkdir 2016-05-20
  $ cd 2016-05-20
  $ mkdir data
  $ mkdir raw processed
  ```
+
+
+
  <details markdown="1">
-   <summary>Solution</summary>
-   The first two sets of commands achieve this objective.
-   The first set uses relative paths to create the top level directory before
+<summary>Solution</summary>
+
+The first two command sequences achieve this objective.
+
+The first command sequence uses relative paths to create the top level directory before
    the subdirectories.
 
-   The third set of commands will give an error because 'mkdir' won't create a subdirectory
+The third command sequence will give an error because 'mkdir' won't create a subdirectory
    of a non-existant directory: the intermediate level folders must be created first.
 
-   The final set of commands generates the 'raw' and 'processed' directories at the same level as the 'data' directory.
+The fourth command sequence generates the 'raw' and 'processed' directories at the same level as the 'data' directory.
  </details>
  </div>
 
