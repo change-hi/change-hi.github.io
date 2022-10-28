@@ -55,7 +55,7 @@ For each file, we would need to execute the command `head -n 2` and pipe this to
 We'll use a loop to solve this problem, but first let's look at the general form of a loop:
 
 <div class="alert alert-secondary" role="alert" markdown="1">
-<i class="fa-solid fa-user-pen fa-xl"></i>  **For Loop**
+<i class="fa-solid fa-user-pen fa-xl"></i>  **For Loops Explained**
 <hr/>
 
 First:
@@ -87,17 +87,19 @@ CLASSIFICATION: equus monoceros
 <i class="fa-solid fa-triangle-exclamation fa-xl"></i> **Follow the Prompt**
 <hr/>
 
-The shell prompt changes from `$` to `` and back again as we were
-typing in our loop. The second prompt, ``, is different to remind
+The shell prompt changes from `$` to `>` and back again as we were
+typing in our loop. The second prompt, `>`, is different to remind
 us that we haven't finished typing a complete command yet. A semicolon, `;`,
 can be used to separate two commands written on a single line.
 </div>
 
 When the shell sees the keyword `for`,
 it knows to repeat a command (or group of commands) once for each item in a list.
+
 Each time the loop runs (called an iteration), an item in the list is assigned in sequence to
 the **variable**, and the commands inside the loop are executed, before moving on to
 the next item in the list.
+
 Inside the loop,
 we call for the variable's value by putting `$` in front of it.
 The `$` tells the shell interpreter to treat
@@ -107,11 +109,13 @@ rather than treat it as text or an external command.
 In this example, the list is two filenames: `basilisk.dat` and `unicorn.dat`.
 Each time the loop iterates, it will assign a file name to the variable `filename`
 and run the `head` command.
+
 The first time through the loop,
 `$filename` is `basilisk.dat`.
 The interpreter runs the command `head` on `basilisk.dat`,
 and then prints the
 first three lines of `basilisk.dat`.
+
 For the second iteration, `$filename` becomes
 `unicorn.dat`. This time, the shell runs `head` on `unicorn.dat`
 and prints the first three lines of `unicorn.dat`.
@@ -144,8 +148,6 @@ The shell itself doesn't care what the variable is called;
 if we wrote this loop as:
 
 <div class="alert alert-secondary" role="alert" markdown="1">
-<i class="fa-solid fa-user-pen fa-xl"></i>
-<hr/>
 
 ```bash
 $ for x in basilisk.dat unicorn.dat
@@ -153,25 +155,29 @@ $ for x in basilisk.dat unicorn.dat
     head -n 2 $x | tail -n 1
  done
 ```
+</div>
+
 or:
 
+<div class="alert alert-secondary" role="alert" markdown="1">
 ```bash
 $ for temperature in basilisk.dat unicorn.dat
  do
     head -n 2 $temperature | tail -n 1
  done
 ```
-
-
+</div>
 
 it would work exactly the same way.
+
 *Don't do this.*
+
 Programs are only useful if people can understand them,
 so meaningless names (like `x`) or misleading names (like `temperature`)
 increase the odds that the program won't do what its readers think it does.
 
 <div class="alert alert-secondary" role="alert" markdown="1">
-<i class="fa-solid fa-user-pen fa-xl"></i> **Variables in Loops**
+<i class="fa-solid fa-user-pen fa-xl"></i> **Exercise: Variables in Loops**
 <hr/>
 
 This exercise refers to the `data-shell/molecules` directory.
@@ -181,7 +187,7 @@ This exercise refers to the `data-shell/molecules` directory.
  cubane.pdb  ethane.pdb  methane.pdb  octane.pdb  pentane.pdb  propane.pdb
 ```
 
- What is the output of the following code?
+What is the output of the following code?
 
 Input:
 ```bash
@@ -190,28 +196,25 @@ $ for datafile in *.pdb
     ls *.pdb
  done
 ```
- Why do these two loops give different outputs?
+
+What is the output when this code is executed?
 
  <details markdown="1">
-   <summary>Solution</summary>
-   The first code block gives the same output on each iteration through
-   the loop.
-   Bash expands the wildcard '* .pdb' within the loop body (as well as
-   before the loop starts) to match all files ending in '.pdb'
-   and then lists them using 'ls'.
-   The expanded loop would look like this:
+<summary>Solution</summary>
+The code gives the same output on each iteration through the loop.
 
-   <div class="alert alert-secondary" role="alert" markdown="1">
-<i class="fa-solid fa-user-pen fa-xl"></i>
-<hr/>
+Bash expands the wildcard '* .pdb' within the loop body (as well as
+before the loop starts) to match all files ending in '.pdb'
+and then lists them using 'ls'.
+The expanded loop would look like this:
 
-Input:
 ```bash
 $ for datafile in cubane.pdb  ethane.pdb  methane.pdb  octane.pdb  pentane.pdb  propane.pdb
  do
   ls cubane.pdb  ethane.pdb  methane.pdb  octane.pdb  pentane.pdb  propane.pdb
  done
 ```
+
 Output:
 ```bash
 cubane.pdb  ethane.pdb  methane.pdb  octane.pdb  pentane.pdb  propane.pdb
@@ -221,33 +224,18 @@ cubane.pdb  ethane.pdb  methane.pdb  octane.pdb  pentane.pdb  propane.pdb
 cubane.pdb  ethane.pdb  methane.pdb  octane.pdb  pentane.pdb  propane.pdb
 cubane.pdb  ethane.pdb  methane.pdb  octane.pdb  pentane.pdb  propane.pdb
 ```
-The second code block lists a different file on each loop iteration.
-The value of the 'datafile' variable is evaluated using '$datafile',
-and then listed using 'ls'.
 
-Output:
-```bash
-cubane.pdb
-ethane.pdb
-methane.pdb
-octane.pdb
-pentane.pdb
-propane.pdb
-```
-</div>
-
- </details>
-
-</div>
+</details>
 </div>
 
 ## Limiting Sets of Files
 
- What would be the output of running the following loop in the `data-shell/molecules` directory?
 
  <div class="alert alert-secondary" role="alert" markdown="1">
- <i class="fa-solid fa-user-pen fa-xl"></i>
+ <i class="fa-solid fa-user-pen fa-xl"></i> **Exercise: Loops**
  <hr/>
+
+What would be the output of running the following loop in the `data-shell/molecules` directory?
 
  ```bash
  $ for filename in c*
@@ -267,11 +255,12 @@ propane.pdb
 </details>
  </div>
 
- How would the output differ from using this command instead?
 
- <div class="alert alert-secondary" role="alert" markdown="1">
- <i class="fa-solid fa-user-pen fa-xl"></i>
- <hr/>
+<div class="alert alert-secondary" role="alert" markdown="1">
+<i class="fa-solid fa-user-pen fa-xl"></i> **Exercise: Another loop**
+<hr/>
+
+How would the output differ from using this command instead?
 
  ```bash
  $ for filename in *c*
@@ -295,10 +284,10 @@ propane.pdb
 ## Saving to a File in a Loop - Part One
 
 <div class="alert alert-secondary" role="alert" markdown="1">
-<i class="fa-solid fa-user-pen fa-xl"></i>
+<i class="fa-solid fa-user-pen fa-xl"></i> **Exercise: Yet More Loops**
 <hr/>
 
- In the `data-shell/molecules` directory, what is the effect of this loop?
+In the `data-shell/molecules` directory, what is the effect of this loop?
 
 ```bash
 for alkanes in *.pdb
@@ -326,10 +315,10 @@ done
 ## Saving to a File in a Loop - Part Two
 
 <div class="alert alert-secondary" role="alert" markdown="1">
-<i class="fa-solid fa-user-pen fa-xl"></i>
+<i class="fa-solid fa-user-pen fa-xl"></i> **Exercise: Loops, loops, loops**
 <hr/>
 
- Also in the `data-shell/molecules` directory, what would be the output of the following loop?
+Also in the `data-shell/molecules` directory, what would be the output of the following loop?
 
 ```bash
 for datafile in *.pdb
@@ -357,8 +346,6 @@ Let's continue with our example in the `data-shell/creatures` directory.
 Here's a slightly more complicated loop:
 
 <div class="alert alert-secondary" role="alert" markdown="1">
-<i class="fa-solid fa-user-pen fa-xl"></i>
-<hr/>
 
 ```bash
 $ for filename in *.dat
@@ -367,11 +354,15 @@ $ for filename in *.dat
      head -n 100 $filename | tail -n 20
  done
 ```
+</div>
+
 The shell starts by expanding `*.dat` to create the list of files it will process.
 The **loop body**
 then executes two commands for each of those files.
 The first, `echo`, just prints its command-line arguments to standard output.
 For example:
+
+<div class="alert alert-secondary" role="alert" markdown="1">
 ```bash
 $ echo hello there
 ```
@@ -387,8 +378,6 @@ since the shell expands `$filename` to be the name of a file,
 Note that we can't write this as:
 
 <div class="alert alert-secondary" role="alert" markdown="1">
-<i class="fa-solid fa-user-pen fa-xl"></i>
-<hr/>
 
 ```bash
 $ for filename in *.dat
@@ -406,9 +395,7 @@ the `head` and `tail` combination selects lines 81-100
 from whatever file is being processed
 (assuming the file has at least 100 lines).
 
-<div class="alert alert-info" role="alert" markdown="1">
-<i class="fa-solid fa-circle-info fa-xl"></i> **Spaces in Names**
-<hr/>
+## Spaces in Names
 
 Spaces are used to separate the elements of the list
 that we are going to loop over. If one of those elements
@@ -417,22 +404,17 @@ quotes, and do the same thing to our loop variable.
 Suppose our data files are named:
 
 <div class="alert alert-secondary" role="alert" markdown="1">
-<i class="fa-solid fa-user-pen fa-xl"></i>
-<hr/>
 
 Output:
 ```bash
 red dragon.dat
 purple unicorn.dat
 ```
-
 </div>
- To loop over these files, we would need to add double quotes like so:
 
- <div class="alert alert-secondary" role="alert" markdown="1">
- <i class="fa-solid fa-user-pen fa-xl"></i>
- <hr/>
+To loop over these files, we would need to add double quotes like so:
 
+<div class="alert alert-secondary" role="alert" markdown="1">
  Input:
  ```bash
  $ for filename in "red dragon.dat" "purple unicorn.dat"
@@ -441,27 +423,26 @@ purple unicorn.dat
   done
  ```
  </div>
- It is simpler just to avoid using spaces (or other special characters) in filenames.
 
- The files above don't exist, so if we run the above code, the `head` command will be unable
+It is simpler just to avoid using spaces (or other special characters) in filenames.
+
+The files above don't exist, so if we run the above code, the `head` command will be unable
  to find them, however the error message returned will show the name of the files it is
  expecting:
- <div class="alert alert-secondary" role="alert" markdown="1">
- <i class="fa-solid fa-user-pen fa-xl"></i>
- <hr/>
+
+<div class="alert alert-secondary" role="alert" markdown="1">
 
 Output:
  ```bash
  head: cannot open ‘red dragon.dat’ for reading: No such file or directory
  head: cannot open ‘purple unicorn.dat’ for reading: No such file or directory
  ```
- </div>
- Try removing the quotes around `$filename` in the loop above to see the effect of the quote
+</div>
+
+Try removing the quotes around `$filename` in the loop above to see the effect of the quote
  marks on spaces. Note that we get a result from the loop command for unicorn.dat when we run this code in the `creatures` directory:
 
- <div class="alert alert-secondary" role="alert" markdown="1">
- <i class="fa-solid fa-user-pen fa-xl"></i>
- <hr/>
+<div class="alert alert-secondary" role="alert" markdown="1">
 
 Output:
  ```bash
@@ -474,15 +455,12 @@ Output:
  ```
  </div>
 
-</div>
-
 We would like to modify each of the files in `data-shell/creatures`, but also save a version
 of the original files, naming the copies `original-basilisk.dat` and `original-unicorn.dat`.
+
 We can't use:
 
 <div class="alert alert-secondary" role="alert" markdown="1">
-<i class="fa-solid fa-user-pen fa-xl"></i> **cp**
-<hr/>
 
 ```bash
 $ cp *.dat original-*.dat
@@ -492,8 +470,6 @@ $ cp *.dat original-*.dat
 because that would expand to:
 
 <div class="alert alert-secondary" role="alert" markdown="1">
-<i class="fa-solid fa-user-pen fa-xl"></i> **cp**
-<hr/>
 
 ```bash
 $ cp basilisk.dat unicorn.dat original-*.dat
@@ -503,8 +479,6 @@ $ cp basilisk.dat unicorn.dat original-*.dat
 This wouldn't back up our files, instead we get an error:
 
 <div class="alert alert-secondary" role="alert" markdown="1">
-<i class="fa-solid fa-user-pen fa-xl"></i> **Error**
-<hr/>
 
 Output:
 ```bash
@@ -518,9 +492,8 @@ Since there is no directory named `original-*.dat` in the `creatures` directory 
 error.
 
 Instead, we can use a loop:
+
 <div class="alert alert-secondary" role="alert" markdown="1">
-<i class="fa-solid fa-user-pen fa-xl"></i> **Loop it!**
-<hr/>
 
 Output:
 ```bash
@@ -537,13 +510,16 @@ when `$filename` expands to `basilisk.dat`,
 the shell executes:
 
 <div class="alert alert-secondary" role="alert" markdown="1">
-<i class="fa-solid fa-user-pen fa-xl"></i>
-<hr/>
 
 ```bash
 cp basilisk.dat original-basilisk.dat
 ```
+</div>
+
 The second time, the command is:
+
+<div class="alert alert-secondary" role="alert" markdown="1">
+
 ```bash
 cp unicorn.dat original-unicorn.dat
 ```
@@ -575,8 +551,6 @@ Her first step is to make sure that she can select the right input files --- rem
 these are ones whose names end in 'A' or 'B', rather than 'Z'. Starting from her home directory, Nelle types:
 
 <div class="alert alert-secondary" role="alert" markdown="1">
-<i class="fa-solid fa-user-pen fa-xl"></i> **Processing Files**
-<hr/>
 
 Input:
 ```bash
@@ -604,8 +578,6 @@ Prefixing each input file's name with "stats" seems simple,
 so she modifies her loop to do that:
 
 <div class="alert alert-secondary" role="alert" markdown="1">
-<i class="fa-solid fa-user-pen fa-xl"></i> **For!**
-<hr/>
 
 Input:
 ```bash
@@ -639,8 +611,6 @@ the shell redisplays the whole loop on one line
 (using semi-colons to separate the pieces):
 
 <div class="alert alert-secondary" role="alert" markdown="1">
-<i class="fa-solid fa-user-pen fa-xl"></i>
-<hr/>
 
 ```bash
 $ for datafile in NENE*[AB].txt; do echo $datafile stats-$datafile; done
@@ -651,8 +621,6 @@ Using the left arrow key,
 Nelle backs up and changes the command `echo` to `bash goostats`:
 
 <div class="alert alert-secondary" role="alert" markdown="1">
-<i class="fa-solid fa-user-pen fa-xl"></i>
-<hr/>
 
 ```bash
 $ for datafile in NENE*[AB].txt; do bash goostats $datafile stats-$datafile; done
@@ -669,8 +637,6 @@ uses up-arrow to repeat the command,
 and edits it to read:
 
 <div class="alert alert-secondary" role="alert" markdown="1">
-<i class="fa-solid fa-user-pen fa-xl"></i>
-<hr/>
 
 ```bash
 $ for datafile in NENE*[AB].txt; do echo $datafile; bash goostats $datafile stats-$datafile; done
@@ -678,10 +644,12 @@ $ for datafile in NENE*[AB].txt; do echo $datafile; bash goostats $datafile stat
 </div>
 
 <div class="alert alert-info" role="alert" markdown="1">
-<i class="fa-solid fa-circle-info fa-xl"></i> **Beginning and End**
+<i class="fa-solid fa-circle-info fa-xl"></i> **Note: Beginning and End**
 <hr/>
- We can move to the beginning of a line in the shell by typing `Ctrl-a`
+
+We can move to the beginning of a line in the shell by typing `Ctrl-a`
  and to the end using `Ctrl-e`.
+</div>
 
 When she runs her program now,
 it produces one line of output every five seconds or so:
@@ -699,7 +667,6 @@ NENE01736A.txt
 ```
 </div>
 
-</div>
 
 1518 times 5 seconds,
 divided by 60,
@@ -713,7 +680,7 @@ It looks good,
 so she decides to get some coffee and catch up on her reading.
 
 <div class="alert alert-info" role="alert" markdown="1">
-<i class="fa-solid fa-circle-info fa-xl"></i> **Those Who Know History Can Choose to Repeat It**
+<i class="fa-solid fa-circle-info fa-xl"></i> **Note: Those Who Know History Can Choose to Repeat It**
 <hr/>
 
 Another way to repeat previous work is to use the `history` command to
@@ -722,8 +689,6 @@ then to use `!123` (where "123" is replaced by the command number) to
 repeat one of those commands. For example, if Nelle types this:
 
 <div class="alert alert-secondary" role="alert" markdown="1">
-<i class="fa-solid fa-user-pen fa-xl"></i>
-<hr/>
 
 Input:
 ```bash
@@ -743,18 +708,20 @@ then she can re-run `goostats` on `NENE01729B.txt` simply by typing `!458`
 
 ## Other History Commands
 
- There are a number of other shortcut commands for getting at the history.
+There are a number of other shortcut commands for getting at the history.
 
- - `Ctrl-R` enters a history search mode "reverse-i-search" and finds the
+* `Ctrl-R` enters a history search mode "reverse-i-search" and finds the
  most recent command in your history that matches the text you enter next.
  Press `Ctrl-R` one or more additional times to search for earlier matches.
- - `!!` retrieves the immediately preceding command
- (you may or may not find this more convenient than using the up-arrow)
- - `!$` retrieves the last word of the last command.
- That's useful more often than you might expect: after
- `bash goostats NENE01729B.txt stats-NENE01729B.txt`, you can type
- `less !$` to look at the file `stats-NENE01729B.txt`, which is
- quicker than doing up-arrow and editing the command-line.
+
+* `!!` retrieves the immediately preceding command
+(you may or may not find this more convenient than using the up-arrow)
+
+*`!$` retrieves the last word of the last command.
+That's useful more often than you might expect: after
+`bash goostats NENE01729B.txt stats-NENE01729B.txt`, you can type
+`less !$` to look at the file `stats-NENE01729B.txt`, which is
+quicker than doing up-arrow and editing the command-line.
 
 ## Doing a Dry Run
 
@@ -766,8 +733,6 @@ then she can re-run `goostats` on `NENE01729B.txt` simply by typing `!458`
  without actually running those commands:
 
  <div class="alert alert-secondary" role="alert" markdown="1">
- <i class="fa-solid fa-user-pen fa-xl"></i>
- <hr/>
 
  ```bash
  $ for file in *.pdb
@@ -777,12 +742,14 @@ then she can re-run `goostats` on `NENE01729B.txt` simply by typing `!458`
  ```
  </div>
 
- What is the difference between the two loops below, and which one would we
- want to run?
+ 
 
- <div class="alert alert-secondary" role="alert" markdown="1">
- <i class="fa-solid fa-user-pen fa-xl"></i>
- <hr/>
+<div class="alert alert-secondary" role="alert" markdown="1">
+<i class="fa-solid fa-user-pen fa-xl"></i> **Exercise: loop vs loop**
+<hr/>
+
+What is the difference between the two loops below, and which one would we
+want to run?
 
 Version 1:
  ```bash
@@ -814,18 +781,14 @@ Version 1:
  </details>
  </div>
 
- <div class="alert alert-info" role="alert" markdown="1">
- <i class="fa-solid fa-circle-info fa-xl"></i> **Nested Loops**
+ <div class="alert alert-secondary" role="alert" markdown="1">
+ <i class="fa-solid fa-circle-info fa-xl"></i> **Exercise: Nested Loops**
  <hr/>
 
  Suppose we want to set up up a directory structure to organize
  some experiments measuring reaction rate constants with different compounds
  *and* different temperatures.  What would be the
  result of the following code:
-
- <div class="alert alert-secondary" role="alert" markdown="1">
-<i class="fa-solid fa-user-pen fa-xl"></i>
-<hr/>
 
 ```bash
 $ for species in cubane ethane methane
@@ -847,7 +810,6 @@ $ for species in cubane ethane methane
 </details>
 </div>
 
- </div>
 
 {% include next-button.html
 top-label="Shell Scripts ->"
