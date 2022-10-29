@@ -201,3 +201,8 @@ Material used and modified from the [Introduction to High-Performance Computing 
 
 <hr/>
 For comparison purposes, here's the [Software Carpentry version of this page](https://ci-tracs.github.io/High_Performance_Computing/10-hpc/index.html)
+
+{% include next-button.html 
+           top-label="Launch a Jupyter Lab in Open OnDemand ->" 
+           bottom-label="2:30pm" 
+           url="/morea/hpc/experience-hpc-jupyter.html" %}
