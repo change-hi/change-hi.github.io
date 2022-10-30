@@ -29,6 +29,7 @@ morea_type: module
 morea_icon_url: /morea/fair/logo.jpg
 morea_labels:
   - Workshop
+  - Friday, October 21, 2022
 morea_sort_order: 30
-morea_summary: This module provides readings, experiences, and an assessment to support the FAIR Data Management workshop held on Friday, October 21, 2022.
+morea_summary: How to make data Findable, Accessible, Interoperable, and Reusable.
 ---

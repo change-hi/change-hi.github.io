@@ -21,8 +21,9 @@ morea_prerequisites:
 morea_type: module
 morea_icon_url: /morea/scientific-software-basics/logo.jpg
 morea_labels:
-- Workshop
+  - Workshop
+  - Friday, October 28, 2022
 morea_sort_order: 31
 ---
 
-This workshop will cover basics of Scientific Software and will be held on October 28, 2022.
+How to use the Mana command line (i.e. linux) to support basic file and data manipulation.

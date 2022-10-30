@@ -23,8 +23,7 @@ morea_type: module
 morea_sort_order: 50
 morea_labels:
   - Workshop
+  - Friday, November 4, 2022
 ---
 
-This workshop focuses on utilization of High Performance Computing (HPC) clusters, such as Mana, for deep learning tasks. 
-
-It also covers the benefits of understanding the different types of file systems available on HPC clusters and basic ways one would stage data from slower file systems to faster file systems.
+This workshop introduces ways to utilize High Performance Computing (HPC) clusters, such as Mana, for deep learning tasks. 
