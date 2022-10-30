@@ -6,6 +6,7 @@ morea_id: scientific-software-basics
 morea_outcomes:
   - outcome-ssb
 morea_readings:
+  - reading-code-of-conduct
   - reading-ssb-mana
 morea_experiences:
   - experience-ssb-intro
