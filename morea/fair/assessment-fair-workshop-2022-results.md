@@ -1,15 +1,17 @@
 ---
-title: "Fall 22 Student Assessment Comments"
+title: "FAIR Workshop 2022 Assessment Results"
 published: true
-morea_id: fall-22-student-assessment
+morea_id: fair-workshop-2022-assessment-results
 morea_type: reading
-morea_summary: "Assessment comments"
+morea_summary: "Participant comments, instructor comments, and discussion"
 morea_sort_order: 0
 morea_labels:
 morea_enable_toc: false
 ---
 
-# Results from the Fall 2022 Participant Assessment Questionnaire
+# FAIR Workshop 2022 Assessment Results
+
+## Participant Assessment Comments
 
 *Do you think FAIR (Findable, Accessible, Interoperable, Reusable) concepts are important for data management? If so, why? If not, why not? If you don't recall what FAIR concepts are, just write "I don't recall".*
 
@@ -88,3 +90,37 @@ any new potential collaborations
 * 1 response: No.
 * 2 responses: Yes, at least one is outside
 * 3 responses: I don't know
+
+## Instructor Assessment Comments
+
+*For your workshop, how would you rate the overall "success" of the workshop (i.e. your subjective sense of things like student engagement, questions, discussion, completion of activities, etc.)?*
+
+* 2 responses: About as successful as expected.
+
+*What aspects of your workshop did not work as well as possible, and what are your thoughts on how to improve them in future?*
+
+* I think we should cull a bit more content up front and perhaps divide the FAIR assesment exercise for the first data set across the 4 FAIR sections to add a more related activity/exercise in there and some more interaction in the first half of the workshop.
+
+* Not enough time to explain all the concepts and content. Need more time or reduce the content available. Maybe label more things as 'optional' so we know which ones are really important to go over. It might be nice to have a checklist for each section se we know which ones we already went over? But this would require accounts for each student/instructor so maybe not.
+
+*What aspects of your workshop do you feel worked well (so that we know to encourage their use in future workshops when appropriate)?*
+
+* The interactive discussions and exercises seem to go well.
+* Having the schedule up was really good to keep us on track.
+
+*Is there anything else you would like us to know about your workshop? Are there ways we can better support your instruction in future?*
+
+* If we do hybrid we should better look at breakouts in zoom maybe.
+* But it would have been nice to maybe have a timer? Like maybe a navigation menu on the left side of the screen where each section is labeled by the time we are supposed to switch to the next section? Or maybe put it on the top.
+
+## Discussion and recommendations
+
+The initial questions assess several of the learning outcomes.  The responses provide evidence that the learning outcomes assessed were, in general, achieved. The workshop appeared to be rushed, and there was little evidence that participants made connections across disciplines. 
+
+Recommendations for next time:
+
+1. Review Fall 2022 screencast to determine which sections were "rushed", and reduce content in those sections.
+2. Increase font size of screen during workshop so that text is less dense. Consider more bullet point style when appropriate.
+3. Implement ways to increase ability of participants to learn about each other's disciplines and form interdisciplinary connections.  Could be through an initial ice-breaker exercise or integrated into small group exercises.
+4. Consider Zoom breakout rooms or other ways to integrate online participants.
+5. Create a final 5 minute "What's next?" section just prior to the assessment. This section provides links to more advanced material and/or material removed from the "rushed" sections. This is intended for independent "post-workshop" work by participants, not for coverage during the workshop.  

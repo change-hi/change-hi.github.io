@@ -78,7 +78,7 @@ To create isolated environments, you can use virtual environment (venv) with pip
 ### Activity: Learn how to setup an environment
 
 <div class="alert alert-secondary" role="alert" markdown="1">
-<i class="fa-solid fa-user-pen fa-xl"></i>  **Load Anaconda and libraries**
+<i class="fa-solid fa-user-pen fa-xl"></i>  **Exercise: Load Anaconda and libraries**
 <hr/>
 
 First, create a conda environment:
@@ -103,7 +103,7 @@ Although we created a conda environment, the Jupyter notebook still cannot acces
 A kernel is the computational engine that executes the code contained in Jupyter notebook or it is the interface which tells Jupyter notebook which kernel it should use to access the packages and softwares.
 
 <div class="alert alert-secondary" role="alert" markdown="1">
-<i class="fa-solid fa-user-pen fa-xl"></i>  **Create an ipykernel**
+<i class="fa-solid fa-user-pen fa-xl"></i>  **Exercise: Create an ipykernel**
 <hr/>
 
 Start up a python kernel:
