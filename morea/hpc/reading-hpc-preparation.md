@@ -3,7 +3,7 @@ title: "Preparation"
 published: true
 morea_id: reading-hpc-preparation
 morea_type: reading
-morea_summary: "Six things to know and do to prepare for this workshop"
+morea_summary: "A few things to check prior to this workshop"
 morea_sort_order: 1
 morea_labels:
   - Pre-workshop
@@ -15,7 +15,7 @@ Here are the things you need to do to be prepared for this workshop.
 
 ### Have command line experience
 
-We recommend you go through the [Software Carpentry shell-novice tutorial](https://swcarpentry.github.io/shell-novice/) if you are new to the command-line.
+We recommend you go through the [Software Carpentry shell-novice tutorial](https://swcarpentry.github.io/shell-novice/) if you are new to the command-line.  But, if you attended last week's workshop, you should be good to go with the command line!
 
 ### Install a modern web browser
 
