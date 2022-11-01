@@ -155,7 +155,7 @@ write_large_file("./lus_scratch/large_file.txt")
 
 ```python
 %%time
-write_large_file("./lus_scratch/large_file.txt")
+read_large_file("./lus_scratch/large_file.txt")
 ```
 
 ```python
@@ -165,7 +165,7 @@ write_large_file("./large_file.txt")
 
 ```python
 %%time
-write_large_file("./large_file.txt")
+read_large_file("./large_file.txt")
 ```
 </div>
 

@@ -45,7 +45,7 @@ sends back. These days, we use the Secure SHell protocol (or SSH) to open an enc
 network connection between two machines, allowing you to send & receive text
 and data without having to worry about prying eyes.
 
-{% include figure.html url="" max-width="50%" file="/morea/hpc/fig/connect-to-remote.svg" alt="Connect to cluster" caption="" %}
+{% include figure.html url="" max-width="50%" file="/morea/hpc/fig/connect-to-remote.png" alt="Connect to cluster" caption="" %}
 
 
 ## Traditional HPC system access using Secure Shell (SSH)
