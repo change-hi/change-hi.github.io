@@ -11,14 +11,6 @@ morea_sort_order: 5
 
 The following excerpts from Pro Git give you some background on version control and git.
 
-  * [About Version Control](http://git-scm.com/book/en/Getting-Started-About-Version-Control)
-  * [A short history of git](http://git-scm.com/book/en/Getting-Started-A-Short-History-of-Git)
-  * [Git Basics](http://git-scm.com/book/en/Getting-Started-Git-Basics)
-
-
-
-
-
-
-
-
+  * [About Version Control](https://git-scm.com/book/en/Getting-Started-About-Version-Control)
+  * [A short history of git](https://git-scm.com/book/en/Getting-Started-A-Short-History-of-Git)
+  * [Git Basics](https://git-scm.com/book/en/Getting-Started-Git-Basics)

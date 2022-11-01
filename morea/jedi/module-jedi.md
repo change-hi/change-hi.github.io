@@ -12,7 +12,7 @@ morea_type: module
 morea_icon_url: /morea/jedi/logo.jpg
 morea_labels:
 - Workshop
-morea_sort_order: 100
+morea_sort_order: 140
 ---
 
 (Module not yet available)

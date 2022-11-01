@@ -27,7 +27,6 @@ morea_enable_toc: true
 
 If you haven't already, please download [participants-copy-2022.ipynb](code/participants-copy-2022.ipynb) to your local computer (use "save as", i.e. right click).
 
-
 ## Review: Jupyter Lab as an Interactive Application in Open OnDemand
 
 As we previously saw, Open OnDemand allows us to use interactive applications, one of which is Juypter Lab.
@@ -42,15 +41,14 @@ The form is used to specify what resources you want, which are then placed into 
 <i class="fa-solid fa-circle-info fa-xl"></i> **Under the hood**
 <hr/>
 
-The Open On Demand form for interactive applications defines a job script and passes it to the HPC systems job scheduler,
-taking the burden of how to start the application on the HPC system and how to write a job script that the job scheduler
-can understand off of the user.
+The Open On Demand form for interactive applications defines a job script and passes it to the HPC systems job scheduler, taking the burden of how to start the application on the HPC system and how to write a job script that the job scheduler can understand off of the user.
+
 </div>
 
 ## Activity: Learn to start a session
 
 <div class="alert alert-secondary" role="alert" markdown="1">
-<i class="fa-solid fa-user-pen fa-xl"></i>  **Startup Jupyter Lab and Open Jupyter**
+<i class="fa-solid fa-user-pen fa-xl"></i>  **Exercise: Startup Jupyter Lab and Open Jupyter**
 <hr/>
 
 As we will be working in Jupyter Lab to explore some concepts when working with HPC systems and deep learning, your challenge is to start an interactive application of Jupyter Lab with the following parameters:
@@ -64,7 +62,7 @@ As we will be working in Jupyter Lab to explore some concepts when working with 
 * **Number of GPUs requested:** 1
 * **GPU Type:** Any
 
-* Once the interactive session is running Connect to the jupyter session by click the "Connect to Jupyter" button.
+Once the interactive session is running, connect to the jupyter session by click the "Connect to Jupyter" button.
 
 <details>
   <summary>Solution</summary>
@@ -87,7 +85,6 @@ Jupyter notebook allows you to access ipython notebooks only (.ipynb files), i.e
 
 Jupyter Lab gives a better user interface along with all the facilties provided by the notebook. It is a flexible, web based application with a modular structure where one can access  python files (.py), ipython notebooks, html or markdown files, access file browser (to upload, download, copy, rename, delete files), work with multiple Jupyter notebooks and environments, all in the same window. 
 
-
 To use Jupyter Lab, You write your code or plain text in rectangular “cells” and the browser then passes it to the back-end “kernel”, which runs your code and returns output.
 
 <div class="alert alert-warning" role="alert" markdown="1">
@@ -95,6 +92,7 @@ To use Jupyter Lab, You write your code or plain text in rectangular “cells”
 <hr/>
 
 Note the difference between file extensions: .ipynb file is a python notebook which stores code, text, markdown, plots, results in a specific  format but .py file is a python file which only stores code and plain text (like comments etc).
+
 </div>
 
 {% include next-button.html 

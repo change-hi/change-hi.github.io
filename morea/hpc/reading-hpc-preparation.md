@@ -5,8 +5,8 @@ morea_id: reading-hpc-preparation
 morea_type: reading
 morea_summary: "Six things to know and do to prepare for this workshop"
 morea_sort_order: 1
-morea_labels: 
-    - Pre-workshop
+morea_labels:
+  - Pre-workshop
 ---
 
 ## Preparation 
@@ -21,8 +21,6 @@ We recommend you go through the [Software Carpentry shell-novice tutorial](https
 
 We recommend [Chrome](https://www.google.com/chrome/) or [Firefox](https://www.mozilla.org/en-US/firefox/).  Internet Explorer is not recommended.
 
-
 ### Download the workshop Jupyter notebook
 
 Please download [participants-copy-2022.ipynb](code/participants-copy-2022.ipynb) to your local computer (use "save as", i.e. right click).
-

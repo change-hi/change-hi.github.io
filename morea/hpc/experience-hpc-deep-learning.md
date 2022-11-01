@@ -55,7 +55,7 @@ CIFAR-10 is a common dataset used for machine learning and computer vision resea
 ### Activity: Work with CIFAR-10 dataset
 
 <div class="alert alert-secondary" role="alert" markdown="1">
-<i class="fa-solid fa-user-pen fa-xl"></i>  **Import dataset, check configuration**
+<i class="fa-solid fa-user-pen fa-xl"></i>  **Exercise: Import dataset, check configuration**
 <hr/>
 
 To start, import all the relevant libraries:
@@ -101,22 +101,18 @@ tf.config.list_physical_devices('CPU')
 <i class="fa-solid fa-circle-info fa-xl"></i> **Is GPU necessary for machine learning?**
 <hr/>
 
-No, machine learning algorithms can be deployed using CPU or GPU, depending on the applications.
-They both have their distinct properties and which one would be best for your application depends on
-factors like: speed, power usage and cost. 
+No, machine learning algorithms can be deployed using CPU or GPU, depending on the applications. They both have their distinct properties and which one would be best for your application depends on factors like: speed, power usage and cost.
 
-CPUs are more general purposed processors, are cheaper and
-provide a gateway for data to travel from source to GPU cores. 
+CPUs are more general purposed processors, are cheaper and provide a gateway for data to travel from source to GPU cores.
 
-But GPU have an advantage to do parallel
-computing when dealing with large datasets, complex neural network models. The difference between the
-two lies in basic features of a processor i.e. cache, clock speed, power consumption, bandwidth and number of cores.
+But GPU have an advantage to do parallel computing when dealing with large datasets, complex neural network models. The difference between the two lies in basic features of a processor i.e. cache, clock speed, power consumption, bandwidth and number
+of cores.
 
 Read more that [here](https://thinkml.ai/cpu-vs-gpu-in-machine-learning-algorithms-which-is-better/#).
 </div>
 
 <div class="alert alert-secondary" role="alert" markdown="1">
-<i class="fa-solid fa-user-pen fa-xl"></i>  **Load the data and analyze its shape**
+<i class="fa-solid fa-user-pen fa-xl"></i>  **Exercise: Load the data and analyze its shape**
 <hr/>
 
 ```python
@@ -163,7 +159,7 @@ for i in range(2*7):
 </div>
 
 <div class="alert alert-secondary" role="alert" markdown="1">
-<i class="fa-solid fa-user-pen fa-xl"></i>  **Convert data to HDF5 format**
+<i class="fa-solid fa-user-pen fa-xl"></i>  **Exercise: Convert data to HDF5 format**
 <hr/>
 
 ```python
@@ -185,7 +181,7 @@ You can learn more about it [here](https://www.hdfgroup.org/solutions/hdf5/#) an
 </div>
 
 <div class="alert alert-secondary" role="alert" markdown="1">
-<i class="fa-solid fa-user-pen fa-xl"></i>  **Define the model**
+<i class="fa-solid fa-user-pen fa-xl"></i>  **Exercise: Define the model**
 <hr/>
 
 ```python
@@ -219,7 +215,7 @@ model.summary()
 </div>
 
 <div class="alert alert-secondary" role="alert" markdown="1">
-<i class="fa-solid fa-user-pen fa-xl"></i>  **Define the data generator**
+<i class="fa-solid fa-user-pen fa-xl"></i>  **Exercise: Define the data generator**
 <hr/>
 
 ```python
@@ -266,7 +262,7 @@ class DataGenerator(tf.keras.utils.Sequence):
 
 
 <div class="alert alert-secondary" role="alert" markdown="1">
-<i class="fa-solid fa-user-pen fa-xl"></i>  **Generate batches of data for training and validation dataset**
+<i class="fa-solid fa-user-pen fa-xl"></i>  **Exercise: Generate batches of data for training and validation dataset**
 <hr/>
 
 ```python
@@ -278,7 +274,7 @@ data_valid = DataGenerator(batch_size=batchsize, test=True, shuffle=False)
 
 
 <div class="alert alert-secondary" role="alert" markdown="1">
-<i class="fa-solid fa-user-pen fa-xl"></i>  **First, let's train the model using CPU**
+<i class="fa-solid fa-user-pen fa-xl"></i>  **Exercise: First, let's train the model using CPU**
 <hr/>
 
 ```python
@@ -288,9 +284,8 @@ data_valid = DataGenerator(batch_size=batchsize, test=True, shuffle=False)
 </div>
 
 
-
 <div class="alert alert-secondary" role="alert" markdown="1">
-<i class="fa-solid fa-user-pen fa-xl"></i>  **Now, let's compare GPU to CPU performance.**
+<i class="fa-solid fa-user-pen fa-xl"></i>  **Exercise: Now, let's compare GPU to CPU performance.**
 <hr/>
 
 First, let's get the CPU performance data.
@@ -303,10 +298,8 @@ new_model.compile(optimizer=opt, loss='categorical_crossentropy', metrics=['accu
 ```
 </div>
 
-
-
 <div class="alert alert-secondary" role="alert" markdown="1">
-<i class="fa-solid fa-user-pen fa-xl"></i>  **Train the new model with GPU**
+<i class="fa-solid fa-user-pen fa-xl"></i>  **Exercise: Train the new model with GPU**
 <hr/>
 
 Can you do this yourself?
@@ -322,9 +315,8 @@ with tf.device('/device:GPU:0'):
 </div>
 
 
-
 <div class="alert alert-secondary" role="alert" markdown="1">
-<i class="fa-solid fa-user-pen fa-xl"></i>  **Plot the losses and accuracy for training and validation set**
+<i class="fa-solid fa-user-pen fa-xl"></i>  **Exercise: Plot the losses and accuracy for training and validation set**
 <hr/>
 
 ```python
@@ -348,7 +340,7 @@ axes[1].grid()
 </div>
 
 <div class="alert alert-secondary" role="alert" markdown="1">
-<i class="fa-solid fa-user-pen fa-xl"></i>  **Evaluate the model and make predictions**
+<i class="fa-solid fa-user-pen fa-xl"></i>  **Exercise: Evaluate the model and make predictions**
 <hr/>
 
 ```python
@@ -364,7 +356,7 @@ y_pred = new_model.predict_classes(x)
 
 
 <div class="alert alert-secondary" role="alert" markdown="1">
-<i class="fa-solid fa-user-pen fa-xl"></i>  **Plot the predictions**
+<i class="fa-solid fa-user-pen fa-xl"></i>  **Exercise: Plot the predictions**
 <hr/>
 
 ```python
@@ -383,34 +375,34 @@ for i in range(20):
 </details>
 </div>
 
-## Other resources to do Machine Learning
+<div class="alert alert-info" role="alert" markdown="1">
+<i class="fa-solid fa-circle-info fa-xl"></i> **Other Machine Learning resources**
+<hr/>
 
 * You can use [Google Colab](https://colab.research.google.com/#) which uses Jupyter notebooks too but on Google server. Here you can get free limited compute resources (even GPU) and upgrade your account (for TPU) if you want more. The code usually runs on Google servers on cloud and is connected to your google account so all your projects will be saved in your Google Drive.
 * Microsoft [Azure notebook](https://visualstudio.microsoft.com/vs/features/notebooks-at-microsoft/#) is similar to Google Colab with cloud sharing functionality but provides more memory.
 * Kaggle
 * Amazon Sage Maker
 
-## Discussion
+</div>
 
 <div class="alert alert-secondary" role="alert" markdown="1">
-<i class="fa-solid fa-user-pen fa-xl"></i>  **Why HPC?**
+<i class="fa-solid fa-user-pen fa-xl"></i>  **Discussion: Why HPC?**
 <hr/>
 
 Why would you need an HPC cluster over your personal computer?
 
 </div>
 
-## Key Points
-
 <div class="alert alert-success" role="alert" markdown="1">
+<i class="fa-solid fa-globe fa-xl"></i> **Key Points**
+<hr/>
 
 * Open On Demand requires you have a strong, stable internet connection whereas SSH can work with weak connections too.
 * JupyterLab is a more common platform for data science research but there are other IDE (Integrated Development Environment softwares) like PyCharm, Spyder, RMarkdown too.
 * Using multiple GPUs won’t improve the performance of your machine learning model. It only helps for a very complex computation or large models.
 </div>
 
-<hr/>
-For comparison purposes, here's the [Software Carpentry version of this page](https://ci-tracs.github.io/High_Performance_Computing/11-hpc-deep-learning/index.html)
 
 {% include next-button.html 
            top-label="Staging and File System Choice ->" 

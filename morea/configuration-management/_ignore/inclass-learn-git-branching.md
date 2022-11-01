@@ -9,12 +9,12 @@ morea_labels:
   In Class
 ---
 
-# In Class: Learn Git Race (<tt>http://goo.gl/bNa5J3</tt>)
+# In Class: Learn Git Race (<tt>https://goo.gl/bNa5J3</tt>)
 
 ![](lgb-levels.png)
 
 
-Open up your laptops and bring up the [Learn Git Branching](http://pcottle.github.io/learnGitBranching/) site.
+Open up your laptops and bring up the [Learn Git Branching](https://pcottle.github.io/learnGitBranching/) site.
 
 Wait until I say "go" to start.
 
