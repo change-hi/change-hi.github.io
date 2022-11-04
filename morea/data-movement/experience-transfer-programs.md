@@ -6,7 +6,7 @@ morea_type: experience
 morea_summary: "Be able to identify common/best transfer applications."
 morea_sort_order: 6
 morea_labels:
-  - 3:00pm
+  - 2:50pm
 morea_enable_toc: true
 ---
 <div class="alert alert-success mt-3" role="alert" markdown="1">
@@ -14,7 +14,7 @@ morea_enable_toc: true
 <hr/>
  
  **Objectives**
-  * Introduce you to some of the basic data transfer applications used in research. 
+  * Introduce some of the basic data transfer applications used in research. 
 
 **Key Points**
   * SFTP, although common, is not the best application for moving data and there exists other SSH versions and tools that are better to transfer large data. 
@@ -49,5 +49,5 @@ morea_enable_toc: true
 
 {% include next-button.html
   top-label="Scientific Data Transfer Examples ->"
-  bottom-label="3:10pm"
+  bottom-label="3:00pm"
   url="/morea/data-movement/experience-data-transfer-examples.html" %}

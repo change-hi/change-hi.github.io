@@ -1,12 +1,12 @@
 ---
-title: "9. Globus"
+title: "10. Installing & Using Globus "
 published: true
-morea_id: experience-globus
+morea_id: experience-globus_install
 morea_type: experience
-morea_summary: "Understand what Globus is."
+morea_summary: "Understand how to setup and use Globus to move data."
 morea_sort_order: 9
 morea_labels:
-  - 3:20pm
+  - 3:30pm
 morea_enable_toc: true
 ---
 
@@ -15,12 +15,16 @@ morea_enable_toc: true
 <hr/>
  
  **Objectives**
-  * Have a basic understanding of Globus and how to move data. 
+  * Connect your UH account with Globus. 
+  * Install Globus on to your system.  
 
 **Key Points**
-  * Globus is useful for transfering data to and from MANA at UH. 
+  * Dual factor authentication is a prerequisite to using Globus with MANA.
+  * Both systems to transfer data to and from must have Globus installed on them. 
 </div>
+
 {% include figure.html url="" max-width="75%" file="/morea/data-movement/fig/globus_and_rclone4.png" alt="Node anatomy" caption="" %}
+
 
 # Purpose of Globus 
 
@@ -39,8 +43,7 @@ Access them all using just a web browser.
 
 > Data transfer limitations of google drive
 
-{% include figure.html url="" max-width="75%" file="/morea/data-movement/fig/globus_and_rclone2.jpg" alt="Node anatomy" caption="" %}
-
+{% include figure.html url="" max-width="75%" file="/morea/data-movement/fig/globus_and_rclone2.png" alt="Node anatomy" caption="" %}
 
 # Background
 
@@ -61,6 +64,6 @@ For certain types of data transfer or sharing, you will need Globus Plus, the UH
 > 3.)   to transfer data from a Globus Connect Personal endpoint
 
 {% include next-button.html
-  top-label="Globus ->"
-  bottom-label="3:30pm"
-  url="/morea/data-movement/experience-globus-install.html" %}
+  top-label="Configure Rclone ->"
+  bottom-label="3:40pm"
+  url="/morea/data-movement/experience-rclone.html" %}
