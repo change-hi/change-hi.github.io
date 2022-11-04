@@ -59,5 +59,3 @@ morea_enable_toc: true
 
 ### The infrared laser that transmits over the fiber is visible in the upper connector. The light is visible to my phone camera, but not to the naked eye.
 <img src="../fig/ep211.jpg" width=500px />
-
-{% include links.md %}
