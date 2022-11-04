@@ -26,13 +26,13 @@ morea_enable_toc: true
 
 
 ### U. Hawaii inter-island and REN peer connectivity
-{% include figure.html url="" max-width=50px file="/morea/data-movement/fig/ep20.png" alt="Node anatomy" caption="" %}
+{% include figure.html url="" max-width="50%" file="/morea/data-movement/fig/ep20.png" alt="Node anatomy" caption="" %}
 
 ### Guam Open Research and Education eXchange
-{% include figure.html url="" max-width=50px file="/morea/data-movement/fig/ep21.jpg" alt="Node anatomy" caption="" %}
+{% include figure.html url="" max-width="75%" file="/morea/data-movement/fig/ep21.jpg" alt="Node anatomy" caption="" %}
 
 ### APONet: collaboration of Pacific and Pacific Rim Networks
-{% include figure.html url="" max-width=50px file="/morea/data-movement/fig/ep22.jpg" alt="Node anatomy" caption="" %}
+{% include figure.html url="" max-width="100%" file="/morea/data-movement/fig/ep22.jpg" alt="Node anatomy" caption="" %}
 
 ### Quilt diagram of US regional research and education networks
 {% include figure.html url="" max-width=50px file="/morea/data-movement/fig/ep23.jpg" alt="Node anatomy" caption="" %}
