@@ -1,12 +1,12 @@
 ---
-title: "11. Configure Rclone"
+title: "11. Configure & Transfer Files with Rclone"
 published: true
 morea_id: experience-rclone
 morea_type: experience
-morea_summary: "Understand how to configure Rclone."
+morea_summary: "Understand how to configure and transfer files using Rclone."
 morea_sort_order: 10
 morea_labels:
-  - 3:30pm
+  - 3:40pm
 morea_enable_toc: true
 ---
 
@@ -25,5 +25,5 @@ morea_enable_toc: true
 
 {% include next-button.html
   top-label="Transfering Files with Rclone ->"
-  bottom-label="3:40pm"
-  url="/morea/data-movement/experience-rclone-transfer.html" %}
+  bottom-label="3:50pm"
+  url="/morea/data-movement/experience-survey.html" %}
