@@ -24,38 +24,40 @@ morea_enable_toc: true
 
 # Pictures Of Actual Networks
 
+{% include figure.html url="" max-width=500px file="/morea/data-movement/fig/ep10.jpg" alt="Node anatomy" caption="" %}
+
 ### U. Hawaii inter-island and REN peer connectivity
-<img src="../fig/ep20.png" width=500px />
+{% include figure.html url="" max-width=500px file="/morea/data-movement/fig/ep20.png" alt="Node anatomy" caption="" %}
 
 ### Guam Open Research and Education eXchange
-<img src="../fig/ep21.jpg" width=500px />
+{% include figure.html url="" max-width=500px file="/morea/data-movement/fig/ep21.jpg" alt="Node anatomy" caption="" %}
 
 ### APONet: collaboration of Pacific and Pacific Rim Networks
-<img src="../fig/ep22.jpg" width=500px />
+{% include figure.html url="" max-width=500px file="/morea/data-movement/fig/ep22.jpg" alt="Node anatomy" caption="" %}
 
 ### Quilt diagram of US regional research and education networks
-<img src="../fig/ep23.jpg" width=500px />
+{% include figure.html url="" max-width=500px file="/morea/data-movement/fig/ep23.jpg" alt="Node anatomy" caption="" %}
 
 ### The same Quilt map with Internet2 links added
-<img src="../fig/ep24.jpg" width=500px />
+{% include figure.html url="" max-width=500px file="/morea/data-movement/fig/ep24.jpg" alt="Node anatomy" caption="" %}
 
 ### NOAA NWave - U. Hawaii provides connectivity for Oahu NOAA activities to reach US mainland
-<img src="../fig/ep25.png" width=500px />
+{% include figure.html url="" max-width=500px file="/morea/data-movement/fig/ep25.png" alt="Node anatomy" caption="" %}
 
 ### US Department of Energy ESNet - ESNet be part of various paths to and from UH, notably to DOE Labs and to CERN
-<img src="../fig/ep26.png" width=500px />
+{% include figure.html url="" max-width=500px file="/morea/data-movement/fig/ep26.png" alt="Node anatomy" caption="" %}
 
 ### Medium scale Juniper router, capable of supporting 10Gbps and 100Gbps interfaces for long distance links
-<img src="../fig/ep27.png" width=500px />
+{% include figure.html url="" max-width=500px file="/morea/data-movement/fig/ep27.png" alt="Node anatomy" caption="" %}
 
 ### Fiber distribution in data center
-<img src="../fig/ep28.jpg" width=500px />
+{% include figure.html url="" max-width=500px file="/morea/data-movement/fig/ep28.jpg" alt="Node anatomy" caption="" %}
 
 ### Copper distribution in data center
-<img src="../fig/ep29.jpg" width=500px  />
+{% include figure.html url="" max-width=500px file="/morea/data-movement/fig/ep29.jpg" alt="Node anatomy" caption="" %}
 
 ### A pair of glass fiber LC connectors, and the 10Gbps Ethernet card which connects to the fiber.
-<img src="../fig/ep210.jpg" width=500px />
+{% include figure.html url="" max-width=500px file="/morea/data-movement/fig/ep210.jpg" alt="Node anatomy" caption="" %}
 
 ### The infrared laser that transmits over the fiber is visible in the upper connector. The light is visible to my phone camera, but not to the naked eye.
-<img src="../fig/ep211.jpg" width=500px />
+{% include figure.html url="" max-width=500px file="/morea/data-movement/fig/ep211.jpg" alt="Node anatomy" caption="" %}
