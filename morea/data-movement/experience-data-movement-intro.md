@@ -27,7 +27,7 @@ morea_enable_toc: true
 
 # Groundwork
 
-# Take This Away -- (if nothing else)
+## Take This Away -- (if nothing else)
 
 Many people (among them, Sean and I) are employed specifically to answer your questions and to help you move data effectively.
 
@@ -46,7 +46,7 @@ Making data transfers perform well can be somewhat deep andcomplicated\, but it'
 
 </div>
 
-{% include figure.html url="" max-width="100%" file="/morea/data-movement/fig/ep10.png" alt="Node anatomy" caption="" %}
+{% include figure.html url="" max-width="100%" file="/morea/data-movement/fig/ep10.jpg" alt="Node anatomy" caption="" %}
 
 # How Stuff Connects Together
 
