@@ -63,5 +63,5 @@ morea_enable_toc: true
 
 {% include next-button.html
   top-label="Data Transfer Evaluation of the Network ->"
-  bottom-label="2:30pm"
+  bottom-label="2:20pm"
   url="/morea/data-movement/experience-data-transfer-eval.html" %}
