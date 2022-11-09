@@ -101,10 +101,9 @@ Making data transfers perform well can be somewhat deep and complicated, but it'
 {% include figure.html url="" max-width="100%" file="/morea/data-movement/fig/ep12.png" alt="Node anatomy" caption="" %}
 
 <div class="alert alert-success mt-3" role="alert" markdown="1">
-<i class="fa-solid fa-globe fa-xl"></i> **Overview**
+<i class="fa-solid fa-globe fa-xl"></i> **Key Points**
 <hr/>
 
-**Key Points**
   * All retail marketing is gibberish. 
   * Hollywood movies are wrong about how things are connected. 
   * There are several internets.
