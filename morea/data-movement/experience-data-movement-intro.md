@@ -28,18 +28,18 @@ morea_enable_toc: true
 
 Many people (among them, Sean and I) are employed specifically to answer your questions and to help you move data effectively.
 
-We are interested in hearing about your experience, any problem you may be having, or discussing whether your data transfer solutions are meeting your needs
+We are interested in hearing about your experience, any problem you may be having, or discussing whether your data transfer solutions are meeting your needs.
 
 Expect _hundreds of Megabits per second_ of file transfer speed. If you're not getting that, ask us why not.
 
-Making data transfers perform well can be somewhat deep andcomplicated, but it's _not mysterious_
+Making data transfers perform well can be somewhat deep and complicated, but it's _not mysterious_.
 <div class="alert alert-info" role="alert" markdown="1">
 
 ## (Pretty Much All) Retail Marketing Is Gibberish 
 * Buying a "faster" cable will not make your "streaming Internet" go faster
    * Cat6 is only capable of 4 times throughput over Cat5e (10G vs 2.5G)
    * This is an Ethernet cable, not an Audio/Video "streaming" cable
- * Making the "10x" claim conflicts with the "speeds up to 1Gbps" claim.
+ * Making the "10x" claim conflicts with the "speeds up to 1Gbps" claim
 
 </div>
 
@@ -107,7 +107,7 @@ Making data transfers perform well can be somewhat deep andcomplicated, but it's
 **Key Points**
   * All retail marketing is gibberish. 
   * Hollywood movies are wrong about how things are connected. 
-  * There are several internets. 
+  * There are several internets.
 </div>
 
 {% include next-button.html
