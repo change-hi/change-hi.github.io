@@ -250,8 +250,7 @@ A trailing slash on the target directory is optional, and has no effect for
 FileZilla is a cross-platform client for downloading and uploading files to and
 from a remote computer. It is absolutely fool-proof and always works quite
 well. It uses the `sftp` protocol. You can read more about using the `sftp`
-protocol in the command line [here]({{ site.baseurl }}{% link
-_extras/discuss.md %}).
+protocol in the command line ...
 
 Download and install the FileZilla client from
 [https://filezilla-project.org](https://filezilla-project.org). After
