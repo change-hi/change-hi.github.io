@@ -16,13 +16,10 @@ morea_enable_toc: true
  
  **Objectives**
   * Provide groundwork for understanding how things are connected.
-  * Understand how networks connect everything. 
-  * Understand how UH is connected. 
 
-**Key Points**
-  * All retail marketing is gibberish. 
-  * Hollywood movies are wrong about how things are connected. 
-  * There are several internets. 
+**Questions**
+  * How do networks connect everything?
+  * How is UH connected? 
 </div>
 
 # Groundwork
@@ -31,11 +28,11 @@ morea_enable_toc: true
 
 Many people (among them, Sean and I) are employed specifically to answer your questions and to help you move data effectively.
 
-We are interested in hearing about your experience\, any problem you may be having, or discussing whether your data transfer solutions are meeting your needs
+We are interested in hearing about your experience, any problem you may be having, or discussing whether your data transfer solutions are meeting your needs
 
-Expect _hundreds of Megabits per second_ of file transfer speed\. If you're not getting that\, ask us why not\.
+Expect _hundreds of Megabits per second_ of file transfer speed. If you're not getting that, ask us why not.
 
-Making data transfers perform well can be somewhat deep andcomplicated\, but it's _not mysterious_
+Making data transfers perform well can be somewhat deep andcomplicated, but it's _not mysterious_
 <div class="alert alert-info" role="alert" markdown="1">
 
 ## (Pretty Much All) Retail Marketing Is Gibberish 
@@ -103,6 +100,15 @@ Making data transfers perform well can be somewhat deep andcomplicated\, but it'
 
 {% include figure.html url="" max-width="100%" file="/morea/data-movement/fig/ep12.png" alt="Node anatomy" caption="" %}
 
+<div class="alert alert-success mt-3" role="alert" markdown="1">
+<i class="fa-solid fa-globe fa-xl"></i> **Overview**
+<hr/>
+
+**Key Points**
+  * All retail marketing is gibberish. 
+  * Hollywood movies are wrong about how things are connected. 
+  * There are several internets. 
+</div>
 
 {% include next-button.html
   top-label="Networks ->"
