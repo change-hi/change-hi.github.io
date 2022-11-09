@@ -14,18 +14,18 @@ morea_enable_toc: true
 <i class="fa-solid fa-globe fa-xl"></i> **Overview**
 <hr/>
  
+**Questions**
+* What are some tools we can use to test network throughput? 
  **Objectives**
   * Learn about some of the tools used to test network performance. 
 
-**Key Points**
-  * Many times data transfer is impacted by factors other than the networks, but it helps to know how to test the network. 
 </div>
 
 # Network (Only) Evaluation
 
-# Throughput testing
+## Throughput testing
 
-> ##  Iperf3 (as distinct from "iperf" which is v2 or less)
+> ###  Iperf3 (as distinct from "iperf" which is v2 or less)
 > 
 >  * [https://software.es.net/iperf/](https://software.es.net/iperf/)
 >  * [https://github.com/esnet/iperf](https://github.com/esnet/iperf)
@@ -33,16 +33,16 @@ morea_enable_toc: true
 >    * [https://iperf.fr/iperf-download.php](https://iperf.fr/iperf-download.php)
 
 
-> ## nuttcp
+> ### nuttcp
 > 
 >  * [http://nuttcp.org/]([http://nuttcp.org/)
 >  * Much overlap with iperf3
 >  * Allows "3rd party" operation where one machine can initiate tests between 2 other machines
 
 
-# perfSONAR test nodes
+## perfSONAR test nodes
 
-> ## Provides test endpoints
+> ### Provides test endpoints
 > 
 >  * iperf3
 >  * owping/ping
@@ -54,14 +54,14 @@ morea_enable_toc: true
 * Multiple servers within UH Net
 * You can install the clients on Linux laptop
   * Which allows you to control remote servers
-* perfSONAR toolkit is available as a Docker Container\, which will work on Linux\-based Docker engines\. Getting the networking side working on MacOS or Windows \(or WSL\) is complicated\, if at all possible
+* perfSONAR toolkit is available as a Docker Container, which will work on Linux-based Docker engines. Getting the networking side working on MacOS or Windows (or WSL) is complicated, if at all possible
 
-# perfSONAR installation options
+## perfSONAR installation options
 
 [https://docs.perfsonar.net/install_options.html](https://docs.perfsonar.net/install_options.html)
 
 {% include figure.html url="" max-width="75%" file="/morea/data-movement/fig/ep30.png" alt="Node anatomy" caption="" %}
-# LibreSpeedTest
+## LibreSpeedTest
 
 * [https://github.com/librespeed/speedtest](https://github.com/librespeed/speedtest)
 * Take this code and drop it into a directory on any web server
@@ -74,14 +74,14 @@ morea_enable_toc: true
 
  * [http://speedtest.uhnet.net](http://speedtest.uhnet.net)
 
-# LibreSpeedTest On A Home Network
+## LibreSpeedTest On A Home Network
 
 {% include figure.html url="" file="/morea/data-movement/fig/ep31.png" width=500px alt="" caption="" %}
 
    
-# Ookla Speedtest (speedtest.net)
+## Ookla Speedtest (speedtest.net)
 
-* Allows you to test to many points around the world from a web browser\.
+* Allows you to test to many points around the world from a web browser.
   * [https://www.speedtest.net/](https://www.speedtest.net/)
   * Allow page to load and choose: "Change Server"
 * Also offers a command line version
@@ -93,6 +93,12 @@ morea_enable_toc: true
 >* There are Ookla Speedtest servers at some universities, and if you test from a U. Hawaii campus to those servers, they should use REN paths
 >* Typically, an ISP hosted server will use commodity paths
 
+<div class="alert alert-success mt-3" role="alert" markdown="1">
+<i class="fa-solid fa-globe fa-xl"></i> **Key Points**
+<hr/>
+
+  * Many times data transfer is impacted by factors other than the networks, but it helps to know how to test the network. 
+</div>
 
 {% include next-button.html
   top-label="Processes and Queues ->"
