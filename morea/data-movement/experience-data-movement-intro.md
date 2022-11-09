@@ -13,13 +13,14 @@ morea_enable_toc: true
 <div class="alert alert-success mt-3" role="alert" markdown="1">
 <i class="fa-solid fa-globe fa-xl"></i> **Overview**
 <hr/>
- 
- **Objectives**
-  * Provide groundwork for understanding how things are connected.
 
 **Questions**
   * How do networks connect everything?
   * How is UH connected? 
+
+ **Objectives**
+  * Provide groundwork for understanding how things are connected.
+
 </div>
 
 # Groundwork

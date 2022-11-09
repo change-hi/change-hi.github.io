@@ -13,13 +13,16 @@ morea_enable_toc: true
 <div class="alert alert-success mt-3" role="alert" markdown="1">
 <i class="fa-solid fa-globe fa-xl"></i> **Overview**
 <hr/>
+  
+**Questions**
+* What do networks look like?
+* What does the equipment that connects everything look like?  
  
- **Objectives**
-  * Understand the topology of scientific networks.
-  * Have an idea of what some of the technology underlying networks looks like. 
+**Objectives**
+* Understand the topology of scientific networks.
+* Have an idea of what some of the technology underlying networks looks like. 
+ 
 
-**Key Points**
-  * There are many sub-networks that connect research. 
 </div>
 
 # Pictures Of Actual Networks
@@ -60,6 +63,14 @@ morea_enable_toc: true
 
 ### The infrared laser that transmits over the fiber is visible in the upper connector. The light is visible to my phone camera, but not to the naked eye.
 {% include figure.html url="" max-width="75%" file="/morea/data-movement/fig/ep211.jpg" alt="Node anatomy" caption="" %}
+
+<div class="alert alert-success mt-3" role="alert" markdown="1">
+<i class="fa-solid fa-globe fa-xl"></i> **Key Points**
+<hr/>
+
+  * There are many sub-networks that connect research. 
+
+</div>
 
 {% include next-button.html
   top-label="Data Transfer Evaluation of the Network ->"
