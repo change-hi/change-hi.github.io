@@ -22,27 +22,33 @@ morea_enable_toc: true
 </div>
 
 # Network (Only) Evaluation
-
 ## Throughput testing
+<div class="alert alert-info" role="alert" markdown="1">
+<i class="fa-solid fa-circle-info fa-xl"></i> **Iperf3 (as distinct from "iperf" which is v2 or less)**
+<hr/>
 
-> ###  Iperf3 (as distinct from "iperf" which is v2 or less)
 > 
 >  * [https://software.es.net/iperf/](https://software.es.net/iperf/)
 >  * [https://github.com/esnet/iperf](https://github.com/esnet/iperf)
 >  * Pre-compiled binaries for (everything)
 >    * [https://iperf.fr/iperf-download.php](https://iperf.fr/iperf-download.php)
+</div>
 
+<div class="alert alert-info" role="alert" markdown="1">
+<i class="fa-solid fa-circle-info fa-xl"></i> **nuttcp**
+<hr/>
 
-> ### nuttcp
 > 
 >  * [http://nuttcp.org/]([http://nuttcp.org/)
 >  * Much overlap with iperf3
 >  * Allows "3rd party" operation where one machine can initiate tests between 2 other machines
-
+</div>
 
 ## perfSONAR test nodes
 
-> ### Provides test endpoints
+<div class="alert alert-info" role="alert" markdown="1">
+<i class="fa-solid fa-circle-info fa-xl"></i> **Provides test endpoints**
+<hr/>
 > 
 >  * iperf3
 >  * owping/ping
@@ -55,7 +61,7 @@ morea_enable_toc: true
 * You can install the clients on Linux laptop
   * Which allows you to control remote servers
 * perfSONAR toolkit is available as a Docker Container, which will work on Linux-based Docker engines. Getting the networking side working on MacOS or Windows (or WSL) is complicated, if at all possible
-
+</div>
 ## perfSONAR installation options
 
 [https://docs.perfsonar.net/install_options.html](https://docs.perfsonar.net/install_options.html)
@@ -67,9 +73,11 @@ morea_enable_toc: true
 * Take this code and drop it into a directory on any web server
 * It will provide a browser-based throughput estimate for a path
 
->
+<div class="alert alert-info" role="alert" markdown="1">
+
 >* I have one in my house
 >* UH has one on Manoa Campus
+</div>
 
 
  * [http://speedtest.uhnet.net](http://speedtest.uhnet.net)
@@ -81,7 +89,7 @@ morea_enable_toc: true
    
 ## Ookla Speedtest (speedtest.net)
 
-* Allows you to test to many points around the world from a web browser.
+* Allows you to test to many points around the world from a web browser
   * [https://www.speedtest.net/](https://www.speedtest.net/)
   * Allow page to load and choose: "Change Server"
 * Also offers a command line version
