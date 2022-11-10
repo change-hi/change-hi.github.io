@@ -6,7 +6,7 @@ morea_type: experience
 morea_summary: "Understand how to transfer files using wget, scp, and rsync."
 morea_sort_order: 8
 morea_labels:
-  - 3:10pm
+  - 3:15pm
 morea_enable_toc: true
 ---
 
@@ -14,13 +14,12 @@ morea_enable_toc: true
 <i class="fa-solid fa-globe fa-xl"></i> **Overview**
 <hr/>
  
- **Objectives**
-  * Be able to transfer files to a computing cluster using wget, scp and rsync. 
+**Questions**
+* How do I transfer files using wget, scp, or rsync?
 
-**Key Points**
-  * `wget` and `curl -O` download a file from the internet
-  * `scp` transfers files to and from your computer
-  * You can use an SFTP client like FileZilla to transfer files through a GUI. 
+**Objectives**
+* Be able to transfer files to a computing cluster using wget, scp and rsync. 
+
 </div>
 
 Computing with a remote computer offers very limited use if we cannot get files
@@ -40,6 +39,9 @@ The syntax for these commands is: `curl -O https://some/link/to/a/file`
 and `wget https://some/link/to/a/file`. Try it out by downloading
 some material we'll use later on, from a terminal on your local machine.
 
+<div class="alert alert-secondary" role="alert" markdown="1">
+<i class="fa-solid fa-user-pen fa-xl"></i>  
+<hr/>
 ```
 {{ site.local.prompt }} curl -O {{ site.url }}{{ site.baseurl }}/files/hpc-intro-data.tar.gz
 ```
@@ -50,6 +52,7 @@ or
 ```
 {: .language-bash}
 
+</div>
 
 > ## `tar.gz`?
 >
@@ -446,7 +449,16 @@ then provide a directory to compress:
 > Material used and modfied from the 
 > ["Introduction to High-Performance Computing" Incubator workshop](https://carpentries-incubator.github.io/hpc-intro/).
 
+<div class="alert alert-success mt-3" role="alert" markdown="1">
+<i class="fa-solid fa-globe fa-xl"></i> **Key Points**
+<hr/>
+
+  * `wget` and `curl -O` download a file from the internet
+  * `scp` transfers files to and from your computer
+  * You can use an SFTP client like FileZilla to transfer files through a GUI. 
+</div>
+
 {% include next-button.html
   top-label="Globus ->"
-  bottom-label="3:20pm"
+  bottom-label="3:30pm"
   url="/morea/data-movement/experience-globus.html" %}
