@@ -13,11 +13,14 @@ morea_enable_toc: true
 <i class="fa-solid fa-globe fa-xl"></i> **Overview**
 <hr/>
  
- **Objectives**
-  * Understand the processes involved in transfering data from one machine to another.  
+**Questions**
+* What are Queues/Buffers?
+* How does data actually move from machine to machine?
 
-**Key Points**
-  * There are many processes in transfering data that can cause bottlenecks and degrade performance, the network is only one of many of these processes. 
+**Objectives**
+* Understand the processes involved in transfering data from one machine to another.  
+
+
 </div>
 
 # Queues (also known as buffers)
@@ -51,6 +54,13 @@ Data waits in queues for a chance to be transmitted further
 * Storage systems benefit from design choices
 * Most defaults support many users sharing a resource
 * Our use case is more about committing entire machines to a single purpose
+
+<div class="alert alert-success mt-3" role="alert" markdown="1">
+<i class="fa-solid fa-globe fa-xl"></i> **Key Points**
+<hr/>
+
+  * There are many processes in transfering data that can cause bottlenecks and degrade performance, the network is only one of many of these processes. 
+</div>
 
 {% include next-button.html
   top-label="Transmission Control Protocol (TCP) ->"
