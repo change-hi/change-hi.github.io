@@ -6,7 +6,7 @@ morea_type: experience
 morea_summary: "Understand how to transfer files using wget, scp, and rsync."
 morea_sort_order: 8
 morea_labels:
-  - 3:15pm
+  - 3:10pm
 morea_enable_toc: true
 ---
 
@@ -241,7 +241,7 @@ A trailing slash on the target directory is optional, and has no effect for
 > >
 > >
 <div class="alert alert-secondary" role="alert" markdown="1">
-<i class="fa-solid fa-user-pen fa-xl"></i> **Rsync Port**
+<i class="fa-solid fa-user-pen fa-xl"></i> **Exercise: Rsync Port**
 <hr/>
 
 Say we have to connect `rsync` through port 768 instead of 22. How would we
@@ -375,7 +375,7 @@ Now let's unpack the archive. We'll run `tar` with a few common flags:
 When it's done, check the directory size with `du` and compare.
 
 <div class="alert alert-secondary" role="alert" markdown="1">
-<i class="fa-solid fa-user-pen fa-xl"></i> **Extract the Archive**
+<i class="fa-solid fa-user-pen fa-xl"></i> **Exercise: Extract the Archive**
 <hr/>
 
 Using the four flags above, unpack the lesson data using `tar`.

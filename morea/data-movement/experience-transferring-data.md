@@ -59,7 +59,7 @@ Globus will connect to the UH-HPC collection and display the default directory, 
 
 # Request a file transfer
 
-A new collection panel will open\, with a ”Search" field at the top of the panel. Click on it.</span>
+A new collection panel will open, with a ”Search" field at the top of the panel. Click on it.</span>
 
 {% include figure.html url="" max-width="75%" file="/morea/data-movement/fig/globus_and_rclone14.png" alt="Node anatomy" caption="" %}
 

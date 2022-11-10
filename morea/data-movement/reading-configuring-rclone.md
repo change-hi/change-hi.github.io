@@ -72,7 +72,8 @@ $ ssh luketn@hpc-dtn1.its.hawaii.edu
 
 </div>
 
-{% include figure.html url="" max-width="75%" file="/morea/data-movement/fig/Rclone1.png" alt="Node anatomy" caption="" %}
+{% include figure.html url="" max-width="75%" file="/morea/data-movement/fig/RClone1.png" alt="Node anatomy" caption="" %}
+
 ---
 
 Two Factor Authentication for Duo Push
@@ -115,7 +116,8 @@ $ rclone config
 </div>
 
 
-{% include figure.html url="" max-width="75%" file="/morea/data-movement/fig/Rclone3.png" alt="Node anatomy" caption="" %}
+{% include figure.html url="" max-width="75%" file="/morea/data-movement/fig/RClone3.png" alt="Node anatomy" caption="" %}
+
 ---
 <div class="alert alert-secondary" role="alert" markdown="1">
 ```
@@ -136,7 +138,7 @@ No remotes found \- make a new one
 
 Choose a name for the remote object storage system  
 
-{% include figure.html url="" max-width="75%" file="/morea/data-movement/fig/Rclone4.png" alt="Node anatomy" caption="" %}
+{% include figure.html url="" max-width="75%" file="/morea/data-movement/fig/RClone4.png" alt="Node anatomy" caption="" %}
 
  You'll be prompted for the name of the remote object storage system\, we use "rclone\-gdrive" in this tutorial  
 
@@ -151,7 +153,7 @@ $ rclone\-gdrive
 
 # Choosing a Storage Option
 
-{% include figure.html url="" max-width="75%" file="/morea/data-movement/fig/Rclone6.png" alt="Node anatomy" caption="" %}
+{% include figure.html url="" max-width="75%" file="/morea/data-movement/fig/RClone6.png" alt="Node anatomy" caption="" %}
 
 <div class="alert alert-secondary" role="alert" markdown="1">
 ```
@@ -167,7 +169,7 @@ $ 15
 
 # Google Application Client Id
 
-{% include figure.html url="" max-width="75%" file="/morea/data-movement/fig/Rclone7.png" alt="Node anatomy" caption="" %}
+{% include figure.html url="" max-width="75%" file="/morea/data-movement/fig/RClone7.png" alt="Node anatomy" caption="" %}
 
 *Setting your own is recommended, see https://rclone\.org/drive/\#making\-your\-own\-client\-id for how to create your own.
 * If you leave this blank, it will use an internal key which is low performance.
@@ -196,7 +198,7 @@ Scope
 * 5 does not allow any access to read or download file content.
     "drive.metadata.readonly"
 
-{% include figure.html url="" max-width="75%" file="/morea/data-movement/fig/Rclone8.png" alt="Node anatomy" caption="" %}
+{% include figure.html url="" max-width="75%" file="/morea/data-movement/fig/RClone8.png" alt="Node anatomy" caption="" %}
 
 <div class="alert alert-secondary" role="alert" markdown="1">
 ```
@@ -205,14 +207,14 @@ $ 1
 
 </div>
 
-{% include figure.html url="" max-width="75%" file="/morea/data-movement/fig/Rclone9.png" alt="Node anatomy" caption="" %}
+{% include figure.html url="" max-width="75%" file="/morea/data-movement/fig/RClone9.png" alt="Node anatomy" caption="" %}
 
 ---
 
 Leave ID of the root folder blank normally
 
 
-{% include figure.html url="" max-width="75%" file="/morea/data-movement/fig/Rclone10.png" alt="Node anatomy" caption="" %}
+{% include figure.html url="" max-width="75%" file="/morea/data-movement/fig/RClone10.png" alt="Node anatomy" caption="" %}
 
 ---
 # Auto Configuration
@@ -224,23 +226,23 @@ $ n
 
 </div>
 
-{% include figure.html url="" max-width="75%" file="/morea/data-movement/fig/Rclone13.png" alt="Node anatomy" caption="" %}
+{% include figure.html url="" max-width="75%" file="/morea/data-movement/fig/RClone13.png" alt="Node anatomy" caption="" %}
 ---
 
 You should receive a verifiable link after configuration is complete
 
-{% include figure.html url="" max-width="75%" file="/morea/data-movement/fig/Rclone14.png" alt="Node anatomy" caption="" %}
+{% include figure.html url="" max-width="75%" file="/morea/data-movement/fig/RClone14.png" alt="Node anatomy" caption="" %}
 
 ---
 
 # Google Validation
 
-{% include figure.html url="" max-width="75%" file="/morea/data-movement/fig/Rclone16.png" alt="Node anatomy" caption="" %}
+{% include figure.html url="" max-width="75%" file="/morea/data-movement/fig/RClone16.png" alt="Node anatomy" caption="" %}
 
 ---
 # Copy Validation Code and Enter in MANA
 
-{% include figure.html url="" max-width="75%" file="/morea/data-movement/fig/Rclone21.png" alt="Node anatomy" caption="" %}
+{% include figure.html url="" max-width="75%" file="/morea/data-movement/fig/RClone21.png" alt="Node anatomy" caption="" %}
 
 ---
 # Configuring of Google Drive
@@ -258,7 +260,7 @@ $ y
 
 -Do not configure as a team drive
 
-{% include figure.html url="" max-width="75%" file="/morea/data-movement/fig/Rclone20.png" alt="Node anatomy" caption="" %}
+{% include figure.html url="" max-width="75%" file="/morea/data-movement/fig/RClone20.png" alt="Node anatomy" caption="" %}
 
 <div class="alert alert-secondary" role="alert" markdown="1">
 ```

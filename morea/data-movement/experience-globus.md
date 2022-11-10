@@ -32,7 +32,7 @@ Globus can use several different systems to move data
 * Tape archive? 
 Access them all using just a web browser.
 
-> Data stored at a different institution? At a supercomputing facility? All you need is your campus login'
+> Data stored at a different institution? At a supercomputing facility? All you need is your campus login.
 
 > Globus is a service that makes it easy to move, sync, and share large amounts of data.
 
@@ -46,7 +46,8 @@ Access them all using just a web browser.
 # Background
 
 * Globus uses GridFTP for more reliable and high-performance file transfer, and will queue file transfers to be performed asynchronously in the background.
-* Globus was developed and is maintained at the University of Chicago and is used extensively at supercomputer centers and major research facilities. https://globus.org
+* Globus was developed and is maintained at the University of Chicago and is used extensively at supercomputer centers and major research facilities. 
+* [https://globus.org](https://globus.org)
 
 # When To use Globus
 

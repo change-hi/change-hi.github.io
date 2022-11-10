@@ -29,9 +29,8 @@ morea_enable_toc: true
 
 {% include figure.html url="" max-width="75%" file="/morea/data-movement/fig/ep53.png" alt="Node anatomy" caption="" %}
 
-{% include figure.html url="" max-width="75%" file="/morea/data-movement/fig/ep54.png"  caption="" %}
+{% include figure.html url="" max-width="75%" file="/morea/data-movement/fig/ep54.png" alt="Node anatomy" caption="" %}
 
-{% include figure.html url="" max-width="75%" file="/morea/data-movement/fig/ep55.png" alt="Node anatomy" caption="" %}
 
 {% include figure.html url="" max-width="75%" file="/morea/data-movement/fig/ep56.png" alt="Node anatomy" caption="" %}
 
@@ -43,15 +42,15 @@ __https://blog.leiy.me/post/bw-throttling-on-mac/__
 > * Bandwidth Delay Product (BDP)
 >   * TCP receive window = round_trip_time * effective_bit_rate
 >     * "Effective bit rate" is usually the smallest link in a path
->     * Round Trip Time is propagation delay\, queuing delay\, backlog delay
+>     * Round Trip Time is propagation delay, queuing delay, backlog delay
 >   * TCP RWIN max is 2 Gigabytes
->   * The max RTT that can support 100 Gbit/sec is 171\.8 milliseconds
->     * Meaning: in order to go further\, you'd need more than max window
->   * Most modern OS auto\-tune, but have limits to the auto that can be raised\.
+>   * The max RTT that can support 100 Gbit/sec is 171.8 milliseconds
+>     * Meaning: in order to go further, you'd need more than max window
+>   * Most modern OS auto-tune, but have limits to the auto that can be raised.
 >   * Most default limits are insufficient for moving data fast over long distances
-> * Fasterdata\.es\.net
+> * Fasterdata.es.net
 >   * A good resource for research data transfer information including TCP stuff
-{: .callout}
+
 
 
 
@@ -84,16 +83,16 @@ TCP retransmissions
 >   * The Ethernet card does such things as TCP segmentation and checksums, relieving the computer operating system of those tasks
 > * Ethernet flow control -- sometimes mitigates buffer issues
 > * Storage system (formerly "disks") configuration
->   * Multi\-devices under a single volume (RAID-1 or mdadm\)
+>   * Multi-devices under a single volume (RAID-1 or mdadm)
 >   * high performance files systems
->   * If you have a fast, clean 100G network\, the next limit will be your storage throughput
+>   * If you have a fast, clean 100G network, the next limit will be your storage throughput
 >   * [https://fasterdata.es.net/science-dmz/DTN/hardware-selection/storage/](https://fasterdata.es.net/science-dmz/DTN/hardware-selection/storage/)
 > * MTU (IP maximum transmission unit) akin to Ethernet frame size
 
 # Sometimes Less Is More
 
 * If you experience sickly performance due to queue loss
-  * You might try reducing the max TCP receive window\, if you can't affect queue pacing
+  * You might try reducing the max TCP receive window, if you can't affect queue pacing
   * Congested paths might get more done whenpresentedwith a lower rate that doesn't cause queue drops
 * This is a temporary, stop-gap suggestion
 
@@ -101,7 +100,7 @@ TCP retransmissions
 
 Currently, up to 10 Gigabit Ethernet can be filled by a typical server grade computer
 
-On 100 Gigabit,varioustransfer speeds > 80 Gbps have been recorded (see pic)
+On 100 Gigabit, various transfer speeds > 80 Gbps have been recorded (see pic)
 
 Working 100G flows tend to be 30 Gbps or less
 

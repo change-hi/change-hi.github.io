@@ -27,12 +27,12 @@ morea_enable_toc: true
 >  * Very accessible
 >  * Have a problem with long-haul
 >    * [https://www\.psc\.edu/hpn\-ssh\-home/hpn\-ssh\-faq/](https://www\.psc\.edu/hpn\-ssh\-home/hpn\-ssh\-faq/)
->    * Can be patched to work very better\, if you are invested in an ssh\-based workflow
->  * Common tools in this category are single\-threaded
+>    * Can be patched to work much better, if you are invested in an ssh-based workflow
+>  * Common tools in this category are single-threaded
 >    * Versus supportingparallel transfers
 
 
-> ## GridFTP (including Globus GridFTP\)
+> ## GridFTP (including Globus GridFTP)
 >  * Breaks files into small pieces, transfers many pieces concurrently, and reassembles them at the receiving end
 >  * Tends to get better performance out of networks with symptoms.
 >  * May not tend to get better performance out of transfer paths with other problems
