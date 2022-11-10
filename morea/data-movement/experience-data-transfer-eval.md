@@ -16,8 +16,9 @@ morea_enable_toc: true
  
 **Questions**
 * What are some tools we can use to test network throughput? 
- **Objectives**
-  * Learn about some of the tools used to test network performance. 
+
+**Objectives**
+* Learn about some of the tools used to test network performance. 
 
 </div>
 
@@ -53,7 +54,7 @@ morea_enable_toc: true
 >  * iperf3
 >  * owping/ping
 >  * traceroute/tracepath
-
+</div>
 
 * Academic and research centric
 * Many servers around the world
@@ -61,7 +62,7 @@ morea_enable_toc: true
 * You can install the clients on Linux laptop
   * Which allows you to control remote servers
 * perfSONAR toolkit is available as a Docker Container, which will work on Linux-based Docker engines. Getting the networking side working on MacOS or Windows (or WSL) is complicated, if at all possible
-</div>
+
 ## perfSONAR installation options
 
 [https://docs.perfsonar.net/install_options.html](https://docs.perfsonar.net/install_options.html)
