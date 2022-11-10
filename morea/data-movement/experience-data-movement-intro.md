@@ -27,7 +27,7 @@ morea_enable_toc: true
 
 ## Take This Away -- (if nothing else)
 
-Many people (among them, Sean and I) are employed specifically to answer your questions and to help you move data effectively.
+Many people (among them, Sean and Alan) are employed specifically to answer your questions and to help you move data effectively.
 
 We are interested in hearing about your experience, any problem you may be having, or discussing whether your data transfer solutions are meeting your needs.
 
@@ -35,7 +35,7 @@ Expect _hundreds of Megabits per second_ of file transfer speed. If you're not g
 
 Making data transfers perform well can be somewhat deep and complicated, but it's _not mysterious_.
 <div class="alert alert-info" role="alert" markdown="1">
-<i class="fa-solid fa-circle-info fa-xl"></i> **(Pretty Much All) Retail Marketing Is Gibberish **
+<i class="fa-solid fa-circle-info fa-xl"></i> **(Pretty Much All) Retail Marketing Is Gibberish**
 <hr/>
 
 * Buying a "faster" cable will not make your "streaming Internet" go faster

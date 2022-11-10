@@ -29,7 +29,7 @@ morea_enable_toc: true
 
 {% include figure.html url="" max-width="75%" file="/morea/data-movement/fig/ep53.png" alt="Node anatomy" caption="" %}
 
-{% include figure.html url="" max-width="75%" file="/morea/data-movement/fig/ep54.png" alt="Node anatomy" caption="" %}
+{% include figure.html url="" max-width="75%" file="/morea/data-movement/fig/ep54.png"  caption="" %}
 
 {% include figure.html url="" max-width="75%" file="/morea/data-movement/fig/ep55.png" alt="Node anatomy" caption="" %}
 
