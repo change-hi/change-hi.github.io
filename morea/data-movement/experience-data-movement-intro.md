@@ -35,8 +35,9 @@ Expect _hundreds of Megabits per second_ of file transfer speed. If you're not g
 
 Making data transfers perform well can be somewhat deep and complicated, but it's _not mysterious_.
 <div class="alert alert-info" role="alert" markdown="1">
+<i class="fa-solid fa-circle-info fa-xl"></i> **(Pretty Much All) Retail Marketing Is Gibberish **
+<hr/>
 
-## (Pretty Much All) Retail Marketing Is Gibberish 
 * Buying a "faster" cable will not make your "streaming Internet" go faster
    * Cat6 is only capable of 4 times throughput over Cat5e (10G vs 2.5G)
    * This is an Ethernet cable, not an Audio/Video "streaming" cable

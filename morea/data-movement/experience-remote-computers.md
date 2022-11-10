@@ -40,28 +40,28 @@ and `wget https://some/link/to/a/file`. Try it out by downloading
 some material we'll use later on, from a terminal on your local machine.
 
 <div class="alert alert-secondary" role="alert" markdown="1">
-<i class="fa-solid fa-user-pen fa-xl"></i>  
 <hr/>
 ```
-{{ site.local.prompt }} curl -O {{ site.url }}{{ site.baseurl }}/files/hpc-intro-data.tar.gz
+[user@laptop ~]$ curl -O https://github.com/EthanHartley22/change-hi.github.io/blob/main/morea/data-movement/hpc-intro-data.tar.gz
 ```
-{: .language-bash}
+
 or
 ```
-{{ site.local.prompt }} wget {{ site.url }}{{ site.baseurl }}/files/hpc-intro-data.tar.gz
+[user@laptop ~]$ wget https://github.com/EthanHartley22/change-hi.github.io/blob/main/morea/data-movement/hpc-intro-data.tar.gz
 ```
-{: .language-bash}
 
 </div>
 
-> ## `tar.gz`?
+<div class="alert alert-info" role="alert" markdown="1">
+<i class="fa-solid fa-circle-info fa-xl"></i> **`tar.gz`?**
+
 >
 > This is an archive file format, just like `.zip`, commonly used and supported
 > by default on Linux, which is the operating system the majority of HPC
 > cluster machines run. You may also see the extension `.tgz`, which is exactly
 > the same. We'll talk more about "tarballs," since "tar-dot-g-z" is a
 > mouthful, later on.
-{: .discussion}
+</div>
 
 ## Transferring Single Files and Folders With `scp`
 
@@ -70,42 +70,51 @@ The syntax can be a little complex for new users, but we'll break it down.
 
 To *upload to* another computer:
 
+<div class="alert alert-secondary" role="alert" markdown="1">
+<hr/>
 ```
-{{ site.local.prompt }} scp path/to/local/file.txt {{ site.remote.user }}@{{ site.remote.login }}:/path/on/{{ site.remote.name }}
+[user@laptop ~]$ scp path/to/local/file.txt yourUsername@hpc-dtn1.its.hawaii.edu:/path/on/yourUsername
 ```
-{: .language-bash}
+</div>
 
 To *download from* another computer:
 
+<div class="alert alert-secondary" role="alert" markdown="1">
+<hr/>
 ```
-{{ site.local.prompt }} scp {{ site.remote.user }}@{{ site.remote.login }}:/path/on/{{ site.remote.name }}/file.txt path/to/local/
+[user@laptop ~]$ scp yourUsername@hpc-dtn1.its.hawaii.edu:/path/on/yourUsername/file.txt path/to/local/
 ```
-{: .language-bash}
+</div>
 
 Note that everything after the `:` is relative to our home directory on the
 remote computer. We can leave it at that if we don't care where the file goes.
 
+<div class="alert alert-secondary" role="alert" markdown="1">
+<hr/>
 ```
-{{ site.local.prompt }} scp local-file.txt {{ site.remote.user }}@{{ site.remote.login }}:
+[user@laptop ~]$ scp local-file.txt yourUsername@hpc-dtn1.its.hawaii.edu:
 ```
-{: .language-bash}
+</div>
 
-> ## Upload a File
->
-> Copy the file you just downloaded from the Internet to your home directory on
-> {{ site.remote.name }}.
->
-> > ## Solution
-> >
-> > ```
-> > {{ site.local.prompt }} scp hpc-intro-data.tar.gz {{ site.remote.user }}@{{ site.remote.login }}:~/
-> > ```
-> > {: .language-bash}
-> {: .solution}
-{: .challenge}
+<div class="alert alert-secondary" role="alert" markdown="1">
+<i class="fa-solid fa-user-pen fa-xl"></i> **Exercise: Upload a File**
+<hr/>
 
-> ## Why Not Download on {{ site.remote.name }} Directly?
->
+Copy the file you just downloaded from the Internet to your home directory on yourUsername
+
+ <details markdown="1">
+<summary>Solution</summary>
+
+```
+[user@laptop ~]$ scp hpc-intro-data.tar.gz yourUsername@hpc-dtn1.its.hawaii.edu:~/
+```
+
+</details>
+</div>
+
+<div class="alert alert-info" role="alert" markdown="1">
+<i class="fa-solid fa-circle-info fa-xl"></i> **Why Not Download on yourUsername Directly?**
+
 > Some computer clusters are behind firewalls set to only allow transfers
 > initiated from the *outside*. This means that the `curl` command will fail,
 > as an address outside the firewall is unreachable from the inside. To get
