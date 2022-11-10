@@ -126,18 +126,25 @@ Copy the file you just downloaded from the Internet to your home directory on yo
 > > or
 > > ## `wget` from hpc-dtn1.its.hawaii.edu
 > > 
+</div>
+
+<div class="alert alert-secondary" role="alert" markdown="1">
+<i class="fa-solid fa-user-pen fa-xl"></i> 
+<hr/>
 > > Try downloading the file directly. Note that it may well fail, and that's
 > > OK!
-> >
-> > > ## Commands
-> > >
+
+ <details markdown="1">
+<summary>Solution</summary>
+
 > > > ```
 > > > [user@laptop ~]$ ssh yourUsername@hpc-dtn1.its.hawaii.edu
 > > > [yourUsername@hpc-dtn01 ~]$ curl -O https://github.com/change-hi.github.io/blob/main/morea/data-movement/hpc-intro-data.tar.gz
 > > > or
 > > > [yourUsername@hpc-dtn01 ~]$ wget https://github.com/change-hi.github.io/blob/main/morea/data-movement/hpc-intro-data.tar.gz
 > > > ```
-> > Did it work? If not, what does the terminal output tell you about what happened?
+Did it work? If not, what does the terminal output tell you about what happened?
+</details>
 </div>
 
 To copy a whole directory, we add the `-r` flag, for "**r**ecursive": copy the
@@ -186,10 +193,11 @@ A trailing slash on the target directory is optional, and has no effect for
 > The syntax is similar to `scp`. To transfer *to* another computer with
 > commonly used options:
 >
-> ```
-> {{ site.local.prompt }} rsync -avzP path/to/local/file.txt {{ site.remote.user }}@{{ site.remote.login }}:directory/path/on/{{ site.remote.name }}/
-> ```
-> {: .language-bash}
+<div class="alert alert-secondary" role="alert" markdown="1">
+ ```
+[user@laptop ~]$ rsync -avzP path/to/local/file.txt yourUsername@hpc-dtn1.its.hawaii.edu:directory/path/on/yourUsername/
+ ```
+</div>
 >
 > The `a` (archive) option preserves file timestamps and permissions among
 > other things; the `v` (verbose) option gives verbose output to help monitor
@@ -200,10 +208,11 @@ A trailing slash on the target directory is optional, and has no effect for
 >
 > To recursively copy a directory, we can use the same options:
 >
+<div class="alert alert-secondary" role="alert" markdown="1">
 > ```
-> {{ site.local.prompt }} rsync -avzP path/to/local/dir {{ site.remote.user }}@{{ site.remote.login }}:directory/path/on/{{ site.remote.name }}/
+[user@laptop ~]$ rsync -avzP path/to/local/dir yourUsername@hpc-dtn1.its.hawaii.edu:directory/path/on/yourUsername/
 > ```
-> {: .language-bash}
+</div>
 >
 > As written, this will place the local directory and its contents under the
 > specified directory on the remote system. If the trailing slash is omitted on
@@ -215,11 +224,11 @@ A trailing slash on the target directory is optional, and has no effect for
 >
 > To download a file, we simply change the source and destination:
 >
+<div class="alert alert-secondary" role="alert" markdown="1">
 > ```
-> {{ site.local.prompt }} rsync -avzP {{ site.remote.user }}@{{ site.remote.login }}:path/on/{{ site.remote.name }}/file.txt path/to/local/
+[user@laptop ~]$ rsync -avzP yourUsername@hpc-dtn1.its.hawaii.edu:path/on/yourUsername/file.txt path/to/local/
 > ```
-> {: .language-bash}
-{: .callout}
+</div>
 
 > ## A Note on Ports
 >
@@ -229,28 +238,29 @@ A trailing slash on the target directory is optional, and has no effect for
 > in use, you will have to specify it using the appropriate flag, often `-p`,
 > `-P`, or `--port`. Check `--help` or the `man` page if you're unsure.
 >
-> > ## Rsync Port
 > >
-> > Say we have to connect `rsync` through port 768 instead of 22. How would we
-> > modify this command?
 > >
-> > ```
-> > {{ site.local.prompt }} rsync test.txt {{ site.remote.user }}@{{ site.remote.login }}:
-> > ```
-> > {: .language-bash}
-> >
-> > > ## Solution
-> > >
-> > > ```
-> > > {{ site.local.prompt }} rsync --help | grep port
+<div class="alert alert-secondary" role="alert" markdown="1">
+<i class="fa-solid fa-user-pen fa-xl"></i> **Rsync Port**
+<hr/>
+
+Say we have to connect `rsync` through port 768 instead of 22. How would we
+modify this command?
+```
+[user@laptop ~]$ rsync test.txt yourUsername@hpc-dtn1.its.hawaii.edu:
+```
+ <details markdown="1">
+<summary>Solution</summary>
+
+```
+[user@laptop ~]$ rsync --help | grep port
 > > >      --port=PORT             specify double-colon alternate port number
 > > > See http://rsync.samba.org/ for updates, bug reports, and answers
-> > > {{ site.local.prompt }} rsync --port=768 test.txt {{ site.remote.user }}@{{ site.remote.login }}:
-> > > ```
-> > > {: .language-bash}
-> > {: .solution}
-> {: .challenge}
-{: .callout}
+> > > [user@laptop ~]$ rsync --port=768 test.txt yourUsername@hpc-dtn1.its.hawaii.edu:
+```
+
+</details>
+</div>
 
 ## Transferring Files Interactively with FileZilla
 
@@ -310,6 +320,7 @@ without unpacking the file, specified by `-f <filename>`, on the remote
 computer. Note that you can concatenate the two flags, instead of writing
 `-t -f` separately.
 
+<div class="alert alert-secondary" role="alert" markdown="1">
 ```
 {{ site.local.prompt }} ssh {{ site.remote.user }}@{{ site.remote.login }}
 {{ site.remote.prompt }} tar -tf hpc-intro-data.tar.gz
@@ -335,24 +346,24 @@ hpc-intro-data/north-pacific-gyre/NENE01751A.txt
 hpc-intro-data/north-pacific-gyre/NENE01729A.txt
 hpc-intro-data/north-pacific-gyre/NENE02040Z.txt
 ```
-{: .language-bash}
+</div>
 
 This shows a folder containing another folder, which contains a bunch of files.
 If you've taken The Carpentries' Shell lesson recently, these might look
 familiar. Let's see about that compression, using `du` for "**d**isk
 **u**sage".
 
+<div class="alert alert-secondary" role="alert" markdown="1">
 ```
-{{ site.remote.prompt }} du -sh hpc-intro-data.tar.gz
+[yourUsername@hpc-dtn01 ~]$ du -sh hpc-intro-data.tar.gz
 36K     hpc-intro-data.tar.gz
 ```
-{: .language-bash}
+</div>
 
 > ## Files Occupy at Least One "Block"
 >
 > If the filesystem block size is larger than 36 KB, you'll see a larger
 > number: files cannot be smaller than one block.
-{: .callout}
 
 Now let's unpack the archive. We'll run `tar` with a few common flags:
 
@@ -363,70 +374,75 @@ Now let's unpack the archive. We'll run `tar` with a few common flags:
 
 When it's done, check the directory size with `du` and compare.
 
-> ## Extract the Archive
->
-> Using the four flags above, unpack the lesson data using `tar`.
+<div class="alert alert-secondary" role="alert" markdown="1">
+<i class="fa-solid fa-user-pen fa-xl"></i> **Extract the Archive**
+<hr/>
+
+Using the four flags above, unpack the lesson data using `tar`.
 > Then, check the size of the whole unpacked directory using `du`.
 >
 > Hint: `tar` lets you concatenate flags.
->
-> > ## Commands
-> >
-> > ```
-> > {{ site.remote.prompt }} tar -xvzf hpc-lesson-data.tar.gz
-> > ```
-> > {: .language-bash}
-> >
-> > ```
-> > hpc-intro-data/
-> > hpc-intro-data/north-pacific-gyre/
-> > hpc-intro-data/north-pacific-gyre/NENE01971Z.txt
-> > hpc-intro-data/north-pacific-gyre/goostats
-> > hpc-intro-data/north-pacific-gyre/goodiff
-> > hpc-intro-data/north-pacific-gyre/NENE02040B.txt
-> > hpc-intro-data/north-pacific-gyre/NENE01978B.txt
-> > hpc-intro-data/north-pacific-gyre/NENE02043B.txt
-> > hpc-intro-data/north-pacific-gyre/NENE02018B.txt
-> > hpc-intro-data/north-pacific-gyre/NENE01843A.txt
-> > hpc-intro-data/north-pacific-gyre/NENE01978A.txt
-> > hpc-intro-data/north-pacific-gyre/NENE01751B.txt
-> > hpc-intro-data/north-pacific-gyre/NENE01736A.txt
-> > hpc-intro-data/north-pacific-gyre/NENE01812A.txt
-> > hpc-intro-data/north-pacific-gyre/NENE02043A.txt
-> > hpc-intro-data/north-pacific-gyre/NENE01729B.txt
-> > hpc-intro-data/north-pacific-gyre/NENE02040A.txt
-> > hpc-intro-data/north-pacific-gyre/NENE01843B.txt
-> > hpc-intro-data/north-pacific-gyre/NENE01751A.txt
-> > hpc-intro-data/north-pacific-gyre/NENE01729A.txt
-> > hpc-intro-data/north-pacific-gyre/NENE02040Z.txt
-> > ```
-> > {: .output}
-> >
-> > Note that we did not type out `-x -v -z -f`, thanks to the flag
-> > concatenation, though the command works identically either way.
-> >
-> > ```
-> > {{ site.remote.prompt }} du -sh hpc-lesson-data
-> > 144K    hpc-intro-data
-> > ```
-> > {: .language-bash}
-> {: .solution}
->
-> > ## Was the Data Compressed?
+```
+[user@laptop ~]$ rsync test.txt yourUsername@hpc-dtn1.its.hawaii.edu:
+```
+ <details markdown="1">
+<summary>Solution</summary>
+
+```
+[yourUsername@hpc-dtn01 ~]$ tar -xvzf hpc-lesson-data.tar.gz
+ ```
+ Output
+ ```
+hpc-intro-data/
+hpc-intro-data/north-pacific-gyre/
+hpc-intro-data/north-pacific-gyre/NENE01971Z.txt
+hpc-intro-data/north-pacific-gyre/goostats
+hpc-intro-data/north-pacific-gyre/goodiff
+hpc-intro-data/north-pacific-gyre/NENE02040B.txt
+hpc-intro-data/north-pacific-gyre/NENE01978B.txt
+hpc-intro-data/north-pacific-gyre/NENE02043B.txt
+hpc-intro-data/north-pacific-gyre/NENE02018B.txt
+hpc-intro-data/north-pacific-gyre/NENE01843A.txt
+hpc-intro-data/north-pacific-gyre/NENE01978A.txt
+hpc-intro-data/north-pacific-gyre/NENE01751B.txt
+hpc-intro-data/north-pacific-gyre/NENE01736A.txt
+hpc-intro-data/north-pacific-gyre/NENE01812A.txt
+hpc-intro-data/north-pacific-gyre/NENE02043A.txt
+hpc-intro-data/north-pacific-gyre/NENE01729B.txt
+hpc-intro-data/north-pacific-gyre/NENE02040A.txt
+hpc-intro-data/north-pacific-gyre/NENE01843B.txt
+hpc-intro-data/north-pacific-gyre/NENE01751A.txt
+hpc-intro-data/north-pacific-gyre/NENE01729A.txt
+hpc-intro-data/north-pacific-gyre/NENE02040Z.txt
+```
+
+Note that we did not type out `-x -v -z -f`, thanks to the flag
+concatenation, though the command works identically either way.
+
+```
+{{ site.remote.prompt }} du -sh hpc-lesson-data
+144K    hpc-intro-data
+```
+
+</details>
+</div>
+
+<div class="alert alert-info" role="alert" markdown="1">
+<i class="fa-solid fa-circle-info fa-xl"></i> **Was the Data Compressed?**
 > >
 > > Text files compress nicely: the "tarball" is one-quarter the total size of
 > > the raw data!
-> {: .discussion}
-{: .challenge}
+</div>
 
 If you want to reverse the process &mdash; compressing raw data instead of
 extracting it &mdash; set a `c` flag instead of `x`, set the archive filename,
 then provide a directory to compress:
 
+<div class="alert alert-secondary" role="alert" markdown="1">
 ```
-{{ site.local.prompt }} tar -cvzf compressed_data.tar.gz hpc-intro-data
+[user@laptop ~]$ tar -cvzf compressed_data.tar.gz hpc-intro-data
 ```
-{: .language-bash}
+</div>
 
 > ## Working with Windows
 >
