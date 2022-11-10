@@ -13,11 +13,12 @@ morea_enable_toc: true
 <i class="fa-solid fa-globe fa-xl"></i> **Overview**
 <hr/>
  
+ **Questions** 
+  * What are some of the most common/best transfer applications. 
+  
  **Objectives**
   * Introduce some of the basic data transfer applications used in research. 
 
-**Key Points**
-  * SFTP, although common, is not the best application for moving data and there exists other SSH versions and tools that are better to transfer large data. 
 </div>
 
 # $0.02 About Transfer Programs
@@ -46,6 +47,12 @@ morea_enable_toc: true
 
 {% include figure.html url="" max-width="75%" file="/morea/data-movement/fig/ep60.png" alt="Node anatomy" caption="" %}
 
+<div class="alert alert-success mt-3" role="alert" markdown="1">
+<i class="fa-solid fa-globe fa-xl"></i> **Key Points**
+<hr/>
+ 
+  * SFTP, although common, is not the best application for moving data and there exists other SSH versions and tools that are better to transfer large data. 
+</div>
 
 {% include next-button.html
   top-label="Scientific Data Transfer Examples ->"
