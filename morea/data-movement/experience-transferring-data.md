@@ -34,8 +34,9 @@ The first time you use the File Manager, all fields will be blank.
 
 {% include figure.html url="" max-width="75%" file="/morea/data-movement/fig/globus_and_rclone11.png" alt="Node anatomy" caption="" %}
 
-<div class="alert alert-warning" role="alert" markdown="1">
-<i class="fa-solid fa-triangle-exclamation fa-xl"></i> **Key Concept: Collection**
+
+<div class="alert alert-info" role="alert" markdown="1">
+<i class="fa-solid fa-circle-info fa-xl"></i> **Key Concept: Collection**
 <hr/>
 
 A collection is a named location containing data you can access with Globus. Collections can be hosted on many different kinds of systems, including campus storage, HPC clusters, laptops, Amazon S3 bucket, Google Drive (these are “premium” connectors so seperate a subscription is required), and scientific instruments.
