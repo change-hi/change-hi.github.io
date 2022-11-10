@@ -6,6 +6,8 @@ morea_id: data-movement
 morea_outcomes:
     - outcome-data-movement
 morea_readings:
+    - reading-configuring-rclone
+    - reading-transferring-rclone
 morea_experiences:
     - experience-data-movement-intro
     - experience-data-movement-networks
@@ -16,7 +18,7 @@ morea_experiences:
     - experience-data-transfer-examples
     - experience-remote-computers
     - experience-globus
-    - experience-rclone
+    - experience-globus-install
 morea_assessments:
 morea_prerequisites:
 morea_type: module

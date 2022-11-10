@@ -1,7 +1,7 @@
 ---
 title: "10. Creating Globus Account and Globus Connect Personal Installation "
 published: true
-morea_id: experience-globus_install
+morea_id: experience-globus-install
 morea_type: experience
 morea_summary: "Understand how to setup and use Globus to move data."
 morea_sort_order: 9
