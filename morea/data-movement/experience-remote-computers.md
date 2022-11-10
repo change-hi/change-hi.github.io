@@ -129,7 +129,7 @@ Copy the file you just downloaded from the Internet to your home directory on yo
 </div>
 
 <div class="alert alert-secondary" role="alert" markdown="1">
-<i class="fa-solid fa-user-pen fa-xl"></i> 
+<i class="fa-solid fa-user-pen fa-xl"></i> **Exercise: File Download**
 <hr/>
 > > Try downloading the file directly. Note that it may well fail, and that's
 > > OK!
@@ -382,9 +382,7 @@ Using the four flags above, unpack the lesson data using `tar`.
 > Then, check the size of the whole unpacked directory using `du`.
 >
 > Hint: `tar` lets you concatenate flags.
-```
-[user@laptop ~]$ rsync test.txt yourUsername@hpc-dtn1.its.hawaii.edu:
-```
+
  <details markdown="1">
 <summary>Solution</summary>
 

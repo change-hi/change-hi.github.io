@@ -6,19 +6,20 @@ morea_type: experience
 morea_summary: "Understand what Globus is."
 morea_sort_order: 9
 morea_labels:
-  - 3:20pm
+  - 3:30pm
 morea_enable_toc: true
 ---
 
 <div class="alert alert-success mt-3" role="alert" markdown="1">
 <i class="fa-solid fa-globe fa-xl"></i> **Overview**
 <hr/>
- 
- **Objectives**
-  * Have a basic understanding of Globus and how to move data. 
 
-**Key Points**
-  * Globus is useful for transfering data to and from MANA at UH. 
+**Questions**
+* What does Globus do and how can I use it with my data? 
+ 
+**Objectives**
+* Have a basic understanding of Globus and how to move data. 
+
 </div>
 {% include figure.html url="" max-width="75%" file="/morea/data-movement/fig/globus_and_rclone4.png" alt="Node anatomy" caption="" %}
 
@@ -56,11 +57,18 @@ Access them all using just a web browser.
 >
 For certain types of data transfer or sharing, you will need Globus Plus, the UH Globus subscription includes Globus Plus services, but you need to request a globus plus invite
 >These scenarious include:
-> 1.)   to share data from your Globus Connect Personal endpoint (eg. sharing data from your desktop)
-> 2.)   data transfer between 2 Globus Connect Personal endpoints (eg. sharing data between your desktop and laptop)
-> 3.)   to transfer data from a Globus Connect Personal endpoint
+*   To share data from your Globus Connect Personal endpoint (eg. sharing data from your desktop)
+*   Data transfer between 2 Globus Connect Personal endpoints (eg. sharing data between your desktop and laptop)
+*   To transfer data from a Globus Connect Personal endpoint
+
+<div class="alert alert-success mt-3" role="alert" markdown="1">
+<i class="fa-solid fa-globe fa-xl"></i> **Key Points**
+<hr/>
+
+* Globus is useful for transfering data to and from MANA at UH. 
+</div>
 
 {% include next-button.html
   top-label="Globus ->"
-  bottom-label="3:30pm"
+  bottom-label="3:35pm"
   url="/morea/data-movement/experience-globus-install.html" %}
