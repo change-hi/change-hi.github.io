@@ -69,6 +69,6 @@ For certain types of data transfer or sharing, you will need Globus Plus, the UH
 </div>
 
 {% include next-button.html
-  top-label="Globus ->"
+  top-label="Creating Globus Account and Globus Connect Personal Installation ->"
   bottom-label="3:35pm"
   url="/morea/data-movement/experience-globus-install.html" %}

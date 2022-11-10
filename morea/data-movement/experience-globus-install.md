@@ -1,12 +1,12 @@
 ---
-title: "10. Installing & Using Globus "
+title: "10. Creating Globus Account and Globus Connect Personal Installation "
 published: true
 morea_id: experience-globus_install
 morea_type: experience
 morea_summary: "Understand how to setup and use Globus to move data."
 morea_sort_order: 9
 morea_labels:
-  - 3:30pm
+  - 3:35pm
 morea_enable_toc: true
 ---
 
@@ -21,7 +21,7 @@ morea_enable_toc: true
 **Objectives**
 * Connect your UH account with Globus. 
 * Install Globus on to your system.  
-
+</div>
 
 ### Transfering Files with Globus
 
@@ -107,6 +107,6 @@ _[Globus Connect Personal for Windows](https://docs.globus.org/how-to/globus-con
 </div>
 
 {% include next-button.html
-  top-label="Assessment ->"
-  bottom-label="3:50pm"
+  top-label="Transferring Data ->"
+  bottom-label="3:40pm"
   url="" %}
