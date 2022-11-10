@@ -22,6 +22,7 @@ morea_experiences:
     - experience-globus-install
     - experience-transferring-data
 morea_assessments:
+    - data-movement-assessment
 morea_prerequisites:
 morea_type: module
 morea_icon_url: /morea/data-movement/logo.jpg
