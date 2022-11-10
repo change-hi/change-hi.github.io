@@ -40,14 +40,14 @@ and `wget https://some/link/to/a/file`. Try it out by downloading
 some material we'll use later on, from a terminal on your local machine.
 
 <div class="alert alert-secondary" role="alert" markdown="1">
-<hr/>
+
 ```
-[user@laptop ~]$ curl -O https://github.com/EthanHartley22/change-hi.github.io/blob/main/morea/data-movement/hpc-intro-data.tar.gz
+[user@laptop ~]$ curl -O https://github.com/change-hi.github.io/blob/main/morea/data-movement/hpc-intro-data.tar.gz
 ```
 
 or
 ```
-[user@laptop ~]$ wget https://github.com/EthanHartley22/change-hi.github.io/blob/main/morea/data-movement/hpc-intro-data.tar.gz
+[user@laptop ~]$ wget https://github.com/change-hi.github.io/blob/main/morea/data-movement/hpc-intro-data.tar.gz
 ```
 
 </div>
@@ -71,7 +71,7 @@ The syntax can be a little complex for new users, but we'll break it down.
 To *upload to* another computer:
 
 <div class="alert alert-secondary" role="alert" markdown="1">
-<hr/>
+
 ```
 [user@laptop ~]$ scp path/to/local/file.txt yourUsername@hpc-dtn1.its.hawaii.edu:/path/on/yourUsername
 ```
@@ -80,7 +80,7 @@ To *upload to* another computer:
 To *download from* another computer:
 
 <div class="alert alert-secondary" role="alert" markdown="1">
-<hr/>
+
 ```
 [user@laptop ~]$ scp yourUsername@hpc-dtn1.its.hawaii.edu:/path/on/yourUsername/file.txt path/to/local/
 ```
@@ -90,7 +90,7 @@ Note that everything after the `:` is relative to our home directory on the
 remote computer. We can leave it at that if we don't care where the file goes.
 
 <div class="alert alert-secondary" role="alert" markdown="1">
-<hr/>
+
 ```
 [user@laptop ~]$ scp local-file.txt yourUsername@hpc-dtn1.its.hawaii.edu:
 ```
@@ -122,9 +122,9 @@ Copy the file you just downloaded from the Internet to your home directory on yo
 > download the file, then use the `scp` command (just below here) to upload
 > it to the cluster.
 >
-> > ## `curl -O` from {{ site.remote.login }}
+> > ## `curl -O` from hpc-dtn1.its.hawaii.edu
 > > or
-> > ## `wget` from {{ site.remote.login }}
+> > ## `wget` from hpc-dtn1.its.hawaii.edu
 > > 
 > > Try downloading the file directly. Note that it may well fail, and that's
 > > OK!
@@ -132,18 +132,13 @@ Copy the file you just downloaded from the Internet to your home directory on yo
 > > > ## Commands
 > > >
 > > > ```
-> > > {{ site.local.prompt }} ssh {{ site.remote.user }}@{{ site.remote.login }}
-> > > {{ site.remote.prompt }} curl -O {{ site.url }}{{ site.baseurl }}/files/hpc-intro-data.tar.gz
+> > > [user@laptop ~]$ ssh yourUsername@hpc-dtn1.its.hawaii.edu
+> > > [yourUsername@hpc-dtn01 ~]$ curl -O https://github.com/change-hi.github.io/blob/main/morea/data-movement/hpc-intro-data.tar.gz
 > > > or
-> > > {{ site.remote.prompt }} wget {{ site.url }}{{ site.baseurl }}/files/hpc-intro-data.tar.gz
+> > > [yourUsername@hpc-dtn01 ~]$ wget https://github.com/change-hi.github.io/blob/main/morea/data-movement/hpc-intro-data.tar.gz
 > > > ```
-> > > {: .language-bash}
-> > {: .solution}
-> >
-> > Did it work? If not, what does the terminal output tell you about what
-> > happened?
-> {: .challenge}
-{: .discussion}
+> > Did it work? If not, what does the terminal output tell you about what happened?
+</div>
 
 To copy a whole directory, we add the `-r` flag, for "**r**ecursive": copy the
 item specified, and every item below it, and every item below those... until it
@@ -151,15 +146,15 @@ reaches the bottom of the directory tree rooted at the folder name you
 provided.
 
 ```
-{{ site.local.prompt }} scp -r some-local-folder {{ site.remote.user }}@{{ site.remote.login }}:target-directory/
+[user@laptop ~]$ scp -r some-local-folder yourUsername@hpc-dtn1.its.hawaii.edu:target-directory/
 ```
-{: .language-bash}
-
-> ## Caution
+<div class="alert alert-warning" role="alert" markdown="1">
+<i class="fa-solid fa-triangle-exclamation fa-xl"></i> **Caution**
+<hr/>
 >
 > For a large directory &mdash; either in size or number of files &mdash;
 > copying with `-r` can take a long time to complete.
-{: .callout}
+</div>
 
 ## What's in a `/`?
 
