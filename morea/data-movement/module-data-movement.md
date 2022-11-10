@@ -6,6 +6,7 @@ morea_id: data-movement
 morea_outcomes:
     - outcome-data-movement
 morea_readings:
+    - reading-prep
     - reading-configuring-rclone
     - reading-transferring-rclone
 morea_experiences:
@@ -29,4 +30,4 @@ morea_labels:
 morea_sort_order: 30
 ---
 
-(Module not yet available)
+This workshop will be an introduction to understanding the challenges and options in moving scientific data over the network. 

@@ -4,7 +4,7 @@ published: true
 morea_id: reading-configuring-rclone
 morea_type: reading
 morea_summary: "Understand how to configure and use Rclone."
-morea_sort_order: 1
+morea_sort_order: 2
 morea_labels:
 morea_enable_toc: true
 ---

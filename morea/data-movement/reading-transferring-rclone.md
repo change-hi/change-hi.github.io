@@ -4,7 +4,7 @@ published: true
 morea_id: reading-transferring-rclone
 morea_type: reading
 morea_summary: "Understand how to transfer files using Rclone."
-morea_sort_order: 2
+morea_sort_order: 3
 morea_labels:
 morea_enable_toc: true
 ---
@@ -62,12 +62,12 @@ $ cd rclonefiles
 
 In google drive create a folder name it “rclonetest” 
 
-{% include figure.html url="" max-width="75%" file="/morea/data-movement/fig/RcloneGD1.png" alt="Node anatomy" caption="" %}
+{% include figure.html url="" max-width="75%" file="/morea/data-movement/fig/RCloneGD1.png" alt="Node anatomy" caption="" %}
 
 Within that folder create a new doc and call it “testfile”
 
 
-{% include figure.html url="" max-width="75%" file="/morea/data-movement/fig/RcloneGD2.png" alt="Node anatomy" caption="" %}
+{% include figure.html url="" max-width="75%" file="/morea/data-movement/fig/RCloneGD2.png" alt="Node anatomy" caption="" %}
 ---
 
 # Copying the directory contents from GDrive to Mana
@@ -186,5 +186,5 @@ Note - there is an experimental GUI for your laptop/workstation [https://rclone.
   * rclone copy is used to copy files
   * rclone sync can be used to sync files across two storage systems
   * nohup can be used for large rclone file transfers to ensure your ssh session will not disconnect a transfer
-  
+
 </div>

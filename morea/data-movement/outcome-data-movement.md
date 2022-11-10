@@ -1,5 +1,5 @@
 ---
-title: "Understand ..."
+title: "Understand the challenges and options in moving scientific data over the network"
 published: true
 morea_id: outcome-data-movement
 morea_type: outcome
