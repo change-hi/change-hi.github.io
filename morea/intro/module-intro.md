@@ -8,11 +8,12 @@ morea_outcomes:
 morea_readings:
   - reading-code-of-conduct
   - reading-introduction-news-release
-  - reading-ci-tracs-project-description
+  # - reading-ci-tracs-project-description
   - reading-data-science-fellows-kickoff-slides-sep-2022
   - reading-data-fellows-schedule-2022-23
+  - reading-data-fellows-expectations
 morea_experiences:
-  - experience-ci-tracs-onboarding
+  - experience-onboarding
 morea_assessments:
 morea_type: module
 morea_icon_url: /morea/intro/introduction.jpg
@@ -21,4 +22,4 @@ morea_labels:
 morea_sort_order: 01
 ---
 
-This module provides background reading for all of the various Change-HI educational programs (CI-TRACS, HIDSI Data Science Fellows, etc).
+Introduction to the Change-HI Data Fellows program for 2022-2023.
