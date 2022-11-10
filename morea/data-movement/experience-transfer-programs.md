@@ -14,8 +14,8 @@ morea_enable_toc: true
 <hr/>
  
  **Questions** 
-  * What are some of the most common/best transfer applications. 
-  
+  * What are some of the most common/best transfer applications? 
+
  **Objectives**
   * Introduce some of the basic data transfer applications used in research. 
 
