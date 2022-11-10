@@ -28,6 +28,7 @@ morea_type: module
 morea_icon_url: /morea/data-movement/logo.jpg
 morea_labels:
     - Workshop
+    - Friday, December 2, 2022
 morea_sort_order: 30
 ---
 

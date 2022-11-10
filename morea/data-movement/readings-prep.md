@@ -23,3 +23,4 @@ We recommend you go through the [Software Carpentry shell-novice tutorial](https
 ### Have UH Duo/MFA enabled
 
 ### Have a modern web browser
+We recommend [Chrome](https://www.google.com/chrome/) or [Firefox](https://www.mozilla.org/en-US/firefox/).  Internet Explorer is not recommended.
