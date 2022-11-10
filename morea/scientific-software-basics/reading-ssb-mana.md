@@ -6,7 +6,7 @@ morea_type: reading
 morea_summary: "Create accounts on Mana, download sample file."
 morea_sort_order: 1
 morea_labels:
-  - Pre-workshop setup (10 minutes)
+  - Pre-workshop
 morea_enable_toc: true
 ---
 

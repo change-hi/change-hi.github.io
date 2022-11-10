@@ -1,5 +1,5 @@
 ---
-title: "Seminars"
+title: "Seminar Archives"
 published: true
 morea_coming_soon: false
 morea_id: seminars
@@ -21,4 +21,4 @@ morea_labels:
 morea_sort_order: 02
 ---
 
-Videos of Data Science Friday seminars
+Recorded videos of past Data Science Friday seminars. 

@@ -21,6 +21,7 @@ morea_assessments:
 morea_type: module
 morea_icon_url: /morea/configuration-management/logo.jpg
 morea_labels:
+  - Background
 morea_sort_order: 30
 # morea_start_date: "2022-01-28"
 # morea_end_date: "2022-02-04"

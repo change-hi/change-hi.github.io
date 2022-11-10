@@ -27,5 +27,3 @@ morea_sort_order: 100
 ---
 
 This workshop presents the Tapis framework and how to use its APIs to store and process streaming sensor data.
-
-It also covers the tapipy Python library to aide in interacting with the Tapis API services within an interactive Jupyter notebook.  The concepts of containers and Actors will also be introduced at a high level.
