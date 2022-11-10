@@ -13,11 +13,11 @@ morea_enable_toc: true
 <i class="fa-solid fa-globe fa-xl"></i> **Overview**
 <hr/>
  
+ **Questions** 
+  * What is TCP? 
  **Objectives**
   * Obtain a basic understanding of TCP. 
 
-**Key Points**
-  * Tuning TCP can have a large impact on transfer throughput. 
 </div>
 
 # Why TCP Acts As It Does
@@ -54,7 +54,7 @@ __https://blog.leiy.me/post/bw-throttling-on-mac/__
 
 
 
-# a couple of real-life examples to show the effect of packet pacing
+# A few real-life examples to show the effect of packet pacing
 
 ## 4 streams, into a 12 Gbps disk system
 ### No FQ pacing, 640 GB in 577 seconds
@@ -108,9 +108,13 @@ Most transfers over 10 Gbps is using multiple connections
 
 Globus GridFTP opens on the order of several hundred connections at once.
 
-{% include figure.html url="" max-width="75%" file="/morea/data-movement/fig/ep512.png" alt="Node anatomy" caption="" %}
 
-(PUBLIC DOMAIN IMAGE: https://commons.wikimedia.org/wiki/File:Goodwood2007-121_The_Blue_Flame.jpg)
+<div class="alert alert-success mt-3" role="alert" markdown="1">
+<i class="fa-solid fa-globe fa-xl"></i> **Key Points**
+<hr/>
+
+  * Tuning TCP can have a large impact on transfer throughput. 
+</div>
 
 {% include next-button.html
   top-label="Transfer Programs ->"
