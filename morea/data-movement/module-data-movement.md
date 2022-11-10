@@ -19,6 +19,7 @@ morea_experiences:
     - experience-remote-computers
     - experience-globus
     - experience-globus-install
+    - experience-transferring-data
 morea_assessments:
 morea_prerequisites:
 morea_type: module
