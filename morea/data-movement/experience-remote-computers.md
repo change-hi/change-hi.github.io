@@ -42,12 +42,12 @@ some material we'll use later on, from a terminal on your local machine.
 <div class="alert alert-secondary" role="alert" markdown="1">
 
 ```
-[user@laptop ~]$ curl -O https://github.com/change-hi.github.io/blob/main/morea/data-movement/hpc-intro-data.tar.gz
+[user@laptop ~]$ curl -O https://github.com/change-hi.github.io/raw/main/morea/data-movement/hpc-intro-data.tar.gz
 ```
 
 or
 ```
-[user@laptop ~]$ wget https://github.com/change-hi.github.io/blob/main/morea/data-movement/hpc-intro-data.tar.gz
+[user@laptop ~]$ wget https://github.com/change-hi.github.io/raw/main/morea/data-movement/hpc-intro-data.tar.gz
 ```
 
 </div>
@@ -139,9 +139,9 @@ Copy the file you just downloaded from the Internet to your home directory on yo
 
 > > > ```
 > > > [user@laptop ~]$ ssh yourUsername@hpc-dtn1.its.hawaii.edu
-> > > [yourUsername@hpc-dtn01 ~]$ curl -O https://github.com/EthanHartley22/change-hi.github.io/raw/main/morea/data-movement/hpc-intro-data.tar.gz 
+> > > [yourUsername@hpc-dtn01 ~]$ curl -O https://github.com/change-hi.github.io/raw/main/morea/data-movement/hpc-intro-data.tar.gz
 > > > or
-> > > [yourUsername@hpc-dtn01 ~]$ wget https://github.com/EthanHartley22/change-hi.github.io/raw/main/morea/data-movement/hpc-intro-data.tar.gz
+> > > [yourUsername@hpc-dtn01 ~]$ wget https://github.com/change-hi.github.io/raw/main/morea/data-movement/hpc-intro-data.tar.gz
 > > > ```
 Did it work? If not, what does the terminal output tell you about what happened?
 </details>
