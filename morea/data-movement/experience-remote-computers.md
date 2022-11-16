@@ -139,9 +139,9 @@ Copy the file you just downloaded from the Internet to your home directory on yo
 
 > > > ```
 > > > [user@laptop ~]$ ssh yourUsername@hpc-dtn1.its.hawaii.edu
-> > > [yourUsername@hpc-dtn01 ~]$ curl -O https://github.com/change-hi.github.io/blob/main/morea/data-movement/hpc-intro-data.tar.gz
+> > > [yourUsername@hpc-dtn01 ~]$ curl -O https://github.com/EthanHartley22/change-hi.github.io/raw/main/morea/data-movement/hpc-intro-data.tar.gz 
 > > > or
-> > > [yourUsername@hpc-dtn01 ~]$ wget https://github.com/change-hi.github.io/blob/main/morea/data-movement/hpc-intro-data.tar.gz
+> > > [yourUsername@hpc-dtn01 ~]$ wget https://github.com/EthanHartley22/change-hi.github.io/raw/main/morea/data-movement/hpc-intro-data.tar.gz
 > > > ```
 Did it work? If not, what does the terminal output tell you about what happened?
 </details>
