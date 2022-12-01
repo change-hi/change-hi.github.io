@@ -60,7 +60,7 @@ Making data transfers perform well can be somewhat deep and complicated, but it'
   * role on continents has been limited
   * VSAT is still a major influence in the Pacific, and in places without fiber
   * O3B - Satellite for unserved populations
-  * Starlink (wait for it…)
+  * Starlink - 500,000 subscribers in June 2022 (five-fold increase in one year)
 * Physical cables usually contain more than one logical "link"
   * Different colors of lasers operate together in the same glass fiber
   * Different virtual lans operate in the same Ethernet trunk
