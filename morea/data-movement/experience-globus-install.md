@@ -76,7 +76,7 @@ Globus Connect Personal turns your laptop or other personal computer into a Glob
 
 * Installs in seconds using native operating system install packages.
 
-* Works with firewalls that block incoming connections\, and behind most NATs.
+* Works with firewalls that block incoming connections, and behind most NATs.
 
 * Uses proven Globus infrastructure for security and authentication.
 
