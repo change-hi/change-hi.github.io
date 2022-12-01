@@ -349,8 +349,7 @@ hpc-intro-data/north-pacific-gyre/NENE02040Z.txt
 </div>
 
 This shows a folder containing another folder, which contains a bunch of files.
-If you've taken The Carpentries' Shell lesson recently, these might look
-familiar. Let's see about that compression, using `du` for "**d**isk
+ Let's see about that compression, using `du` for "**d**isk
 **u**sage".
 
 <div class="alert alert-secondary" role="alert" markdown="1">
