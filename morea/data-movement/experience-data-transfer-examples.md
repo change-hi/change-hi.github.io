@@ -10,6 +10,8 @@ morea_labels:
 morea_enable_toc: true
 ---
 
+# 7. Scientific Data Transfer Examples
+
 <div class="alert alert-success mt-3" role="alert" markdown="1">
 <i class="fa-solid fa-globe fa-xl"></i> **Overview**
 <hr/>
@@ -22,7 +24,7 @@ morea_enable_toc: true
 
 </div>
 
-# Proofs Of Concept
+## Proofs Of Concept
 
 {% include figure.html url="" max-width="75%" file="/morea/data-movement/fig/ep70.png" alt="Node anatomy" caption="" %}
 

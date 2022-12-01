@@ -10,6 +10,8 @@ morea_labels:
 morea_enable_toc: true
 ---
 
+# 1. Introduction to Scientific Data Networks
+
 <div class="alert alert-success mt-3" role="alert" markdown="1">
 <i class="fa-solid fa-globe fa-xl"></i> **Overview**
 <hr/>
@@ -22,8 +24,6 @@ morea_enable_toc: true
   * Provide groundwork for understanding how things are connected.
 
 </div>
-
-# Groundwork
 
 ## Take This Away -- (if nothing else)
 
@@ -47,7 +47,7 @@ Making data transfers perform well can be somewhat deep and complicated, but it'
 
 {% include figure.html url="" max-width="100%" file="/morea/data-movement/fig/ep10.jpg" alt="Node anatomy" caption="" %}
 
-# How Stuff Connects Together
+## How Stuff Connects Together
 
 * Interfacility, Intercity, International links are glass optical fiber
   * Fiber follows market-size, OR geographical advantage (like Hawaii or Guam)
@@ -65,7 +65,7 @@ Making data transfers perform well can be somewhat deep and complicated, but it'
   * Different colors of lasers operate together in the same glass fiber
   * Different virtual lans operate in the same Ethernet trunk
 
-# UH Networking
+## UH Networking
 
 * University of Hawaii System Network (uhnet)
   * Interconnects 10 instructional campuses and about 40 other facilities across the 6 public, populated islands in the State of Hawaii
@@ -80,7 +80,7 @@ Making data transfers perform well can be somewhat deep and complicated, but it'
 * UH operates GOREX (Guam Open Research and Education eXchange)
 * Peers with DR Fortress exchange in Honolulu
 
-# The Several Internets
+## The Several Internets
 
 * Commodity
   * Commercial
@@ -94,11 +94,11 @@ Making data transfers perform well can be somewhat deep and complicated, but it'
 * Exchanges
   * Most often built as a place wheredifferentnetworks within a region can interconnect, so that their traffic doesn't take the long way around
 
-## Commodity
+### Commodity
 
 {% include figure.html url="" max-width="100%" file="/morea/data-movement/fig/ep11.png" alt="Node anatomy" caption="" %}
 
-## REN Path
+### REN Path
 
 {% include figure.html url="" max-width="100%" file="/morea/data-movement/fig/ep12.png" alt="Node anatomy" caption="" %}
 

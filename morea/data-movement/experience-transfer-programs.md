@@ -9,6 +9,8 @@ morea_labels:
   - 2:50pm
 morea_enable_toc: true
 ---
+# 6. (Our $0.02 about) Transfer Programs
+
 <div class="alert alert-success mt-3" role="alert" markdown="1">
 <i class="fa-solid fa-globe fa-xl"></i> **Overview**
 <hr/>
@@ -21,29 +23,30 @@ morea_enable_toc: true
 
 </div>
 
-# $0.02 About Transfer Programs
 
-> ## Scp, sftp, rsync, other SSH\-based
->  * Very accessible
->  * Have a problem with long-haul
->    * [https://www\.psc\.edu/hpn\-ssh\-home/hpn\-ssh\-faq/](https://www\.psc\.edu/hpn\-ssh\-home/hpn\-ssh\-faq/)
->    * Can be patched to work much better, if you are invested in an ssh-based workflow
->  * Common tools in this category are single-threaded
->    * Versus supportingparallel transfers
+## Scp, sftp, rsync, other SSH-based
+
+* Very accessible
+* Have a problem with long-haul
+  * [https://www\.psc\.edu/hpn\-ssh\-home/hpn\-ssh\-faq/](https://www\.psc\.edu/hpn\-ssh\-home/hpn\-ssh\-faq/)
+  * Can be patched to work much better, if you are invested in an ssh-based workflow
+* Common tools in this category are single-threaded
+  * Versus support for parallel transfers
 
 
-> ## GridFTP (including Globus GridFTP)
->  * Breaks files into small pieces, transfers many pieces concurrently, and reassembles them at the receiving end
->  * Tends to get better performance out of networks with symptoms.
->  * May not tend to get better performance out of transfer paths with other problems
->  * Authentication and licensing might present obstacles to use in ad-hoc workflows
+## GridFTP (including Globus GridFTP)
 
+ * Breaks files into small pieces, transfers many pieces concurrently, and reassembles them at the receiving end
+ * Tends to get better performance out of networks with symptoms.
+ * May not tend to get better performance out of transfer paths with other problems
+ * Authentication and licensing might present obstacles to use in ad-hoc workflows
 
 {% include figure.html url="" max-width="75%" file="/morea/data-movement/fig/globus_and_rclone4.png" alt="Node anatomy" caption="" %}
 
 
-> ## Lftp
->  * Very versatile (Russian origin) program with features such as mirroring and parallel transfers
+## Lftp
+
+* Very versatile (Russian origin) program with features such as mirroring and parallel transfers
 
 {% include figure.html url="" max-width="75%" file="/morea/data-movement/fig/ep60.png" alt="Node anatomy" caption="" %}
 

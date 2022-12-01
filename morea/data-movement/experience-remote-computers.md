@@ -10,6 +10,8 @@ morea_labels:
 morea_enable_toc: true
 ---
 
+# 8. File Transfers with Remote Computers
+
 <div class="alert alert-success mt-3" role="alert" markdown="1">
 <i class="fa-solid fa-globe fa-xl"></i> **Overview**
 <hr/>
@@ -27,7 +29,7 @@ to or from the cluster. There are several options for transferring data between
 computing resources, from command line options to GUI programs, which we will
 cover here.
 
-## Download Files From the Internet
+### Download Files From the Internet
 
 One of the most straightforward ways to download files is to use either `curl`
 or `wget`, one of these is usually installed in most Linux shells, on Mac OS
@@ -63,7 +65,7 @@ or
 > mouthful, later on.
 </div>
 
-## Transferring Single Files and Folders With `scp`
+### Transferring Single Files and Folders With `scp`
 
 To copy a single file to or from the cluster, we can use `scp` ("secure copy").
 The syntax can be a little complex for new users, but we'll break it down.
@@ -115,17 +117,19 @@ Copy the file you just downloaded from the Internet to your home directory on yo
 <div class="alert alert-info" role="alert" markdown="1">
 <i class="fa-solid fa-circle-info fa-xl"></i> **Why Not Download on yourUsername Directly?**
 
-> Some computer clusters are behind firewalls set to only allow transfers
-> initiated from the *outside*. This means that the `curl` command will fail,
-> as an address outside the firewall is unreachable from the inside. To get
-> around this, run the `curl` or `wget` command from your local machine to 
-> download the file, then use the `scp` command (just below here) to upload
-> it to the cluster.
->
-> > ## `curl -O` from hpc-dtn1.its.hawaii.edu
-> > or
-> > ## `wget` from hpc-dtn1.its.hawaii.edu
-> > 
+Some computer clusters are behind firewalls set to only allow transfers
+initiated from the *outside*. This means that the `curl` command will fail,
+as an address outside the firewall is unreachable from the inside. To get
+around this, run the `curl` or `wget` command from your local machine to 
+download the file, then use the `scp` command (just below here) to upload
+it to the cluster.
+
+`curl -O` from hpc-dtn1.its.hawaii.edu
+
+or
+
+`wget` from hpc-dtn1.its.hawaii.edu
+
 </div>
 
 <div class="alert alert-secondary" role="alert" markdown="1">
@@ -137,12 +141,15 @@ Copy the file you just downloaded from the Internet to your home directory on yo
  <details markdown="1">
 <summary>Solution</summary>
 
-> > > ```
-> > > [user@laptop ~]$ ssh yourUsername@hpc-dtn1.its.hawaii.edu
-> > > [yourUsername@hpc-dtn01 ~]$ curl -O https://github.com/change-hi/change-hi.github.io/raw/main/morea/data-movement/hpc-intro-data.tar.gz
-> > > or
-> > > [yourUsername@hpc-dtn01 ~]$ wget https://github.com/change-hi/change-hi.github.io/raw/main/morea/data-movement/hpc-intro-data.tar.gz
-> > > ```
+```
+[user@laptop ~]$ ssh yourUsername@hpc-dtn1.its.hawaii.edu
+[yourUsername@hpc-dtn01 ~]$ curl -O https://github.com/change-hi/change-hi.github.io/raw/main/morea/data-movement/hpc-intro-data.tar.gz
+```
+or
+
+```
+[yourUsername@hpc-dtn01 ~]$ wget https://github.com/change-hi/change-hi.github.io/raw/main/morea/data-movement/hpc-intro-data.tar.gz
+```
 Did it work? If not, what does the terminal output tell you about what happened?
 </details>
 </div>
@@ -158,9 +165,8 @@ provided.
 <div class="alert alert-warning" role="alert" markdown="1">
 <i class="fa-solid fa-triangle-exclamation fa-xl"></i> **Caution**
 <hr/>
->
-> For a large directory &mdash; either in size or number of files &mdash;
-> copying with `-r` can take a long time to complete.
+
+For a large directory &mdash; either in size or number of files &mdash; copying with `-r` can take a long time to complete.
 </div>
 
 ## What's in a `/`?
@@ -182,64 +188,64 @@ directory *is* the destination.
 A trailing slash on the target directory is optional, and has no effect for
 `scp -r`, but is important in other commands, like `rsync`.
 
-> ## A Note on `rsync`
->
-> As you gain experience with transferring files, you may find the `scp`
-> command limiting. The [rsync](https://rsync.samba.org/) utility provides
-> advanced features for file transfer and is typically faster compared to both
-> `scp` and `sftp` (see below). It is especially useful for transferring large
-> and/or many files and creating synced backup folders.
->
-> The syntax is similar to `scp`. To transfer *to* another computer with
-> commonly used options:
->
+## A Note on `rsync`
+
+As you gain experience with transferring files, you may find the `scp`
+command limiting. The [rsync](https://rsync.samba.org/) utility provides
+advanced features for file transfer and is typically faster compared to both
+`scp` and `sftp` (see below). It is especially useful for transferring large
+and/or many files and creating synced backup folders.
+
+The syntax is similar to `scp`. To transfer *to* another computer with
+commonly used options:
+
 <div class="alert alert-secondary" role="alert" markdown="1">
  ```
 [user@laptop ~]$ rsync -avzP path/to/local/file.txt yourUsername@hpc-dtn1.its.hawaii.edu:directory/path/on/yourUsername/
  ```
 </div>
->
-> The `a` (archive) option preserves file timestamps and permissions among
-> other things; the `v` (verbose) option gives verbose output to help monitor
-> the transfer; the `z` (compression) option compresses the file during transit
-> to reduce size and transfer time; and the `P` (partial/progress) option
-> preserves partially transferred files in case of an interruption and also
-> displays the progress of the transfer.
->
-> To recursively copy a directory, we can use the same options:
->
+
+The `a` (archive) option preserves file timestamps and permissions among
+other things; the `v` (verbose) option gives verbose output to help monitor
+the transfer; the `z` (compression) option compresses the file during transit
+to reduce size and transfer time; and the `P` (partial/progress) option
+preserves partially transferred files in case of an interruption and also
+displays the progress of the transfer.
+
+To recursively copy a directory, we can use the same options:
+
 <div class="alert alert-secondary" role="alert" markdown="1">
-> ```
+```
 [user@laptop ~]$ rsync -avzP path/to/local/dir yourUsername@hpc-dtn1.its.hawaii.edu:directory/path/on/yourUsername/
-> ```
-</div>
->
-> As written, this will place the local directory and its contents under the
-> specified directory on the remote system. If the trailing slash is omitted on
-> the destination, a new directory corresponding to the transferred directory
-> ('dir' in the example) will not be created, and the contents of the source
-> directory will be copied directly into the destination directory.
->
-> The `a` (archive) option implies recursion.
->
-> To download a file, we simply change the source and destination:
->
-<div class="alert alert-secondary" role="alert" markdown="1">
-> ```
-[user@laptop ~]$ rsync -avzP yourUsername@hpc-dtn1.its.hawaii.edu:path/on/yourUsername/file.txt path/to/local/
-> ```
+```
 </div>
 
-> ## A Note on Ports
->
-> All file transfers using the above methods use SSH to encrypt data sent
-> through the network. So, if you can connect via SSH, you will be able to
-> transfer files. By default, SSH uses network port 22. If a custom SSH port is
-> in use, you will have to specify it using the appropriate flag, often `-p`,
-> `-P`, or `--port`. Check `--help` or the `man` page if you're unsure.
->
-> >
-> >
+As written, this will place the local directory and its contents under the
+specified directory on the remote system. If the trailing slash is omitted on
+the destination, a new directory corresponding to the transferred directory
+('dir' in the example) will not be created, and the contents of the source
+directory will be copied directly into the destination directory.
+
+The `a` (archive) option implies recursion.
+
+To download a file, we simply change the source and destination:
+
+<div class="alert alert-secondary" role="alert" markdown="1">
+```
+[user@laptop ~]$ rsync -avzP yourUsername@hpc-dtn1.its.hawaii.edu:path/on/yourUsername/file.txt path/to/local/
+```
+</div>
+
+## A Note on Ports
+
+All file transfers using the above methods use SSH to encrypt data sent
+through the network. So, if you can connect via SSH, you will be able to
+transfer files. By default, SSH uses network port 22. If a custom SSH port is
+in use, you will have to specify it using the appropriate flag, often `-p`,
+`-P`, or `--port`. Check `--help` or the `man` page if you're unsure.
+
+
+
 <div class="alert alert-secondary" role="alert" markdown="1">
 <i class="fa-solid fa-user-pen fa-xl"></i> **Exercise: Rsync Port**
 <hr/>
@@ -254,9 +260,9 @@ modify this command?
 
 ```
 [user@laptop ~]$ rsync --help | grep port
-> > >      --port=PORT             specify double-colon alternate port number
-> > > See http://rsync.samba.org/ for updates, bug reports, and answers
-> > > [user@laptop ~]$ rsync --port=768 test.txt yourUsername@hpc-dtn1.its.hawaii.edu:
+     --port=PORT             specify double-colon alternate port number
+See http://rsync.samba.org/ for updates, bug reports, and answers
+[user@laptop ~]$ rsync --port=768 test.txt yourUsername@hpc-dtn1.its.hawaii.edu:
 ```
 
 </details>
@@ -359,10 +365,10 @@ This shows a folder containing another folder, which contains a bunch of files.
 ```
 </div>
 
-> ## Files Occupy at Least One "Block"
->
-> If the filesystem block size is larger than 36 KB, you'll see a larger
-> number: files cannot be smaller than one block.
+## Files Occupy at Least One "Block"
+
+If the filesystem block size is larger than 36 KB, you'll see a larger
+number: files cannot be smaller than one block.
 
 Now let's unpack the archive. We'll run `tar` with a few common flags:
 
@@ -378,11 +384,11 @@ When it's done, check the directory size with `du` and compare.
 <hr/>
 
 Using the four flags above, unpack the lesson data using `tar`.
-> Then, check the size of the whole unpacked directory using `du`.
->
-> Hint: `tar` lets you concatenate flags.
+Then, check the size of the whole unpacked directory using `du`.
 
- <details markdown="1">
+Hint: `tar` lets you concatenate flags.
+
+<details markdown="1">
 <summary>Solution</summary>
 
 ```
@@ -441,30 +447,26 @@ then provide a directory to compress:
 ```
 </div>
 
-> ## Working with Windows
->
-> When you transfer text files to from a Windows system to a Unix system (Mac,
-> Linux, BSD, Solaris, etc.) this can cause problems. Windows encodes its files
-> slightly different than Unix, and adds an extra character to every line.
->
-> On a Unix system, every line in a file ends with a `\n` (newline). On
-> Windows, every line in a file ends with a `\r\n` (carriage return + newline).
-> This causes problems sometimes.
->
-> Though most modern programming languages and software handles this correctly,
-> in some rare instances, you may run into an issue. The solution is to convert
-> a file from Windows to Unix encoding with the `dos2unix` command.
->
-> You can identify if a file has Windows line endings with `cat -A filename`. A
-> file with Windows line endings will have `^M$` at the end of every line. A
-> file with Unix line endings will have `$` at the end of a line.
->
-> To convert the file, just run `dos2unix filename`. (Conversely, to convert
-> back to Windows format, you can run `unix2dos filename`.)
-{: .callout}
+## Working with Windows
 
-> Material used and modfied from the 
-> ["Introduction to High-Performance Computing" Incubator workshop](https://carpentries-incubator.github.io/hpc-intro/).
+When you transfer text files to from a Windows system to a Unix system (Mac,
+Linux, BSD, Solaris, etc.) this can cause problems. Windows encodes its files
+slightly different than Unix, and adds an extra character to every line.
+
+On a Unix system, every line in a file ends with a `\n` (newline). On
+Windows, every line in a file ends with a `\r\n` (carriage return + newline).
+This causes problems sometimes.
+
+Though most modern programming languages and software handles this correctly,
+in some rare instances, you may run into an issue. The solution is to convert
+a file from Windows to Unix encoding with the `dos2unix` command.
+
+You can identify if a file has Windows line endings with `cat -A filename`. A
+file with Windows line endings will have `^M$` at the end of every line. A
+file with Unix line endings will have `$` at the end of a line.
+
+To convert the file, just run `dos2unix filename`. (Conversely, to convert
+back to Windows format, you can run `unix2dos filename`.)
 
 <div class="alert alert-success mt-3" role="alert" markdown="1">
 <i class="fa-solid fa-globe fa-xl"></i> **Key Points**

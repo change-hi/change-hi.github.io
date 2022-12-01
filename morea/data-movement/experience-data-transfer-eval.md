@@ -9,6 +9,7 @@ morea_labels:
   - 2:20pm
 morea_enable_toc: true
 ---
+# 3. Data Transfer Evaluation of the Network
 
 <div class="alert alert-success mt-3" role="alert" markdown="1">
 <i class="fa-solid fa-globe fa-xl"></i> **Overview**
@@ -22,8 +23,9 @@ morea_enable_toc: true
 
 </div>
 
-# Network (Only) Evaluation
-## Throughput testing
+## Network (Only) Evaluation
+
+### Throughput testing
 <div class="alert alert-info" role="alert" markdown="1">
 <i class="fa-solid fa-circle-info fa-xl"></i> **Iperf3 (as distinct from "iperf" which is v2 or less)**
 <hr/>
@@ -45,7 +47,7 @@ morea_enable_toc: true
 >  * Allows "3rd party" operation where one machine can initiate tests between 2 other machines
 </div>
 
-## perfSONAR test nodes
+### perfSONAR test nodes
 
 <div class="alert alert-info" role="alert" markdown="1">
 <i class="fa-solid fa-circle-info fa-xl"></i> **Provides test endpoints**
@@ -63,12 +65,13 @@ morea_enable_toc: true
   * Which allows you to control remote servers
 * perfSONAR toolkit is available as a Docker Container, which will work on Linux-based Docker engines. Getting the networking side working on MacOS or Windows (or WSL) is complicated, if at all possible
 
-## perfSONAR installation options
+### perfSONAR installation options
 
 [https://docs.perfsonar.net/install_options.html](https://docs.perfsonar.net/install_options.html)
 
 {% include figure.html url="" max-width="75%" file="/morea/data-movement/fig/ep30.png" alt="Node anatomy" caption="" %}
-## LibreSpeedTest
+
+### LibreSpeedTest
 
 * [https://github.com/librespeed/speedtest](https://github.com/librespeed/speedtest)
 * Take this code and drop it into a directory on any web server
@@ -83,12 +86,12 @@ morea_enable_toc: true
 
  * [http://speedtest.uhnet.net](http://speedtest.uhnet.net)
 
-## LibreSpeedTest On A Home Network
+### LibreSpeedTest On A Home Network
 
 {% include figure.html url="" file="/morea/data-movement/fig/ep31.png" width=500px alt="" caption="" %}
 
    
-## Ookla Speedtest (speedtest.net)
+### Ookla Speedtest (speedtest.net)
 
 * Allows you to test to many points around the world from a web browser
   * [https://www.speedtest.net/](https://www.speedtest.net/)

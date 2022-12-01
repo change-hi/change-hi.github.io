@@ -9,6 +9,7 @@ morea_labels:
   - 2:10pm 
 morea_enable_toc: true
 ---
+# 2. Networks
 
 <div class="alert alert-success mt-3" role="alert" markdown="1">
 <i class="fa-solid fa-globe fa-xl"></i> **Overview**
@@ -21,11 +22,10 @@ morea_enable_toc: true
 **Objectives**
 * Understand the topology of scientific networks.
 * Have an idea of what some of the technology underlying networks looks like. 
- 
 
 </div>
 
-# Pictures Of Actual Networks
+## Pictures Of Actual Networks
 
 
 ### U. Hawaii inter-island and REN peer connectivity
@@ -40,28 +40,48 @@ morea_enable_toc: true
 ### Quilt diagram of US regional research and education networks
 {% include figure.html url="" max-width="50%" file="/morea/data-movement/fig/ep23.jpg" alt="Node anatomy" caption="" %}
 
-### The same Quilt map with Internet2 links added
+Here is the same Quilt map with Internet2 links added:
+
 {% include figure.html url="" max-width="50%" file="/morea/data-movement/fig/ep24.jpg" alt="Node anatomy" caption="" %}
 
-### NOAA NWave - U. Hawaii provides connectivity for Oahu NOAA activities to reach US mainland
+### NOAA NWave 
+
+U. Hawaii provides connectivity for Oahu NOAA activities to reach US mainland:
+
 {% include figure.html url="" max-width="50%" file="/morea/data-movement/fig/ep25.png" alt="Node anatomy" caption="" %}
 
-### US Department of Energy ESNet - ESNet be part of various paths to and from UH, notably to DOE Labs and to CERN
+### US Department of Energy ESNet
+
+ESNet is part of various paths to and from UH, notably to DOE Labs and to CERN:
+
 {% include figure.html url="" max-width="50%" file="/morea/data-movement/fig/ep26.png" alt="Node anatomy" caption="" %}
 
-### Medium scale Juniper router, capable of supporting 10Gbps and 100Gbps interfaces for long distance links
+## Hardware
+
+### Medium scale Juniper router
+
+This router is capable of supporting 10Gbps and 100Gbps interfaces for long distance links:
+
 {% include figure.html url="" max-width="50%" file="/morea/data-movement/fig/ep27.png" alt="Node anatomy" caption="" %}
 
 ### Fiber distribution in data center
+
 {% include figure.html url="" max-width="50%" file="/morea/data-movement/fig/ep28.jpg" alt="Node anatomy" caption="" %}
 
 ### Copper distribution in data center
+
 {% include figure.html url="" max-width="50%" file="/morea/data-movement/fig/ep29.jpg" alt="Node anatomy" caption="" %}
 
-### A pair of glass fiber LC connectors, and the 10Gbps Ethernet card which connects to the fiber.
+### LC Connectors
+
+Here is a pair of glass fiber LC connectors, and the 10Gbps Ethernet card which connects to the fiber:
+
 {% include figure.html url="" max-width="50%" file="/morea/data-movement/fig/ep210.jpg" alt="Node anatomy" caption="" %}
 
-### The infrared laser that transmits over the fiber is visible in the upper connector. The light is visible to my phone camera, but not to the naked eye.
+### Infrared laser
+
+The infrared laser that transmits over the fiber is visible in the upper connector. The light is visible to my phone camera, but not to the naked eye.
+
 {% include figure.html url="" max-width="50%" file="/morea/data-movement/fig/ep211.jpg" alt="Node anatomy" caption="" %}
 
 <div class="alert alert-success mt-3" role="alert" markdown="1">

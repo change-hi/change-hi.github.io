@@ -1,5 +1,5 @@
 ---
-title: "10. Creating Globus Account and Globus Connect Personal Installation "
+title: "10. Globus Installation "
 published: true
 morea_id: experience-globus-install
 morea_type: experience
@@ -9,6 +9,8 @@ morea_labels:
   - 3:35pm
 morea_enable_toc: true
 ---
+
+# 10. Globus Installation
 
 <div class="alert alert-success mt-3" role="alert" markdown="1">
 <i class="fa-solid fa-globe fa-xl"></i> **Overview**
@@ -23,9 +25,9 @@ morea_enable_toc: true
 * Install Globus on to your system.  
 </div>
 
-### Transfering Files with Globus
+## Transfering Files with Globus
 
-> Visit www.globus.org and click "Login" at the top of the page. On the Globus login page, type in University of Hawaii. When you find it, click Continue.
+Visit www.globus.org and click "Login" at the top of the page. On the Globus login page, type in University of Hawaii. When you find it, click Continue.
 
 {% include figure.html url="" max-width="75%" file="/morea/data-movement/fig/globus_and_rclone5.png" alt="Node anatomy" caption="" %}
 
@@ -37,36 +39,33 @@ morea_enable_toc: true
 * Default settings may not include data sharing
 </div>
 
----
 
-# You’ll be redirected to your UH login page. Use your UH credentials to login.
+You’ll be redirected to your UH login page. Use your UH credentials to login:
 
 {% include figure.html url="" max-width="75%" file="/morea/data-movement/fig/globus_and_rclone6.png" alt="Node anatomy" caption="" %}
 
 Some organizations will ask for your permission to release your account information to Globus. Once you’ve logged in with your UH credentials, Globus will ask if you’d like to link to an existing account. 
-* If this is your first time logging in to Globus, click "Continue." If you’ve already used another account with Globus, you can choose "Link to an existing account."
 
----
+If this is your first time logging in to Globus, click "Continue." If you’ve already used another account with Globus, you can choose "Link to an existing account."
 
 {% include figure.html url="" max-width="75%" file="/morea/data-movement/fig/globus_and_rclone7.png" alt="Node anatomy" caption="" %}
 
----
 
 > You may be prompted to provide additional information such as your organization and whether or not Globus will be used for commercial purposes. Click on non-profit research or educational purposes. Complete the form and click "Continue."
 
 
 {% include figure.html url="" max-width="75%" file="/morea/data-movement/fig/globus_and_rclone8.png" alt="Node anatomy" caption="" %}
----
 
->  Finally, you need to give Globus permission to use your identity to access information and perform actions (like file transfers) on your behalf.
+
+Finally, you need to give Globus permission to use your identity to access information and perform actions (like file transfers) on your behalf.
 
 
 {% include figure.html url="" max-width="75%" file="/morea/data-movement/fig/globus_and_rclone9.png" alt="Node anatomy" caption="" %}
----
 
-# Globus Connect Personal
 
-Globus Connect Personal turns your laptop or other personal computer into a Globus endpoint with just a few clicks. With Globus Connect Personal you can share and transfer files to/from a local machine—campus server, desktop computer or laptop—even if it's behind a firewall and you don't have administrator privileges.
+## Globus Connect Personal
+
+Globus Connect Personal turns your laptop or other personal computer into a Globus endpoint with just a few clicks. With Globus Connect Personal you can share and transfer files to/from a local machine—campus server, desktop computer or laptop—even if it's behind a firewall and you don't have administrator privileges.
 
 * Globus Connect Personal puts the power of Globus on your computer.
 
@@ -80,9 +79,7 @@ Globus Connect Personal turns your laptop or other personal computer into a Glob
 
 * Uses proven Globus infrastructure for security and authentication.
 
-# Installation Instructions
-
-__Installing Globus Connect Personal__
+## Installation Instructions
 
 _[Globus Connect Personal for Mac](https://docs.globus.org/how-to/globus-connect-personal-mac)_  __for Mac OS X 10\.7 or higher \(Intel only\)__
 
