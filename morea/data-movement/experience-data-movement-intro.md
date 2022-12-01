@@ -31,7 +31,7 @@ Many people (among them, Sean and Alan) are employed specifically to answer your
 
 We are interested in hearing about your experience, any problem you may be having, or discussing whether your data transfer solutions are meeting your needs.
 
-Expect _hundreds of Megabits per second_ of file transfer speed. If you're not getting that, ask us why not.
+Expect _hundreds of Megabits per second_ of file transfer speed from a wired connection. If you're not getting that, ask us why not.
 
 Making data transfers perform well can be somewhat deep and complicated, but it's _not mysterious_.
 <div class="alert alert-info" role="alert" markdown="1">
