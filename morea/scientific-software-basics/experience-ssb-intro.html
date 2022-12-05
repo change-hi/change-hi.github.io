@@ -1,0 +1,306 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <title> Change-HI/EDU | 1. Introducing the Shell </title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta charset="utf-8">
+
+  <link rel="stylesheet" href="/css/themes/spacelab/bootstrap.min.css">
+  <link rel="stylesheet" href="/css/style.css">
+  <link rel="stylesheet" href="/css/syntax.css">
+  <link rel="shortcut icon" href="/favicon.ico" type="image/x-icon" />
+  <script src="https://kit.fontawesome.com/020726ec0d.js" crossorigin="anonymous"></script>
+  <script src="https://cdn.jsdelivr.net/npm/anchor-js/anchor.min.js"></script>
+
+  
+
+  <!-- Load JQuery, then use it to attach the class 'active' to navbar item currently displayed. -->
+  <script src="https://code.jquery.com/jquery-3.6.0.min.js" integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4=" crossorigin="anonymous"></script>
+  <script>
+    $(window).on('load', function () {
+      $('.nav-item').find('a[href="' + location.pathname + '"]').addClass('active');
+    });
+  </script>
+
+</head>
+<body>
+
+<div class="navbar navbar-expand-lg fixed-top navbar-light bg-light">
+  <div class="container">
+    <a class="navbar-brand" href="/index.html"> Change-HI/EDU </a>
+    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarResponsive" aria-controls="navbarResponsive" aria-expanded="false" aria-label="Toggle navigation">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+    <div class="collapse navbar-collapse" id="navbarResponsive">
+      <ul class="navbar-nav">
+        
+        <li class="nav-item"><a class="nav-link" href="/prerequisites/">Prerequisites</a></li>
+        
+        <li class="nav-item"><a class="nav-link" href="/modules/">Modules</a></li>
+        
+        <li class="nav-item"><a class="nav-link" href="/outcomes/">Outcomes</a></li>
+        
+        
+        <li class="nav-item"><a class="nav-link" href="/readings/">Readings</a></li>
+        
+        
+        <li class="nav-item"><a class="nav-link" href="/experiences/">Experiences</a></li>
+        
+        
+        <li class="nav-item"><a class="nav-link" href="/assessments/">Assessments</a></li>
+        
+        
+      </ul>
+    </div>
+  </div>
+</div>
+
+<!-- Internal fragment for displaying the breadcrumb bar -->
+<div class="breadcrumb-background" style="padding-top: 1em; padding-bottom: .01em">
+  <div class="container">
+    <nav aria-label="breadcrumb">
+      <ol class="breadcrumb">
+        
+        <li class="breadcrumb-item"><a href="/">Home</a></li>
+        <li class="breadcrumb-item"><a href="/modules">Modules</a></li>
+        <li class="breadcrumb-item"><a href="/modules/scientific-software-basics">Scientific Software Basics</a></li>
+        <li class="breadcrumb-item active">1. Introducing the Shell</li>
+      </ol>
+    </nav>
+  </div>
+</div>
+
+
+<div class="container">
+  <h1 id="1-introducing-the-shell">1. Introducing the Shell</h1>
+
+<div class="alert alert-success mt-3" role="alert">
+  <p><i class="fa-solid fa-globe fa-xl"></i> <strong>Overview</strong></p>
+  <hr />
+
+  <p><strong>Key Points</strong></p>
+  <ul>
+    <li>A shell is a program whose primary purpose is to read commands and run other programs.</li>
+    <li>This lesson uses Bash, the default shell in many implementations of Unix.</li>
+    <li>Programs can be run in Bash by entering commands at the command-line prompt.</li>
+    <li>The shell’s main advantages are its high action-to-keystroke ratio, its support for automating repetitive tasks, and its capacity to access networked machines.</li>
+    <li>The shell’s main disadvantages are its primarily textual nature and how cryptic its commands and operation can be.</li>
+  </ul>
+
+  <p><strong>Objectives</strong></p>
+  <ul>
+    <li>Explain how the shell relates to the keyboard, the screen, the operating system, and users’ programs.</li>
+    <li>Explain when and why command-line interfaces should be used instead of graphical interfaces.</li>
+  </ul>
+</div>
+
+<h2 id="what-is-the-shell">What is the Shell?</h2>
+
+<p>Humans and computers commonly interact in many different ways, such as through a keyboard and mouse,
+touch screen interfaces, or using speech recognition systems.
+The most widely used way to interact with personal computers is called a
+<strong>graphical user interface</strong> (GUI).
+With a GUI, we give instructions by clicking a mouse and using menu-driven interactions.</p>
+
+<p>While the visual aid of a GUI makes it intuitive to learn,
+this way of delivering instructions to a computer scales very poorly.
+Imagine the following task:
+for a literature search, you have to copy the third line of one thousand text files in one thousand
+different directories and paste it into a single file.
+Using a GUI, you would not only be clicking at your desk for several hours,
+but you could potentially also commit an error in the process of completing this repetitive task.
+This is where we take advantage of the Unix shell.
+The Unix shell is both a <strong>command-line interface</strong> (CLI) and a scripting language,
+allowing such repetitive tasks to be done automatically and fast.
+With the proper commands, the shell can repeat tasks with or without some modification
+as many times as we want.
+Using the shell, the task in the literature example can be accomplished in seconds.</p>
+
+<h2 id="the-shell">The Shell</h2>
+
+<p>The shell is a program where users can type commands.
+With the shell, it’s possible to invoke complicated programs like climate modeling software
+or simple commands that create an empty directory with only one line of code.
+The most popular Unix shell is Bash (the Bourne Again SHell —
+so-called because it’s derived from a shell written by Stephen Bourne).
+Bash is the default shell on most modern implementations of Unix and in most packages that provide
+Unix-like tools for Windows.</p>
+
+<p>Using the shell will take some effort and some time to learn.
+While a GUI presents you with choices to select, CLI choices are not automatically presented to you,
+so you must learn a few commands like new vocabulary in a language you’re studying.
+However, unlike a spoken language, a small number of “words” (i.e. commands) gets you a long way,
+and we’ll cover those essential few today.</p>
+
+<p>The grammar of a shell allows you to combine existing tools into powerful
+pipelines and handle large volumes of data automatically. Sequences of
+commands can be written into a <em>script</em>, improving the reproducibility of
+workflows.</p>
+
+<p>In addition, the command line is often the easiest way to interact with remote machines
+and supercomputers.
+Familiarity with the shell is near essential to run a variety of specialized tools and resources
+including high-performance computing systems.
+As clusters and cloud computing systems become more popular for scientific data crunching,
+being able to interact with the shell is becoming a necessary skill.
+We can build on the command-line skills covered here
+to tackle a wide range of scientific questions and computational challenges.</p>
+
+<p>Let’s get started.</p>
+
+<p>When the shell is first opened, you are presented with a <strong>prompt</strong>,
+indicating that the shell is waiting for input.</p>
+
+<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="err">$</span>
+</code></pre></div></div>
+
+<p>The shell typically uses <code class="language-plaintext highlighter-rouge">$ </code> as the prompt, but may use a different symbol.
+In the examples for this lesson, we’ll show the prompt as <code class="language-plaintext highlighter-rouge">$ </code>.
+Most importantly:
+when typing commands, either from these lessons or from other sources,
+<em>do not type the prompt</em>, only the commands that follow it.
+Also note that after you type a command, you have to press the <kbd>Enter</kbd> key to execute it.</p>
+
+<p>The prompt is followed by a <strong>text cursor</strong>, a character that indicates the position where your
+typing will appear.
+The cursor is usually a flashing or solid block, but it can also be an underscore or a pipe.
+You may have seen it in a text editor program, for example.</p>
+
+<p>So let’s try our first command, <code class="language-plaintext highlighter-rouge">ls</code> which is short for listing.
+This command will list the contents of the current directory:</p>
+
+<div class="alert alert-secondary" role="alert">
+
+  <p>Input:</p>
+
+  <div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nv">$ </span><span class="nb">ls</span>
+</code></pre></div>  </div>
+
+  <p>Output:</p>
+
+  <div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code>Desktop     Downloads   Movies      Pictures
+Documents   Library     Music       Public
+</code></pre></div>  </div>
+</div>
+
+<div class="alert alert-info" role="alert">
+  <p><i class="fa-solid fa-circle-info fa-xl"></i> <strong>Note: Command Not Found</strong></p>
+  <hr />
+
+  <p>If the shell can’t find a program whose name is the command you typed, it
+will print an error message such as:</p>
+
+  <div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nv">$ </span>ks
+</code></pre></div>  </div>
+  <div class="language-plaintext output highlighter-rouge"><div class="highlight"><pre class="highlight"><code>ks: command not found
+</code></pre></div>  </div>
+
+  <p>This might happen if the command was mis-typed or if the program corresponding to that command
+is not installed.</p>
+</div>
+
+<h3 id="nelles-pipeline-a-typical-problem">Nelle’s Pipeline: A Typical Problem</h3>
+
+<p>Nelle Nemo, a marine biologist,
+has just returned from a six-month survey of the
+<a href="http://en.wikipedia.org/wiki/North_Pacific_Gyre">North Pacific Gyre</a>,
+where she has been sampling gelatinous marine life in the
+<a href="http://en.wikipedia.org/wiki/Great_Pacific_Garbage_Patch">Great Pacific Garbage Patch</a>.
+She has 1520 samples that she’s run through an assay machine to measure the relative abundance
+of 300 proteins.
+She needs to run these 1520 files through an imaginary program called <code class="language-plaintext highlighter-rouge">goostats.sh</code> she inherited.
+On top of this huge task, she has to write up results by the end of the month so her paper
+can appear in a special issue of <em>Aquatic Goo Letters</em>.</p>
+
+<p>The bad news is that if she has to run <code class="language-plaintext highlighter-rouge">goostats.sh</code> by hand using a GUI,
+she’ll have to select and open a file 1520 times.
+If <code class="language-plaintext highlighter-rouge">goostats.sh</code> takes 30 seconds to run each file, the whole process will take more than 12 hours
+of Nelle’s attention.
+With the shell, Nelle can instead assign her computer this mundane task while she focuses
+her attention on writing her paper.</p>
+
+<p>The next few lessons will explore the ways Nelle can achieve this.
+More specifically,
+they explain how she can use a command shell to run the <code class="language-plaintext highlighter-rouge">goostats.sh</code> program,
+using loops to automate the repetitive steps of entering file names,
+so that her computer can work while she writes her paper.</p>
+
+<p>As a bonus,
+once she has put a processing pipeline together,
+she will be able to use it again whenever she collects more data.</p>
+
+<p>In order to achieve her task, Nelle needs to know how to:</p>
+<ul>
+  <li>navigate to a file/directory</li>
+  <li>create a file/directory</li>
+  <li>check the length of a file</li>
+  <li>chain commands together</li>
+  <li>retrieve a set of files</li>
+  <li>iterate over files</li>
+  <li>run a shell script containing her pipeline</li>
+</ul>
+
+<div style="text-align: right; padding-bottom: 10px">
+  <hr />
+  <button type="button" onclick="window.location='/morea/scientific-software-basics/experience-ssb-filedir.html'" class="btn btn-primary">
+    <p style="font-size:16px; margin: 0">Navigating Files and Directories -&gt;</p>
+    <p style="font-size:12px; margin: 0">2:10pm</p>
+    </button>
+</div>
+
+
+</div>
+
+
+
+
+<!-- Maybe find a different way?
+<script src="/js/scrollIfAnchor.js"></script>
+-->
+
+<footer class="footer footer-background" style="padding-top: 1em; padding-bottom: 1em">
+  <div class="container text-center">
+    
+    
+
+    
+    <p style="margin: 0">Powered by the <a class="footer-link" href="https://morea-framework.github.io/">Morea Framework</a> (Theme: spacelab)<br>
+      Last update on: <span>2022-12-05 09:10:59 -1000</span></p>
+
+    <p style="margin: 0">
+      
+      1 prerequisites |
+      
+      16 modules
+      
+      | 9 outcomes
+      
+      
+      | 45 readings
+      
+      
+      | 47 experiences
+      
+      
+      | 6 assessments
+      
+    </p>
+  </div>
+</footer>
+
+
+<!-- Load Bootstrap JavaScript components -->
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM" crossorigin="anonymous"></script>
+
+
+<script type="text/javascript" async
+        src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.7/latest.js?config=TeX-MML-AM_CHTML">
+</script>
+
+
+<!-- Add anchors to pages. -->
+<script>anchors.add();</script>
+
+
+</body>
+</html>
