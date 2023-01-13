@@ -1,18 +1,28 @@
 ---
 title: "Loading and Handling Pandas Data"
-teaching: 20
-exercises: 0
-questions:
-  - "How are Pandas data structures setup?"
-  - "How to load data into Pandas?"
-  - "How to write data from Pandas to a file"
-objectives:
-  - "Understand the usefulness of Pandas when loading data"
-  - "Understand how to load data and deal with common issues"
-keypoints:
-  - "Pandas provides numerous attributes and methods that are useful for wrangling and analyzing data"
-  - "Pandas contains numerous methods to help load/write data to/from files of different types"
+published: true
+morea_id: experience-data-structures
+morea_type: experience
+morea_summary: "Understand Pandas data structures basics"
+morea_sort_order: 3
+morea_labels:
+  - 20 min (Teaching)
+morea_enable_toc: true
 ---
+
+<div class="alert alert-success mt-3" role="alert" markdown="1">
+<i class="fa-solid fa-globe fa-xl"></i> **Overview**
+<hr/>
+
+**Questions**
+* "How are Pandas data structures setup?"
+* "How to load data into Pandas?"
+* "How to write data from Pandas to a file"
+
+**Objectives**
+* "Understand the usefulness of Pandas when loading data"
+* "Understand how to load data and deal with common issues"
+</div>
 
 [![Binder](https://mybinder.org/badge_logo.svg)](https://mybinder.org/v2/gh/CI-TRACS/Data_Wrangling_with_Computational_Notebooks/HEAD)
 
@@ -206,3 +216,18 @@ Now that we are familiar with the reading mechanisms that Pandas has implemented
 df.to_csv('data/new_file.csv')
 ~~~
 {: .language-python}
+
+## Key Points
+
+<div class="alert alert-success" role="alert" markdown="1">
+
+* "Pandas provides numerous attributes and methods that are useful for wrangling and analyzing data"
+* "Pandas contains numerous methods to help load/write data to/from files of different types"
+</div>
+
+## Acknowledgements
+
+Material used and modified from the [Introduction to Data Wrangling with Computational Notebooks workshop](https://ci-tracs.github.io/Data_Wrangling_with_Computational_Notebooks/).
+
+<hr/>
+For comparison purposes, here's the [Software Carpentry version of this page](https://ci-tracs.github.io/Data_Wrangling_with_Computational_Notebooks/03-data-structures/index.html)

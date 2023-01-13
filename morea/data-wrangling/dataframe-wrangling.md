@@ -1,19 +1,31 @@
 ---
 title: "Wrangling DataFrames"
-teaching: 20
-exercises: 0
-questions:
-  - "How can you select individual columns or rows from a `DataFrame`?"
-  - "How can you subset a `DataFrame`?"
-  - "How can you sort a `DataFrame`?"
-objectives:
-  - "Learn how to select specific columns or rows from a `DataFrame`"
-  - "Learn how to select rows based on conditions"
-  - "Learn how to sort a `DataFrame`'s rows or columns"
-keypoints:
-  - "Select columns by using `[\"column name\"]` or rows by using the `loc` attribute"
-  - "Sort based on values in a column by using the `sort_values` method"
+published: true
+morea_id: experience-data-wrangling
+morea_type: experience
+morea_summary: "Understading the basics of data wrangling"
+morea_sort_order: 3
+morea_labels:
+  - 10 min (Teaching)
+  - 10 min (Exercises)
+morea_enable_toc: true
 ---
+
+<div class="alert alert-success mt-3" role="alert" markdown="1">
+<i class="fa-solid fa-globe fa-xl"></i> **Overview**
+<hr/>
+
+**Questions**
+* "How can you select individual columns or rows from a `DataFrame`?"
+* "How can you subset a `DataFrame`?"
+* "How can you sort a `DataFrame`?"
+
+**Objectives**
+* "Learn how to select specific columns or rows from a `DataFrame`"
+* "Learn how to select rows based on conditions"
+* "Learn how to sort a `DataFrame`'s rows or columns"
+
+</div>
 
 [![Binder](https://mybinder.org/badge_logo.svg)](https://mybinder.org/v2/gh/CI-TRACS/Data_Wrangling_with_Computational_Notebooks/HEAD)
 
@@ -344,3 +356,18 @@ Sample-2         40610       280.7      16.1095      34.6103         192.3    Na
 Sample-1         40610       239.8      18.9625      35.0636           NaN  7.951
 ~~~
 {: .output}
+
+## Key Points
+
+<div class="alert alert-success" role="alert" markdown="1">
+
+* "Select columns by using `[\"column name\"]` or rows by using the `loc` attribute"
+* "Sort based on values in a column by using the `sort_values` method"
+</div>
+
+## Acknowledgements
+
+Material used and modified from the [Introduction to Data Wrangling with Computational Notebooks workshop](https://ci-tracs.github.io/Data_Wrangling_with_Computational_Notebooks/).
+
+<hr/>
+For comparison purposes, here's the [Software Carpentry version of this page](https://ci-tracs.github.io/Data_Wrangling_with_Computational_Notebooks/04-dataframe-wrangling/index.html)

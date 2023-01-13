@@ -1,14 +1,26 @@
 ---
 title: "Introduction"
-teaching: 10
-exercises: 0
-questions:
-- "Why are jupyter notebooks useful for cleaning and wrangling data?"
-objectives:
-- "Describe how jupyter notebooks provide a method of documenting the steps invovlved in cleaning and wrangling data"
-keypoints:
-- "Notebooks help connect the code for cleaning and wrangling data to the documentation explaining what is being done and why."
+published: true
+morea_id: experience-data-wrangling-intro
+morea_type: experience
+morea_summary: "Understand why jupyter notebooks are useful for data wrangling"
+morea_sort_order: 2
+morea_labels:
+  - 10 min (Teaching)
+morea_enable_toc: true
 ---
+
+<div class="alert alert-success mt-3" role="alert" markdown="1">
+<i class="fa-solid fa-globe fa-xl"></i> **Overview**
+<hr/>
+
+**Questions**
+  * "Why are jupyter notebooks useful for cleaning and wrangling data?"
+
+**Objectives**
+  * "Describe how jupyter notebooks provide a method of documenting the steps invovlved in cleaning and wrangling data"
+
+</div>
 
 ### Why should I care about this?
 
@@ -37,3 +49,19 @@ The structure for this lesson will require participants to run a jupyter noteboo
 [Link to Binder notebook for this Lesson](https://github.com/CI-TRACS/Data_Wrangling_with_Computational_Notebooks)
 
 {% include links.md %}
+
+
+## Key Points
+
+<div class="alert alert-success" role="alert" markdown="1">
+
+* "Notebooks help connect the code for cleaning and wrangling data to the documentation explaining what is being done and why."
+
+</div>
+
+## Acknowledgements
+
+Material used and modified from the [Introduction to Data Wrangling with Computational Notebooks workshop](https://ci-tracs.github.io/Data_Wrangling_with_Computational_Notebooks/).
+
+<hr/>
+For comparison purposes, here's the [Software Carpentry version of this page](https://ci-tracs.github.io/Data_Wrangling_with_Computational_Notebooks/)

@@ -1,18 +1,25 @@
 ---
 title: "Jupyter Notebook Interface"
-teaching: 10
-exercises: 0
-questions:
-- "How is the jupyter notebook interface setup"
-objectives:
-- "Describe the basics of the jupyter notebook interface"
-- "Demonstrate the various basic cell types notebooks use"
-- "Demonstrate how notebooks deal with code blocks and the concept of restarting the kernel"
-keypoints:
-- "A jupyter notebook is divided into cells that are either code, markdown, or raw"
-- "Cells can be \"run\" leading to either the execution of code or formatting of markdown depending on the cell type"
-- "Code cells can be rerun, but this should be avoided to prevent obscuring the notebooks workflow"
+published: true
+morea_id: experience-jupyter-interface
+morea_type: experience
+morea_summary: "Understand how the jupyter notebook interfrace is setup"
+morea_sort_order: 3
+morea_labels:
+  - 10 min (Teaching)
+morea_enable_toc: true
 ---
+
+<div class="alert alert-success mt-3" role="alert" markdown="1">
+<i class="fa-solid fa-globe fa-xl"></i> **Overview**
+<hr/>
+
+**Questions**
+* "Describe the basics of the jupyter notebook interface"
+* "Demonstrate the various basic cell types notebooks use"
+* "Demonstrate how notebooks deal with code blocks and the concept of restarting the kernel"
+
+</div>
 
 ## Notebook Basics
 
@@ -88,3 +95,19 @@ Rerunning code cells is **not recommended** since it obscures what the notebook'
 The image below is a cheatsheet of some of the buttons not discussed in this episode that might be good to know for the future. Feel free to come back to it if you are confused later on.
 
 ![Notebook Cheatsheet](../fig/E2_6_cheatsheet.png)
+
+## Key Points
+
+<div class="alert alert-success" role="alert" markdown="1">
+
+* "A jupyter notebook is divided into cells that are either code, markdown, or raw"
+* "Cells can be \"run\" leading to either the execution of code or formatting of markdown depending on the cell type"
+* "Code cells can be rerun, but this should be avoided to prevent obscuring the notebooks workflow"
+</div>
+
+## Acknowledgements
+
+Material used and modified from the [Introduction to Data Wrangling with Computational Notebooks workshop](https://ci-tracs.github.io/Data_Wrangling_with_Computational_Notebooks/).
+
+<hr/>
+For comparison purposes, here's the [Software Carpentry version of this page](https://ci-tracs.github.io/Data_Wrangling_with_Computational_Notebooks/02-jupyter-interface/index.html)

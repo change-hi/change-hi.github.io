@@ -1,20 +1,31 @@
 ---
 title: "Real Example Analysis"
-teaching: 10
-exercises: 10
-questions:
-   - "How do you visualize data from a `DataFrame`?"
-   - "How do you group data by year and month?"
-   - "How do you plot multiple measurements in a single plot?"
-objectives:
-   - "Learn how to plot the cleaned data"
-   - "Learn how to subset and plot the data"
-   - "Learn how to using the groupby method to visualize yearly and monthly changes"
-keypoints:
-   - "Grouping data by year and months is a powerful way to identify monthly and yearly changes"
-   - "You can easily add more measurements to a single plot by using a list"
-   - "There is a lot we didn't cover here, so take a look at the Matplotlib docs ([Link to Matplotlib docs](https://matplotlib.org/)) and other libraries that can allow you to make dynamic plots e.g. Plotly ([Link to Plotly docs](https://plotly.com/graphing-libraries/))"
+published: true
+morea_id: experience-real-example-analysis
+morea_type: experience
+morea_summary: "A real world example of data analyis"
+morea_sort_order: 3
+morea_labels:
+  - 10 min (Teaching)
+  - 10 min (Exercises)
+morea_enable_toc: true
 ---
+
+<div class="alert alert-success mt-3" role="alert" markdown="1">
+<i class="fa-solid fa-globe fa-xl"></i> **Overview**
+<hr/>
+
+**Questions**
+* "How do you visualize data from a `DataFrame`?"
+* "How do you group data by year and month?"
+* "How do you plot multiple measurements in a single plot?"
+
+**Objectives**
+* "Learn how to plot the cleaned data"
+* "Learn how to subset and plot the data"
+* "Learn how to using the groupby method to visualize yearly and monthly changes"
+
+</div>
 
 [![Binder](https://mybinder.org/badge_logo.svg)](https://mybinder.org/v2/gh/CI-TRACS/Data_Wrangling_with_Computational_Notebooks/HEAD)
 
@@ -229,3 +240,19 @@ While we have been focusing on temperature there is no reason that we can't redo
 With that we plotted looked various methods of plotting the data we have in our dataset. We've also learned how to group different measurements depending on when the measurement was taken. If you are interested you can keep testing different methods of grouping the data or plotting some of the measurements that we did not use e.g. pH or dissolved organic carbon (`doc umol/kg`).
 
 Hopefully throughout this lesson you have learned some useful skills in order to both analyze your data and document your analysis and any code that you used. There is plenty of things that we did not have time to go over so make sure to keep learning!
+
+## Key Points
+
+<div class="alert alert-success" role="alert" markdown="1">
+
+* "Grouping data by year and months is a powerful way to identify monthly and yearly changes"
+* "You can easily add more measurements to a single plot by using a list"
+* "There is a lot we didn't cover here, so take a look at the Matplotlib docs ([Link to Matplotlib docs](https://matplotlib.org/)) and other libraries that can allow you to make dynamic plots e.g. Plotly ([Link to Plotly docs](https://plotly.com/graphing-libraries/))"
+</div>
+
+## Acknowledgements
+
+Material used and modified from the [Introduction to Data Wrangling with Computational Notebooks workshop](https://ci-tracs.github.io/Data_Wrangling_with_Computational_Notebooks/).
+
+<hr/>
+For comparison purposes, here's the [Software Carpentry version of this page](https://ci-tracs.github.io/Data_Wrangling_with_Computational_Notebooks/07-real-example-analysis/index.html)

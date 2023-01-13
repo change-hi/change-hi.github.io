@@ -1,20 +1,30 @@
 ---
 title: "DataFrame Analysis"
-teaching: 20
-exercises: 0
-questions:
-  - "What are some common attributes for Pandas `DataFrame`s?"
-  - "What are some common methods for Pandas `DataFrame`s?"
-  - "How can you do arithmetic between two Pandas columns?"
-objectives:
-  - "Learn how to access `DataFrame` attributes"
-  - "Learn how to get statistics on a loaded `DataFrame`"
-  - "Learn how to sum two Pandas `DataFrame` columns together"
-keypoints:
-  - "Using `.dtypes` to get the types of each column in a `DataFrame`"
-  - "To get general statistics on the DataFrame you can use the `describe` method"
-  - "You can add a constant to a numeric column by using the `column + constant`"
+published: true
+morea_id: experience-dataframe-analysis
+morea_type: experience
+morea_summary: "Understanding the basics of the Pandas data structure - DataFrames"
+morea_sort_order: 3
+morea_labels:
+  - 20 min (Teaching)
+morea_enable_toc: true
 ---
+
+<div class="alert alert-success mt-3" role="alert" markdown="1">
+<i class="fa-solid fa-globe fa-xl"></i> **Overview**
+<hr/>
+
+**Questions**
+* "What are some common attributes for Pandas `DataFrame`s?"
+* "What are some common methods for Pandas `DataFrame`s?"
+* "How can you do arithmetic between two Pandas columns?"
+
+**Objectives**
+* "Learn how to access `DataFrame` attributes"
+* "Learn how to get statistics on a loaded `DataFrame`"
+* "Learn how to sum two Pandas `DataFrame` columns together"
+</div>
+
 
 [![Binder](https://mybinder.org/badge_logo.svg)](https://mybinder.org/v2/gh/CI-TRACS/Data_Wrangling_with_Computational_Notebooks/HEAD)
 
@@ -305,3 +315,19 @@ Name: AA, dtype: float64
 {: .output}
 
 Here you essentially just add 0.3 to each entry in the `Series`. The same occurs if you were to do it for a whole `DataFrame` with 0.3 being added to each entry. **Note:** this only works for `DataFrame`s that are entirely numeric, if there are any object columns you will get an error message.
+
+## Key Points
+
+<div class="alert alert-success" role="alert" markdown="1">
+
+* "Using `.dtypes` to get the types of each column in a `DataFrame`"
+* "To get general statistics on the DataFrame you can use the `describe` method"
+* "You can add a constant to a numeric column by using the `column + constant`"
+</div>
+
+## Acknowledgements
+
+Material used and modified from the [Introduction to Data Wrangling with Computational Notebooks workshop](https://ci-tracs.github.io/Data_Wrangling_with_Computational_Notebooks/).
+
+<hr/>
+For comparison purposes, here's the [Software Carpentry version of this page](https://ci-tracs.github.io/Data_Wrangling_with_Computational_Notebooks/05-dataframe-analysis/index.html)

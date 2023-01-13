@@ -1,17 +1,29 @@
 ---
 title: "Real Example Cleaning"
-teaching: 10
-exercises: 10
-questions:
-  - "How do you clean an example dataset?"
-  - "How do you deal with missing data?"
-  - "How do you fix column type mismatches?"
-objectives:
-  - "Clean an example dataset using both previously described concepts and some new ones"
-keypoints:
-  - "Cleaning a dataset is an iterative process that can require multiple passes"
-  - "Keep in mind to restart the kernel when cleaning a dataset to make sure that your code encompasses all the cleaning needed."
+published: true
+morea_id: experience-real-example-cleaning
+morea_type: experience
+morea_summary: "A real world example of data cleaning"
+morea_sort_order: 3
+morea_labels:
+  - 10 min (Teaching)
+  - 10 min (Exercises)
+morea_enable_toc: true
 ---
+
+<div class="alert alert-success mt-3" role="alert" markdown="1">
+<i class="fa-solid fa-globe fa-xl"></i> **Overview**
+<hr/>
+
+**Questions**
+* "How do you clean an example dataset?"
+* "How do you deal with missing data?"
+* "How do you fix column type mismatches?"
+
+**Objectives**
+* "Clean an example dataset using both previously described concepts and some new ones"
+
+</div>
 
 [![Binder](https://mybinder.org/badge_logo.svg)](https://mybinder.org/v2/gh/CI-TRACS/Data_Wrangling_with_Computational_Notebooks/HEAD)
 
@@ -320,3 +332,18 @@ With this we've clean up our initial dataset. To summarize we have:
 5. Dropped two columns:
    - 'date mmddyy' column since the new 'date' column contains the same data but in a better type
    - 'no2 nmol/kg' column since it contained no data
+
+## Key Points
+
+<div class="alert alert-success" role="alert" markdown="1">
+
+* "Cleaning a dataset is an iterative process that can require multiple passes"
+* "Keep in mind to restart the kernel when cleaning a dataset to make sure that your code encompasses all the cleaning needed."
+</div>
+
+## Acknowledgements
+
+Material used and modified from the [Introduction to Data Wrangling with Computational Notebooks workshop](https://ci-tracs.github.io/Data_Wrangling_with_Computational_Notebooks/).
+
+<hr/>
+For comparison purposes, here's the [Software Carpentry version of this page](https://ci-tracs.github.io/Data_Wrangling_with_Computational_Notebooks/06-real-example-cleanup/index.html)
