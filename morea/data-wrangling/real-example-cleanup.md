@@ -33,7 +33,8 @@ The previous episodes have focused on key concepts with small datasets and/or ma
 
 The Hawaiian Ocean Time-Series has been collecting samples from station ALOHA located just North of Oahu since 1988. The map below shows the exact location where the samples we will be using originate from.
 
-![HOT Location](https://www.soest.hawaii.edu/HOT_WOCE/img/map1image-rev2.png)
+{% include figure.html url="https://www.soest.hawaii.edu/HOT_WOCE/img/map1image-rev2.png" max-width="40%" file="" alt="HOT Location" caption="" %}
+
 
 (Original image from: https://www.soest.hawaii.edu/HOT_WOCE/bath_HOT_Hawaii.html)
 
@@ -70,7 +71,8 @@ pd.read_csv("./data/hot_dogs_data.csv", nrows=5)
 
 This will show us the `DataFrame` seen below:
 
-![Initial DataFrame](../fig/E6_01_initial_dataframe.png)
+{% include figure.html url="" max-width="40%" file="/morea/data-wrangling/fig/E6_01_initial_dataframe.png" alt="Initial DataFrame" caption="" %}
+
 
 From this we can see a few things:
 
@@ -92,7 +94,8 @@ To start off lets fix the first problem we saw which was was the large number of
 > > pd.read_csv("./data/hot_dogs_data.csv", nrows=5, na_values=-9)
 > > ~~~
 > > Below shows how our `DataFrame` now looks:
-> > ![Output DataFrame](../fig/E6_02_nan_dataframe.png)
+> > {% include figure.html url="" max-width="40%" file="/morea/data-wrangling/fig/E6_02_nan_dataframe.png" alt="Output DataFrame" caption="" %}
+
 > {: .solution}
 {: .challenge}
 
@@ -136,7 +139,8 @@ There are various methods to deal with this. However, we are going to use a rela
 > > ~~~
 > {: .solution}
 > This then gives us the output `DataFrame` seen below:
-> ![No Blank Column DataFrame](../fig/E6_03_no_blank_column.png)
+> {% include figure.html url="" max-width="40%" file="/morea/data-wrangling/fig/E6_03_no_blank_column.png" alt="No Blank Column DataFrame" caption="" %}
+
 {: .challenge}
 
 With this we have fixed some of the initial issues related to our dataset. It should be noted that there might still exist other issues with our dataset since we have only relied on the first few rows.
@@ -164,7 +168,8 @@ One final thing that we are going to do that is not quite "clean up" but nonethe
 
 This gives us a somewhat cleaned up `DataFrame` that looks like the image below:
 
-![Cleaned up Dataframe](../fig/E6_04_fixed_dataframe.png)
+{% include figure.html url="" max-width="40%" file="/morea/data-wrangling/fig/E6_04_fixed_dataframe.png" alt="Cleaned up Dataframe" caption="" %}
+
 
 With our initial cleanup done we can now save the current version of our `DataFrame` to the `df` variable. This `df` variable will be used for the next two sections.
 
@@ -300,7 +305,8 @@ df = df.drop(columns=["no2 nmol/kg"])
 
 With this done our data is reasonably cleaned up and we have the `DataFrame` seen in the image below:
 
-![Cleaned Dataframe](../fig/E6_05_cleaned_dataframe.png)
+{% include figure.html url="" max-width="40%" file="/morea/data-wrangling/fig/E6_05_cleaned_dataframe.png" alt="Cleaned Dataframe" caption="" %}
+
 
 We can now move on to the analysis and visualization of the data in our `DataFrame`.
 

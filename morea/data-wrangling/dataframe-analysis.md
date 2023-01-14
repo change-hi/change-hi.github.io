@@ -67,7 +67,8 @@ Index(['Sample ID', 'date mmddyy', 'press dbar', 'temp ITS-90', 'csal PSS-78',
 
 However, what if we wanted to see the data type associated with each column header? Luckily, there is a quick and easy way to do this by accessing the `dtypes` attribute. `dtypes` is a series maintained by each `DataFrame` that contains the data type for each column inside a `DataFrame`. As an example if we want to access the `dtypes` attribute the `DataFrame` called `df` (seen below) we can access the `dtypes` of the `DataFrame`.
 
-![Types Dataframe](../fig/E5_1_types_dataframe.png)
+{% include figure.html url="" max-width="40%" file="/morea/data-wrangling/fig/E5_1_types_dataframe.png" alt="Types Dataframe" caption="" %}
+
 
 ~~~python
 df.dtypes
@@ -144,7 +145,8 @@ dtype: object
 
 For reference this is what the final `DataFrame` looks like. **Note that the date column is at the right side of the `DataFrame` since it was added last.**
 
-![Converted DataFrame](../fig/E5_2_converted_dataframe.png)
+{% include figure.html url="" max-width="40%" file="/morea/data-wrangling/fig/E5_2_converted_dataframe.png" alt="Converted DataFrame" caption="" %}
+
 
 
 ### `DataFrame` Methods
@@ -249,7 +251,8 @@ Here we get statistics regarding e.g. the mean of each column, how many non-NaN 
 
 There may also come a time where we might want to do arithmetic between two different `DataFrame` columns or rows. Luckily, Pandas helps make this very simple. For example if had two `DataFrame`s like the ones below and we wanted to add the 'AA' columns together we would simply use the following code bit:
 
-![Alignment Arithmetic Columns](./../fig/E5_3_alignment_arithmetic_columns.jpg)
+{% include figure.html url="" max-width="40%" file="/morea/data-wrangling/fig/E5_3_alignment_arithmetic_columns.jpg" alt="Alignment Arithmetic Columns" caption="" %}
+
 
 ~~~python
 df_1["AA"] + df_2["AA"]
@@ -257,7 +260,8 @@ df_1["AA"] + df_2["AA"]
 
 To calculate this Pandas will first align the two columns (`Series`) based on their indexes. Following this any indexes that contain values in both `Series` will have their sum calculated. However, for indexes where one of the `Series` value is NaN the output value will be NaN. A diagram of this process is shown below:
 
-![Alignment Arithmetic Method](./../fig/E5_4_alignment_arithmetic_method.png)
+{% include figure.html url="" max-width="40%" file="/morea/data-wrangling/fig/E5_4_alignment_arithmetic_method.png" alt="Alignment Arithmetic Method" caption="" %}
+
 
 In our notebook we would get a `Series` as our output:
 
@@ -274,7 +278,8 @@ Name: AA, dtype: float64
 >
 > Calculating the sum of different rows is pretty similar to column-wise calculations. The key difference is that you must used a method of selecting rows e.g. `.loc` an example figure is shown below.
 >
-> ![Alignment Arithmetic Row](./../fig/E5_5_alignment_arithmetic_row.png)
+> {% include figure.html url="" max-width="40%" file="/morea/data-wrangling/fig/E5_5_alignment_arithmetic_row.png" alt="Alignment Arithmetic Row" caption="" %}
+
 >
 {: .callout}
 

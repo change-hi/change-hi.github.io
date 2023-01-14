@@ -1,5 +1,5 @@
 ---
-title: "Introduction"
+title: "Data Wrangling Introduction"
 published: true
 morea_id: experience-data-wrangling-intro
 morea_type: experience

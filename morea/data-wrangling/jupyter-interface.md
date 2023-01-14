@@ -27,7 +27,9 @@ morea_enable_toc: true
 
 The button above will take you to the associated binder website for this lesson. When you load up the binder webpage you should be presented with a site that looks something like the image below.
 
-![Basic Binder Webpage](../fig/E2_1_basic_binder.png)
+{% include figure.html url="" max-width="40%" file="/morea/data-wrangling/fig/E2_1_basic_binder.png" alt="Basic Binder Webpage" caption="" %}
+
+
 
 This site contains a variety of buttons to create various file types. However, for now we are going to do two things.
 
@@ -38,7 +40,9 @@ This site contains a variety of buttons to create various file types. However, f
 
 Once you click on on the Python 3 button under the notebook label you will be presented with a new screen which will look something like the image below (note that the image has been cropped to reduce space).
 
-![New Notebook Page](../fig/E2_2_new_notebook.png)
+
+{% include figure.html url="" max-width="40%" file="/morea/data-wrangling/fig/E2_2_new_notebook.png" alt="New Notebook Page" caption="" %}
+
 
 This notebook is blank except for a single cell. This blank cell is a code cell that you can type in. For example if you type in some python code like `print("This is a code cell")` and then click the run button you will see the output appear beneath the cell.
 
@@ -66,7 +70,8 @@ If you double click the jupiter notebook called "02-jupyter-notebook-interface.i
 
 You will see that the action performed after running a cell is different for each of the cells.
 
-![Notebook Cell Types](../fig/E2_3_cell_types.png)
+{% include figure.html url="" max-width="40%" file="/morea/data-wrangling/fig/E2_3_cell_types.png" alt="Notebook Cell Types" caption="" %}
+
 
 ### Editing Cells
 
@@ -76,7 +81,8 @@ Markdown and raw cells can be edited and run repeatedly without much issue. Howe
 
 A good way to think about code cell execution in a notebook is that you are essentially copy pasting the code cell into a python console. The image below gives a visual example of this with the notebook cells on the left, and a python code that does the same set of commands on the right. You can try running the cells found in the left image by looking for the header "Editing Cells" in the Binder notebook "02-jupyter-notebook-interface.ipynb".
 
-![Visual Code Cell](../fig/E2_4_running_code.png)
+{% include figure.html url="" max-width="40%" file="/morea/data-wrangling/fig/E2_4_running_code.png" alt="Running Code" caption="" %}
+
 
 To show the dangers of rerunning cells we can try rerunning the two bottom cells containing the code `a = a + 2` and `print(a)`. This will be reflected as a fifth and sixth command executed in the python console. You can see this reflected in the Python console below where the same commands have been issued in the same order. So despite the fact that we only have four cells of python we have executed 6 cells worth of code.
 
@@ -86,7 +92,8 @@ To show the dangers of rerunning cells we can try rerunning the two bottom cells
 >
 {: .callout}
 
-![Rerunnig Cells](../fig/E2_5_rerunning_code.png)
+{% include figure.html url="" max-width="40%" file="/morea/data-wrangling/fig/E2_5_rerunning_code.png" alt="Rerunnig Cells" caption="" %}
+
 
 Rerunning code cells is **not recommended** since it obscures what the notebook's code cells are doing and can make it very difficult for anyone reading your notebook to accurately rerun your analysis.
 
@@ -94,7 +101,8 @@ Rerunning code cells is **not recommended** since it obscures what the notebook'
 
 The image below is a cheatsheet of some of the buttons not discussed in this episode that might be good to know for the future. Feel free to come back to it if you are confused later on.
 
-![Notebook Cheatsheet](../fig/E2_6_cheatsheet.png)
+{% include figure.html url="" max-width="40%" file="/morea/data-wrangling/fig/E2_6_cheatsheet.png" alt="Notebook Cheatsheet" caption="" %}
+
 
 ## Key Points
 

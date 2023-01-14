@@ -43,7 +43,8 @@ Selecting data from a `DataFrame` is very easy and builds on concepts we discuss
 
 If we have the example `DataFrame` seen in the image below we can select and/or subset various combinations of rows and columns by using Pandas.
 
-![Selection DataFrame](../fig/E4_1_selection_dataframe.png)
+{% include figure.html url="" max-width="40%" file="/morea/data-wrangling/fig/E4_1_selection_dataframe.png" alt="Selection DataFrame" caption="" %}
+
 
 ### Selecting Columns
 
@@ -210,7 +211,8 @@ Sample-5         40610       360.1      11.3636      34.1709         203.5    Na
 
 It might seem strange that we don't need to use `.loc` or `.iloc` despite the fact that we are selecting rows. This is due to the fact that the output of `df['press dbar'] < 380` is a Pandas `Series` that contains information on the row and Pandas inherently assumes that when it is passed a boolean list like this that we want to select those rows that are `True`. A graphic example of this is shown below.
 
-![Filter DataFrame](../fig/E4_2_filter_dataframe.png)
+{% include figure.html url="" max-width="40%" file="/morea/data-wrangling/fig/E4_2_filter_dataframe.png" alt="Filter DataFrame" caption="" %}
+
 
 From previous Pandas Data Wrangling workshop ([Link to Github](https://github.com/hawaiidatascience/pandas_data_wrangling/blob/master/4_Subsetting_and_Sorting.ipynb)).
 
@@ -220,7 +222,8 @@ There will be some cases where you might want to compare different `DataFrame`s 
 
 To demonstrate this we will reuse the `DataFrame` used in the previous example alongside a new one called `df2` with same columns as `df` but new row entries. The structure of `df2` is shown below.
 
-![Comparison DataFrame](../fig/E4_3_comparison_dataframe.png)
+{% include figure.html url="" max-width="40%" file="/morea/data-wrangling/fig/E4_3_comparison_dataframe.png" alt="Comparison DataFrame" caption="" %}
+
 
 As an example lets say that we wanted to compare each sample in `df` with the equivalent sample in `df2` (based on their row index value) and find those where the `df` sample's oxygen concentration `coxy umol/kg` is less than `df2`. To do this we start by comparing the two `DataFrame`.
 
