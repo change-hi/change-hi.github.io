@@ -28,7 +28,7 @@ For details on how to access the cluster and launch and interactive jupyterlab/n
 
 
 After starting an interactive Jupyter session you can launch a "terminal" and within the terminal you can run the following
-```
+```bash
 git clone https://github.com/CI-TRACS/Data_Wrangling_with_Computational_Notebooks.git
 ```
 This will copy the workshop materials and notebooks to your home directory on Mana.  You can then use the file browser in Jupyter to navigate to '/Data_Wrangling_with_Computational_Notebooks/notebooks/' and then open the notebooks that correspond with the episodes.

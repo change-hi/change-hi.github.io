@@ -71,10 +71,9 @@ You can create `DataFrames` from either loading in a file e.g. a csv file or by 
 
 Before we can load in data from a file we need to load the `pandas` package. Pandas is often imported alongside `as pd` to reduce the amount of characters needed to use the different methods within it.
 
-~~~
+~~~python
 import pandas as pd
 ~~~
-{: .language-python}
 
 ### Loading and Parsing Data
 
@@ -82,13 +81,12 @@ Pandas can load in data from a variety of file formats. However, in most cases y
 
 To store data in a plain text file you need a standard way of distinguishing the individual data entries. For example, suppose a file contained the following text:
 
-~~~
+~~~output
 ,column1,column2,column3,
 row1,a,b,c
 row2,d,e,f
 row3,g,h,i
 ~~~
-{: .output}
 
 A human would see the text above and may be able to discern the 3 columns and 3 rows and the individual data entries and see that the file contains a table that looks like the one below.
 
@@ -113,19 +111,17 @@ However, parsing plain text files can become a complicated procedure. To aid in 
 
 By default `read_csv()` will separate data entries when it encounters a comma and will separate rows by new lines encoded by '\n'. If we wanted to change this behavior so that `read_csv()` separates by tabs (encoded with \t), then we can set the optional parameter `sep = '\t'`. For instance, if we wanted to read the data in the file 'tsv_example.tsv', which is a tab separated values file, and save the data in a Pandas `DataFrame` called `df`, then we would type:
 
-~~~
+~~~python
 df = pd.read_csv('data/tsv_example.tsv', sep='\t')
 ~~~
-{: .language-python}
 
 Though `read_csv()` can handle `.tsv` files, there is a specific parsing function for `.tsv` files: `read_table()`. The difference between `read_table()` and `read_csv()` is that the default behavior for the latter is to separate using commas instead of tabs `\t`. The `read_table()` documentation is available at this [link](https://pandas.pydata.org/pandas-docs/stable/reference/api/pandas.read_table.html).
 
 To perform the same operation (that is reading the data in the file `tsv_exampletsv` and save the data in a Pandas `DataFrame` called `df`), we may use the `read_table()` function without having to define our delimiter, since the default parameters will correctly parse our file.
 
-~~~
+~~~python
 df = pd.read_table('data/tsv_example.tsv')
 ~~~
-{: .language-python}
 
 Both methods will lead to an equivalent `DataFrame`.
 
@@ -135,16 +131,14 @@ In the previous examples we loaded the entire dataset from the file we gave Pand
 
 To load only up to a limited number of rows we can use the `nrows` parameter for both `read_table()` and `read_csv()`. For example, the file E3_tara_w1.csv is a csv file with over 200 rows, but if we wanted to read only the first 5 rows of this file we can call the Pandas `read_csv()` function and set `nrows = 5`:
 
-~~~
+~~~python
 df = pd.read_csv('data/tsv_example.tsv', nrows=5)
 df.shape # Returns the number of rows and columns of the DataFrame 'df' (rows, columns)
 ~~~
-{: .language-python}
 
-~~~
+~~~output
 (3, 7)
 ~~~
-{: .output}
 
 We see that the `DataFrame` `df`, that we saved the data in, has a shape attribute of `(3, 7)`. This means that there are 3 rows (since we set `nrows=3`) and 7 columns (all the columns of the dataset).
 
@@ -152,11 +146,10 @@ We see that the `DataFrame` `df`, that we saved the data in, has a shape attribu
 
 When we loaded the previous datasets `read_csv()` assumed that the first row in our .csv file contained headers for each of the columns. If we want to load in a dataset that does not contain a header row we can tell `read_csv()` that there is no header by setting `header=None`.
 
-~~~
+~~~python
 df = pd.read_csv("data/noheader_example.csv", header=None)
 df
 ~~~
-{: .language-python}
 
 However, this does not mean that the `DataFrame` does not have headers but rather that Pandas will set them to be an integer value. An example is shown in the figure below:
 
@@ -164,11 +157,10 @@ However, this does not mean that the `DataFrame` does not have headers but rathe
 
 You might also notice that there is also a corresponding integer number in the far left side of each row. This is the index that is essentially the "name" for each row. If we have a column that is specifies each row in the input file we can tell Pandas to use that column instead of the default of using a integer. This can be done by e.g. setting `index_col='unique_id'` however, if you don't have any headers you can also specify the column by using its integer location e.g. `index_col=0`. **Note that the integer location of a column goes from left to right and starts at 0.**
 
-~~~
+~~~python
 df = pd.read_csv('data/noheader_example.csv', header=None, index_col=0)
 df
 ~~~
-{: .language-python}
 
 ![No Headers Index Specified Dataframe](../fig/E3_4_no_column_index_specified_dataframe.png)
 
@@ -186,11 +178,10 @@ There are often missing values in a real-world data set. These missing entries m
 
 For example, if we were to load in a .csv where missing values are 'Null' and not specify this then Pandas will load these values in as objects. To let Pandas know that we want to interpret these values as missing values we can add `na_values='Null'`.
 
-~~~
+~~~python
 df = pd.read_csv("data/null_values_example.csv", na_values='Null')
 df
 ~~~
-{: .language-python}
 
 **Without `na_values='Null'`:**
 
@@ -212,10 +203,9 @@ Now that we are familiar with the reading mechanisms that Pandas has implemented
 
 `to_csv()` has a number of optional parameters that you may find useful, all of which can be found in the [Pandas documentation](https://pandas.pydata.org/pandas-docs/stable/reference/api/pandas.DataFrame.to_csv.html).
 
-~~~
+~~~python
 df.to_csv('data/new_file.csv')
 ~~~
-{: .language-python}
 
 ## Key Points
 

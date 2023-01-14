@@ -53,32 +53,29 @@ A list of all the `DataFrame` attributes can be found on the pandas website ([Li
 
 One attribute that we have already used previously was the columns attribute that returns the name of each column header
 
-~~~
+~~~python
 df.columns
 ~~~
-{: .language-python}
 
 That returns:
 
-~~~
+~~~output
 Index(['Sample ID', 'date mmddyy', 'press dbar', 'temp ITS-90', 'csal PSS-78',
        'coxy umol/kg', 'ph'],
       dtype='object')
 ~~~
-{: .output}
 
 However, what if we wanted to see the data type associated with each column header? Luckily, there is a quick and easy way to do this by accessing the `dtypes` attribute. `dtypes` is a series maintained by each `DataFrame` that contains the data type for each column inside a `DataFrame`. As an example if we want to access the `dtypes` attribute the `DataFrame` called `df` (seen below) we can access the `dtypes` of the `DataFrame`.
 
 ![Types Dataframe](../fig/E5_1_types_dataframe.png)
 
-~~~
+~~~python
 df.dtypes
 ~~~
-{: .language-python}
 
 This will produce the output:
 
-~~~
+~~~output
 Sample ID        object
 date mmddyy       int64
 press dbar      float64
@@ -88,7 +85,6 @@ coxy umol/kg    float64
 ph              float64
 dtype: object
 ~~~
-{: .output}
 
 > ## Data Types
 >
@@ -111,12 +107,11 @@ To start we can convert the information stored in 'date mmddyy' into a new `Seri
 
 More information on the to_datetime method can be found on the Pandas website ([Link to `to_datetime` method docs](https://pandas.pydata.org/docs/reference/api/pandas.to_datetime.html)).
 
-~~~
+~~~python
 pd.to_datetime(df['date mmddyy'], format='%m%d%y')
 ~~~
-{: .language-python}
 
-~~~
+~~~output
 0   2010-04-06
 1   2010-04-06
 2   2010-04-06
@@ -127,18 +122,16 @@ pd.to_datetime(df['date mmddyy'], format='%m%d%y')
 7   2010-04-06
 Name: date mmddyy, dtype: datetime64[ns]
 ~~~
-{: .output}
 
 Now that we have the correct output format we can create a new column to hold the converted data in by creating a new named column. We will also drop the previously used 'date mmddyy' column to prevent confusion. Lastly, we will display the types for each of the columns to check that everything went the way we wanted it to.
 
-~~~
+~~~python
 df["date"] = pd.to_datetime(df['date mmddyy'], format='%m%d%y')
 df = df.drop(columns=["date mmddyy"])
 df.dtypes
 ~~~
-{: .language-python}
 
-~~~
+~~~output
 Sample ID               object
 press dbar             float64
 temp ITS-90            float64
@@ -148,7 +141,6 @@ ph                     float64
 date            datetime64[ns]
 dtype: object
 ~~~
-{: .output}
 
 For reference this is what the final `DataFrame` looks like. **Note that the date column is at the right side of the `DataFrame` since it was added last.**
 
@@ -180,14 +172,13 @@ The `mean()` method calculates the mean for an axis (rows = 0, columns = 1). As 
 
 If we want to find the mean of all of our numeric columns we would give the following command
 
-~~~
+~~~python
 df.mean(numeric_only=True)
 ~~~
-{: .language-python}
 
 This will produce the output:
 
-~~~
+~~~output
 press dbar      358.562500
 temp ITS-90      12.196838
 csal PSS-78      34.311013
@@ -195,7 +186,6 @@ coxy umol/kg    176.971429
 ph                7.742333
 dtype: float64
 ~~~
-{: .output}
 
 **Note: only the columns with numeric data types had their means calculated.**
 
@@ -219,14 +209,13 @@ A method that is a bit more tricky to understand is the `describe()` method. Thi
 >
 {: .callout}
 
-~~~
+~~~python
 df.describe(include='all', datetime_is_numeric=True)
 ~~~
-{: .language-python}
 
 We would get the output:
 
-~~~
+~~~output
        Sample ID  press dbar  temp ITS-90  csal PSS-78  coxy umol/kg  \
 count          8    8.000000     8.000000     8.000000      7.000000   
 unique         8         NaN          NaN          NaN           NaN   
@@ -253,7 +242,6 @@ min     7.496000  2010-04-06 00:00:00
 max     7.951000  2010-04-06 00:00:00  
 std     0.229827                  NaN  
 ~~~
-{: .output}
 
 Here we get statistics regarding e.g. the mean of each column, how many non-NaN values are found in the columns, the standard deviation of the column, etc. The percent values correspond to the different percentiles of each column e.g. the 25% percentile. The NaN values are since we can't get e.g. the `mean()` of an `object` type column. More information about the `describe()` method can be found on the Pandas website ([Link to `describe()` method docs](https://pandas.pydata.org/pandas-docs/stable/reference/api/pandas.DataFrame.describe.html)).
 
@@ -263,10 +251,9 @@ There may also come a time where we might want to do arithmetic between two diff
 
 ![Alignment Arithmetic Columns](./../fig/E5_3_alignment_arithmetic_columns.jpg)
 
-~~~
+~~~python
 df_1["AA"] + df_2["AA"]
 ~~~
-{: .language-python}
 
 To calculate this Pandas will first align the two columns (`Series`) based on their indexes. Following this any indexes that contain values in both `Series` will have their sum calculated. However, for indexes where one of the `Series` value is NaN the output value will be NaN. A diagram of this process is shown below:
 
@@ -274,7 +261,7 @@ To calculate this Pandas will first align the two columns (`Series`) based on th
 
 In our notebook we would get a `Series` as our output:
 
-~~~
+~~~output
 A    100.0
 C      NaN
 D      NaN
@@ -282,7 +269,6 @@ T     18.0
 X      NaN
 Name: AA, dtype: float64
 ~~~
-{: .output}
 
 > ## `DataFrame` Row Arithmetic
 >
@@ -298,21 +284,19 @@ Beyond just individual columns or rows you can also apply the same method to do 
 
 Pandas also allows you to do arithmetic operations between a `DataFrame` or `Series` and a scalar (i.e. a single number). If you were to do the following code bit using the 'AA' column from the previously described `DataFrame` called `df_1`
 
-~~~
+~~~python
 df_1["AA"] + 0.3
 ~~~
-{: .language-python}
 
 You would get the output:
 
-~~~
+~~~output
 A    79.3
 C     2.3
 T    13.3
 X    21.3
 Name: AA, dtype: float64
 ~~~
-{: .output}
 
 Here you essentially just add 0.3 to each entry in the `Series`. The same occurs if you were to do it for a whole `DataFrame` with 0.3 being added to each entry. **Note:** this only works for `DataFrame`s that are entirely numeric, if there are any object columns you will get an error message.
 

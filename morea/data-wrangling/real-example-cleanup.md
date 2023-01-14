@@ -64,10 +64,9 @@ The data contains over 20000 individual samples. To analyze the data we are goin
 
 During our initial clean up we will only load in the first few rows of our dataset entire `DataFrame`. This will make it easier to work with and less daunting.
 
-~~~
+~~~python
 pd.read_csv("./data/hot_dogs_data.csv", nrows=5)
 ~~~
-{: .language-python}
 
 This will show us the `DataFrame` seen below:
 
@@ -89,10 +88,9 @@ To start off lets fix the first problem we saw which was was the large number of
 > 
 > > ## Solution
 > > To fix this we can add the parameter `na_values=-9` to the `read_csv()` method giving us the following code bit.
-> > ~~~
+> > ~~~python
 > > pd.read_csv("./data/hot_dogs_data.csv", nrows=5, na_values=-9)
 > > ~~~
-> > {: .language-python}
 > > Below shows how our `DataFrame` now looks:
 > > ![Output DataFrame](../fig/E6_02_nan_dataframe.png)
 > {: .solution}
@@ -113,33 +111,29 @@ There are various methods to deal with this. However, we are going to use a rela
 > ## Dropping the blank column 
 > 
 > The final command we will be using can be seen below. However, the columns parameter is missing any entries in its list of columns to drop. You will be fixing this by adding the name of the column that is empty (hint: the name isn't actually empty).
-> ~~~
+> ~~~python
 > pd.read_csv("./data/hot_dogs_data.csv", nrows=5, na_values=-9).drop(columns=[])
 > ~~~
-> {: .language-python}
 > To get the name of the column we will want to utilize a `DataFrame` attribute that we have already discussed that provides us with the list of names in the same order they occur in the `DataFrame`. If you are stuck check the previous episode where we discussed this ([Link to previous episode]()).
 > 
 > > ## Solution
 > > To get the name of the columns we can simply access the `columns` `Series` attribute that ever `DataFrame` has. This can be done either through chaining it after our `read_csv` method or by store it in a variable and then call the method using that variable. Below we use the chain approach.
 > > 
-> > ~~~
+> > ~~~python
 > > pd.read_csv("./data/hot_dogs_data.csv", nrows=5, na_values=-9).columns
 > > ~~~
-> > {: .language-python}
 > > 
-> > ~~~
+> > ~~~output
 > > Index(['botid #', ' date mmddyy', ' press dbar', ' temp ITS-90',
        ' csal PSS-78', ' coxy umol/kg', ' ph', ' phos umol/kg', ' nit umol/kg',
        ' doc umol/kg', ' hbact #*1e5/ml', ' pbact #*1e5/ml', ' sbact #*1e5/ml',
        ' no2 nmol/kg', ' '],
       dtype='object')
 > > ~~~
-> > {: .output}
 > > The last entry in the `Series` is our 'blank' column i.e. `' '`. We add this as the only entry to our drop method and get the following code bit.
-> > ~~~
+> > ~~~python
 > > pd.read_csv("./data/hot_dogs_data.csv", nrows=5, na_values=-9).drop(columns=[" "], axis=1)
 > > ~~~
-> > {: .language-python}
 > {: .solution}
 > This then gives us the output `DataFrame` seen below:
 > ![No Blank Column DataFrame](../fig/E6_03_no_blank_column.png)
@@ -162,10 +156,9 @@ One final thing that we are going to do that is not quite "clean up" but nonethe
 > > ## Solution
 > > To set the index column when we load the data we just have to add the parameter `index_col` and set it to 'botid #'. **Note:** we have removed the `nrows=5` parameter in the code bit below since we no longer need it.
 > > 
-> > ~~~
+> > ~~~python
 > > pd.read_csv("./data/hot_dogs_data.csv", na_values=-9, index_col="botid #").drop(columns=[" "], axis=1)
 > > ~~~
-> > {: .language-python}
 > {: .solution}
 {: .challenge}
 
@@ -179,12 +172,11 @@ With our initial cleanup done we can now save the current version of our `DataFr
 
 Now that we have fixed the initial issues we could glean from an initial look at the data we can take a look at the types that Pandas assumed for each of our columns. To do this we can access the .dtypes attribute.
 
-~~~
+~~~python
 df.dtypes
 ~~~
-{: .language-python}
 
-~~~
+~~~output
  date mmddyy         int64
  time hhmmss         int64
  press dbar        float64
@@ -201,7 +193,6 @@ df.dtypes
  no2 nmol/kg       float64
 dtype: object
 ~~~
-{: .output}
 
 Most of the columns have the correct type with the exception of the 'date mmddyy' column that has the int64 type. Pandas has a built in type to format date and time columns and conversion of the date column to this datetime type will help us later on.
 
@@ -209,13 +200,12 @@ To change the type of a column from an int64 to a datetime type is a bit more di
 
 The code bit below creates a new column called 'date' that contains the same data for each row as is found in the 'date mmddyy' column but instead with the datetime64 type. It will **not** delete the original 'date mmddyy' column.
 
-~~~
+~~~python
 df["collection_date"] = pd.to_datetime(df['date mmddyy'], format='%m%d%y')
 df.dtypes
 ~~~
-{: .language-python}
 
-~~~
+~~~output
 date mmddyy                int64
 time hhmmss                int64
 press dbar               float64
@@ -233,16 +223,14 @@ no2 nmol/kg              float64
 date              datetime64[ns]
 dtype: object
 ~~~
-{: .output}
 
 We can see from the output that we have all of our previous columns with the addition of a 'date' column with the type datetime64. If we take a look at the new column we can see that it has a different formatting compared to the 'date mmddyy' column
 
-~~~
+~~~python
 df["collection_date"]
 ~~~
-{: .language-python}
 
-~~~
+~~~output
 botid #
 2190200124   2010-03-09
 2190200123   2010-03-09
@@ -257,25 +245,22 @@ botid #
 3170200702   2019-12-20
 Name: collection_date, Length: 21222, dtype: datetime64[ns]
 ~~~
-{: .output}
 
 Now that we've added this column (which contains the same data as found in 'date mmddyy' just in a different format) there is no need for the original date mmddyy column so we can drop it.
 
-~~~
+~~~python
 df = df.drop(columns=["date mmddyy"])
 ~~~
-{: .language-python}
 
 ## `DataFrame` Overview
 
 A final thing we will want to do before moving on to the analysis episode is to get an overview of our `DataFrame` as a final way of checking to see if anything is wrong. To do this we can use the `describe()` method which we discussed earlier.
 
-~~~
+~~~python
 df.describe()
 ~~~
-{: .language-python}
 
-~~~
+~~~output
          time hhmmss    press dbar   temp ITS-90   csal PSS-78  coxy umol/kg  \
 count   21222.000000  21222.000000  21222.000000  21210.000000   3727.000000   
 mean   103238.977523    119.381105     21.570407     35.020524    198.222297   
@@ -306,14 +291,12 @@ min          0.000000        0.000000          NaN
 75%          2.176000        0.016000          NaN  
 max          3.555000        0.091000          NaN  
 ~~~
-{: .output}
 
 A look at the output shows us that the 'no2 nmol/kg' column does not contain any useable data based on its count value being 0. This then leads to the NaN for e.g. the min and max values. Since this column doesn't contain any information of interest we can drop it to clean up our `DataFrame`.
 
-~~~
+~~~python
 df = df.drop(columns=["no2 nmol/kg"])
 ~~~
-{: .language-python}
 
 With this done our data is reasonably cleaned up and we have the `DataFrame` seen in the image below:
 

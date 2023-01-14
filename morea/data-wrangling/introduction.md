@@ -48,9 +48,6 @@ The structure for this lesson will require participants to run a jupyter noteboo
 
 [Link to Binder notebook for this Lesson](https://github.com/CI-TRACS/Data_Wrangling_with_Computational_Notebooks)
 
-{% include links.md %}
-
-
 ## Key Points
 
 <div class="alert alert-success" role="alert" markdown="1">
