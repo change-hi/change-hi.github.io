@@ -119,3 +119,8 @@ Material used and modified from the [Introduction to Data Wrangling with Computa
 
 <hr/>
 For comparison purposes, here's the [Software Carpentry version of this page](https://ci-tracs.github.io/Data_Wrangling_with_Computational_Notebooks/02-jupyter-interface/index.html)
+
+{% include next-button.html 
+           top-label="Data Structures ->" 
+           bottom-label="2:20pm" 
+           url="/morea/data-wrangling/experience-data-structures.html" %}

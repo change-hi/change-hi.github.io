@@ -39,23 +39,35 @@ Before we get started on our analysis let us take stock of how much data we have
 
 First we can check how many rows of data we have in total. We can check this easily through the shape attribute of the `DataFrame`
 
+<div class="alert alert-secondary" role="alert" markdown="1">
+
+###### Python
+
 ```python
 df.shape
 ```
+###### Output
 
-```output
+```
 (21222, 13)
 ```
+
+</div>
 
 From this we can see that we have 21222 rows in our data and 13 columns. So at most we can have 21222 rows of data for each column. However, as we saw during the cleaning phase there are NaN values in our dataset so many of our columns won't contain data in every row.
 
 To check how many rows of data we have for each column we can again use the `describe()` method. It will count how many row of data are **not** NaN for each column. To reduce the size of the output we will use `loc` to only view the counts for each column.
 
+<div class="alert alert-secondary" role="alert" markdown="1">
+
+###### Python
+
 ```python
 df.describe().loc["count",:]
 ```
+###### Output
 
-```output
+```
 time hhmmss       21222.0
 press dbar        21222.0
 temp ITS-90       21222.0
@@ -70,6 +82,8 @@ pbact #*1e5/ml      749.0
 sbact #*1e5/ml      750.0
 Name: count, dtype: float64
 ```
+
+</div>
 
 As we can see we have highly variable amounts of data for each of our column. We will ignore pressure since it is roughly a depth estimate. These fit fairly neatly into three groups:
 
@@ -93,44 +107,72 @@ Note here that pressure is roughly akin to "depth" so we won't be using it.
 
 To start off we can focus on the measurements that we have plenty of data for. 
 
-> ## Plotting Temperature
->
-> We can quickly get a matplotlib visualization for temperature by calling the `plot` method from our `DataFrame`. We can tell it what columns we want to use as the x axis and y axis via the parameters `x` and `y`. The `kind` parameter lets the `plot()` method know what kind of plot we want e.g. line or scatter. For more information about the plot function check out the docs ([Link to plot method docs](https://pandas.pydata.org/docs/reference/api/pandas.DataFrame.plot.html)).
-> ~~~python
-> df.plot(x="date", y="temp ITS-90", kind="line")
-> ~~~
-> > ## Solution
-> > Below is the output plot
+<div class="alert alert-secondary" role="alert" markdown="1">
+<i class="fa-solid fa-user-pen fa-xl"></i>  **Exercise: Plotting Temperature**
+<hr/>
+
+We can quickly get a matplotlib visualization for temperature by calling the `plot` method from our `DataFrame`. We can tell it what columns we want to use as the x axis and y axis via the parameters `x` and `y`. The `kind` parameter lets the `plot()` method know what kind of plot we want e.g. line or scatter. For more information about the plot function check out the docs ([Link to plot method docs](https://pandas.pydata.org/docs/reference/api/pandas.DataFrame.plot.html)).
+
+<div class="alert alert-secondary" role="alert" markdown="1">
+
+###### Python
+
+~~~python
+df.plot(x="date", y="temp ITS-90", kind="line")
+~~~
+</div>
+
+<details>
+  <summary>Solution</summary>
+
+  Below is the output plot
 {% include figure.html url="" max-width="40%" file="/morea/data-wrangling/fig/E7_01_temp_plot.png" alt="Temperature Plot" caption="" %}
 
-> {: .solution}
-{: .challenge}
+</details>
+</div>
 
 However, the plot we get is very messy. We see a lot of variation from around 25°C to 7°C year to year and the lines are clustered very tightly together.
 
-> ## Plotting Surface Temperature
->
-> Part of the reason we got this messy plot is because we are utilizing all the temperature values in our dataset, regardless of depth (i.e. pressure). To resolve some of the variation we can ask Pandas to only plot data that is from roughly the top 100m of the water column this would be roughly any rows that come from pressures of less than 100 dbar.
-> ```python
-> surface_samples = df[df["press dbar"] < 100]
-> surface_samples.plot(x="date", y="temp ITS-90", kind="line")
-> ```
-> > ## Solution
-> > Below is the output plot
-{% include figure.html url="" max-width="40%" file="/morea/data-wrangling/fig/E7_02_temp_srf_plot.png" alt="Temperature Surface Plot" caption="" %}
-> {: .solution}
-{: .challenge}
+<div class="alert alert-secondary" role="alert" markdown="1">
+<i class="fa-solid fa-user-pen fa-xl"></i>  **Exercise: Plotting Surface Temperature**
+<hr/>
+
+Part of the reason we got this messy plot is because we are utilizing all the temperature values in our dataset, regardless of depth (i.e. pressure). To resolve some of the variation we can ask Pandas to only plot data that is from roughly the top 100m of the water column this would be roughly any rows that come from pressures of less than 100 dbar.
+
+<div class="alert alert-secondary" role="alert" markdown="1">
+
+###### Python
+
+```python
+surface_samples = df[df["press dbar"] < 100]
+surface_samples.plot(x="date", y="temp ITS-90", kind="line")
+```
+</div>
+
+<details>
+  <summary>Solution</summary>
+
+  Below is the output plot
+  {% include figure.html url="" max-width="40%" file="/morea/data-wrangling/fig/E7_02_temp_srf_plot.png" alt="Temperature Surface Plot" caption="" %}
+
+</details>
+</div>
 
 Now we can see that we have removed some of the variation we saw in the previous figure. However, it is still somewhat difficult to make out any trends in the data. One way of dealing with this would be to e.g. get the average temperature for each year and then plot those results.
 
 To this we will introduce a new method called `groupby` which allows us to run calculations like `mean()` on groups we specify. For us we want to get the mean temperature for each year. Thanks to our previous work in setting up the date column type this is very easy. We can also reuse `surface_samples` to only get samples from the upper 100m of the water column.
 
+<div class="alert alert-secondary" role="alert" markdown="1">
+
+###### Python
+
 ```python
 grouped_surface_samples = surface_samples.groupby(df.date.dt.year).mean()
 ```
 
+###### Output
 
-```output
+```
         time hhmmss  press dbar  temp ITS-90  csal PSS-78  coxy umol/kg  \
 date
 2010  111193.170920   37.517015    24.438342    35.282562    213.306024
@@ -171,56 +213,98 @@ date
 2019        2.123119        0.015214
 ```
 
+</div>
+
 We see now that the new `DataFrame` generated by `groupby()` and `mean()` contains the mean for each year for each of our columns. 
 
+<div class="alert alert-secondary" role="alert" markdown="1">
+<i class="fa-solid fa-user-pen fa-xl"></i>  **Exercise: Plotting Yearly Surface Temperature**
+<hr/>
 
-> ## Plotting Yearly Surface Temperature
->
-> Now we can just run the same plot method as previously but using `grouped_surface_samples` instead of `surface_samples`.
-> ```python
-> grouped_surface_samples.plot(x="date", y="temp ITS-90", kind="line")
-> ```
-> 
-> > ## Solution
-> > Below is the output plot
-{% include figure.html url="" max-width="40%" file="/morea/data-wrangling/fig/E7_03_temp_yearly_srf_plot.png" alt="Temperature Yearly Surface Plot" caption="" %}
-> {: .solution}
-{: .challenge}
+Now we can just run the same plot method as previously but using `grouped_surface_samples` instead of `surface_samples`.
+
+<div class="alert alert-secondary" role="alert" markdown="1">
+
+###### Python
+
+```python
+grouped_surface_samples = surface_samples.groupby(df.date.dt.year).mean()
+```
+</div>
+
+<details>
+  <summary>Solution</summary>
+
+  Below is the output plot
+  
+  {% include figure.html url="" max-width="40%" file="/morea/data-wrangling/fig/E7_03_temp_yearly_srf_plot.png" alt="Temperature Yearly Surface Plot" caption="" %}
+
+</details>
+</div>
 
 Now it looks a lot smoother, but now we have another issue. We've smoothed out any month to month variations that are present in the data. To fix this we can instead use the `groupby` method to group by year and month.
+
+<div class="alert alert-secondary" role="alert" markdown="1">
+
+###### Python
 
 ```python
 grouped_surface_samples = surface_samples.groupby([(surface_samples.date.dt.year),(surface_samples.date.dt.month)]).mean()
 ```
+</div>
 
-> ## Plotting Monthly Surface Temperature
->
-> If we plot this we get a month by month plot of temperature variations.
-> ```python
-> grouped_surface_samples.plot(y="temp ITS-90", kind="line")
-> ```
-> 
-> > ## Solution
-> > Below is the output plot
+<div class="alert alert-secondary" role="alert" markdown="1">
+<i class="fa-solid fa-user-pen fa-xl"></i>  **Exercise: Plotting Monthly Surface Temperature**
+<hr/>
+
+If we plot this we get a month by month plot of temperature variations.
+
+<div class="alert alert-secondary" role="alert" markdown="1">
+
+###### Python
+
+```python
+grouped_surface_samples.plot(y="temp ITS-90", kind="line")
+```
+</div>
+
+<details>
+  <summary>Solution</summary>
+
+  Below is the output plot
+  
 {% include figure.html url="" max-width="40%" file="/morea/data-wrangling/fig/E7_04_temp_monthly_srf_plot.png" alt="Temperature Yearly Surface Plot" caption="" %}
-> {: .solution}
-{: .challenge}
+
+</details>
+</div>
 
 While we have been focusing on temperature there is no reason that we can't redo the same plots that we have been making with measurements other than temperature. We can also plot multiple measurements at the same time if we want to as well.
 
-> ## Plotting Monthly Surface Temperature
->
-> To test this we will try plotting the abundance of Prochlorococcus, Synechococcus, and heterotrophic bacteria.
-> ```python
-> grouped_surface_samples.plot(y=["hbact #*1e5/ml", "pbact #*1e5/ml",
+<div class="alert alert-secondary" role="alert" markdown="1">
+<i class="fa-solid fa-user-pen fa-xl"></i>  **Exercise: Plotting Monthly Surface Temperature**
+<hr/>
+
+To test this we will try plotting the abundance of Prochlorococcus, Synechococcus, and heterotrophic bacter
+
+<div class="alert alert-secondary" role="alert" markdown="1">
+
+###### Python
+
+```python
+grouped_surface_samples.plot(y=["hbact #*1e5/ml", "pbact #*1e5/ml",
                                 "sbact #*1e5/ml"], kind="line")
-> ```
-> 
-> > ## Solution
-> > Below is the output plot
+```
+</div>
+
+<details>
+  <summary>Solution</summary>
+
+  Below is the output plot
+  
 {% include figure.html url="" max-width="40%" file="/morea/data-wrangling/fig/E7_05_bact_monthly_srf_plot.png" alt="Bacterial Yearly Abundance Plot" caption="" %}
-> {: .solution}
-{: .challenge}
+
+</details>
+</div>
 
 With that we plotted looked various methods of plotting the data we have in our dataset. We've also learned how to group different measurements depending on when the measurement was taken. If you are interested you can keep testing different methods of grouping the data or plotting some of the measurements that we did not use e.g. pH or dissolved organic carbon (`doc umol/kg`).
 

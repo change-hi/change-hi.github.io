@@ -33,12 +33,14 @@ The previous episodes have focused on key concepts with small datasets and/or ma
 
 The Hawaiian Ocean Time-Series has been collecting samples from station ALOHA located just North of Oahu since 1988. The map below shows the exact location where the samples we will be using originate from.
 
-{% include figure.html url="https://www.soest.hawaii.edu/HOT_WOCE/img/map1image-rev2.png" max-width="40%" file="" alt="HOT Location" caption="" %}
+![HOT Location](https://www.soest.hawaii.edu/HOT_WOCE/img/map1image-rev2.png)
 
 
 (Original image from: https://www.soest.hawaii.edu/HOT_WOCE/bath_HOT_Hawaii.html)
 
 Going forward we are going to be using data from HOT between the 1st of January 2010 to the 1st of January 2020. This particular data we are going to be utilizing comes from bottle extractions between depths 0 to 500m. The environmental variables that we will be looking at include:
+
+<div class="alert alert-secondary" role="alert" markdown="1">
 
 | Column name     | Environmental Variable                 |
 | --------------- | -------------------------------------- |
@@ -53,9 +55,11 @@ Going forward we are going to be using data from HOT between the 1st of January 
 | nit umol/kg     | Nitrate + Nitrite concentration        |
 | no2 nmol/kg     | Nitrite concentration                  |
 | doc umol/kg     | Dissolved Organic Carbon concentration |
-| hbact #\*1e5/ml | Heterotrophic Bacteria concentration   |
-| pbact #\*1e5/ml | Prochlorococcus numbers                |
-| sbact #\*1e5/ml | Synechococcus numbers                  |
+| hbact # 1e5/ml | Heterotrophic Bacteria concentration   |
+| pbact # 1e5/ml | Prochlorococcus numbers                |
+| sbact # 1e5/ml | Synechococcus numbers                  |
+
+</div>
 
 The data contains over 20000 individual samples. To analyze the data we are going to clean it up. Then, in the next episode we will analyze and visualize it. To do this we will be using some of tricks we have already learn while also introducing some new things. **Note:** The dataset we are using has been modified from its original format to reduce the amount of cleaning up we need to do.
 
@@ -65,9 +69,13 @@ The data contains over 20000 individual samples. To analyze the data we are goin
 
 During our initial clean up we will only load in the first few rows of our dataset entire `DataFrame`. This will make it easier to work with and less daunting.
 
+<div class="alert alert-secondary" role="alert" markdown="1">
+
 ~~~python
 pd.read_csv("./data/hot_dogs_data.csv", nrows=5)
 ~~~
+
+</div>
 
 This will show us the `DataFrame` seen below:
 
@@ -84,87 +92,106 @@ Both of these issues can easily be fixed using Pandas and things we've learn pre
 
 To start off lets fix the first problem we saw which was was the large number of -9 values in the dataset. These are especially strange for some of the columns e.g. how can there be a negative concentration of hbact i.e. heterotrophic bacteria? This is a stand in for places where no measurement was obtained.
 
-> ## Treating -9 values as NaN values when loading data
->
-> To start off try fixing the read_csv() method so that all -9 values are treated as NaN values. If you are stuck try going back to the episode on this topic ([Link to loading data episode](#tmp)).
-> 
-> > ## Solution
-> > To fix this we can add the parameter `na_values=-9` to the `read_csv()` method giving us the following code bit.
-> > ~~~python
-> > pd.read_csv("./data/hot_dogs_data.csv", nrows=5, na_values=-9)
-> > ~~~
-> > Below shows how our `DataFrame` now looks:
-> > {% include figure.html url="" max-width="40%" file="/morea/data-wrangling/fig/E6_02_nan_dataframe.png" alt="Output DataFrame" caption="" %}
+<div class="alert alert-secondary" role="alert" markdown="1">
+<i class="fa-solid fa-user-pen fa-xl"></i>  **Exercise: Treating -9 values as NaN values when loading data**
+<hr/>
 
-> {: .solution}
-{: .challenge}
+To start off try fixing the read_csv() method so that all -9 values are treated as NaN values. If you are stuck try going back to the episode on this topic ([Link to loading data episode](#tmp)).
+
+<details>
+  <summary>Solution</summary>
+
+  To fix this we can add the parameter `na_values=-9` to the `read_csv()` method giving us the following code bit:
+  
+  <pre>
+  pd.read_csv("./data/hot_dogs_data.csv", nrows=5, na_values=-9)
+  </pre>
+
+Below shows how our `DataFrame` now looks:
+{% include figure.html url="" max-width="40%" file="/morea/data-wrangling/fig/E6_02_nan_dataframe.png" alt="Output DataFrame" caption="" %}
+</details>
+</div>
 
 With this we have fixed the problematic -9 values from our initial `DataFrame`.
 
-> ## Temperature Column
->
-> The temperature column could technically contain -9 values. However, all temperature measurements were above 0 so this is not an issue.
->
-{: .callout}
+<div class="alert alert-info" role="alert" markdown="1">
+<i class="fa-solid fa-circle-info fa-xl"></i> **Temperature Column**
+<hr/>
+The temperature column could technically contain -9 values. However, all temperature measurements were above 0 so this is not an issue.
+</div>
 
 The second problem we identified was that there was an extra column (with no header) made up of only `NaN` values. This is probably an issue with the original file and if we were to take a look at the raw .csv file we find that each row ends with a ','. This causes `read_csv` to assume that there is another column with no data since it looks for a new line character (`\n`) to denote when to start a new row.
 
-There are various methods to deal with this. However, we are going to use a relative simple method that we've already learn. As we discussed in a previous episode pandas `DataFrame`s have a method to drop columns (or indexes) called `drop`. Where if we provide it with the correct inputs it can drop a column based on its name. Knowing this we can chain our `read_csv` method with the drop method so that we load in the blank column and then immediately remove it.
+There are various methods to deal with this. However, we are going to use a relative simple method that we've already learn. As we discussed in a previous episode pandas `DataFrame`s have a method to drop columns (or indexes) called `drop`. Where if we provide it with the correct Pythons it can drop a column based on its name. Knowing this we can chain our `read_csv` method with the drop method so that we load in the blank column and then immediately remove it.
 
-> ## Dropping the blank column 
-> 
-> The final command we will be using can be seen below. However, the columns parameter is missing any entries in its list of columns to drop. You will be fixing this by adding the name of the column that is empty (hint: the name isn't actually empty).
-> ~~~python
-> pd.read_csv("./data/hot_dogs_data.csv", nrows=5, na_values=-9).drop(columns=[])
-> ~~~
-> To get the name of the column we will want to utilize a `DataFrame` attribute that we have already discussed that provides us with the list of names in the same order they occur in the `DataFrame`. If you are stuck check the previous episode where we discussed this ([Link to previous episode]()).
-> 
-> > ## Solution
-> > To get the name of the columns we can simply access the `columns` `Series` attribute that ever `DataFrame` has. This can be done either through chaining it after our `read_csv` method or by store it in a variable and then call the method using that variable. Below we use the chain approach.
-> > 
-> > ~~~python
-> > pd.read_csv("./data/hot_dogs_data.csv", nrows=5, na_values=-9).columns
-> > ~~~
-> > 
-> > ~~~output
-> > Index(['botid #', ' date mmddyy', ' press dbar', ' temp ITS-90',
-       ' csal PSS-78', ' coxy umol/kg', ' ph', ' phos umol/kg', ' nit umol/kg',
-       ' doc umol/kg', ' hbact #*1e5/ml', ' pbact #*1e5/ml', ' sbact #*1e5/ml',
-       ' no2 nmol/kg', ' '],
-      dtype='object')
-> > ~~~
-> > The last entry in the `Series` is our 'blank' column i.e. `' '`. We add this as the only entry to our drop method and get the following code bit.
-> > ~~~python
-> > pd.read_csv("./data/hot_dogs_data.csv", nrows=5, na_values=-9).drop(columns=[" "], axis=1)
-> > ~~~
-> {: .solution}
-> This then gives us the output `DataFrame` seen below:
-> {% include figure.html url="" max-width="40%" file="/morea/data-wrangling/fig/E6_03_no_blank_column.png" alt="No Blank Column DataFrame" caption="" %}
+<div class="alert alert-secondary" role="alert" markdown="1">
+<i class="fa-solid fa-user-pen fa-xl"></i>  **Exercise: Dropping the blank column**
+<hr/>
 
-{: .challenge}
+The final command we will be using can be seen below. However, the columns parameter is missing any entries in its list of columns to drop. You will be fixing this by adding the name of the column that is empty (hint: the name isn't actually empty).
+
+~~~python
+pd.read_csv("./data/hot_dogs_data.csv", nrows=5, na_values=-9).drop(columns=[])
+~~~
+
+To get the name of the column we will want to utilize a `DataFrame` attribute that we have already discussed that provides us with the list of names in the same order they occur in the `DataFrame`. If you are stuck check the previous episode where we discussed this ([Link to previous episode](https://change-hi.github.io/morea/data-wrangling/experience-real-example-analysis.html)).
+
+<details>
+  <summary>Solution</summary>
+
+  To get the name of the columns we can simply access the `columns` `Series` attribute that ever `DataFrame` has. This can be done either through chaining it after our `read_csv` method or by store it in a variable and then call the method using that variable. Below we use the chain approach.
+  
+  <pre>
+  pd.read_csv("./data/hot_dogs_data.csv", nrows=5, na_values=-9).columns
+  </pre>
+
+  <pre>
+  Index(['botid #', ' date mmddyy', ' press dbar', ' temp ITS-90',
+   ' csal PSS-78', ' coxy umol/kg', ' ph', ' phos umol/kg', ' nit umol/kg',
+   ' doc umol/kg', ' hbact #*1e5/ml', ' pbact #*1e5/ml', ' sbact #*1e5/ml',
+   ' no2 nmol/kg', ' '],
+  dtype='object')
+  </pre>
+
+  The last entry in the `Series` is our 'blank' column i.e. `' '`. We add this as the only entry to our drop method and get the following code bit.
+
+  <pre>
+  pd.read_csv("./data/hot_dogs_data.csv", nrows=5, na_values=-9).drop(columns=[" "], axis=1)
+  </pre>
+
+</details>
+</div>
+
+This then gives us the output `DataFrame` seen below:
+{% include figure.html url="" max-width="40%" file="/morea/data-wrangling/fig/E6_03_no_blank_column.png" alt="No Blank Column DataFrame" caption="" %}
 
 With this we have fixed some of the initial issues related to our dataset. It should be noted that there might still exist other issues with our dataset since we have only relied on the first few rows.
 
-> ## Column Names
->
-> Checking the `columns` attribute even if nothing immediately looks wrong can be good in order to spot e.g. blank spaces around column names that can lead to issues.
->
-{: .callout}
+<div class="alert alert-info" role="alert" markdown="1">
+<i class="fa-solid fa-circle-info fa-xl"></i> **Column Names**
+<hr/>
+Checking the `columns` attribute even if nothing immediately looks wrong can be good in order to spot e.g. blank spaces around column names that can lead to issues.
+</div>
 
 One final thing that we are going to do that is not quite "clean up" but nonetheless important is to set our index column when we load the data. The column we are going to use for this is the 'botid #' column. We can also remove the `nrows=5` parameter since we want to load the whole `DataFrame` starting in the next section.
 
-> ## Setting the index column when loading data
-> 
-> To set the index column we can use a parameter in `read_csv` that was mentioned in a previous episode. See if you can remember it! If you run into trouble you can take a look at the previous episode where it was mentioned ([Link to prev episode]()).
-> 
-> > ## Solution
-> > To set the index column when we load the data we just have to add the parameter `index_col` and set it to 'botid #'. **Note:** we have removed the `nrows=5` parameter in the code bit below since we no longer need it.
-> > 
-> > ~~~python
-> > pd.read_csv("./data/hot_dogs_data.csv", na_values=-9, index_col="botid #").drop(columns=[" "], axis=1)
-> > ~~~
-> {: .solution}
-{: .challenge}
+<div class="alert alert-secondary" role="alert" markdown="1">
+<i class="fa-solid fa-user-pen fa-xl"></i>  **Exercise: Setting the index column when loading data**
+<hr/>
+
+To set the index column we can use a parameter in `read_csv` that was mentioned in a previous episode. See if you can remember it! If you run into trouble you can take a look at the previous episode where it was mentioned ([Link to prev episode]()).
+
+<details>
+  <summary>Solution</summary>
+
+  To set the index column when we load the data we just have to add the parameter `index_col` and set it to 'botid #'. **Note:** we have removed the `nrows=5` parameter in the code bit below since we no longer need it.
+  
+  <pre>
+  pd.read_csv("./data/hot_dogs_data.csv", na_values=-9, index_col="botid #").drop(columns=[" "], axis=1)
+  </pre>
+
+</details>
+</div>
 
 This gives us a somewhat cleaned up `DataFrame` that looks like the image below:
 
@@ -177,11 +204,17 @@ With our initial cleanup done we can now save the current version of our `DataFr
 
 Now that we have fixed the initial issues we could glean from an initial look at the data we can take a look at the types that Pandas assumed for each of our columns. To do this we can access the .dtypes attribute.
 
+<div class="alert alert-secondary" role="alert" markdown="1">
+
+###### Python
+
 ~~~python
 df.dtypes
 ~~~
 
-~~~output
+###### Output
+
+~~~
  date mmddyy         int64
  time hhmmss         int64
  press dbar        float64
@@ -199,18 +232,26 @@ df.dtypes
 dtype: object
 ~~~
 
+</div>
+
 Most of the columns have the correct type with the exception of the 'date mmddyy' column that has the int64 type. Pandas has a built in type to format date and time columns and conversion of the date column to this datetime type will help us later on.
 
 To change the type of a column from an int64 to a datetime type is a bit more difficult than e.g. a int64 to float64 conversion. This is because we both need to tell Pandas the type that we want it to convert the column's data to and the format that it is in. For our data this is MMDDYY which we can give to Pandas using `format='%m%d%y'`. This format parameter can be very complicated but is based on native python more information can be found on the `to_datetime` method docs ([Link to datetime method docs](https://pandas.pydata.org/docs/reference/api/pandas.to_datetime.html)).
 
 The code bit below creates a new column called 'date' that contains the same data for each row as is found in the 'date mmddyy' column but instead with the datetime64 type. It will **not** delete the original 'date mmddyy' column.
 
+<div class="alert alert-secondary" role="alert" markdown="1">
+
+###### Python
+
 ~~~python
 df["collection_date"] = pd.to_datetime(df['date mmddyy'], format='%m%d%y')
 df.dtypes
 ~~~
 
-~~~output
+###### Output
+
+~~~
 date mmddyy                int64
 time hhmmss                int64
 press dbar               float64
@@ -229,13 +270,21 @@ date              datetime64[ns]
 dtype: object
 ~~~
 
+</div>
+
 We can see from the output that we have all of our previous columns with the addition of a 'date' column with the type datetime64. If we take a look at the new column we can see that it has a different formatting compared to the 'date mmddyy' column
+
+<div class="alert alert-secondary" role="alert" markdown="1">
+
+###### Python
 
 ~~~python
 df["collection_date"]
 ~~~
 
-~~~output
+###### Output
+
+~~~
 botid #
 2190200124   2010-03-09
 2190200123   2010-03-09
@@ -251,21 +300,35 @@ botid #
 Name: collection_date, Length: 21222, dtype: datetime64[ns]
 ~~~
 
+</div>
+
 Now that we've added this column (which contains the same data as found in 'date mmddyy' just in a different format) there is no need for the original date mmddyy column so we can drop it.
+
+<div class="alert alert-secondary" role="alert" markdown="1">
+
+###### Python
 
 ~~~python
 df = df.drop(columns=["date mmddyy"])
 ~~~
 
+</div>
+
 ## `DataFrame` Overview
 
 A final thing we will want to do before moving on to the analysis episode is to get an overview of our `DataFrame` as a final way of checking to see if anything is wrong. To do this we can use the `describe()` method which we discussed earlier.
+
+<div class="alert alert-secondary" role="alert" markdown="1">
+
+###### Python
 
 ~~~python
 df.describe()
 ~~~
 
-~~~output
+###### Output
+
+~~~
          time hhmmss    press dbar   temp ITS-90   csal PSS-78  coxy umol/kg  \
 count   21222.000000  21222.000000  21222.000000  21210.000000   3727.000000   
 mean   103238.977523    119.381105     21.570407     35.020524    198.222297   
@@ -297,11 +360,19 @@ min          0.000000        0.000000          NaN
 max          3.555000        0.091000          NaN  
 ~~~
 
+</div>
+
 A look at the output shows us that the 'no2 nmol/kg' column does not contain any useable data based on its count value being 0. This then leads to the NaN for e.g. the min and max values. Since this column doesn't contain any information of interest we can drop it to clean up our `DataFrame`.
+
+<div class="alert alert-secondary" role="alert" markdown="1">
+
+###### Python
 
 ~~~python
 df = df.drop(columns=["no2 nmol/kg"])
 ~~~
+
+</div>
 
 With this done our data is reasonably cleaned up and we have the `DataFrame` seen in the image below:
 
@@ -336,3 +407,8 @@ Material used and modified from the [Introduction to Data Wrangling with Computa
 
 <hr/>
 For comparison purposes, here's the [Software Carpentry version of this page](https://ci-tracs.github.io/Data_Wrangling_with_Computational_Notebooks/06-real-example-cleanup/index.html)
+
+{% include next-button.html 
+           top-label="Real Example Analysis>" 
+           bottom-label="2:10pm" 
+           url="/morea/data-wrangling/experience-real-example-analysis.html" %}

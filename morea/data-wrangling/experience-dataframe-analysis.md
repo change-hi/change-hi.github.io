@@ -38,12 +38,16 @@ It is often useful to quickly explore some of the descriptive attributes and sta
 
 `DataFrames` have a number of attributes associated with them. With respect to exploring your dataset, perhaps the 4 most useful attributes are summarized in the table below:
 
-| Attribute |Description|
+<div class="alert alert-secondary" role="alert" markdown="1">
+
+| Attribute | Description|
 |:----------|-----------|
 | `shape`| Returns a tuple representing the dimensionality of the `DataFrame`. |
 | `size` | Returns an int representing the number of elements in this object.  |
 | `dtypes` | Returns the data types in the `DataFrame`. |
 | `columns` | Returns a `Series` of the header names from the `DataFrame`|
+
+</div>
 
 A list of all the `DataFrame` attributes can be found on the pandas website ([Link to `DataFrame` Docs](https://pandas.pydata.org/pandas-docs/stable/reference/api/pandas.DataFrame.html)).
 
@@ -53,30 +57,39 @@ A list of all the `DataFrame` attributes can be found on the pandas website ([Li
 
 One attribute that we have already used previously was the columns attribute that returns the name of each column header
 
+<div class="alert alert-secondary" role="alert" markdown="1">
+
+###### Python
+
 ~~~python
 df.columns
 ~~~
 
-That returns:
+###### That returns:
 
-~~~output
+~~~
 Index(['Sample ID', 'date mmddyy', 'press dbar', 'temp ITS-90', 'csal PSS-78',
        'coxy umol/kg', 'ph'],
       dtype='object')
 ~~~
 
+</div>
+
 However, what if we wanted to see the data type associated with each column header? Luckily, there is a quick and easy way to do this by accessing the `dtypes` attribute. `dtypes` is a series maintained by each `DataFrame` that contains the data type for each column inside a `DataFrame`. As an example if we want to access the `dtypes` attribute the `DataFrame` called `df` (seen below) we can access the `dtypes` of the `DataFrame`.
 
 {% include figure.html url="" max-width="40%" file="/morea/data-wrangling/fig/E5_1_types_dataframe.png" alt="Types Dataframe" caption="" %}
 
+<div class="alert alert-secondary" role="alert" markdown="1">
+
+###### Python
 
 ~~~python
 df.dtypes
 ~~~
 
-This will produce the output:
+###### Output:
 
-~~~output
+~~~
 Sample ID        object
 date mmddyy       int64
 press dbar      float64
@@ -87,32 +100,45 @@ ph              float64
 dtype: object
 ~~~
 
+
+</div>
+
 > ## Data Types
 >
 > Remember that Pandas has a number of different data types:
->
+
+<div class="alert alert-secondary" role="alert" markdown="1">
+
 > | Python Type       | Equivalent Pandas Type | Description                                                                                                       |
 > | :---------------- | :--------------------- | :---------------------------------------------------------------------------------------------------------------- |
 > | `string or mixed` | `object`               | Columns contain partially or completely made up from strings                                                      |
 > | `int`             | `int64`                | Columns with numeric (integer) values. The 64 here refers <br/>to size of the memory space allocated to this type |
 > | `float`           | `float64`              | Columns with floating points numbers (numbers with decimal points)                                                |
 > | `bool`            | `bool`                 | True/False values                                                                                                 |
-> | `datetime`        | `datetime`             | Date and/or time values                                                                                                   |
+> | `datetime`        | `datetime`             | Date and/or time values 
 {: .callout}
+
+</div>
 
 While Pandas is usually pretty good at getting the type of a column right sometimes you might need help it by providing the type when the data is loaded in or by converting it to a more suitable format.
 
 As an example we are going to use the column 'date mmddyy' to create a new column just called 'date' that has the type `datetime`.
 
-To start we can convert the information stored in 'date mmddyy' into a new `Series` with the `datetime` type. To do this we call the `to_datetime` method and provide the `Series` we want it to convert from as a parameter. Additionally we also need to specify the format that our date format is in. In our case we have month day and then year with each denoted by two numbers and no separators. To tell `to_datetime` that our data is formatted in this way we pass '%m%d%y' to the `format` parameter. This format parameter input is based on native python string conversion to `datetime` format more information can be found on on the python docs ([Link to string to `datetime` conversion docs](https://docs.python.org/3/library/datetime.html#strftime-and-strptime-behavior))
+To start we can convert the information stored in 'date mmddyy' into a new `Series` with the `datetime` type. To do this we call the `to_datetime` method and provide the `Series` we want it to convert from as a parameter. Additionally we also need to specify the format that our date format is in. In our case we have month day and then year with each denoted by two numbers and no separators. To tell `to_datetime` that our data is formatted in this way we pass '%m%d%y' to the `format` parameter. This format parameter Python is based on native python string conversion to `datetime` format more information can be found on on the python docs ([Link to string to `datetime` conversion docs](https://docs.python.org/3/library/datetime.html#strftime-and-strptime-behavior))
 
 More information on the to_datetime method can be found on the Pandas website ([Link to `to_datetime` method docs](https://pandas.pydata.org/docs/reference/api/pandas.to_datetime.html)).
+
+<div class="alert alert-secondary" role="alert" markdown="1">
+
+###### Python
 
 ~~~python
 pd.to_datetime(df['date mmddyy'], format='%m%d%y')
 ~~~
 
-~~~output
+###### Output
+
+~~~
 0   2010-04-06
 1   2010-04-06
 2   2010-04-06
@@ -124,7 +150,13 @@ pd.to_datetime(df['date mmddyy'], format='%m%d%y')
 Name: date mmddyy, dtype: datetime64[ns]
 ~~~
 
+</div>
+
 Now that we have the correct output format we can create a new column to hold the converted data in by creating a new named column. We will also drop the previously used 'date mmddyy' column to prevent confusion. Lastly, we will display the types for each of the columns to check that everything went the way we wanted it to.
+
+<div class="alert alert-secondary" role="alert" markdown="1">
+
+###### Python
 
 ~~~python
 df["date"] = pd.to_datetime(df['date mmddyy'], format='%m%d%y')
@@ -132,7 +164,9 @@ df = df.drop(columns=["date mmddyy"])
 df.dtypes
 ~~~
 
-~~~output
+###### Output
+
+~~~
 Sample ID               object
 press dbar             float64
 temp ITS-90            float64
@@ -143,6 +177,8 @@ date            datetime64[ns]
 dtype: object
 ~~~
 
+</div>
+
 For reference this is what the final `DataFrame` looks like. **Note that the date column is at the right side of the `DataFrame` since it was added last.**
 
 {% include figure.html url="" max-width="40%" file="/morea/data-wrangling/fig/E5_2_converted_dataframe.png" alt="Converted DataFrame" caption="" %}
@@ -152,6 +188,8 @@ For reference this is what the final `DataFrame` looks like. **Note that the dat
 ### `DataFrame` Methods
 
 When dealing with a `DataFrame` there are a variety of built-in methods to help summarize the data found inside it. These are accessible using e.g. `df.method()` where `df` is a `DataFrame`. A list of some of these methods can be seen below:
+
+<div class="alert alert-secondary" role="alert" markdown="1">
 
 | Method|Description|
 |:----------|-----------|
@@ -164,6 +202,8 @@ When dealing with a `DataFrame` there are a variety of built-in methods to help 
 | `value_counts()` |  Returns the frequency for each value in the `Series`. |
 | `describe()` | Computes row-wise statistics. |
 
+</div>
+
 A full list of methods for `DataFrame`s can be found in the Pandas docs ([Link to `DataFrame` Docs](https://pandas.pydata.org/pandas-docs/stable/reference/api/pandas.DataFrame.html)).
 
 Some of these we have already dealt with e.g. `value_counts()` while others are fairly self descriptive e.g. `head()` and `tail()`. Below we will deal with one method `mean()` that is a good representative for how most of the methods work and another `describe()` that is a bit more tricky.
@@ -174,13 +214,17 @@ The `mean()` method calculates the mean for an axis (rows = 0, columns = 1). As 
 
 If we want to find the mean of all of our numeric columns we would give the following command
 
+<div class="alert alert-secondary" role="alert" markdown="1">
+
+###### Python
+
 ~~~python
 df.mean(numeric_only=True)
 ~~~
 
-This will produce the output:
+###### Output:
 
-~~~output
+~~~
 press dbar      358.562500
 temp ITS-90      12.196838
 csal PSS-78      34.311013
@@ -190,6 +234,8 @@ dtype: float64
 ~~~
 
 **Note: only the columns with numeric data types had their means calculated.**
+
+</div>
 
 > ## Single Column (`Series`) Methods
 >
@@ -211,13 +257,17 @@ A method that is a bit more tricky to understand is the `describe()` method. Thi
 >
 {: .callout}
 
+<div class="alert alert-secondary" role="alert" markdown="1">
+
+###### Python
+
 ~~~python
 df.describe(include='all', datetime_is_numeric=True)
 ~~~
 
-We would get the output:
+###### Output:
 
-~~~output
+~~~
        Sample ID  press dbar  temp ITS-90  csal PSS-78  coxy umol/kg  \
 count          8    8.000000     8.000000     8.000000      7.000000   
 unique         8         NaN          NaN          NaN           NaN   
@@ -245,6 +295,8 @@ max     7.951000  2010-04-06 00:00:00
 std     0.229827                  NaN  
 ~~~
 
+</div>
+
 Here we get statistics regarding e.g. the mean of each column, how many non-NaN values are found in the columns, the standard deviation of the column, etc. The percent values correspond to the different percentiles of each column e.g. the 25% percentile. The NaN values are since we can't get e.g. the `mean()` of an `object` type column. More information about the `describe()` method can be found on the Pandas website ([Link to `describe()` method docs](https://pandas.pydata.org/pandas-docs/stable/reference/api/pandas.DataFrame.describe.html)).
 
 ## `DataFrame` Arithmetic
@@ -253,10 +305,15 @@ There may also come a time where we might want to do arithmetic between two diff
 
 {% include figure.html url="" max-width="40%" file="/morea/data-wrangling/fig/E5_3_alignment_arithmetic_columns.jpg" alt="Alignment Arithmetic Columns" caption="" %}
 
+<div class="alert alert-secondary" role="alert" markdown="1">
+
+###### Python
 
 ~~~python
 df_1["AA"] + df_2["AA"]
 ~~~
+
+</div>
 
 To calculate this Pandas will first align the two columns (`Series`) based on their indexes. Following this any indexes that contain values in both `Series` will have their sum calculated. However, for indexes where one of the `Series` value is NaN the output value will be NaN. A diagram of this process is shown below:
 
@@ -265,7 +322,11 @@ To calculate this Pandas will first align the two columns (`Series`) based on th
 
 In our notebook we would get a `Series` as our output:
 
-~~~output
+<div class="alert alert-secondary" role="alert" markdown="1">
+
+###### Output
+
+~~~
 A    100.0
 C      NaN
 D      NaN
@@ -274,11 +335,13 @@ X      NaN
 Name: AA, dtype: float64
 ~~~
 
+</div>
+
 > ## `DataFrame` Row Arithmetic
 >
 > Calculating the sum of different rows is pretty similar to column-wise calculations. The key difference is that you must used a method of selecting rows e.g. `.loc` an example figure is shown below.
 >
-> {% include figure.html url="" max-width="40%" file="/morea/data-wrangling/fig/E5_5_alignment_arithmetic_row.png" alt="Alignment Arithmetic Row" caption="" %}
+{% include figure.html url="" max-width="40%" file="/morea/data-wrangling/fig/E5_5_alignment_arithmetic_row.png" alt="Alignment Arithmetic Row" caption="" %}
 
 >
 {: .callout}
@@ -289,19 +352,25 @@ Beyond just individual columns or rows you can also apply the same method to do 
 
 Pandas also allows you to do arithmetic operations between a `DataFrame` or `Series` and a scalar (i.e. a single number). If you were to do the following code bit using the 'AA' column from the previously described `DataFrame` called `df_1`
 
+<div class="alert alert-secondary" role="alert" markdown="1">
+
+###### Python
+
 ~~~python
 df_1["AA"] + 0.3
 ~~~
 
-You would get the output:
+###### Output:
 
-~~~output
+~~~
 A    79.3
 C     2.3
 T    13.3
 X    21.3
 Name: AA, dtype: float64
 ~~~
+
+</div>
 
 Here you essentially just add 0.3 to each entry in the `Series`. The same occurs if you were to do it for a whole `DataFrame` with 0.3 being added to each entry. **Note:** this only works for `DataFrame`s that are entirely numeric, if there are any object columns you will get an error message.
 
@@ -320,3 +389,8 @@ Material used and modified from the [Introduction to Data Wrangling with Computa
 
 <hr/>
 For comparison purposes, here's the [Software Carpentry version of this page](https://ci-tracs.github.io/Data_Wrangling_with_Computational_Notebooks/05-dataframe-analysis/index.html)
+
+{% include next-button.html 
+           top-label="Real Example Cleanup->" 
+           bottom-label="2:10pm" 
+           url="/morea/data-wrangling/experience-real-example-cleanup.html" %}
