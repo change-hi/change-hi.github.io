@@ -290,5 +290,5 @@ For comparison purposes, here's the [Software Carpentry version of this page](ht
 
 {% include next-button.html 
            top-label="Dataframe Wrangling ->" 
-           bottom-label="2:30pm" 
+           bottom-label="2:40pm" 
            url="/morea/data-wrangling/experience-dataframe-wrangling.html" %}
