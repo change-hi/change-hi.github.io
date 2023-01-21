@@ -58,7 +58,7 @@ To start off lets focus on subsetting columns. If we have a `DataFrame` called `
 df['ph']
 ~~~
 
-###### output
+###### Output
 
 ~~~
 Sample ID
@@ -136,9 +136,9 @@ Name: Sample-1, dtype: float64
 <div class="alert alert-secondary" role="alert" markdown="1">
 
 >
-> When used inside a bracket the `:` operator will return the range between the two values it is given. For example if we had a python list `x` with the following values ['a', 'b', 'c', 'd', 'e'] and wanted to select 'b', 'c', and 'd' we can do this very concisely using the `:` operator.
+> When used inside a bracket the `:` operator will return the range between the two values it is given. For example if we had a Python list `x` with the following values ['a', 'b', 'c', 'd', 'e'] and wanted to select 'b', 'c', and 'd' we can do this very concisely using the `:` operator.
 >
-> ###### python
+> ###### Python
 >
 > ~~~python
 > x = ['a', 'b', 'c', 'd', 'e']
@@ -251,7 +251,7 @@ df[good_rows]
 
 Is equivalent to:
 
-###### python
+###### Python
 
 ~~~python
 df[df['press dbar'] < 380]

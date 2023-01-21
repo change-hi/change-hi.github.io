@@ -46,13 +46,13 @@ Here you will learn the basics of utilizing jupyter notebooks by using Python an
 
 The structure for this lesson will require participants to run a jupyter notebook. In order to reduce the time required to get Jupyter notebooks setup and running we will be utilizing Binder ([Link to Binder Website](https://mybinder.org/)). Binder allows us to run a jupyter notebook using a predefined environment and github repository right from our browser. For this lesson we have already setup a binder notebook that links to the github repository for this lesson. There will also be link at the top of each episode to the Binder website for this lesson.
 
-[Link to Binder notebook for this Lesson](https://github.com/CI-TRACS/Data_Wrangling_with_Computational_Notebooks)
+[Link to Binder notebook for this Lesson](https://mybinder.org/v2/gh/CI-TRACS/Data_Wrangling_with_Computational_Notebooks/HEAD)
 
 ## Key Points
 
 <div class="alert alert-success" role="alert" markdown="1">
 
-* "Notebooks help connect the code for cleaning and wrangling data to the documentation explaining what is being done and why."
+"Notebooks help connect the code for cleaning and wrangling data to the documentation explaining what is being done and why."
 
 </div>
 

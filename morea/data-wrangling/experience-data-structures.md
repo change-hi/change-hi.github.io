@@ -79,7 +79,7 @@ Before we can load in data from a file we need to load the `pandas` package. Pan
 
 <div class="alert alert-secondary" role="alert" markdown="1">
 
-###### python
+###### Python
 
 ~~~python
 import pandas as pd
@@ -135,7 +135,7 @@ By default `read_csv()` will separate data entries when it encounters a comma an
 
 <div class="alert alert-secondary" role="alert" markdown="1">
 
-###### python
+###### Python
 
 ~~~python
 df = pd.read_csv('data/tsv_example.tsv', sep='\t')
@@ -149,7 +149,7 @@ To perform the same operation (that is reading the data in the file `tsv_example
 
 <div class="alert alert-secondary" role="alert" markdown="1">
 
-###### python
+###### Python
 
 ~~~python
 df = pd.read_table('data/tsv_example.tsv')
@@ -175,7 +175,7 @@ df = pd.read_csv('data/tsv_example.tsv', nrows=5)
 df.shape # Returns the number of rows and columns of the DataFrame 'df' (rows, columns)
 ~~~
 
-###### output
+###### Output
 
 ~~~
 (3, 7)
@@ -191,7 +191,7 @@ We see that the `DataFrame` `df`, that we saved the data in, has a shape attribu
 
 When we loaded the previous datasets `read_csv()` assumed that the first row in our .csv file contained headers for each of the columns. If we want to load in a dataset that does not contain a header row we can tell `read_csv()` that there is no header by setting `header=None`.
 
-###### python
+###### Python
 
 ~~~python
 df = pd.read_csv("data/noheader_example.csv", header=None)
@@ -207,7 +207,7 @@ However, this does not mean that the `DataFrame` does not have headers but rathe
 
 You might also notice that there is also a corresponding integer number in the far left side of each row. This is the index that is essentially the "name" for each row. If we have a column that is specifies each row in the Python file we can tell Pandas to use that column instead of the default of using a integer. This can be done by e.g. setting `index_col='unique_id'` however, if you don't have any headers you can also specify the column by using its integer location e.g. `index_col=0`. **Note that the integer location of a column goes from left to right and starts at 0.**
 
-###### python
+###### Python
 
 ~~~python
 df = pd.read_csv('data/noheader_example.csv', header=None, index_col=0)
@@ -234,7 +234,7 @@ For example, if we were to load in a .csv where missing values are 'Null' and no
 
 <div class="alert alert-secondary" role="alert" markdown="1">
 
-###### python
+###### Python
 
 ~~~python
 df = pd.read_csv("data/null_values_example.csv", na_values='Null')
@@ -265,9 +265,9 @@ Now that we are familiar with the reading mechanisms that Pandas has implemented
 
 <div class="alert alert-secondary" role="alert" markdown="1">
 
-###### python
+###### Python
 
-~~~python
+~~~Python
 df.to_csv('data/new_file.csv')
 ~~~
 
