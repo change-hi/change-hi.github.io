@@ -26,4 +26,4 @@ morea_labels:
 morea_sort_order: 56
 ---
 
-This workshop will be an introduction to understanding how to utilize Jupyter Notebooks to create reproducible computational workflows. 
+How to utilize Jupyter Notebooks to create reproducible computational workflows. 

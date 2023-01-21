@@ -32,4 +32,4 @@ morea_labels:
 morea_sort_order: 55
 ---
 
-This workshop introduces the challenges and options in moving scientific data over the network. 
+An introduction to the challenges and options in moving scientific data over the network. 

@@ -27,4 +27,4 @@ morea_labels:
   - Friday, November 4, 2022
 ---
 
-This workshop introduces ways to utilize High Performance Computing (HPC) clusters, such as Mana, for deep learning tasks. 
+How to utilize High Performance Computing (HPC) clusters, such as Mana, for deep learning tasks. 
