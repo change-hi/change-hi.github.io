@@ -36,3 +36,7 @@ If at any time you have a question that is easier to talk through than writing i
 <img src="./fig/non-verbal.png" alt="non-verbal icon" >
 
 <img src="./fig/non-verbal_min.png" alt="non-verbal icon from ..." >
+
+{% include next-button.html 
+           top-label="Data Wrangling Introduction>" 
+           url="/morea/data-wrangling/experience-data-wrangling-intro.html" %}
