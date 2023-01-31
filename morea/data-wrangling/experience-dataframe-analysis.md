@@ -221,7 +221,7 @@ When dealing with a `DataFrame` there are a variety of built-in methods to help 
 <i class="fa-solid fa-circle-info fa-xl"></i> **For more information**
 <hr/>
 
-A full list of methods for `DataFrame`s can be found in the Pandas docs ([Link to `DataFrame` Docs](https://pandas.pydata.org/pandas-docs/stable/reference/api/pandas.DataFrame.html)).
+A full list of methods for `DataFrames` can be found in the Pandas docs ([Link to `DataFrame` Docs](https://pandas.pydata.org/pandas-docs/stable/reference/api/pandas.DataFrame.html)).
 
 </div>
 
