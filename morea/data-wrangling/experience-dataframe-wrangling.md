@@ -445,6 +445,42 @@ Sample-1         40610       239.8      18.9625      35.0636           NaN  7.95
 * "Sort based on values in a column by using the `sort_values` method"
 </div>
 
+<div class="alert alert-secondary" role="alert" markdown="1">
+<i class="fa-solid fa-user-pen fa-xl"></i>  **Exercise: Subsetting a Data Set **
+<hr/>
+
+Try it yourself! Going back to our `20_sales_records.xlsx` file, idenitfy which orders are `Online` and `High Priority`
+
+* Read the first couple rows to get a sense of the data. Which column reflects `Online` or `Offline` Status.
+* A `High Priority` order is denoted by `H` in one of the columns. Identify which column.
+* HINT: Use the loc method
+
+<details>
+  <summary>Solution</summary>
+
+ First, we read in the first few lines of our data set to identify which columns we want to filter on. We want `Online` orders of `High Priority`
+  
+  <pre>
+  df = pd.read_excel('data/20_sales_records.xlsx', nrows=5)
+  df
+  </pre>
+
+From the first few rows of data, we see that the column "Sales Channel" describes online/offline status and "Order Priority" describes order priority.
+
+So we use loc along with a combination of conditionals to subset our DataFrame for rows with "Online" entries of "Sales Channel" and "H" level "Order Priority".
+
+  <pre>
+  df.loc[(df['Sales Channel'] == 'Online') & (df['Order Priority'] == 'H')]
+  </pre>
+
+The resulting subset should show rows 7, 9, and 10 only.
+
+
+Below shows how our subsetted `DataFrame` now looks:
+{% include figure.html url="" max-width="40%" file="/morea/data-wrangling/fig/E4_5_exercise.png" alt="Output DataFrame" caption="" %}
+</details>
+</div>
+
 ## Acknowledgements
 
 Material used and modified from the [Introduction to Data Wrangling with Computational Notebooks workshop](https://ci-tracs.github.io/Data_Wrangling_with_Computational_Notebooks/).

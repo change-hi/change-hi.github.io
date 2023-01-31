@@ -30,7 +30,7 @@ morea_enable_toc: true
 
 # `DataFrame` Attributes & Arithmetic
 
-Once you have loaded in one or more `DataFrame`s you may want to investigate various aspects of the data. This could be by looking at the shape of the `DataFrame` or the mean of a single column. This could also be through arithmetic between different `DataFrame` columns (i.e. `Series`). The following episode will focus on these two concepts and will help you better understand how you can analyze the data you have loaded into Pandas.
+Once you have loaded in one or more `DataFrames` you may want to investigate various aspects of the data. This could be by looking at the shape of the `DataFrame` or the mean of a single column. This could also be through arithmetic between different `DataFrame` columns (i.e. `Series`). The following episode will focus on these two concepts and will help you better understand how you can analyze the data you have loaded into Pandas.
 
 ## `DataFrame` Attributes
 
