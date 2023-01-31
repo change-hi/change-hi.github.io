@@ -16,12 +16,14 @@ morea_experiences:
   - experience-real-example-cleaning
   - experience-real-example-analysis
 morea_assessments:
+  - assessment-data-wrangling-workshop
 morea_prerequisites:
 morea_type: module
 morea_icon_url: /morea/data-wrangling/logo.png
 morea_labels:
-- Workshop
-morea_sort_order: 50
+  - Workshop
+  - Friday, February 3, 2023
+morea_sort_order: 56
 ---
 
-This workshop will be an introduction to understanding how to utilize Jupyter Notebooks to create reproducible computational workflows. 
+How to utilize Jupyter Notebooks to create reproducible computational workflows. 

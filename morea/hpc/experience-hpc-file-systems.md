@@ -1,13 +1,12 @@
 ---
-title: "4. Staging and File System Choice"
+title: "6. Staging and File System Choice"
 published: true
 morea_id: experience-hpc-file-systems
 morea_type: experience
 morea_summary: "What is a file system? What is a distributed file system? How do you optimize the file system on Mana?"
-morea_sort_order: 2
+morea_sort_order: 7
 morea_labels:
-  - 20 min (Teaching)
-  - 20 min (Exercises)
+  - 3:20pm
 morea_enable_toc: true
 ---
 
@@ -21,7 +20,7 @@ morea_enable_toc: true
   * How do you optimize the file system on Mana?
 
 **Objectives**
-  * Understand general file system and distributed file system concepts.Understand the general HPC System architecture.
+  * Understand general file system and distributed file system concepts. Understand the general HPC System architecture.
   * Be able to stage files on Mana lustre scratch.
 </div>
 
@@ -41,7 +40,7 @@ On a cluster, blocks of data that make up a single file are distributed among ne
 On Mana, the two main supported file systems are <b>Network File System (NFS)</b> and <b>Lustre</b>.  Mana users have two special folders called lus_scratch and nfs_scratch where they can temporarily store data on the cluster. Note that the scratch folders will be purged after some period of time, please save your important files into your home directory.
 
 <div class="alert alert-secondary" role="alert" markdown="1">
-<i class="fa-solid fa-user-pen fa-xl"></i>  **Locate Lustre and NFS File System Scratch On Mana**
+<i class="fa-solid fa-user-pen fa-xl"></i>  **Exercise: Locate Lustre and NFS File System Scratch On Mana**
 <hr/>
 
 Let's locate our lustre and nfs scratch folder.
@@ -64,7 +63,6 @@ Note that the '!' symbol below allows us to execute terminal commands in our Jup
 
 ### The Lustre File System.
 
-
 {% include figure.html url="" max-width="60%" file="/morea/hpc/fig/lustre.png" alt="Lustre File System" caption="Lustre File System (https://wiki.lustre.org/Introduction_to_Lustre)" %}
 
 Lustre is a parallel distributed file system, where file operations are distributed across multiple file system servers. In Lustre, storage is divided among multiple servers allowing for ease of scalability and fault tolerance. This file system is great for high speed read/write performance.
@@ -77,8 +75,7 @@ NFS is a single server distributed file system where file operations are not par
 
 ## Choosing the right file system for performance
 
-Depending on the user's need, different file systems are optimized for different purposes. One may be optimized for random access speed, one with error correcting capability, or one with high redundancy to prevent loss of data.
-For this workshop, we will focus on disk random access speed Mana cluster.
+Depending on the user's need, different file systems are optimized for different purposes. One may be optimized for random access speed, one with error correcting capability, or one with high redundancy to prevent loss of data. For this workshop, we will focus on disk random access speed Mana cluster.
 
 On Mana we have 3 locations for file storage: "home/user", "lus_scratch", and "nfs_scratch" folders available to us.
 
@@ -96,7 +93,7 @@ You can read more about it [here](https://www.avg.com/en/signal/ssd-hdd-which-is
 </div>
 
 <div class="alert alert-secondary" role="alert" markdown="1">
-<i class="fa-solid fa-user-pen fa-xl"></i>  **List Disk Usage Information**
+<i class="fa-solid fa-user-pen fa-xl"></i>  **Exercise: List Disk Usage Information**
 <hr/>
 
 On Mana, there's a command that lists disk usage on the cluster.
@@ -113,7 +110,7 @@ You should see a table that lists disk space used and remaining space.
 </div>
 
 <div class="alert alert-secondary" role="alert" markdown="1">
-<i class="fa-solid fa-user-pen fa-xl"></i>  **Simulating Read/Write Load**
+<i class="fa-solid fa-user-pen fa-xl"></i>  **Exercise: Simulating Read/Write Load**
 <hr/>
 
 Let's compare read/write speed between the 2 file systems.
@@ -136,7 +133,7 @@ def read_large_file(path):
 </div>
 
 <div class="alert alert-secondary" role="alert" markdown="1">
-<i class="fa-solid fa-user-pen fa-xl"></i>  **Timing Read/Write Operations**
+<i class="fa-solid fa-user-pen fa-xl"></i>  **Exercise: Timing Read/Write Operations**
 <hr/>
 
 Now that we have defined our read/write functions, let's profile them.
@@ -156,7 +153,7 @@ write_large_file("./lus_scratch/large_file.txt")
 
 ```python
 %%time
-write_large_file("./lus_scratch/large_file.txt")
+read_large_file("./lus_scratch/large_file.txt")
 ```
 
 ```python
@@ -166,7 +163,7 @@ write_large_file("./large_file.txt")
 
 ```python
 %%time
-write_large_file("./large_file.txt")
+read_large_file("./large_file.txt")
 ```
 </div>
 
@@ -179,7 +176,7 @@ From the preceding activity, we may notice only a very small improvement in read
 We can optimize our Deep Learning Jupyter Lab Notebook further by utilizing "lus_scratch" folder. Instead of reading and writing training data from our home directory, we're going to instead work from the "lus_scratch" directory.
 
 <div class="alert alert-secondary" role="alert" markdown="1">
-<i class="fa-solid fa-user-pen fa-xl"></i>  **Stage Training Files**
+<i class="fa-solid fa-user-pen fa-xl"></i>  **Exercise: Stage Training Files**
 <hr/>
 
 We will now make a copy of the training data into the "lus_scratch" directory.
@@ -204,7 +201,7 @@ with h5py.File('./lus_scratch/dataset_cifar10.hdf5', 'w') as hf:
 </div>
 
 <div class="alert alert-secondary" role="alert" markdown="1">
-<i class="fa-solid fa-user-pen fa-xl"></i>  **Update Data Generator File Path**
+<i class="fa-solid fa-user-pen fa-xl"></i>  **Exercise: Update Data Generator File Path**
 <hr/>
 
 Now that we have successfully staged our training data to the "lus_scratch" directory, let us now update the data path for our data generator.
@@ -222,7 +219,7 @@ data_valid_lus = DataGenerator(filename, batch_size=batchsize, test=True, shuffl
 </div>
 
 <div class="alert alert-secondary" role="alert" markdown="1">
-<i class="fa-solid fa-user-pen fa-xl"></i>  **Rerun The Model With The Updated Data Generator**
+<i class="fa-solid fa-user-pen fa-xl"></i>  **Exercise: Rerun The Model With The Updated Data Generator**
 <hr/>
 
 Let's rerun our model with the new data generator objects.
@@ -243,10 +240,9 @@ with tf.device('/device:GPU:0'):
 ```
 </div>
 
-
-## Key Points
-
 <div class="alert alert-success" role="alert" markdown="1">
+<i class="fa-solid fa-globe fa-xl"></i> **Key Points**
+<hr/>
 
 * File system is a way in which operating systems organize data on storage devices.
 * Distributed file system organizes data accross network attached storage devices.
@@ -256,6 +252,7 @@ with tf.device('/device:GPU:0'):
 * NFS on Mana is setup with spinning (hard disk) drives.
 </div>
 
-
-<hr/>
-For comparison purposes, here's the [Software Carpentry version of this page](https://ci-tracs.github.io/High_Performance_Computing/12-hpc-file-systems/index.html)
+{% include next-button.html 
+           top-label="Assessment ->" 
+           bottom-label="3:50pm" 
+           url="/morea/hpc/assessment-hpc-workshop.html" %}

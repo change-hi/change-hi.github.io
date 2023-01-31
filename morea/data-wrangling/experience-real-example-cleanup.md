@@ -1,27 +1,28 @@
 ---
-title: "Real Example Cleaning"
+title: "6. Real Example Cleanup"
 published: true
 morea_id: experience-real-example-cleaning
 morea_type: experience
 morea_summary: "A real world example of data cleaning"
 morea_sort_order: 3
 morea_labels:
-  - 10 min (Teaching)
-  - 10 min (Exercises)
+  - 3:10pm
 morea_enable_toc: true
 ---
+
+# 6. Real Example Cleanup
 
 <div class="alert alert-success mt-3" role="alert" markdown="1">
 <i class="fa-solid fa-globe fa-xl"></i> **Overview**
 <hr/>
 
 **Questions**
-* "How do you clean an example dataset?"
-* "How do you deal with missing data?"
-* "How do you fix column type mismatches?"
+* How do you clean an example dataset?
+* How do you deal with missing data?
+* How do you fix column type mismatches?
 
 **Objectives**
-* "Clean an example dataset using both previously described concepts and some new ones"
+* Clean an example dataset using both previously described concepts and some new ones.
 
 </div>
 
@@ -36,11 +37,9 @@ The Hawaiian Ocean Time-Series has been collecting samples from station ALOHA lo
 ![HOT Location](https://www.soest.hawaii.edu/HOT_WOCE/img/map1image-rev2.png)
 
 
-(Original image from: https://www.soest.hawaii.edu/HOT_WOCE/bath_HOT_Hawaii.html)
+(Original image from: <https://www.soest.hawaii.edu/HOT_WOCE/bath_HOT_Hawaii.html>)
 
 Going forward we are going to be using data from HOT between the 1st of January 2010 to the 1st of January 2020. This particular data we are going to be utilizing comes from bottle extractions between depths 0 to 500m. The environmental variables that we will be looking at include:
-
-<div class="alert alert-secondary" role="alert" markdown="1">
 
 | Column name     | Environmental Variable                 |
 | --------------- | -------------------------------------- |
@@ -58,8 +57,7 @@ Going forward we are going to be using data from HOT between the 1st of January 
 | hbact # 1e5/ml | Heterotrophic Bacteria concentration   |
 | pbact # 1e5/ml | Prochlorococcus numbers                |
 | sbact # 1e5/ml | Synechococcus numbers                  |
-
-</div>
+{: .table}
 
 The data contains over 20000 individual samples. To analyze the data we are going to clean it up. Then, in the next episode we will analyze and visualize it. To do this we will be using some of tricks we have already learn while also introducing some new things. **Note:** The dataset we are using has been modified from its original format to reduce the amount of cleaning up we need to do.
 
@@ -79,18 +77,18 @@ pd.read_csv("./data/hot_dogs_data.csv", nrows=5)
 
 This will show us the `DataFrame` seen below:
 
-{% include figure.html url="" max-width="40%" file="/morea/data-wrangling/fig/E6_01_initial_dataframe.png" alt="Initial DataFrame" caption="" %}
+{% include figure.html url="" max-width="60%" file="/morea/data-wrangling/fig/E6_01_initial_dataframe.png" alt="Initial DataFrame" caption="" %}
 
 
 From this we can see a few things:
 
 - There are a lot of -9 values
-  - This is likely to denote Null values in the dataset
+- This is likely to denote Null values in the dataset
 - The last column (to the right of the no2 column) doesn't seem to contain a header or any data
 
 Both of these issues can easily be fixed using Pandas and things we've learn previously.
 
-To start off lets fix the first problem we saw which was was the large number of -9 values in the dataset. These are especially strange for some of the columns e.g. how can there be a negative concentration of hbact i.e. heterotrophic bacteria? This is a stand in for places where no measurement was obtained.
+To start off let's fix the first problem we saw which was was the large number of -9 values in the dataset. These are especially strange for some of the columns e.g. how can there be a negative concentration of hbact i.e. heterotrophic bacteria? This is a stand in for places where no measurement was obtained.
 
 <div class="alert alert-secondary" role="alert" markdown="1">
 <i class="fa-solid fa-user-pen fa-xl"></i>  **Exercise: Treating -9 values as NaN values when loading data**
@@ -108,7 +106,7 @@ To start off try fixing the read_csv() method so that all -9 values are treated 
   </pre>
 
 Below shows how our `DataFrame` now looks:
-{% include figure.html url="" max-width="40%" file="/morea/data-wrangling/fig/E6_02_nan_dataframe.png" alt="Output DataFrame" caption="" %}
+{% include figure.html url="" max-width="60%" file="/morea/data-wrangling/fig/E6_02_nan_dataframe.png" alt="Output DataFrame" caption="" %}
 </details>
 </div>
 
@@ -163,7 +161,7 @@ To get the name of the column we will want to utilize a `DataFrame` attribute th
 </div>
 
 This then gives us the output `DataFrame` seen below:
-{% include figure.html url="" max-width="40%" file="/morea/data-wrangling/fig/E6_03_no_blank_column.png" alt="No Blank Column DataFrame" caption="" %}
+{% include figure.html url="" max-width="60%" file="/morea/data-wrangling/fig/E6_03_no_blank_column.png" alt="No Blank Column DataFrame" caption="" %}
 
 With this we have fixed some of the initial issues related to our dataset. It should be noted that there might still exist other issues with our dataset since we have only relied on the first few rows.
 
@@ -195,7 +193,7 @@ To set the index column we can use a parameter in `read_csv` that was mentioned 
 
 This gives us a somewhat cleaned up `DataFrame` that looks like the image below:
 
-{% include figure.html url="" max-width="40%" file="/morea/data-wrangling/fig/E6_04_fixed_dataframe.png" alt="Cleaned up Dataframe" caption="" %}
+{% include figure.html url="" max-width="60%" file="/morea/data-wrangling/fig/E6_04_fixed_dataframe.png" alt="Cleaned up Dataframe" caption="" %}
 
 
 With our initial cleanup done we can now save the current version of our `DataFrame` to the `df` variable. This `df` variable will be used for the next two sections.
@@ -376,7 +374,7 @@ df = df.drop(columns=["no2 nmol/kg"])
 
 With this done our data is reasonably cleaned up and we have the `DataFrame` seen in the image below:
 
-{% include figure.html url="" max-width="40%" file="/morea/data-wrangling/fig/E6_05_cleaned_dataframe.png" alt="Cleaned Dataframe" caption="" %}
+{% include figure.html url="" max-width="60%" file="/morea/data-wrangling/fig/E6_05_cleaned_dataframe.png" alt="Cleaned Dataframe" caption="" %}
 
 
 We can now move on to the analysis and visualization of the data in our `DataFrame`.
@@ -393,22 +391,15 @@ With this we've clean up our initial dataset. To summarize we have:
    - 'date mmddyy' column since the new 'date' column contains the same data but in a better type
    - 'no2 nmol/kg' column since it contained no data
 
-## Key Points
 
-<div class="alert alert-success" role="alert" markdown="1">
-
-* "Cleaning a dataset is an iterative process that can require multiple passes"
-* "Keep in mind to restart the kernel when cleaning a dataset to make sure that your code encompasses all the cleaning needed."
+<div class="alert alert-success mt-3" role="alert" markdown="1">
+<i class="fa-solid fa-globe fa-xl"></i> **Key Points**
+<hr/>
+* Cleaning a dataset is an iterative process that can require multiple passes.
+* Restart the kernel when cleaning a dataset to make sure that your code encompasses all the cleaning needed.
 </div>
 
-## Acknowledgements
-
-Material used and modified from the [Introduction to Data Wrangling with Computational Notebooks workshop](https://ci-tracs.github.io/Data_Wrangling_with_Computational_Notebooks/).
-
-<hr/>
-For comparison purposes, here's the [Software Carpentry version of this page](https://ci-tracs.github.io/Data_Wrangling_with_Computational_Notebooks/06-real-example-cleanup/index.html)
-
 {% include next-button.html 
-           top-label="Real Example Analysis>" 
+           top-label="7. Real Example Analysis>" 
            bottom-label="3:30pm" 
            url="/morea/data-wrangling/experience-real-example-analysis.html" %}

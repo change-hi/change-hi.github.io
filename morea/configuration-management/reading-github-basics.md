@@ -11,11 +11,11 @@ morea_sort_order: 6
 
 Read the following links from GitHub to obtain a basic overview of their hosting service.
 
-  * [Sign up for a free GitHub account](https://help.github.com/articles/signing-up-for-a-new-github-account)
-  * [Set up git](https://help.github.com/articles/set-up-git)
-  * [Create a repo](https://help.github.com/articles/create-a-repo)
-  * [Fork a repo](https://help.github.com/articles/fork-a-repo)
-  * [Be social](https://help.github.com/articles/be-social)
+  * [Sign up for a free GitHub account](https://docs.github.com/en/get-started/signing-up-for-github/signing-up-for-a-new-github-account)
+  * [Set up git](https://docs.github.com/en/get-started/quickstart/set-up-git)
+  * [Create a repo](https://docs.github.com/en/get-started/quickstart/create-a-repo)
+  * [Fork a repo](https://docs.github.com/en/get-started/quickstart/fork-a-repo)
+  * [Be social](https://docs.github.com/en/get-started/quickstart/be-social)
 
 
 

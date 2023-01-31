@@ -1,27 +1,29 @@
 ---
-title: "Loading and Handling Pandas Data"
+title: "3. Loading and Handling Pandas Data"
 published: true
 morea_id: experience-data-structures
 morea_type: experience
 morea_summary: "Understand Pandas data structures basics"
 morea_sort_order: 3
 morea_labels:
-  - 20 min (Teaching)
+  - 2:20pm
 morea_enable_toc: true
 ---
+
+# 3. Loading and Handling Pandas Data
 
 <div class="alert alert-success mt-3" role="alert" markdown="1">
 <i class="fa-solid fa-globe fa-xl"></i> **Overview**
 <hr/>
 
 **Questions**
-* "How are Pandas data structures setup?"
-* "How to load data into Pandas?"
-* "How to write data from Pandas to a file"
+* How are Pandas data structures setup?
+* How to load data into Pandas?
+* How to write data from Pandas to a file.
 
 **Objectives**
-* "Understand the usefulness of Pandas when loading data"
-* "Understand how to load data and deal with common issues"
+* Understand the usefulness of Pandas when loading data.
+* Understand how to load data and deal with common issues.
 </div>
 
 [![Binder](https://mybinder.org/badge_logo.svg)](https://mybinder.org/v2/gh/CI-TRACS/Data_Wrangling_with_Computational_Notebooks/HEAD)
@@ -41,14 +43,13 @@ The reason we use `Series` and `DataFrames` rather than native python data struc
 
 Pandas has two principal data structures, `Series` and `DataFrames`. If you are familiar with Microsoft's Excel application then you can liken `Series` to single columns (or rows) in an Excel sheet and `DataFrames` to entire tables (or spreadsheets).
 
-{% include figure.html url="" max-width="40%" file="/morea/data-wrangling/fig/E3_1_series_vs_dataframe.png" alt="Series vs DataFrames" caption="" %}
+{% include figure.html url="" max-width="60%" file="/morea/data-wrangling/fig/E3_1_series_vs_dataframe.png" alt="Series vs DataFrames" caption="" %}
 
 
 We see in the image above that a `Series` in the context of Excel could be the first row of the spreadsheet, while a `DataFrames` would be the entire spreadsheet. In other words, a `DataFrames` is simply a collection of labeled `Series`.
 
 ## Pandas Data Types
 
-<div class="alert alert-secondary" role="alert" markdown="1">
 
 When creating a `Series` Pandas will store all the data as the same type. The mapping from the native python types to what they would be in Pandas is summarized below.
 
@@ -59,8 +60,7 @@ When creating a `Series` Pandas will store all the data as the same type. The ma
 | `float`           | `float64`              | Columns with floating points numbers (numbers with decimal points)                                                |
 | `bool`            | `bool`                 | True/False values                                                                                                 |
 | `datetime`        | `datetime`             | Date and/or time values                                                                                           |
-
-</div>
+{: .table }
 
 ## Pandas `DataFrames` Basics
 
@@ -71,17 +71,6 @@ You can create `DataFrames` from either loading in a file e.g. a csv file or by 
 ## Import the Pandas Package
 
 Before we can load in data from a file we need to load the pandas package. Pandas is often imported with the shortcut, or alias, `pd` to reduce the amount of characters needed to use the different methods within it.
-
-<div class="alert alert-secondary" role="alert" markdown="1">
-
-```python
-import pandas as pd
-```
-
-</div>
-
-Before we can load in data from a file we need to load the `pandas` package. Pandas is often imported alongside `as pd` to reduce the amount of characters needed to use the different methods within it.
-
 
 <div class="alert alert-secondary" role="alert" markdown="1">
 
@@ -142,7 +131,6 @@ By default `read_csv()` will separate data entries when it encounters a comma an
 <div class="alert alert-secondary" role="alert" markdown="1">
 
 ###### Python
-
 ~~~python
 df = pd.read_csv('data/tsv_example.tsv', sep='\t')
 ~~~
@@ -165,7 +153,7 @@ df = pd.read_table('data/tsv_example.tsv')
 
 Both methods will lead to an equivalent `DataFrame`.
 
-{% include figure.html url="" max-width="40%" file="/morea/data-wrangling/fig/E3_2_loaded_dataframe.png" alt="Loaded Dataframe" caption="" %}
+{% include figure.html url="" max-width="60%" file="/morea/data-wrangling/fig/E3_2_loaded_dataframe.png" alt="Loaded Dataframe" caption="" %}
 
 
 In the previous examples we loaded the entire dataset from the file we gave Pandas. However, when working with large datasets it is good practice to load your data in small pieces before loading the entire dataset to ensure that the file is parsed correctly. Small data sets are more manageable and errors are easier to spot, while large data sets take more time to parse. So, a good workflow is to read a small portion of the data and analyze the resulting data frame to see if you need to modify any of the default behaviors of the read function.
@@ -203,28 +191,29 @@ When we loaded the previous datasets `read_csv()` assumed that the first row in 
 df = pd.read_csv("data/noheader_example.csv", header=None)
 df
 ~~~
-
+</div>
 
 
 However, this does not mean that the `DataFrame` does not have headers but rather that Pandas will set them to be an integer value. An example is shown in the figure below:
 
-{% include figure.html url="" max-width="40%" file="/morea/data-wrangling/fig/E3_3_no_columns_dataframe.png" alt="No Headers Dataframe" caption="" %}
+{% include figure.html url="" max-width="60%" file="/morea/data-wrangling/fig/E3_3_no_columns_dataframe.png" alt="No Headers Dataframe" caption="" %}
 
 
 You might also notice that there is also a corresponding integer number in the far left side of each row. This is the index that is essentially the "name" for each row. If we have a column that is specifies each row in the Python file we can tell Pandas to use that column instead of the default of using a integer. This can be done by e.g. setting `index_col='unique_id'` however, if you don't have any headers you can also specify the column by using its integer location e.g. `index_col=0`. **Note that the integer location of a column goes from left to right and starts at 0.**
 
+<div class="alert alert-secondary" role="alert" markdown="1">
 ###### Python
 
 ~~~python
 df = pd.read_csv('data/noheader_example.csv', header=None, index_col=0)
 df
 ~~~
+</div>
 
-{% include figure.html url="" max-width="40%" file="/morea/data-wrangling/fig/E3_4_no_column_index_specified_dataframe.png" alt="No Headers Index Specified Dataframe" caption="" %}
+{% include figure.html url="" max-width="60%" file="/morea/data-wrangling/fig/E3_4_no_column_index_specified_dataframe.png" alt="No Headers Index Specified Dataframe" caption="" %}
 
 You can change the name of the index column by setting the index name attribute of the dataframe `df.index.name = 'unique_id'`.
 
-</div>
 
 ## Common Data Loading Problems
 
@@ -246,22 +235,21 @@ For example, if we were to load in a .csv where missing values are 'Null' and no
 df = pd.read_csv("data/null_values_example.csv", na_values='Null')
 df
 ~~~
+</div>
 
 **Without `na_values='Null'`:**
 
-{% include figure.html url="" max-width="40%" file="/morea/data-wrangling/fig/E3_5_null_values.png" alt="Null values Dataframe" caption="" %}
+{% include figure.html url="" max-width="60%" file="/morea/data-wrangling/fig/E3_5_null_values.png" alt="Null values Dataframe" caption="" %}
 
 **With `na_values='Null'`:**
 
-{% include figure.html url="" max-width="40%" file="/morea/data-wrangling/fig/E3_6_nan_values.png" alt="NaN values Dataframe" caption="" %}
+{% include figure.html url="" max-width="60%" file="/morea/data-wrangling/fig/E3_6_nan_values.png" alt="NaN values Dataframe" caption="" %}
 
-</div>
 
-> ## Auto NaN values
->
-> Pandas will interpret certain values as being NaN values even without user Python. For example if 'NULL' is found then Pandas will treat it as a missing value and treat it as a NaN value.
->
-{: .callout}
+## Auto NaN values
+
+Pandas will interpret certain values as being NaN values even without user Python. For example if 'NULL' is found then Pandas will treat it as a missing value and treat it as a NaN value.
+
 
 ## Writing Data in Text Format
 

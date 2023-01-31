@@ -11,7 +11,7 @@ morea_labels:
 
 # E17: Experience Learn Git Branching
 
-For this experience, use the [Learn Git Branching](http://pcottle.github.io/learnGitBranching/) site to get comfortable with basic ideas of git.
+For this experience, use the [Learn Git Branching](https://pcottle.github.io/learnGitBranching/) site to get comfortable with basic ideas of git.
 
 At a minimum, go through the 4 introductory levels in the Main area:
 
@@ -26,8 +26,3 @@ To get started using the site, just read the first dialog box that appears, then
 ## Submission instructions
 
 You do not have to submit anything for this experience, but your knowledge of git branching will be assessed in class, so be sure to finish this experience.
-
-
-
-
-

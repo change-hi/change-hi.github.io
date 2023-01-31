@@ -1,29 +1,30 @@
 ---
-title: "Real Example Analysis"
+title: "7. Real Example Analysis"
 published: true
 morea_id: experience-real-example-analysis
 morea_type: experience
 morea_summary: "A real world example of data analyis"
 morea_sort_order: 3
 morea_labels:
-  - 10 min (Teaching)
-  - 10 min (Exercises)
+  - 3:30pm
 morea_enable_toc: true
 ---
+
+# 7. Real Example Analysis
 
 <div class="alert alert-success mt-3" role="alert" markdown="1">
 <i class="fa-solid fa-globe fa-xl"></i> **Overview**
 <hr/>
 
 **Questions**
-* "How do you visualize data from a `DataFrame`?"
-* "How do you group data by year and month?"
-* "How do you plot multiple measurements in a single plot?"
+* How do you visualize data from a `DataFrame`?
+* How do you group data by year and month?
+* How do you plot multiple measurements in a single plot?
 
 **Objectives**
-* "Learn how to plot the cleaned data"
-* "Learn how to subset and plot the data"
-* "Learn how to using the groupby method to visualize yearly and monthly changes"
+* Learn how to plot the cleaned data.
+* Learn how to subset and plot the data.
+* Learn how to use the groupby method to visualize yearly and monthly changes.
 
 </div>
 
@@ -126,7 +127,7 @@ df.plot(x="date", y="temp ITS-90", kind="line")
   <summary>Solution</summary>
 
   Below is the output plot
-{% include figure.html url="" max-width="40%" file="/morea/data-wrangling/fig/E7_01_temp_plot.png" alt="Temperature Plot" caption="" %}
+{% include figure.html url="" max-width="60%" file="/morea/data-wrangling/fig/E7_01_temp_plot.png" alt="Temperature Plot" caption="" %}
 
 </details>
 </div>
@@ -153,7 +154,7 @@ surface_samples.plot(x="date", y="temp ITS-90", kind="line")
   <summary>Solution</summary>
 
   Below is the output plot
-  {% include figure.html url="" max-width="40%" file="/morea/data-wrangling/fig/E7_02_temp_srf_plot.png" alt="Temperature Surface Plot" caption="" %}
+  {% include figure.html url="" max-width="60%" file="/morea/data-wrangling/fig/E7_02_temp_srf_plot.png" alt="Temperature Surface Plot" caption="" %}
 
 </details>
 </div>
@@ -237,7 +238,7 @@ grouped_surface_samples = surface_samples.groupby(df.date.dt.year).mean()
 
   Below is the output plot
   
-  {% include figure.html url="" max-width="40%" file="/morea/data-wrangling/fig/E7_03_temp_yearly_srf_plot.png" alt="Temperature Yearly Surface Plot" caption="" %}
+  {% include figure.html url="" max-width="60%" file="/morea/data-wrangling/fig/E7_03_temp_yearly_srf_plot.png" alt="Temperature Yearly Surface Plot" caption="" %}
 
 </details>
 </div>
@@ -273,7 +274,7 @@ grouped_surface_samples.plot(y="temp ITS-90", kind="line")
 
   Below is the output plot
   
-{% include figure.html url="" max-width="40%" file="/morea/data-wrangling/fig/E7_04_temp_monthly_srf_plot.png" alt="Temperature Yearly Surface Plot" caption="" %}
+{% include figure.html url="" max-width="60%" file="/morea/data-wrangling/fig/E7_04_temp_monthly_srf_plot.png" alt="Temperature Yearly Surface Plot" caption="" %}
 
 </details>
 </div>
@@ -301,7 +302,7 @@ grouped_surface_samples.plot(y=["hbact #*1e5/ml", "pbact #*1e5/ml",
 
   Below is the output plot
   
-{% include figure.html url="" max-width="40%" file="/morea/data-wrangling/fig/E7_05_bact_monthly_srf_plot.png" alt="Bacterial Yearly Abundance Plot" caption="" %}
+{% include figure.html url="" max-width="60%" file="/morea/data-wrangling/fig/E7_05_bact_monthly_srf_plot.png" alt="Bacterial Yearly Abundance Plot" caption="" %}
 
 </details>
 </div>
@@ -310,18 +311,25 @@ With that we plotted looked various methods of plotting the data we have in our 
 
 Hopefully throughout this lesson you have learned some useful skills in order to both analyze your data and document your analysis and any code that you used. There is plenty of things that we did not have time to go over so make sure to keep learning!
 
-## Key Points
 
-<div class="alert alert-success" role="alert" markdown="1">
+<div class="alert alert-success mt-3" role="alert" markdown="1">
+<i class="fa-solid fa-globe fa-xl"></i> **Key Points**
+<hr/>
+* Grouping data by year and months is a powerful way to identify monthly and yearly changes.
+* You can easily add more measurements to a single plot by using a list.
 
-* "Grouping data by year and months is a powerful way to identify monthly and yearly changes"
-* "You can easily add more measurements to a single plot by using a list"
-* "There is a lot we didn't cover here, so take a look at the Matplotlib docs ([Link to Matplotlib docs](https://matplotlib.org/)) and other libraries that can allow you to make dynamic plots e.g. Plotly ([Link to Plotly docs](https://plotly.com/graphing-libraries/))"
 </div>
 
-## Acknowledgements
-
-Material used and modified from the [Introduction to Data Wrangling with Computational Notebooks workshop](https://ci-tracs.github.io/Data_Wrangling_with_Computational_Notebooks/).
-
+<div class="alert alert-info" role="alert" markdown="1">
+<i class="fa-solid fa-circle-info fa-xl"></i> **For more information**
 <hr/>
-For comparison purposes, here's the [Software Carpentry version of this page](https://ci-tracs.github.io/Data_Wrangling_with_Computational_Notebooks/07-real-example-analysis/index.html)
+
+There is a lot we didn't cover in this workshop. To go farther, take a look at the Matplotlib docs ([Link to Matplotlib docs](https://matplotlib.org/)) and other libraries that can allow you to make dynamic plots e.g. Plotly ([Link to Plotly docs](https://plotly.com/graphing-libraries/))"
+
+</div>
+
+
+{% include next-button.html
+top-label="Assessment ->"
+bottom-label="3:50pm"
+url="/morea/data-wrangling/assessment-data-wrangling-workshop.html" %}

@@ -8,13 +8,17 @@ morea_outcomes_assessed:
 morea_type: assessment
 morea_sort_order: 12
 morea_labels:
+  - 3:50pm 
 ---
 
 # Help us assess this workshop
 
-<div class="alert alert-danger mt-4" role="alert" markdown="1">
-<i class="fa-solid fa-circle-exclamation fa-xl"></i> **Page Stub.**
-<hr/>
+## For the participants
 
-If this assessment existed, it would provide instructions to participants on how to access (say) an online form that they could fill out to provide feedback on the strengths, weaknesses, and opportunities for improvement of this workshop.
-</div>
+Thank you for attending today's workshop! To help us learn about your experience, we would like to ask that you take approximately 10 minutes to fill out a short 10 question survey.  The participant survey is available [here](https://forms.gle/G86ZHnywMByRZxdX7).
+
+## For the instructors
+
+Thank you for leading today's workshop! While the participants are filling out their questionnaire, we'd like to get your insights while they are still fresh in your mind.  The instructor survey is available [here](https://forms.gle/kRKw8aM3c9VrGu127).
+
+Thank you!

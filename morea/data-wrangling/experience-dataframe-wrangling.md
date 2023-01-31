@@ -1,29 +1,30 @@
 ---
-title: "Wrangling DataFrames"
+title: "4. Wrangling DataFrames"
 published: true
 morea_id: experience-data-wrangling
 morea_type: experience
 morea_summary: "Understading the basics of data wrangling"
 morea_sort_order: 3
 morea_labels:
-  - 10 min (Teaching)
-  - 10 min (Exercises)
+  - 2:40pm
 morea_enable_toc: true
 ---
+
+# 4. Wrangling DataFrames
 
 <div class="alert alert-success mt-3" role="alert" markdown="1">
 <i class="fa-solid fa-globe fa-xl"></i> **Overview**
 <hr/>
 
 **Questions**
-* "How can you select individual columns or rows from a `DataFrame`?"
-* "How can you subset a `DataFrame`?"
-* "How can you sort a `DataFrame`?"
+* How can you select individual columns or rows from a `DataFrame`?
+* How can you subset a `DataFrame`?
+* How can you sort a `DataFrame`?
 
 **Objectives**
-* "Learn how to select specific columns or rows from a `DataFrame`"
-* "Learn how to select rows based on conditions"
-* "Learn how to sort a `DataFrame`'s rows or columns"
+* Learn how to select specific columns or rows from a `DataFrame`
+* Learn how to select rows based on conditions.
+* Learn how to sort a `DataFrame`'s rows or columns.
 
 </div>
 
@@ -43,7 +44,7 @@ Selecting data from a `DataFrame` is very easy and builds on concepts we discuss
 
 If we have the example `DataFrame` seen in the image below we can select and/or subset various combinations of rows and columns by using Pandas.
 
-{% include figure.html url="" max-width="40%" file="/morea/data-wrangling/fig/E4_1_selection_dataframe.png" alt="Selection DataFrame" caption="" %}
+{% include figure.html url="" max-width="60%" file="/morea/data-wrangling/fig/E4_1_selection_dataframe.png" alt="Selection DataFrame" caption="" %}
 
 
 ### Selecting Columns
@@ -130,28 +131,25 @@ Name: Sample-1, dtype: float64
 
 </div>
 
-> ## The `:` operator
-
+## The `:` operator
 
 <div class="alert alert-secondary" role="alert" markdown="1">
 
->
-> When used inside a bracket the `:` operator will return the range between the two values it is given. For example if we had a Python list `x` with the following values ['a', 'b', 'c', 'd', 'e'] and wanted to select 'b', 'c', and 'd' we can do this very concisely using the `:` operator.
->
-> ###### Python
->
-> ~~~python
-> x = ['a', 'b', 'c', 'd', 'e']
-> x[2:5]
-> ~~~
->
-> With the output:
-> 
-> ~~~
-> ['b', 'c', 'd']
-> ~~~
->
-{: .callout}
+
+When used inside a bracket the `:` operator will return the range between the two values it is given. For example if we had a Python list `x` with the following values ['a', 'b', 'c', 'd', 'e'] and wanted to select 'b', 'c', and 'd' we can do this very concisely using the `:` operator.
+
+###### Python
+
+~~~python
+x = ['a', 'b', 'c', 'd', 'e']
+x[2:5]
+~~~
+
+With the output:
+ 
+~~~
+['b', 'c', 'd']
+~~~
 
 </div>
 
@@ -195,11 +193,10 @@ Name: Sample-1, dtype: float64
 
 </div>
 
-> ## Using `.iloc`
->
-> You can just as well use `.iloc` for the two examples above, but you will need to change the index and headers to their respective integer values i.e. the row number(s) and the header number(s).
->
-{: .callout}
+## Using `.iloc`
+
+You can just as well use `.iloc` for the two examples above, but you will need to change the index and headers to their respective integer values i.e. the row number(s) and the header number(s).
+
 
 ## Subsetting
 
@@ -275,7 +272,7 @@ Sample-5         40610       360.1      11.3636      34.1709         203.5    Na
 
 It might seem strange that we don't need to use `.loc` or `.iloc` despite the fact that we are selecting rows. This is due to the fact that the output of `df['press dbar'] < 380` is a Pandas `Series` that contains information on the row and Pandas inherently assumes that when it is passed a boolean list like this that we want to select those rows that are `True`. A graphic example of this is shown below.
 
-{% include figure.html url="" max-width="40%" file="/morea/data-wrangling/fig/E4_2_filter_dataframe.png" alt="Filter DataFrame" caption="" %}
+{% include figure.html url="" max-width="60%" file="/morea/data-wrangling/fig/E4_2_filter_dataframe.png" alt="Filter DataFrame" caption="" %}
 
 
 From previous Pandas Data Wrangling workshop ([Link to Github](https://github.com/hawaiidatascience/pandas_data_wrangling/blob/master/4_Subsetting_and_Sorting.ipynb)).
@@ -286,7 +283,7 @@ There will be some cases where you might want to compare different `DataFrame`s 
 
 To demonstrate this we will reuse the `DataFrame` used in the previous example alongside a new one called `df2` with same columns as `df` but new row entries. The structure of `df2` is shown below.
 
-{% include figure.html url="" max-width="40%" file="/morea/data-wrangling/fig/E4_3_comparison_dataframe.png" alt="Comparison DataFrame" caption="" %}
+{% include figure.html url="" max-width="60%" file="/morea/data-wrangling/fig/E4_3_comparison_dataframe.png" alt="Comparison DataFrame" caption="" %}
 
 
 As an example lets say that we wanted to compare each sample in `df` with the equivalent sample in `df2` (based on their row index value) and find those where the `df` sample's oxygen concentration `coxy umol/kg` is less than `df2`. To do this we start by comparing the two `DataFrame`.
@@ -345,33 +342,32 @@ Name: coxy umol/kg, dtype: bool
 
 </div>
 
-> ## Column Specification
->
-> If you do not specify a column to compare and instead do e.g. `df.loc[:] < df2.loc[:]` you will get a comparison of every column and a `DataFrame` containing those values as an output:
+## Column Specification
+
+If you do not specify a column to compare and instead do e.g. `df.loc[:] < df2.loc[:]` you will get a comparison of every column and a `DataFrame` containing those values as an output:
 
 <div class="alert alert-secondary" role="alert" markdown="1">
 
-> ###### Python
->
-> ~~~python
-> df.loc[:] < df2.loc[:]
-> ~~~
->
-> ###### Output
->
-> ~~~
+###### Python
+
+~~~python
+df.loc[:] < df2.loc[:]
+~~~
+
+###### Output
+
+~~~
            date mmddyy  press dbar  temp ITS-90  csal PSS-78  coxy umol/kg     ph
-> Sample ID                                                                        
-> Sample-1          True       False         True         True         False  False
-> Sample-2          True       False         True         True          True  False
-> Sample-3          True       False         True         True          True  False
-> Sample-4          True       False         True         True          True   True
-> Sample-5          True       False         True         True         False  False
-> Sample-6          True       False         True         True          True  False
-> Sample-7          True       False         True         True          True  False
-> Sample-8          True       False         True         True          True  False
-> ~~~
-{: .callout}
+Sample ID                                                                        
+Sample-1          True       False         True         True         False  False
+Sample-2          True       False         True         True          True  False
+Sample-3          True       False         True         True          True  False
+Sample-4          True       False         True         True          True   True
+Sample-5          True       False         True         True         False  False
+Sample-6          True       False         True         True          True  False
+Sample-7          True       False         True         True          True  False
+Sample-8          True       False         True         True          True  False
+~~~
 
 </div>
 
@@ -437,58 +433,16 @@ Sample-1         40610       239.8      18.9625      35.0636           NaN  7.95
 
 </div>
 
-## Key Points
 
-<div class="alert alert-success" role="alert" markdown="1">
-
-* "Select columns by using `[\"column name\"]` or rows by using the `loc` attribute"
-* "Sort based on values in a column by using the `sort_values` method"
+<div class="alert alert-success mt-3" role="alert" markdown="1">
+<i class="fa-solid fa-globe fa-xl"></i> **Key Points**
+<hr/>
+* Select columns by using `[\"column name\"]` or rows by using the `loc` attribute.
+* Sort based on values in a column by using the `sort_values` method.
 </div>
 
-<div class="alert alert-secondary" role="alert" markdown="1">
-<i class="fa-solid fa-user-pen fa-xl"></i>  **Exercise: Subsetting a Data Set **
-<hr/>
-
-Try it yourself! Going back to our `20_sales_records.xlsx` file, idenitfy which orders are `Online` and `High Priority`
-
-* Read the first couple rows to get a sense of the data. Which column reflects `Online` or `Offline` Status.
-* A `High Priority` order is denoted by `H` in one of the columns. Identify which column.
-* HINT: Use the loc method
-
-<details>
-  <summary>Solution</summary>
-
- First, we read in the first few lines of our data set to identify which columns we want to filter on. We want `Online` orders of `High Priority`
-  
-  <pre>
-  df = pd.read_excel('data/20_sales_records.xlsx', nrows=5)
-  df
-  </pre>
-
-From the first few rows of data, we see that the column "Sales Channel" describes online/offline status and "Order Priority" describes order priority.
-
-So we use loc along with a combination of conditionals to subset our DataFrame for rows with "Online" entries of "Sales Channel" and "H" level "Order Priority".
-
-  <pre>
-  df.loc[(df['Sales Channel'] == 'Online') & (df['Order Priority'] == 'H')]
-  </pre>
-
-The resulting subset should show rows 7, 9, and 10 only.
-
-
-Below shows how our subsetted `DataFrame` now looks:
-{% include figure.html url="" max-width="40%" file="/morea/data-wrangling/fig/E4_5_exercise.png" alt="Output DataFrame" caption="" %}
-</details>
-</div>
-
-## Acknowledgements
-
-Material used and modified from the [Introduction to Data Wrangling with Computational Notebooks workshop](https://ci-tracs.github.io/Data_Wrangling_with_Computational_Notebooks/).
-
-<hr/>
-For comparison purposes, here's the [Software Carpentry version of this page](https://ci-tracs.github.io/Data_Wrangling_with_Computational_Notebooks/04-dataframe-wrangling/index.html)
 
 {% include next-button.html 
-           top-label="Dataframe Analysis ->" 
+           top-label="5. Dataframe Analysis ->" 
            bottom-label="2:50pm" 
            url="/morea/data-wrangling/experience-dataframe-analysis.html" %}

@@ -1,24 +1,26 @@
 ---
-title: "Data Wrangling Introduction"
+title: "1. Data Wrangling Introduction"
 published: true
 morea_id: experience-data-wrangling-intro
 morea_type: experience
-morea_summary: "Understand why jupyter notebooks are useful for data wrangling"
+morea_summary: "Understand why Jupyter notebooks are useful for data wrangling"
 morea_sort_order: 2
 morea_labels:
-  - 10 min (Teaching)
+  - 2:00pm
 morea_enable_toc: true
 ---
+
+# 1. Data Wrangling Introduction
 
 <div class="alert alert-success mt-3" role="alert" markdown="1">
 <i class="fa-solid fa-globe fa-xl"></i> **Overview**
 <hr/>
 
 **Questions**
-  * "Why are jupyter notebooks useful for cleaning and wrangling data?"
+  * Why are Jupyter notebooks useful for cleaning and wrangling data?
 
 **Objectives**
-  * "Describe how jupyter notebooks provide a method of documenting the steps invovlved in cleaning and wrangling data"
+  * Understand how Jupyter notebooks provide a method of documenting the steps involved in cleaning and wrangling data.
 
 </div>
 
@@ -48,22 +50,22 @@ The structure for this lesson will require participants to run a jupyter noteboo
 
 [Link to Binder notebook for this Lesson](https://mybinder.org/v2/gh/CI-TRACS/Data_Wrangling_with_Computational_Notebooks/HEAD)
 
-## Key Points
+<div class="alert alert-success mt-3" role="alert" markdown="1">
+<i class="fa-solid fa-globe fa-xl"></i> **Key Points**
+<hr/>
+Notebooks help connect the code for cleaning and wrangling data to the documentation explaining what is being done and why.
+</div>
 
-<div class="alert alert-success" role="alert" markdown="1">
 
-"Notebooks help connect the code for cleaning and wrangling data to the documentation explaining what is being done and why."
+<div class="alert alert-info" role="alert" markdown="1">
+<i class="fa-solid fa-circle-info fa-xl"></i> **Acknowledgements**
+<hr/>
+
+This workshop contains material we used and modified from the [Introduction to Data Wrangling with Computational Notebooks workshop](https://ci-tracs.github.io/Data_Wrangling_with_Computational_Notebooks/).
 
 </div>
 
-## Acknowledgements
-
-Material used and modified from the [Introduction to Data Wrangling with Computational Notebooks workshop](https://ci-tracs.github.io/Data_Wrangling_with_Computational_Notebooks/).
-
-<hr/>
-For comparison purposes, here's the [Software Carpentry version of this page](https://ci-tracs.github.io/Data_Wrangling_with_Computational_Notebooks/)
-
 {% include next-button.html 
-           top-label="Jupyter Notebook Interface ->" 
+           top-label="2. Jupyter Notebook Interface ->" 
            bottom-label="2:10pm" 
            url="/morea/data-wrangling/experience-jupyter-interface.html" %}

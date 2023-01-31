@@ -1,44 +1,45 @@
 ---
-title: "DataFrame Analysis"
+title: "5. DataFrame Analysis"
 published: true
 morea_id: experience-dataframe-analysis
 morea_type: experience
 morea_summary: "Understanding the basics of the Pandas data structure - DataFrames"
 morea_sort_order: 3
 morea_labels:
-  - 20 min (Teaching)
+  - 2:50pm
 morea_enable_toc: true
 ---
+
+# 5. DataFrame Analysis
 
 <div class="alert alert-success mt-3" role="alert" markdown="1">
 <i class="fa-solid fa-globe fa-xl"></i> **Overview**
 <hr/>
 
 **Questions**
-* "What are some common attributes for Pandas `DataFrame`s?"
-* "What are some common methods for Pandas `DataFrame`s?"
-* "How can you do arithmetic between two Pandas columns?"
+* What are some common attributes for Pandas `DataFrame`s?
+* What are some common methods for Pandas `DataFrame`s?
+* How can you do arithmetic between two Pandas columns?
 
 **Objectives**
-* "Learn how to access `DataFrame` attributes"
-* "Learn how to get statistics on a loaded `DataFrame`"
-* "Learn how to sum two Pandas `DataFrame` columns together"
+* Learn how to access `DataFrame` attributes.
+* Learn how to get statistics on a loaded `DataFrame`.
+* Learn how to sum two Pandas `DataFrame` columns together.
 </div>
 
 
 [![Binder](https://mybinder.org/badge_logo.svg)](https://mybinder.org/v2/gh/CI-TRACS/Data_Wrangling_with_Computational_Notebooks/HEAD)
 
-# `DataFrame` Attributes & Arithmetic
+## `DataFrame` Attributes & Arithmetic
 
-Once you have loaded in one or more `DataFrames` you may want to investigate various aspects of the data. This could be by looking at the shape of the `DataFrame` or the mean of a single column. This could also be through arithmetic between different `DataFrame` columns (i.e. `Series`). The following episode will focus on these two concepts and will help you better understand how you can analyze the data you have loaded into Pandas.
+Once you have loaded in one or more `DataFrame`s you may want to investigate various aspects of the data. This could be by looking at the shape of the `DataFrame` or the mean of a single column. This could also be through arithmetic between different `DataFrame` columns (i.e. `Series`). The following episode will focus on these two concepts and will help you better understand how you can analyze the data you have loaded into Pandas.
 
-## `DataFrame` Attributes
+### `DataFrame` Attributes
 
 It is often useful to quickly explore some of the descriptive attributes and statistics of the dataset that you are working with. For instance, the shape and datatypes of the DataFrame, and the range, mean, standard deviation, etc. of the rows or columns. You may find interesting patterns or possibly catch errors in your dataset this way. As we will see, accessing these attributes and computing the descriptive statistics is easy with pandas.
 
 `DataFrames` have a number of attributes associated with them. With respect to exploring your dataset, perhaps the 4 most useful attributes are summarized in the table below:
 
-<div class="alert alert-secondary" role="alert" markdown="1">
 
 | Attribute | Description|
 |:----------|-----------|
@@ -46,10 +47,18 @@ It is often useful to quickly explore some of the descriptive attributes and sta
 | `size` | Returns an int representing the number of elements in this object.  |
 | `dtypes` | Returns the data types in the `DataFrame`. |
 | `columns` | Returns a `Series` of the header names from the `DataFrame`|
+{: .table}
+
+
+
+<div class="alert alert-info" role="alert" markdown="1">
+<i class="fa-solid fa-circle-info fa-xl"></i> **For more information**
+<hr/>
+
+A list of all the `DataFrame` attributes can be found on the pandas website ([Link to `DataFrame` Docs](https://pandas.pydata.org/pandas-docs/stable/reference/api/pandas.DataFrame.html)).
 
 </div>
 
-A list of all the `DataFrame` attributes can be found on the pandas website ([Link to `DataFrame` Docs](https://pandas.pydata.org/pandas-docs/stable/reference/api/pandas.DataFrame.html)).
 
 ### Inspecting Data Types
 
@@ -77,7 +86,7 @@ Index(['Sample ID', 'date mmddyy', 'press dbar', 'temp ITS-90', 'csal PSS-78',
 
 However, what if we wanted to see the data type associated with each column header? Luckily, there is a quick and easy way to do this by accessing the `dtypes` attribute. `dtypes` is a series maintained by each `DataFrame` that contains the data type for each column inside a `DataFrame`. As an example if we want to access the `dtypes` attribute the `DataFrame` called `df` (seen below) we can access the `dtypes` of the `DataFrame`.
 
-{% include figure.html url="" max-width="40%" file="/morea/data-wrangling/fig/E5_1_types_dataframe.png" alt="Types Dataframe" caption="" %}
+{% include figure.html url="" max-width="60%" file="/morea/data-wrangling/fig/E5_1_types_dataframe.png" alt="Types Dataframe" caption="" %}
 
 <div class="alert alert-secondary" role="alert" markdown="1">
 
@@ -103,22 +112,18 @@ dtype: object
 
 </div>
 
-> ## Data Types
->
-> Remember that Pandas has a number of different data types:
+## Data Types
 
-<div class="alert alert-secondary" role="alert" markdown="1">
+Remember that Pandas has a number of different data types:
 
-> | Python Type       | Equivalent Pandas Type | Description                                                                                                       |
-> | :---------------- | :--------------------- | :---------------------------------------------------------------------------------------------------------------- |
-> | `string or mixed` | `object`               | Columns contain partially or completely made up from strings                                                      |
-> | `int`             | `int64`                | Columns with numeric (integer) values. The 64 here refers <br/>to size of the memory space allocated to this type |
-> | `float`           | `float64`              | Columns with floating points numbers (numbers with decimal points)                                                |
-> | `bool`            | `bool`                 | True/False values                                                                                                 |
-> | `datetime`        | `datetime`             | Date and/or time values 
-{: .callout}
-
-</div>
+| Python Type       | Equivalent Pandas Type | Description                                                                                                       |
+| :---------------- | :--------------------- | :---------------------------------------------------------------------------------------------------------------- |
+| `string or mixed` | `object`               | Columns contain partially or completely made up from strings                                                      |
+| `int`             | `int64`                | Columns with numeric (integer) values. The 64 here refers <br/>to size of the memory space allocated to this type |
+| `float`           | `float64`              | Columns with floating points numbers (numbers with decimal points)                                                |
+| `bool`            | `bool`                 | True/False values                                                                                                 |
+| `datetime`        | `datetime`             | Date and/or time values |
+{: .table}
 
 While Pandas is usually pretty good at getting the type of a column right sometimes you might need help it by providing the type when the data is loaded in or by converting it to a more suitable format.
 
@@ -126,7 +131,16 @@ As an example we are going to use the column 'date mmddyy' to create a new colum
 
 To start we can convert the information stored in 'date mmddyy' into a new `Series` with the `datetime` type. To do this we call the `to_datetime` method and provide the `Series` we want it to convert from as a parameter. Additionally we also need to specify the format that our date format is in. In our case we have month day and then year with each denoted by two numbers and no separators. To tell `to_datetime` that our data is formatted in this way we pass '%m%d%y' to the `format` parameter. This format parameter Python is based on native python string conversion to `datetime` format more information can be found on on the python docs ([Link to string to `datetime` conversion docs](https://docs.python.org/3/library/datetime.html#strftime-and-strptime-behavior))
 
+
+
+<div class="alert alert-info" role="alert" markdown="1">
+<i class="fa-solid fa-circle-info fa-xl"></i> **For more information**
+<hr/>
+
 More information on the to_datetime method can be found on the Pandas website ([Link to `to_datetime` method docs](https://pandas.pydata.org/docs/reference/api/pandas.to_datetime.html)).
+
+</div>
+
 
 <div class="alert alert-secondary" role="alert" markdown="1">
 
@@ -181,7 +195,7 @@ dtype: object
 
 For reference this is what the final `DataFrame` looks like. **Note that the date column is at the right side of the `DataFrame` since it was added last.**
 
-{% include figure.html url="" max-width="40%" file="/morea/data-wrangling/fig/E5_2_converted_dataframe.png" alt="Converted DataFrame" caption="" %}
+{% include figure.html url="" max-width="60%" file="/morea/data-wrangling/fig/E5_2_converted_dataframe.png" alt="Converted DataFrame" caption="" %}
 
 
 
@@ -189,7 +203,6 @@ For reference this is what the final `DataFrame` looks like. **Note that the dat
 
 When dealing with a `DataFrame` there are a variety of built-in methods to help summarize the data found inside it. These are accessible using e.g. `df.method()` where `df` is a `DataFrame`. A list of some of these methods can be seen below:
 
-<div class="alert alert-secondary" role="alert" markdown="1">
 
 | Method|Description|
 |:----------|-----------|
@@ -201,10 +214,16 @@ When dealing with a `DataFrame` there are a variety of built-in methods to help 
 | `count()` |  Returns the number of non-NaN values in the in a `Series` or `DataFrame`. |
 | `value_counts()` |  Returns the frequency for each value in the `Series`. |
 | `describe()` | Computes row-wise statistics. |
+{: .table}
 
-</div>
+
+<div class="alert alert-info" role="alert" markdown="1">
+<i class="fa-solid fa-circle-info fa-xl"></i> **For more information**
+<hr/>
 
 A full list of methods for `DataFrame`s can be found in the Pandas docs ([Link to `DataFrame` Docs](https://pandas.pydata.org/pandas-docs/stable/reference/api/pandas.DataFrame.html)).
+
+</div>
 
 Some of these we have already dealt with e.g. `value_counts()` while others are fairly self descriptive e.g. `head()` and `tail()`. Below we will deal with one method `mean()` that is a good representative for how most of the methods work and another `describe()` that is a bit more tricky.
 
@@ -237,12 +256,10 @@ dtype: float64
 
 </div>
 
-> ## Single Column (`Series`) Methods
->
-> If we only want the mean of a single column we would instead give the `mean()` method a single column (i.e. a `Series`). This could be done for the latitude column in the example above via the code bit `df['Latitude'].mean()` which would return a single value 31.09682 which is the mean of that column (as seen above).
->
->
-{: .callout}
+## Single Column (`Series`) Methods
+
+If we only want the mean of a single column we would instead give the `mean()` method a single column (i.e. a `Series`). This could be done for the latitude column in the example above via the code bit `df['Latitude'].mean()` which would return a single value 31.09682 which is the mean of that column (as seen above).
+
 
 Other methods like `max()`, `var()`, and `count()` function in much the same way.
 
@@ -250,12 +267,10 @@ Other methods like `max()`, `var()`, and `count()` function in much the same way
 
 A method that is a bit more tricky to understand is the `describe()` method. This method provides a range of statistics about the `DataFrame` depending on the contents. For example if we were to run `describe()` on the previously mentioned `DataFrame` called `df` using the code bit below. 
 
-> ## Single Column (`Series`) Methods
->
-> By default the `describe()` method will only use numeric columns. To tell it to use all columns regardless of whether they are numeric or not we have to set `include='all'`-
->
->
-{: .callout}
+## Single Column (`Series`) Methods
+
+By default the `describe()` method will only use numeric columns. To tell it to use all columns regardless of whether they are numeric or not we have to set `include='all'`-
+
 
 <div class="alert alert-secondary" role="alert" markdown="1">
 
@@ -297,13 +312,23 @@ std     0.229827                  NaN
 
 </div>
 
-Here we get statistics regarding e.g. the mean of each column, how many non-NaN values are found in the columns, the standard deviation of the column, etc. The percent values correspond to the different percentiles of each column e.g. the 25% percentile. The NaN values are since we can't get e.g. the `mean()` of an `object` type column. More information about the `describe()` method can be found on the Pandas website ([Link to `describe()` method docs](https://pandas.pydata.org/pandas-docs/stable/reference/api/pandas.DataFrame.describe.html)).
+Here we get statistics regarding e.g. the mean of each column, how many non-NaN values are found in the columns, the standard deviation of the column, etc. The percent values correspond to the different percentiles of each column e.g. the 25% percentile. The NaN values are since we can't get e.g. the `mean()` of an `object` type column. 
+
+
+<div class="alert alert-info" role="alert" markdown="1">
+<i class="fa-solid fa-circle-info fa-xl"></i> **For more information**
+<hr/>
+
+More information about the `describe()` method can be found on the Pandas website ([Link to `describe()` method docs](https://pandas.pydata.org/pandas-docs/stable/reference/api/pandas.DataFrame.describe.html)).
+
+</div>
+
 
 ## `DataFrame` Arithmetic
 
 There may also come a time where we might want to do arithmetic between two different `DataFrame` columns or rows. Luckily, Pandas helps make this very simple. For example if had two `DataFrame`s like the ones below and we wanted to add the 'AA' columns together we would simply use the following code bit:
 
-{% include figure.html url="" max-width="40%" file="/morea/data-wrangling/fig/E5_3_alignment_arithmetic_columns.jpg" alt="Alignment Arithmetic Columns" caption="" %}
+{% include figure.html url="" max-width="60%" file="/morea/data-wrangling/fig/E5_3_alignment_arithmetic_columns.jpg" alt="Alignment Arithmetic Columns" caption="" %}
 
 <div class="alert alert-secondary" role="alert" markdown="1">
 
@@ -317,7 +342,7 @@ df_1["AA"] + df_2["AA"]
 
 To calculate this Pandas will first align the two columns (`Series`) based on their indexes. Following this any indexes that contain values in both `Series` will have their sum calculated. However, for indexes where one of the `Series` value is NaN the output value will be NaN. A diagram of this process is shown below:
 
-{% include figure.html url="" max-width="40%" file="/morea/data-wrangling/fig/E5_4_alignment_arithmetic_method.png" alt="Alignment Arithmetic Method" caption="" %}
+{% include figure.html url="" max-width="60%" file="/morea/data-wrangling/fig/E5_4_alignment_arithmetic_method.png" alt="Alignment Arithmetic Method" caption="" %}
 
 
 In our notebook we would get a `Series` as our output:
@@ -337,14 +362,12 @@ Name: AA, dtype: float64
 
 </div>
 
-> ## `DataFrame` Row Arithmetic
->
-> Calculating the sum of different rows is pretty similar to column-wise calculations. The key difference is that you must used a method of selecting rows e.g. `.loc` an example figure is shown below.
->
-{% include figure.html url="" max-width="40%" file="/morea/data-wrangling/fig/E5_5_alignment_arithmetic_row.png" alt="Alignment Arithmetic Row" caption="" %}
+## `DataFrame` Row Arithmetic
 
->
-{: .callout}
+Calculating the sum of different rows is pretty similar to column-wise calculations. The key difference is that you must used a method of selecting rows e.g. `.loc` an example figure is shown below.
+
+{% include figure.html url="" max-width="60%" file="/morea/data-wrangling/fig/E5_5_alignment_arithmetic_row.png" alt="Alignment Arithmetic Row" caption="" %}
+
 
 Beyond just individual columns or rows you can also apply the same method to do arithmetic between two entire `DataFrame`s. The only thing that changes is that both the column and the index must be found in a in order for there to be an output. You can imagine that doing arithmetic between two entire `DataFrame`'s functions in much the same way if you did it column by column and then turned all the resulting column `Series` into a new `DataFrame`.
 
@@ -374,23 +397,17 @@ Name: AA, dtype: float64
 
 Here you essentially just add 0.3 to each entry in the `Series`. The same occurs if you were to do it for a whole `DataFrame` with 0.3 being added to each entry. **Note:** this only works for `DataFrame`s that are entirely numeric, if there are any object columns you will get an error message.
 
-## Key Points
 
-<div class="alert alert-success" role="alert" markdown="1">
-
-* "Using `.dtypes` to get the types of each column in a `DataFrame`"
-* "To get general statistics on the DataFrame you can use the `describe` method"
-* "You can add a constant to a numeric column by using the `column + constant`"
+<div class="alert alert-success mt-3" role="alert" markdown="1">
+<i class="fa-solid fa-globe fa-xl"></i> **Key Points**
+<hr/>
+* Use `.dtypes` to get the types of each column in a `DataFrame`.
+* To get general statistics on the DataFrame you can use the `describe` method.
+* You can add a constant to a numeric column by using the `column + constant`.
 </div>
 
-## Acknowledgements
-
-Material used and modified from the [Introduction to Data Wrangling with Computational Notebooks workshop](https://ci-tracs.github.io/Data_Wrangling_with_Computational_Notebooks/).
-
-<hr/>
-For comparison purposes, here's the [Software Carpentry version of this page](https://ci-tracs.github.io/Data_Wrangling_with_Computational_Notebooks/05-dataframe-analysis/index.html)
 
 {% include next-button.html 
-           top-label="Real Example Cleanup->" 
+           top-label="6. Real Example Cleanup->" 
            bottom-label="3:10pm" 
            url="/morea/data-wrangling/experience-real-example-cleanup.html" %}
