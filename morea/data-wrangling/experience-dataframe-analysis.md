@@ -406,6 +406,12 @@ Here you essentially just add 0.3 to each entry in the `Series`. The same occurs
 * You can add a constant to a numeric column by using the `column + constant`.
 </div>
 
+<div class="alert alert-warning" role="alert" markdown="1">
+<i class="fa-solid fa-circle-info fa-xl"></i> **Bio Break!**
+<hr/>
+
+Let's take a brief break to stretch before moving on to the next page.  See you in a few minutes.
+</div>
 
 {% include next-button.html 
            top-label="6. Real Example Cleanup->" 
