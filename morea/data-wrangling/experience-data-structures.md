@@ -303,13 +303,6 @@ The resulting `DataFrame` should have 10 rows, 14 columns, and `NaN` values repl
 </details>
 </div>
 
-## Acknowledgements
-
-Material used and modified from the [Introduction to Data Wrangling with Computational Notebooks workshop](https://ci-tracs.github.io/Data_Wrangling_with_Computational_Notebooks/).
-
-<hr/>
-For comparison purposes, here's the [Software Carpentry version of this page](https://ci-tracs.github.io/Data_Wrangling_with_Computational_Notebooks/03-data-structures/index.html)
-
 {% include next-button.html 
            top-label="Dataframe Wrangling ->" 
            bottom-label="2:40pm" 
