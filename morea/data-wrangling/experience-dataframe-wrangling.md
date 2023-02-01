@@ -277,71 +277,6 @@ It might seem strange that we don't need to use `.loc` or `.iloc` despite the fa
 
 From previous Pandas Data Wrangling workshop ([Link to Github](https://github.com/hawaiidatascience/pandas_data_wrangling/blob/master/4_Subsetting_and_Sorting.ipynb)).
 
-### Between Different `DataFrame`s
-
-There will be some cases where you might want to compare different `DataFrame`s with one another. This is very straight forward using an approach similar to the one we used for a single `DataFrame`.
-
-To demonstrate this we will reuse the `DataFrame` used in the previous example alongside a new one called `df2` with same columns as `df` but new row entries. The structure of `df2` is shown below.
-
-{% include figure.html url="" max-width="60%" file="/morea/data-wrangling/fig/E4_3_comparison_dataframe.png" alt="Comparison DataFrame" caption="" %}
-
-
-As an example lets say that we wanted to compare each sample in `df` with the equivalent sample in `df2` (based on their row index value) and find those where the `df` sample's oxygen concentration `coxy umol/kg` is less than `df2`. To do this we start by comparing the two `DataFrame`.
-
-<div class="alert alert-secondary" role="alert" markdown="1">
-
-###### Python
-
-~~~python
-df.loc[:, "coxy umol/kg"] < df2.loc[:, "coxy umol/kg"]
-~~~
-
-Below you can see the output of the code.
-
-###### Output
-
-~~~
-Sample ID
-Sample-1    False
-Sample-2     True
-Sample-3     True
-Sample-4     True
-Sample-5    False
-Sample-6     True
-Sample-7     True
-Sample-8     True
-Name: coxy umol/kg, dtype: bool
-~~~
-
-</div>
-
-So we can see that there are two samples, Sample-1 and Sample-5, where the oxygen concentration is smaller for `df` compared to `df2`. If we inspect both `DataFrame`s we can easily see that this is the case for Sample-5. However, in the case for Sample-1 it is less clear since we don't have a comparison between two numeric values and instead `NaN < 216.6`. When it comes to comparisons between `NaN` values and numeric values by default it will always return `False`. If we were to instead check for samples where `df` has a greater oxygen concentration we would run into the same result for Sample-1 i.e. the result would be `False`
-
-<div class="alert alert-secondary" role="alert" markdown="1">
-
-###### Python
-
-~~~python
-df.loc[:, "coxy umol/kg"] > df2.loc[:, "coxy umol/kg"]
-~~~
-
-###### Output
-
-~~~
-Sample ID
-Sample-1    False
-Sample-2    False
-Sample-3    False
-Sample-4    False
-Sample-5     True
-Sample-6    False
-Sample-7    False
-Sample-8    False
-Name: coxy umol/kg, dtype: bool
-~~~
-
-</div>
-
 ## Column Specification
 
 If you do not specify a column to compare and instead do e.g. `df.loc[:] < df2.loc[:]` you will get a comparison of every column and a `DataFrame` containing those values as an output:
@@ -440,6 +375,43 @@ Sample-1         40610       239.8      18.9625      35.0636           NaN  7.95
 * Select columns by using `[\"column name\"]` or rows by using the `loc` attribute.
 * Sort based on values in a column by using the `sort_values` method.
 </div>
+
+<div class="alert alert-secondary" role="alert" markdown="1">
+<i class="fa-solid fa-user-pen fa-xl"></i>  **Exercise: Subsetting a Data Set**
+<hr/>
+
+Try it yourself! Going back to our `20_sales_records.xlsx` file, idenitfy which orders are `Online` and `High Priority`
+
+* Read the first couple rows to get a sense of the data. Which column reflects `Online` or `Offline` Status.
+* A `High Priority` order is denoted by `H` in one of the columns. Identify which column.
+* HINT: Use the loc method
+
+<details>
+  <summary>Solution</summary>
+
+ First, we read in the first few lines of our data set to identify which columns we want to filter on. We want `Online` orders of `High Priority`
+  
+  <pre>
+  df = pd.read_excel('data/20_sales_records.xlsx', nrows=5)
+  df
+  </pre>
+
+From the first few rows of data, we see that the column "Sales Channel" describes online/offline status and "Order Priority" describes order priority.
+
+So we use loc along with a combination of conditionals to subset our DataFrame for rows with "Online" entries of "Sales Channel" and "H" level "Order Priority".
+
+  <pre>
+  df.loc[(df['Sales Channel'] == 'Online') & (df['Order Priority'] == 'H')]
+  </pre>
+
+The resulting subset should show rows 7, 9, and 10 only.
+
+
+Below shows how our subsetted `DataFrame` now looks:
+{% include figure.html url="" max-width="40%" file="/morea/data-wrangling/fig/E4_5_exercise.png" alt="Output DataFrame" caption="" %}
+</details>
+</div>
+
 
 
 {% include next-button.html 

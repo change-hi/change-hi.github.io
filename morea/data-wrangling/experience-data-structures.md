@@ -68,17 +68,18 @@ When creating a `Series` Pandas will store all the data as the same type. The ma
 
 You can create `DataFrames` from either loading in a file e.g. a csv file or by converting it from a native Python data structure. However, here we will be focusing on loading data from a file and turning it into a `DataFrame`.
 
-## Creating Pandas `Series`
+## Import the Pandas Package
 
-You can also create Pandas `Series` from files or native python data structures ([Link to more info](https://pandas.pydata.org/pandas-docs/stable/user_guide/dsintro.html)).
-
-
-Before we can load in data from a file we need to load the `pandas` package. Pandas is often imported alongside `as pd` to reduce the amount of characters needed to use the different methods within it.
+Before we can load in data from a file we need to load the pandas package. Pandas is often imported with the shortcut, or alias, `pd` to reduce the amount of characters needed to use the different methods within it.
 
 <div class="alert alert-secondary" role="alert" markdown="1">
-```python
+
+###### Python
+
+~~~python
 import pandas as pd
-```
+~~~
+
 </div>
 
 ### Loading and Parsing Data
@@ -171,19 +172,19 @@ df.shape # Returns the number of rows and columns of the DataFrame 'df' (rows, c
 ###### Output
 
 ~~~
-(3, 7)
+(5, 7)
 ~~~
 
 </div>
 
-We see that the `DataFrame` `df`, that we saved the data in, has a shape attribute of `(3, 7)`. This means that there are 3 rows (since we set `nrows=3`) and 7 columns (all the columns of the dataset).
+We see that the `DataFrame` `df`, that we saved the data in, has a shape attribute of `(5, 7)`. This means that there are 5 rows (since we set `nrows=5`) and 7 columns (all the columns of the dataset).
 
 ## Headers and Indexes
 
+<div class="alert alert-secondary" role="alert" markdown="1">
 
 When we loaded the previous datasets `read_csv()` assumed that the first row in our .csv file contained headers for each of the columns. If we want to load in a dataset that does not contain a header row we can tell `read_csv()` that there is no header by setting `header=None`.
 
-<div class="alert alert-secondary" role="alert" markdown="1">
 ###### Python
 
 ~~~python
@@ -263,17 +264,53 @@ Now that we are familiar with the reading mechanisms that Pandas has implemented
 ~~~Python
 df.to_csv('data/new_file.csv')
 ~~~
+
 </div>
 
-<div class="alert alert-success mt-3" role="alert" markdown="1">
-<i class="fa-solid fa-globe fa-xl"></i> **Key Points**
+## Key Points
+
+<div class="alert alert-success" role="alert" markdown="1">
+
+* "Pandas provides numerous attributes and methods that are useful for wrangling and analyzing data"
+* "Pandas contains numerous methods to help load/write data to/from files of different types"
+</div>
+
+<div class="alert alert-secondary" role="alert" markdown="1">
+<i class="fa-solid fa-user-pen fa-xl"></i>  **Exercise: Loading An Excel File**
 <hr/>
-* Pandas provides numerous attributes and methods that are useful for wrangling and analyzing data.
-* Pandas contains numerous methods to help load/write data to/from files of different types.
+
+Try it yourself! Load the first 10 lines of the excel file '20_sales_records.xlsx' into a variable and then display your DataFrame. Identify the number of rows and columns of your resulting DataFrame.
+
+* The file is located in the `data` folder.
+* Use the `read_excel` command along with the argument you learned to parse a specified number of rows.
+* This file has `NaN` values that are not automatically detected. They are labeled as `'none'`. Have Pandas interpret these as `NaN` values upon loading of the dataset.
+* Display the results.
+* Identify the number of rows and columns of your resulting DataFrame.
+
+<details>
+  <summary>Solution</summary>
+
+  '20_sales_records.xlsx' is an excel file containing 20 rows of data, but we only want Pandas to parse the first 10 rows. In addition, we want to interpret exisitng 'none' values as `NaN` values. This can all be accomplished with the following line of code:
+  
+  <pre>
+    sales_df = pd.read_excel('data/20_sales_records.xlsx', nrows=10, na_values='none')  
+  </pre>
+
+Below shows how our `DataFrame` now looks:
+{% include figure.html url="" max-width="40%" file="/morea/data-wrangling/fig/E3_7_exercise.png" alt="Output DataFrame" caption="" %}
+
+The resulting `DataFrame` should have 10 rows, 14 columns, and `NaN` values replacing the 'none' values.
+</details>
 </div>
 
+## Acknowledgements
+
+Material used and modified from the [Introduction to Data Wrangling with Computational Notebooks workshop](https://ci-tracs.github.io/Data_Wrangling_with_Computational_Notebooks/).
+
+<hr/>
+For comparison purposes, here's the [Software Carpentry version of this page](https://ci-tracs.github.io/Data_Wrangling_with_Computational_Notebooks/03-data-structures/index.html)
 
 {% include next-button.html 
-           top-label="4. Wrangling DataFrames ->" 
+           top-label="Dataframe Wrangling ->" 
            bottom-label="2:40pm" 
            url="/morea/data-wrangling/experience-dataframe-wrangling.html" %}

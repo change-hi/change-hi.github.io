@@ -285,7 +285,7 @@ While we have been focusing on temperature there is no reason that we can't redo
 <i class="fa-solid fa-user-pen fa-xl"></i>  **Exercise: Plotting Monthly Surface Temperature**
 <hr/>
 
-To test this we will try plotting the abundance of Prochlorococcus, Synechococcus, and heterotrophic bacter
+To test this we will try plotting the abundance of Prochlorococcus, Synechococcus, and heterotrophic bacter.
 
 <div class="alert alert-secondary" role="alert" markdown="1">
 
