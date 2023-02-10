@@ -4,13 +4,14 @@ published: true
 morea_coming_soon: false
 morea_id: data-viz
 morea_outcomes:
-#   - outcome-data-wrangling
+#   - outcome-data-visualization
 morea_readings:
-#   - reading-data-wrangling-setup
+#   - reading-data-visualization-setup
 morea_experiences:
-  - plotly
+  - experience-plotly-tutorial
+  - experience-paraview-tutorial
 morea_assessments:
-#   - assessment-data-wrangling-workshop
+#   - assessment-data-visualization-workshop
 morea_prerequisites:
 morea_type: module
 morea_icon_url: /morea/data-visualization/logo.jpg
