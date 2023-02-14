@@ -4,11 +4,17 @@ published: true
 morea_coming_soon: false
 morea_id: machine-learning-climate-science
 morea_outcomes:
+  - outcome-ml
 morea_readings:
   - reading-screencast-workshop-machine-learning-s22
+  - reading-ml-preparation
 morea_experiences:
+  - experience-ml-intro
+  - experience-ml-sklearn
+  - experience-ml-pytorch
 morea_assessments:
 morea_prerequisites:
+  - prerequisite-python-jupyter
 morea_type: module
 morea_icon_url: /morea/machine-learning/logo.png
 morea_labels:
@@ -16,4 +22,5 @@ morea_labels:
 morea_sort_order: 80
 ---
 
-(Module not yet available)
+A climate-themed tutorial on machine learning methods.
+
