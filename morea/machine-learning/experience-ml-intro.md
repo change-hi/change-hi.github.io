@@ -1,9 +1,9 @@
 ---
-title: "5. Deep learning CPU vs GPU"
+title: "1. Machine Learning"
 published: true
-morea_id: experience-hpc-deep-learning
+morea_id: experience-ml-intro
 morea_type: experience
-morea_summary: "A basic Deep Learning tutorial on Mana "
+morea_summary: "A basic machine learning tutorial on Mana "
 morea_sort_order: 6
 morea_labels:
   - 3:00pm
