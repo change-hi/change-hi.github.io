@@ -18,9 +18,9 @@ morea_prerequisites:
 morea_type: module
 morea_icon_url: /morea/machine-learning/logo.png
 morea_labels:
-- Workshop
+  - Workshop
+  - Friday, February 17, 2023
 morea_sort_order: 80
 ---
 
 A climate-themed tutorial on machine learning methods.
-
