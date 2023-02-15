@@ -10,6 +10,7 @@ morea_readings:
 morea_experiences:
   - experience-plotly-tutorial
   - experience-paraview-tutorial
+  - experience-tableau-tutorial
 morea_assessments:
 #   - assessment-data-visualization-workshop
 morea_prerequisites:
