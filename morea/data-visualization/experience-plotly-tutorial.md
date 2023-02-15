@@ -1,5 +1,5 @@
 ---
-title: "1. Plotly Tutorial"
+title: "2. Plotly Tutorial"
 published: true
 morea_id: experience-plotly-tutorial
 morea_type: experience
@@ -10,7 +10,7 @@ morea_labels:
 morea_enable_toc: true
 ---
 
-# 1. Plotly Tutorial
+# 2. Plotly Tutorial
 
 <div class="alert alert-info mt-3" role="alert" markdown="1">
 <i class="fa-solid fa-globe fa-xl"></i> **Overview**

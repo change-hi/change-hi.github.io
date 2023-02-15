@@ -8,6 +8,7 @@ morea_outcomes:
 morea_readings:
 #   - reading-data-visualization-setup
 morea_experiences:
+  - experience-introduction
   - experience-plotly-tutorial
   - experience-paraview-tutorial
   - experience-tableau-tutorial
