@@ -6,7 +6,6 @@ morea_id: machine-learning-climate-science
 morea_outcomes:
   - outcome-ml
 morea_readings:
-  - reading-screencast-workshop-machine-learning-s22
   - reading-ml-preparation
 morea_experiences:
   - experience-ml-intro
