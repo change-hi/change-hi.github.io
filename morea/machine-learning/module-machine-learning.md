@@ -8,9 +8,9 @@ morea_outcomes:
 morea_readings:
   - reading-ml-preparation
 morea_experiences:
-  - experience-ml-intro
   - experience-ml-sklearn
   - experience-ml-pytorch
+  - experience-ml-nlp-example
 morea_assessments:
   - assessment-machine-learning-workshop
 morea_prerequisites:
