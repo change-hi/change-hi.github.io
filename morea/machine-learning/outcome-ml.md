@@ -6,4 +6,5 @@ morea_type: outcome
 morea_sort_order: 20
 ---
 * How to build a machine learning classifier using Scikit-learn
-* How to build a deep learning model in Pytorch
+* How to build a neural network model in Pytorch for timeseries
+* How to use a pretrained large language model for NLP.

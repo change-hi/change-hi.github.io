@@ -1,12 +1,12 @@
 ---
-title: "2. Decision Trees with Scikit-Learn"
+title: "1. Scikit-Learn"
 published: true
 morea_id: experience-ml-sklearn
 morea_type: experience
-morea_summary: "A basic Scikit-learn tutorial"
-morea_sort_order: 6
+morea_summary: "A basic Scikit-learn tutorial using Gaussian Processes to model CO2 levels on Mauna Loa"
+morea_sort_order: 10
 morea_labels:
-  - 3:00pm
+  - 2:00pm
 morea_enable_toc: true
 ---
 
@@ -268,6 +268,6 @@ License: BSD 3 clause
 
 
 {% include next-button.html 
-           top-label="Staging and File System Choice ->" 
-           bottom-label="3:20pm" 
-           url="/morea/hpc/experience-hpc-file-systems.html" %}
+           top-label="Pytorch ->" 
+           bottom-label="2:40pm" 
+           url="/morea/machine-learning/experience-ml-pytorch.html" %}
