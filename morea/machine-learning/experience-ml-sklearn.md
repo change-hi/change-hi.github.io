@@ -6,7 +6,7 @@ morea_type: experience
 morea_summary: "A basic Scikit-learn tutorial"
 morea_sort_order: 6
 morea_labels:
-  - 3:00pm
+  - 2:30pm
 morea_enable_toc: true
 ---
 
@@ -15,21 +15,21 @@ morea_enable_toc: true
 <hr/>
 
 **Questions**
-* How can we model high-dimensional data with deep learning?
+* How can we model environmental data with decision trees?
 
 **Objectives**
-* Understand how to train a neural network in Pytorch
+* Understand how to fit decision trees in SciKit-Learn
 </div>
 
-<div class="alert alert-info" role="warning" markdown="1">
+<!-- <div class="alert alert-info" role="warning" markdown="1">
 <i class="fa-solid fa-circle-info fa-xl"></i> **Jupyter Lab Binder**
 <hr/>
 **Note:** Click [here](https://mybinder.org/v2/gh/scikit-learn/scikit-learn/1.2.X?urlpath=lab/tree/notebooks/auto_examples/gaussian_process/plot_gpr_co2.ipynb) to download the full example code or to run this example in your browser via Binder
-</div>
+</div> -->
 
 # Gaussian process regression (GPR) on Mauna Loa CO2 data
 
-This example is based on [Section 5.4.3 of SciKitLearn's “Gaussian Processes for Machine Learning”](https://scikit-learn.org/stable/modules/gaussian_process.html#rw2006). It illustrates an example of complex kernel engineering and hyperparameter optimization using gradient ascent on the log-marginal-likelihood. The data consists of the monthly average atmospheric CO2 concentrations (in parts per million by volume (ppm)) collected at the Mauna Loa Observatory in Hawaii, between 1958 and 2001. The objective is to model the CO2 concentration as a function of the time *t* and extrapolate for years after 2001.
+This example uses data that consists of the monthly average atmospheric CO2 concentrations (in parts per million by volume (ppm)) collected at the Mauna Loa Observatory in Hawaii, between 1958 and 2001. The objective is to model the CO2 concentration as a function of the time *t* and extrapolate for years after 2001.
 
 
 ### Build the dataset
@@ -257,17 +257,26 @@ Thus, most of the target signal, with the mean subtracted, is explained by a lon
 <i class="fa-solid fa-circle-info fa-xl"></i> **For more information**
 <hr/>
 
-This chapter used and modified material from [Gaussian process regression (GPR) on Mauna Loa CO2 data](https://scikit-learn.org/stable/auto_examples/gaussian_process/plot_gpr_co2.html).
+### Attribution: 
+This workshop was modified from the following:
+
+[Gaussian process regression (GPR) on Mauna Loa CO2 data](https://scikit-learn.org/stable/auto_examples/gaussian_process/plot_gpr_co2.html)
+
+[Rasmussen, Carl Edward.
+   "Gaussian processes in machine learning."
+   Summer school on machine learning. Springer, Berlin, Heidelberg, 2003](http://www.gaussianprocess.org/gpml/chapters/RW.pdf).
 
 Authors: 
 - Jan Hendrik Metzen <jhm@informatik.uni-bremen.de>
 - Guillaume Lemaitre <g.lemaitre58@gmail.com>
 
 License: BSD 3 clause
+
+[SciKit-Learn Decision Tree Regression tutorial](https://scikit-learn.org/stable/auto_examples/tree/plot_tree_regression.html)
 </div>
 
 
 {% include next-button.html 
-           top-label="Staging and File System Choice ->" 
-           bottom-label="3:20pm" 
-           url="/morea/hpc/experience-hpc-file-systems.html" %}
+           top-label="Pytorch ->" 
+           bottom-label="3:00pm" 
+           url="/morea/machine-learning/experience-ml-pytorch.html" %}

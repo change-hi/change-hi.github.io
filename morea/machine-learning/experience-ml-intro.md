@@ -405,6 +405,6 @@ Why would you need an HPC cluster over your personal computer?
 
 
 {% include next-button.html 
-           top-label="Staging and File System Choice ->" 
-           bottom-label="3:20pm" 
-           url="/morea/hpc/experience-hpc-file-systems.html" %}
+           top-label="SciKit-Learn ->" 
+           bottom-label="2:30pm" 
+           url="/morea/machine-learning/experience-ml-sklearn.html" %}

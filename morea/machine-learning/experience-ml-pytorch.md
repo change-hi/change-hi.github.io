@@ -49,6 +49,6 @@ CIFAR-10 is a common dataset used for machine learning and computer vision resea
 
 
 {% include next-button.html 
-           top-label="Staging and File System Choice ->" 
-           bottom-label="3:20pm" 
-           url="/morea/hpc/experience-hpc-file-systems.html" %}
+           top-label="Assessment ->" 
+           bottom-label="3:50pm" 
+           url="/morea/machine-learning/assessment-machine-learning-workshop.html" %}
