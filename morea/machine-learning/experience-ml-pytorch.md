@@ -1,12 +1,12 @@
 ---
-title: "5. Pytorch"
+title: "2. Pytorch"
 published: true
 morea_id: experience-ml-pytorch
 morea_type: experience
-morea_summary: "Pytorch Tutorial"
-morea_sort_order: 6
+morea_summary: "Pytorch tutorial for timeseries prediction of solar irradiance in Manoa Valley"
+morea_sort_order: 20
 morea_labels:
-  - 3:00pm
+  - 2:40pm
 morea_enable_toc: true
 ---
 
@@ -28,11 +28,12 @@ morea_enable_toc: true
 
 This is a time series prediction tutorial using Pytorch. Pytorch is an open source software used in machine learning particularly for training neural networks. This tutorial will use a Pytorch recurrent neural network model to step through the basic workflow of a machine learning project:
 
-1. Pre-process the data
-2. Define a model
-3. Train the model
-4. Evaluate/test the model
-5. Improve your model
+1. Install and import software libraries
+2. Download and preprocess data
+3. Define the training set
+4. Define a model
+5. Train the model
+6. Evaluate/test the model
 
 <div class="alert alert-info" role="alert" markdown="1">
 <i class="fa-solid fa-circle-info fa-xl"></i> **Installing Pytorch**
@@ -61,7 +62,7 @@ A subset of the data has already been downloaded for this workshop. In particula
 
 ### Import Libraries
 
-To start, import all the relevant libraries:
+To start, import all the relevant libraries. 
 
 ```python
 import numpy as np
@@ -78,7 +79,7 @@ import torch.optim as optim
 %matplotlib inline
 ```
 
-### Data Download and Preprocessing
+### Download and Preprocess Data
 
 Download the data from [this link](https://drive.google.com/file/d/1JhC1KT4M1e6DQ5oj404f19ZO4GQpis8g/view?usp=share_link). This .csv file contains three columns: a timestamp, a measurement of shortwave radiation (in Watts/meter^2) from the sun, and a measurement of rainfall (in mm). Measurements are every 15 minutes from 2018-02-23 12:30:00 to 2020-12-03 12:30:00.
 
@@ -107,6 +108,8 @@ data_normalized = scaler.fit_transform(data.reshape(-1, 1))
 data_normalized = torch.FloatTensor(data_normalized).view(-1)
 ```
 
+### Define the Training Set
+
 Training a neural network model is done by presenting sets of (input, output) example pairs. We need to specify what those examples should look like. Our inputs can be of arbitrary length, but we choose to only consider a finite length of 100 timesteps because this is approximately one day (15min * 4 * 24 hrs/day = 1 day). 
 
 ```python
@@ -124,13 +127,26 @@ train_window = 100
 in_out_data = create_in_out_pairs(data_normalized, train_window)
 ```
 
-In order 
+We select a small sample of the total dataset as our training set, leaving some examples for evaluating the model. 
 
 ```python
 train_in_out_data = in_out_data[100:1000:10]
 ```
 
-The model is constructed using pytorch. 
+<div class="alert alert-info" role="alert" markdown="1">
+<i class="fa-solid fa-circle-info fa-xl"></i> **Creating Train/Test Splits**
+<hr/>
+In machine learning, it is critical to split the data into "training" and "test" sets. The training set is used to train the model, while the test set is used to evaluate the model. Machine learning models tend to memorize the training data, so the training error always goes to zero --- the only way to know if the model __generalizes__ to new data is by evaluating the performance on the test set, a method known as __cross-validation__.
+
+In timeseries data, there is a danger of __information leakage__ where the training set is highly correlated to the test set (even if the exact examples are different). Thus, it is common use __chrono-cross-validation__, where the training data consists of examples before a certain time T, while the test set consists of examples after time T.
+</div>
+
+
+### Defining the Model
+
+A Long-Short Term Memory (LSTM) neural network is a particular neural network architecture adept at processing sequence data. Because of their recurrent structure, they can take input sequences of arbitrary length (though in practice we limit the length due to computational constraints). See this [blog post](http://karpathy.github.io/2015/05/21/rnn-effectiveness/) for a good introduction to recurrent neural networks (RNNs).
+
+Pytorch provides a convenient way to define a complex model in a couple lines of code.
 
 ```python
 class LSTM(nn.Module):
@@ -151,13 +167,25 @@ class LSTM(nn.Module):
         return predictions[-1]
     
 model = LSTM(input_size=1, hidden_layer_size=10, output_size=1)
-loss_function = nn.MSELoss()
-optimizer = torch.optim.Adam(model.parameters(), lr=0.001)
 ```
 
-Training the model is an iterative process.
+We now have a Pytorch neural network model that takes in a sequence of values, and outputs a prediction (a single scalar). The model parameters have been initialized randomly, so the predictions are random. Now we need to train the model using our dataset. 
+
+<div class="alert alert-info" role="alert" markdown="1">
+<i class="fa-solid fa-circle-info fa-xl"></i> **Designing a neural network architecture**
+<hr/>
+The neural network architecture can have a large impact on performance. The __inductive bias__ of a model refers to the set of assumptions and prior beliefs that are inherent in this choice. All machine learning models have inductive bias. This is not a bad thing, but it means some models are more appropriate for some problems than others. This is formalized in what is known as [The No Free Lunch Theorem](https://en.wikipedia.org/wiki/No_free_lunch_theorem).
+
+Experienced practicioners know which architectures tend to work best for certain types of problems. Bigger models usually work better, but are slower because of computational constraints. In practice, it is common to try lots of different models and perform __model selection__ to pick the best based on how well the model performs on a test set.
+</div>
+
+### Training the Model
+
+Training the model is an iterative process. Starting from randomly initialized parameters, we iterate through the training examples, make predictions, and update the weight parameters to minimize the __loss function__. In this case, we use the mean squared error (MSE) loss. We keep track of the average loss over the training set, and report it every time we iterate through the training dataset --- each iteration through the training set is called an __epoch__.
 
 ```python
+loss_function = nn.MSELoss()
+optimizer = torch.optim.Adam(model.parameters(), lr=0.001)
 epochs = 20
 
 for i in range(epochs):
@@ -178,16 +206,61 @@ for i in range(epochs):
 print(f'epoch: {i:3} loss: {single_loss.item():10.10f}')
 ```
 
+<details>
+  <summary>Solution</summary>
 
-```python
+<pre>
+epoch:   0 loss: 0.04469438
+epoch:   1 loss: 0.04004482
+epoch:   2 loss: 0.03381182
+epoch:   3 loss: 0.02361814
+epoch:   4 loss: 0.01961462
+epoch:   5 loss: 0.01725977
+epoch:   6 loss: 0.01528491
+epoch:   7 loss: 0.01404397
+epoch:   8 loss: 0.01311346
+epoch:   9 loss: 0.01235864
+epoch:  10 loss: 0.01172257
+epoch:  11 loss: 0.01118899
+epoch:  12 loss: 0.01075610
+epoch:  13 loss: 0.01042009
+epoch:  14 loss: 0.01016921
+epoch:  15 loss: 0.00998601
+epoch:  16 loss: 0.00985228
+epoch:  17 loss: 0.00975257
+epoch:  18 loss: 0.00967518
+epoch:  19 loss: 0.00961193
+epoch:  19 loss: 0.0096119326
+</pre>
 
-test_inputs = data_normalized[-train_window:].tolist()
-print(test_inputs)
-```
+</details>
+
+
+<div class="alert alert-info" role="alert" markdown="1">
+<i class="fa-solid fa-circle-info fa-xl"></i> **How do I know if it's working?**
+<hr/>
+Training a neural network is notoriously difficult. The problem is that we are performing __stochastic gradient descent__ optimization on a very non-convex function. You should look to see that the loss function decreases during the first few epochs, indicating that the model is improving. If it doesn't, try decreasing the learning rate. If that doesn't help, then you have a bug or the model is not appropriate for your problem.
+</div>
+
+<div class="alert alert-info" role="alert" markdown="1">
+<i class="fa-solid fa-circle-info fa-xl"></i> **How long do I train?**
+<hr/>
+It is hard to know when to stop training, because even when the model seems to have converged, it might suddenly have "a revelation" that allows it to explain the training data perfectly. To build your intuition, we highly recommend playing with the toy neural networks in [Tensorflow Playground](https://playground.tensorflow.org/).
+
+In practice, we train until we run out of patience or when we start overfitting to a held out test set (known as __early stopping__). 
+</div>
+
+
+### Evaluating the Model
+
+Typically we will evaluate the model on a clean, held-out test set that has not been used for training. Evaluation is done by comparing the test set predictions with ground truth labels and computing metrics such as the MSE. Here, we simply demonstrate predictions and visualize them.
 
 The model should be set to eval mode, then we can pass in some test input sequence to get a prediction for the next value. Iteratively passing in the previous input gives a predicted sequence.
 
 ```python
+test_inputs = data_normalized[-train_window:].tolist()
+print(test_inputs)
+
 model.eval()
 
 fut_pred = 12  # Number of predictions to make.
@@ -202,7 +275,7 @@ for i in range(fut_pred):
 actual_predictions = scaler.inverse_transform(np.array(test_inputs[train_window:] ).reshape(-1, 1))
 ```
 
-We can plot the observed and predicted values. 
+We can plot the observed and predicted values. Pandas datetimes can be used to label the x-axis.
 
 ```
 plt.title('')
@@ -218,11 +291,15 @@ plt.legend()
 plt.show()
 ```
 
+<div class="alert alert-info" role="alert" markdown="1">
+<i class="fa-solid fa-circle-info fa-xl"></i> **Improving the model**
+<hr/>
+If we want to improve the model, the first thing to ask ourselves is whether we are __underfitting__ or __overfitting__. If we are not overfitting, then we are underfitting and we should increase the size of the model and train longer. If we are overfitting, then we should add regularization or get more training data. 
+</div>
 
 </div>
 
-
 {% include next-button.html 
-           top-label="Staging and File System Choice ->" 
-           bottom-label="3:20pm" 
-           url="/morea/hpc/experience-hpc-file-systems.html" %}
+           top-label="NLP Example ->" 
+           bottom-label="3:30pm" 
+           url="/morea/machine-learning/experience-ml-nlp-example.html" %}
