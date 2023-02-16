@@ -15,21 +15,21 @@ morea_enable_toc: true
 <hr/>
 
 **Questions**
-* How can we model high-dimensional data with deep learning?
+* How can we model environmental data with decision trees?
 
 **Objectives**
-* Understand how to train a neural network in Pytorch
+* Understand how to fit decision trees in SciKit-Learn
 </div>
 
-<div class="alert alert-info" role="warning" markdown="1">
+<!-- <div class="alert alert-info" role="warning" markdown="1">
 <i class="fa-solid fa-circle-info fa-xl"></i> **Jupyter Lab Binder**
 <hr/>
 **Note:** Click [here](https://mybinder.org/v2/gh/scikit-learn/scikit-learn/1.2.X?urlpath=lab/tree/notebooks/auto_examples/gaussian_process/plot_gpr_co2.ipynb) to download the full example code or to run this example in your browser via Binder
-</div>
+</div> -->
 
 # Gaussian process regression (GPR) on Mauna Loa CO2 data
 
-This example is based on [Section 5.4.3 of SciKitLearn's “Gaussian Processes for Machine Learning”](https://scikit-learn.org/stable/modules/gaussian_process.html#rw2006). It illustrates an example of complex kernel engineering and hyperparameter optimization using gradient ascent on the log-marginal-likelihood. The data consists of the monthly average atmospheric CO2 concentrations (in parts per million by volume (ppm)) collected at the Mauna Loa Observatory in Hawaii, between 1958 and 2001. The objective is to model the CO2 concentration as a function of the time *t* and extrapolate for years after 2001.
+This example uses data that consists of the monthly average atmospheric CO2 concentrations (in parts per million by volume (ppm)) collected at the Mauna Loa Observatory in Hawaii, between 1958 and 2001. The objective is to model the CO2 concentration as a function of the time *t*.
 
 
 ### Build the dataset
@@ -76,6 +76,7 @@ plt.ylabel("CO$_2$ concentration (ppm)")
 _ = plt.title("Raw air samples measurements from the Mauna Loa Observatory")
 ~~~
 </div>
+{% include figure.html url="" max-width="60%" file="morea/machine-learning/fig/co2_data.png" alt="Basic Binder Webpage" caption="" %}
 
 We will preprocess the dataset by taking a monthly average and drop month for which no measurements were collected. Such a processing will have an smoothing effect on the data.
 <div class="alert alert-secondary" role="alert" markdown="1">
@@ -89,6 +90,8 @@ _ = plt.title(
 )
 ~~~
 </div>
+{% include figure.html url="" max-width="60%" file="morea/machine-learning/fig/co2_data_smoothed.png" alt="Basic Binder Webpage" caption="" %}
+
 The idea in this example will be to predict the CO2 concentration in function of the date. We are as well interested in extrapolating for upcoming year after 2001.
 
 As a first step, we will divide the data and the target to estimate. The data being a date, we will convert it into a numeric.
@@ -100,7 +103,68 @@ y = co2_data["co2"].to_numpy()
 ~~~
 </div>
 
-### Design the proper kernel
+### Model fitting using Decision Tree Regression
+
+Decision Trees (DTs) are a non-parametric supervised learning method used for classification and regression. The goal is to create a model that predicts the value of a target variable by learning simple decision rules inferred from the data features. A tree can be seen as a piecewise constant approximation.
+
+Decision trees learn from data to approximate a function with a set of if-then-else decision rules. The deeper the tree, the more complex the decision rules and the fitter the model.
+
+<div class="alert alert-secondary" role="alert" markdown="1">
+
+~~~Python
+from sklearn import tree
+regr_1 = tree.DecisionTreeRegressor(max_depth=2)
+regr_2 = tree.DecisionTreeRegressor(max_depth=11)
+regr_1.fit(X, y)
+regr_2.fit(X, y)
+~~~
+</div>
+
+Now, we will use the the fitted models to predict on:
+
+training data to inspect the goodness of fit;
+
+future data to see the extrapolation done by the models.
+
+Thus, we create synthetic data from 1958 to the current month. 
+
+<div class="alert alert-secondary" role="alert" markdown="1">
+
+~~~Python
+import datetime
+import numpy as np
+
+today = datetime.datetime.now()
+current_month = today.year + today.month / 12
+X_test = np.linspace(start=1958, stop=current_month, num=1_000).reshape(-1, 1)
+~~~
+</div>
+<div class="alert alert-secondary" role="alert" markdown="1">
+
+~~~Python
+y_1 = regr_1.predict(X_test)
+y_2 = regr_2.predict(X_test)
+~~~
+</div>
+<div class="alert alert-secondary" role="alert" markdown="1">
+
+~~~Python
+plt.figure()
+plt.scatter(X, y, s=20, edgecolor="black", c="darkorange", label="data")
+plt.plot(X_test, y_1, color="cornflowerblue", label=f"max_depth={regr_1.max_depth}", linewidth=2)
+plt.plot(X_test, y_2, color="yellowgreen", label=f"max_depth={regr_2.max_depth}", linewidth=2)
+plt.xlabel("data")
+plt.ylabel("target")
+plt.title("Decision Tree Regression")
+plt.legend()
+plt.show()
+~~~
+</div>
+{% include figure.html url="" max-width="60%" file="morea/machine-learning/fig/co2_decision_trees.png" alt="Basic Binder Webpage" caption="" %}
+
+As you can see, the decision tree regression was able to fit data within the existing domain quite well. The criteria for decisions is intuitive and can be understood with a simple visualization. However, it has completely failed to predict any future trend outside the domain it was trained on.
+
+<!-- ### Design the proper kernel
 
 To design the kernel to use with our Gaussian process, we can make some assumption regarding the data at hand. We observe that they have several characteristics: we see a long term rising trend, a pronounced seasonal variation and some smaller irregularities. We can use different appropriate kernel that would capture these features.
 
@@ -185,23 +249,11 @@ gaussian_process.fit(X, y - y_mean)
 
 `GaussianProcessRegressor(kernel=50**2 * RBF(length_scale=50) + 2**2 * RBF(length_scale=100) * ExpSineSquared(length_scale=1, periodicity=1) + 0.5**2 * RationalQuadratic(alpha=1, length_scale=1) + 0.1**2 * RBF(length_scale=0.1) + WhiteKernel(noise_level=0.01))`
 
-Now, we will use the Gaussian process to predict on:
-
-training data to inspect the goodness of fit;
-
-future data to see the extrapolation done by the model.
-
-Thus, we create synthetic data from 1958 to the current month. In addition, we need to add the subtracted mean computed during training.
+Now, we will use the Gaussian process to predict on training data and future data.
 
 <div class="alert alert-secondary" role="alert" markdown="1">
 
 ~~~Python
-import datetime
-import numpy as np
-
-today = datetime.datetime.now()
-current_month = today.year + today.month / 12
-X_test = np.linspace(start=1958, stop=current_month, num=1_000).reshape(-1, 1)
 mean_y_pred, std_y_pred = gaussian_process.predict(X_test, return_std=True)
 mean_y_pred += y_mean
 ~~~
@@ -240,7 +292,7 @@ Out: `44.8**2 * RBF(length_scale=51.6) + 2.64**2 * RBF(length_scale=91.5) * ExpS
 
 Thus, most of the target signal, with the mean subtracted, is explained by a long-term rising trend for ~45 ppm and a length-scale of ~52 years. The periodic component has an amplitude of ~2.6ppm, a decay time of ~90 years and a length-scale of ~1.5. The long decay time indicates that we have a component very close to a seasonal periodicity. The correlated noise has an amplitude of ~0.2 ppm with a length scale of ~0.12 years and a white-noise contribution of ~0.04 ppm. Thus, the overall noise level is very small, indicating that the data can be very well explained by the model.
 
-**Total running time of the script:** ( 0 minutes 8.782 seconds)
+**Total running time of the script:** ( 0 minutes 8.782 seconds) -->
 
 <!-- Template code block
 
@@ -257,13 +309,23 @@ Thus, most of the target signal, with the mean subtracted, is explained by a lon
 <i class="fa-solid fa-circle-info fa-xl"></i> **For more information**
 <hr/>
 
-This chapter used and modified material from [Gaussian process regression (GPR) on Mauna Loa CO2 data](https://scikit-learn.org/stable/auto_examples/gaussian_process/plot_gpr_co2.html).
+### Attribution: 
+This workshop was modified from the following:
+
+[Gaussian process regression (GPR) on Mauna Loa CO2 data](https://scikit-learn.org/stable/auto_examples/gaussian_process/plot_gpr_co2.html)
+
+[Rasmussen, Carl Edward.
+   "Gaussian processes in machine learning."
+   Summer school on machine learning. Springer, Berlin, Heidelberg, 2003](http://www.gaussianprocess.org/gpml/chapters/RW.pdf).
 
 Authors: 
 - Jan Hendrik Metzen <jhm@informatik.uni-bremen.de>
 - Guillaume Lemaitre <g.lemaitre58@gmail.com>
 
 License: BSD 3 clause
+
+[SciKit-Learn Decision Tree Regression tutorial](https://scikit-learn.org/stable/auto_examples/tree/plot_tree_regression.html)
+[SciKit-Learn Decision Tree tutorial](https://scikit-learn.org/stable/modules/tree.html#decision-trees)
 </div>
 
 
