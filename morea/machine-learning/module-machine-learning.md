@@ -13,6 +13,7 @@ morea_experiences:
   - experience-ml-sklearn
   - experience-ml-pytorch
 morea_assessments:
+  - assessment-machine-learning-workshop
 morea_prerequisites:
   - prerequisite-python-jupyter
 morea_type: module

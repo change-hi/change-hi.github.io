@@ -4,7 +4,7 @@ published: true
 morea_id: assessment-machine-learning-workshop
 morea_summary: Provide feedback to the workshop organizers
 morea_outcomes_assessed:
-- outcome-data-wrangling
+- outcome-ml
 morea_type: assessment
 morea_sort_order: 12
 morea_labels:
