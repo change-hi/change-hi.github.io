@@ -27,7 +27,7 @@ morea_enable_toc: true
 **Note:** Click [here](https://mybinder.org/v2/gh/scikit-learn/scikit-learn/1.2.X?urlpath=lab/tree/notebooks/auto_examples/gaussian_process/plot_gpr_co2.ipynb) to download the full example code or to run this example in your browser via Binder
 </div> -->
 
-# Gaussian process regression (GPR) on Mauna Loa CO2 data
+# Decision Trees on Mauna Loa CO2 data
 
 This example uses data that consists of the monthly average atmospheric CO2 concentrations (in parts per million by volume (ppm)) collected at the Mauna Loa Observatory in Hawaii, between 1958 and 2001. The objective is to model the CO2 concentration as a function of the time *t*.
 
@@ -107,7 +107,10 @@ y = co2_data["co2"].to_numpy()
 
 Decision Trees (DTs) are a non-parametric supervised learning method used for classification and regression. The goal is to create a model that predicts the value of a target variable by learning simple decision rules inferred from the data features. A tree can be seen as a piecewise constant approximation.
 
-Decision trees learn from data to approximate a function with a set of if-then-else decision rules. The deeper the tree, the more complex the decision rules and the fitter the model.
+Decision trees learn from data to approximate a function with a set of if-then-else decision rules. The deeper the tree, the more complex the decision rules. Deeper trees are more powerful, but this can lead to overfitting.
+
+{% include figure.html url="" max-width="60%" file="morea/machine-learning/fig/decision_trees.jpg" alt="Basic Binder Webpage" caption="Image from https://dinhanhthi.com/decision-tree-regression/" %}
+
 
 <div class="alert alert-secondary" role="alert" markdown="1">
 
@@ -164,135 +167,145 @@ plt.show()
 
 As you can see, the decision tree regression was able to fit data within the existing domain quite well. The criteria for decisions is intuitive and can be understood with a simple visualization. However, it has completely failed to predict any future trend outside the domain it was trained on.
 
-<!-- ### Design the proper kernel
+### Model the derivative of the data
 
-To design the kernel to use with our Gaussian process, we can make some assumption regarding the data at hand. We observe that they have several characteristics: we see a long term rising trend, a pronounced seasonal variation and some smaller irregularities. We can use different appropriate kernel that would capture these features.
-
-First, the long term rising trend could be fitted using a radial basis function (RBF) kernel with a large length-scale parameter. The RBF kernel with a large length-scale enforces this component to be smooth. An trending increase is not enforced as to give a degree of freedom to our model. The specific length-scale and the amplitude are free hyperparameters.
-
+To improve the model's generalization, we will predict on differences in CO2 rather than absolute CO2 levels, using a "sliding window" of recent CO2 differences as the input. 
+We will also normalize the data.
 <div class="alert alert-secondary" role="alert" markdown="1">
 
 ~~~Python
-from sklearn.gaussian_process.kernels import RBF
+from sklearn.preprocessing import StandardScaler
+from numpy import diff
 
-long_term_trend_kernel = 50.0**2 * RBF(length_scale=50.0)
+def preprocess_data(input_data, train_window):
+    # Take derivative
+    input_data = np.concatenate([[0], diff(input_data)])
+    
+    # Scale values
+    scaler = StandardScaler()
+    normalized_data = scaler.fit_transform(input_data.reshape(-1, 1)).reshape(-1)
+    
+    # Create input-output pairs
+    in_seq = []
+    out_seq = []
+    L = len(normalized_data)
+    for i in range(L-train_window-1):
+        train_seq = normalized_data[i:i+train_window]
+        train_label = normalized_data[i+train_window:i+train_window+1]
+        
+        in_seq.append(train_seq)
+        out_seq.append(train_label)
+    return normalized_data, in_seq, out_seq, scaler
+
+train_window = 50
+normalized_data, in_data, out_data, scaler = preprocess_data(list(co2_data["co2"]), train_window)
 ~~~
 </div>
 
-The seasonal variation is explained by the periodic exponential sine squared kernel with a fixed periodicity of 1 year. The length-scale of this periodic component, controlling its smoothness, is a free parameter. In order to allow decaying away from exact periodicity, the product with an RBF kernel is taken. The length-scale of this RBF component controls the decay time and is a further free parameter. This type of kernel is also known as locally periodic kernel.
+We will train 3 decision trees at different max depths.
 
 <div class="alert alert-secondary" role="alert" markdown="1">
 
 ~~~Python
-from sklearn.gaussian_process.kernels import ExpSineSquared
+regr_3 = tree.DecisionTreeRegressor(max_depth=2)
+regr_3.fit(in_data, out_data)
 
-seasonal_kernel = (
-    2.0**2
-    * RBF(length_scale=100.0)
-    * ExpSineSquared(length_scale=1.0, periodicity=1.0, periodicity_bounds="fixed")
-)
+regr_4 = tree.DecisionTreeRegressor(max_depth=10)
+regr_4.fit(in_data, out_data)
+
+regr_5 = tree.DecisionTreeRegressor(max_depth=25)
+regr_5.fit(in_data, out_data)
 ~~~
 </div>
 
-The small irregularities are to be explained by a rational quadratic kernel component, whose length-scale and alpha parameter, which quantifies the diffuseness of the length-scales, are to be determined. A rational quadratic kernel is equivalent to an RBF kernel with several length-scale and will better accommodate the different irregularities.
-
+Now we will generate test data that runs all the way to the present day to see the model's predictions. We use the model's own prediction as part of the sliding window for the next prediction, to extrapolate arbitrarily far into the future.
 <div class="alert alert-secondary" role="alert" markdown="1">
 
 ~~~Python
-from sklearn.gaussian_process.kernels import RationalQuadratic
+dates = pd.period_range("1958", "2023", freq='M').to_timestamp()
 
-irregularities_kernel = 0.5**2 * RationalQuadratic(length_scale=1.0, alpha=1.0)
+
+test_inputs = list(normalized_data)
+fut_pred_3 = test_inputs.copy()
+fut_pred_4 = test_inputs.copy()
+fut_pred_5 = test_inputs.copy()
+fut_pred_num = len(dates) - len(test_inputs)  # Number of predictions to make.
+for i in range(fut_pred_num):
+    seq = fut_pred_3[-train_window:]
+    prediction = regr_3.predict([seq])
+    fut_pred_3.append(prediction[0])
+    
+    seq = fut_pred_4[-train_window:]
+    prediction = regr_4.predict([seq])
+    fut_pred_4.append(prediction[0])
+    
+    seq = fut_pred_5[-train_window:]
+    prediction = regr_5.predict([seq])
+    fut_pred_5.append(prediction[0])
 ~~~
 </div>
 
-Finally, the noise in the dataset can be accounted with a kernel consisting of an RBF kernel contribution, which shall explain the correlated noise components such as local weather phenomena, and a white kernel contribution for the white noise. The relative amplitudes and the RBF’s length scale are further free parameters.
+Let's plot the results. Note that it is still showing the differences (derivative) rather than the absolute value, and it's still normalized.
+
 
 <div class="alert alert-secondary" role="alert" markdown="1">
 
 ~~~Python
-from sklearn.gaussian_process.kernels import WhiteKernel
-
-noise_kernel = 0.1**2 * RBF(length_scale=0.1) + WhiteKernel(
-    noise_level=0.1**2, noise_level_bounds=(1e-5, 1e5)
-)
-~~~
-</div>
-
-Thus, our final kernel is an addition of all previous kernel.
-
-<div class="alert alert-secondary" role="alert" markdown="1">
-
-~~~Python
-co2_kernel = (
-    long_term_trend_kernel + seasonal_kernel + irregularities_kernel + noise_kernel
-)
-co2_kernel
-~~~
-</div>
-
-Out: `50**2 * RBF(length_scale=50) + 2**2 * RBF(length_scale=100) * ExpSineSquared(length_scale=1, periodicity=1) + 0.5**2 * RationalQuadratic(alpha=1, length_scale=1) + 0.1**2 * RBF(length_scale=0.1) + WhiteKernel(noise_level=0.01)`
-
-### Model fitting and extrapolation
-
-Now, we are ready to use a Gaussian process regressor and fit the available data. To follow the example from the literature, we will subtract the mean from the target. We could have used normalize_y=True. However, doing so would have also scaled the target (dividing y by its standard deviation). Thus, the hyperparameters of the different kernel would have had different meaning since they would not have been expressed in ppm.
-
-<div class="alert alert-secondary" role="alert" markdown="1">
-
-~~~Python
-from sklearn.gaussian_process import GaussianProcessRegressor
-
-y_mean = y.mean()
-gaussian_process = GaussianProcessRegressor(kernel=co2_kernel, normalize_y=False)
-gaussian_process.fit(X, y - y_mean)
-~~~
-</div>
-
-`GaussianProcessRegressor(kernel=50**2 * RBF(length_scale=50) + 2**2 * RBF(length_scale=100) * ExpSineSquared(length_scale=1, periodicity=1) + 0.5**2 * RationalQuadratic(alpha=1, length_scale=1) + 0.1**2 * RBF(length_scale=0.1) + WhiteKernel(noise_level=0.01))`
-
-Now, we will use the Gaussian process to predict on training data and future data.
-
-<div class="alert alert-secondary" role="alert" markdown="1">
-
-~~~Python
-mean_y_pred, std_y_pred = gaussian_process.predict(X_test, return_std=True)
-mean_y_pred += y_mean
-~~~
-</div>
-
-<div class="alert alert-secondary" role="alert" markdown="1">
-
-~~~Python
-plt.plot(X, y, color="black", linestyle="dashed", label="Measurements")
-plt.plot(X_test, mean_y_pred, color="tab:blue", alpha=0.4, label="Gaussian process")
-plt.fill_between(
-    X_test.ravel(),
-    mean_y_pred - std_y_pred,
-    mean_y_pred + std_y_pred,
-    color="tab:blue",
-    alpha=0.2,
-)
+plt.figure()
+plt.plot(dates, fut_pred_3, label=f"max_depth={regr_3.max_depth}", linewidth=2)
+plt.plot(dates, fut_pred_4, label=f"max_depth={regr_4.max_depth}", linewidth=2)
+plt.plot(dates, fut_pred_5, label=f"max_depth={regr_5.max_depth}", linewidth=2)
+plt.plot(dates[0:526], normalized_data, label=f"true value", linewidth=2)
+plt.xlabel("data")
+plt.ylabel("target")
+plt.title("Decision Tree Regression on Derivative")
 plt.legend()
-plt.xlabel("Year")
-plt.ylabel("Monthly average of CO$_2$ concentration (ppm)")
-_ = plt.title(
-    "Monthly average of air samples measurements\nfrom the Mauna Loa Observatory"
-)
+plt.show()
 ~~~
 </div>
 
-Our fitted model is capable to fit previous data properly and extrapolate to future year with confidence.
+{% include figure.html url="" max-width="60%" file="morea/machine-learning/fig/co2_decision_tree_derivative.png" alt="Basic Binder Webpage" caption="" %}
 
-### Interpretation of kernel hyperparameters
+We can see that all of the decision trees are fitting the past data nearly perfectly, but do not entirely agree on future predictions.
 
-Now, we can have a look at the hyperparameters of the kernel.
+Let's convert the predictions back into absolute CO2 levels.
+<div class="alert alert-secondary" role="alert" markdown="1">
 
-`gaussian_process.kernel_`
+~~~Python
+def postprocess_data(output_data, scaler, first_input):
+    #unscale the output
+    output = scaler.inverse_transform(np.array(output_data).reshape(-1, 1)).reshape(-1)
+    
+    output = np.cumsum(output) + first_input
+    
+    return output
 
-Out: `44.8**2 * RBF(length_scale=51.6) + 2.64**2 * RBF(length_scale=91.5) * ExpSineSquared(length_scale=1.48, periodicity=1) + 0.536**2 * RationalQuadratic(alpha=2.89, length_scale=0.968) + 0.188**2 * RBF(length_scale=0.122) + WhiteKernel(noise_level=0.0367)`
+decoded_3 = postprocess_data(fut_pred_3, scaler, list(co2_data["co2"])[0])
+decoded_4 = postprocess_data(fut_pred_4, scaler, list(co2_data["co2"])[0])
+decoded_5 = postprocess_data(fut_pred_5, scaler, list(co2_data["co2"])[0])
+~~~
+</div>
 
-Thus, most of the target signal, with the mean subtracted, is explained by a long-term rising trend for ~45 ppm and a length-scale of ~52 years. The periodic component has an amplitude of ~2.6ppm, a decay time of ~90 years and a length-scale of ~1.5. The long decay time indicates that we have a component very close to a seasonal periodicity. The correlated noise has an amplitude of ~0.2 ppm with a length scale of ~0.12 years and a white-noise contribution of ~0.04 ppm. Thus, the overall noise level is very small, indicating that the data can be very well explained by the model.
+And plot the results:
 
-**Total running time of the script:** ( 0 minutes 8.782 seconds) -->
+<div class="alert alert-secondary" role="alert" markdown="1">
+
+~~~Python
+plt.figure()
+plt.plot(dates, decoded_3, label=f"max_depth={regr_3.max_depth}", linewidth=2)
+plt.plot(dates, decoded_4, label=f"max_depth={regr_4.max_depth}", linewidth=2)
+plt.plot(dates, decoded_5, label=f"max_depth={regr_5.max_depth}", linewidth=2)
+plt.xlabel("data")
+plt.ylabel("target")
+plt.title("Decision Tree Regression")
+plt.legend()
+plt.show()
+~~~
+</div>
+
+{% include figure.html url="" max-width="60%" file="morea/machine-learning/fig/co2_decision_tree_final.png" alt="Basic Binder Webpage" caption="" %}
+
+The results can vary quite a bit between runs. The method for fitting the decision trees is stochastic, and our many input variables are all similarly informative, so the tree's hierarchy can vary significantly. Decision trees are not robust, so slight changes in input or in the tree structure can drastically alter predictions.
 
 <!-- Template code block
 
