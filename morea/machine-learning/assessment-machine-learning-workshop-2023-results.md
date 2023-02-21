@@ -163,6 +163,8 @@ Participant feedback seems to indicate that the pacing of this workshop was reas
 
 Machine Learning is a very interesting topic and there is a lot of interest in expanding the treatment of this topic in some manner in future years.
 
+It seems that the workshop participants ranged greatly in background: from some who have taken ML courses in the past to those with no prior experience. Satisfying both audiences is challenging, but you seem to have done a pretty good job. 
+
 Jekyll is notorious for being difficult to set up on Windows. Since Morea depends upon Jekyll, this can be a problem. Fortunately, I will soon be documenting a cloud-based approach based upon GitPod.io which will significantly simplify Morea use for Windows (and even Unix) users. 
 
 Recommendations for next time:
