@@ -6,8 +6,7 @@ morea_type: experience
 morea_summary: "Understand Plotly implementation basics"
 morea_sort_order: 3
 morea_labels:
-  - 2:00pm
-morea_enable_toc: true
+  - 2:30pm
 ---
 
 # 2. Plotly Tutorial

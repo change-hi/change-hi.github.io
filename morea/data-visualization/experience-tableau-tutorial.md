@@ -6,7 +6,7 @@ morea_type: experience
 morea_summary: "Understand Tableau implementation basics"
 morea_sort_order: 3
 morea_labels:
-  - 3:00pm
+  - 3:10pm
 morea_enable_toc: true
 ---
 
@@ -98,5 +98,10 @@ We can play around with the different fields and place them as rows or columns t
 <hr/>
 * Tableau has an easy-to-learn inteface.
 * It's easy to get started with Tableau.
-* Simple graphs are very easy but cComplex graphs can be really hard to plot.
+* Simple graphs are very easy but complex graphs can be really hard to plot.
 </div>
+
+{% include next-button.html
+top-label="Assessment ->"
+bottom-label="3:50pm"
+url="/morea/data-visualization/assessment-data-visualization-workshop.html" %}

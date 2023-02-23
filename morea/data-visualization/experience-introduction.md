@@ -3,11 +3,10 @@ title: "1. Introduction to Data Visualization"
 published: true
 morea_id: experience-introduction
 morea_type: experience
-morea_summary: "Introdce the idea of visualizations"
+morea_summary: "Introduce the idea of visualizations"
 morea_sort_order: 3
 morea_labels:
   - 2:00pm
-morea_enable_toc: true
 ---
 
 # 1. Introduction to Data Visualization
@@ -22,6 +21,9 @@ This workshop will enable you to:
 * increase your awareness of what makes good and bad visualizations;
 * know basic steps for creating effective visualizations;
 * know about contemporary tools for creating visualizations. 
+</div>
+
+<div class="alert alert-info mt-3" role="alert" markdown="1">
 
 <i class="fa-solid fa-globe fa-xl"></i> **Overview**
 <hr/>
@@ -49,6 +51,7 @@ Visualization can be applied throughout your entire research workflow to help yo
 7. tell stories about the data to others, such as to lay audiences.
 
 ### An Example of a Good Visualization
+
 The figure below shows a visualization made by [Charles Joseph Minard](https://www.paraview.org/) in 1861 depicting Napoleon’s losses during his 1812 march to and from Moscow, from Lithuania.
 This is a compelling visualization because it is able to depict 5 pieces of information in one image:
 1. the size of the thick tan line shows the size of Napolean’s army, its location, and time during their march to Moscow (on the right).
@@ -60,6 +63,7 @@ This is a compelling visualization because it is able to depict 5 pieces of info
 {% include figure.html url="" max-width="80%" file="/morea/data-visualization/fig/PastedGraphic3.png" alt="viz-intro" caption="" %}
 
 ### Some Examples of Bad Visualizations
+
 Now let’s take a look at a few common visualization mistakes, starting with Tables.
 To most people the following table looks fine. To a visualization expert there are many things that can be done to make it easier to interpret.
 
@@ -86,7 +90,10 @@ For graphs (e.g. line graphs):
 
 {% include figure.html url="" max-width="80%" file="/morea/data-visualization/fig/PastedGraphic4.png" alt="viz-intro" caption="" %}
 
-6. Try to avoid using 3D in charts. They look pretty but they make it harder to compare data. Here are some examples:
+### Avoid using 3D in charts
+
+Try to avoid using 3D in charts. They look pretty but they make it harder to compare data. Here are some examples:
+
 In this 3D piechart the 29% looks bigger than the 35%.
 
 {% include figure.html url="" max-width="80%" file="/morea/data-visualization/fig/3dpie.png" alt="viz-intro" caption="" %}
@@ -96,6 +103,7 @@ The following chart distorts the depiction of data not only because it uses 3D b
 {% include figure.html url="" max-width="80%" file="/morea/data-visualization/fig/3dbar.png" alt="viz-intro" caption="" %}
 
 The chart gives the impression that the population in the US has been increasing dramatically from 2000 to 2007.
+
 Compare this against the less dramatic representation below where zero is included in the vertical axis. Also note, in this representation commas have been included to make the interpretation of the population numbers easier.
 
 {% include figure.html url="" max-width="80%" file="/morea/data-visualization/fig/2dline.png" alt="viz-intro" caption="" %}
@@ -110,6 +118,8 @@ For example. If I were to present the following chart to an audience I might say
 “This is a chart comparing power/weight ratio and lap times for 19 cars driven around the Laguna Seca race track. The vertical axis shows the power to weight ratio of the car- bigger values are better. The horizontal axis shows the time per lap- smaller values are better. This chart shows that you achieve the best lap times with cars that are lighter and more powerful.”
 
 {% include figure.html url="" max-width="80%" file="/morea/data-visualization/fig/Comparison_of_PowerWeight_Ratio.png" alt="viz-intro" caption="" %}
+
+### Be careful when using pie charts
 
 Pie chart are popular in financial reports. But in truth they are one of the worst types of charts to use.
 
@@ -140,6 +150,8 @@ Now instead compare it against a simple bar chart:
 {% include figure.html url="" max-width="80%" file="/morea/data-visualization/fig/winebar.png" alt="viz-intro" caption="" %}
 
 You can quickly estimate that the answer is about 3 times.
+
+### Use fonts carefully
 
 Using the wrong font (with poor kerning- space between letters in a font) can have catastrophic, if not amusing effects.
 
@@ -227,6 +239,7 @@ For example here is one from Information is Beautiful about where the world's fo
 These charts are typically hand-crafted by someone with considerable graphic design and data visualization experience. I encourage you to consume a regular diet of visualizations because the more you see good visualizations, the more you’ll start to incorporate their ideas into your own practices.
 
 ### A Little Deeper
+
 Before we talk about contemporary visualization tools, let’s go a little deeper and look into how the human brain interprets visualizations and what are the most fundamental elements (visual encodings) visualization experts and graphic designers manipulate to produce visualizations.
 
 The figure below (from Alberto Cairo’s ["The Functional Art"](http://www.thefunctionalart.com/)) depicts how your brain processes visual information.
@@ -282,6 +295,7 @@ Picking the right color (hue, saturation, value) is a challenging problem for mo
 {% include figure.html url="https://sciviscolor.org/tools/" max-width="90%" file="/morea/data-visualization/fig/PastedGraphic36.png" alt="viz-intro" caption="" %}
 
 ### To Sum Up
+
 This chart below shows the relative accuracy of comparison using various visual encodings [[William Cleveland and Robert McGill1984](https://en.wikipedia.org/wiki/Graphical_perception#cite_note-Cleveland_1993-2)].
 
 {% include figure.html url="" max-width="90%" file="/morea/data-visualization/fig/PastedGraphic37.png" alt="viz-intro" caption="" %}
@@ -301,15 +315,20 @@ If you are interested in learning more about data visualization, the University 
 
 
 ### Tools of the Trade
+
 We don't all have time to become visualization experts so there are a number of tools that can help you get most of the job done.
 
 The ones we are covering are: Plot.ly, ParaView and Tableau.
 Again since we have limited time we can only cover the very basics to get you started.
 
+#### Ploy.ly
+
 Plot.ly is a general charting library for producing statistical charts. There are numerous similar tools available (e.g. Matplotlib, Chart.js), however, plot.ly is notable because: it provides an application programming interface for Javascript, R and Python (as well as Jupyter). It also provides Chart Studio- which allows you to produce charts and simple dashboards without programming. And it provides Dash to enable you to create charts as well as fully functioning dashboards purely in Python. Lastly, Plot.ly is free and open source.
 
 {% include figure.html url="" max-width="90%" file="/morea/data-visualization/fig/plotly.png" alt="viz-intro" caption="" %}
 
+
+#### Paraview
 
 ParaView is a Scientific Visualization tool. The other major scientific visualization tool is [VisIT](https://visit-dav.github.io/visit-website/). Scientific Visualization tools are typically used to represent data that have some form of naturalistic physical representation (e.g. visualizations of air flow around a car, tornado visualizations, visualizations of Magnetic Resonance Imaging scans from the hospital, visualizations of the formation of clusters of galaxies.) Unlike most statistical visualization tools, ParaView and VisIT can run on supercomputers/computer clusters to visualize data sets too large to run on desktop PCs. Both ParaView and VisIT are open source, and ParaView is built on top of the Visualization Toolkit ([VTK](https://vtk.org))- a widely used application programming interface for producing scientific visualizations.
 
@@ -325,6 +344,7 @@ ParaView is a Scientific Visualization tool. The other major scientific visualiz
 <img src="/morea/data-visualization/fig/cluster.jpg" width="30%"/> 
 </div>
 
+#### Tableau
 
 Tableau is a relatively new tool. It is also a statistical visualization tool. We are including Tableau in our workshop because it is fast becoming popular in the commercial sector. For example, First Hawaiian Bank uses Tableau. Unlike plot.ly, which has multiple use modalities (application programming interface, no-code interface), Tableau is a standalone application like Microsoft Excel. Tableau is a commercial product, so it is not free, although students and faculty can get a free annual licenses.
 

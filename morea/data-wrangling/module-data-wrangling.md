@@ -23,7 +23,7 @@ morea_icon_url: /morea/data-wrangling/logo.png
 morea_labels:
   - Workshop
   - Friday, February 3, 2023
-morea_sort_order: 56
+morea_sort_order: 70
 ---
 
 How to utilize Jupyter Notebooks to create reproducible computational workflows. 

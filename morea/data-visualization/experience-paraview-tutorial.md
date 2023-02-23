@@ -6,8 +6,7 @@ morea_type: experience
 morea_summary: "Understand Paraview implementation basics"
 morea_sort_order: 3
 morea_labels:
-  - 2:00pm
-morea_enable_toc: true
+  - 2:45pm
 ---
 
 # 3. Paraview Tutorial
@@ -82,6 +81,12 @@ If you'd like to try producing another visualization, this video shows how to vi
 {% include figure.html url="" max-width="80%" file="/morea/data-visualization/fig/paraviweexamples.png" alt="plotly" caption="" %}
 </div>
 
+<div class="alert alert-warning" role="alert" markdown="1">
+<i class="fa-solid fa-circle-info fa-xl"></i> **Bio Break!**
+<hr/>
+
+Let's take a brief break to stretch before moving on to the next page.  See you in a few minutes.
+</div>
 
 
 {% include next-button.html 

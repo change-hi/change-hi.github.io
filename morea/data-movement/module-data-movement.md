@@ -29,7 +29,7 @@ morea_icon_url: /morea/data-movement/logo.jpg
 morea_labels:
     - Workshop
     - Friday, December 2, 2022
-morea_sort_order: 55
+morea_sort_order: 60
 ---
 
 An introduction to the challenges and options in moving scientific data over the network. 
