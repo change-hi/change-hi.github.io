@@ -16,11 +16,6 @@ morea_enable_toc: true
 <i class="fa-solid fa-globe fa-xl"></i> **Overview**
 <hr/>
 
-**Questions**
-* What makes Dash unique compared to other web-based visualization libraries?
-* What is plotly Express?
-* How to run Dash app in PythonAnywhere?
-
 **Objectives**
 * Give you a comprehensive overview of Plot.ly and its benefits over other similar statistical visualization tools.
 * Demonstrate the simplicity of creating Plot.ly charts.
@@ -37,11 +32,11 @@ Chart Studio is a web-based tool that allows you to create charts and simple das
 
 Dash is a Python library for making web-based interactive visualization dashboards of Plot.ly charts. Often to create web-based dashboards you need to code the frontend in Javascript. Dash allows you to do everything in Python.
 
-The best place to go to begin learning is Plotly's main library page, which will then direct you to tutorials for Plotly in Python, R, Javascript, as well as Dash.
+The best place to go to begin learning is Plotly's [main library page](https://plotly.com/graphing-libraries/), which will then direct you to tutorials for Plotly in [Python](https://plotly.com/python/), [R](https://plotly.com/r/), [Javascript](https://plotly.com/javascript/), as well as [Dash](https://dash.plotly.com/).
 
-Go to the main library page and take a look at either Plotly Python or Plotly Javascript then select one of the basic charts to look at the respective codes. Also take a look at Dash example galleries.
+Go to the main library page and take a look at either Plotly Python or Plotly Javascript then select one of the basic charts to look at the respective codes. Also take a look at Dash example [galleries](https://dash.gallery/Portal/).
 
-Note: for Plotly Python there are two ways to use Plotly. I recommend most users use Plotly Express (which is a very low-code library to Plotly's most common charts). Most of the examples you will find use Plotly Express. For advanced needs you can learn to use Plotly Graph Objects.
+Note: for Plotly Python there are two ways to use Plotly. I recommend most users use Plotly Express (which is a very low-code library to Plotly's most common charts). Most of the examples you will find use Plotly Express. For advanced needs you can learn to use [Plotly Graph Objects](https://plotly.com/python/graph-objects/).
 
 As an example of how easy it is to create charts in Plotly Express here are the lines of code you need to make a scatterplot:
 
@@ -114,6 +109,6 @@ Here is a video illustrating how to do this.
 
 
 {% include next-button.html 
-           top-label="2. Paraview Tutorial ->" 
-           bottom-label="2:40pm" 
+           top-label="3. Paraview Tutorial ->" 
+           bottom-label="2:45pm" 
            url="/morea/data-visualization/experience-paraview-tutorial.html" %}

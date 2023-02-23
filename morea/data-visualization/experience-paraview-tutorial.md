@@ -16,10 +16,6 @@ morea_enable_toc: true
 <i class="fa-solid fa-globe fa-xl"></i> **Overview**
 <hr/>
 
-**Questions**
-* What is ParaView and how was it developed?
-* How does the design of a user interface impact the ease and efficiency of creating visualizations?
-
 **Objectives**
 * Provide you with an understanding of the suitability of ParaView for your requirements.
 * Demonstrate a series of simple steps for utilizing ParaView to generate a visual representation.
@@ -85,7 +81,10 @@ If you'd like to try producing another visualization, this video shows how to vi
 
 {% include figure.html url="" max-width="80%" file="/morea/data-visualization/fig/paraviweexamples.png" alt="plotly" caption="" %}
 </div>
-<!-- {% include next-button.html 
-           top-label="2. Paraview Tutorial ->" 
-           bottom-label="2:40pm" 
-           url="/morea/data-visualization/experience-paraview-tutorial.html" %} -->
+
+
+
+{% include next-button.html 
+           top-label="4. Tableau Tutorial ->" 
+           bottom-label="3:10pm" 
+           url="/morea/data-visualization/experience-tableau-tutorial.html" %}
