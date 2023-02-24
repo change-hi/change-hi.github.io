@@ -58,11 +58,7 @@ The getting started guide is a 2-page PDF document like this:
 
 {% include figure.html url="" max-width="80%" file="/morea/data-visualization/fig/paraviewstarted.png" alt="plotly" caption="" %}
 
-Follow the instructions in the guide to produce your first visualization. Note however, it is missing a step after step 8. After Step 8, select vtkBlockColors from the colormapping menu bar, and select VEL. This will color the vector glyphs using the velocity values in the data.
-
-{% include figure.html url="" max-width="80%" file="/morea/data-visualization/fig/paraviewmissingstep.png" alt="plotly" caption="" %}
-
-Congratulations, you've produced your first ParaView visualization.
+Follow the instructions in the guide to produce your first visualization. Congratulations, you've produced your first ParaView visualization.
 
 If you'd like to try producing another visualization, this video shows how to visualize 3D volumetric data, such as medical data from an MRI scanner.
 
