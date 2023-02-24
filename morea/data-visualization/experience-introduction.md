@@ -210,7 +210,7 @@ For that there are some guides that can help get you started.
   <div class="card">
     <img src="/morea/data-visualization/fig/andrew-abela-chart-chooser-in-color.jpg" class="card-img-top" alt="CHART CHOOSER">
     <div class="card-body">
-      <h5 class="card-title text-center"><a href="">CHART CHOOSER
+      <h5 class="card-title text-center"><a href="/morea/data-visualization/fig/andrew-abela-chart-chooser-in-color.jpg" target="_blank">CHART CHOOSER
 </a></h5>
     </div>
   </div>
@@ -269,7 +269,8 @@ Examples of movement include: Flicker, Velocity, Direction.
 
 
 <div class="text-center">
-<img src="/morea/data-visualization/fig/tg_flick.gif" width="32%"/> <img src="/morea/data-visualization/fig/tg_vel.gif" width="32%"/> 
+<img src="/morea/data-visualization/fig/tg_flick.gif" width="32%"/> 
+<img src="/morea/data-visualization/fig/tg_vel.gif" width="32%"/> 
 <img src="/morea/data-visualization/fig/tg_dir.gif" width="32%"/> 
 </div>
 

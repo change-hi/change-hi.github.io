@@ -24,6 +24,8 @@ morea_enable_toc: true
 ### Tableau: Revolutionizing Data Analysis and Visualization
 In 2003, a brilliant team of computer science enthusiasts at Stanford embarked on a mission to democratize data analysis. Their vision was to create a tool that would make it easy for everyone to gain insights from complex data sets. The result of their tireless efforts is [Tableau](https://www.tableau.com/why-tableau/what-is-tableau), a data visualization software that has revolutionized the way people work with data. At the heart of Tableau's success is its groundbreaking technology, VizQL. VizQL's intuitive interface translates even the most complex data queries into simple drag-and-drop actions, empowering users to visualize and analyze data seamlessly. With Tableau, you can turn mountains of data into interactive, visual insights in a matter of minutes. With its easy-to-use interface and powerful capabilities, Tableau continues to transform the way people work with data, making it more accessible and impactful than ever before. 
 
+{% include figure.html url="" max-width="95%" file="/morea/data-visualization/fig/tab_next_1.png" alt="tab" caption="" %}
+
 ### Initial Screen Overview
 
 When you log into Tableau, you are presented with a dashboard-like interface. 
@@ -93,12 +95,42 @@ We can play around with the different fields and place them as rows or columns t
 <img src="/morea/data-visualization/fig/tab_g4.png" width="45%"/> 
 </div>
 
+### Calculated Fields
+We can create new fields as an arithmatical result of the other fields. For an example we can exclude The Japanese Sales from the Global Sales to see its impact on the global sales. 
+
+<div class="text-center">
+<img src="/morea/data-visualization/fig/tab_calc_1.png" width="60%"/> 
+<img src="/morea/data-visualization/fig/tab_calc_1_2.png" width="35%"/> 
+</div>
+
+{% include figure.html url="" max-width="95%" file="/morea/data-visualization/fig/tab_calc_1_3.png" alt="tab" caption="" %} 
+
+Similarly The N.A. sales can be removed from global sales to see a comparative impact. Try it yourself to create a similar graph as follows.
+
+{% include figure.html url="" max-width="95%" file="/morea/data-visualization/fig/tab_calc_1_4.png" alt="tab" caption="" %} 
+
+Now try dropping Genre in the Columns to have a representation split across gonre. Notice that the "Markes" Section (Highlighted by "1") has the fields you put in Rows. Make sure to set the attributes differently for each graph to have meaningful labels across the graphs. You can check which Label you are displaying at the Mark highlighted with "2".
+
+{% include figure.html url="" max-width="95%" file="/morea/data-visualization/fig/tab_calc_1_5.png" alt="tab" caption="" %} 
+
+### Where do we go from here?
+{% include figure.html url="" max-width="95%" file="/morea/data-visualization/fig/tab_next_2.gif" alt="tab" caption="" %} 
+As this workshop aims to give an introduction to tableau, we started with straightforward graphs and ended up with a much complex graph. But Tableau is much more powerful than that. It allows us to join multiple tables, make connections between tables, select data based on condition and much more. It let's us build fabulous dashboards with unique visuals which looks good on portfolios, websites, or research papers.
+
+{% include figure.html url="" max-width="95%" file="/morea/data-visualization/fig/tab_next_3.jpg" alt="tab" caption="" %} 
+
+Tableau has so many options that sometimes it may feel like its use is bound by our imaginations. [Here is a Youtube playlist](https://www.youtube.com/playlist?list=PLkZ_g9Y7eszLQMnIy0hylgO9kJD4643jn) that will guide your spark of interest to a burning flame of passion fueling your motivation to go further with data visualization. 
+
+If you want to make a project with Tableau, below is a wonderful Tableau project made from scratch.
+
+{% include youtube.html id="zOR0-nygfDE" %}
+
 <div class="alert alert-success mt-3" role="alert" markdown="1">
 <i class="fa-solid fa-globe fa-xl"></i> **Key Points**
 <hr/>
 * Tableau has an easy-to-learn inteface.
 * It's easy to get started with Tableau.
-* Simple graphs are very easy but complex graphs can be really hard to plot.
+* Simple graphs are very easy but complex graphs can be really hard to plot. 
 </div>
 
 {% include next-button.html
