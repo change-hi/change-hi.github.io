@@ -1,25 +1,24 @@
 ---
-title: "Assess your understanding of smart data collection concepts"
+title: "Help us assess this workshop"
 published: true
 morea_id: assessment-smart-data-collection
-morea_summary: Evaluate your learning from this workshop
+morea_summary: Provide feedback to the workshop organizers
 morea_outcomes_assessed:
- - outcome-smart-data-collection
+- outcome-smart-data-collection
 morea_type: assessment
 morea_sort_order: 12
 morea_labels:
+- 3:30-3:40pm
 ---
 
-# Assess your understanding of smart data collection concepts
+# Help us assess this workshop
 
-<div class="alert alert-danger mt-4" role="alert" markdown="1">
-<i class="fa-solid fa-circle-exclamation fa-xl"></i> **Page Stub.**
-<hr/>
+## For the participants
 
-If this assessment existed, it would provide some sort of activity that users could undertake in order to assess whether or not they learned the important concepts and skills associated with this workshop.
+Thank you for attending today's workshop! To help us learn about your experience, we would like to ask that you take approximately 10 minutes to fill out a short 10 question survey.  The participant survey is available [here](https://forms.gle/H5K9DcRZhtUGx4mK6).
 
-It could be, but doesn't have to be, a "test". And it could, or could not, be provided back to workshop organizers.
+## For the instructors
 
-Since many users are taking the workshop to support their own research, the assessment exercise could be to try to apply these concepts to their research and report back on how successful they were.
+Thank you for leading today's workshop! While the participants are filling out their questionnaire, we'd like to get your insights while they are still fresh in your mind.  The instructor survey is available [here](https://forms.gle/kRKw8aM3c9VrGu127).
 
-</div>
+Thank you!

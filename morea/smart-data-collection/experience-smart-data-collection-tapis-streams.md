@@ -6,10 +6,10 @@ morea_type: experience
 morea_summary: "How do we deploy and access a Jupyter notebook server using MANA?"
 morea_sort_order: 2
 morea_labels:
-  - 15 min (Teaching)
-  - 30 min (Exercise)
-morea_enable_toc: true
+  - 2:45pm - 3:30pm
 ---
+
+# 4. Tapis Streams
 
 <div class="alert alert-success mt-3" role="alert" markdown="1">
 <i class="fa-solid fa-globe fa-xl"></i> **Overview**
@@ -56,11 +56,17 @@ Messages generated will go to the "general" text channel.
 
 In addition to the Actor and Discord webhook methods shown, Slack webhooks, Tapis Jobs, and general POST requests for third-party APIs are supported.
 
-## Key Points
-
-<div class="alert alert-success" role="alert" markdown="1">
+<div class="alert alert-success mt-3" role="alert" markdown="1">
+<i class="fa-solid fa-globe fa-xl"></i> **Key Points**
+<hr/>
 
 * The Streams API provides methods for creating representations of sensor stations and measurements for storage and retrieval.
 * Triggers can be used to kick off Abaco actors or other webhooks when measurements meet some criteria.
 
 </div>
+
+
+{% include next-button.html
+top-label="Assessment ->"
+bottom-label="3:30pm"
+url="/morea/smart-data-collection/assessment-smart-data-collection.html" %}

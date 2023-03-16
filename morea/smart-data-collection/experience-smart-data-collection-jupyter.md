@@ -6,9 +6,11 @@ morea_type: experience
 morea_summary: "How do we deploy and access a Jupyter notebook server using MANA?"
 morea_sort_order: 2
 morea_labels:
-  - 15 min (Teaching)
+  - 2:15 - 2:30pm
 morea_enable_toc: true
 ---
+
+# 2. Connecting to Jupyter
 
 <div class="alert alert-success mt-3" role="alert" markdown="1">
 <i class="fa-solid fa-globe fa-xl"></i> **Overview**
@@ -58,10 +60,16 @@ Shortly, the job status should change to "Running" indicating the job has been l
 
 The Jupyter notebook server will display the files available in your account's home directory on MANA. We will need to download the notebook file for this workshop and install some dependencies the notebook relies on. The next section will describe how to install these dependencies and load the notebook.
 
-## Key Points
-
-<div class="alert alert-success" role="alert" markdown="1">
+<div class="alert alert-success mt-3" role="alert" markdown="1">
+<i class="fa-solid fa-globe fa-xl"></i> **Key Points**
+<hr/>
 
 * MANA’s web interface provides a built in function for deploying a Jupyter notebook server.
 * After configuring and submitting a job to MANA for deploying the Jupyter notebook server, we can connect to the server and use it to access notebook files stored in the user’s home directory.
 </div>
+
+
+{% include next-button.html
+top-label="3. Installing Tapis Libraries ->"
+bottom-label="2:30pm"
+url="/morea/smart-data-collection/experience-smart-data-collection-installation.html" %}

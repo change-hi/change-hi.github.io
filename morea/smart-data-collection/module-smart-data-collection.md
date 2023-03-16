@@ -6,17 +6,16 @@ morea_id: smart-data-collection
 morea_outcomes:
   - outcome-smart-data-collection
 morea_readings:
-  - reading-code-of-conduct
+  # - reading-code-of-conduct
   - reading-smart-data-collection-preparation
-  - reading-screencast-workshop-smart-data-collection-s22
+  # - reading-screencast-workshop-smart-data-collection-s22
 morea_experiences:
     - experience-smart-data-collection-introduction
     - experience-smart-data-collection-jupyter
     - experience-smart-data-collection-installation
     - experience-smart-data-collection-tapis-streams
 morea_assessments:
-    # - assessment-smart-data-collection
-    # - assessment-smart-data-collection-workshop
+    - assessment-smart-data-collection
 morea_prerequisites:
     - prerequisite-python-jupyter
 morea_type: module

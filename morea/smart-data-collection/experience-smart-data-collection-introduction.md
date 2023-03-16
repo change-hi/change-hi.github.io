@@ -6,9 +6,10 @@ morea_type: experience
 morea_summary: "What is Tapis?  What is the Streams API? What is Abaco?"
 morea_sort_order: 2
 morea_labels:
-  - 15 min (Teaching)
-morea_enable_toc: true
+  - 2:00 - 2:15pm
 ---
+
+# 1. Introduction to smart data collection for sensor networks
 
 <div class="alert alert-success mt-3" role="alert" markdown="1">
 <i class="fa-solid fa-globe fa-xl"></i> **Overview**
@@ -141,17 +142,25 @@ The final structure in the Streams API is the actual measurments recorded by the
 
 Tapis provides functions-as-a-service (FaaS) through Abaco, which is based on the actor model of concurrent computation and Docker. Users define computational primitives called actors with a Docker image, and Abaco assigns each actor a unique URL over which it can receive messages. Users send the actor a message by making an HTTP POST request to the URL. In response to an actor receiving a message, Abaco launches a container from the associated image, injecting the message into the container. Typically, the container execution is asynchronous from the message request, though Abaco does provide an endpoint for sending a message to an actor and blocking until the execution completes, providing synchronous execution semantics. Abaco maintains a queue of messages for each actor, and is capable of launching containers in parallel for a given actor when the actor is registered as stateless. The functions run with an authenticated context that allows them to make requests to other Tapis APIs to perform actions such as data transfers or job submissions.
 
-Here is an actor we will use today for generating a plot of some of our mock-sensor data and uploading it to Jetstream Virtual Machine: https://github.com/scleveland/workshop_actor
+Here is an actor we will use today for generating a plot of some of our mock-sensor data and uploading it to Jetstream Virtual Machine: 
+
+<https://github.com/scleveland/workshop_actor>
 
 ## Streams Event Handling
 
 The streams API includes the ability to register and kick off Abaco containers when a measurement hits a defined threshold, sending the measurement definition to the container. Messages sent to the container are stored in an environment variable called MSG. This will allow users to automatically receive notifications or start processing tasks for measurements in real time.
 
-## Key Points
-
-<div class="alert alert-success" role="alert" markdown="1">
+<div class="alert alert-success mt-3" role="alert" markdown="1">
+<i class="fa-solid fa-globe fa-xl"></i> **Key Points**
+<hr/>
 
 * Tapis is an API framework for managing computational workloads.
 * The Tapis streams API provides organizational structures for representing sensor networks and streaming real time data.
 * Abaco provides function-as-a-service functionality to Tapis by allowing containerized workflows to be kicked off via messages sent by a client.
 </div>
+
+
+{% include next-button.html
+top-label="2. Connecting to Jupyter ->"
+bottom-label="2:15pm"
+url="/morea/smart-data-collection/experience-smart-data-collection-jupyter.html" %}
