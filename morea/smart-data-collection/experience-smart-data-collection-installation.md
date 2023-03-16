@@ -125,6 +125,14 @@ The notebook should now be open, and ready to edit!
 * You can install and import new python libraries to support a notebook.
 </div>
 
+
+<div class="alert alert-warning" role="alert" markdown="1">
+<i class="fa-solid fa-circle-info fa-xl"></i> **Bio Break!**
+<hr/>
+
+Let's take a brief break to stretch before moving on to the next page.  See you in a few minutes.
+</div>
+
 {% include next-button.html
 top-label="4. Tapis Streams ->"
 bottom-label="2:45pm"
