@@ -155,7 +155,3 @@ The streams API includes the ability to register and kick off Abaco containers w
 * The Tapis streams API provides organizational structures for representing sensor networks and streaming real time data.
 * Abaco provides function-as-a-service functionality to Tapis by allowing containerized workflows to be kicked off via messages sent by a client.
 </div>
-
-
-<hr/>
-For comparison purposes, here's the [Software Carpentry version of this page](https://ci-tracs.github.io/Smart-Data_Collection_for_sensor_networks/01-introduction/index.html)

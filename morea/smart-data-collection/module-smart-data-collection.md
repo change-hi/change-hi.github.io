@@ -15,8 +15,8 @@ morea_experiences:
     - experience-smart-data-collection-installation
     - experience-smart-data-collection-tapis-streams
 morea_assessments:
-    - assessment-smart-data-collection
-    - assessment-smart-data-collection-workshop
+    # - assessment-smart-data-collection
+    # - assessment-smart-data-collection-workshop
 morea_prerequisites:
     - prerequisite-python-jupyter
 morea_type: module

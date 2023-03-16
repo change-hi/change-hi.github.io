@@ -124,6 +124,3 @@ The notebook should now be open, and ready to edit!
 * You can install and import new python libraries to support a notebook.
 </div>
 
-
-<hr/>
-For comparison purposes, here's the [Software Carpentry version of this page](https://ci-tracs.github.io/Smart-Data_Collection_for_sensor_networks/03-installations/index.html)
