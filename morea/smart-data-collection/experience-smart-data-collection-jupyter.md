@@ -65,7 +65,3 @@ The Jupyter notebook server will display the files available in your account's h
 * MANA’s web interface provides a built in function for deploying a Jupyter notebook server.
 * After configuring and submitting a job to MANA for deploying the Jupyter notebook server, we can connect to the server and use it to access notebook files stored in the user’s home directory.
 </div>
-
-
-<hr/>
-For comparison purposes, here's the [Software Carpentry version of this page](https://ci-tracs.github.io/Smart-Data_Collection_for_sensor_networks/02-connecting_to_jupyter/index.html)
