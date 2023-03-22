@@ -4,7 +4,7 @@ published: true
 morea_id: assessment-creativity-workshop
 morea_summary: Provide feedback to the workshop organizers
 morea_outcomes_assessed:
-- outcome-ssb
+- outcome-test-creative
 morea_type: assessment
 morea_sort_order: 8
 morea_labels:
