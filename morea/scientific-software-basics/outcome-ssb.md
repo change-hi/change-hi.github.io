@@ -3,7 +3,7 @@ title: "You can perform basic command line functions"
 published: true
 morea_id: outcome-ssb
 morea_type: outcome
-morea_sort_order: 30
+morea_sort_order: 31
 ---
 
 * You have an account on Mana and can login to it.

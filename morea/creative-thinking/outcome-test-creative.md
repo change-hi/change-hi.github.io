@@ -3,7 +3,7 @@ title: "You understand important concepts about creative thinking"
 published: true
 morea_id: outcome-test-creative
 morea_type: outcome
-morea_sort_order: 05
+morea_sort_order: 110
 ---
 
   * You know what science says about creativity.

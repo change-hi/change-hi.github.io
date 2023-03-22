@@ -1,9 +1,9 @@
 ---
-title: "Understand smart data collection"
+title: "You understand smart data collection"
 published: true
 morea_id: outcome-smart-data-collection
 morea_type: outcome
-morea_sort_order: 20
+morea_sort_order: 100
 ---
 
   * You understand basic concepts of the Tapis Streams API and Abaco.
