@@ -6,7 +6,7 @@ morea_id: creative-thinking
 morea_outcomes:
   - outcome-test-creative
 morea_readings:
-  - reading-screencast-workshop-creative-thinking-s22
+  # - reading-screencast-workshop-creative-thinking-s22
 morea_experiences:
   - experience-what-does-science-say
   - experience-conditions-for-creativity
