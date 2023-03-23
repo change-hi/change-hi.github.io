@@ -8,7 +8,7 @@ morea_outcomes_assessed:
 morea_type: assessment
 morea_sort_order: 12
 morea_labels:
-- 3:30-3:40pm
+- 3:45-4:00pm
 ---
 
 # Help us assess this workshop

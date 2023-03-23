@@ -27,9 +27,15 @@ morea_enable_toc: true
 
 We will use MANA to deploy and access a Jupyter notebook with python scripts demonstrating the usage of the Tapis Streams API. The web interface for MANA includes a built in interface for creating and deploying a Jupyter notebook server.
 
+<div class="alert alert-info" role="alert" markdown="1">
+<i class="fa-solid fa-circle-info fa-xl"></i> **Note**
+<hr/>
+If you are already familiar with an alternative method to deploy a Jupyter notebook, e.g. Google Colab, feel free to use that instead.
+</div>
+
 ### Deploying a Jupyter notebook server on MANA
 
-Go to [https://uhhpc.its.hawaii.edu/](https://uhhpc.its.hawaii.edu/) in a web browser and log in with your UH credentials. This will bring you to the MANA web interface.
+Go to [https://uhhpc.its.hawaii.edu/](https://uhhpc.its.hawaii.edu/){:target="_blank"} in a web browser and log in with your UH credentials. This will bring you to the MANA web interface.
 
 At the top of this interface there should be a dropdown menu labeled "Interactive Apps". Click this and select "Jupyter Notebook" from the dropdown menu. This will bring you to a form for configuring and deploying the server as a job on MANA.
 
@@ -38,9 +44,9 @@ At the top of this interface there should be a dropdown menu labeled "Interactiv
 
 We will deploy this job to the workshop partition. Most of the default settings for this job should work, but increase the "Number of hours" to 2. These values should be as follows:
 
-| Syntax                    | Description |
+| Field                     | Value       |
 | ------------------------- | ----------- |
-| SLURM Account             |             |
+| SLURM Account             | workshop    |
 | Partition                 | workshop    |
 | Number of hours           | 2           |
 | Number of cores           | 1           |
