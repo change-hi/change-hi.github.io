@@ -3,7 +3,7 @@ title: "4. Tapis Streams"
 published: true
 morea_id: experience-smart-data-collection-tapis-streams
 morea_type: experience
-morea_summary: "How do we deploy and access a Jupyter notebook server using MANA?"
+morea_summary: "How can we use the Streams API to mimick a real-world sensor network?"
 morea_sort_order: 2
 morea_labels:
   - 2:45pm - 3:30pm
@@ -67,6 +67,6 @@ In addition to the Actor and Discord webhook methods shown, Slack webhooks, Tapi
 
 
 {% include next-button.html
-top-label="Assessment ->"
+top-label="Tapis UI ->"
 bottom-label="3:30pm"
-url="/morea/smart-data-collection/assessment-smart-data-collection.html" %}
+url="/morea/smart-data-collection/experience-smart-data-collection-tapis-ui.html" %}
