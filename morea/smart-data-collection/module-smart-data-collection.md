@@ -22,7 +22,8 @@ morea_prerequisites:
 morea_type: module
 morea_icon_url: /morea/smart-data-collection/tapis-logo.png
 morea_labels:
-    - Workshop
+  - Workshop
+  - Friday, March 24, 2023
 morea_sort_order: 100
 ---
 

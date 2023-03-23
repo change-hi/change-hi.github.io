@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 # Keep IntelliJ files out of github to reduce potential conflicts when others import.
 
 .idea
@@ -5,3 +6,13 @@ core.iml
 _site
 .jekyll-cache
 .DS_Store
+=======
+# Keep IntelliJ files out of github to reduce potential conflicts when others import.
+
+.idea
+core.iml
+_site
+.jekyll-cache
+.DS_Store
+.ruby-version
+>>>>>>> c3edd5fb9540d63ea2f98641943b16dfd303402f
