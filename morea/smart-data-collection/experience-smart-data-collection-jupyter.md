@@ -46,7 +46,7 @@ We will deploy this job to the workshop partition. Most of the default settings 
 
 | Field                     | Value       |
 | ------------------------- | ----------- |
-| SLURM Account             | workshop    |
+| SLURM Account             | (blank)     |
 | Partition                 | workshop    |
 | Number of hours           | 2           |
 | Number of cores           | 1           |
