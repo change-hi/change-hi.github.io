@@ -14,6 +14,7 @@ morea_experiences:
     - experience-smart-data-collection-jupyter
     - experience-smart-data-collection-installation
     - experience-smart-data-collection-tapis-streams
+    - experience-smart-data-collection-tapis-ui
 morea_assessments:
     - assessment-smart-data-collection
 morea_prerequisites:
