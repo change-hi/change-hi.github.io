@@ -24,12 +24,12 @@ morea_enable_toc: true
 **Objectives**
   * Identify some preferred ways to relieve our Executive Attention Network from tasks when creating.
   * Discuss some of Dr. Leigh's favorite creative thinking methods.
-  * See some examples of creativity thinking methods.
+  * See some examples of creative thinking methods.
 </div>
 
 ## Method to the Madness
 
-Now that we have entered our **space/time oasis** and activated **open mode**...what now? Well, we start being creative! Let us look at some exercises that us going.
+Now that we have entered our **space/time oasis** and activated **open mode**...what now? Well, we start being creative! Let us look at some creativity exercises to get us going.
 
 First, we want to **free up our brain's "computing power"** so we can use as much of it as possible for creating. We can free up our brain's "RAM" by selecting a preferred **method for recording creative ideas** as they come (pen & paper, typing, drawing, sticky notes, note cards, etc.). This is critical since our **working memory** (belonging to the Executive Attention Network) can only **hold up to 7 things** at one time.
 
@@ -72,7 +72,7 @@ Here's another example of blending ideas.
 
 {% include figure.html url="" max-width="100%" file="morea/creative-thinking/fig/blendenergy.jpg" alt="Garden" caption="" %}
 
-The picture on the right is an **experimental visualization** of scenarios for bringing **Hawaiʻi** to **100% renewable energy by 2045**. Each **scenario** is visualized as an **individual flower** where: the **size of the petal** represents the **proportion of solar farms**; the **tilt** of the stem represents the **proportion of wind farms**; the size of the leaf represents the quantity of biofuels; the size of the **water droplet** represents **hydro-electric** power; and the size of the **ground** represents **fossil fuels**. This **idea** came from **Dr. Leigh's garden in Chicago** (shown on the left). He noticed how **certain things** in the garden were **easy to spot** (like the flowers or the weeds), so he wondered whether this could be **applied to visualizing data** to make salient data attributes easier to see.
+The picture on the right is an **experimental visualization** of scenarios for bringing **Hawaiʻi** to **100% renewable energy by 2045**. Each **scenario** is visualized as an **individual flower** where: the **size of the petal** represents the **proportion of solar farms**; the **tilt** of the stem represents the **proportion of wind farms**; the size of the **leaf** represents the **quantity of biofuels**; the size of the **water droplet** represents **hydro-electric** power; and the size of the **ground** represents **fossil fuels**. This **idea** came from **Dr. Leigh's garden in Chicago** (shown on the left). He noticed how **certain things** in the garden were **easy to spot** (like the flowers or the weeds), so he wondered whether this could be **applied to visualizing data** to make salient data attributes easier to see.
 
 
 

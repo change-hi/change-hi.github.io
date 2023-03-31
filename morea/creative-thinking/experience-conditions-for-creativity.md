@@ -18,8 +18,8 @@ morea_enable_toc: true
 
 **Key Points**
   * Creativity is a mindset.
-  * We operate in two modes of thinking: closed and open, where mode is conducive to creativity.
-  * Five Keys to Creativity: Space, Time, Deferring Decisions, Confidence, Humor
+  * We operate in two modes of thinking: closed and open, where open mode is conducive to creativity.
+  * Five Keys to Creativity: Space, Time, Deferring Decisions, Confidence, Humor.
 
 **Objectives**
   * Understand the two modes of thinking.
@@ -33,7 +33,7 @@ morea_enable_toc: true
 {% include figure.html url="" max-width="100%" file="morea/creative-thinking/fig/Flyingcircus_2.jpg" alt="Flying circus" caption="" %}
 
 
-Psychologist Donald MacKinnon, Ph.D. and comedian John Cleese of Monty Python claim that **creativity is not a talent, but rather, a way of operating**.
+Psychologist Donald MacKinnon, Ph.D. and comedian John Cleese of Monty Python claim that **creativity is not a talent**, but rather, **a way of operating**.
 
 They believe that creative people put themselves in a **mood**, allowing their **natural creativity to flow**. In this state, individuals can **play** and **be childlike**, opening themselves up to **exploration and discovery**, without a goal in mind.
 
@@ -45,7 +45,7 @@ They mention **two modes** in which people conduct work: closed mode and open mo
 <div class="alert alert-info" role="alert" markdown="1">
 <i class="fa-solid fa-face-laugh-squint fa-xl"></i> **John Cleese's Five Keys to Creativity**
 <hr/>
-1. **Space**: You cannnot be creative in your "work" environment. You need a dedicated space to get away from closed mode. This forms the first part of the Space/Time Oasis
+1. **Space**: You cannnot be creative in your "work" environment. You need a dedicated space to get away from closed mode. This forms the first part of the Space/Time Oasis.
 2. **Time**: Creative time must be scheduled (90 minutes) with a specific start time and end time. Otherwise, it is too easy to drift back to work mode. This forms the second part of the Space/Time Oasis.
 3. **Deferring Decisions**: More creative people are willing to tolerate the discomfort of not solving a problem quickly so that they may discover a much better and more original solution.
 4. **Confidence**: You need confidence to be free to play.  You need to be open to trying anything without fear of it not working.
@@ -55,7 +55,7 @@ They mention **two modes** in which people conduct work: closed mode and open mo
 
 When the creative "work" is done and we **wish to implement** our creative decisions, remaining in **creative mode can become counterproductive**. Closed mode becomes more beneficial and we wish to **activate the Executive Attention Network**.
 
-Building the **capacity to switch** between open and closed modes when desired is key.
+Building the **capacity to switch** between open and closed modes when desired is **key**.
 
 ## Let's Laugh
 

@@ -19,7 +19,7 @@ morea_enable_toc: true
 **Key Points**
   * The Hawaiʻi Museum of Science and Stuff (HI-MOSS) needs some new exhibits.
   * Creative thinking exercises are fun!
-  * There are a ton of creative thinkers in this room.
+  * This workshop is full of creative thinkers.
 
 **Objectives**
   * Enjoy a creative thinking exercise with your colleagues.
@@ -35,7 +35,7 @@ morea_enable_toc: true
 <div class="alert alert-info" role="alert" markdown="1">
 <i class="fa-solid fa-flask fa-xl"></i> **Welcome to HI-MOSS!**
 <hr/>
-Imagine you and your team have been tasked to design the exhibits for the Hawaiʻi Museum of Science and Stuff (HI-MOSS). Come up with ideas for what exhibits that you feel would be of greatest interest to Hawaiʻi's residents. 
+Imagine you and your team have been tasked to design the exhibits for the Hawaiʻi Museum of Science and Stuff (HI-MOSS). Come up with ideas for exhibits that you feel would be of great interest to Hawaiʻi's residents. 
 1. Create your own board in SAGE3.
 2. Write ideas for 10 minutes with 1 sticky note per idea.
 3. After 10 minutes, copy your sticky notes into a communal board.
