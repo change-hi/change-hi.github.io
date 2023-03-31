@@ -36,9 +36,9 @@ Creativity draws on **three main brain networks**:[^1][^2]
 
 [^2]: Beaty, R., et al, [Robust prediction of individual creative ability from brain functional connectivity](https://www.pnas.org/doi/pdf/10.1073/pnas.1713532115), PNAS, January 30, 2018, Vol. 115, no. 5, 1087-1092.
 
-* **Executive Attention Network** for targeted attention and focus
-* **Imagination Network / Default Mode Network**for mental simulation about future events
-* **Salience Network** for internal stream of consciousness, external stimuli
+* **Executive Attention Network** for targeted attention and focus.
+* **Imagination Network / Default Mode Network** for mental simulation about future events.
+* **Salience Network** for internal stream of consciousness, external stimuli.
 
 {% include figure.html url="" max-width="100%" file="morea/creative-thinking/fig/brain-areas-2.png" alt="Brain areas" caption="" %}
 
@@ -50,9 +50,9 @@ Researchers found that **when all networks are active** it can actually **dimini
 <i class="fa-solid fa-book fa-xl"></i> **What does the Research Say?**
 <hr/>
 
-A study of ADHD in children and adults showed that **people with ADHD have more active imagination networks and less execute attention network** vs neurotypical individuals.[^3]
+A study of ADHD in children and adults showed that **people with ADHD** have **more active imagination networks** and **less active executive attention network** vs neurotypical individuals.[^3]
 
-An functional Magnetic Resonance Imaging (fMRI) study of jazz musicians found that **when they were improvising, their imagination networks were more active**. But when they just **played over-learned musical sequence their executive attention network were more active**.[^4]
+A functional Magnetic Resonance Imaging (fMRI) study of **jazz musicians** found that when they were **improvising**, their **imagination networks were more active**. But when they just played over **learned musical sequence** their **executive attention network were more active**.[^4]
 </div>
 
 [^3]: Fassbender, C., Zhang, H., Buzy, W. M., Cortes, C. R., Mizuiri, D., Beckett, L., & Schweitzer, J. B. (2009). [A lack of default network suppression is linked to increased distractibility in ADHD](https://pubmed.ncbi.nlm.nih.gov/19281801/), Brain research, 1273, 114-128.
@@ -63,7 +63,7 @@ An functional Magnetic Resonance Imaging (fMRI) study of jazz musicians found th
 
 {% include figure.html url="" max-width="100%" file="morea/creative-thinking/fig/dog_in_suit.jpeg" alt="Dog in suit" caption="" %}
 
-Researchers have identified **genetics factors that may influence creativity**, but there is also evidence that **creativity can be learned**.
+Researchers have identified **genetics factors** that **may influence creativity**, but there is also evidence that **creativity can be learned**.
 
 <div class="alert alert-info" role="alert" markdown="1">
 <i class="fa-solid fa-book fa-xl"></i> **What does the Research Say?**
@@ -83,14 +83,14 @@ One study **compared professional dancers, artists, and musicians with novices**
 ## Becoming More Creative
 
 Based on current research and our intuition, we want to
-* Activate our brain networks in a non-competing way
-* Treat creativity like a skill
+* Activate our brain networks in a non-competing way.
+* Treat creativity like a skill.
 
 With this mindset, we can cultivate creativity by creating the right **conditions** and employing the right **mechanics**.
 
-## Let's Get Those Juices Flowing
+## Get Those Juices Flowing
 
-Now, let's activate our **Imagination Network** with the help of a [special guest](https://openai.com/blog/chatgpt).
+Now, let us activate our **Imagination Network** with the help of a [special guest](https://openai.com/blog/chatgpt).
 
 {% include next-button.html
   top-label="Conditions for Creativity ->"

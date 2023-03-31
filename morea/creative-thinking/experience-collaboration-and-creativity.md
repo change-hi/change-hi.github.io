@@ -38,7 +38,7 @@ One of the **earliest Eureka moments** involves Archimedes in Ancient Greece. On
 
 {% include figure.html url="" max-width="100%" file="morea/creative-thinking/fig/eur.jpg" alt="Eureka can" caption="" %}
 
-## The Slow Burn
+## A Slow Burn
 
 {% include youtube.html id="NugRZGDbPFU" %}
 

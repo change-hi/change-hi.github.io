@@ -17,9 +17,9 @@ morea_enable_toc: true
 <hr/>
 
 **Key Points**
-  * Creativity is a **skill** that can be **learned**. Practice makes mastery.
+  * Creativity is a **skill** that can be **learned**. Mastery takes practice.
   * Create the **conditions** for creativity **(open mode thinking)**.
-  * Alow yourself a **creative space without judgment, goals, or pressure**.
+  * Allow yourself a **creative space without judgment, goals, or pressure**.
   * Take some **mindful alone time** in your **creative space** to connect with your creative mind.
   * **Collaborate!** Diversity of thought **encourages creativity**.
 
