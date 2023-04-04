@@ -1,5 +1,5 @@
 ---
-title: "Work effectively in a group"
+title: "You understand how to work effectively in a group"
 published: true
 morea_id: outcome-group-work
 morea_type: outcome

@@ -1,9 +1,9 @@
 ---
-title: "Use configuration management tools and techniques effectively"
+title: "You can use configuration management tools and techniques effectively"
 published: true
 morea_id: outcome-configuration-management
 morea_type: outcome
-morea_sort_order: 8
+morea_sort_order: 30
 ---
 
   * You understand the motivation for version control and configuration management

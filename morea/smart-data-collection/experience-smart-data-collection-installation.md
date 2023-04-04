@@ -1,21 +1,22 @@
 ---
-title: "3. Installation"
+title: "3. Installing Jupyter Libraries"
 published: true
 morea_id: experience-smart-data-collection-installation
 morea_type: experience
-morea_summary: "How do we deploy and access a Jupyter notebook server using MANA?"
+morea_summary: "How do we access Tapis using a Jupyter notebook within MANA?"
 morea_sort_order: 2
 morea_labels:
-  - 15 min (Teaching)
-morea_enable_toc: true
+  - 2:30 - 2:45pm
 ---
+
+# 3. Installing Tapis Libraries
 
 <div class="alert alert-success mt-3" role="alert" markdown="1">
 <i class="fa-solid fa-globe fa-xl"></i> **Overview**
 <hr/>
 
 **Questions**
-  * How do we bring code libraries into our Jupyter notebook?
+  * How do we bring Tapis libraries into our Jupyter notebook?
 
 **Objectives**
   * Open the HPC terminal in the browser.
@@ -116,14 +117,23 @@ The notebook should now be open, and ready to edit!
 
 {% include figure.html url="" max-width="50%" file="/morea/smart-data-collection/fig/notebook_open.png" alt="Connect to cluster" caption="" %}
 
-## Key Points
-
-<div class="alert alert-success" role="alert" markdown="1">
+<div class="alert alert-success mt-3" role="alert" markdown="1">
+<i class="fa-solid fa-globe fa-xl"></i> **Key Points**
+<hr/>
 
 * MANA’s web interface provides a terminal for the machine that the notebook runs on.
 * You can install and import new python libraries to support a notebook.
 </div>
 
 
+<div class="alert alert-warning" role="alert" markdown="1">
+<i class="fa-solid fa-circle-info fa-xl"></i> **Bio Break!**
 <hr/>
-For comparison purposes, here's the [Software Carpentry version of this page](https://ci-tracs.github.io/Smart-Data_Collection_for_sensor_networks/03-installations/index.html)
+
+Let's take a brief break to stretch before moving on to the next page.  See you in a few minutes.
+</div>
+
+{% include next-button.html
+top-label="4. Tapis Streams ->"
+bottom-label="2:45pm"
+url="/morea/smart-data-collection/experience-smart-data-collection-tapis-streams.html" %}

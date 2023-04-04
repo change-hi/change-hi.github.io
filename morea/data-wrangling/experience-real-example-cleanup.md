@@ -94,7 +94,7 @@ To start off let's fix the first problem we saw which was was the large number o
 <i class="fa-solid fa-user-pen fa-xl"></i>  **Exercise: Treating -9 values as NaN values when loading data**
 <hr/>
 
-To start off try fixing the read_csv() method so that all -9 values are treated as NaN values. If you are stuck try going back to the episode on this topic ([Link to loading data episode](#tmp)).
+To start off try fixing the read_csv() method so that all -9 values are treated as NaN values.
 
 <details>
   <summary>Solution</summary>
@@ -132,7 +132,7 @@ The final command we will be using can be seen below. However, the columns param
 pd.read_csv("./data/hot_dogs_data.csv", nrows=5, na_values=-9).drop(columns=[])
 ~~~
 
-To get the name of the column we will want to utilize a `DataFrame` attribute that we have already discussed that provides us with the list of names in the same order they occur in the `DataFrame`. If you are stuck check the previous episode where we discussed this ([Link to previous episode](https://change-hi.github.io/morea/data-wrangling/experience-real-example-analysis.html)).
+To get the name of the column we will want to utilize a `DataFrame` attribute that we have already discussed that provides us with the list of names in the same order they occur in the `DataFrame`.
 
 <details>
   <summary>Solution</summary>
@@ -177,7 +177,7 @@ One final thing that we are going to do that is not quite "clean up" but nonethe
 <i class="fa-solid fa-user-pen fa-xl"></i>  **Exercise: Setting the index column when loading data**
 <hr/>
 
-To set the index column we can use a parameter in `read_csv` that was mentioned in a previous episode. See if you can remember it! If you run into trouble you can take a look at the previous episode where it was mentioned ([Link to prev episode]()).
+To set the index column we can use a parameter in `read_csv` that was mentioned in a previous episode. See if you can remember it!
 
 <details>
   <summary>Solution</summary>

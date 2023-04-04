@@ -1,9 +1,9 @@
 ---
-title: "You understand and can apply FAIR Data Management practices"
+title: "You understand and can apply FAIR data management practices"
 published: true
 morea_id: outcome-fair
 morea_type: outcome
-morea_sort_order: 20
+morea_sort_order: 30
 ---
 
 * You understand basic FAIR (Findable, Accessible, Interoperable, Reusable) concepts.

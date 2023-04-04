@@ -1,9 +1,9 @@
 ---
-title: "Understand basic Python and Jupyter"
+title: "You understand basic Python and Jupyter"
 published: true
 morea_id: outcome-python-jupyter
 morea_type: outcome
-morea_sort_order: 05
+morea_sort_order: 20
 ---
 
   * You understand the basic syntax of Python.
