@@ -1,6 +1,6 @@
 ---
 title: "JEDI Training for Data Science"
-published: true
+published: false
 morea_coming_soon: false
 morea_id: jedi
 morea_outcomes:
