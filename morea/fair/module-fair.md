@@ -1,7 +1,7 @@
 ---
 title: "FAIR Data Management, Security and Ethics"
-published: true
-morea_coming_soon: false
+published: false
+morea_coming_soon: true
 morea_id: fair
 morea_outcomes:
   - outcome-fair

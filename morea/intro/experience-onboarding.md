@@ -1,5 +1,5 @@
 ---
-title: "HI-DSI Data Fellows Fall 2022 Onboarding"
+title: "HI-DSI Data Fellows Fall 2023 Onboarding"
 published: true
 morea_id: experience-onboarding
 morea_type: experience
@@ -10,7 +10,7 @@ morea_labels:
 
 ## HI-DSI Data Fellows Graduate Student On-Boarding Process
 
-If you are a HI-DSI Data Fellow in Fall, 2022, please complete these tasks as soon as possible.
+If you are a HI-DSI Data Fellow in Fall, 2023, please complete these tasks as soon as possible.
 
 ### 1. Demographics and Registration Form
 

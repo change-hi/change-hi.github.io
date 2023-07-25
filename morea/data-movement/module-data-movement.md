@@ -1,7 +1,7 @@
 ---
 title: "Data Movement"
 published: true
-morea_coming_soon: false
+morea_coming_soon: true
 morea_id: data-movement
 morea_outcomes:
     - outcome-data-movement
@@ -28,7 +28,7 @@ morea_type: module
 morea_icon_url: /morea/data-movement/logo.jpg
 morea_labels:
     - Workshop
-    - Friday, December 2, 2022
+    - Friday, October 20, 2023
 morea_sort_order: 60
 ---
 

@@ -1,7 +1,7 @@
 ---
 title: "Machine Learning Approaches in Climate Science"
 published: true
-morea_coming_soon: false
+morea_coming_soon: true
 morea_id: machine-learning-climate-science
 morea_outcomes:
   - outcome-ml
@@ -19,8 +19,8 @@ morea_type: module
 morea_icon_url: /morea/machine-learning/logo.png
 morea_labels:
   - Workshop
-  - Friday, February 17, 2023
-morea_sort_order: 80
+  - Friday, February 2, 2024
+morea_sort_order: 100
 ---
 
 A climate-themed tutorial on machine learning methods.

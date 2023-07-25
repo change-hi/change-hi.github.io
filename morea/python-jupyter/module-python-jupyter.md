@@ -19,7 +19,7 @@ morea_icon_url: /morea/python-jupyter/python-logo.jpg
 # morea_end_date: "2021-07-09T23:00"
 morea_labels:
   - Background
-morea_sort_order: 20
+morea_sort_order: 02
 morea_summary: This module provides recommended readings and introductory tutorials on Python and Jupyter.
 ---
 

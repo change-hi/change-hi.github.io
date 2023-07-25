@@ -1,7 +1,7 @@
 ---
 title: "Creative Thinking"
 published: true
-morea_coming_soon: false
+morea_coming_soon: true
 morea_id: creative-thinking
 morea_outcomes:
   - outcome-test-creative
@@ -21,8 +21,8 @@ morea_type: module
 morea_icon_url: /morea/creative-thinking/logo.jpg
 morea_labels:
 - Workshop
-- Friday, March 31, 2023
-morea_sort_order: 110
+- Friday, March 1, 2024
+morea_sort_order: 130
 ---
 
 An exploration of creativity with a bit of science and a bit of fun.

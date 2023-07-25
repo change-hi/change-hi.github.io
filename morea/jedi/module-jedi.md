@@ -1,7 +1,7 @@
 ---
-title: "JEDI Training for Data Science"
-published: false
-morea_coming_soon: false
+title: "JEDI for Data Science"
+published: true
+morea_coming_soon: true
 morea_id: jedi
 morea_outcomes:
 morea_readings:
@@ -11,8 +11,9 @@ morea_prerequisites:
 morea_type: module
 morea_icon_url: /morea/jedi/logo.jpg
 morea_labels:
-- Workshop
-morea_sort_order: 140
+  - Workshop
+  - Friday, February 16, 2024 
+morea_sort_order: 110
 ---
 
-(Module not yet available)
+Principles of JEDI (Justice, Equity, Diversity, and Inclusion) for data scientists.

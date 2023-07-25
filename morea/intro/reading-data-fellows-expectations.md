@@ -28,9 +28,9 @@ HI-DSI efforts and events include fellows meetings, workshops, seminars, researc
 
 The meeting and events schedule for the academic year can be found at:
 
-<https://docs.google.com/spreadsheets/d/1zwCIk9x__sVek02c8cz1w1Vl_L8LiyNKwzomQ2j-vSs/edit#gid=0>
+<https://docs.google.com/spreadsheets/d/1t5CxeN_6zvgE4-2gkzvTI0_JSGidjleK3KFDscP2uQg/edit#gid=0>
 
-Fellows are expected to attend HI-DSI seminars, meetings, workshops and two end of the semester research showcases as scheduled. HI-DSI events will be held on Fridays from 2:00-4:00 pm for both the Fall 2022 and Spring 2023 semesters.
+Fellows are expected to attend HI-DSI seminars, meetings, workshops and two end of the semester research showcases as scheduled. HI-DSI events will be held on Fridays from 2:00-4:00 pm for both the Fall 2023 and Spring 2024 semesters.
 
 ### Hawaii Data Science Club
 

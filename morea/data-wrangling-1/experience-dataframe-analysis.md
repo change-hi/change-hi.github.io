@@ -47,7 +47,7 @@ It is often useful to quickly explore some of the descriptive attributes and sta
 | `size` | Returns an int representing the number of elements in this object.  |
 | `dtypes` | Returns the data types in the `DataFrame`. |
 | `columns` | Returns a `Series` of the header names from the `DataFrame`|
-{: .table}
+
 
 
 

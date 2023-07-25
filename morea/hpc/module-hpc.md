@@ -1,7 +1,7 @@
 ---
 title: "High Performance Computing"
 published: true
-morea_coming_soon: false
+morea_coming_soon: true
 morea_id: hpc
 morea_outcomes:
   - outcome-hpc
@@ -24,7 +24,7 @@ morea_type: module
 morea_sort_order: 50
 morea_labels:
   - Workshop
-  - Friday, November 4, 2022
+  - Friday, October 13, 2023
 ---
 
 How to utilize High Performance Computing (HPC) clusters, such as Mana, for deep learning tasks. 
