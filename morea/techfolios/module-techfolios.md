@@ -1,5 +1,5 @@
 ---
-title: "Techfolio"
+title: "Techfolios"
 published: true
 morea_coming_soon: true
 morea_id: techfolios
