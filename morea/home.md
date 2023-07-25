@@ -15,7 +15,6 @@ Some modules are designed to be used as curriculum for one day workshops, while 
 
 Modules have one or more of the following components:
 
-  * [Prerequisites](/prerequisites), describing skills you should acquire in order to be ready for the module.
   * [Learning outcomes](/outcomes), describing the major goals for the module.
   * [Readings and other online resources](/readings), providing background or reference material.
   * [Experiential learning activities](/experiences), providing a structured set of exercises enabling you to acquire mastery of material.
