@@ -30,7 +30,7 @@ Example here: <https://datascience.hawaii.edu/profile/katie-ackerman/>
 
 The Hawai‘i Data Science Institute requests Photo, Video and Sound Recording Release and Consent from participants:
 
-<https://drive.google.com/file/d/1GEDvh1hbEzqINzrpw19Anx8-dElElsl6/view?usp=sharing>
+<https://hawaii.kualibuild.com/app/builder/app/643483f5ba9e6bfe3a8f378c/start>
 
 Access to any relevant Google Drive, Google Calendars, email LISTSERVs, Slack, Github and other resources: Access will be granted throughout the week. Please contact Maria Dumanlang if you do not hear back about access to any of these resources.
 
@@ -62,7 +62,7 @@ Here are the steps:
 
 5. After answering the questions in Step 4, you will be returned to your member welcome page and the RCR training should be under ‘Courses Ready to Begin’
 
-6. Click ‘Start Now’ and complete all required modules by October 31, 2021. The modules are sequential and usually contain a quiz.
+6. Click ‘Start Now’ and complete all required modules by by week 3 of the program. The modules are sequential and usually contain a quiz.
 
 7. Upon completion, please download your certificate and email to Maria Dumanlang at mduman@hawaii.edu.
 

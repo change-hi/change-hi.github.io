@@ -14,7 +14,7 @@ This document outlines expectations for Hawaiʻi Data Science Institute (HI-DSI)
 
 ### Onboarding
 
-If you are a new Fellow, please be sure to complete the [onboarding experience](experience-onboarding.html) as soon as possible. Headshots and bios are due no later than Friday, September 30, 2022 by 5:00pm.
+If you are a new Fellow, please be sure to complete the [onboarding experience](experience-onboarding.html) as soon as possible. Headshots and bios are due no later than Friday, September 30, 2023 by 5:00pm.
 
 ### Time Commitment
 
