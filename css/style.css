@@ -5,6 +5,11 @@
   scroll-margin-top: 60px;
 }
 
+/* Make the Google Slide embeds responsive. */
+.responsive-iframe iframe {
+  max-width: 100%;
+}
+
 /* Make the YouTube Videos responsive. */
 .video-container {
     position: relative;
