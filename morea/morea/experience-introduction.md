@@ -6,7 +6,7 @@ morea_type: experience
 morea_summary: "What are workshops? How are they different from seminars?"
 morea_sort_order: 3
 morea_labels:
-  - 2:00pm
+  - 2:10pm-2:30pm
 ---
 
 # 1. Introduction to Workshop development using Morea

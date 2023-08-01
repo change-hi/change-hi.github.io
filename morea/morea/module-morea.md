@@ -7,6 +7,7 @@ morea_outcomes:
   - outcome-morea
 morea_readings:
 morea_experiences:
+  - experience-morea-ice-breaker
   - experience-morea-introduction
 morea_assessments:
 morea_prerequisites:
