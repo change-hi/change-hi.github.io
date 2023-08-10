@@ -48,13 +48,64 @@ You can see that this window selects your personal account by default, which is 
 
 <img src="./fig/fork-3.png" width="100%">
 
-## Login to Gitpod
+## Set up Gitpod
 
 We recommend that you develop your workshop using a cloud-based based package called Gitpod. Basically, Gitpod provides a unix box pre-installed with all the tools you need to develop your Morea site in the cloud. You access everything through a browser, and edit your site using a browser-based version of Visual Studio Code.  (If, at some later point, you want to switch to local development, you can find out more at [Morea Framework Local Development](https://morea-framework.github.io/docs/category/local-development)).
+
+### Login to GitPod
 
 To start, go to <https://gitpod.io/>:
 
 <img src="./fig/gitpod-1.png" width="100%">
+
+Click the Login button to go to the Login page:
+
+
+<img src="./fig/gitpod-2.png" width="100%">
+
+You want to "Continue with GitHub". (In my case, since I've used Gitpod before, it suggests that path automatically).
+
+### Create a Gitpod workspace 
+
+After continuing with GitHub, you should be on the "Workspaces" page:
+
+<img src="./fig/gitpod-3.png" width="100%">
+
+Click the "New Workspace" button. This will display a new window and ask that you select one of your repositories. You want to select your forked version of change-hi.github.io:
+
+<img src="./fig/gitpod-4.png" width="100%">
+
+After you do that, you should see a page like this containing the options for creating a new workspace:
+
+<img src="./fig/gitpod-5.png" width="100%">
+
+The default options (VS COde, Standard) are perfectly fine. You can go ahead and click the "Autostart with these options for this repository", and then click "Continue". 
+
+A new screen will pop up that displays a cloud-based version of the VS Code editor.  There will be an open Terminal window with some green text scrolling by as various tools and libraries are installed. Just sit tight (1-2 minutes) until this installation finishes. You'll know it's done because you'll see a unix command prompt (in blue) at the bottom of the screen:
+
+<img src="./fig/gitpod-6.png" width="100%">
+
+
+
+## Build and view the site
+
+Now you can type `bundle exec jekyll serve` to build the site:
+
+<img src="./fig/gitpod-8.png" width="100%">
+
+You may see a pop up window noting that "A service is available on port 4000". Click the orange button labeled "Make public".
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 
