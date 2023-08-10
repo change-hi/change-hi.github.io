@@ -1,7 +1,7 @@
 ---
 title: "You understand workshop design and implementation"
 published: true
-morea_id: outcome-morea
+morea_id: outcome-morea-workshop
 morea_type: outcome
 morea_sort_order: 90
 ---

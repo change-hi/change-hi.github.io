@@ -26,4 +26,4 @@ You have five minutes to design your project. Then each group will present their
 {% include next-button.html
 top-label="1. Introduction ->"
 bottom-label="2:10pm"
-url="/morea/morea/experience-introduction.html" %}
+url="/morea/morea/experience-morea-introduction.html" %}

@@ -21,4 +21,4 @@ morea_labels:
 {% include next-button.html 
            top-label="3. Workshop setup ->" 
            bottom-label="2:30-3:00pm" 
-           url="/morea/morea/experience-workshop-setup.html" %}
+           url="/morea/morea/experience-morea-workshop-setup.html" %}

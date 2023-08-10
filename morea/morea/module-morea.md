@@ -4,13 +4,19 @@ published: true
 morea_coming_soon: false
 morea_id: morea
 morea_outcomes:
-  - outcome-morea
+  - outcome-morea-workshop
 morea_readings:
 morea_experiences:
   - experience-morea-ice-breaker
   - experience-morea-introduction
-  - experience-morea-hidsi-workshop-setup
+  - experience-morea-workshop-setup
+  - experience-morea-workshop-development-1
+  - experience-morea-workshop-development-2
+  - experience-morea-workshop-development-3
+  - experience-morea-workshop-demos
+  - experience-morea-pick-your-workshop
 morea_assessments:
+  - assessment-morea-workshop
 morea_prerequisites:
 morea_type: module
 morea_icon_url: /morea/morea/morea-logo.png

@@ -1,12 +1,12 @@
 ---
 title: "3. Workshop Setup"
 published: true
-morea_id: experience-morea-hidsi-workshop-setup
+morea_id: experience-morea-workshop-setup
 morea_type: experience
 morea_summary: "Set up a local copy of the Workshop repo"
 morea_sort_order: 3
 morea_labels:
-  - 2:10pm-2:30pm
+  - 2:30pm-2:45pm
 ---
 
 # 3. Workshop Setup
@@ -93,23 +93,37 @@ Now you can type `bundle exec jekyll serve` to build the site:
 
 <img src="./fig/gitpod-8.png" width="100%">
 
+<div class="alert alert-warning" role="alert" markdown="1">
+<i class="fa-solid fa-triangle-exclamation fa-xl"></i> **Yikes! What is this "nokogiri" stuff?**
+<hr/>
+
+It's unlikely, but possible to get an error such as "Could not find nokogiri-1.13.8-x86_64-linux in locally installed gems" after you run `bundle exec jekyll serve`. If that happens, try typing the following into your Terminal window:
+
+```shell
+rm Gemfile.lock
+bundle install
+bundle exec jekyll serve
+```
+This should fix the problem. 
+</div>
+
 You may see a pop up window noting that "A service is available on port 4000". Click the orange button labeled "Make public".
 
+After that, the terminal window should look like the following, where the last line is "Server running... press control-c to stop":
 
+<img src="./fig/gitpod-9.png" width="100%">
 
+If you put your mouse over the Server address, you will get a "Follow link" popup:
 
+<img src="./fig/gitpod-10.png" width="100%">
 
+Click the "Follow link" popup button and your own, personal, local copy of the Change-HI repo will be displayed in your browser:
 
+<img src="./fig/gitpod-11.png" width="100%">
 
-
-
-
-
-
-
-
+Congratulations!  You have now installed your own copy of the workshop repo and you are ready to start adding the content for your workshop.
 
 {% include next-button.html
-top-label="1. Introduction ->"
-bottom-label="2:10pm"
-url="/morea/morea/experience-introduction.html" %}
+top-label="4. Workshop development, Part 1 ->"
+bottom-label="2:45pm"
+url="/morea/morea/experience-morea-workshop-development-1.html" %}
