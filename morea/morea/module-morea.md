@@ -9,6 +9,7 @@ morea_readings:
 morea_experiences:
   - experience-morea-ice-breaker
   - experience-morea-introduction
+  - experience-morea-hidsi-workshop-setup
 morea_assessments:
 morea_prerequisites:
 morea_type: module

@@ -1,5 +1,5 @@
 ---
-title: "1. Introduction to Workshop Development using Morea"
+title: "2. Introduction to Workshop Development using Morea"
 published: true
 morea_id: experience-morea-introduction
 morea_type: experience
@@ -19,6 +19,6 @@ morea_labels:
 
 
 {% include next-button.html 
-           top-label="2. Plotly Tutorial ->" 
-           bottom-label="2:30pm" 
-           url="/morea/data-visualization/experience-plotly-tutorial.html" %}
+           top-label="3. Workshop setup ->" 
+           bottom-label="2:30-3:00pm" 
+           url="/morea/morea/experience-workshop-setup.html" %}
