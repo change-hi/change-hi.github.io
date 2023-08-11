@@ -11,7 +11,7 @@ morea_labels:
 
 # 6. Pick your workshop
 
-Please fill out this form to express your preferences for what workshops you would like to develop and present this year.
+Please fill out [this form](https://docs.google.com/spreadsheets/d/1UAr3QopN_grumXWrSyn8dVCo6rRerYDO5Yeno6Lpv7s/edit#gid=0) to express your preferences for what workshops you would like to develop and present this year.
 
 {% include next-button.html
 top-label="Assess this workshop ->"

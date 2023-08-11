@@ -6,6 +6,8 @@ morea_id: morea
 morea_outcomes:
   - outcome-morea-workshop
 morea_readings:
+  - reading-morea-github
+  - reading-morea-reference-guide
 morea_experiences:
   - experience-morea-ice-breaker
   - experience-morea-introduction
