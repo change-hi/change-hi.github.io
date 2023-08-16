@@ -9,7 +9,7 @@ morea_labels:
   - 2:10pm-2:30pm
 ---
 
-# 1. Introduction to Workshop development using Morea
+# 2. Introduction to Workshop development using Morea
 
 <div class="responsive-iframe">
 <!-- this is the embed code provided by Google -->
