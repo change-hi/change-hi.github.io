@@ -13,6 +13,8 @@ morea_experiences:
   - experience-techfolios-introduction
   - experience-techfolios-quality
   - experience-techfolios-initialization
+  - experience-techfolios-gitpod
+  - experience-techfolios-adventure
 morea_assessments:
   - assessment-techfolios-workshop
 morea_prerequisites:

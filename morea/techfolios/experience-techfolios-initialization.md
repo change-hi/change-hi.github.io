@@ -6,7 +6,7 @@ morea_type: experience
 morea_summary: "Create an initial version of your portfolio repo "
 morea_sort_order: 3
 morea_labels:
-  - 2:30pm-2:45pm
+  - 2:30pm-3:00pm
 ---
 
 # 4. TechFolios Quick Start: Initialization
@@ -33,6 +33,6 @@ Once we're done with this section of the TechFolios Quick Start, let's take a br
 
 
 {% include next-button.html
-top-label="5. Configure bio.json ->"
-bottom-label="3:00pm-3:10pm"
-url="/morea/techfolios/experience-techfolios-bio.html" %}
+top-label="5. TechFolios and GitPod ->"
+bottom-label="3:00pm-3:30pm"
+url="/morea/techfolios/experience-techfolios-gitpod.html" %}
