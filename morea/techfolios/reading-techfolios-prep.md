@@ -21,7 +21,11 @@ If you do not already have a GitHub account, please go to <https://github.com/jo
 
 Note that if you register with your hawaii.edu account (either as student or faculty), you will be eligible to apply for [educational benefits](https://education.github.com/).  This includes free access to GitHub Copilot! (Enrollment in the education program is not required for the Data Fellows program.)
 
-### 2. Gather portfolio materials
+### 2. Join Slack
+
+Please make sure you have joined <https://changehi.slack.com>. We will use Slack to share URLs to in-progress portfolios.
+
+### 3. Gather portfolio materials
 
 First take a look at the [Techfolio Template Site](https://techfolios.github.io/template/). As you can see, a Techfolio site can potentially contain the following kinds of information about a person:
 

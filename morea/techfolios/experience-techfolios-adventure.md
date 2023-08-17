@@ -13,9 +13,15 @@ morea_labels:
 
 Once you can edit and preview your portfolio in GitPod, you can return to the TechFolios QuickStart and proceed through the following sections more quickly and easily. Just do the edits in the cloud and `control-c control-p return` to see the results immediately. 
 
-To start, do:
+## 1. Configure bio.json
+
+You'll want to start by going through the Quick Start guide to configuring bio.json:
 
 * [Quick Start: Configure bio.json](https://techfolios.github.io/docs/quick-start/configure-bio-json)
+
+That should fix the top section of your portfolio home page. 
+
+## 2. Configure anything else you want
 
 Once you done that section, pick any of these sections to work on, as you like:
 
@@ -25,6 +31,12 @@ Once you done that section, pick any of these sections to work on, as you like:
 * [Quick Start: Configure theme](https://techfolios.github.io/docs/quick-start/configure-theme)
 
 You'll find things now go much faster since you can preview your changes almost instantaneously.
+
+## 3. Demo time! 
+
+For the last five minutes of this section of the workshop, let's look at some of your in-progress portfolios. 
+
+To do this, please share the URL to your "preview" in the ChangeHI #general channel. 
 
 Don't forget to commit your changes when you are done so that the results are published to your publicly accessible portfolio site. 
 
