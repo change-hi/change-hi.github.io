@@ -20,7 +20,7 @@ Instructions for demographic information will be emailed out to each participant
 
 ### 2. Biography and Headshots
 
-Please send a short biography and headshot for Hawai‘i Data Science Institute website - send to Maria at mduman@hawaii.edu by Friday, September 24 at 5:00pm.
+Please send a short biography and headshot for Hawai‘i Data Science Institute website - send to Maria at EPSCOR-ADMIN@lists.hawaii.edu by Friday, September 24 at 5:00pm.
 
 Please include a short description of your academic history, your research advisor/lab and degree and your research interests.
 
@@ -32,11 +32,11 @@ The Hawai‘i Data Science Institute requests Photo, Video and Sound Recording R
 
 <https://hawaii.kualibuild.com/app/builder/app/643483f5ba9e6bfe3a8f378c/start>
 
-Access to any relevant Google Drive, Google Calendars, email LISTSERVs, Slack, Github and other resources: Access will be granted throughout the week. Please contact Maria Dumanlang if you do not hear back about access to any of these resources.
+Access to any relevant Google Drive, Google Calendars, email LISTSERVs, Slack, Github and other resources: Access will be granted throughout the week. Please contact Maria Dumanlang at EPSCOR-ADMIN@lists.hawaii.edu if you do not hear back about access to any of these resources.
 
 ### 4. Directions for completing CITI Responsible Conduct of Research (RCR) Training
 
-All federally-funded students must complete CITI Responsible Conduct of Research training. The CITI RCR course may take 4 or more hours to complete. CITI keeps track of your progress allowing you to complete the course over several sessions. It is strongly recommended that you utilize all the tools available, such as the video clips, case studies and elective modules. These tools provide a great deal of information regarding research integrity and research best practices. For questions, please contact Michelle Choe at choem3@hawaii.edu.
+All federally-funded students must complete CITI Responsible Conduct of Research training. The CITI RCR course may take 4 or more hours to complete. CITI keeps track of your progress allowing you to complete the course over several sessions. It is strongly recommended that you utilize all the tools available, such as the video clips, case studies and elective modules. These tools provide a great deal of information regarding research integrity and research best practices. For questions, please contact Michelle Choe at EPSCOR-ADMIN@lists.hawaii.edu.
 
 <https://research.hawaii.edu/orc/research-integrity/rcr-training/>
 
@@ -64,7 +64,7 @@ Here are the steps:
 
 6. Click ‘Start Now’ and complete all required modules by by week 3 of the program. The modules are sequential and usually contain a quiz.
 
-7. Upon completion, please download your certificate and email to Maria Dumanlang at mduman@hawaii.edu.
+7. Upon completion, please download your certificate and email to Maria Dumanlang at EPSCOR-ADMIN@lists.hawaii.edu.
 
 ### 5. Title IX and Harassment
 
@@ -92,12 +92,11 @@ Confidential resources can be found here:
 
 ### 6. Graduate Division Information
 
-Please do not hesitate to contact us if you have any questions or concerns regarding your pay or GA position please contact Michelle Choe at choem3@hawaii.edu . As your position is under your department, please don’t hesitate to contact your faculty supervisor or departmental resources for questions and concerns as well.
+Please review the terms of your fellowship offer. As your position is under your department, please contact your faculty supervisor and/or your department for questions and concerns about your position. Students are expected to adhere to departmental and university policies and guidelines.
 
-All employees should have received a PNF (personnel notification form) and completed GATEX form (for tuition waiver). If you  have not, please contact us immediately. If it is the start of your GA-ship, you should have also received an offer letter.
+Please review the terms of your fellowship offer. As your position is under your department, please contact your faculty supervisor and/or your department for questions and concerns about your position. Students are expected to adhere to departmental and university policies and guidelines.
 
-All graduate students are expected to adhere to the Mānoa Student Code of Conduct: 
-
+All graduate students are expected to adhere to the Mānoa Student Code of Conduct:
 * <https://manoa.hawaii.edu/graduate/conduct-code/>
 * <https://studentaffairs.manoa.hawaii.edu/policies/conduct_code/>
 
