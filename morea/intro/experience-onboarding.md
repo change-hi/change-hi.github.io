@@ -94,8 +94,6 @@ Confidential resources can be found here:
 
 Please review the terms of your fellowship offer. As your position is under your department, please contact your faculty supervisor and/or your department for questions and concerns about your position. Students are expected to adhere to departmental and university policies and guidelines.
 
-Please review the terms of your fellowship offer. As your position is under your department, please contact your faculty supervisor and/or your department for questions and concerns about your position. Students are expected to adhere to departmental and university policies and guidelines.
-
 All graduate students are expected to adhere to the Mānoa Student Code of Conduct:
 * <https://manoa.hawaii.edu/graduate/conduct-code/>
 * <https://studentaffairs.manoa.hawaii.edu/policies/conduct_code/>
