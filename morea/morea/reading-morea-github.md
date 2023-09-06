@@ -21,7 +21,3 @@ It will save you a few minutes of time during the workshop if you can create you
 If you do not already have a GitHub account, please go to <https://github.com/join> to register. 
 
 Note that if you register with your hawaii.edu account (either as student or faculty), you will be eligible to apply for [educational benefits](https://education.github.com/).  This includes free access to GitHub Copilot! (Enrollment in the education program is not required for the Data Fellows program.)
-
-## 2. Join Slack
-
-If you haven't already, please join <https://changehi.slack.com>. We will use Slack to share our experiences during this workshop.
