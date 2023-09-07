@@ -1,5 +1,5 @@
 ---
-title: "Morea"
+title: "Design and Implementation of Workshops"
 published: true
 morea_coming_soon: false
 morea_id: morea

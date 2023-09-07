@@ -3,14 +3,13 @@ title: "Get ready for the Morea Workshop"
 published: true
 morea_id: reading-morea-github
 morea_type: reading
-morea_summary: "Join Slack and join GitHub"
+morea_summary: "Join GitHub"
 morea_sort_order: 1
 morea_labels:
   - Pre-workshop preparation
 ---
 
 # Get ready for the Morea workshop
-
 
 ## 1. Sign up with GitHub
 
