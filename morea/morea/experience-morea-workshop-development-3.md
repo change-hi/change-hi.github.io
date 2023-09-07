@@ -15,7 +15,7 @@ In this section, you'll commit your changes and make a pull request so that the 
 
 ## Commit your changes to your fork of the change-hi.github.io repository
 
-After having edited files in the best-recipe-ever directory, you should see a notification disk on the left side of your browser window next to the Source Control icon. If you click on it, it should reveal the Source Contorol changes pane and a summary of what you've done. For example:
+After having edited files in the best-recipe-ever directory, you should see a notification disk on the left side of your browser window next to the Source Control icon. If you click on it, it should reveal the Source Control changes pane and a summary of what you've done. For example:
 
 <img src="./fig/commit-1.png" width="100%">
 
