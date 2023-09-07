@@ -11,7 +11,7 @@ morea_labels:
 
 # 1. Ice Breaker: Fantasy Data Science Project
 
-Break into groups of 3-4. Try to be in a group with people you haven't met before.
+Break up into small groups. Try to be in a group with people you haven't met before.
 
 Task: 
 
@@ -19,9 +19,11 @@ Task:
 
 2. Appoint one person to be the "scribe" and to take notes on your conversation.
 
-3. Dream up a "fantasy data science project" that combines at least three of the hobbies in your group.
+3. Each person should tell the group about one or two of their favorite hobbies. 
 
-For example, if the hobbies are: swimming, surfing, cooking, then a data science project might be:  "Do surfers that eat a high fat diet find it easier to swim back to their board after wiping out? To do this project, we must (a) contact at least 100 surfers, (b) ask them to record the food that they eat for one month, (c) analyze their food intake and divide the surfers into "low fat", "moderate fat", and "high fat" diet, and (d) video them surfing and record the time it takes for them to swim back to their board (and the distance).
+3. Now the group should dream up a "fantasy data science project" that combines at least three of the hobbies in your group. The project description will include the hobbies, what is the question to be answered, and what data will be collected. Make it amusing! 
+
+For example, if the hobbies are: swimming, surfing, cooking, then a data science project might be:  "Do surfers that eat a high fat diet (and thus float better) find it easier to swim back to their board after wiping out? To do this project, we must (a) contact at least 100 surfers, (b) ask them to record the food that they eat for one month, (c) analyze their food intake and divide the surfers into "low fat", "moderate fat", and "high fat" diet, and (d) video them surfing and record the time it takes for them to swim back to their board (and the distance traveled).
 
 You have five minutes to design your project. Then each group will present their data science project to everyone (five minutes total).  Karma points for the most creative and entertaining Fantasy Data Science project!
 

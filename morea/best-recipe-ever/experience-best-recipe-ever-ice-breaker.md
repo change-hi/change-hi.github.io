@@ -18,6 +18,6 @@ Task:
 *Replace this sentence with a description of your "ice breaker". Think of a short, entertaining exercise that helps Data Fellows learn about each other.* 
 
 {% include next-button.html
-top-label="1. Shop for the best recipe ever ->"
+top-label="2. Shop for the best recipe ever ->"
 bottom-label="2:10pm"
 url="/morea/best-recipe-ever/experience-best-recipe-ever-shopping.html" %}

@@ -1,5 +1,5 @@
 ---
-title: "1. Shop for the best recipe ever"
+title: "2. Shop for the best recipe ever"
 published: true
 morea_id: experience-best-recipe-ever-shopping
 morea_type: experience

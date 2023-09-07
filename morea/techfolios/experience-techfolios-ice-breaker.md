@@ -11,7 +11,7 @@ morea_labels:
 
 # 1. Ice Breaker: What keeps you up at night?
 
-Break into groups of 3-4. Try to be in a group with people you haven't met before.
+Break into small groups. Try to be in a group with people you haven't met before.
 
 Task: 
 
