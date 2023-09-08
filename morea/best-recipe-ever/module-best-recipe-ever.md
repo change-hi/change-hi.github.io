@@ -10,6 +10,7 @@ morea_experiences:
   - experience-best-recipe-ever-ice-breaker
   - experience-best-recipe-ever-shopping
   - experience-best-recipe-ever-preparation
+  - experience-best-recipe-ever-whats-next
 morea_assessments:
   - assessment-best-recipe-ever
 morea_prerequisites:

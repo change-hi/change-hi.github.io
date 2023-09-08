@@ -1,5 +1,5 @@
 ---
-title: "5. Workshop Development, Part 3"
+title: "6. Workshop Development, Part 3"
 published: true
 morea_id: experience-morea-workshop-development-3
 morea_type: experience
@@ -38,9 +38,6 @@ If all goes well, you should see a summary of your pull request displayed in the
 <img src="./fig/commit-5.png" width="100%">
 
 You're done!  The Change-HI administrators should be notified of your pull request. If you haven't heard anything within a day or two, please email them. (The current administrator is Philip Johnson, johnson@hawaii.edu)
-
-
-
 
 
 {% include next-button.html

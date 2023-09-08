@@ -1,5 +1,5 @@
 ---
-title: "1. Best Recipe Ever Ice Breaker"
+title: "1. Ice Breaker"
 published: true
 morea_id: experience-best-recipe-ever-ice-breaker
 morea_type: experience
@@ -9,9 +9,9 @@ morea_labels:
   - 2:00pm-2:10pm
 ---
 
-# 1. Best Recipe Ever Ice Breaker
+# 1. Ice Breaker
 
-Break into groups of 4.
+Break into small groups. Try to find people you haven't met yet for your group.
 
 Task: 
 

@@ -8,6 +8,7 @@ morea_outcomes:
 morea_readings:
   - reading-morea-github
   - reading-morea-reference-guide
+  - reading-morea-workshop-design-checklist
 morea_experiences:
   - experience-morea-ice-breaker
   - experience-morea-introduction
@@ -16,6 +17,7 @@ morea_experiences:
   - experience-morea-workshop-development-2
   - experience-morea-workshop-development-3
   - experience-morea-workshop-demos
+  - experience-morea-whats-next
   - experience-morea-pick-your-workshop
 morea_assessments:
   - assessment-morea-workshop

@@ -1,9 +1,9 @@
 ---
-title: "1. Ice Breaker: Fantasy Data Science"
+title: "1. Ice Breaker"
 published: true
 morea_id: experience-morea-ice-breaker
 morea_type: experience
-morea_summary: "Design a new data science project"
+morea_summary: "Design a fantasy data science project"
 morea_sort_order: 3
 morea_labels:
   - 2:00pm-2:10pm
@@ -15,7 +15,7 @@ Break up into small groups. Try to be in a group with people you haven't met bef
 
 Task: 
 
-1. Introduce yourself to your group members. Name, background, what you hope to accomplish through the Data Science Fellows program, and at least one hobby.
+1. Introduce yourself to your group members. Name, background, your research area, professional goals, and at least one hobby.
 
 2. Appoint one person to be the "scribe" and to take notes on your conversation.
 

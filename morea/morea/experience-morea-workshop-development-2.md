@@ -6,7 +6,7 @@ morea_type: experience
 morea_summary: "Document your choice for the Best Ever Recipe "
 morea_sort_order: 3
 morea_labels:
-  - 3:00pm-3:30pm
+  - 3:00pm-3:25pm
 ---
 
 # 5. Workshop Development, Part 2
@@ -68,6 +68,6 @@ Spend a couple of minutes seeing if you can figure out what went wrong. If you d
 
 
 {% include next-button.html
-top-label="Commit your changes ->"
+top-label="Experience Workshop Development, Part 3 ->"
 bottom-label="3:25pm"
 url="/morea/morea/experience-morea-workshop-development-3.html" %}

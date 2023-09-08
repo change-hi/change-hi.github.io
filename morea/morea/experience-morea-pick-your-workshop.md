@@ -1,5 +1,5 @@
 ---
-title: "6. Pick your workshop"
+title: "9. Pick your workshop"
 published: true
 morea_id: experience-morea-pick-your-workshop
 morea_type: experience
@@ -9,7 +9,7 @@ morea_labels:
   - 3:40pm-3:50pm
 ---
 
-# 6. Pick your workshop
+# 9. Pick your workshop
 
 Please fill out [this form](https://docs.google.com/spreadsheets/d/1UAr3QopN_grumXWrSyn8dVCo6rRerYDO5Yeno6Lpv7s/edit#gid=0) to express your preferences for what workshops you would like to develop and present this year.
 
