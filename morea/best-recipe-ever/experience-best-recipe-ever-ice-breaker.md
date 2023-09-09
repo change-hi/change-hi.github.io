@@ -15,7 +15,7 @@ Break into small groups. Try to find people you haven't met yet for your group.
 
 Task: 
 
-*Replace this sentence with a description of your "ice breaker". Think of a short, entertaining exercise that helps Data Fellows learn about each other.* 
+*In this engaging ice breaker, participants introduce themselves and share a unique twist or ingredient they'd add to a classic fried chicken recipe. It's a flavorful way to foster introductions and celebrate culinary creativity.* 
 
 {% include next-button.html
 top-label="2. Shop for the best recipe ever ->"

@@ -11,7 +11,7 @@ morea_labels:
 
 # 2. Shop for the best recipe ever
 
-*Replace this sentence with your instructions on where to go and what to buy for your best recipe ever. You might want to include some links or photos to help with the instructions.*
+*To create the ultimate fried chicken, gather these ten essential ingredients: chicken pieces, buttermilk, all-purpose flour, paprika, garlic powder, onion powder, cayenne pepper, salt, black pepper, and vegetable oil. Most items can be found at your local grocery store in the poultry, dairy, baking, and spices sections. For a visual guide, look for images of fresh chicken, a bottle of buttermilk, and an array of vibrant spices.*
 
 
 {% include next-button.html 

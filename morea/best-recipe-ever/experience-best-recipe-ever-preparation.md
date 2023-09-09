@@ -12,7 +12,10 @@ morea_labels:
 
 # 3. Prepare the best recipe ever
 
-*Replace this sentence with your instructions on how to prepare the best recipe ever. You might want to include some links or photos to help with the instructions.*
+**Double Fried Chicken Preparation**
+
+Marinate chicken pieces in buttermilk for at least 2 hours, then dredge in a mixture of flour, spices, and seasonings. Fry the chicken in vegetable oil until golden brown, then drain and fry a second time for extra crispiness. For a detailed recipe and step-by-step guide, visit [this link](https://www.allrecipes.com/recipe/8805/crispy-fried-chicken/). 
+![Your Image Here](./fig/chicken.jpeg)
 
 
 {% include next-button.html 
