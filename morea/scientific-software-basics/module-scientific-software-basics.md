@@ -1,7 +1,7 @@
 ---
 title: "Scientific Software Basics"
 published: true
-morea_coming_soon: true
+morea_coming_soon: false
 morea_id: scientific-software-basics
 morea_outcomes:
   - outcome-ssb
