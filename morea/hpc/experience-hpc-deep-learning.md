@@ -6,7 +6,7 @@ morea_type: experience
 morea_summary: "A basic Deep Learning tutorial on Koa "
 morea_sort_order: 6
 morea_labels:
-  - 3:00pm
+  - 3:10pm
 morea_enable_toc: true
 ---
 
