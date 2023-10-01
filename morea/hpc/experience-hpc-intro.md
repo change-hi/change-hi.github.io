@@ -1,12 +1,12 @@
 ---
-title: "1. What is High Performance Computing (HPC)?"
+title: "2. What is High Performance Computing (HPC)?"
 published: true
 morea_id: experience-hpc-intro
 morea_type: experience
 morea_summary: "What is an HPC System? What are the components of an HPC system?"
 morea_sort_order: 2
 morea_labels:
-  - 2:00pm
+  - 2:10pm
 morea_enable_toc: true
 ---
 
@@ -111,5 +111,5 @@ This chapter used and modified material from the [Introduction to High-Performan
 
 {% include next-button.html 
            top-label="Connecting to a remote HPC system ->" 
-           bottom-label="2:10pm" 
+           bottom-label="2:20pm" 
            url="/morea/hpc/experience-hpc-connecting.html" %}
