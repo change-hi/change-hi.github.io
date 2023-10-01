@@ -1,12 +1,12 @@
 ---
-title: "4. Install Modules and Setup an Environment"
+title: "5. Install Modules and Setup an Environment"
 published: true
 morea_id: experience-hpc-environment
 morea_type: experience
 morea_summary: "Create an environment and setup a Python kernel"
 morea_sort_order: 5
 morea_labels:
-  - 2:40pm
+  - 2:50pm
 morea_enable_toc: true
 ---
 
@@ -122,5 +122,5 @@ Let's take a brief break to stretch before moving on to the next page.  See you 
 
 {% include next-button.html 
            top-label="Deep Learning Tutorial ->" 
-           bottom-label="3:00pm" 
+           bottom-label="3:10pm" 
            url="/morea/hpc/experience-hpc-deep-learning.html" %}
