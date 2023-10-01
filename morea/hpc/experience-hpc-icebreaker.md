@@ -26,6 +26,6 @@ Please spend five minutes having everyone describe their current computational p
 You have five minutes to discuss with your group. Then each person will share a 1-sentence recap of their computing project with everyone (five minutes total).
 
 {% include next-button.html
-top-label="2. Introduction to Professional Portfolios ->"
+top-label="1. What is High Performance Computing (HPC)? ->"
 bottom-label="2:10pm-2:2pm"
-url="/morea/techfolios/experience-techfolios-introduction.html" %}
+url="/morea/hpc/experience-hpc-intro.html" %}
