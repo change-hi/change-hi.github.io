@@ -1,9 +1,9 @@
 ---
-title: "5. Deep learning CPU vs GPU"
+title: "6. Deep learning CPU vs GPU"
 published: true
 morea_id: experience-hpc-deep-learning
 morea_type: experience
-morea_summary: "A basic Deep Learning tutorial on Mana "
+morea_summary: "A basic Deep Learning tutorial on Koa "
 morea_sort_order: 6
 morea_labels:
   - 3:00pm
@@ -16,10 +16,10 @@ morea_enable_toc: true
 
 **Questions**
 * How does the performance of GPU compare with that of CPU?
-* How to use Mana to do Machine Learning research?
+* How to use Koa to do Machine Learning research?
 
 **Objectives**
-* Do a basic Deep Learning tutorial on Mana
+* Do a basic Deep Learning tutorial on Koa
 </div>
 
 ## Deep Learning Tutorial
@@ -406,5 +406,5 @@ Why would you need an HPC cluster over your personal computer?
 
 {% include next-button.html 
            top-label="Staging and File System Choice ->" 
-           bottom-label="3:20pm" 
+           bottom-label="3:30pm" 
            url="/morea/hpc/experience-hpc-file-systems.html" %}

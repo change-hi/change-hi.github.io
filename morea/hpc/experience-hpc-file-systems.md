@@ -1,12 +1,12 @@
 ---
-title: "6. Staging and File System Choice"
+title: "7. Staging and File System Choice"
 published: true
 morea_id: experience-hpc-file-systems
 morea_type: experience
 morea_summary: "What is a file system? What is a distributed file system? How do you optimize the file system on Mana?"
 morea_sort_order: 7
 morea_labels:
-  - 3:20pm
+  - 3:30pm
 morea_enable_toc: true
 ---
 
