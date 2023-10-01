@@ -1,0 +1,31 @@
+---
+title: "1. Ice Breaker: How do you use computing?"
+published: true
+morea_id: experience-hpc-icebreaker
+morea_type: experience
+morea_summary: "Tell your group about a current computing project."
+morea_sort_order: 3
+morea_labels:
+  - 2:00pm-2:10pm
+---
+
+# 1. Ice Breaker: How do you use computing?
+
+Break into small groups. Try to be in a group with people you haven't met before.
+
+Task: 
+
+1. Introduce yourself to your group members. Name, background, degree program and your favorite movie.
+
+2. Appoint one person to be the "scribe" and to take notes on your conversation.
+
+3. Each person should briefly describe a project (professional or passion) which they're currently using computing for. Briefly describe the project goals, what frameworks/language/libray you're using, and tell us how things are progressing! 
+
+Please spend five minutes having everyone describe their current computational projects, and have the scribe note it down. 
+
+You have five minutes to discuss with your group. Then each person will share a 1-sentence recap of their computing project with everyone (five minutes total).
+
+{% include next-button.html
+top-label="2. Introduction to Professional Portfolios ->"
+bottom-label="2:10pm-2:2pm"
+url="/morea/techfolios/experience-techfolios-introduction.html" %}

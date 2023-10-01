@@ -9,6 +9,7 @@ morea_readings:
   - reading-code-of-conduct
   - reading-hpc-preparation
 morea_experiences:
+  - experience-hpc-icebreaker
   - experience-hpc-intro
   - experience-hpc-connecting
   - experience-hpc-jupyter
