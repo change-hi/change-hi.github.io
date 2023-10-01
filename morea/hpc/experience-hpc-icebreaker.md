@@ -27,5 +27,5 @@ You have five minutes to discuss with your group. Then each person will share a 
 
 {% include next-button.html
 top-label="1. What is High Performance Computing (HPC)? ->"
-bottom-label="2:10pm-2:2pm"
+bottom-label="2:10pm-2:20pm"
 url="/morea/hpc/experience-hpc-intro.html" %}
