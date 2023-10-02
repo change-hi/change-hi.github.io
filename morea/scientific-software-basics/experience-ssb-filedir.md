@@ -160,7 +160,7 @@ Documents   Library     Music       Public
 ```
 </div>
 
-(Again, your results may be slightly different depending on your operating
+(Your results may be slightly different depending on your operating
 system and how you have customized your filesystem.)
 
 `ls` prints the names of the files and directories in the current directory.
@@ -194,35 +194,6 @@ Desktop/      Downloads/    Movies/       Pictures/
 
 (Again, your results may be slightly different depending on your operating
 system and how you have customized your filesystem.)
-
-`ls` prints the names of the files and directories in the current directory.
-We can make its output more comprehensible by using the `-F` **option**
-(also known as a **switch** or a **flag**) ,
-which tells `ls` to classify the output
-by adding a marker to file and directory names to indicate what they are:
-- a trailing `/` indicates that this is a directory
-- `@` indicates a link
-- `*` indicates an executable
-
-Depending on your default options,
-the shell might also use colors to indicate whether each entry is a file or
-directory.
-
-<div class="alert alert-secondary" role="alert" markdown="1">
-
-Input:
-
-```bash
-$ ls -F
-```
-
-Output:
-
-```bash
-Applications/ Documents/    Library/      Music/        Public/
-Desktop/      Downloads/    Movies/       Pictures/
-```
-</div>
 
 Here,
 we can see that our home directory contains mostly **sub-directories**.
@@ -271,9 +242,10 @@ $ ls -F /
 Output:
 
 ```bash
-Applications/         System/
-Library/              Users/
-Network/              Volumes/
+Applications/	Volumes/	etc@		sbin/
+Library/	bin/		home@		tmp@
+System/		cores/		opt/		usr/
+Users/		dev/		private/	var@
 ```
 </div>
 
@@ -335,9 +307,8 @@ Mandatory arguments to long options are mandatory for short options too.
   -A, --almost-all           do not list implied . and ..
       --author               with -l, print the author of each file
   -b, --escape               print C-style escapes for nongraphic characters
-      --block-size=SIZE      scale sizes by SIZE before printing them; e.g.,
-                               '--block-size=M' prints sizes in units of
-                               1,048,576 bytes; see SIZE format below
+      --block-size=SIZE      with -l, scale sizes by SIZE when printing them;
+                               e.g., '--block-size=M'; see SIZE format below
   -B, --ignore-backups       do not list implied entries ending with ~
   -c                         with -lt: sort by, and show, ctime (time of last
                                modification of file status information);
@@ -360,8 +331,7 @@ Mandatory arguments to long options are mandatory for short options too.
                                can be augmented with a --sort option, but any
                                use of --sort=none (-U) disables grouping
   -G, --no-group             in a long listing, don't print group names
-  -h, --human-readable       with -l and/or -s, print human readable sizes
-                               (e.g., 1K 234M 2G)
+  -h, --human-readable       with -l and -s, print sizes like 1K 234M 2G etc.
       --si                   likewise, but use powers of 1000 not 1024
   -H, --dereference-command-line
                              follow symbolic links listed on the command line
@@ -370,20 +340,22 @@ Mandatory arguments to long options are mandatory for short options too.
                                that points to a directory
       --hide=PATTERN         do not list implied entries matching shell PATTERN
                                (overridden by -a or -A)
+      --hyperlink[=WHEN]     hyperlink file names; WHEN can be 'always'
+                               (default if omitted), 'auto', or 'never'
       --indicator-style=WORD  append indicator with style WORD to entry names:
                                none (default), slash (-p),
                                file-type (--file-type), classify (-F)
   -i, --inode                print the index number of each file
   -I, --ignore=PATTERN       do not list implied entries matching shell PATTERN
-  -k, --kibibytes            default to 1024-byte blocks for disk usage
+  -k, --kibibytes            default to 1024-byte blocks for disk usage;
+                               used only with -s and per directory totals
   -l                         use a long listing format
   -L, --dereference          when showing file information for a symbolic
                                link, show information for the file the link
                                references rather than for the link itself
   -m                         fill width with a comma separated list of entries
   -n, --numeric-uid-gid      like -l, but list numeric user and group IDs
-  -N, --literal              print raw entry names (do not treat e.g. control
-                              characters specially)
+  -N, --literal              print entry names without quoting
   -o                         like -l, but do not list group information
   -p, --indicator-style=slash
                              append / indicator to directories
@@ -394,24 +366,21 @@ Mandatory arguments to long options are mandatory for short options too.
       --quoting-style=WORD   use quoting style WORD for entry names:
                                literal, locale, shell, shell-always,
                                shell-escape, shell-escape-always, c, escape
+                               (overrides QUOTING_STYLE environment variable)
   -r, --reverse              reverse order while sorting
   -R, --recursive            list subdirectories recursively
   -s, --size                 print the allocated size of each file, in blocks
   -S                         sort by file size, largest first
       --sort=WORD            sort by WORD instead of name: none (-U), size (-S),
                                time (-t), version (-v), extension (-X)
-      --time=WORD            with -l, show time as WORD instead of default
-                               modification time: atime or access or use (-u);
-                               ctime or status (-c); also use specified time
-                               as sort key if --sort=time (newest first)
-      --time-style=STYLE     with -l, show times using style STYLE:
-                               full-iso, long-iso, iso, locale, or +FORMAT;
-                               FORMAT is interpreted like in 'date'; if FORMAT
-                               is FORMAT1<newline>FORMAT2, then FORMAT1 applies
-                               to non-recent files and FORMAT2 to recent files;
-                               if STYLE is prefixed with 'posix-', STYLE
-                               takes effect only outside the POSIX locale
-  -t                         sort by modification time, newest first
+      --time=WORD            change the default of using modification times;
+                               access time (-u): atime, access, use;
+                               change time (-c): ctime, status;
+                               birth time: birth, creation;
+                             with -l, WORD determines which time to show;
+                             with --sort=time, sort by WORD (newest first)
+      --time-style=TIME_STYLE  time/date format with -l; see TIME_STYLE below
+  -t                         sort by time, newest first; see --time
   -T, --tabsize=COLS         assume tab stops at each COLS instead of 8
   -u                         with -lt: sort by, and show, access time;
                                with -l: show access time and sort by name;
@@ -428,6 +397,13 @@ Mandatory arguments to long options are mandatory for short options too.
 
 The SIZE argument is an integer and optional unit (example: 10K is 10*1024).
 Units are K,M,G,T,P,E,Z,Y (powers of 1024) or KB,MB,... (powers of 1000).
+Binary prefixes can be used, too: KiB=K, MiB=M, and so on.
+
+The TIME_STYLE argument can be full-iso, long-iso, iso, locale, or +FORMAT.
+FORMAT is interpreted like in date(1).  If FORMAT is FORMAT1<newline>FORMAT2,
+then FORMAT1 applies to non-recent files and FORMAT2 to recent files.
+TIME_STYLE prefixed with 'posix-' takes effect only outside the POSIX locale.
+Also the TIME_STYLE environment variable sets the default style to use.
 
 Using color to distinguish file types is disabled both by default and
 with --color=never.  With --color=auto, ls emits color codes only when
@@ -439,8 +415,9 @@ Exit status:
  1  if minor problems (e.g., cannot access subdirectory),
  2  if serious trouble (e.g., cannot access command-line argument).
 
-GNU coreutils online help: <http://www.gnu.org/software/coreutils/>
-Full documentation at: <http://www.gnu.org/software/coreutils/ls>
+GNU coreutils online help: <https://www.gnu.org/software/coreutils/>
+Report any translation bugs to <https://translationproject.org/team/>
+Full documentation <https://www.gnu.org/software/coreutils/ls>
 or available locally via: info '(coreutils) ls invocation'
 ```
 </div>
@@ -584,8 +561,7 @@ $ ls -F Desktop/data-shell
 Output:
 
 ```bash
-creatures/          molecules/          notes.txt           solar.pdf
-data/               north-pacific-gyre/ pizza.cfg           writing/
+creatures/  data/  molecules/  north-pacific-gyre/  notes.txt  pizza.cfg  solar.pdf  writing/
 ```
 </div>
 
@@ -642,8 +618,7 @@ $ ls -F
 Output:
 
 ```bash
-amino-acids.txt   elements/     pdb/	        salmon.txt
-animals.txt       morse.txt     planets.txt     sunspot.txt
+amino-acids.txt  animal-counts/  animals.txt  elements/  morse.txt  pdb/  planets.txt  salmon.txt  sunspot.txt
 ```
 </div>
 
@@ -720,8 +695,7 @@ $ ls -F -a
 Output:
 
 ```bash
-./   .bash_profile  data/       north-pacific-gyre/  pizza.cfg  thesis/
-../  creatures/     molecules/  notes.txt            solar.pdf  writing/
+./  ../  .bash_profile  creatures/  data/  molecules/  north-pacific-gyre/  notes.txt  pizza.cfg  solar.pdf  writing/
 ```
 </div>
 

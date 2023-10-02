@@ -83,11 +83,34 @@ Go back to "my interactive sessions" in the browser and start another shell..
 
 ## Download sample files for this workshop
 
+In your opened Desktop session which started a shell, copy and paste in the following commands below and then hit "enter" on your keyboard to download data-shell.zip within the `Desktop directory`. These set of commands are going to download and unzip the data-shell.zip file and create a folder called `data-shell` with several files and directories in it that will be used in this workshop. We'll learn more about these commands in this workshop. 
+
 <div class="alert alert-secondary" role="alert" markdown="1">
-<i class="fa-solid fa-user-pen fa-xl"></i>  **Download data-shell.zip**
-<hr/>
 
-1. Right click on [data-shell.zip](/morea/scientific-software-basics/data/data-shell.zip) and select "Save as..." to download this zip file to your computer.
+```bash
+cd Desktop
+wget https://change-hi.github.io/morea/scientific-software-basics/data/data-shell.zip
+unzip data-shell.zip
+rm data-shell.zip
+cd ..
+```
 
-2. Bring up a Terminal window (MacOS) or Command shell (Windows), find the data-shell.zip file, and run `unzip data-shell.zip` to create a folder called `data-shell` with several files and directories in it that will be used in this workshop. In MacOS (at least), you can just double-click the data-shell.zip file within the Finder to invoke the unzip command on it.  
+</div>
+
+To see if the files have been downloaded, copy and paste these commands into your shell:
+
+<div class="alert alert-secondary" role="alert" markdown="1">
+
+Input: 
+
+```bash
+ls -F Desktop/data-shell/
+```
+
+Output:
+
+```bash
+creatures/  data/  molecules/  north-pacific-gyre/  notes.txt  pizza.cfg  solar.pdf  writing/
+```
+
 </div>
