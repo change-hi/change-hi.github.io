@@ -155,7 +155,7 @@ $ ls -F thesis
 Let's change our working directory to `thesis` using `cd`,
 then run a text editor called Nano to create a file called `draft.txt`.
 
-On Mana compute nodes do this first:
+On  a Koa compute node do this first:
 
 <div class="alert alert-secondary" role="alert" markdown="1">
 

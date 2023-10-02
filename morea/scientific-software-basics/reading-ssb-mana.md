@@ -1,9 +1,9 @@
 ---
-title: "Setting Up Mana"
+title: "Setting Up Koa"
 published: true
 morea_id: reading-ssb-mana
 morea_type: reading
-morea_summary: "Create accounts on Mana, download sample file."
+morea_summary: "Create accounts on Koa, download sample file."
 morea_sort_order: 1
 morea_labels:
   - Pre-workshop
@@ -19,7 +19,7 @@ Normally this reading would be done in advance of the workshop, but this semeste
 
 </div>
 
-# Setting Up Mana
+# Setting Up Koa
 
 <div class="alert alert-success mt-3" role="alert" markdown="1">
 <i class="fa-solid fa-globe fa-xl"></i> **Overview**
@@ -27,7 +27,7 @@ Normally this reading would be done in advance of the workshop, but this semeste
 
 **Objectives**
   * Have an OOD compatible browser
-  * Be able to connect to the workshop in Zoom and Mana Open OnDemand via a web browser
+  * Be able to connect to the workshop in Zoom and Koa Open OnDemand via a web browser
   * Download sample data
 </div>
 
@@ -35,9 +35,9 @@ Normally this reading would be done in advance of the workshop, but this semeste
 
 Please make sure you have installed a compatible browser as specified at: <https://osc.github.io/ood-documentation/latest/requirements.html#browser-requirements>
 
-## Connect to Mana through Open OnDemand
+## Connect to Koa through Open OnDemand
 
-Connect to Mana by pointing your browser (ChromeOS, Firefox or Safari) at: <https://mana.its.hawaii.edu>
+Connect to Koa by pointing your browser (ChromeOS, Firefox or Safari) at: <https://koa.its.hawaii.edu>
 
 You should get the UH gold screen and then login with your user name and password.
 
@@ -45,9 +45,9 @@ You should get the UH gold screen and then login with your user name and passwor
 
 Authenticate with MFA/DUO via your preferred method.
 
-You should see the Mana Open OnDemand start page:
+You should see the Koa Open OnDemand start page:
 
-{% include figure.html url="" max-width="100%" file="/morea/scientific-software-basics/fig/mana_ood.png" alt="Node anatomy" caption="" %}
+{% include figure.html url="" max-width="100%" file="/morea/scientific-software-basics/fig/koa_ood.png" alt="Node anatomy" caption="" %}
 
 ## Launch an interactive session on a compute node
 

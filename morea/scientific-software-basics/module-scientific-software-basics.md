@@ -27,4 +27,4 @@ morea_labels:
 morea_sort_order: 40
 ---
 
-How to use the Mana command line (i.e. linux) to support basic file and data manipulation.
+How to use the Koa command line (i.e. linux) to support basic file and data manipulation.
