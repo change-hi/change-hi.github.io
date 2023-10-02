@@ -211,7 +211,7 @@ holding it down, press the O key) to write our data to disk
 (we'll be asked what file we want to save this to:
 press <kbd>Return</kbd> to accept the suggested default of `draft.txt`).
 
-{% include figure.html url="" max-width="100%" file="/morea/scientific-software-basics/fig/nano-screenshot.png" alt="Node anatomy" caption="" %}
+{% include figure.html url="" max-width="100%" file="/morea/scientific-software-basics/fig/nano_screenshot_new.png" alt="Node anatomy" caption="" %}
 
 Once our file is saved, we can use `Ctrl-X` to quit the editor and
 return to the shell.
@@ -393,7 +393,7 @@ the directory name we use is the special directory name `.` that we mentioned ea
 Input:
 
 ```bash
-$ mv thesis/quotes.txt
+$ mv thesis/quotes.txt .
 ```
 </div>
 
@@ -430,25 +430,20 @@ quotes.txt
 
 ## Moving to the Current Folder
 
-After running the following commands,
+ <div class="alert alert-secondary" role="alert" markdown="1">
+ <i class="fa-solid fa-user-pen fa-xl"></i> **Exercise: Moving files**
+ <hr/>
+
+ After running the following commands,
  Jamie realizes that she put the files `sucrose.dat` and `maltose.dat` into the wrong folder:
 
-<div class="alert alert-secondary" role="alert" markdown="1">
-
-```bash
+ ```bash
 $ ls -F
   analyzed/ raw/
 $ ls -F analyzed
  fructose.dat glucose.dat maltose.dat sucrose.dat
 $ cd raw/
 ```
- </div>
-
-
-
- <div class="alert alert-secondary" role="alert" markdown="1">
- <i class="fa-solid fa-user-pen fa-xl"></i> **Exercise: Moving files**
- <hr/>
 
 Fill in the blanks to move these files to the current folder
 (i.e., the one she is currently in):
