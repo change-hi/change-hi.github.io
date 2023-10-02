@@ -332,8 +332,7 @@ Hint: Try executing each command twice in a row and then examining the output fi
 
 <details markdown="1">
 <summary>Solution</summary>
-  In the first example with '', the string "hello" is written to   'testfile01.txt',
-  but the file gets overwritten each time we run the command.
+  In the first example with the string "hello" is written to 'testfile01.txt', but the file gets overwritten each time we run the command.
 
 We see from the second example that the '>' operator also writes "hello" to a file (in this case 'testfile02.txt'), but appends the string to the file if it already exists (i.e. when we run it for the second time).
 
@@ -495,7 +494,7 @@ A file called `animals.txt` (in the `data-shell/data` folder) contains the follo
 What text passes through each of the pipes and the final redirect in the pipeline below?
 
 ```bash
-$ cat animals.txt | head -n 5 | tail -n 3 | sort -r  final.txt
+$ cat animals.txt | head -n 5 | tail -n 3 | sort -r > final.txt
 ```
 Hint: build the pipeline up one command at a time to test your understanding
 
@@ -508,7 +507,7 @@ Then, the last 3 lines are extracted from the previous 5 by using the 'tail' com
 With the 'sort -r' command those 3 lines are sorted in reverse order and finally,
   the output is redirected to a file 'final.txt'.
 
-The content of this file can be checked by executing 'cat final.txt'.
+The content of this file can be checked by executing `cat final.txt`.
 
 The file should contain the following lines:
 ```bash
@@ -567,10 +566,14 @@ The `uniq` command filters out adjacent matching lines in a file. How could you 
 The file `animals.txt` contains 8 lines of data formatted as follows:
 
  ```bash
- 2012-11-05,deer
- 2012-11-05,rabbit
- 2012-11-05,raccoon
- 2012-11-06,rabbit
+2012-11-05,deer
+2012-11-05,rabbit
+2012-11-05,raccoon
+2012-11-06,rabbit
+2012-11-06,deer
+2012-11-06,fox
+2012-11-07,rabbit
+2012-11-07,bear
  ```
 
 The `uniq` command has a `-c` option which gives a count of the number of times a line occurs in its input.  Assuming your current directory is `data-shell/data/`, what command would you use to produce a table that shows the total count of each type of animal in the file?
