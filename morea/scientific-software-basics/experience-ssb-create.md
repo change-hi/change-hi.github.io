@@ -155,7 +155,7 @@ $ ls -F thesis
 Let's change our working directory to `thesis` using `cd`,
 then run a text editor called Nano to create a file called `draft.txt`.
 
-On Mana compute nodes do this first:
+On  a Koa compute node do this first:
 
 <div class="alert alert-secondary" role="alert" markdown="1">
 
@@ -211,7 +211,7 @@ holding it down, press the O key) to write our data to disk
 (we'll be asked what file we want to save this to:
 press <kbd>Return</kbd> to accept the suggested default of `draft.txt`).
 
-{% include figure.html url="" max-width="100%" file="/morea/scientific-software-basics/fig/nano-screenshot.png" alt="Node anatomy" caption="" %}
+{% include figure.html url="" max-width="100%" file="/morea/scientific-software-basics/fig/nano_screenshot_new.png" alt="Node anatomy" caption="" %}
 
 Once our file is saved, we can use `Ctrl-X` to quit the editor and
 return to the shell.
@@ -393,7 +393,7 @@ the directory name we use is the special directory name `.` that we mentioned ea
 Input:
 
 ```bash
-$ mv thesis/quotes.txt
+$ mv thesis/quotes.txt .
 ```
 </div>
 
@@ -430,25 +430,20 @@ quotes.txt
 
 ## Moving to the Current Folder
 
-After running the following commands,
+ <div class="alert alert-secondary" role="alert" markdown="1">
+ <i class="fa-solid fa-user-pen fa-xl"></i> **Exercise: Moving multiple files**
+ <hr/>
+
+ After running the following commands,
  Jamie realizes that she put the files `sucrose.dat` and `maltose.dat` into the wrong folder:
 
-<div class="alert alert-secondary" role="alert" markdown="1">
-
-```bash
+ ```bash
 $ ls -F
   analyzed/ raw/
 $ ls -F analyzed
  fructose.dat glucose.dat maltose.dat sucrose.dat
 $ cd raw/
 ```
- </div>
-
-
-
- <div class="alert alert-secondary" role="alert" markdown="1">
- <i class="fa-solid fa-user-pen fa-xl"></i> **Exercise: Moving files**
- <hr/>
 
 Fill in the blanks to move these files to the current folder
 (i.e., the one she is currently in):
@@ -558,9 +553,11 @@ After creating and saving this file you realize you misspelled the filename! You
 
 ## Moving and Copying
 
-Let's start by assuming the following directory structure situation:
-
 <div class="alert alert-secondary" role="alert" markdown="1">
+<i class="fa-solid fa-user-pen fa-xl"></i> **Exercise: Understanding movement**
+<hr/>
+
+Let's start by assuming the following directory structure situation:
 
 Input:
 
@@ -585,12 +582,6 @@ Output:
  ```bash
  proteins.dat
  ```
- </div>
-
-
-<div class="alert alert-secondary" role="alert" markdown="1">
-<i class="fa-solid fa-user-pen fa-xl"></i> **Exercise: Understanding movement**
-<hr/>
 
 Now assume you run the following commands:
 
@@ -660,7 +651,7 @@ $ ls quotes.txt
 Output:
 
 ```bash
-cannot access 'quotes.txt': No such file or directory
+ls: cannot access 'quotes.txt': No such file or directory
 ```
 </div>
 
@@ -743,7 +734,7 @@ For this exercise, you can test the commands in the `data-shell/data` directory.
 
 
 <div class="alert alert-secondary" role="alert" markdown="1">
-<i class="fa-solid fa-user-pen fa-xl"></i>  **Exercise: cp**
+<i class="fa-solid fa-user-pen fa-xl"></i>  **Exercise: The cp command**
 <hr/>
 
 In the example below, what does `cp` do when given several filenames and a directory name?
@@ -761,7 +752,7 @@ When the last argument is a directory, `cp` will copy all of the files to that d
 
 
 <div class="alert alert-secondary" role="alert" markdown="1">
- <i class="fa-solid fa-user-pen fa-xl"></i>  **Exercise: another call to cp**
+ <i class="fa-solid fa-user-pen fa-xl"></i>  **Exercise: Another call to cp**
  <hr/>
 
 Given the following:
@@ -833,10 +824,10 @@ When the shell sees a wildcard, it expands the wildcard to create a
 
 
 <div class="alert alert-secondary" role="alert" markdown="1">
-<i class="fa-solid fa-user-pen fa-xl"></i>  **Exercise: wildcards**
+<i class="fa-solid fa-user-pen fa-xl"></i>  **Exercise: Wildcards**
 <hr/>
 
-When run in the `molecules` directory, which `ls` command(s) will
+When in the `molecules` directory, which `ls` command(s) will
 produce this output?
 
  `ethane.pdb   methane.pdb`
@@ -851,24 +842,37 @@ Is the correct command(s):
 <details markdown="1">
 <summary>Solution</summary>
    
-The solution is (3)
+The solution is number 3. 
 
-1. shows all files whose names contain zero or more characters (' * ') followed by the letter 't', then zero or more characters (' * ') followed by 'ane.pdb'. This gives 'ethane.pdb  methane.pdb  octane.pdb  pentane.pdb'.
+1. No. The first `*` matches any files whose names contain any zero or more characters, followed by the letter 't', then the next `*` matches any zero or more characters followed by 'ane.pdb'. The output of this command is: 
+```bash
+ethane.pdb  methane.pdb  octane.pdb  pentane.pdb
+```
+2. No. The first `*` matches any zero or more characters, then by the letter 't', then the `?` would match a single character, then the characters 'ne.' and the last `*` would match any zero or more characters. The output of this command is: 
+```bash
+octane.pdb pentane.pdb
+```
+These options do not contain anything with 'thane.pdb' at the end. 
+3. Yes. The two `??` fixes the problems of option 2 by matching two characters between 't' and 'ne'. The output of this command is: 
+```bash
+ethane.pdb  methane.pdb
+```
+4. No. This command will only list files whos name only starts with 'ethane.' and then `*` matches any zero or more characters. The output of this command is: 
+```bash
+ethane.pdb
+```
 
-2. shows all files whose names start with zero or more characters (' * ') followed by the letter 't', then a single character (?), then 'ne.' followed by zero or more characters (' * '). This will give us 'octane.pdb' and 'pentane.pdb' but doesn't match anything which ends in 'thane.pdb'.
-
-3. fixes the problems of option 2 by matching two characters (??) between 't' and 'ne'. This is the solution.
-
-4. only shows files starting with 'ethane.'.
  </details>
  </div>
 
 ## More on Wildcards
 
+<div class="alert alert-secondary" role="alert" markdown="1">
+<i class="fa-solid fa-user-pen fa-xl"></i>  **Exercise: Fill in the blanks**
+<hr/>
+
 Sam has a directory containing calibration data, datasets, and descriptions of
  the datasets:
-
- <div class="alert alert-secondary" role="alert" markdown="1">
 
  ```bash
  .
@@ -891,13 +895,6 @@ Sam has a directory containing calibration data, datasets, and descriptions of
      ├── all_datasets_created_on_a_23rd
      └── all_november_files
  ```
- </div>
-
-
-
-<div class="alert alert-secondary" role="alert" markdown="1">
-<i class="fa-solid fa-user-pen fa-xl"></i>  **Exercise: fill in the blanks**
-<hr/>
 
 Before heading off to another field trip, she wants to back up her data and
  send some datasets to her colleague Bob. Sam knows that if she fills in the blanks correctly with the following commands, she can get the job done:
@@ -968,10 +965,12 @@ $ cp *-23-dataset* send_to_bob/all_datasets_created_on_a_23rd/
 
 ## Organizing Directories and Files
 
-Jamie is working on a project and she sees that her files aren't very well
- organized:
-
 <div class="alert alert-secondary" role="alert" markdown="1">
+
+ <i class="fa-solid fa-user-pen fa-xl"></i>  **Exercise: Organizing Files**
+ <hr/>
+
+ Jamie is working on a project and she sees that her files aren't very well organized:
 
 Input:
 
@@ -984,13 +983,6 @@ Output:
  ```bash
  analyzed/  fructose.dat    raw/   sucrose.dat
  ```
- </div>
-
-
-
-<div class="alert alert-secondary" role="alert" markdown="1">
- <i class="fa-solid fa-user-pen fa-xl"></i>  **Exercise: Organizing Files**
- <hr/>
 
 The `fructose.dat` and `sucrose.dat` files contain output from her data
 analysis. What command(s) covered in this lesson does she need to run so that the commands below will produce the output shown?
@@ -1033,7 +1025,11 @@ The 'mv' command then moves the list of .dat files to the "analyzed" directory.
 
 ## Reproduce a folder structure
 
-You're starting a new experiment, and would like to duplicate the directory
+ <div class="alert alert-secondary" role="alert" markdown="1">
+ <i class="fa-solid fa-user-pen fa-xl"></i>  **Exercise: Reproduce Folder Structure**
+ <hr/>
+
+ You're starting a new experiment, and would like to duplicate the directory
  structure from your previous experiment so you can add new data.
 
 Assume that the previous experiment is in a folder called '2016-05-18',
@@ -1042,24 +1038,15 @@ Assume that the previous experiment is in a folder called '2016-05-18',
  of the `2016-05-18-data` folder into a folder called `2016-05-20`
  so that your final directory structure looks like this:
 
-<div class="alert alert-secondary" role="alert" markdown="1">
-
-
 	2016-05-20/
 	└── data
 	    ├── processed
 	    └── raw
- </div>
 
-
-
- <div class="alert alert-secondary" role="alert" markdown="1">
- <i class="fa-solid fa-user-pen fa-xl"></i>  **Exercise: Reproduce Folder Structure**
- <hr/>
 
 Which of the following sequence of commands would achieve this objective? What would the other sequences do?
 
-Command sequence 1:
+1. Command sequence 1:
  ```bash
  $ mkdir 2016-05-20
  $ mkdir 2016-05-20/data
@@ -1067,7 +1054,7 @@ Command sequence 1:
  $ mkdir 2016-05-20/data/raw
  ```
 
-Command sequence 2:
+2. Command sequence 2:
  ```bash
  $ mkdir 2016-05-20
  $ cd 2016-05-20
@@ -1076,13 +1063,13 @@ Command sequence 2:
  $ mkdir raw processed
  ```
 
-Command sequence 3:
+3. Command sequence 3:
  ```bash
  $ mkdir 2016-05-20/data/raw
  $ mkdir 2016-05-20/data/processed
  ```
 
-Command sequence 4:
+4. Command sequence 4:
  ```bash
  $ mkdir 2016-05-20
  $ cd 2016-05-20
@@ -1097,13 +1084,11 @@ Command sequence 4:
 
 The first two command sequences achieve this objective.
 
-The first command sequence uses relative paths to create the top level directory before
-   the subdirectories.
-
-The third command sequence will give an error because 'mkdir' won't create a subdirectory
-   of a non-existant directory: the intermediate level folders must be created first.
-
-The fourth command sequence generates the 'raw' and 'processed' directories at the same level as the 'data' directory.
+1. Yes. The first command sequence uses relative paths to create the top level directory before the subdirectories.
+2. Yes. The second command sequence makes a directory and then moving inside it to create the next one sequentially. 
+3. No. The third command sequence will give an error because 'mkdir' won't create a subdirectory of a non-existant 
+directory: the intermediate level folders must be created first.
+4. No. The fourth command sequence generates the 'raw' and 'processed' directories at the same level as the 'data' directory.
  </details>
  </div>
 

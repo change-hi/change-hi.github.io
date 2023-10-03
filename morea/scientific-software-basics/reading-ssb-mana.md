@@ -1,9 +1,9 @@
 ---
-title: "Setting Up Mana"
+title: "Setting Up Koa"
 published: true
 morea_id: reading-ssb-mana
 morea_type: reading
-morea_summary: "Create accounts on Mana, download sample file."
+morea_summary: "Create accounts on Koa, download sample file."
 morea_sort_order: 1
 morea_labels:
   - Pre-workshop
@@ -19,7 +19,7 @@ Normally this reading would be done in advance of the workshop, but this semeste
 
 </div>
 
-# Setting Up Mana
+# Setting Up Koa
 
 <div class="alert alert-success mt-3" role="alert" markdown="1">
 <i class="fa-solid fa-globe fa-xl"></i> **Overview**
@@ -27,7 +27,7 @@ Normally this reading would be done in advance of the workshop, but this semeste
 
 **Objectives**
   * Have an OOD compatible browser
-  * Be able to connect to the workshop in Zoom and Mana Open OnDemand via a web browser
+  * Be able to connect to the workshop in Zoom and Koa Open OnDemand via a web browser
   * Download sample data
 </div>
 
@@ -35,9 +35,9 @@ Normally this reading would be done in advance of the workshop, but this semeste
 
 Please make sure you have installed a compatible browser as specified at: <https://osc.github.io/ood-documentation/latest/requirements.html#browser-requirements>
 
-## Connect to Mana through Open OnDemand
+## Connect to Koa through Open OnDemand
 
-Connect to Mana by pointing your browser (ChromeOS, Firefox or Safari) at: <https://mana.its.hawaii.edu>
+Connect to Koa by pointing your browser (ChromeOS, Firefox or Safari) at: <https://koa.its.hawaii.edu>
 
 You should get the UH gold screen and then login with your user name and password.
 
@@ -45,9 +45,9 @@ You should get the UH gold screen and then login with your user name and passwor
 
 Authenticate with MFA/DUO via your preferred method.
 
-You should see the Mana Open OnDemand start page:
+You should see the Koa Open OnDemand start page:
 
-{% include figure.html url="" max-width="100%" file="/morea/scientific-software-basics/fig/mana_ood.png" alt="Node anatomy" caption="" %}
+{% include figure.html url="" max-width="100%" file="/morea/scientific-software-basics/fig/koa_ood.png" alt="Node anatomy" caption="" %}
 
 ## Launch an interactive session on a compute node
 
@@ -83,11 +83,34 @@ Go back to "my interactive sessions" in the browser and start another shell..
 
 ## Download sample files for this workshop
 
+In your opened Desktop session which started a shell, copy and paste in the following commands below and then hit "enter" on your keyboard to download data-shell.zip within the `Desktop directory`. These set of commands are going to download and unzip the data-shell.zip file and create a folder called `data-shell` with several files and directories in it that will be used in this workshop. We'll learn more about these commands in this workshop. 
+
 <div class="alert alert-secondary" role="alert" markdown="1">
-<i class="fa-solid fa-user-pen fa-xl"></i>  **Download data-shell.zip**
-<hr/>
 
-1. Right click on [data-shell.zip](/morea/scientific-software-basics/data/data-shell.zip) and select "Save as..." to download this zip file to your computer.
+```bash
+cd Desktop
+wget https://change-hi.github.io/morea/scientific-software-basics/data/data-shell.zip
+unzip data-shell.zip
+rm data-shell.zip
+cd ..
+```
 
-2. Bring up a Terminal window (MacOS) or Command shell (Windows), find the data-shell.zip file, and run `unzip data-shell.zip` to create a folder called `data-shell` with several files and directories in it that will be used in this workshop. In MacOS (at least), you can just double-click the data-shell.zip file within the Finder to invoke the unzip command on it.  
+</div>
+
+To see if the files have been downloaded, copy and paste these commands into your shell:
+
+<div class="alert alert-secondary" role="alert" markdown="1">
+
+Input: 
+
+```bash
+ls -F Desktop/data-shell/
+```
+
+Output:
+
+```bash
+creatures/  data/  molecules/  north-pacific-gyre/  notes.txt  pizza.cfg  solar.pdf  writing/
+```
+
 </div>
