@@ -51,7 +51,7 @@ Paste the code into the cell and run.
 
 The pwd command will print where you are in the directory tree and it should be something like "/home/username".
 
-The ls command will print files and directory that are available in your home/username directory. You should see "lus_scratch" and "nfs_scratch" listed in the print out.
+The ls command will print files and directory that are available in your home/username directory. You should see "koa_scratch" listed in the print out.
 
 Note that the '!' symbol below allows us to execute terminal commands in our Jupyter Lab Notebook cell.
 
