@@ -66,7 +66,7 @@ Once the interactive session is running, connect to the jupyter session by click
 
 <details>
   <summary>Solution</summary>
-{% include figure.html url="" max-width="100%" file="/morea/hpc/fig/ood_job.png" alt="Connect to cluster" caption="" %}
+{% include figure.html url="" max-width="100%" file="/morea/hpc/fig/koa_ood_job.png" alt="Connect to cluster" caption="" %}
 </details>
 </div>
 
