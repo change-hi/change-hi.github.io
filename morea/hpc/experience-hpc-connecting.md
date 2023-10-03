@@ -94,7 +94,7 @@ For security it is recommend you use a private browsing window with Open OnDeman
 Open up your web browser and start a private browsing window.  Now, connect to the instance of Open OnDemand used with Koa by pointing your browser at [https://koa.its.hawaii.edu](https://koa.its.hawaii.edu).
 
 {% include figure.html url="" max-width="75%"
-file="/morea/hpc/fig/ood_landing.png"
+file="/morea/hpc/fig/koa_ood_landing.png"
 alt="Connect to cluster" caption="" %}
 
 </div>
@@ -114,7 +114,7 @@ Common text editors you find on HPC systems or linx systems include:
 Of the three, nano is the simplest to use.
 
 {% include figure.html url="" max-width="75%"
-file="/morea/hpc/fig/ood_file_edit.png"
+file="/morea/hpc/fig/koa_ood_file_edit.png"
 alt="Connect to cluster" caption="" %}
 
 ### Feature: Terminal in the browser
@@ -122,7 +122,7 @@ alt="Connect to cluster" caption="" %}
 As Open OnDemand doesn't really replace the traditional commandline/SSH access method to HPC systems, and instead makes the use of certain applications simpler, it still provides a way to bring up a commandline on an HPC system within your web browser.
 
 {% include figure.html url="" max-width="80%"
-file="/morea/hpc/fig/ood_shell_merged.png"
+file="/morea/hpc/fig/koa_ood_shell_merged.png"
 alt="Connect to cluster" caption="" %}
 
 ### Feature: Interactive applications
@@ -130,7 +130,7 @@ alt="Connect to cluster" caption="" %}
 While Open OnDemand can allow you to access HPC systems using the terminal, it also has the ability to expand the ways and HPC can be easily used though allowing the use of interactive applications that many have come to depend on.
 
 {% include figure.html url="" max-width="75%"
-file="/morea/hpc/fig/ood_interact.png"
+file="/morea/hpc/fig/koa_ood_interact.png"
 alt="Connect to cluster" caption="" %}
 
 ### Feature: Email notification when jobs start
@@ -144,7 +144,7 @@ alt="Connect to cluster" caption="" %}
 Finally, when a job begins, it presents you with a button you can click to start up your interactive application and use it within your browser.
 
 {% include figure.html url="" max-width="100%"
-file="/morea/hpc/fig/ood_job.png"
+file="/morea/hpc/fig/koa_ood_job.png"
 alt="Connect to cluster" caption="" %}
 
 
