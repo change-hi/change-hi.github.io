@@ -25,7 +25,7 @@ morea_enable_toc: true
 
 ### Download the workshop Jupyter notebook
 
-If you haven't already, please download [participants-copy-2022.ipynb](code/participants-copy-2022.ipynb) to your local computer (use "save as", i.e. right click).
+If you haven't already, please download [participants-copy-2023.ipynb](code/participants-copy-2023.ipynb) to your local computer (use "save as", i.e. right click).
 
 ## Review: Jupyter Lab as an Interactive Application in Open OnDemand
 
