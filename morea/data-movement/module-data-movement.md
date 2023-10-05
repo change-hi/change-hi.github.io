@@ -1,7 +1,7 @@
 ---
 title: "Data Movement"
 published: true
-morea_coming_soon: true
+morea_coming_soon: false
 morea_id: data-movement
 morea_outcomes:
     - outcome-data-movement
