@@ -16,7 +16,7 @@ morea_enable_toc: true
 
 **Questions**
 * What is an environment?
-* How do we install software and modules on Mana?
+* How do we install software and modules on Koa?
 * How do we create a Python kernel?
 
 **Objectives**
@@ -29,7 +29,7 @@ morea_enable_toc: true
 
 ### Use a package manager
 
-Working with Python requires one to have different packages installed with a specific version which gets updated once in a while. On Mana, there are software packages already installed on the cluster which one can use to install the required libraries, softwares and can even choose which version to install.
+Working with Python requires one to have different packages installed with a specific version which gets updated once in a while. On Koa, there are software packages already installed on the cluster which one can use to install the required libraries, softwares and can even choose which version to install.
 
 You can use following commands to see what modules are available on the cluster or which ones are already loaded or to load a specific module in your environment:
 
@@ -85,14 +85,14 @@ First, create a conda environment:
 
 ```bash
 module load lang/Anaconda3
-conda create --name tf2
+conda create --name tf2 
 source activate tf2
 ```
 
 Second, install relevant libraries:
 
 ```bash
-conda install tensorflow-gpu matplotlib tensorflow keras
+mamba install -c conda-forge -c nvidia tensorflow=2.10 matplotlib keras cudatoolkit
 ```
 </div>
 

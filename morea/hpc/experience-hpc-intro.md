@@ -61,7 +61,7 @@ If you want to transfer larger amounts of data to or from a cluster, some system
 <i class="fa-solid fa-circle-info fa-xl"></i> **Data transfer nodes on Koa**
 <hr/>
 
-Koa has two such [data transfer nodes](https://www.hawaii.edu/bwiki/display/HPC/Data+transfer+Questions) that are available for use.
+Koa has four such data transfer nodes that are available for use with [Globus](https://www.globus.org/). 
 
 </div>
 
