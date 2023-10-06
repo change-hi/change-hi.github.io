@@ -290,7 +290,7 @@ How would the output differ from using this command instead?
 </details>
 </div>
 
-## Saving to a File in a Loop - Part Two
+## Saving to a File in a Loop
 
 <div class="alert alert-secondary" role="alert" markdown="1">
 <i class="fa-solid fa-user-pen fa-xl"></i> **Exercise: Loops, loops, loops**
@@ -319,6 +319,8 @@ done
  Given the output from the `cat` command has been redirected, nothing is printed to the screen.
 </details>
 </div>
+
+NOTE: If you do NOT add '>', then `$datafile` will be overwritten as the next file in `*.pdb` is added to `all.pdb`.
 
 Let's continue with our example in the `data-shell/creatures` directory.
 Here's a slightly more complicated loop:
