@@ -10,6 +10,10 @@ morea_labels:
 morea_enable_toc: true
 ---
 
+# 1. Ice Breaker: What will break the ice?
+
+Break into small groups. Try to be in a group with people you haven't met before.
+
 {% include next-button.html
   top-label="Navigating Files and Directories ->"
   bottom-label="2:10pm"
