@@ -4,7 +4,7 @@ published: true
 morea_id: experience-ssb-intro
 morea_type: experience
 morea_summary: "What is a command shell and why would I use one?"
-morea_sort_order: 1
+morea_sort_order: 4
 morea_labels:
   - 2:10pm
 morea_enable_toc: true

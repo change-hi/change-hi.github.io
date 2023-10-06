@@ -4,7 +4,7 @@ published: true
 morea_id: experience-ssb-pipefilter
 morea_type: experience
 morea_summary: "Combining Existing Functions to do New Things"
-morea_sort_order: 2
+morea_sort_order: 7
 morea_labels:
   - 2:55pm
 morea_enable_toc: true

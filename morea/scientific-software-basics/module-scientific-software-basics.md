@@ -7,8 +7,9 @@ morea_outcomes:
   - outcome-ssb
 morea_readings:
   - reading-code-of-conduct
-  - reading-ssb-mana
+  - reading-ssb-koa
 morea_experiences:
+  - experience-ssb-icebreaker
   - experience-ssb-intro
   - experience-ssb-filedir
   - experience-ssb-create

@@ -4,7 +4,7 @@ published: true
 morea_id: experience-ssb-filedir
 morea_type: experience
 morea_summary: "Navigating Files and Directories"
-morea_sort_order: 2
+morea_sort_order: 5
 morea_labels:
   - 2:20pm
 morea_enable_toc: true

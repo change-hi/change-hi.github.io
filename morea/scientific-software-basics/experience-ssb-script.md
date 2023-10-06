@@ -4,7 +4,7 @@ published: true
 morea_id: experience-ssb-script
 morea_type: experience
 morea_summary: "Saving and Reusing Commands"
-morea_sort_order: 1
+morea_sort_order: 9
 morea_labels:
   - 3:35pm
 morea_enable_toc: true

@@ -4,7 +4,7 @@ published: true
 morea_id: experience-ssb-find
 morea_type: experience
 morea_summary: "Locating Files"
-morea_sort_order: 2
+morea_sort_order: 10
 morea_labels:
   - 3:50pm
 morea_enable_toc: true
