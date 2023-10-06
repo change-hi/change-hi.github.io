@@ -320,7 +320,7 @@ done
 </details>
 </div>
 
-NOTE: If you do NOT add '>', then `$datafile` will be overwritten as the next file in `*.pdb` is added to `all.pdb`.
+NOTE: If you do NOT add '>', then each `$datafile` will be overwritten as the next file in `*.pdb` is added to `all.pdb`. The finished `all.pdb` will only contain the contents of the last file in `*.pdb`.
 
 Let's continue with our example in the `data-shell/creatures` directory.
 Here's a slightly more complicated loop:
