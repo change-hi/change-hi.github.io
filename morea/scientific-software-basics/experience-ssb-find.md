@@ -1,12 +1,12 @@
 ---
-title: "7. Finding Things"
+title: "8. Finding Things"
 published: true
 morea_id: experience-ssb-find
 morea_type: experience
 morea_summary: "Locating Files"
 morea_sort_order: 2
 morea_labels:
-  - 3:40pm
+  - 3:50pm
 morea_enable_toc: true
 ---
 
@@ -778,5 +778,5 @@ $ find ./ -type f -mtime -1 -user ahmed
 
 {% include next-button.html
 top-label="Assessment ->"
-bottom-label="3:50pm"
+bottom-label="4:00pm"
 url="/morea/scientific-software-basics/assessment-ssb-workshop.html" %}

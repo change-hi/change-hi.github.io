@@ -1,12 +1,12 @@
 ---
-title: "4. Pipes and Filters"
+title: "5. Pipes and Filters"
 published: true
 morea_id: experience-ssb-pipefilter
 morea_type: experience
 morea_summary: "Combining Existing Functions to do New Things"
 morea_sort_order: 2
 morea_labels:
-  - 2:45pm
+  - 2:55pm
 morea_enable_toc: true
 ---
 
@@ -667,5 +667,5 @@ Let's take a brief break to stretch before moving on to the next page.  See you 
 
 {% include next-button.html
 top-label="Loops ->"
-bottom-label="3:10pm"
+bottom-label="3:20pm"
 url="/morea/scientific-software-basics/experience-ssb-loop.html" %}

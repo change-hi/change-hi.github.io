@@ -1,12 +1,12 @@
 ---
-title: "2. Navigating Files and Directories"
+title: "3. Navigating Files and Directories"
 published: true
 morea_id: experience-ssb-filedir
 morea_type: experience
 morea_summary: "Navigating Files and Directories"
 morea_sort_order: 2
 morea_labels:
-  - 2:10pm
+  - 2:20pm
 morea_enable_toc: true
 ---
 
@@ -968,5 +968,5 @@ and we will see it in many other tools as we go on.
 
 {% include next-button.html
            top-label="Working With Files and Directories ->"
-           bottom-label="2:30pm"
+           bottom-label="2:40pm"
            url="/morea/scientific-software-basics/experience-ssb-create.html" %}

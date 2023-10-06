@@ -1,12 +1,12 @@
 ---
-title: "1. Introducing the Shell"
+title: "2. Introducing the Shell"
 published: true
 morea_id: experience-ssb-intro
 morea_type: experience
 morea_summary: "What is a command shell and why would I use one?"
-morea_sort_order: 2
+morea_sort_order: 1
 morea_labels:
-  - 2:00pm
+  - 2:10pm
 morea_enable_toc: true
 ---
 
@@ -132,5 +132,5 @@ In order to achieve her task, Nelle needs to know how to:
 
 {% include next-button.html
   top-label="Navigating Files and Directories ->"
-  bottom-label="2:10pm"
+  bottom-label="2:20pm"
   url="/morea/scientific-software-basics/experience-ssb-filedir.html" %}

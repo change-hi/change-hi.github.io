@@ -1,12 +1,12 @@
 ---
-title: "6. Shell Scripts"
+title: "7. Shell Scripts"
 published: true
 morea_id: experience-ssb-script
 morea_type: experience
 morea_summary: "Saving and Reusing Commands"
-morea_sort_order: 2
+morea_sort_order: 1
 morea_labels:
-  - 3:25pm
+  - 3:35pm
 morea_enable_toc: true
 ---
 
@@ -617,5 +617,5 @@ an empty string.
 
 {% include next-button.html
 top-label="Finding Things ->"
-bottom-label="3:40pm"
+bottom-label="3:50pm"
 url="/morea/scientific-software-basics/experience-ssb-find.html" %}
