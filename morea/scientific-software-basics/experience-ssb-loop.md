@@ -1,16 +1,16 @@
 ---
-title: "5. Loops"
+title: "6. Loops"
 published: true
 morea_id: experience-ssb-loop
 morea_type: experience
 morea_summary: "Looping Functions"
-morea_sort_order: 2
+morea_sort_order: 8
 morea_labels:
-  - 3:10pm
+  - 3:20pm
 morea_enable_toc: true
 ---
 
-# 5. Loops
+# 6. Loops
 
 <div class="alert alert-success mt-3" role="alert" markdown="1">
 <i class="fa-solid fa-globe fa-xl"></i> **Overview**
@@ -793,5 +793,5 @@ $ for species in cubane ethane methane
 
 {% include next-button.html
 top-label="Shell Scripts ->"
-bottom-label="3:25pm"
+bottom-label="3:35pm"
 url="/morea/scientific-software-basics/experience-ssb-script.html" %}

@@ -1,16 +1,16 @@
 ---
-title: "3. Working With Files and Directories"
+title: "4. Working With Files and Directories"
 published: true
 morea_id: experience-ssb-create
 morea_type: experience
 morea_summary: "Creating, Copying and Deleting Files"
-morea_sort_order: 2
+morea_sort_order: 6
 morea_labels:
-  - 2:30pm
+  - 2:40pm
 morea_enable_toc: true
 ---
 
-# 3. Working With Files and Directories
+# 4. Working With Files and Directories
 
 <div class="alert alert-success mt-3" role="alert" markdown="1">
 <i class="fa-solid fa-globe fa-xl"></i> **Overview**
@@ -1070,5 +1070,5 @@ directory: the intermediate level folders must be created first.
 
 {% include next-button.html
 top-label="Pipes and Filters ->"
-bottom-label="2:45pm"
+bottom-label="2:55pm"
 url="/morea/scientific-software-basics/experience-ssb-pipefilter.html" %}
