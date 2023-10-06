@@ -54,12 +54,7 @@ which hold files or other directories.
 Several commands are frequently used to create, inspect, rename, and delete files and directories.
 To start exploring them, we'll go to our open shell window.
 
-First let's find out where we are by running a command called `pwd`
-(which stands for "print working directory"). Directories are like *places* - at any time
-while we are using the shell we are in exactly one place, called
-our **current working directory**. Commands mostly read and write files in the
-current working directory, i.e. "here", so knowing where you are before running
-a command is important. `pwd` shows you where you are:
+To determine our location, we'll use the `pwd` command, short for "print working directory." In the shell, we're always in one place at one time, our **current working directory**, where commands typically operate. Knowing your location before running a command is essential, and `pwd` shows where you are:
 
 <div class="alert alert-secondary" role="alert" markdown="1">
 
@@ -82,30 +77,17 @@ which is Nelle's **home directory**:
 
 ## Home Directory Variation
 
-The home directory path will look different on different operating systems.
-On Linux it may look like `/home/nelle`,
-and on Windows it will be similar to `C:\Documents and Settings\nelle` or
-`C:\Users\nelle`.
-(Note that it may look slightly different for different versions of Windows.)
-In future examples, we've used Mac output as the default - Linux and Windows
-output may differ slightly, but should be generally similar.
+The home directory path varies across operating systems. On Linux, it might be `/home/nelle`, while on Windows, it resembles `C:\Documents and Settings\nelle` or `C:\Users\nelle`. In future examples, we've used Mac output as the default, output may differ slightly between Linux and Windows, but it's generally similar to our Mac examples.
 
-To understand what a "home directory" is,
-let's have a look at how the file system as a whole is organized.  For the
-sake of this example, we'll be
-illustrating the filesystem on our scientist Nelle's computer.  After this
-illustration, you'll be learning commands to explore your own filesystem,
-which will be constructed in a similar way, but not be exactly identical.
+To understand what a "home directory," let's look at the organization of the file system. We'll use our scientist Nelle's computer as an example. Later, you'll learn commands to explore your own file system, which will look similar, but may not be identical.
 
 On Nelle's computer, the filesystem looks like this:
 
 
 {% include figure.html url="" max-width="100%" file="/morea/scientific-software-basics/fig/filesystem.svg" alt="Node anatomy" caption="" %}
 
-At the top is the **root directory**
-that holds everything else.
-We refer to it using a slash character, `/`, on its own;
-this is the leading slash in `/Users/nelle`.
+At the top is the **root directory** that holds everything else.
+Denoted by `/` on its own. This is the leading slash in `/Users/nelle`.
 
 Inside that directory are several other directories:
 `bin` (which is where some built-in programs are stored),
@@ -114,18 +96,12 @@ Inside that directory are several other directories:
 `tmp` (for temporary files that don't need to be stored long-term),
 and so on.
 
-We know that our current working directory `/Users/nelle` is stored inside `/Users`
-because `/Users` is the first part of its name.
-Similarly,
-we know that `/Users` is stored inside the root directory `/`
-because its name begins with `/`.
+We know that our current working directory `/Users/nelle` is stored inside `/Users`, and 
+`/Users` is stored inside the root directory `/` because it begins with `/`.
 
 ## Slashes
 
-Notice that there are two meanings for the `/` character.
-When it appears at the front of a file or directory name,
-it refers to the root directory. When it appears *inside* a name,
-it's just a separator.
+The `/` character has two meanings: at the start of a name, it denotes the root directory, while inside a name, it's a separator.
 
 Underneath `/Users`,
 we find one directory for each user with an account on Nelle's machine,
@@ -133,16 +109,9 @@ her colleagues *imhotep* and *larry*.
 
 {% include figure.html url="" max-width="100%" file="/morea/scientific-software-basics/fig/home-directories.svg" alt="Node anatomy" caption="" %}
 
-The user *imhotep*'s files are stored in `/Users/imhotep`,
-user *larry*'s in `/Users/larry`,
-and Nelle's in `/Users/nelle`.  Because Nelle is the user in our
-examples here, this is why we get `/Users/nelle` as our home directory.
-Typically, when you open a new command prompt you will be in
-your home directory to start.
+User directories are as follows: *imhotep*'s in `/Users/imhotep`, larry's in `/Users/larry`, and Nelle's in `/Users/nelle`. We're using Nelle as the example, so `/Users/nelle` is our home directory. Usually, when you open a new command prompt, you will be in your home directory.
 
-Now let's learn the command that will let us see the contents of our
-own filesystem.  We can see what's in our home directory by running `ls`,
-which stands for "listing":
+To view the contents of our own file system, we can see what's in our home directory by running `ls`, short for "listing":
 
 <div class="alert alert-secondary" role="alert" markdown="1">
 
@@ -163,11 +132,9 @@ Documents   Library     Music       Public
 (Your results may be slightly different depending on your operating
 system and how you have customized your filesystem.)
 
-`ls` prints the names of the files and directories in the current directory.
-We can make its output more comprehensible by using the `-F` **option**
-(also known as a **switch** or a **flag**) ,
-which tells `ls` to classify the output
-by adding a marker to file and directory names to indicate what they are:
+
+`ls` prints the name of  file and directories in the current directory. To understand the output more, we can add on the `-F` **option** (also called a **switch** or **flag**). It classifies output by adding markers to indicate what they are: 
+
 - a trailing `/` indicates that this is a directory
 - `@` indicates a link
 - `*` indicates an executable
@@ -217,15 +184,9 @@ $ ls -F /
 `ls` is the **command**, with an **option** `-F` and an
 **argument** `/`.
 We've already encountered options (also called **switches** or **flags**) which
-either start with a single dash (`-`) or two dashes (`--`), and they change the behaviour of a command.
-Arguments tell the command what to operate on (e.g. files and directories).
-Sometimes options and arguments are referred to as **parameters**.
-A command can be called with more than one option and more than one argument: but a
-command doesn't always require an argument or an option.
+either start with a single dash (`-`) or two dashes (`--`), and they change the behaviour of a command. Arguments specify what a command operates on, like files and directories. Options and arguments are sometimes called **parameters**. A command can take multiple options and arguments, but it doesn't require them.
 
-Each part is separated by spaces: if you omit the space
-between `ls` and `-F` the shell will look for a command called `ls-F`, which
-doesn't exist. Also, capitalization can be important: `ls -r` is different to `ls -R`.
+Each part is separated by spaces. Omitting the space between `ls` and `-F` makes the shell search for a non-existent command called `ls-F`. Capitalization is also important, `ls -r` differs from `ls -R`.
 
 Putting all that together, our command above gives us a listing
 of files and directories in the root directory `/`.
@@ -537,12 +498,7 @@ Desktop, including the `data-shell` directory you downloaded as part of
 the setup for this lesson.  Take a look at your Desktop to confirm that
 your output is accurate.
 
-As you may now see, using a bash shell is strongly dependent on the idea that
-your files are organized in a hierarchical file system.
-Organizing things hierarchically in this way helps us keep track of our work:
-it's possible to put hundreds of files in our home directory,
-just as it's possible to pile hundreds of printed papers on our desk,
-but it's a self-defeating strategy.
+As you can see, using a bash shell relies on a hierarchical file system organization which is important for effective work management. While you can store many files in your home directory, similar to stacking papers on a desk, it's not an efficient approach.
 
 Now that we know the `data-shell` directory is located on our Desktop, we
 can do two things.
@@ -569,12 +525,8 @@ Second, we can actually change our location to a different directory, so
 we are no longer located in
 our home directory.
 
-The command to change locations is `cd` followed by a
-directory name to change our working directory.
-`cd` stands for "change directory",
-which is a bit misleading:
-the command doesn't change the directory,
-it changes the shell's idea of what directory we are in.
+
+To change locations, use `cd` followed by a directory name. `cd` means "change directory," but it doesn't change the directory itself; it changes the shell's idea of what directory we are in.
 
 Let's say we want to move to the `data` directory we saw above.  We can
 use the following series of commands to get there:
