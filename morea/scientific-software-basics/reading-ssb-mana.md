@@ -53,25 +53,28 @@ You should see the Koa Open OnDemand start page:
 
 Start an interactive session:
 
-{% include figure.html url="" max-width="100%" file="/morea/scientific-software-basics/fig/select_desktop.png" alt="Node anatomy" caption="" %}
+{% include figure.html url="" max-width="100%" file="/morea/scientific-software-basics/fig/select_desktop_koa.png" alt="Node anatomy" caption="" %}
 
 Your input values should be:
 
-{% include figure.html url="" max-width="100%" file="/morea/scientific-software-basics/fig/check_ignition.png" alt="Node anatomy" caption="" %}
+{% include figure.html url="" max-width="100%" file="/morea/scientific-software-basics/fig/check_ignition_koa.png" alt="Node anatomy" caption="" %}
 
 The output should look like this:
 
-{% include figure.html url="" max-width="100%" file="/morea/scientific-software-basics/fig/waiting_for_a_session.png" alt="Node anatomy" caption="" %}
+{% include figure.html url="" max-width="100%" file="/morea/scientific-software-basics/fig/waiting_for_a_session_koa.png" alt="Node anatomy" caption="" %}
 
-{% include figure.html url="" max-width="100%" file="/morea/scientific-software-basics/fig/my_interactive_session.png" alt="Node anatomy" caption="" %}
+{% include figure.html url="" max-width="100%" file="/morea/scientific-software-basics/fig/my_interactive_session_koa.png" alt="Node anatomy" caption="" %}
 
-Click here:
+Click here to start a shell on node assigned to your Open Ondemand session:
 
-{% include figure.html url="" max-width="100%" file="/morea/scientific-software-basics/fig/host_button.png" alt="Node anatomy" caption="" %}
+{% include figure.html url="" max-width="100%" file="/morea/scientific-software-basics/fig/host_button_koa.png" alt="Node anatomy" caption="" %}
 
 ## Assign a compute node
 
-Start a shell:
+You should see:
+{% include figure.html url="" max-width="100%" file="/morea/scientific-software-basics/fig/koa_compute_shell.png" alt="Node anatomy" caption="" %}
+
+If you see:
 
 {% include figure.html url="" max-width="100%" file="/morea/scientific-software-basics/fig/are_you_sure.png" alt="Node anatomy" caption="" %}
 
