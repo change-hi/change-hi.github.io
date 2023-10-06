@@ -4,13 +4,13 @@ published: true
 morea_id: experience-ssb-pipefilter
 morea_type: experience
 morea_summary: "Combining Existing Functions to do New Things"
-morea_sort_order: 2
+morea_sort_order: 7
 morea_labels:
   - 2:55pm
 morea_enable_toc: true
 ---
 
-# 4. Pipes and Filters
+# 5. Pipes and Filters
 
 <div class="alert alert-success mt-3" role="alert" markdown="1">
 <i class="fa-solid fa-globe fa-xl"></i> **Overview**

@@ -4,13 +4,13 @@ published: true
 morea_id: experience-ssb-find
 morea_type: experience
 morea_summary: "Locating Files"
-morea_sort_order: 2
+morea_sort_order: 10
 morea_labels:
   - 3:50pm
 morea_enable_toc: true
 ---
 
-# 7. Finding Things
+# 8. Finding Things
 
 <div class="alert alert-success mt-3" role="alert" markdown="1">
 <i class="fa-solid fa-globe fa-xl"></i> **Overview**

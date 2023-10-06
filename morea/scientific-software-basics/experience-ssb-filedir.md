@@ -4,13 +4,13 @@ published: true
 morea_id: experience-ssb-filedir
 morea_type: experience
 morea_summary: "Navigating Files and Directories"
-morea_sort_order: 2
+morea_sort_order: 5
 morea_labels:
   - 2:20pm
 morea_enable_toc: true
 ---
 
-# 2. Navigating Files and Directories
+# 3. Navigating Files and Directories
 
 <div class="alert alert-success mt-3" role="alert" markdown="1">
 <i class="fa-solid fa-globe fa-xl"></i> **Overview**
@@ -90,10 +90,10 @@ At the top is the **root directory** that holds everything else.
 Denoted by `/` on its own. This is the leading slash in `/Users/nelle`.
 
 Inside that directory are several other directories:
-`bin` (which is where some built-in programs are stored),
-`data` (for miscellaneous data files),
-`Users` (where users' personal directories are located),
-`tmp` (for temporary files that don't need to be stored long-term),
+- `bin` (which is where some built-in programs are stored),
+- `data` (for miscellaneous data files),
+- `Users` (where users' personal directories are located),
+- `tmp` (for temporary files that don't need to be stored long-term),
 and so on.
 
 We know that our current working directory `/Users/nelle` is stored inside `/Users`, and 
@@ -267,114 +267,10 @@ Mandatory arguments to long options are mandatory for short options too.
   -a, --all                  do not ignore entries starting with .
   -A, --almost-all           do not list implied . and ..
       --author               with -l, print the author of each file
-  -b, --escape               print C-style escapes for nongraphic characters
-      --block-size=SIZE      with -l, scale sizes by SIZE when printing them;
-                               e.g., '--block-size=M'; see SIZE format below
-  -B, --ignore-backups       do not list implied entries ending with ~
-  -c                         with -lt: sort by, and show, ctime (time of last
-                               modification of file status information);
-                               with -l: show ctime and sort by name;
-                               otherwise: sort by ctime, newest first
-  -C                         list entries by columns
-      --color[=WHEN]         colorize the output; WHEN can be 'always' (default
-                               if omitted), 'auto', or 'never'; more info below
-  -d, --directory            list directories themselves, not their contents
-  -D, --dired                generate output designed for Emacs' dired mode
-  -f                         do not sort, enable -aU, disable -ls --color
-  -F, --classify             append indicator (one of */=>@|) to entries
-      --file-type            likewise, except do not append '*'
-      --format=WORD          across -x, commas -m, horizontal -x, long -l,
-                               single-column -1, verbose -l, vertical -C
-      --full-time            like -l --time-style=full-iso
-  -g                         like -l, but do not list owner
-      --group-directories-first
-                             group directories before files;
-                               can be augmented with a --sort option, but any
-                               use of --sort=none (-U) disables grouping
-  -G, --no-group             in a long listing, don't print group names
-  -h, --human-readable       with -l and -s, print sizes like 1K 234M 2G etc.
-      --si                   likewise, but use powers of 1000 not 1024
-  -H, --dereference-command-line
-                             follow symbolic links listed on the command line
-      --dereference-command-line-symlink-to-dir
-                             follow each command line symbolic link
-                               that points to a directory
-      --hide=PATTERN         do not list implied entries matching shell PATTERN
-                               (overridden by -a or -A)
-      --hyperlink[=WHEN]     hyperlink file names; WHEN can be 'always'
-                               (default if omitted), 'auto', or 'never'
-      --indicator-style=WORD  append indicator with style WORD to entry names:
-                               none (default), slash (-p),
-                               file-type (--file-type), classify (-F)
-  -i, --inode                print the index number of each file
-  -I, --ignore=PATTERN       do not list implied entries matching shell PATTERN
-  -k, --kibibytes            default to 1024-byte blocks for disk usage;
-                               used only with -s and per directory totals
-  -l                         use a long listing format
-  -L, --dereference          when showing file information for a symbolic
-                               link, show information for the file the link
-                               references rather than for the link itself
-  -m                         fill width with a comma separated list of entries
-  -n, --numeric-uid-gid      like -l, but list numeric user and group IDs
-  -N, --literal              print entry names without quoting
-  -o                         like -l, but do not list group information
-  -p, --indicator-style=slash
-                             append / indicator to directories
-  -q, --hide-control-chars   print ? instead of nongraphic characters
-      --show-control-chars   show nongraphic characters as-is (the default,
-                               unless program is 'ls' and output is a terminal)
-  -Q, --quote-name           enclose entry names in double quotes
-      --quoting-style=WORD   use quoting style WORD for entry names:
-                               literal, locale, shell, shell-always,
-                               shell-escape, shell-escape-always, c, escape
-                               (overrides QUOTING_STYLE environment variable)
-  -r, --reverse              reverse order while sorting
-  -R, --recursive            list subdirectories recursively
-  -s, --size                 print the allocated size of each file, in blocks
-  -S                         sort by file size, largest first
-      --sort=WORD            sort by WORD instead of name: none (-U), size (-S),
-                               time (-t), version (-v), extension (-X)
-      --time=WORD            change the default of using modification times;
-                               access time (-u): atime, access, use;
-                               change time (-c): ctime, status;
-                               birth time: birth, creation;
-                             with -l, WORD determines which time to show;
-                             with --sort=time, sort by WORD (newest first)
-      --time-style=TIME_STYLE  time/date format with -l; see TIME_STYLE below
-  -t                         sort by time, newest first; see --time
-  -T, --tabsize=COLS         assume tab stops at each COLS instead of 8
-  -u                         with -lt: sort by, and show, access time;
-                               with -l: show access time and sort by name;
-                               otherwise: sort by access time, newest first
-  -U                         do not sort; list entries in directory order
-  -v                         natural sort of (version) numbers within text
-  -w, --width=COLS           set output width to COLS.  0 means no limit
-  -x                         list entries by lines instead of by columns
-  -X                         sort alphabetically by entry extension
-  -Z, --context              print any security context of each file
-  -1                         list one file per line.  Avoid '\n' with -q or -b
-      --help     display this help and exit
-      --version  output version information and exit
 
-The SIZE argument is an integer and optional unit (example: 10K is 10*1024).
-Units are K,M,G,T,P,E,Z,Y (powers of 1024) or KB,MB,... (powers of 1000).
-Binary prefixes can be used, too: KiB=K, MiB=M, and so on.
-
-The TIME_STYLE argument can be full-iso, long-iso, iso, locale, or +FORMAT.
-FORMAT is interpreted like in date(1).  If FORMAT is FORMAT1<newline>FORMAT2,
-then FORMAT1 applies to non-recent files and FORMAT2 to recent files.
-TIME_STYLE prefixed with 'posix-' takes effect only outside the POSIX locale.
-Also the TIME_STYLE environment variable sets the default style to use.
-
-Using color to distinguish file types is disabled both by default and
-with --color=never.  With --color=auto, ls emits color codes only when
-standard output is connected to a terminal.  The LS_COLORS environment
-variable can change the settings.  Use the dircolors command to set it.
-
-Exit status:
- 0  if OK,
- 1  if minor problems (e.g., cannot access subdirectory),
- 2  if serious trouble (e.g., cannot access command-line argument).
+...
+...
+...
 
 GNU coreutils online help: <https://www.gnu.org/software/coreutils/>
 Report any translation bugs to <https://translationproject.org/team/>
@@ -382,27 +278,6 @@ Full documentation <https://www.gnu.org/software/coreutils/ls>
 or available locally via: info '(coreutils) ls invocation'
 ```
 </div>
-
-#### Unsupported command-line options
- 
-If you try to use an option (flag) that is not supported, `ls` and other commands
- will usually print an error message similar to:
-
-<div class="alert alert-secondary" role="alert" markdown="1">
-
-Input:
-
-```bash
- $ ls -j
-```
-
-Output:
-
-```bash
-ls: invalid option -- 'j'
-Try 'ls --help' for more information.
-```
- </div>
 
 #### The `man` command
 
@@ -454,20 +329,6 @@ Some of its output is about properties that we do not cover in this lesson (such
 <details markdown="1">
    <summary>Solution</summary>
    The -l option makes ls use a long listing format, showing not only the file/directory names but also additional information such as the file size and the time of its last modification. If you use both the -h option and the -l option, this makes the file size “human readable”, i.e. displaying something like 5.3K instead of 5369.
-</details>
-</div>
-
-<div class="alert alert-secondary" role="alert" markdown="1">
-<i class="fa-solid fa-user-pen fa-xl"></i>  **Exercise: Listing Recursively and By Time**
-<hr/>
-
-The command ls -R lists the contents of directories recursively, i.e., lists their sub-directories, sub-sub-directories, and so on at each level. The command ls -t lists things by time of last change, with most recently changed files or directories first. 
-
-In what order does ls -R -t display things? (Hint: ls -l uses a long listing format to view timestamps.)
-
-<details markdown="1">
-  <summary>Solution</summary>
-The files/directories in each directory are sorted by time of last change.
 </details>
 </div>
 
@@ -738,20 +599,12 @@ $ cd Desktop/data-shell/data
 
 Check that we've moved to the right place by running `pwd` and `ls -F`
 
-If we want to move up one level from the data directory, we could use `cd ..`.  But
-there is another way to move to any directory, regardless of your
-current location.
+When moving up one level from the data directory, we used `cd ..`, but there's another way to navigate to any directory, regardless of our current location.
 
-So far, when specifying directory names, or even a directory path (as above),
-we have been using **relative paths**.  When you use a relative path with a command
-like `ls` or `cd`, it tries to find that location  from where we are,
-rather than from the root of the file system.
+So far we have been using **relative paths**, where we specify directory names or directory paths (as above) based on our current location. When you use a relative path with a command like `ls` or `cd`, it tries to find the location based on our current location instead of from the root of the file system.
 
-However, it is possible to specify the **absolute path** to a directory by
-including its entire path from the root directory, which is indicated by a
-leading slash.  The leading `/` tells the computer to follow the path from
-the root of the file system, so it always refers to exactly one directory,
-no matter where we are when we run the command.
+However, we can specify the **absolute path** to a directory by including its entire path from the root directory, denoted by the leading slash `/`. It tells the computer to follow the path from
+the root of the file system so it always points the same directory, no matter what our current location is.
 
 This allows us to move to our `data-shell` directory from anywhere on
 the filesystem (including from inside `data`).  To find the absolute path
@@ -788,8 +641,10 @@ Run `pwd` and `ls -F` to ensure that we're in the directory we expect.
 The shell interprets the character `~` (tilde) at the start of a path to
  mean "the current user's home directory". For example, if Nelle's home
  directory is `/Users/nelle`, then `~/data` is equivalent to
- `/Users/nelle/data`. This only works if it is the first character in the
- path: `here/there/~/elsewhere` is *not* `here/there/Users/nelle/elsewhere`.
+ `/Users/nelle/data`. 
+ 
+ This only works if it is the first character in the
+ path: `here/there/~/elsewhere` will not work because the `~` is not the first character.
 
 Another shortcut is the `-` (dash) character.  `cd` will translate `-` into
  *the previous directory I was in*, which is faster than having to remember,
@@ -887,18 +742,8 @@ Is the correct command to produce the above output:
 
 ### Nelle's Pipeline: Organizing Files
 
-Knowing just this much about files and directories,
-Nelle is ready to organize the files that the protein assay machine will create.
-First,
-she creates a directory called `north-pacific-gyre`
-(to remind herself where the data came from).
-Inside that,
-she creates a directory called `2012-07-03`,
-which is the date she started processing the samples.
-She used to use names like `conference-paper` and `revised-results`,
-but she found them hard to understand after a couple of years.
-(The final straw was when she found herself creating
-a directory called `revised-revised-results-3`.)
+
+Knowing just this much about files and directories, Nelle starts organizing the data from the protein assay machine. She creates a `north-pacific-gyre` directory (to remind herself where the data came from) and then a `2012-07-03` directory (the start date of sample processing). She used to use names like `conference-paper` and `revised-results`, hard to understand after a couple of years (leading to names like `revised-revised-results-3`).
 
 <div class="alert alert-warning" role="alert" markdown="1">
 <i class="fa-solid fa-triangle-exclamation fa-xl"></i> **Note: Sorting Output**
@@ -906,7 +751,6 @@ a directory called `revised-revised-results-3`.)
 
 Nelle names her directories "year-month-day", with leading zeroes for months and days, because the shell displays file and directory names in alphabetical order. If she used month names, December would come before July; if she didn't use leading zeroes, November ('11') would come before July ('7'). Similarly, putting the year first means that June 2012 will come before June 2013.
 </div>
-
 
 Each of her physical samples is labelled according to her lab's convention
 with a unique ten-character ID,

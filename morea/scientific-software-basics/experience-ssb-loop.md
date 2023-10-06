@@ -4,13 +4,13 @@ published: true
 morea_id: experience-ssb-loop
 morea_type: experience
 morea_summary: "Looping Functions"
-morea_sort_order: 3
+morea_sort_order: 8
 morea_labels:
   - 3:20pm
 morea_enable_toc: true
 ---
 
-# 5. Loops
+# 6. Loops
 
 <div class="alert alert-success mt-3" role="alert" markdown="1">
 <i class="fa-solid fa-globe fa-xl"></i> **Overview**

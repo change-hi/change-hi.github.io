@@ -4,13 +4,13 @@ published: true
 morea_id: experience-ssb-script
 morea_type: experience
 morea_summary: "Saving and Reusing Commands"
-morea_sort_order: 1
+morea_sort_order: 9
 morea_labels:
   - 3:35pm
 morea_enable_toc: true
 ---
 
-# 6. Shell Scripts
+# 7. Shell Scripts
 
 <div class="alert alert-success mt-3" role="alert" markdown="1">
 <i class="fa-solid fa-globe fa-xl"></i> **Overview**
@@ -412,13 +412,7 @@ before running them. Why do you think it does this?
 </details>
 </div>
 
-In practice, most people develop shell scripts by running commands at the shell prompt a few times
-to make sure they're doing the right thing,
-then saving them in a file for re-use.
-This style of work allows people to recycle
-what they discover about their data and their workflow with one call to `history`
-and a bit of editing to clean up the output
-and save it as a shell script.
+In practice, most people develop shell scripts by running commands at the shell prompt a few times to make sure they’re doing the right thing, then saving them in a file for re-use. This style of work allows people to recycle what they discover about their data and their workflow with one call to `history` and a bit of editing to clean up the output and save it as a shell script.
 
 ## Nelle's Pipeline: Creating a Script
 

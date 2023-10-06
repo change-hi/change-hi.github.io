@@ -1,7 +1,7 @@
 ---
 title: "Setting Up Koa"
 published: true
-morea_id: reading-ssb-mana
+morea_id: reading-ssb-koa
 morea_type: reading
 morea_summary: "Create accounts on Koa, download sample file."
 morea_sort_order: 1
