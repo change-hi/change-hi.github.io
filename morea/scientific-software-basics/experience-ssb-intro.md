@@ -10,7 +10,7 @@ morea_labels:
 morea_enable_toc: true
 ---
 
-# 1. Introducing the Shell
+# 2. Introducing the Shell
 
 <div class="alert alert-success mt-3" role="alert" markdown="1">
 <i class="fa-solid fa-globe fa-xl"></i> **Overview**
@@ -37,9 +37,10 @@ While GUIs are user-friendly, this way of delivering instructions to a computer 
 
 ## The Shell
 
-The shell is a program where users can type commands. It allows users to execute both complex tasks, such as running climate modeling software, and simple tasks, like creating directories with just one command. The leading Unix shell is Bash (the Bourne Again SHell, derived from a shell by Stephen Bourne). Bash is the default shell on modern Unix systems and in many Windows packages providing Unix-like tools.
+The shell is a program where users can type and execute commands, from complex tasks like running climate modeling software to simple ones like creating directories with one command. 
+The leading Unix shell, Bash (Bourne Again SHell), is the default on modern Unix systems and many Windows packages with Unix-like tools.
 
-Learning the shell requires time and effort. UWhile a GUI presents you with choices to select, CLI choices are not automatically presented to you, similar to learning new vocabulary. However, unlike a spoken language, a small number of "words" (i.e. commands) gets you a long way, and we'll cover those essential few today.
+Learning the shell requires time and effort. While a GUI presents you with choices to select, CLI choices are not automatically presented to you, similar to learning new vocabulary. However, a small number of "words" (i.e. commands) can get you a long way which we will learn today. 
 
 The grammar of a shell allows you to combine existing tools into powerful
 pipelines and handle large volumes of data automatically. Sequences of

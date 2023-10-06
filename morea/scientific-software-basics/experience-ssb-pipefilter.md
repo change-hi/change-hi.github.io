@@ -10,7 +10,7 @@ morea_labels:
 morea_enable_toc: true
 ---
 
-# 4. Pipes and Filters
+# 5. Pipes and Filters
 
 <div class="alert alert-success mt-3" role="alert" markdown="1">
 <i class="fa-solid fa-globe fa-xl"></i> **Overview**
