@@ -139,7 +139,7 @@ number of classes= 10
 
 "Train: X=(50000, 32, 32, 3), y=(50000, 1)" shows that in the training dataset:
 - There are 50000 data points or "images"
-- Each image has  32 width in pixels, 32 length in pixels, 3 color channels
+- Each image has  32 width in pixels, 32 length in pixels, 3 color channels (RGB)
 - 50000 rows each containing a single label or "class"
 - The number of unique classes is 10
 
@@ -163,6 +163,64 @@ print(x_train[i])
 print("Label:")
 print(y_train[i]) 
 ```
+<details>
+  <summary>Solution</summary>
+<pre>
+Data Point 1:
+Image Data:
+[[[ 59  62  63]
+  [ 43  46  45]
+  [ 50  48  43]
+  ...
+  [158 132 108]
+  [152 125 102]
+  [148 124 103]]
+
+ [[ 16  20  20]
+  [  0   0   0]
+  [ 18   8   0]
+  ...
+  [123  88  55]
+  [119  83  50]
+  [122  87  57]]
+
+ [[ 25  24  21]
+  [ 16   7   0]
+  [ 49  27   8]
+  ...
+  [118  84  50]
+  [120  84  50]
+  [109  73  42]]
+
+ ...
+
+ [[208 170  96]
+  [201 153  34]
+  [198 161  26]
+  ...
+  [160 133  70]
+  [ 56  31   7]
+  [ 53  34  20]]
+
+ [[180 139  96]
+  [173 123  42]
+  [186 144  30]
+  ...
+  [184 148  94]
+  [ 97  62  34]
+  [ 83  53  34]]
+
+ [[177 144 116]
+  [168 129  94]
+  [179 142  87]
+  ...
+  [216 184 140]
+  [151 118  84]
+  [123  92  72]]]
+Label:
+[6]
+</pre>
+</details>
 
 Then we can print the image from that data point, which should be an image with the associated label: 
 
@@ -194,11 +252,11 @@ class_names = ['airplane', 'automobile', 'bird', 'cat', 'deer', 'dog', 'frog', '
 
 Then plot some samples:
 1. Create a new figure to plot with a size of 8x8 inches 
-2. Initiate a loop that will repeat 14 times 
-3. Define a subplot within the grid, positioning it in a 2x7 grid layout, increasing i for each iteration
+2. Initiate a loop that will repeat 14 times, `(2*7)`
+3. Define a subplot within the grid, positioning it in a 2x7 grid layout, increasing `i` for each iteration
 4. Display image at `x_train[i]` in the subplot
 5. Assign `class_index` the category from the label `y_train[i]` after converting it to a one-hot encoded format
-6. Set the title of the current subplot to the class name determined from `class_index`with a font size of 9
+6. Set the title of the current subplot to the class name determined from `class_index` with a font size of 9
 
 ```python
 plt.figure(figsize=(8, 8)) 
@@ -226,7 +284,7 @@ tf.__version__
 
 <details>
   <summary>Solution</summary>
-For what we are currently using it should print:
+For what we are currently using it should output:
 
 '2.10.0'
 
@@ -402,9 +460,12 @@ Can you do this yourself?
   <summary>Solution</summary>
 
 <pre>
+
 with tf.device('/device:GPU:0'):
   new_history = new_model.fit(data_train,epochs=10, verbose=1, validation_data=data_valid)
+
 </pre>
+
 </details>
 </div>
 
@@ -480,14 +541,6 @@ for i in range(20):
 * Microsoft [Azure notebook](https://visualstudio.microsoft.com/vs/features/notebooks-at-microsoft/#) is similar to Google Colab with cloud sharing functionality but provides more memory.
 * Kaggle
 * Amazon Sage Maker
-
-</div>
-
-<div class="alert alert-secondary" role="alert" markdown="1">
-<i class="fa-solid fa-user-pen fa-xl"></i>  **Discussion: Why HPC?**
-<hr/>
-
-Why would you need an HPC cluster over your personal computer?
 
 </div>
 
