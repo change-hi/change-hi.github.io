@@ -475,6 +475,8 @@ with tf.device('/device:GPU:0'):
 <hr/>
 
 ```python
+# plotting the losses and accuracy for training and validation set using CPU
+
 fig, axes = plt.subplots(1,2, figsize=[16, 6])
 axes[0].plot(history.history['loss'], label='train_loss')
 axes[0].plot(history.history['val_loss'], label='val_loss')
@@ -499,14 +501,16 @@ axes[1].grid()
 <hr/>
 
 ```python
+# evaluate the model
 x = x_valid.astype('float32') / 255.0
 y = to_categorical(y_valid, 10)
-score = new_model.evaluate(x, y, verbose=0)
+score = model.evaluate(x, y, verbose=0)
 print('Test cross-entropy loss: %0.5f' % score[0])
 print('Test accuracy: %0.2f' % score[1])
 ```
 
 ```python
+# make predictions on the model
 y_pred=model.predict(x) 
 y_pred_classes=np.argmax(y_pred,axis=1)
 ```
@@ -519,18 +523,104 @@ y_pred_classes=np.argmax(y_pred,axis=1)
 
 ```python
 plt.figure(figsize=(8, 8)) 
-for i in range(20):
-    plt.subplot(4, 5, i+1)
+for i in range(24):
+    plt.subplot(4, 6, i+1)
     plt.imshow(x[i].reshape(32,32,3))
     index1 = np.argmax(y[i])
-    plt.title("y: %s\np: %s" % (class_names[index1], class_names[y_pred[i]]), fontsize=9, loc='left')
+    plt.title("y: %s\np: %s" % (class_names[index1], class_names[y_pred_classes[i]]), fontsize=9, loc='left')
     plt.subplots_adjust(wspace=0.5, hspace=0.4)
 ```
 
 <details>
   <summary>Solution</summary>
-{% include figure.html url="" max-width="100%" file="/morea/hpc/fig/predictions.png" alt="" caption="" %}
+{% include figure.html url="" max-width="100%" file="/morea/hpc/fig/cpu_plot.png" alt="" caption="" %}
 </details>
+</div>
+
+<div class="alert alert-secondary" role="alert" markdown="1">
+<i class="fa-solid fa-user-pen fa-xl"></i>  **Exercise: Plot the losses and accuracy for training and validation set for GPU**
+<hr/>
+
+```python
+# plotting the losses and accuracy for training and validation set using GPU
+
+fig, axes = plt.subplots(1,2, figsize=[16, 6])
+axes[0].plot(new_history.history['loss'], label='train_loss')
+axes[0].plot(new_history.history['val_loss'], label='val_loss')
+axes[0].set_title('Loss')
+axes[0].legend()
+axes[0].grid()
+axes[1].plot(new_history.history['accuracy'], label='train_acc')
+axes[1].plot(new_history.history['val_accuracy'], label='val_acc')
+axes[1].set_title('Accuracy')
+axes[1].legend()
+axes[1].grid()
+```
+
+<details>
+  <summary>Solution</summary>
+{% include figure.html url="" max-width="100%" file="/morea/hpc/fig/gpu_graph.png" alt="" caption="" %}
+</details>
+</div>
+
+<div class="alert alert-secondary" role="alert" markdown="1">
+<i class="fa-solid fa-user-pen fa-xl"></i>  **Exercise: Evaluate the model and make predictions again**
+<hr/>
+
+```python
+# evaluate the new_model 
+x = x_valid.astype('float32') / 255.0
+y = to_categorical(y_valid, 10)
+score = new_model.evaluate(x, y, verbose=0)
+print('Test cross-entropy loss: %0.5f' % score[0])
+print('Test accuracy: %0.2f' % score[1])
+```
+
+```python
+# make predictions on the new_model
+y_pred=new_model.predict(x) 
+y_pred_classes=np.argmax(y_pred,axis=1)
+```
+</div>
+
+<div class="alert alert-secondary" role="alert" markdown="1">
+<i class="fa-solid fa-user-pen fa-xl"></i>  **Exercise: Plot the predictions again**
+<hr/>
+
+```python
+plt.figure(figsize=(8, 8)) 
+for i in range(24):
+    plt.subplot(4, 6, i+1)
+    plt.imshow(x[i].reshape(32,32,3))
+    index1 = np.argmax(y[i])
+    plt.title("y: %s\np: %s" % (class_names[index1], class_names[y_pred_classes[i]]), fontsize=9, loc='left')
+    plt.subplots_adjust(wspace=0.5, hspace=0.4)
+```
+
+<details>
+  <summary>Solution</summary>
+{% include figure.html url="" max-width="100%" file="/morea/hpc/fig/gpu_plot.png" alt="" caption="" %}
+</details>
+</div>
+
+<div class="alert alert-secondary" role="alert" markdown="1">
+<i class="fa-solid fa-user-pen fa-xl"></i>  **Exercise: Looking at the predictions side by side**
+<hr/>
+
+Left: CPU prediction on the model, right: GPU prediction on the new model
+
+<div style="display: flex; justify-content: space-between;">
+
+  <div style="flex: 1; max-width: 49%;">
+    {% include figure.html url="" max-width="100%" file="/morea/hpc/fig/cpu_plot.png" alt="" caption="" %}
+  </div>
+
+  <div style="flex: 1; max-width: 49%;">
+    {% include figure.html url="" max-width="100%" file="/morea/hpc/fig/gpu_plot.png" alt="" caption="" %}
+  </div>
+
+</div>
+
 </div>
 
 <div class="alert alert-info" role="alert" markdown="1">
