@@ -638,7 +638,6 @@ Left: CPU prediction on the model, right: GPU prediction on the new model
 <i class="fa-solid fa-globe fa-xl"></i> **Key Points**
 <hr/>
 
-* Open On Demand requires you have a strong, stable internet connection whereas SSH can work with weak connections too.
 * JupyterLab is a more common platform for data science research but there are other IDE (Integrated Development Environment softwares) like PyCharm, Spyder, RMarkdown too.
 * Using multiple GPUs won’t improve the performance of your machine learning model. It only helps for a very complex computation or large models.
 </div>
