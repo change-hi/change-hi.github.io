@@ -6,9 +6,11 @@ morea_type: experience
 morea_summary: "Create an environment and setup a Python kernel"
 morea_sort_order: 5
 morea_labels:
-  - 2:50pm
+  - 2:50pm-3:10pm
 morea_enable_toc: true
 ---
+
+# 5. Install Modules and Setup an Environment
 
 <div class="alert alert-success mt-3" role="alert" markdown="1">
 <i class="fa-solid fa-globe fa-xl"></i> **Overview**

@@ -6,9 +6,11 @@ morea_type: experience
 morea_summary: "A basic Deep Learning tutorial on Koa "
 morea_sort_order: 6
 morea_labels:
-  - 3:10pm
+  - 3:10pm-3:40pm
 morea_enable_toc: true
 ---
+
+# 6. Deep learning CPU vs GPU
 
 <div class="alert alert-success mt-3" role="alert" markdown="1">
 <i class="fa-solid fa-globe fa-xl"></i> **Overview**
@@ -21,8 +23,6 @@ morea_enable_toc: true
 **Objectives**
 * Do a basic Deep Learning tutorial on Koa
 </div>
-
-## Deep Learning Tutorial
 
 This is a basic image classification tutorial from CIFAR-10 dataset using TensorFlow. 
 

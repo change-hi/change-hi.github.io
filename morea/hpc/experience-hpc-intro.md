@@ -6,9 +6,11 @@ morea_type: experience
 morea_summary: "What is an HPC System? What are the components of an HPC system?"
 morea_sort_order: 2
 morea_labels:
-  - 2:10pm
+  - 2:10pm-2:20pm
 morea_enable_toc: true
 ---
+
+# 2. What is High Performance Computing (HPC)?
 
 <div class="alert alert-success mt-3" role="alert" markdown="1">
 <i class="fa-solid fa-globe fa-xl"></i> **Overview**
@@ -21,9 +23,6 @@ morea_enable_toc: true
 **Objectives**
   * Understand the general HPC System architecture. 
 </div>
-
-
-## What is High Performance Computing?
 
 The words "cloud" and the phrase cluster or high-performance computing (HPC) are used a lot in different contexts and with various related meanings. So what do they mean? And more importantly, how do we use them in our work?
 
