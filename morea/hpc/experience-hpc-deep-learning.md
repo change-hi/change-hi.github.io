@@ -3,7 +3,7 @@ title: "6. Deep learning CPU vs GPU"
 published: true
 morea_id: experience-hpc-deep-learning
 morea_type: experience
-morea_summary: "A basic Deep Learning tutorial on Koa "
+morea_summary: "A basic Deep Learning tutorial on Koa"
 morea_sort_order: 6
 morea_labels:
   - 3:10pm-3:40pm

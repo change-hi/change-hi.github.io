@@ -3,7 +3,7 @@ title: "4. Launch a Jupyter Lab in Open OnDemand"
 published: true
 morea_id: experience-hpc-jupyter
 morea_type: experience
-morea_summary: "Requesting computing resources on Mana"
+morea_summary: "Requesting computing resources on Koa"
 morea_sort_order: 4
 morea_labels:
   - 2:40pm-2:50pm

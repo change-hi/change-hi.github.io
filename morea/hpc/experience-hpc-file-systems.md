@@ -3,7 +3,7 @@ title: "7. Staging and File System Choice"
 published: true
 morea_id: experience-hpc-file-systems
 morea_type: experience
-morea_summary: "What is a file system? What is a distributed file system? How do you optimize the file system on Mana?"
+morea_summary: "What is a file system? What is a distributed file system? How do you optimize the file system on Koa?"
 morea_sort_order: 7
 morea_labels:
   - 3:40pm-3:50pm
@@ -19,7 +19,7 @@ morea_enable_toc: true
 **Questions**
   * What is a file system?
   * What is a distributed file system?
-  * How do you optimize the file system on Mana?
+  * How do you optimize the file system on Koa?
 
 **Objectives**
   * Understand general file system and distributed file system concepts. Understand the general HPC System architecture.
