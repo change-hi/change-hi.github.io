@@ -6,9 +6,11 @@ morea_type: experience
 morea_summary: "Requesting computing resources on Koa"
 morea_sort_order: 4
 morea_labels:
-  - 2:40pm
+  - 2:40pm-2:50pm
 morea_enable_toc: true
 ---
+
+# 4. Launch a Jupyter Lab in Open OnDemand
 
 <div class="alert alert-success mt-3" role="alert" markdown="1">
 <i class="fa-solid fa-globe fa-xl"></i> **Overview**

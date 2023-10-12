@@ -6,9 +6,11 @@ morea_type: experience
 morea_summary: "What is a file system? What is a distributed file system? How do you optimize the file system on Koa?"
 morea_sort_order: 7
 morea_labels:
-  - 3:40pm
+  - 3:40pm-3:50pm
 morea_enable_toc: true
 ---
+
+# 7. Staging and File System Choice
 
 <div class="alert alert-success mt-3" role="alert" markdown="1">
 <i class="fa-solid fa-globe fa-xl"></i> **Overview**

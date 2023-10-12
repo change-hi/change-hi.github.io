@@ -1,16 +1,16 @@
 ---
-title: "4. Pipes and Filters"
+title: "5. Pipes and Filters"
 published: true
 morea_id: experience-ssb-pipefilter
 morea_type: experience
 morea_summary: "Combining Existing Functions to do New Things"
-morea_sort_order: 2
+morea_sort_order: 7
 morea_labels:
-  - 2:45pm
+  - 2:55pm
 morea_enable_toc: true
 ---
 
-# 4. Pipes and Filters
+# 5. Pipes and Filters
 
 <div class="alert alert-success mt-3" role="alert" markdown="1">
 <i class="fa-solid fa-globe fa-xl"></i> **Overview**
@@ -42,7 +42,7 @@ morea_enable_toc: true
 
 ## Let's Get Started
 
-Now that we know a few basic commands, we can finally look at the shell's most powerful feature: the ease with which it lets us combine existing programs in new ways. We'll start with a directory called `molecules` that contains six files describing
+Now that we know a few basic commands, we can look at the shell's most powerful feature: the ease with which it lets us combine existing programs in new ways. We'll start with a directory called `molecules` that contains six files describing
 some simple organic molecules. The `.pdb` extension indicates that these files are in Protein Data Bank format, a simple text format that specifies the type and position of each atom in the molecule.
 
 <div class="alert alert-secondary" role="alert" markdown="1">
@@ -145,7 +145,7 @@ $ wc -l *.pdb > lengths.txt
 ```
 </div>
 
-The greater than symbol, `>`, tells the shell to **redirect** the command's output to a file instead of printing it to the screen. (This is why there is no screen output: everything that `wc` would have printed has gone into the file `lengths.txt` instead.)  The shell will create the file if it doesn't exist. If the file exists, it will be silently overwritten, which may lead to data loss and thus requires some caution. `ls lengths.txt` confirms that the file exists:
+The `>` symbol redirects command output to a file instead of displaying it on the screen. This explains the lack of screen output; everything that `wc` would have printed goes into the `lengths.txt` file. If the file doesn't exist, the shell creates it. If it does, it's silently overwritten, so be cautious. `ls lengths.txt` confirms that the file exists:
 
 <div class="alert alert-secondary" role="alert" markdown="1">
 
@@ -185,54 +185,11 @@ Output:
 
 ## Output Page by Page
 
-We'll continue to use `cat` in this lesson, for convenience and consistency, but it has the disadvantage that it always dumps the whole file onto your screen. More useful in practice is the command `less`, which you use with `less lengths.txt`. This displays a screenful of the file, and then stops. You can go forward one screenful by pressing the spacebar, or back one by pressing `b`.  Press `q` to quit.
-
+We'll use `cat` in this lesson for convenience and consistency, but it has the disadvantage of dumping the whole file onto your screen. In practice, the more useful  `less`, which you use with `less lengths.txt`. This displays a screenful of the file, and then stops. You can go forward one screenful by pressing the spacebar, or back one by pressing `b`.  Press `q` to quit.
 
 Now let's use the `sort` command to sort its contents.
 
-<div class="alert alert-secondary" role="alert" markdown="1">
-<i class="fa-solid fa-circle-info fa-xl"></i> **Exercise: What Does `sort -n` Do?**
-<hr/>
-
- If we run `sort` on a file containing the following lines:
-
- ```bash
- 10
- 2
- 19
- 22
- 6
- ```
-
-the output is::
-
- ```bash
- 10
- 19
- 2
- 22
- 6
- ```
-
-If we run `sort -n` on the same input, we get this instead:
-
- ```bash
- 2
- 6
- 10
- 19
- 22
- ```
- Explain why -n has this effect.
-
-<details markdown="1">
-  <summary>Solution</summary>
-  The '-n' option specifies a numerical rather than an alphanumerical sort.
-</details>
-</div>
-
-
-We will also use the `-n` option to specify that the sort is numerical instead of alphanumerical. This does *not* change the file; instead, it sends the sorted result to the screen:
+We will use the `-n` option to specify that the sort is numerical instead of alphanumerical. This does *not* change the file; instead, it sends the sorted result to the screen:
 
 <div class="alert alert-secondary" role="alert" markdown="1">
 
@@ -319,23 +276,22 @@ Now test the commands below to reveal the difference between the two operators:
 Input:
 
  ```bash
- $ echo hello  testfile01.txt
+ $ echo hello > testfile01.txt
  ```
 and
 
 Input:
 
  ```bash
- $ echo hello > testfile02.txt
+ $ echo hello >> testfile02.txt
  ```
 Hint: Try executing each command twice in a row and then examining the output files.
 
 <details markdown="1">
 <summary>Solution</summary>
-  In the first example with '', the string "hello" is written to   'testfile01.txt',
-  but the file gets overwritten each time we run the command.
+  In the first example with the string "hello" is written to 'testfile01.txt', but the file gets overwritten each time we run the command.
 
-We see from the second example that the '>' operator also writes "hello" to a file (in this case 'testfile02.txt'), but appends the string to the file if it already exists (i.e. when we run it for the second time).
+We see from the second example that the '>>' operator also writes "hello" to a file (in this case 'testfile02.txt'), but appends the string to the file if it already exists (i.e. when we run it for the second time).
 
 </details>
 </div>
@@ -431,8 +387,6 @@ Output:
 ```
 </div>
 
-This is exactly like a mathematician nesting functions like *log(3x)* and saying "the log of three times *x*". In our case, the calculation is "head of sort of line count of `*.pdb`".
-
 The redirection and pipes used in the last few commands are illustrated below:
 
 {% include figure.html url="" max-width="100%" file="/morea/scientific-software-basics/fig/redirects-and-pipes.png" alt="Node anatomy" caption="" %}
@@ -466,14 +420,13 @@ Try it in the `data-shell/molecules` directory!
 </details>
 </div>
 
-This idea of linking programs together is why Unix has been so successful. Instead of creating enormous programs that try to do many different things, Unix programmers focus on creating lots of simple tools that each do one job well, and that work
+The idea of linking programs together is why Unix is so successful. Instead of creating enormous programs that do many different things, Unix programmers focus on creating lots of simple tools that each do one job well, and work
 well with each other. This programming model is called "pipes and filters".
 
-We've already seen pipes; a **filter** is a program like `wc` or `sort` that transforms a stream of input into a stream of output. Almost all of the standard Unix tools can work this way: unless told to do otherwise, they read from standard input, do
+We've already seen pipes; a **filter** is a program like `wc` or `sort` that transforms a stream of input into a stream of output. Most Unix tools operate similarly: unless told to do otherwise, they read from standard input, do
 something with what they've read, and write to standard output.
 
-The key is that any program that reads lines of text from standard input and writes lines of text to standard output can be combined with every other program that behaves this way as well. You can *and should* write your programs this way so that you
-and other people can put those programs into pipes to multiply their power.
+Any program reading and writing lines of text through standard input and output can be combined with other programs similarly. You can *and should* write your programs this way so that you and other people can put those programs into pipes. 
 
 <div class="alert alert-secondary" role="alert" markdown="1">
 <i class="fa-solid fa-circle-info fa-xl"></i> **Exercise: Pipe Reading Comprehension**
@@ -495,7 +448,7 @@ A file called `animals.txt` (in the `data-shell/data` folder) contains the follo
 What text passes through each of the pipes and the final redirect in the pipeline below?
 
 ```bash
-$ cat animals.txt | head -n 5 | tail -n 3 | sort -r  final.txt
+$ cat animals.txt | head -n 5 | tail -n 3 | sort -r > final.txt
 ```
 Hint: build the pipeline up one command at a time to test your understanding
 
@@ -508,7 +461,7 @@ Then, the last 3 lines are extracted from the previous 5 by using the 'tail' com
 With the 'sort -r' command those 3 lines are sorted in reverse order and finally,
   the output is redirected to a file 'final.txt'.
 
-The content of this file can be checked by executing 'cat final.txt'.
+The content of this file can be checked by executing `cat final.txt`.
 
 The file should contain the following lines:
 ```bash
@@ -532,7 +485,7 @@ For the file `animals.txt` from the previous exercise, consider the following co
  $ cut -d , -f 2 animals.txt
  ```
 
-The `cut` command is used to remove or "cut out" certain sections of each line in the file. The optional `-d` flag is used to define the delimiter. A **delimiter** is a character that is used to separate each line of text into columns. The default delimiter is <kbd>Tab</kbd>, meaning that the `cut` command will automatically assume that values in different columns will be separated by a tab. The `-f` flag is used to specify the field (column) to cut out.
+The `cut` command removes or "cut out" sections of each line in a file. It uses the optional `-d` flag to set the **delimiter**, is a character that is used to separate each line of text into columns. By default, the delimiter is <kbd>Tab</kbd>. Meaning `cut` automatically assumes values in different columns is separated by a tab. The `-f` flag specifies the field (column) to cut out. 
  
 The command above uses the `-d` option to split each line by comma, and the `-f` option
  to print the second field in each line, to give the following output:
@@ -548,7 +501,9 @@ The command above uses the `-d` option to split each line by comma, and the `-f`
  bear
  ```
 
-The `uniq` command filters out adjacent matching lines in a file. How could you extend this pipeline (using `uniq` and another command) to find out what animals the file contains (without any duplicates in their names)?
+The `uniq` command filters out adjacent matching lines in a file.
+<hr/>
+How could you extend this pipeline (using `uniq` and another command) to find out what animals the file contains (without any duplicates in their names)?
 
  <details markdown="1">
 <summary>Solution</summary>
@@ -567,10 +522,14 @@ The `uniq` command filters out adjacent matching lines in a file. How could you 
 The file `animals.txt` contains 8 lines of data formatted as follows:
 
  ```bash
- 2012-11-05,deer
- 2012-11-05,rabbit
- 2012-11-05,raccoon
- 2012-11-06,rabbit
+2012-11-05,deer
+2012-11-05,rabbit
+2012-11-05,raccoon
+2012-11-06,rabbit
+2012-11-06,deer
+2012-11-06,fox
+2012-11-07,rabbit
+2012-11-07,bear
  ```
 
 The `uniq` command has a `-c` option which gives a count of the number of times a line occurs in its input.  Assuming your current directory is `data-shell/data/`, what command would you use to produce a table that shows the total count of each type of animal in the file?
@@ -671,51 +630,15 @@ NENE01971Z.txt    NENE02040Z.txt
 ```
 </div>
 
-Sure enough, when she checks the log on her laptop, there's no depth recorded for either of those samples. Since it's too late to get the information any other way, she must exclude those two files from her analysis. She could just delete them using
-`rm`, but there are actually some analyses she might do later where depth doesn't matter, so instead, she'll just be careful later on to select files using the wildcard expression `*[AB].txt`.
+When checking the log on her laptop, there's no depth recorded for two samples. Since it's too late to get the information now, she decides to exclude those files from her analysis. Rather than deleting them using `rm`, she might want to so some analysis later where depth is irrelevant so she'll be careful and use a wildcard expression `*[AB].txt`.
 
 As always, the `*` matches any number of characters; the expression `[AB]` matches either an 'A' or a 'B', so this matches all the valid data files she has.
-
-
-<div class="alert alert-secondary" role="alert" markdown="1">
-<i class="fa-solid fa-circle-info fa-xl"></i> **Exercise: Wildcard Expressions**
-<hr/>
-
-Wildcard expressions can be very complex, but you can sometimes write them in ways that only use simple syntax, at the expense of being a bit more verbose.
-
-Consider the directory `data-shell/north-pacific-gyre/2012-07-03` : the wildcard expression `*[AB].txt` matches all files ending in `A.txt` or `B.txt`. Imagine you forgot about this.
-
-1.  Can you match the same set of files with basic wildcard expressions
-    that do not use the `[]` syntax? *Hint*: You may need more than one
-    expression.
-
-2.  The expression that you found and the expression from the lesson match the
-    same set of files in this example. What is the small difference between the
-    outputs?
-
-3.  Under what circumstances would your new expression produce an error message
-    where the original one would not?
-
-<details markdown="1">
-<summary>Solution</summary>
-1. A solution using two wildcard expressions:
-
-```
-$ ls *A.txt
-$ ls *B.txt
-```
-
-2. The output from the new commands is separated because there are two commands.
-3. When there are no files ending in 'A.txt', or there are no files ending in 'B.txt'.
-</details>
-</div>
 
 <div class="alert alert-secondary" role="alert" markdown="1">
 <i class="fa-solid fa-circle-info fa-xl"></i> **Exercise: Removing Unneeded Files**
 <hr/>
 
-Suppose you want to delete your processed data files, and only keep your raw files and processing script to save storage. The raw files end in `.dat` and the processed files end in `.txt`. Which of the following would remove all the processed data
-files, and *only* the processed data files?
+Imagine you want to clear out your processed data files, keeping only the raw files and the processing script to save space. Raw files have names ending in `.dat`, while processed files end in `.txt`. Which of the following options will remove *only* the processed data files, leaving the rest intact?
 
 1. `rm ?.txt`
 2. `rm *.txt`
@@ -744,5 +667,5 @@ Let's take a brief break to stretch before moving on to the next page.  See you 
 
 {% include next-button.html
 top-label="Loops ->"
-bottom-label="3:10pm"
+bottom-label="3:20pm"
 url="/morea/scientific-software-basics/experience-ssb-loop.html" %}

@@ -6,9 +6,11 @@ morea_type: experience
 morea_summary: "Understand how to connect to an HPC system and the basics of Open OnDemand"
 morea_sort_order: 3
 morea_labels:
-  - 2:20pm
+  - 2:20pm-2:40pm
 morea_enable_toc: true
 ---
+
+# 3. Connecting to a remote HPC System
 
 <div class="alert alert-success mt-3" role="alert" markdown="1">
 <i class="fa-solid fa-globe fa-xl"></i> **Overview**
@@ -22,8 +24,6 @@ morea_enable_toc: true
 * Understand how to connect to an HPC system.
 * Understand basics of Open OnDemand.
 </div>
-
-## Connecting to a Remote HPC system
 
 The first step in using a cluster is to establish a connection from our laptop to the cluster. When we are sitting at a computer (or standing, or holding it in our hands or on our wrists), we have come to expect a visual display with icons, widgets, and perhaps some windows or applications: a graphical user interface, or GUI. Since HPC systems are remote resources that we connect to over often slow or laggy interfaces (WiFi and Virtual private networks (VPN)s especially), it is more practical to use a command-line interface, or CLI, in which commands and results are transmitted via text, only. Anything other than text (images, for example) must be written to disk and opened with a separate program.
 
