@@ -1,7 +1,7 @@
 ---
 title: "Data Wrangling, Part 2"
 published: true
-morea_coming_soon: true
+morea_coming_soon: false
 morea_id: data-wrangling-2
 morea_outcomes:
   - outcome-data-wrangling
