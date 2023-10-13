@@ -1,11 +1,11 @@
 ---
-title: "Transferring Files with Rclone"
+title: "13. Transferring Files with Rclone"
 published: true
-morea_id: reading-transferring-rclone
-morea_type: reading
+morea_id: experience-transferring-rclone
+morea_type: experience
 morea_summary: "Understand how to transfer files using Rclone."
-morea_sort_order: 3
-morea_labels:
+morea_sort_order: 11
+morea_labels: 
 morea_enable_toc: true
 ---
 

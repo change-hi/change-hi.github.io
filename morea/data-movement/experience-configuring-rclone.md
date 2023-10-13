@@ -1,10 +1,10 @@
 ---
-title: "Configuring and Using Rclone"
+title: "12. Configuring and Using Rclone"
 published: true
-morea_id: reading-configuring-rclone
-morea_type: reading
+morea_id: experience-configuring-rclone
+morea_type: experience
 morea_summary: "Understand how to configure and use Rclone."
-morea_sort_order: 2
+morea_sort_order: 10
 morea_labels:
 morea_enable_toc: true
 ---
