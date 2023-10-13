@@ -6,6 +6,7 @@ morea_type: experience
 morea_summary: "Understand how to configure and use Rclone."
 morea_sort_order: 10
 morea_labels:
+  - 3:40pm
 morea_enable_toc: true
 ---
 

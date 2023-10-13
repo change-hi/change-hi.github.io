@@ -5,7 +5,8 @@ morea_id: experience-transferring-rclone
 morea_type: experience
 morea_summary: "Understand how to transfer files using Rclone."
 morea_sort_order: 11
-morea_labels: 
+morea_labels:
+  - 3:40
 morea_enable_toc: true
 ---
 
