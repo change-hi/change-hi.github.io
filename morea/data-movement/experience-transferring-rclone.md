@@ -188,3 +188,8 @@ Note - there is an experimental GUI for your laptop/workstation [https://rclone.
   * nohup can be used for large rclone file transfers to ensure your ssh session will not disconnect a transfer
 
 </div>
+
+{% include next-button.html
+  top-label="Assessment ->"
+  bottom-label="3:50pm"
+  url="/morea/data-movement/assessment-data-movement.html" %}
