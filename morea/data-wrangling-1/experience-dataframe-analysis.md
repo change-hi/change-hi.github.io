@@ -1,5 +1,5 @@
 ---
-title: "5. DataFrame Analysis"
+title: "5. Common Methods on Series or DataFrames"
 published: true
 morea_id: experience-dataframe-analysis
 morea_type: experience
@@ -10,7 +10,7 @@ morea_labels:
 morea_enable_toc: true
 ---
 
-# 5. DataFrame Analysis
+# 5. Common Methods on Series or DataFrames
 
 <div class="alert alert-success mt-3" role="alert" markdown="1">
 <i class="fa-solid fa-globe fa-xl"></i> **Overview**
@@ -27,8 +27,7 @@ morea_enable_toc: true
 * Learn how to sum two Pandas `DataFrame` columns together.
 </div>
 
-
-[![Binder](https://mybinder.org/badge_logo.svg)](https://mybinder.org/v2/gh/CI-TRACS/Data_Wrangling_with_Computational_Notebooks/HEAD)
+[![Open In Colab](https://colab.research.google.com/assets/colab-badge.svg)](https://colab.research.google.com/github/mahdi-b/change-hi.github.io/blob/main/morea/data-wrangling-1/Notebook/05-dataframe-analysis.ipynb)
 
 ## `DataFrame` Attributes & Arithmetic
 
@@ -47,7 +46,7 @@ It is often useful to quickly explore some of the descriptive attributes and sta
 | `size` | Returns an int representing the number of elements in this object.  |
 | `dtypes` | Returns the data types in the `DataFrame`. |
 | `columns` | Returns a `Series` of the header names from the `DataFrame`|
-
+{: .table}
 
 
 
@@ -86,7 +85,7 @@ Index(['Sample ID', 'date mmddyy', 'press dbar', 'temp ITS-90', 'csal PSS-78',
 
 However, what if we wanted to see the data type associated with each column header? Luckily, there is a quick and easy way to do this by accessing the `dtypes` attribute. `dtypes` is a series maintained by each `DataFrame` that contains the data type for each column inside a `DataFrame`. As an example if we want to access the `dtypes` attribute the `DataFrame` called `df` (seen below) we can access the `dtypes` of the `DataFrame`.
 
-{% include figure.html url="" max-width="60%" file="/morea/data-wrangling/fig/E5_1_types_dataframe.png" alt="Types Dataframe" caption="" %}
+{% include figure.html url="" max-width="60%" file="/morea/data-wrangling-1/fig/E5_1_types_dataframe.png" alt="Types Dataframe" caption="" %}
 
 <div class="alert alert-secondary" role="alert" markdown="1">
 
@@ -195,7 +194,7 @@ dtype: object
 
 For reference this is what the final `DataFrame` looks like. **Note that the date column is at the right side of the `DataFrame` since it was added last.**
 
-{% include figure.html url="" max-width="60%" file="/morea/data-wrangling/fig/E5_2_converted_dataframe.png" alt="Converted DataFrame" caption="" %}
+{% include figure.html url="" max-width="60%" file="/morea/data-wrangling-1/fig/E5_2_converted_dataframe.png" alt="Converted DataFrame" caption="" %}
 
 
 
@@ -323,12 +322,59 @@ More information about the `describe()` method can be found on the Pandas websit
 
 </div>
 
+### `Accessor` Methods
+
+When you have a `Series` containing specialized data types (like strings, datetime values, or categorical data), Pandas provides accessors to offer specialized methods for those data types. These are accessed as `series.accessor.method()` where `series` is a `Series` object. Here are some of the examples of accessors and their methods:
+
+
+| Method|Description|
+|:----------|-----------|
+| `upper()`| Converts strings in the Series to uppercase. |
+| `lower()`| Converts strings in the Series to lowercase. |
+| `len()`| Computes the length of each string.|
+| `year`, `month`, `day`, `hour`| Returns the year, month, day and hour of the datetime.|
+|`categories`| Returns the categories of the Series. |
+| `ordered`| Checks if the categories have an order. |
+{: .table}  
+  
+For example, if we want to convert all the strings in our Series to uppercase, we would use the following command:
+
+<div class="alert alert-secondary" role="alert" markdown="1">
+
+###### Python
+
+~~~python
+pd.Series(['cat', 'dog', 'fish']).str.upper()
+~~~
+
+###### Output:
+
+~~~
+0      CAT
+1      DOG
+2      FISH
+dtype: object
+~~~
+
+</div>  
+
+<div class="alert alert-info" role="alert" markdown="1">
+<i class="fa-solid fa-circle-info fa-xl"></i> **For more information**
+<hr/>
+
+A full list of methods for `Accessor` can be found in the Pandas docs.  
+[Link to `String` method docs](https://pandas.pydata.org/pandas-docs/stable/user_guide/text.html)  
+[Link to `Datetime` method docs](https://pandas.pydata.org/pandas-docs/stable/user_guide/timeseries.html)  
+[Link to `Categorical` method docs](https://pandas.pydata.org/pandas-docs/stable/user_guide/categorical.html)
+
+
+</div>
 
 ## `DataFrame` Arithmetic
 
 There may also come a time where we might want to do arithmetic between two different `DataFrame` columns or rows. Luckily, Pandas helps make this very simple. For example if had two `DataFrame`s like the ones below and we wanted to add the 'AA' columns together we would simply use the following code bit:
 
-{% include figure.html url="" max-width="60%" file="/morea/data-wrangling/fig/E5_3_alignment_arithmetic_columns.jpg" alt="Alignment Arithmetic Columns" caption="" %}
+{% include figure.html url="" max-width="60%" file="/morea/data-wrangling-1/fig/E5_3_alignment_arithmetic_columns.jpg" alt="Alignment Arithmetic Columns" caption="" %}
 
 <div class="alert alert-secondary" role="alert" markdown="1">
 
@@ -342,7 +388,7 @@ df_1["AA"] + df_2["AA"]
 
 To calculate this Pandas will first align the two columns (`Series`) based on their indexes. Following this any indexes that contain values in both `Series` will have their sum calculated. However, for indexes where one of the `Series` value is NaN the output value will be NaN. A diagram of this process is shown below:
 
-{% include figure.html url="" max-width="60%" file="/morea/data-wrangling/fig/E5_4_alignment_arithmetic_method.png" alt="Alignment Arithmetic Method" caption="" %}
+{% include figure.html url="" max-width="60%" file="/morea/data-wrangling-1/fig/E5_4_alignment_arithmetic_method.png" alt="Alignment Arithmetic Method" caption="" %}
 
 
 In our notebook we would get a `Series` as our output:
@@ -366,7 +412,7 @@ Name: AA, dtype: float64
 
 Calculating the sum of different rows is pretty similar to column-wise calculations. The key difference is that you must used a method of selecting rows e.g. `.loc` an example figure is shown below.
 
-{% include figure.html url="" max-width="60%" file="/morea/data-wrangling/fig/E5_5_alignment_arithmetic_row.png" alt="Alignment Arithmetic Row" caption="" %}
+{% include figure.html url="" max-width="60%" file="/morea/data-wrangling-1/fig/E5_5_alignment_arithmetic_row.png" alt="Alignment Arithmetic Row" caption="" %}
 
 
 Beyond just individual columns or rows you can also apply the same method to do arithmetic between two entire `DataFrame`s. The only thing that changes is that both the column and the index must be found in a in order for there to be an output. You can imagine that doing arithmetic between two entire `DataFrame`'s functions in much the same way if you did it column by column and then turned all the resulting column `Series` into a new `DataFrame`.
@@ -416,4 +462,4 @@ Let's take a brief break to stretch before moving on to the next page.  See you 
 {% include next-button.html 
            top-label="6. Real Example Cleanup->" 
            bottom-label="3:10pm" 
-           url="/morea/data-wrangling/experience-real-example-cleanup.html" %}
+           url="/morea/data-wrangling-1/experience-real-example-cleanup.html" %}

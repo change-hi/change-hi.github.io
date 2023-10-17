@@ -415,6 +415,6 @@ Below shows how our subsetted `DataFrame` now looks:
 
 
 {% include next-button.html 
-           top-label="5. Dataframe Analysis ->" 
+           top-label="5. Common Methods on Series or DataFrames ->" 
            bottom-label="2:50pm" 
-           url="/morea/data-wrangling/experience-dataframe-analysis.html" %}
+           url="/morea/data-wrangling-1/experience-dataframe-analysis.html" %}

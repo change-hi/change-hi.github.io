@@ -68,4 +68,4 @@ This workshop contains material we used and modified from the [Introduction to D
 {% include next-button.html 
            top-label="2. Google Colab Interface ->" 
            bottom-label="2:10pm" 
-           url="/morea/data-wrangling/experience-jupyter-interface.html" %}
+           url="/morea/data-wrangling-1/experience-jupyter-interface.html" %}
