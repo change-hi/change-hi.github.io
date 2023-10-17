@@ -12,7 +12,7 @@ morea_enable_toc: true
 
 ## Preparation: Install RClone on your Machine
 
-Rclone installation can be found (here)[https://rclone.org/install/]. The documentation includes instructions for Windows, MacOS, Linux, etc.
+Rclone installation can be found [here](https://rclone.org/install/). The documentation includes instructions for Windows, MacOS, Linux, etc.
 
 
 ### Windows
