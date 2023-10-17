@@ -1,11 +1,12 @@
 ---
-title: "Configuring and Using Rclone"
+title: "12. Configuring and Using Rclone"
 published: true
-morea_id: reading-configuring-rclone
-morea_type: reading
+morea_id: experience-configuring-rclone
+morea_type: experience
 morea_summary: "Understand how to configure and use Rclone."
-morea_sort_order: 2
+morea_sort_order: 10
 morea_labels:
+  - 3:40pm
 morea_enable_toc: true
 ---
 
@@ -48,12 +49,12 @@ Before you can use Rclone, you must configure it
 This configuration step will set up access for the remote object storage system that you want to transfer data to and from
 In this tutorial we will configure Google Drive since UH has Google for Education and everyone at UH has it
 
-# Open a Shell Session on MANA
-1.) Start a shell session on MANA through your own terminal or you can use Open OnDemand via https://mana.its.hawaii.edu
+# Open a Shell Session on KOA
+1.) Start a shell session on KOA through your own terminal or you can use Open OnDemand via https://koa.its.hawaii.edu/
 
-Clusters -> >_Mana_Shell_Access
+Clusters -> >_Koa_Shell_Access
 
-From your terminal/shell ssh to one of the Mana DTNs
+From your terminal/shell ssh to one of the KOA DTNs
 <div class="alert alert-secondary" role="alert" markdown="1">
 ```
 $ ssh username@hpc-dtn1.its.hawaii.edu
@@ -144,7 +145,7 @@ Choose a name for the remote object storage system
 
 <div class="alert alert-secondary" role="alert" markdown="1">
 ```
-$ rclone\-gdrive
+$ rclone-gdrive
 ```
 
 </div>
@@ -240,7 +241,7 @@ You should receive a verifiable link after configuration is complete
 {% include figure.html url="" max-width="75%" file="/morea/data-movement/fig/RClone16.png" alt="Node anatomy" caption="" %}
 
 ---
-# Copy Validation Code and Enter in MANA
+# Copy Validation Code and Enter in KOA
 
 {% include figure.html url="" max-width="75%" file="/morea/data-movement/fig/RClone21.png" alt="Node anatomy" caption="" %}
 
@@ -286,3 +287,8 @@ $ q
 
   * Rclone must be configured on a server for your user before it can be used to transfer data.
 </div>
+
+{% include next-button.html
+  top-label="Transfer RClone ->"
+  bottom-label="3:50pm"
+  url="/morea/data-movement/experience-transferring-rclone.html" %}

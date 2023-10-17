@@ -109,6 +109,6 @@ Do you have any questions about Globus? Ask away!
 
 
 {% include next-button.html
-  top-label="Assessment ->"
+  top-label="RClone Config. ->"
   bottom-label="3:50pm"
-  url="/morea/data-movement/assessment-data-movement.html" %}
+  url="/morea/data-movement/experience-configuring-rclone.html" %}
