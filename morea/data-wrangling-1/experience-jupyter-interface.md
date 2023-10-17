@@ -29,7 +29,7 @@ morea_enable_toc: true
 
 The button above will take you to Google Colab where you can start a new notebook or open an existing one. When you load up the Colab page, you should be presented with a site that looks something like the image below.
 
-{% include figure.html url="" max-width="60%" file="/morea/data-wrangling/fig/Colab Int.JPG" alt="Basic Binder Webpage" caption="" %}
+{% include figure.html url="" max-width="60%" file="/morea/data-wrangling-1/fig/Colab Int.JPG" alt="Basic Binder Webpage" caption="" %}
 
 If, after clicking the button, you encounter the message **"We are sorry, but you do not have access to this serive. Please contact your Organization Administrator for access."** please follow the instructions provided in this [link](https://www.hawaii.edu/askus/1649) to enable consumer apps.
 
@@ -37,7 +37,7 @@ Colab site contains a variety of buttons. However, for now we are going to do th
 
 Click on the **New Notebook**. This will create a colab notebook called `Untitled0.ipynb` with a single blank cell. You will be presented with a new screen which will look something like the image below.
 
-{% include figure.html url="" max-width="60%" file="/morea/data-wrangling/fig/untitled0.PNG" alt="New Notebook Page" caption="" %}
+{% include figure.html url="" max-width="60%" file="/morea/data-wrangling-1/fig/untitled0.PNG" alt="New Notebook Page" caption="" %}
 
 This notebook is blank except for a single cell. This blank cell is a code cell that you can type in. For example if you type in some python code like `print("This is a code cell")` and then click the run button you will see the output appear beneath the cell.
 
@@ -56,7 +56,7 @@ If you check this file called [Notebook-interface.ipynb](https://colab.research.
 
 If you wish to rename the file, click on `Notebook-interface.ipynb` in the top-left corner. You can then enter a new name for the file. Refer to the image below for guidance.
 
-{% include figure.html url="" max-width="60%" file="/morea/data-wrangling/fig/filename.PNG" alt="New Notebook Page" caption="" %}
+{% include figure.html url="" max-width="60%" file="/morea/data-wrangling-1/fig/filename.PNG" alt="New Notebook Page" caption="" %}
 
 > ## Running Cells
 >
@@ -66,7 +66,7 @@ If you wish to rename the file, click on `Notebook-interface.ipynb` in the top-l
 
 You will see that the action performed after running a cell is different for each of the cells.
 
-{% include figure.html url="" max-width="60%" file="/morea/data-wrangling/fig/Cell.PNG" alt="Notebook Cell Types" caption="" %}
+{% include figure.html url="" max-width="60%" file="/morea/data-wrangling-1/fig/Cell.PNG" alt="Notebook Cell Types" caption="" %}
 
 
 ### Editing Cells
@@ -77,7 +77,7 @@ Markdown cell can be edited and run repeatedly without much issue. However, when
 
 A good way to think about code cell execution in a notebook is that you are essentially copy pasting the code cell into a python console. The image below gives a visual example of this with the notebook cells on the left, and a python code that does the same set of commands on the right. You can try running the cells found in the left image by looking for the header **Editing Cells** in this file [Notebook-interface.ipynb](https://colab.research.google.com/github/mahdi-b/change-hi.github.io/blob/main/morea/data-wrangling-1/Notebook/02-jupyter-notebook-interface.ipynb).
 
-{% include figure.html url="" max-width="60%" file="/morea/data-wrangling/fig/E2_4_running_code.png" alt="Running Code" caption="" %}
+{% include figure.html url="" max-width="60%" file="/morea/data-wrangling-1/fig/E2_4_running_code.png" alt="Running Code" caption="" %}
 
 
 To show the dangers of rerunning cells we can try rerunning the two bottom cells containing the code `a = a + 2` and `print(a)`. This will be reflected as a fifth and sixth command executed in the python console. You can see this reflected in the Python console below where the same commands have been issued in the same order. So despite the fact that we only have four cells of python we have executed 6 cells worth of code.
@@ -90,7 +90,7 @@ Rerunning code cells will erase the output of that code cell and update the coun
 
 </div>
 
-{% include figure.html url="" max-width="60%" file="/morea/data-wrangling/fig/E2_5_rerunning_code.png" alt="Rerunnig Cells" caption="" %}
+{% include figure.html url="" max-width="60%" file="/morea/data-wrangling-1/fig/E2_5_rerunning_code.png" alt="Rerunnig Cells" caption="" %}
 
 
 Rerunning code cells is **not recommended** since it obscures what the notebook's code cells are doing and can make it very difficult for anyone reading your notebook to accurately rerun your analysis.
