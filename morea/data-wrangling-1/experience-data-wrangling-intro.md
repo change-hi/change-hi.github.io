@@ -66,6 +66,6 @@ This workshop contains material we used and modified from the [Introduction to D
 </div>
 
 {% include next-button.html 
-           top-label="2. Jupyter Notebook Interface ->" 
+           top-label="2. Google Colab Interface ->" 
            bottom-label="2:10pm" 
            url="/morea/data-wrangling/experience-jupyter-interface.html" %}
