@@ -19,7 +19,7 @@ Rclone installation can be found [here](https://rclone.org/install/). The docume
 
 1) Download the relevant binary from [RClone](https://rclone.org/downloads/)
 
-2) Create a new `rclone` file in your `C:\`
+2) Create a new `rclone` folder in your `C:\`
 
 3) Extract the downloaded files to `C:\rclone`
 
