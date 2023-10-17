@@ -18,7 +18,7 @@ Here are the things you need to do to be prepared for this workshop.
 
 * We recommend you go through the [Software Carpentry shell-novice tutorial](https://swcarpentry.github.io/shell-novice/) if you are new to the command-line.
 
-2) Have an account on Mana
+2) Have an account on KOA
 
 3)  Have UH Duo/MFA enabled
 

@@ -7,6 +7,7 @@ morea_outcomes:
     - outcome-data-movement
 morea_readings:
     - reading-prep
+    - reading-rclone
 
 morea_experiences:
     - experience-data-movement-intro
