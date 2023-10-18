@@ -23,4 +23,4 @@ We recommend [Chrome](https://www.google.com/chrome/) or [Firefox](https://www.m
 
 ### Download the workshop Jupyter notebook
 
-Please download [participants-copy-2022.ipynb](code/participants-copy-2022.ipynb) to your local computer (use "save as", i.e. right click).
+Please download [participants-copy-2023.ipynb](code/participants-copy-2023.ipynb) to your local computer (use "save as", i.e. right click).

@@ -15,7 +15,7 @@ morea_labels:
 
 ## For the participants
 
-Thank you for attending today's workshop! To help us learn about your experience, we would like to ask that you take approximately 10 minutes to fill out a short 10 question survey.  The participant survey is available [here](https://forms.gle/G86ZHnywMByRZxdX7).
+Thank you for attending today's workshop! To help us learn about your experience, we would like to ask that you take approximately 10 minutes to fill out a short 10 question survey.  The participant survey is available [here](https://forms.gle/w64ofZ3tMFL32Egn7).
 
 ## For the instructors
 

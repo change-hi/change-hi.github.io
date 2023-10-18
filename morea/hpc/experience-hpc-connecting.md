@@ -1,14 +1,16 @@
 ---
-title: "2. Connecting to a remote HPC System"
+title: "3. Connecting to a remote HPC System"
 published: true
 morea_id: experience-hpc-connecting
 morea_type: experience
 morea_summary: "Understand how to connect to an HPC system and the basics of Open OnDemand"
 morea_sort_order: 3
 morea_labels:
-  - 2:10pm
+  - 2:20pm-2:40pm
 morea_enable_toc: true
 ---
+
+# 3. Connecting to a remote HPC System
 
 <div class="alert alert-success mt-3" role="alert" markdown="1">
 <i class="fa-solid fa-globe fa-xl"></i> **Overview**
@@ -22,8 +24,6 @@ morea_enable_toc: true
 * Understand how to connect to an HPC system.
 * Understand basics of Open OnDemand.
 </div>
-
-## Connecting to a Remote HPC system
 
 The first step in using a cluster is to establish a connection from our laptop to the cluster. When we are sitting at a computer (or standing, or holding it in our hands or on our wrists), we have come to expect a visual display with icons, widgets, and perhaps some windows or applications: a graphical user interface, or GUI. Since HPC systems are remote resources that we connect to over often slow or laggy interfaces (WiFi and Virtual private networks (VPN)s especially), it is more practical to use a command-line interface, or CLI, in which commands and results are transmitted via text, only. Anything other than text (images, for example) must be written to disk and opened with a separate program.
 
@@ -39,11 +39,11 @@ Most modern computers have a built in SSH client to their terminal. Alternative 
 ### Activity: Learn how to login using SSH
 
 <div class="alert alert-secondary" role="alert" markdown="1">
-<i class="fa-solid fa-user-pen fa-xl"></i> **Exercise: Login to Mana**
+<i class="fa-solid fa-user-pen fa-xl"></i> **Exercise: Login to Koa**
 <hr/>
 
 ```shell
-ssh dav@mana.its.hawaii.edu
+ssh dav@koa.its.hawaii.edu
 ```
 
 You may be asked for your password. **Watch out**: the characters you type after the password prompt are not displayed on the screen. Normal output will resume once you press `Enter`.
@@ -88,13 +88,13 @@ For security it is recommend you use a private browsing window with Open OnDeman
 ### Activity: Learn how to login using Open OnDemand
 
 <div class="alert alert-secondary" role="alert" markdown="1">
-<i class="fa-solid fa-user-pen fa-xl"></i>  **Exercise: Login to Mana**
+<i class="fa-solid fa-user-pen fa-xl"></i>  **Exercise: Login to Koa**
 <hr/>
 
-Open up your web browser and start a private browsing window.  Now, connect to the instance of Open OnDemand used with Mana by pointing your browser at [https://mana.its.hawaii.edu](https://mana.its.hawaii.edu).
+Open up your web browser and start a private browsing window.  Now, connect to the instance of Open OnDemand used with Koa by pointing your browser at [https://koa.its.hawaii.edu](https://koa.its.hawaii.edu).
 
 {% include figure.html url="" max-width="75%"
-file="/morea/hpc/fig/ood_landing.png"
+file="/morea/hpc/fig/koa_ood_landing.png"
 alt="Connect to cluster" caption="" %}
 
 </div>
@@ -114,7 +114,7 @@ Common text editors you find on HPC systems or linx systems include:
 Of the three, nano is the simplest to use.
 
 {% include figure.html url="" max-width="75%"
-file="/morea/hpc/fig/ood_file_edit.png"
+file="/morea/hpc/fig/koa_ood_file_edit.png"
 alt="Connect to cluster" caption="" %}
 
 ### Feature: Terminal in the browser
@@ -122,7 +122,7 @@ alt="Connect to cluster" caption="" %}
 As Open OnDemand doesn't really replace the traditional commandline/SSH access method to HPC systems, and instead makes the use of certain applications simpler, it still provides a way to bring up a commandline on an HPC system within your web browser.
 
 {% include figure.html url="" max-width="80%"
-file="/morea/hpc/fig/ood_shell_merged.png"
+file="/morea/hpc/fig/koa_ood_shell_merged.png"
 alt="Connect to cluster" caption="" %}
 
 ### Feature: Interactive applications
@@ -130,7 +130,7 @@ alt="Connect to cluster" caption="" %}
 While Open OnDemand can allow you to access HPC systems using the terminal, it also has the ability to expand the ways and HPC can be easily used though allowing the use of interactive applications that many have come to depend on.
 
 {% include figure.html url="" max-width="75%"
-file="/morea/hpc/fig/ood_interact.png"
+file="/morea/hpc/fig/koa_ood_interact.png"
 alt="Connect to cluster" caption="" %}
 
 ### Feature: Email notification when jobs start
@@ -138,13 +138,13 @@ alt="Connect to cluster" caption="" %}
 Each application has a form which you use to define the resources your job requires so that Open OnDemand can submit it on your behalf. It also has the ability to email you once your job starts as not all jobs will begin immediately.
 
 {% include figure.html url="" max-width="50%"
-file="/morea/hpc/fig/ood_form.png"
+file="/morea/hpc/fig/koa_ood_form.png"
 alt="Connect to cluster" caption="" %}
 
 Finally, when a job begins, it presents you with a button you can click to start up your interactive application and use it within your browser.
 
 {% include figure.html url="" max-width="100%"
-file="/morea/hpc/fig/ood_job.png"
+file="/morea/hpc/fig/koa_ood_job.png"
 alt="Connect to cluster" caption="" %}
 
 
@@ -166,5 +166,5 @@ This chapter used and modified material from the [Introduction to High-Performan
 
 {% include next-button.html 
            top-label="Launch a Jupyter Lab in Open OnDemand ->" 
-           bottom-label="2:30pm" 
+           bottom-label="2:40pm" 
            url="/morea/hpc/experience-hpc-jupyter.html" %}

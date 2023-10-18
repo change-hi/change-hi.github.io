@@ -1,14 +1,14 @@
 ---
 title: "Data Movement"
 published: true
-morea_coming_soon: true
+morea_coming_soon: false
 morea_id: data-movement
 morea_outcomes:
     - outcome-data-movement
 morea_readings:
     - reading-prep
-    - reading-configuring-rclone
-    - reading-transferring-rclone
+    - reading-rclone
+
 morea_experiences:
     - experience-data-movement-intro
     - experience-data-movement-networks
@@ -21,6 +21,8 @@ morea_experiences:
     - experience-globus
     - experience-globus-install
     - experience-transferring-data
+    - experience-configuring-rclone
+    - experience-transferring-rclone
 morea_assessments:
     - data-movement-assessment
 morea_prerequisites:
