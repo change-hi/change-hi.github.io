@@ -1,7 +1,7 @@
 ---
 title: "File Transfers with Remote Computers"
 published: true
-morea_id: readings-remote-computers
+morea_id: reading-remote-computers
 morea_type: reading
 morea_summary: "Understand how to transfer files using wget, scp, and rsync."
 morea_sort_order: 4

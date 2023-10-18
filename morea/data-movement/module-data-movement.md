@@ -8,6 +8,8 @@ morea_outcomes:
 morea_readings:
     - reading-prep
     - reading-rclone
+    - reading-data-transfer-examples
+    - reading-remote-computers
 
 morea_experiences:
     - experience-data-movement-intro
@@ -16,8 +18,6 @@ morea_experiences:
     - experience-processes-and-queues
     - experience-transmission-control-protocol
     - experience-transfer-programs
-    - experience-data-transfer-examples
-    - experience-remote-computers
     - experience-globus
     - experience-globus-install
     - experience-transferring-data
