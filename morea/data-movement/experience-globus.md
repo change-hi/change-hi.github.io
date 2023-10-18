@@ -68,7 +68,7 @@ These scenarious include:
 <i class="fa-solid fa-globe fa-xl"></i> **Key Points**
 <hr/>
 
-* Globus is useful for transfering data to and from MANA or Koa at UH. 
+* Globus is useful for transferring data to and from MANA or KOA at UH. 
 </div>
 
 {% include next-button.html
