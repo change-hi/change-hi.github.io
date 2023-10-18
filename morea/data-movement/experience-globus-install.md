@@ -99,7 +99,7 @@ _[Globus Connect Personal for Windows](https://docs.globus.org/how-to/globus-con
 <i class="fa-solid fa-globe fa-xl"></i> **Key Points**
 <hr/>
 
-  * Dual factor authentication is a prerequisite to using Globus with MANA.
+  * Dual factor authentication is a prerequisite to using Globus with MANA/KOA.
   * Both systems to transfer data to and from must have Globus installed on them. 
 </div>
 
