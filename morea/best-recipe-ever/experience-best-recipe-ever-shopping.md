@@ -11,7 +11,21 @@ morea_labels:
 
 # 2. Shop for the best recipe ever
 
-*Replace this sentence with your instructions on where to go and what to buy for your best recipe ever. You might want to include some links or photos to help with the instructions.*
+## Spicy Tuna Head Ramen
+1 Large Tuna Fish Head (eyeballs required)
+2 tbsp of Olive Oil
+2 tbsp of Cajun Seasonings
+2 tsp of salt
+1 gallon of water
+1 tsp of white pepper corns
+1 tbsp fresh minced ginger
+1 tbsp soy sauce
+4 packs of fried ramen noodles
+4 eggs, soft boiled and peeled
+1 medium cucumber, thinly sliced
+Sriracha for garnish
+1 tbsp of spicy oil
+
 
 
 {% include next-button.html 

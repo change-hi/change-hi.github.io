@@ -15,7 +15,7 @@ Break into small groups. Try to find people you haven't met yet for your group.
 
 Task: 
 
-*Replace this sentence with a description of your "ice breaker". Think of a short, entertaining exercise that helps Data Fellows learn about each other.* 
+Introduce yourselves and identify two of your least favorite foods.
 
 {% include next-button.html
 top-label="2. Shop for the best recipe ever ->"
