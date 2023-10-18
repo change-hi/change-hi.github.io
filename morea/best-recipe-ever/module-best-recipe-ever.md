@@ -1,6 +1,6 @@
 ---
 title: "Best Recipe Ever"
-published: true
+published: false
 morea_coming_soon: false
 morea_id: best-recipe-ever
 morea_outcomes:
@@ -15,7 +15,7 @@ morea_assessments:
   - assessment-best-recipe-ever
 morea_prerequisites:
 morea_type: module
-morea_icon_url: /morea/best-recipe-ever/fig/tuna_head.png
+morea_icon_url: /morea/best-recipe-ever/best-recipe-ever-logo.png
 morea_labels:
   - Workshop
   - Friday, September 8, 2023
