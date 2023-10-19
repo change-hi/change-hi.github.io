@@ -43,7 +43,7 @@ The reason we use `Series` and `DataFrames` rather than native python data struc
 
 Pandas has two principal data structures, `Series` and `DataFrames`. If you are familiar with Microsoft's Excel application then you can liken `Series` to single columns (or rows) in an Excel sheet and `DataFrames` to entire tables (or spreadsheets).
 
-{% include figure.html url="" max-width="60%" file="/morea/data-wrangling/fig/E3_1_series_vs_dataframe.png" alt="Series vs DataFrames" caption="" %}
+{% include figure.html url="" max-width="60%" file="/morea/data-wrangling-1/fig/E3_1_series_vs_dataframe.png" alt="Series vs DataFrames" caption="" %}
 
 
 We see in the image above that a `Series` in the context of Excel could be the first row of the spreadsheet, while a `DataFrames` would be the entire spreadsheet. In other words, a `DataFrames` is simply a collection of labeled `Series`.
@@ -153,7 +153,7 @@ df = pd.read_table('data/tsv_example.tsv')
 
 Both methods will lead to an equivalent `DataFrame`.
 
-{% include figure.html url="" max-width="60%" file="/morea/data-wrangling/fig/E3_2_loaded_dataframe.png" alt="Loaded Dataframe" caption="" %}
+{% include figure.html url="" max-width="60%" file="/morea/data-wrangling-1/fig/E3_2_loaded_dataframe.png" alt="Loaded Dataframe" caption="" %}
 
 
 In the previous examples we loaded the entire dataset from the file we gave Pandas. However, when working with large datasets it is good practice to load your data in small pieces before loading the entire dataset to ensure that the file is parsed correctly. Small data sets are more manageable and errors are easier to spot, while large data sets take more time to parse. So, a good workflow is to read a small portion of the data and analyze the resulting data frame to see if you need to modify any of the default behaviors of the read function.
@@ -196,7 +196,7 @@ df
 
 However, this does not mean that the `DataFrame` does not have headers but rather that Pandas will set them to be an integer value. An example is shown in the figure below:
 
-{% include figure.html url="" max-width="60%" file="/morea/data-wrangling/fig/E3_3_no_columns_dataframe.png" alt="No Headers Dataframe" caption="" %}
+{% include figure.html url="" max-width="60%" file="/morea/data-wrangling-1/fig/E3_3_no_columns_dataframe.png" alt="No Headers Dataframe" caption="" %}
 
 
 You might also notice that there is also a corresponding integer number in the far left side of each row. This is the index that is essentially the "name" for each row. If we have a column that is specifies each row in the Python file we can tell Pandas to use that column instead of the default of using a integer. This can be done by e.g. setting `index_col='unique_id'` however, if you don't have any headers you can also specify the column by using its integer location e.g. `index_col=0`. **Note that the integer location of a column goes from left to right and starts at 0.**
@@ -210,7 +210,7 @@ df
 ~~~
 </div>
 
-{% include figure.html url="" max-width="60%" file="/morea/data-wrangling/fig/E3_4_no_column_index_specified_dataframe.png" alt="No Headers Index Specified Dataframe" caption="" %}
+{% include figure.html url="" max-width="60%" file="/morea/data-wrangling-1/fig/E3_4_no_column_index_specified_dataframe.png" alt="No Headers Index Specified Dataframe" caption="" %}
 
 You can change the name of the index column by setting the index name attribute of the dataframe `df.index.name = 'unique_id'`.
 
@@ -239,11 +239,11 @@ df
 
 **Without `na_values='Null'`:**
 
-{% include figure.html url="" max-width="60%" file="/morea/data-wrangling/fig/E3_5_null_values.png" alt="Null values Dataframe" caption="" %}
+{% include figure.html url="" max-width="60%" file="/morea/data-wrangling-1/fig/E3_5_null_values.png" alt="Null values Dataframe" caption="" %}
 
 **With `na_values='Null'`:**
 
-{% include figure.html url="" max-width="60%" file="/morea/data-wrangling/fig/E3_6_nan_values.png" alt="NaN values Dataframe" caption="" %}
+{% include figure.html url="" max-width="60%" file="/morea/data-wrangling-1/fig/E3_6_nan_values.png" alt="NaN values Dataframe" caption="" %}
 
 
 ## Auto NaN values
@@ -297,7 +297,7 @@ Try it yourself! Load the first 10 lines of the excel file '20_sales_records.xls
   </pre>
 
 Below shows how our `DataFrame` now looks:
-{% include figure.html url="" max-width="40%" file="/morea/data-wrangling/fig/E3_7_exercise.png" alt="Output DataFrame" caption="" %}
+{% include figure.html url="" max-width="40%" file="/morea/data-wrangling-1/fig/E3_7_exercise.png" alt="Output DataFrame" caption="" %}
 
 The resulting `DataFrame` should have 10 rows, 14 columns, and `NaN` values replacing the 'none' values.
 </details>
@@ -306,4 +306,4 @@ The resulting `DataFrame` should have 10 rows, 14 columns, and `NaN` values repl
 {% include next-button.html 
            top-label="Dataframe Wrangling ->" 
            bottom-label="2:40pm" 
-           url="/morea/data-wrangling/experience-dataframe-wrangling.html" %}
+           url="/morea/data-wrangling-1/experience-dataframe-wrangling.html" %}
