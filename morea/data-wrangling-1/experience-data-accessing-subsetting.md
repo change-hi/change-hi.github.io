@@ -1,16 +1,16 @@
 ---
-title: "4. Wrangling DataFrames"
+title: "4. Accessing and Subsetting Data"
 published: true
-morea_id: experience-data-wrangling
+morea_id: experience-data-accessing-subsetting
 morea_type: experience
-morea_summary: "Understading the basics of data wrangling"
+morea_summary: "Understading the basics of data accessing and subsetting"
 morea_sort_order: 3
 morea_labels:
   - 2:40pm
 morea_enable_toc: true
 ---
 
-# 4. Wrangling DataFrames
+# 4. Accessing and Subsetting Data
 
 <div class="alert alert-success mt-3" role="alert" markdown="1">
 <i class="fa-solid fa-globe fa-xl"></i> **Overview**
@@ -28,7 +28,7 @@ morea_enable_toc: true
 
 </div>
 
-[![Binder](https://mybinder.org/badge_logo.svg)](https://mybinder.org/v2/gh/CI-TRACS/Data_Wrangling_with_Computational_Notebooks/HEAD)
+[![Open In Colab](https://colab.research.google.com/assets/colab-badge.svg)](https://colab.research.google.com/)
 
 # Selection, Subsetting and Sorting a `DataFrame`
 
@@ -36,7 +36,7 @@ When exploring our data we will often want to focus our attention to specific ro
 
 Furthermore, it is often helpful to sort our data set using a particular relation to identify patterns and to understand the data's structure. For example, suppose the original data set we acquire and want to analyze describes a sport team's performance for each game during a season and it is original ordered in chronological order. It may be interesting to sort the game play statistics using a different relation such as number of points scored to easily identify high and low scoring games.
 
-As with previous episodes you should follow along in the notebook starting with '04' that can be found at the following link [Link to Binder](https://mybinder.org/v2/gh/CI-TRACS/Data_Wrangling_with_Computational_Notebooks/HEAD).
+As with previous episodes you should follow along in the notebook starting with '04' that can be found at the following link [Link to Colab](https://mybinder.org/v2/gh/CI-TRACS/Data_Wrangling_with_Computational_Notebooks/HEAD).
 
 ## Selection
 

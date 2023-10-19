@@ -11,7 +11,7 @@ morea_experiences:
   - experience-data-wrangling-intro
   - experience-jupyter-interface
   - experience-data-structures
-  - experience-data-wrangling
+  - experience-data-accessing-subsetting
   - experience-dataframe-analysis
   - experience-real-example-cleaning
   - experience-real-example-analysis
