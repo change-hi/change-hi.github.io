@@ -9,13 +9,17 @@ morea_labels:
   - 2:00pm
 ---
 
-# 1. Ice Breaker
+# 1. Ice : Data Movement Challenges
 
 Break into small groups. Try to find people you haven't met yet for your group.
 
 Task: 
 
-*Replace this sentence with a description of your "ice breaker". Think of a short, entertaining exercise that helps Data Fellows learn about each other.* 
+1.) Introduce yourself to your group members. Name, background, degree program and your favorite movie.
+
+2.) Each person can briefly describe any challenges they've faced with data storage and movement, and solutions they've tried.
+
+You have five minutes to discuss with your group.
 
 {% include next-button.html
 top-label="Intro to Scientific Data Networks ->"
