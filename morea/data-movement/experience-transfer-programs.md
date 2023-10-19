@@ -1,15 +1,15 @@
 ---
-title: "6. Transfer Programs"
+title: "7. Transfer Programs"
 published: true
 morea_id: experience-transfer-programs
 morea_type: experience
 morea_summary: "Be able to identify common/best transfer applications."
-morea_sort_order: 6
+morea_sort_order: 7
 morea_labels:
-  - 2:50pm
+  - 2:30pm
 morea_enable_toc: true
 ---
-# 6. (Our $0.02 about) Transfer Programs
+# 7. (Our $0.02 about) Transfer Programs
 
 <div class="alert alert-success mt-3" role="alert" markdown="1">
 <i class="fa-solid fa-globe fa-xl"></i> **Overview**
@@ -58,6 +58,6 @@ morea_enable_toc: true
 </div>
 
 {% include next-button.html
-  top-label="Scientific Data Transfer Examples ->"
-  bottom-label="3:00pm"
-  url="/morea/data-movement/experience-data-transfer-examples.html" %}
+  top-label="Globus ->"
+  bottom-label="2:35pm"
+  url="/morea/data-movement/experience-globus.html" %}

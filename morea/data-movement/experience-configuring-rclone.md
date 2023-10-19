@@ -1,12 +1,12 @@
 ---
-title: "12. Configuring and Using Rclone"
+title: "11. Configuring and Using Rclone"
 published: true
 morea_id: experience-configuring-rclone
 morea_type: experience
 morea_summary: "Understand how to configure and use Rclone."
-morea_sort_order: 10
+morea_sort_order: 11
 morea_labels:
-  - 3:40pm
+  - 3:05pm
 morea_enable_toc: true
 ---
 
@@ -22,7 +22,7 @@ morea_enable_toc: true
 
 </div>
 
-# Using Rclone
+# 11. Using Rclone
 ---
 
 {% include figure.html url="" max-width="75%" file="/morea/data-movement/fig/globus_and_rclone21.png" alt="Node anatomy" caption="" %}
@@ -32,9 +32,9 @@ Rclone is a free utility for syncing directories between object storage systems 
 https://rclone.org
 
 ---
-# Rclone in MANA
+# Rclone in KOA
 
-Rclone is installed on the Mana Data Transfer Nodes and can be used in the command line via 
+Rclone is installed on KOA and can be used in the command line via 
 <div class="alert alert-secondary" role="alert" markdown="1">
 
 ```
@@ -290,5 +290,5 @@ $ q
 
 {% include next-button.html
   top-label="Transfer RClone ->"
-  bottom-label="3:50pm"
+  bottom-label="3:15pm"
   url="/morea/data-movement/experience-transferring-rclone.html" %}

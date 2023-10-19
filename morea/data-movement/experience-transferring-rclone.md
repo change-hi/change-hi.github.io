@@ -1,14 +1,15 @@
 ---
-title: "13. Transferring Files with Rclone"
+title: "12. Transferring Files with Rclone"
 published: true
 morea_id: experience-transferring-rclone
 morea_type: experience
 morea_summary: "Understand how to transfer files using Rclone."
-morea_sort_order: 11
+morea_sort_order: 12
 morea_labels:
-  - 3:40pm
+  - 3:25pm
 morea_enable_toc: true
 ---
+# 12. Transferring Files with Rclone
 
 <div class="alert alert-success mt-3" role="alert" markdown="1">
 <i class="fa-solid fa-globe fa-xl"></i> **Overview**
@@ -192,5 +193,5 @@ Note - there is an experimental GUI for your laptop/workstation [https://rclone.
 
 {% include next-button.html
   top-label="Assessment ->"
-  bottom-label="3:50pm"
+  bottom-label="3:45pm"
   url="/morea/data-movement/assessment-data-movement.html" %}

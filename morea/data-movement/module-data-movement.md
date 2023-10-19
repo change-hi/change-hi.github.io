@@ -12,6 +12,7 @@ morea_readings:
     - reading-remote-computers
 
 morea_experiences:
+    - experience-data-movement-icebreaker
     - experience-data-movement-intro
     - experience-data-movement-networks
     - experience-data-transfer-eval
