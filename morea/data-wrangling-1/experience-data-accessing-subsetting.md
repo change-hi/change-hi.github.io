@@ -28,15 +28,16 @@ morea_enable_toc: true
 
 </div>
 
-[![Open In Colab](https://colab.research.google.com/assets/colab-badge.svg)](https://colab.research.google.com/)
-
 # Selection, Subsetting and Sorting a `DataFrame`
 
 When exploring our data we will often want to focus our attention to specific rows, columns, and entries that satisfy certain conditions. We may want to either look at a single column of the data or work with a subset of the original data. This situation may occur because the source of your data was probably not using the information for the exact same purpose.
 
 Furthermore, it is often helpful to sort our data set using a particular relation to identify patterns and to understand the data's structure. For example, suppose the original data set we acquire and want to analyze describes a sport team's performance for each game during a season and it is original ordered in chronological order. It may be interesting to sort the game play statistics using a different relation such as number of points scored to easily identify high and low scoring games.
 
-As with previous episodes you should follow along in the notebook starting with '04' that can be found at the following link [Link to Colab](https://mybinder.org/v2/gh/CI-TRACS/Data_Wrangling_with_Computational_Notebooks/HEAD).
+As with previous episodes you should follow along in the notebook starting with '04' that can be found by clicking the button:
+<a target="_blank" href="https://colab.research.google.com/github/mahdi-b/change-hi.github.io/blob/main/morea/data-wrangling-1/Notebook/04-data-data-accessing-subsetting.ipynb">
+  <img src="https://colab.research.google.com/assets/colab-badge.svg" alt="Open In Colab"/>
+</a>
 
 ## Selection
 
@@ -44,7 +45,7 @@ Selecting data from a `DataFrame` is very easy and builds on concepts we discuss
 
 If we have the example `DataFrame` seen in the image below we can select and/or subset various combinations of rows and columns by using Pandas.
 
-{% include figure.html url="" max-width="60%" file="/morea/data-wrangling/fig/E4_1_selection_dataframe.png" alt="Selection DataFrame" caption="" %}
+{% include figure.html url="" max-width="60%" file="/morea/data-wrangling-1/fig/E4_1_selection_dataframe.png" alt="Selection DataFrame" caption="" %}
 
 
 ### Selecting Columns
@@ -148,7 +149,7 @@ x[2:5]
 With the output:
  
 ~~~
-['b', 'c', 'd']
+['c', 'd', 'e']
 ~~~
 
 </div>
@@ -272,7 +273,7 @@ Sample-5         40610       360.1      11.3636      34.1709         203.5    Na
 
 It might seem strange that we don't need to use `.loc` or `.iloc` despite the fact that we are selecting rows. This is due to the fact that the output of `df['press dbar'] < 380` is a Pandas `Series` that contains information on the row and Pandas inherently assumes that when it is passed a boolean list like this that we want to select those rows that are `True`. A graphic example of this is shown below.
 
-{% include figure.html url="" max-width="60%" file="/morea/data-wrangling/fig/E4_2_filter_dataframe.png" alt="Filter DataFrame" caption="" %}
+{% include figure.html url="" max-width="60%" file="/morea/data-wrangling-1/fig/E4_2_filter_dataframe.png" alt="Filter DataFrame" caption="" %}
 
 
 From previous Pandas Data Wrangling workshop ([Link to Github](https://github.com/hawaiidatascience/pandas_data_wrangling/blob/master/4_Subsetting_and_Sorting.ipynb)).
@@ -408,7 +409,7 @@ The resulting subset should show rows 7, 9, and 10 only.
 
 
 Below shows how our subsetted `DataFrame` now looks:
-{% include figure.html url="" max-width="40%" file="/morea/data-wrangling/fig/E4_5_exercise.png" alt="Output DataFrame" caption="" %}
+{% include figure.html url="" max-width="40%" file="/morea/data-wrangling-1/fig/E4_5_exercise.png" alt="Output DataFrame" caption="" %}
 </details>
 </div>
 
