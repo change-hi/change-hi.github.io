@@ -1,12 +1,12 @@
 ---
-title: "12. Configuring and Using Rclone"
+title: "11. Configuring and Using Rclone"
 published: true
 morea_id: experience-configuring-rclone
 morea_type: experience
 morea_summary: "Understand how to configure and use Rclone."
-morea_sort_order: 10
+morea_sort_order: 11
 morea_labels:
-  - 3:40pm
+  - 3:05pm
 morea_enable_toc: true
 ---
 
@@ -22,7 +22,7 @@ morea_enable_toc: true
 
 </div>
 
-# Using Rclone
+# 11. Using Rclone
 ---
 
 {% include figure.html url="" max-width="75%" file="/morea/data-movement/fig/globus_and_rclone21.png" alt="Node anatomy" caption="" %}
@@ -32,9 +32,9 @@ Rclone is a free utility for syncing directories between object storage systems 
 https://rclone.org
 
 ---
-# Rclone in MANA
+# Rclone in KOA
 
-Rclone is installed on the Mana Data Transfer Nodes and can be used in the command line via 
+Rclone is installed on KOA and can be used in the command line via 
 <div class="alert alert-secondary" role="alert" markdown="1">
 
 ```
@@ -50,61 +50,13 @@ This configuration step will set up access for the remote object storage system 
 In this tutorial we will configure Google Drive since UH has Google for Education and everyone at UH has it
 
 # Open a Shell Session on KOA
-1.) Start a shell session on KOA through your own terminal or you can use Open OnDemand via https://koa.its.hawaii.edu/
+1.) Start a shell session on KOA through your own terminal or you can use Open OnDemand via [https://koa.its.hawaii.edu/]
+*You WILL be prompted for DUO two-factor verification.
 
-Clusters -> >_Koa_Shell_Access
+2.) Navigate to Clusters -> _Koa_Shell_Access, to start your session
 
-From your terminal/shell ssh to one of the KOA DTNs
-<div class="alert alert-secondary" role="alert" markdown="1">
-```
-$ ssh username@hpc-dtn1.its.hawaii.edu
-```
+{% include figure.html url="" max-width="75%" file="/morea/data-movement/fig/RClone_KOA_0.png" alt="koa access cluser" caption="" %}
 
-</div>
-*You may be prompted for your password depending on where you are SSHing from and you WILL be prompted for DUO two-factor verification.
-
-# Two Factor Authentication
-Example 
-
-<div class="alert alert-secondary" role="alert" markdown="1">
-```
-$ ssh luketn@hpc-dtn1.its.hawaii.edu
-```
-
-</div>
-
-{% include figure.html url="" max-width="75%" file="/morea/data-movement/fig/RClone1.png" alt="Node anatomy" caption="" %}
-
----
-
-Two Factor Authentication for Duo Push
-
-<div class="alert alert-secondary" role="alert" markdown="1">
-```
-$ 1
-```
-
-</div>
-
-Two Factor Authentication for Phone Call
-<div class="alert alert-secondary" role="alert" markdown="1">
-```
-$ 2
-```
-
-</div>
-
-Two Factor Authentication for SMS
-
-<div class="alert alert-secondary" role="alert" markdown="1">
-```
-$ 3
-```
-
-</div>
-
-
-{% include figure.html url="" max-width="75%" file="/morea/data-movement/fig/Rclone2.png" alt="Node anatomy" caption="" %}
 ---
 
 # Configuring Rclone
@@ -139,7 +91,7 @@ No remotes found \- make a new one
 
 Choose a name for the remote object storage system  
 
-{% include figure.html url="" max-width="75%" file="/morea/data-movement/fig/RClone4.png" alt="Node anatomy" caption="" %}
+{% include figure.html url="" max-width="75%" file="/morea/data-movement/fig/RClone_KOA_1.png" alt="Node anatomy" caption="" %}
 
  You'll be prompted for the name of the remote object storage system\, we use "rclone\-gdrive" in this tutorial  
 
@@ -154,16 +106,16 @@ $ rclone-gdrive
 
 # Choosing a Storage Option
 
-{% include figure.html url="" max-width="75%" file="/morea/data-movement/fig/RClone6.png" alt="Node anatomy" caption="" %}
+{% include figure.html url="" max-width="75%" file="/morea/data-movement/fig/RClone_KOA_2.png" alt="Node anatomy" caption="" %}
 
 <div class="alert alert-secondary" role="alert" markdown="1">
 ```
-$ 15
+$ 18
 ```
 
 </div>
 
-* Choose #15, Google Drive as Storage Option
+* Choose #18, Google Drive as Storage Option
 ** See help for drive backend at: https://rclone\.org/drive/ **
 
 ---
@@ -216,9 +168,8 @@ Leave ID of the root folder blank normally
 
 
 {% include figure.html url="" max-width="75%" file="/morea/data-movement/fig/RClone10.png" alt="Node anatomy" caption="" %}
-
 ---
-# Auto Configuration
+# Advanced Configuration
 
 <div class="alert alert-secondary" role="alert" markdown="1">
 ```
@@ -227,26 +178,79 @@ $ n
 
 </div>
 
-{% include figure.html url="" max-width="75%" file="/morea/data-movement/fig/RClone13.png" alt="Node anatomy" caption="" %}
+{% include figure.html url="" max-width="75%" file="/morea/data-movement/fig/RClone_KOA_3.png" alt="Node anatomy" caption="" %}
 ---
 
-You should receive a verifiable link after configuration is complete
-
-{% include figure.html url="" max-width="75%" file="/morea/data-movement/fig/RClone14.png" alt="Node anatomy" caption="" %}
-
 ---
+# Auto Authenticate 
 
-# Google Validation
+In this tutorial we are running RClone on a remote machine (KOA).
 
-{% include figure.html url="" max-width="75%" file="/morea/data-movement/fig/RClone16.png" alt="Node anatomy" caption="" %}
+<div class="alert alert-secondary" role="alert" markdown="1">
+```
+$ n
+```
 
+</div>
+
+{% include figure.html url="" max-width="75%" file="/morea/data-movement/fig/RClone_KOA_4.png" alt="Node anatomy" caption="" %}
 ---
-# Copy Validation Code and Enter in KOA
+ # Optional config_token
 
-{% include figure.html url="" max-width="75%" file="/morea/data-movement/fig/RClone21.png" alt="Node anatomy" caption="" %}
+ {% include figure.html url="" max-width="75%" file="/morea/data-movement/fig/RClone_KOA_5.png" alt="Node anatomy" caption="" %}
 
----
+ # Access the config_token from your local RClone <br>
+ 1.) Confirm RClone is successfully installed on your machine by running `rclone version` in your CLI of choice. <br>
+ 2.) From the KOA shell copy/paste and run the `rclone authorize` command into your local CLI <br>
+
+ <div class="alert alert-secondary" role="alert" markdown="1">
+```
+$  rclone authorize "drive" "<AUTH CODE>"
+```
+
+</div>
+
+Example: Windows Powershell
+ {% include figure.html url="" max-width="75%" file="/morea/data-movement/fig/RClone_KOA_6_PS.png" alt="Node anatomy" caption="" %}
+
+3.) A browser window should open, prompting you to sign into your Google Drive Account
+{% include figure.html url="" max-width="75%" file="/morea/data-movement/fig/RClone_KOA_6_google.png" alt="Node anatomy" caption="" %}
+
+4.) Allow RClone to access your Google Drive
+{% include figure.html url="" max-width="75%" file="/morea/data-movement/fig/RClone_KOA_6_google_allow.png" alt="Node anatomy" caption="" %}
+
+5.) Once you allow access, you will see a 'Success' screen:
+{% include figure.html url="" max-width="75%" file="/morea/data-movement/fig/RClone_KOA_6_google_success.png" alt="Node anatomy" caption="" %}
+
+6.) Navigate back to your CLI, to view the generated token, copy the token
+
+Example: Windows Powershell
+ {% include figure.html url="" max-width="75%" file="/morea/data-movement/fig/RClone_KOA_7_PS.png" alt="Node anatomy" caption="" %}
+
+7.) Paste the token into KOA
+ <div class="alert alert-secondary" role="alert" markdown="1">
+```
+$  config_token> <YOUR CONFIG TOKEN>
+```
+
+</div>
+
+
+
 # Configuring of Google Drive
+
+-Do not configure as a team drive
+
+{% include figure.html url="" max-width="75%" file="/morea/data-movement/fig/RClone20.png" alt="Node anatomy" caption="" %}
+
+<div class="alert alert-secondary" role="alert" markdown="1">
+```
+$ n
+```
+
+</div>
+
+---
 
 {% include figure.html url="" max-width="75%" file="/morea/data-movement/fig/Rcloneconfig.png" alt="Node anatomy" caption="" %}
 
@@ -259,16 +263,7 @@ $ y
 
 ---
 
--Do not configure as a team drive
 
-{% include figure.html url="" max-width="75%" file="/morea/data-movement/fig/RClone20.png" alt="Node anatomy" caption="" %}
-
-<div class="alert alert-secondary" role="alert" markdown="1">
-```
-$ n
-```
-
-</div>
 
 - Quit Configuration
 
@@ -290,5 +285,5 @@ $ q
 
 {% include next-button.html
   top-label="Transfer RClone ->"
-  bottom-label="3:50pm"
+  bottom-label="3:25pm"
   url="/morea/data-movement/experience-transferring-rclone.html" %}

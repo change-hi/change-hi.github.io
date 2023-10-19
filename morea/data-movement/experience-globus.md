@@ -1,15 +1,15 @@
 ---
-title: "9. Globus"
+title: "8. Globus"
 published: true
 morea_id: experience-globus
 morea_type: experience
 morea_summary: "Understand what Globus is."
-morea_sort_order: 9
+morea_sort_order: 8
 morea_labels:
-  - 3:30pm
+  - 2:35pm
 morea_enable_toc: true
 ---
-# 9. Globus
+# 8. Globus
 
 <div class="alert alert-success mt-3" role="alert" markdown="1">
 <i class="fa-solid fa-globe fa-xl"></i> **Overview**
@@ -73,5 +73,5 @@ These scenarious include:
 
 {% include next-button.html
   top-label="Creating Globus Account and Globus Connect Personal Installation ->"
-  bottom-label="3:35pm"
+  bottom-label="2:45pm"
   url="/morea/data-movement/experience-globus-install.html" %}
