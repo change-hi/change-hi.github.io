@@ -13,8 +13,8 @@ morea_experiences:
   - experience-data-structures
   - experience-data-accessing-subsetting
   - experience-dataframe-analysis
-  - experience-real-example-cleaning
-  - experience-real-example-analysis
+  #- experience-real-example-cleaning
+  #- experience-real-example-analysis
 morea_assessments:
   - assessment-data-wrangling-workshop
 morea_prerequisites:
