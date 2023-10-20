@@ -12,6 +12,10 @@ morea_enable_toc: true
 
 # 4. Accessing and Subsetting Data
 
+<a target="_blank" href="https://colab.research.google.com/github/mahdi-b/change-hi.github.io/blob/main/morea/data-wrangling-1/Notebook/04-data-data-accessing-subsetting.ipynb">
+  <img src="https://colab.research.google.com/assets/colab-badge.svg" alt="Open In Colab"/>
+</a>
+
 <div class="alert alert-success mt-3" role="alert" markdown="1">
 <i class="fa-solid fa-globe fa-xl"></i> **Overview**
 <hr/>
@@ -30,27 +34,24 @@ morea_enable_toc: true
 
 # Selection, Subsetting and Sorting a `DataFrame`
 
-When exploring our data we will often want to focus our attention to specific rows, columns, and entries that satisfy certain conditions. We may want to either look at a single column of the data or work with a subset of the original data. This situation may occur because the source of your data was probably not using the information for the exact same purpose.
+When exploring our data we will often want to modfiy specific rows, columns,  or entries that satisfy certain conditions. We may want to either look at a single column of the data or work with a subset of the original data. Furthermore, it is often helpful to sort our data set using a particular relation to identify patterns and to understand the data's structure. For example, suppose the original dataset we acquire and want to analyze describes a sport team's performance for each game during a season and it's original ordered is in chronological. It may be interesting to sort the game play statistics using a different relation such as number of points scored to easily identify high and low scoring games.
 
-Furthermore, it is often helpful to sort our data set using a particular relation to identify patterns and to understand the data's structure. For example, suppose the original data set we acquire and want to analyze describes a sport team's performance for each game during a season and it is original ordered in chronological order. It may be interesting to sort the game play statistics using a different relation such as number of points scored to easily identify high and low scoring games.
+As with previous modules you should follow along in the notebook, which can be opened by clicking the Open in Colab button above.
 
-As with previous episodes you should follow along in the notebook starting with '04' that can be found by clicking the button:
-<a target="_blank" href="https://colab.research.google.com/github/mahdi-b/change-hi.github.io/blob/main/morea/data-wrangling-1/Notebook/04-data-data-accessing-subsetting.ipynb">
-  <img src="https://colab.research.google.com/assets/colab-badge.svg" alt="Open In Colab"/>
-</a>
 
 ## Selection
 
-Selecting data from a `DataFrame` is very easy and builds on concepts we discussed in the previous episode. As mentioned previously, in a `DataFrame` we have column names called headers and row names called indexes. Depending on how we loaded the data these might be integers or some other ID.
+Selecting data from a `DataFrame` intuitive and builds on concepts we discussed in the previous module. A `DataFrame` holds column names, called headers, and row names, called indexes. Depending on how we loaded the data these might be integers, strings (text) or combinations of both.
 
-If we have the example `DataFrame` seen in the image below we can select and/or subset various combinations of rows and columns by using Pandas.
+
+In the context of the table shown in the image below, Pandas allows us to choose specific combinations of rows and columns from the associated DataFrame. We covered some way to do that in what follows:
 
 {% include figure.html url="" max-width="60%" file="/morea/data-wrangling-1/fig/E4_1_selection_dataframe.png" alt="Selection DataFrame" caption="" %}
 
 
 ### Selecting Columns
 
-To start off lets focus on subsetting columns. If we have a `DataFrame` called `df` and a column called 'ph' we can subset the `DataFrame` using `df['ph']`.
+To begin, let's concentrate on subsetting columns. This operation closely resembles accessing keys in a Python dictionary. Thus, if we possess a DataFrame named df with a column labeled `'ph'`, we can subset the DataFrame by employing `df['ph']`.
 
 <div class="alert alert-secondary" role="alert" markdown="1">
 
@@ -82,6 +83,8 @@ Name: ph, dtype: float64
 
 If on the other hand we want to access a subset rows we have to use a slightly different approach. While previously we could just pass the name of the column inside brackets if we want to access one or more rows we need to use the `.loc` or `.iloc` methods.
 
+The first abbreviation, 'loc,' represents 'location' and requires you to specify the names of the rows you wish to access. The second abbreviation, 'iloc,' represents 'integer location' and requires you to provide the row index (a numerical value). Both methods can be set to retrieve the complete row(s), or a only a subset of values associated with columns of interest.
+
 So if we again have a `DataFrame` called `df` and a row called 'Sample-1' we can access it using `df.loc['Sample-1', df.columns]`.
 
 <div class="alert alert-secondary" role="alert" markdown="1">
@@ -106,9 +109,9 @@ Name: Sample-1, dtype: float64
 
 </div>
 
-The key difference between `.loc` and `.iloc` is that `.loc` relies on the names of the indexes and headers while `.iloc` relies instead on the index and header number. Here `df.columns` is providing the all the header names in the `DataFrame` called `df` and letting pandas know that we want a single row, but all of the header in the `DataFrame`.
+The attribute `columns` in the expression `df.columns` is used to retrieve all the header names (column labels) within the DataFrame referred to as `df`. It is employed above to inform Pandas that the column values within the DataFrame corresponding to the row labeled 'Sample-1' should be accessed.
 
-If we were to use `.iloc` instead of `.loc` for the previous example and we know that 'Sample-1' is at index position 0 we would use `df.iloc[0, :]` and get the same result. You might notice that we also had to change `df.columns` to `:` when we used `.iloc` this is because `df.columns` provides the names of all the headers which is fine to do with `.loc` but not `.iloc`.
+If we were to use `.iloc` instead of `.loc` for the previous example and we know that 'Sample-1' is at index position 0 we would use `df.iloc[0, :]` and get the same result. You might notice that we also had to change `df.columns` to `:` when we used `.iloc` this is because `df.columns` provides the names of all the headers which is fine to do with `.loc` but not `.iloc` since the latter requires indexes, not names (strings).
 
 <div class="alert alert-secondary" role="alert" markdown="1">
 
@@ -132,7 +135,7 @@ Name: Sample-1, dtype: float64
 
 </div>
 
-## The `:` operator
+## The `:` operator: referesher
 
 <div class="alert alert-secondary" role="alert" markdown="1">
 
@@ -201,13 +204,16 @@ You can just as well use `.iloc` for the two examples above, but you will need t
 
 ## Subsetting
 
-Comparison operations ("<" , ">" , "==" , ">=" , "<=" , "!=") can be applied to pandas `Series` and `DataFrame`s in the same vectorized fashion as arithmetic operations except the returned object is a `Series` or `DataFrame` of booleans (either `True` or `False`).
+Comparison operations ("<" , ">" , "==" , ">=" , "<=" , "!=") can be applied to pandas `Series` and `DataFrame`s in the same vectorized fashion as arithmetic operations except the returned object is a `Series` or `DataFrame` of booleans (either `True` or `False`). Below are a few examples
 
 ### Within a Single `DataFrame`
 
-To start let focus on a single `DataFrame` to better understand how comparison operations work in Pandas. As an example lets say that we have a `DataFrame` like the one below stored in `df`:
+As an example lets say that we have a `DataFrame` like the one below stored in `df`:
 
-If we wanted to identify which of the above samples come from a depth above 380 we start by finding  column 'press dbar' using a less than condition of 380. 
+{% include figure.html url="" max-width="60%" file="/morea/data-wrangling-1/fig/E4_1_selection_dataframe.png" alt="Selection DataFrame" caption="" %}
+
+
+To identify samples with a 'pressure in dbar' value less than 380 from the data, we begin by referencing the 'press dbar' column, similar to how we did it before. Subsequently, we apply a less-than condition to compare all the values in this column with the threshold of 380.
 
 <div class="alert alert-secondary" role="alert" markdown="1">
 
@@ -217,7 +223,7 @@ If we wanted to identify which of the above samples come from a depth above 380 
 df['press dbar'] < 380
 ~~~
 
-The output will be a Pandas `Series` containing a boolean value for each row in the `df` that looks like this.
+The output will be a Pandas `Series` (column) containing a boolean value for each row in the `df` that looks like the following.
 
 ###### Output
 
@@ -236,7 +242,7 @@ Name: press dbar, dtype: bool
 
 </div>
 
-We can see that the first row and the last row are both `True` while the remaining rows are `False` and a quick look at the original data confirms that this is correct based on our condition. However, looking back at the original `DataFrame` is very tedious. If we instead want to view/save the rows that were found to have a depth < 380 we can either save the output `Series` to a variable and use that or directly place the previously used code within a bracket. Both methods are equivalent and shown below.
+The initial rows display a value of 'True,' whereas the other rows show  'False', meaning the condition was not met. A brief inspection of the original dataset validates this alignment with our established condition. To access or store the rows identified as having a depth less than 380, we can either assign the resulting 'Series' to a variable for subsequent use or employ the previously applied code directly within parentheses. Both approaches yield identical results, as demonstrated below.
 
 <div class="alert alert-secondary" role="alert" markdown="1">
 
@@ -254,6 +260,8 @@ Is equivalent to:
 ~~~python
 df[df['press dbar'] < 380]
 ~~~
+
+Both expressions utilize the results of the condition df['press dbar'] < 380 as an index on the DataFrame (df). This instructs pandas to retrieve rows associated with a 'True' value and exclude those associated with a 'False' value.
 
 Either of these code bits will generate the same output:
 
@@ -276,42 +284,14 @@ It might seem strange that we don't need to use `.loc` or `.iloc` despite the fa
 {% include figure.html url="" max-width="60%" file="/morea/data-wrangling-1/fig/E4_2_filter_dataframe.png" alt="Filter DataFrame" caption="" %}
 
 
-From previous Pandas Data Wrangling workshop ([Link to Github](https://github.com/hawaiidatascience/pandas_data_wrangling/blob/master/4_Subsetting_and_Sorting.ipynb)).
 
-## Column Specification
-
-If you do not specify a column to compare and instead do e.g. `df.loc[:] < df2.loc[:]` you will get a comparison of every column and a `DataFrame` containing those values as an output:
-
-<div class="alert alert-secondary" role="alert" markdown="1">
-
-###### Python
-
-~~~python
-df.loc[:] < df2.loc[:]
-~~~
-
-###### Output
-
-~~~
-           date mmddyy  press dbar  temp ITS-90  csal PSS-78  coxy umol/kg     ph
-Sample ID                                                                        
-Sample-1          True       False         True         True         False  False
-Sample-2          True       False         True         True          True  False
-Sample-3          True       False         True         True          True  False
-Sample-4          True       False         True         True          True   True
-Sample-5          True       False         True         True         False  False
-Sample-6          True       False         True         True          True  False
-Sample-7          True       False         True         True          True  False
-Sample-8          True       False         True         True          True  False
-~~~
-
-</div>
 
 ## Sorting
 
 There may also come a time when we want to see the data sorted by some criterion in order to explore potential patterns and order statistics of the entries based on a relation. For example, we might want to order a `DataFrame` by the depth that a sample was recovered from. **Note: we can also sort the order of the columns based on their names**
 
-There are two primary methods to sort a `DataFrame` either by the index or by a value. The index is rather straight forward, you use the method `sort_index()` to sort the `DataFrame` and provide an axis (0=row, 1=columns). We can reuse `df` and since the index is already sorted we can sort the order of the columns instead.
+
+There are two primary approaches for sorting a DataFrame: one based on the index and the other based on values. When sorting by the index (it's important to note that the index can represent either row or column labels), you can utilize the `sort_index()` method. This method accepts an argument for the axis parameter (0 for rows, 1 for columns). In our specific case using DataFrame df, since the rows are already sorted, we can reconfigure the order of the columns instead by specifiying `index=1`
 
 <div class="alert alert-secondary" role="alert" markdown="1">
 
@@ -381,11 +361,10 @@ Sample-1         40610       239.8      18.9625      35.0636           NaN  7.95
 <i class="fa-solid fa-user-pen fa-xl"></i>  **Exercise: Subsetting a Data Set**
 <hr/>
 
-Try it yourself! Going back to our `20_sales_records.xlsx` file, idenitfy which orders are `Online` and `High Priority`
+Try it yourself! Going back to our `20_sales_records.xlsx` file, identify which orders are `Online` and `High Priority`
 
-* Read the first couple rows to get a sense of the data. Which column reflects `Online` or `Offline` Status.
-* A `High Priority` order is denoted by `H` in one of the columns. Identify which column.
-* HINT: Use the loc method
+* Read the first couple rows to get a sense of the data. Which column contain the status (`Online` or `Offline`).
+* A 'High Priority' order is indicated by the label 'H' in a designated column. Retrieve all rows that correspond to online **and** high-priority orders. In Pandas, you have the option to combine conditions using the '&' (and) and '|' (or) operators, as opposed to Python's 'and' and 'or' operators.
 
 <details>
   <summary>Solution</summary>
