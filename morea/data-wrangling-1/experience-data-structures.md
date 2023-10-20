@@ -30,7 +30,7 @@ morea_enable_toc: true
 
 ## Pandas Data Structures
 
-For this episode you should follow along inside the Jupyter notebook associated with this episode. The jupyter notebooks for this entire lesson can be found in Binder ([Link to lesson's Binder website](https://mybinder.org/v2/gh/CI-TRACS/Data_Wrangling_with_Computational_Notebooks/HEAD)). You will have to navigate to the "notebook" directory in the file browser to find the notebook associated with this episode.
+For this module you should follow along inside the Jupyter notebook associated with this episode. The jupyter notebooks for this entire lesson can be found in Binder ([Link to lesson's Binder website](https://mybinder.org/v2/gh/CI-TRACS/Data_Wrangling_with_Computational_Notebooks/HEAD)). You will have to navigate to the "notebook" directory in the file browser to find the notebook associated with this episode.
 
 Before we start loading data into Pandas we need to become familiar with 2 of the primary data structures of Pandas:
 
