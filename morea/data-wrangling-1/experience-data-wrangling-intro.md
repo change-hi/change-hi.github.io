@@ -36,8 +36,20 @@ morea_enable_toc: true
 
 Data scientists devote the bulk of their time to the routine work of collecting and preparing messy digital data, prior to it being analyzed for valuable gems. While new libraries have emerged to assist with data handling, the data itself has grown more complex and voluminous, thereby maintaining pace with the ongoing challenges in data science.
 
+Here is a brief illustration of how data wrangling can be used to clean and understand data. Below, data wrangling is employed to transform the given table, which presents various data quality issues including non-descriptive or inadequate column labels and label inconsistencies. This process results in a corrected version of the table with appropriate column names and labels. Subsequently, the corrected table is utilized to construct a summary aggregate table for calculating the average population size per neighborhood.
 
-If you've ever worked with data in Excel, Google Sheets, or a CSV file, you've likely needed to tweak it somehow before it's useful. Maybe you've added or removed columns and rows, or carried out summations or other arithmetic functions. These tools work great for simple tasks. But what happens when you need to apply more complex functions or operations? The standard tools fall short as they lack more sophisticated functions, and reusing existing libraries becomes a challenge, as they're primarily not designed for such platforms or scenarios. Similarly, repeating the same steps to multiple datasets is neither scalable nor reproducible.
+
+
+{% include figure.html url="" max-width="60%" file="/morea/data-wrangling-1/fig/E1_1_bad_table.png" alt="bad quality data" caption="Table with various data quality issues including non-descriptive or inadequate column labels and label inconsistencies" %}
+
+
+{% include figure.html url="" max-width="60%" file="/morea/data-wrangling-1/fig/E1_2_good_table.png" alt="corrected data" caption="The corrected table resulting from removing issues identified in the previous table" %}
+
+{% include figure.html url="" max-width="60%" file="/morea/data-wrangling-1/fig/E1_3_summary_table.png" alt="Summarized data" caption="Summary aggregate table derived from the corrected table." %}
+
+
+
+If you've ever worked with data in Excel, Google Sheets, or a CSV file, you've likely conducted data wrangling in a manner similar to the scenario above. Maybe you've added or removed columns and rows, or carried out summations or other arithmetic functions. These tools work great for simple tasks. But what happens when you need to apply more complex functions or operations? The standard tools fall short as they lack more sophisticated functions, and reusing existing libraries becomes a challenge, as they're primarily not designed for such platforms or scenarios. Similarly, repeating the same steps to multiple datasets is neither scalable nor reproducible.
 
 Addressing these limitations, Python stands out as a powerful language that can handle most intricacies of working with data. Notably, the Pandas library is recognized as the quintessential standard in data processing, providing powerful tools for managing substantial datasets, executing complex functions, and creating reusable scripts. Its proficiency far surpasses the elementary functionalities of conventional tools like Excel or Google Sheets.
 
