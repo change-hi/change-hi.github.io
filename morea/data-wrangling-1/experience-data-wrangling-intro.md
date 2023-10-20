@@ -10,7 +10,13 @@ morea_labels:
 morea_enable_toc: true
 ---
 
+
 # 1. Data Wrangling Introduction
+
+<a target="_blank" href="https://colab.research.google.com/github/https://raw.githubusercontent.com/mahdi-b/change-hi.github.io/main/morea/data-wrangling-1/Notebook/01-introduction.ipynb">
+  <img src="https://colab.research.google.com/assets/colab-badge.svg" alt="Open In Colab"/>
+</a>
+
 
 <div class="alert alert-success mt-3" role="alert" markdown="1">
 <i class="fa-solid fa-globe fa-xl"></i> **Overview**
@@ -53,7 +59,7 @@ In this first workshop, you will learn the basics of utilizing jupyter notebooks
 
 ### Lesson Structure
 
-The structure for this lesson will require participants to run a jupyter notebook. In order to reduce the time required to get Jupyter notebooks setup and running we will be utilizing [Google Colab](https://colab.research.google.com/)), an  online Jupyter Notebooks environment from Google. At the beginning of each module, you'll find a link directing you to the Colab notebook website specific to that lesson.
+The structure for this lesson will require participants to run a jupyter notebook. In order to reduce the time required to get Jupyter notebooks setup and running we will be utilizing [Google Colab](https://colab.research.google.com/)), an  online Jupyter Notebooks environment from Google. At the beginning of each module, you'll find a link directing you to the Colab notebook website specific to that lesson. Look for the "Open in Colab" icon above.
 
 
 <div class="alert alert-success mt-3" role="alert" markdown="1">

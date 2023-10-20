@@ -12,47 +12,52 @@ morea_enable_toc: true
 
 # 2. Google Colab Interface
 
+<a target="_blank" href="https://colab.research.google.com/github/https://raw.githubusercontent.com/mahdi-b/change-hi.github.io/main/morea/data-wrangling-1/Notebook/02-jupyter-notebook-interface.ipynb">
+  <img src="https://colab.research.google.com/assets/colab-badge.svg" alt="Open In Colab"/>
+</a>
+
 <div class="alert alert-success mt-3" role="alert" markdown="1">
 <i class="fa-solid fa-globe fa-xl"></i> **Overview**
 <hr/>
 
-**Questions**
-* Describe the basics of the Google colab interface.
-* Demonstrate the various basic cell types notebooks use.
-* Demonstrate how notebooks deal with code blocks and the concept of restarting the runtime.
-
+**Objectives**
+* Provide an overview of the fundamental features of the Google Colab environment.
+* Illustrate the different cell categories utilized in Notebook environments.
+* Show how notebooks handle segments of code and explain the idea of rebooting the runtime.
 </div>
 
 ## Notebook Basics
 
-[![Open In Colab](https://colab.research.google.com/assets/colab-badge.svg)](https://colab.research.google.com/)
+[![Open Colab](https://colab.research.google.com/assets/colab-badge.svg)](https://colab.research.google.com/)
 
-The button above will take you to Google Colab where you can start a new notebook or open an existing one. When you load up the Colab page, you should be presented with a site that looks something like the image below.
+Clicking the [folllowing URL](https://colab.research.google.com/) will take you to Google Colab where you can start a new notebook or open an existing one. When you load up the Colab page, you should be presented with a layout that closely resembles that in the image below.
 
-{% include figure.html url="" max-width="60%" file="/morea/data-wrangling-1/fig/Colab Int.JPG" alt="Basic Binder Webpage" caption="" %}
+{% include figure.html url="" max-width="80%" file="/morea/data-wrangling-1/fig/Colab Int.JPG" alt="Basic Binder Webpage" caption="" %}
 
 If, after clicking the button, you encounter the message **"We are sorry, but you do not have access to this serive. Please contact your Organization Administrator for access."** please follow the instructions provided in this [link](https://www.hawaii.edu/askus/1649) to enable consumer apps.
 
-Colab site contains a variety of buttons. However, for now we are going to do the following:
+With the Open notebook modal window open, click on the **New Notebook**. This will create a colab notebook named `Untitled0.ipynb`, containing  a single blank cell. Your view of the web page should appear similar to the image shown below. A cell in a Jupyter Notebook is essentially a single, modifiable unit that acts as a container for either code or text. Imagine it as a piece of digital paper where you can write a script or make notes. 
 
-Click on the **New Notebook**. This will create a colab notebook called `Untitled0.ipynb` with a single blank cell. You will be presented with a new screen which will look something like the image below.
+{% include figure.html url="" max-width="80%" file="/morea/data-wrangling-1/fig/untitled0.PNG" alt="New Notebook Page" caption="" %}
 
-{% include figure.html url="" max-width="60%" file="/morea/data-wrangling-1/fig/untitled0.PNG" alt="New Notebook Page" caption="" %}
+As you'll notice the notebook contains a single cell. Type
 
-This notebook is blank except for a single cell. This blank cell is a code cell that you can type in. For example if you type in some python code like `print("This is a code cell")` and then click the run button you will see the output appear beneath the cell.
+`print("This is a code cell")`
+
+and then click the run button (triangle at the right side of the cell) you will see the output appear below the cell.
 
 ### Cell Types
 
 Cells are the base unit in Google notebooks. A notebook is essentially just a collection of cells of different types. In Google notebooks there are two primary types of cells:
 
 - **Code** cells
-  - Code cells treat everything typed inside them as code
-  - When they are **run** they will run the code they find inside them
+  - Code cells treat everything typed inside them as code (Python by default)
+  - Code can be executed -- we often say running the cell --  by clicking the **run** button on the immediate left of  the cell.
 - **Markdown** cells
-  - Markdown cells treat everything typed inside them as markdown
-  - When they are **run** they format the text based on standard markdown conventions, allowing for stylized text, links, lists, and more
+  - Markdown cells treat everything typed inside them as markdown, an easy to read and write formatting syntax, to format text, links, lists, and more.
+  - When they are **run**, jupyter formats the text they contain and diplays itbelow the cell.  
 
-If you check this file called [Notebook-interface.ipynb](https://colab.research.google.com/github/mahdi-b/change-hi.github.io/blob/main/morea/data-wrangling-1/Notebook/02-jupyter-notebook-interface.ipynb), you will be presented with a notebook that already has some cells filled in. Underneath the header **Cell Types** you will find two different cells that each correspond to one type of cell. You can select the top cell and then click the run button to run all the cells.
+If you click Open in Colab button at the top of this page, you will be presented with a notebook that already has some cells filled in. Underneath the header **Cell Types** you will find two different cells that each correspond to one type of cell. You can select the top cell and then click the run button to run all the cells.
 
 If you wish to rename the file, click on `Notebook-interface.ipynb` in the top-left corner. You can then enter a new name for the file. Refer to the image below for guidance.
 
@@ -73,11 +78,12 @@ You will see that the action performed after running a cell is different for eac
 
 You can also edit cells after running them by clicking on the cell like normal text. For markdown cells you will need to double click on the cell area in order revert it back into a editable format.
 
-Markdown cell can be edited and run repeatedly without much issue. However, when editing code blocks you have to be more careful. When you run a code cell you are running that piece of code. Even if you delete or edit the code block after running it the changes it made will remain until the Runtime is restarted.
+When modifying code cells, caution is required as any changes — including deletions or edits made to the cell afterward — won't alter the effects the previous run of the cell had. These effects persist until the cell is rerun with new values of the runtime or kernel is restarted.
 
-A good way to think about code cell execution in a notebook is that you are essentially copy pasting the code cell into a python console. The image below gives a visual example of this with the notebook cells on the left, and a python code that does the same set of commands on the right. You can try running the cells found in the left image by looking for the header **Editing Cells** in this file [Notebook-interface.ipynb](https://colab.research.google.com/github/mahdi-b/change-hi.github.io/blob/main/morea/data-wrangling-1/Notebook/02-jupyter-notebook-interface.ipynb).
 
-{% include figure.html url="" max-width="60%" file="/morea/data-wrangling-1/fig/E2_4_running_code.png" alt="Running Code" caption="" %}
+The image below gives a visual example of this with the notebook cells on the left, and a python code that does the same set of commands on the right. You can try running the cells found in the left image by looking for the header **Editing Cells** in this Notebook referenced from the Open in Colab button above.
+
+{% include figure.html url="" max-width="80%" file="/morea/data-wrangling-1/fig/E2_4_running_code.png" alt="Running Code" caption="" %}
 
 
 To show the dangers of rerunning cells we can try rerunning the two bottom cells containing the code `a = a + 2` and `print(a)`. This will be reflected as a fifth and sixth command executed in the python console. You can see this reflected in the Python console below where the same commands have been issued in the same order. So despite the fact that we only have four cells of python we have executed 6 cells worth of code.
@@ -87,21 +93,17 @@ To show the dangers of rerunning cells we can try rerunning the two bottom cells
 <hr/>
 
 Rerunning code cells will erase the output of that code cell and update the counter next to the cell with the most recent time the cell was run.
-
 </div>
 
-{% include figure.html url="" max-width="60%" file="/morea/data-wrangling-1/fig/E2_5_rerunning_code.png" alt="Rerunnig Cells" caption="" %}
 
-
-Rerunning code cells is **not recommended** since it obscures what the notebook's code cells are doing and can make it very difficult for anyone reading your notebook to accurately rerun your analysis.
 
 
 <div class="alert alert-success mt-3" role="alert" markdown="1">
 <i class="fa-solid fa-globe fa-xl"></i> **Key Points**
 <hr/>
-* A notebook is divided into cells that are either code or markdown.
-* Cells can be \"run\" leading to either the execution of code or formatting of markdown depending on the cell type.
-* Code cells can be rerun, but this should be avoided to prevent obscuring the notebooks workflow.
+* A notebook is divided into cells that are of type code or markdown.
+* Markdown cells enhance documentation by allowing users to insert images, videos, equations, and apply text styling, enhancing the notebook's readability and comprehensiveness.
+* Jupyter facilitates an interactive coding environment, enabling users to write and execute code in real-time, view the results immediately, and make iterative improvements, promoting a more efficient and explorative workflow.
 </div>
 
 
