@@ -96,6 +96,35 @@ Let us see a simple example. We will construct a `DataFrame` `df` that is $3 \\t
 
 This type of processing is relatively rare since it should be the case that it makes sense to apply the same function to every entry regardless of its location. For example, in the `spending_df` `DataFrame` there are few functions that would be reasonable to apply globally. But when you need this functionality, the `applymap()` function is quite useful. 
 
+### Group Specific Processing
+
+A common scenario is applying a function to a specific group of data. By group of data I mean a subset of the data that is the same based on a criterion. 
+
+The `groupby()` `DataFrame` method is used to group rows of data by one or more of the column entries . The `groupby()` method accepts the parameter `by` which specifies how you want to group the rows of the calling `DataFrame`. `by` can be a single column label, a list of column lables, or a callable function. The method will return a `pandas` `GroupBy` object, an object we have not seen before. This object has certain attributes and methods that will be useful to us. In this chapter we will only cover the case of setting the `by` parameter of the `groupby()` method to a single column entry, if you are interested you can read more about the method [here](https://pandas.pydata.org/pandas-docs/stable/generated/pandas.DataFrame.groupby.html). 
+
+If `by` is a sinlge label then the calling `DataFrame` will be grouped by the values in the column with the passed label, i.e. every entry with the same value in the specified column will be in the same group. For example, let us group the `spending_df` `DataFrame` by the values in the `specialty` column and save the returned `GroupBy` object to the variable we will call `spending_by_specialty`. To do this we use the following code.
+
+```python
+>>> spending_by_specialty = spending_df.groupby('specialty')
+```
+
+`GroupBy` objects have a handy method called `get_group()`, which returns all the entries of a specified group as a `DataFrame`. The `get_group()` method will take a positional argument that is the name of the group to access. Then the method returns a `DataFrame`, which is a subset of the initial `DataFrame` used to instantiate the `GroupBy` object. The entries of the returned `DataFrame` are all those entries in the column specified by the `by` parameter in the original `groupby()` call that match the name used in the `get_group()` call.
+
+Continuing with the example of the `spending_by_specialty` `GroupBy` object, let us see how we would retrieve the group of rows from the `spending_df` `DataFrame` whos entries in the `specialty` column were all the same value of 'CARDIOLOGY'. This group will conviently have the name 'CARDIOLOGY', thus when we use the `get_group` method we will simply pass the value 'CARDIOOGY'.
+
+```python
+>>> spending_by_specialty.get_group(\CARDIOLOGY\)
+            doctor_id     specialty     medication                nb_beneficiaries  spending
+unique_id                                                                          
+VE177644    1013915552    CARDIOLOGY    ESOMEPRAZOLE MAGNESIUM    30                10604.67
+BZ839028    1750382313    CARDIOLOGY    POTASSIUM CHLORIDE        44                916.65
+LC673466    1619181427    CARDIOLOGY    PRAVASTATIN SODIUM        11                591.50
+HI410789    1801882386    CARDIOLOGY    METOPROLOL TARTRATE       305               2065.75
+SK725155    1568469666    CARDIOLOGY    VERAPAMIL HCL             50                848.85
+```
+
+The example above returns all the entries of the  \CARDIOLOGY\ group, i.e. all the entries from the original  `DataFrame` whos entries in the `specialty` column is \CARDIOLOGY\, organized into a new `DataFrame`.
+
 <div class="alert alert-success mt-3" role="alert" markdown="1">
 <i class="fa-solid fa-globe fa-xl"></i> **Key Points**
 <hr/>
