@@ -77,7 +77,7 @@ pd.read_csv("./data/hot_dogs_data.csv", nrows=5)
 
 This will show us the `DataFrame` seen below:
 
-{% include figure.html url="" max-width="60%" file="/morea/data-wrangling/fig/E6_01_initial_dataframe.png" alt="Initial DataFrame" caption="" %}
+{% include figure.html url="" max-width="60%" file="/morea/data-wrangling-2/fig/E6_01_initial_dataframe.png" alt="Initial DataFrame" caption="" %}
 
 
 From this we can see a few things:
@@ -106,7 +106,7 @@ To start off try fixing the read_csv() method so that all -9 values are treated 
   </pre>
 
 Below shows how our `DataFrame` now looks:
-{% include figure.html url="" max-width="60%" file="/morea/data-wrangling/fig/E6_02_nan_dataframe.png" alt="Output DataFrame" caption="" %}
+{% include figure.html url="" max-width="60%" file="/morea/data-wrangling-2/fig/E6_02_nan_dataframe.png" alt="Output DataFrame" caption="" %}
 </details>
 </div>
 
@@ -161,7 +161,7 @@ To get the name of the column we will want to utilize a `DataFrame` attribute th
 </div>
 
 This then gives us the output `DataFrame` seen below:
-{% include figure.html url="" max-width="60%" file="/morea/data-wrangling/fig/E6_03_no_blank_column.png" alt="No Blank Column DataFrame" caption="" %}
+{% include figure.html url="" max-width="60%" file="/morea/data-wrangling-2/fig/E6_03_no_blank_column.png" alt="No Blank Column DataFrame" caption="" %}
 
 With this we have fixed some of the initial issues related to our dataset. It should be noted that there might still exist other issues with our dataset since we have only relied on the first few rows.
 
@@ -193,7 +193,7 @@ To set the index column we can use a parameter in `read_csv` that was mentioned 
 
 This gives us a somewhat cleaned up `DataFrame` that looks like the image below:
 
-{% include figure.html url="" max-width="60%" file="/morea/data-wrangling/fig/E6_04_fixed_dataframe.png" alt="Cleaned up Dataframe" caption="" %}
+{% include figure.html url="" max-width="60%" file="/morea/data-wrangling-2/fig/E6_04_fixed_dataframe.png" alt="Cleaned up Dataframe" caption="" %}
 
 
 With our initial cleanup done we can now save the current version of our `DataFrame` to the `df` variable. This `df` variable will be used for the next two sections.
@@ -374,7 +374,7 @@ df = df.drop(columns=["no2 nmol/kg"])
 
 With this done our data is reasonably cleaned up and we have the `DataFrame` seen in the image below:
 
-{% include figure.html url="" max-width="60%" file="/morea/data-wrangling/fig/E6_05_cleaned_dataframe.png" alt="Cleaned Dataframe" caption="" %}
+{% include figure.html url="" max-width="60%" file="/morea/data-wrangling-2/fig/E6_05_cleaned_dataframe.png" alt="Cleaned Dataframe" caption="" %}
 
 
 We can now move on to the analysis and visualization of the data in our `DataFrame`.
@@ -402,4 +402,4 @@ With this we've clean up our initial dataset. To summarize we have:
 {% include next-button.html 
            top-label="7. Real Example Analysis>" 
            bottom-label="3:30pm" 
-           url="/morea/data-wrangling/experience-real-example-analysis.html" %}
+           url="/morea/data-wrangling-2/experience-real-example-analysis.html" %}
