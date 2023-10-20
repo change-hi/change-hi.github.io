@@ -235,8 +235,8 @@ df.to_csv('data/new_file.csv')
 
 Try it yourself! Load the first 10 lines of the excel file '20_sales_records.xlsx' into a variable and then display your DataFrame using the `.head() method`. Can you identify the number of rows and columns in the DataFrame.
 
-* The file can be opened directly from the following URL ``.
-* Use the `read_excel` command along with the argument you learned to parse a specified number of rows.
+* The file can be opened directly from the following URL: `https://github.com/mahdi-b/change-hi.github.io/raw/main/morea/data-wrangling-1/Notebook/data/20_sales_records.xlsx`.
+* Use the appropriate `read_<file_>` method  along with the argument you learned to only parse 10 rows.
 * This file has `NaN` values that are not automatically detected. They are labeled as `'none'`. Have Pandas interpret these as `NaN` values upon loading of the dataset.
 * Display the results.
 * Identify the number of rows and columns of your resulting DataFrame.
