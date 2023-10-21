@@ -127,7 +127,7 @@ df.plot(x="date", y="temp ITS-90", kind="line")
   <summary>Solution</summary>
 
   Below is the output plot
-{% include figure.html url="" max-width="60%" file="/morea/data-wrangling/fig/E7_01_temp_plot.png" alt="Temperature Plot" caption="" %}
+{% include figure.html url="" max-width="60%" file="/morea/data-wrangling-2/fig/E7_01_temp_plot.png" alt="Temperature Plot" caption="" %}
 
 </details>
 </div>
@@ -154,7 +154,7 @@ surface_samples.plot(x="date", y="temp ITS-90", kind="line")
   <summary>Solution</summary>
 
   Below is the output plot
-  {% include figure.html url="" max-width="60%" file="/morea/data-wrangling/fig/E7_02_temp_srf_plot.png" alt="Temperature Surface Plot" caption="" %}
+  {% include figure.html url="" max-width="60%" file="/morea/data-wrangling-2/fig/E7_02_temp_srf_plot.png" alt="Temperature Surface Plot" caption="" %}
 
 </details>
 </div>
@@ -238,7 +238,7 @@ grouped_surface_samples = surface_samples.groupby(df.date.dt.year).mean()
 
   Below is the output plot
   
-  {% include figure.html url="" max-width="60%" file="/morea/data-wrangling/fig/E7_03_temp_yearly_srf_plot.png" alt="Temperature Yearly Surface Plot" caption="" %}
+  {% include figure.html url="" max-width="60%" file="/morea/data-wrangling-2/fig/E7_03_temp_yearly_srf_plot.png" alt="Temperature Yearly Surface Plot" caption="" %}
 
 </details>
 </div>
@@ -274,7 +274,7 @@ grouped_surface_samples.plot(y="temp ITS-90", kind="line")
 
   Below is the output plot
   
-{% include figure.html url="" max-width="60%" file="/morea/data-wrangling/fig/E7_04_temp_monthly_srf_plot.png" alt="Temperature Yearly Surface Plot" caption="" %}
+{% include figure.html url="" max-width="60%" file="/morea/data-wrangling-2/fig/E7_04_temp_monthly_srf_plot.png" alt="Temperature Yearly Surface Plot" caption="" %}
 
 </details>
 </div>
@@ -302,7 +302,7 @@ grouped_surface_samples.plot(y=["hbact #*1e5/ml", "pbact #*1e5/ml",
 
   Below is the output plot
   
-{% include figure.html url="" max-width="60%" file="/morea/data-wrangling/fig/E7_05_bact_monthly_srf_plot.png" alt="Bacterial Yearly Abundance Plot" caption="" %}
+{% include figure.html url="" max-width="60%" file="/morea/data-wrangling-2/fig/E7_05_bact_monthly_srf_plot.png" alt="Bacterial Yearly Abundance Plot" caption="" %}
 
 </details>
 </div>
@@ -332,4 +332,4 @@ There is a lot we didn't cover in this workshop. To go farther, take a look at t
 {% include next-button.html
 top-label="Assessment ->"
 bottom-label="3:50pm"
-url="/morea/data-wrangling/assessment-data-wrangling-workshop.html" %}
+url="/morea/data-wrangling-2/assessment-data-wrangling-workshop.html" %}

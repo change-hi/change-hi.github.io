@@ -11,10 +11,10 @@ morea_experiences:
   - experience-data-wrangling-intro
   - experience-jupyter-interface
   - experience-data-structures
-  - experience-data-wrangling
+  - experience-data-accessing-subsetting
   - experience-dataframe-analysis
-  - experience-real-example-cleaning
-  - experience-real-example-analysis
+  #- experience-real-example-cleaning
+  #- experience-real-example-analysis
 morea_assessments:
   - assessment-data-wrangling-workshop
 morea_prerequisites:

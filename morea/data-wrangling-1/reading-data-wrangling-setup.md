@@ -9,7 +9,7 @@ morea_labels:
 ---
 
 ## Setup
-No local setup is required for this lesson since everything will be taken care of through Binder. The link to the Binder repo can be found at the start of each episode.
+No local setup is required for this worksho since everything will be taken care of through Binder. The link to the Binder repo can be found at the start of each episode.
 
 If Binder has some issue for this workshop you can utilize the University of Hawaii Mana HPC cluster to run the notebooks if you do not have Anaconda installed on your own machine.
 

@@ -8,11 +8,7 @@ morea_outcomes:
 morea_readings:
   - reading-data-wrangling-setup
 morea_experiences:
-  - experience-data-wrangling-intro
-  - experience-jupyter-interface
-  - experience-data-structures
-  - experience-data-wrangling
-  - experience-dataframe-analysis
+  - experience-advanced-operations-on-dataframes
   - experience-real-example-cleaning
   - experience-real-example-analysis
 morea_assessments:
