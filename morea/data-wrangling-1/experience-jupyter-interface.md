@@ -12,7 +12,7 @@ morea_enable_toc: true
 
 # 2. Google Colab Interface
 
-<a target="_blank" href="https://colab.research.google.com/github/https://raw.githubusercontent.com/mahdi-b/change-hi.github.io/main/morea/data-wrangling-1/Notebook/02-jupyter-notebook-interface.ipynb">
+<a target="_blank" href="https://colab.research.google.com/github/mahdi-b/change-hi.github.io/blob/main/morea/data-wrangling-1/Notebook/02-jupyter-notebook-interface.ipynb">
   <img src="https://colab.research.google.com/assets/colab-badge.svg" alt="Open In Colab"/>
 </a>
 
