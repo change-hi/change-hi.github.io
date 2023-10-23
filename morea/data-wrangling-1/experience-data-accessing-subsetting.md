@@ -34,7 +34,7 @@ morea_enable_toc: true
 
 # Selection, Subsetting and Sorting a `DataFrame`
 
-When exploring our data we will often want to modfiy specific rows, columns,  or entries that satisfy certain conditions. We may want to either look at a single column of the data or work with a subset of the original data. Furthermore, it is often helpful to sort our data set using a particular relation to identify patterns and to understand the data's structure. For example, suppose the original dataset we acquire and want to analyze describes a sport team's performance for each game during a season and it's original ordered is in chronological. It may be interesting to sort the game play statistics using a different relation such as number of points scored to easily identify high and low scoring games.
+When exploring our data we will often want to modfiy specific rows, columns,  or entries that satisfy certain conditions. We may want to either look at a single column of the data or work with a subset of the original data. Furthermore, it is often helpful to sort our data set using a particular relation to identify patterns and to understand the data's structure. For example, suppose the original dataset we acquire and want to analyze describes a sport team's performance for each game during a season and its original order is chronological. It may be interesting to sort the game play statistics using a different relation such as number of points scored to easily identify high and low scoring games.
 
 As with previous modules you should follow along in the notebook, which can be opened by clicking the Open in Colab button above.
 
@@ -44,7 +44,7 @@ As with previous modules you should follow along in the notebook, which can be o
 Selecting data from a `DataFrame` intuitive and builds on concepts we discussed in the previous module. A `DataFrame` holds column names, called headers, and row names, called indexes. Depending on how we loaded the data these might be integers, strings (text) or combinations of both.
 
 
-In the context of the table shown in the image below, Pandas allows us to choose specific combinations of rows and columns from the associated DataFrame. We covered some way to do that in what follows:
+In the context of the table shown in the image below, Pandas allows us to choose specific combinations of rows and columns from the associated DataFrame. We will cover some ways to do that in the sections that follow:
 
 {% include figure.html url="" max-width="60%" file="/morea/data-wrangling-1/fig/E4_1_selection_dataframe.png" alt="Selection DataFrame" caption="" %}
 
@@ -135,12 +135,12 @@ Name: Sample-1, dtype: float64
 
 </div>
 
-## The `:` operator: referesher
+## The `:` operator: refresher
 
 <div class="alert alert-secondary" role="alert" markdown="1">
 
 
-When used inside a bracket the `:` operator will return the range between the two values it is given. For example if we had a Python list `x` with the following values ['a', 'b', 'c', 'd', 'e'] and wanted to select 'b', 'c', and 'd' we can do this very concisely using the `:` operator.
+When used inside brackets, the `:` operator will return the range between the two values it is given. For example if we had a Python list `x` with the following values ['a', 'b', 'c', 'd', 'e'] and wanted to select 'b', 'c', and 'd' we can do this very concisely using the `:` operator.
 
 ###### Python
 
@@ -253,7 +253,7 @@ good_rows = df['press dbar'] < 380
 df[good_rows]
 ~~~
 
-Is equivalent to:
+This is equivalent to:
 
 ###### Python
 
@@ -263,7 +263,7 @@ df[df['press dbar'] < 380]
 
 Both expressions utilize the results of the condition df['press dbar'] < 380 as an index on the DataFrame (df). This instructs pandas to retrieve rows associated with a 'True' value and exclude those associated with a 'False' value.
 
-Either of these code bits will generate the same output:
+Both of these code snippets will generate the same output:
 
 ###### Output
 
@@ -279,7 +279,7 @@ Sample-5         40610       360.1      11.3636      34.1709         203.5    Na
 
 </div>
 
-It might seem strange that we don't need to use `.loc` or `.iloc` despite the fact that we are selecting rows. This is due to the fact that the output of `df['press dbar'] < 380` is a Pandas `Series` that contains information on the row and Pandas inherently assumes that when it is passed a boolean list like this that we want to select those rows that are `True`. A graphic example of this is shown below.
+It might seem counterintuitive not to use `.loc` or `.iloc` even though we are selecting rows. This is due to the fact that the output of `df['press dbar'] < 380` is a Pandas `Series` that contains information on the row and Pandas inherently assumes that when it is passed a boolean list like this that we want to select those rows that are `True`. A graphic example of this is shown below.
 
 {% include figure.html url="" max-width="60%" file="/morea/data-wrangling-1/fig/E4_2_filter_dataframe.png" alt="Filter DataFrame" caption="" %}
 
@@ -288,10 +288,10 @@ It might seem strange that we don't need to use `.loc` or `.iloc` despite the fa
 
 ## Sorting
 
-There may also come a time when we want to see the data sorted by some criterion in order to explore potential patterns and order statistics of the entries based on a relation. For example, we might want to order a `DataFrame` by the depth that a sample was recovered from. **Note: we can also sort the order of the columns based on their names**
+There may also come a time when we want to see the data sorted by some criterion in order to explore potential patterns and order statistics of the entries based on a relation. For example, we might want to order a `DataFrame` by the depth that a sample was recovered from. **Note: We can also sort the order of the columns based on their names.**
 
 
-There are two primary approaches for sorting a DataFrame: one based on the index and the other based on values. When sorting by the index (it's important to note that the index can represent either row or column labels), you can utilize the `sort_index()` method. This method accepts an argument for the axis parameter (0 for rows, 1 for columns). In our specific case using DataFrame df, since the rows are already sorted, we can reconfigure the order of the columns instead by specifiying `index=1`
+There are two primary approaches for sorting a DataFrame: one based on the index and the other based on values. When sorting by the index (it's important to note that the index can represent either row or column labels), you can utilize the `sort_index()` method. This method accepts an argument for the axis parameter (0 for rows, 1 for columns). In our specific case using DataFrame df, since the rows are already sorted, we can reconfigure the order of the columns instead by specifiying `axis=1`
 
 <div class="alert alert-secondary" role="alert" markdown="1">
 
@@ -364,7 +364,8 @@ Sample-1         40610       239.8      18.9625      35.0636           NaN  7.95
 Try it yourself! Going back to our `20_sales_records.xlsx` file, identify which orders are `Online` and `High Priority`
 
 * Read the first couple rows to get a sense of the data. Which column contain the status (`Online` or `Offline`).
-* A 'High Priority' order is indicated by the label 'H' in a designated column. Retrieve all rows that correspond to online **and** high-priority orders. In Pandas, you have the option to combine conditions using the '&' (and) and '|' (or) operators, as opposed to Python's 'and' and 'or' operators.
+* A 'High Priority' order is indicated by the label 'H' in a designated column. 
+* Retrieve all rows that correspond to online and high-priority orders. In Pandas, you have the option to combine conditions using the `&` (and) and `|` (or) operators, as opposed to Python's 'and' and 'or' operators.
 
 <details>
   <summary>Solution</summary>
@@ -388,7 +389,7 @@ The resulting subset should show rows 7, 9, and 10 only.
 
 
 Below shows how our subsetted `DataFrame` now looks:
-{% include figure.html url="" max-width="40%" file="/morea/data-wrangling-1/fig/E4_5_exercise.png" alt="Output DataFrame" caption="" %}
+{% include figure.html url="" max-width="80%" file="/morea/data-wrangling-1/fig/E4_5_exercise.png" alt="Output DataFrame" caption="" %}
 </details>
 </div>
 
