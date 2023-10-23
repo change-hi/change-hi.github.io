@@ -13,7 +13,7 @@ morea_enable_toc: true
 
 # 1. Data Wrangling Introduction
 
-<a target="_blank" href="https://colab.research.google.com/github/https://raw.githubusercontent.com/mahdi-b/change-hi.github.io/main/morea/data-wrangling-1/Notebook/01-introduction.ipynb">
+<a target="_blank" href="https://colab.research.google.com/github/mahdi-b/change-hi.github.io/blob/main/morea/data-wrangling-1/Notebook/01-introduction.ipynb">
   <img src="https://colab.research.google.com/assets/colab-badge.svg" alt="Open In Colab"/>
 </a>
 
