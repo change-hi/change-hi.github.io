@@ -258,6 +258,6 @@ The resulting `DataFrame` should have 10 rows, 14 columns, and `NaN` values repl
 </div>
 
 {% include next-button.html 
-           top-label="Dataframe Wrangling ->" 
+           top-label="Accessing and Subsetting Data ->" 
            bottom-label="2:40pm" 
            url="/morea/data-wrangling-1/experience-data-accessing-subsetting.html" %}
