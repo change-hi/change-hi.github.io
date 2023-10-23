@@ -12,9 +12,7 @@ morea_enable_toc: true
 
 # 3. Loading and Handling Pandas Data
 
-<a target="_blank" href="https://colab.research.google.com/github/mahdi-b/change-hi.github.io/blob/main/morea/data-wrangling-1/Notebook/03-data-structures.ipynb">
-  <img src="https://colab.research.google.com/assets/colab-badge.svg" alt="Open In Colab"/>
-</a>
+[![Open In Colab](https://colab.research.google.com/assets/colab-badge.svg)](https://colab.research.google.com/github/mahdi-b/change-hi.github.io/blob/main/morea/data-wrangling-1/Notebook/03-data-structures.ipynb)
 
 <div class="alert alert-success mt-3" role="alert" markdown="1">
 <i class="fa-solid fa-globe fa-xl"></i> **Overview**
@@ -44,7 +42,7 @@ One of the primary benefits of `Series` and `DataFrames` over native python data
 
 ## Pandas `Series` Vs. `DataFrames`
 
-Pandas has two principal data structures, `Series` and `DataFrames`. If you are familiar with Microsoft's Excel, then you can liken `Series` to a single column in an Excel sheet and `DataFrames` to entire tables (or spreadsheets).
+Pandas has two principal data structures, `Series` and `DataFrames`. If you are familiar with Microsoft's Excel, then you can consider `Series` to a single column in an Excel sheet and `DataFrames` to entire tables (or spreadsheets).
 
 {% include figure.html url="" max-width="80%" file="/morea/data-wrangling-1/fig/E3_1_series_vs_dataframe.png" alt="Series vs DataFrames" caption="" %}
 
@@ -207,7 +205,7 @@ Pandas will interpret certain values as being NaN values even without user Pytho
 
 ## Writing Data in Text Format
 
-When using Pandas' `read_<filetype>()` to import files into DataFrames, the complementary operation for exporting DataFrames to files uses the `to_<filetype>()` methods. Here, we will use to_csv(), which has as sole required parameter the output file name. This function will either create a new file or overwrite an existing one. The method `to_csv()` has several optional parameters for customization, all of which are detailed in the Pandas documentation for your reference.
+When using Pandas' `read_<filetype>()` to import files into DataFrames, the complementary operation for exporting DataFrames to files uses the `to_<filetype>()` methods. Here, we will use to_csv(), which has a sole required parameter the output file name. This function will either create a new file or overwrite an existing one. The method `to_csv()` has several optional parameters for customization, all of which are detailed in the Pandas documentation for your reference.
 
 
 
@@ -258,6 +256,6 @@ The resulting `DataFrame` should have 10 rows, 14 columns, and `NaN` values repl
 </div>
 
 {% include next-button.html 
-           top-label="Accessing and Subsetting Data ->" 
+           top-label="Dataframe Wrangling ->" 
            bottom-label="2:40pm" 
            url="/morea/data-wrangling-1/experience-data-accessing-subsetting.html" %}

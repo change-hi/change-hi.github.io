@@ -12,9 +12,7 @@ morea_enable_toc: true
 
 # 2. Google Colab Interface
 
-<a target="_blank" href="https://colab.research.google.com/github/mahdi-b/change-hi.github.io/blob/main/morea/data-wrangling-1/Notebook/02-jupyter-notebook-interface.ipynb">
-  <img src="https://colab.research.google.com/assets/colab-badge.svg" alt="Open In Colab"/>
-</a>
+[![Open In Colab](https://colab.research.google.com/assets/colab-badge.svg)](https://colab.research.google.com/github/mahdi-b/change-hi.github.io/blob/main/morea/data-wrangling-1/Notebook/02-jupyter-notebook-interface.ipynb)
 
 <div class="alert alert-success mt-3" role="alert" markdown="1">
 <i class="fa-solid fa-globe fa-xl"></i> **Overview**
@@ -30,7 +28,7 @@ morea_enable_toc: true
 
 [![Open Colab](https://colab.research.google.com/assets/colab-badge.svg)](https://colab.research.google.com/)
 
-Clicking the [folllowing URL](https://colab.research.google.com/) will take you to Google Colab where you can start a new notebook or open an existing one. When you load up the Colab page, you should be presented with a layout that closely resembles that in the image below.
+Clicking the [following URL](https://colab.research.google.com/) will take you to Google Colab where you can start a new notebook or open an existing one. When you load up the Colab page, you should be presented with a layout that closely resembles that in the image below.
 
 {% include figure.html url="" max-width="80%" file="/morea/data-wrangling-1/fig/Colab Int.JPG" alt="Basic Binder Webpage" caption="" %}
 
@@ -55,7 +53,7 @@ Cells are the base unit in Google notebooks. A notebook is essentially just a co
   - Code can be executed -- we often say running the cell --  by clicking the **run** button on the immediate left of  the cell.
 - **Markdown** cells
   - Markdown cells treat everything typed inside them as markdown, an easy to read and write formatting syntax, to format text, links, lists, and more.
-  - When they are **run**, jupyter formats the text they contain and diplays itbelow the cell.  
+  - When they are **run**, jupyter formats the text they contain and diplays it below the cell.  
 
 If you click Open in Colab button at the top of this page, you will be presented with a notebook that already has some cells filled in. Underneath the header **Cell Types** you will find two different cells that each correspond to one type of cell. You can select the top cell and then click the run button to run all the cells.
 
@@ -78,7 +76,7 @@ You will see that the action performed after running a cell is different for eac
 
 You can also edit cells after running them by clicking on the cell like normal text. For markdown cells you will need to double click on the cell area in order revert it back into a editable format.
 
-When modifying code cells, caution is required as any changes — including deletions or edits made to the cell afterward — won't alter the effects the previous run of the cell had. These effects persist until the cell is rerun with new values of the runtime or kernel is restarted.
+When modifying code cells, caution is required as any changes — including deletions or edits made to the cell afterward — won't alter the effects the previous run of the cell had. These effects persist until the cell is rerun with new values of the runtime or runtime is restarted.
 
 
 The image below gives a visual example of this with the notebook cells on the left, and a python code that does the same set of commands on the right. You can try running the cells found in the left image by looking for the header **Editing Cells** in this Notebook referenced from the Open in Colab button above.
@@ -88,15 +86,14 @@ The image below gives a visual example of this with the notebook cells on the le
 
 To show the dangers of rerunning cells we can try rerunning the two bottom cells containing the code `a = a + 2` and `print(a)`. This will be reflected as a fifth and sixth command executed in the python console. You can see this reflected in the Python console below where the same commands have been issued in the same order. So despite the fact that we only have four cells of python we have executed 6 cells worth of code.
 
+{% include figure.html url="" max-width="60%" file="/morea/data-wrangling-1/fig/E2_5_rerunning_code.png" alt="Rerunnig Cells" caption="" %}
+
 <div class="alert alert-info" role="alert" markdown="1">
 <i class="fa-solid fa-circle-info fa-xl"></i> **Re-running Cells**
 <hr/>
 
 Rerunning code cells will erase the output of that code cell and update the counter next to the cell with the most recent time the cell was run.
 </div>
-
-
-
 
 <div class="alert alert-success mt-3" role="alert" markdown="1">
 <i class="fa-solid fa-globe fa-xl"></i> **Key Points**
