@@ -12,7 +12,7 @@ morea_enable_toc: true
 
 # 3. Loading and Handling Pandas Data
 
-<a target="_blank" href="https://colab.research.google.com/github/https://raw.githubusercontent.com/CI-TRACS/Data_Wrangling_with_Computational_Notebooks/gh-pages/notebooks/03-data-structures.ipynb">
+<a target="_blank" href="https://colab.research.google.com/github/mahdi-b/change-hi.github.io/blob/main/morea/data-wrangling-1/Notebook/03-data-structures.ipynb">
   <img src="https://colab.research.google.com/assets/colab-badge.svg" alt="Open In Colab"/>
 </a>
 
