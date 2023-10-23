@@ -521,5 +521,5 @@ The output should now display the "Sales Channel" entries in uppercase.
 
 {% include next-button.html
   top-label="Assessment ->"
-  bottom-label="3:50pm"
+  bottom-label="2:50pm"
   url="/morea/data-wrangling-1/assessment-data-wrangling-workshop.html" %}
