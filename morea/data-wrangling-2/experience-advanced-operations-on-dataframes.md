@@ -126,7 +126,7 @@ The `groupby()` DataFrame method is used to group rows of data by one or more of
 
 If `by` is a single label then the calling `DataFrame` will be grouped by the values in the column with the passed label, i.e. every entry with the same value in the specified column will be in the same group. 
 
-For example, consider the [`20_sales_records.xlsx`](https://github.com/mahdi-b/change-hi.github.io/raw/main/morea/data-wrangling-1/Notebook/data/20_sales_records.xlsx) DataFrame from the previous week. To simply things, we will select only `Region`, `Total Revenue` and `Total Profits` columns and call it `df_revenue_and_profit`.
+For example, consider the [`20_sales_records.xlsx`](https://github.com/mahdi-b/change-hi.github.io/raw/main/morea/data-wrangling-1/Notebook/data/20_sales_records.xlsx) DataFrame from the previous week. To simply things, we will select only `Region`, `Order Priority`, `Sales Channel`, `Total Revenue` and `Total Profit` columns and call it `df`.
 <div class="alert alert-secondary" role="alert" markdown="1">
 Code:
 ```python
@@ -134,34 +134,33 @@ import pandas as pd
 URL = "https://github.com/mahdi-b/change-hi.github.io/raw/main/morea/data-wrangling-1/Notebook/data/20_sales_records.xlsx"
 df = pd.read_excel(URL)
 
-df = df.loc[:, ["Region", "Total Revenue", "Total Profit"]]
+df = df.loc[:, ["Region", "Order Priority", "Sales Channel", "Total Revenue", "Total Profit"]]
 df
 ```
 
-
 Output:
 
-|   | Region                          | Total Revenue | Total Profit |
-|-------|---------------------------------|---------------|--------------|
-| 0     | Australia and Oceania           | 2533654.00    | 951410.50    |
-| 1     | Central America and the Caribbean| 576782.80     | 248406.36    |
-| 2     | Europe                          | 1158502.59    | 224598.75    |
-| 3     | Sub-Saharan Africa              | 75591.66      | 19525.82     |
-| 4     | Sub-Saharan Africa              | 3296425.02    | 639077.50    |
-| 5     | Australia and Oceania           | 759202.72     | 285087.64    |
-| 6     | Sub-Saharan Africa              | 2798046.49    | 693911.51    |
-| 7     | Sub-Saharan Africa              | 1245112.92    | 510216.66    |
-| 8     | Sub-Saharan Africa              | 496101.10     | 152114.20    |
-| 9     | Sub-Saharan Africa              | 1356180.10    | 584073.87    |
-| 10    | Asia                            | 19103.44      | 7828.12      |
-| 11    | Sub-Saharan Africa              | 455479.04     | 306097.92    |
-| 12    | Asia                            | 902980.64     | 606834.72    |
-| 13    | Central America and the Caribbean| 5997054.98    | 1487261.02   |
-| 14    | Asia                            | 400558.73     | 122819.06    |
-| 15    | Europe                          | 182825.44     | 122865.12    |
-| 16    | Asia                            | 3039414.40    | 1208744.24   |
-| 17    | Sub-Saharan Africa              | 257653.50     | 85033.80     |
-| 18    | Asia                            | 2559474.10    | 634745.90    |
+|  | Region                          | Order Priority | Sales Channel | Total Revenue | Total Profit |
+|-------|---------------------------------|----------------|---------------|---------------|--------------|
+| 0     | Australia and Oceania           | H              | Offline       | 2533654.00    | 951410.50    |
+| 1     | Central America and the Caribbean| C              | none          | 576782.80     | 248406.36    |
+| 2     | Europe                          | none           | Offline       | 1158502.59    | 224598.75    |
+| 3     | Sub-Saharan Africa              | L              | Online        | 75591.66      | 19525.82     |
+| 4     | Sub-Saharan Africa              | L              | Offline       | 3296425.02    | 639077.50    |
+| 5     | Australia and Oceania           | C              | Online        | 759202.72     | 285087.64    |
+| 6     | Sub-Saharan Africa              | M              | none          | 2798046.49    | 693911.51    |
+| 7     | Sub-Saharan Africa              | H              | Online        | 1245112.92    | 510216.66    |
+| 8     | Sub-Saharan Africa              | M              | Offline       | 496101.10     | 152114.20    |
+| 9     | Sub-Saharan Africa              | H              | Online        | 1356180.10    | 584073.87    |
+| 10    | Asia                            | H              | Online        | 19103.44      | 7828.12      |
+| 11    | Sub-Saharan Africa              | H              | Offline       | 455479.04     | 306097.92    |
+| 12    | Asia                            | L              | Online        | 902980.64     | 606834.72    |
+| 13    | Central America and the Caribbean| H              | Offline       | 5997054.98    | 1487261.02   |
+| 14    | Asia                            | C              | Offline       | 400558.73     | 122819.06    |
+| 15    | Europe                          | M              | Online        | 182825.44     | 122865.12    |
+| 16    | Asia                            | M              | Offline       | 3039414.40    | 1208744.24   |
+| 17    | Sub-Saharan Africa              | C              | Offline       | 257653.50     | 85033.80     |
+| 18    | Asia                            | L              | Offline       | 2559474.10    | 634745.90    |
 {: .table}
 
 </div>
@@ -189,13 +188,13 @@ grouped_by_region.get_group('Asia')
 
 Output:
 
-|   | Region | Total Revenue | Total Profit |
-|-------|--------|---------------|--------------|
-| 10    | Asia   | 19103.44      | 7828.12      |
-| 12    | Asia   | 902980.64     | 606834.72    |
-| 14    | Asia   | 400558.73     | 122819.06    |
-| 16    | Asia   | 3039414.40    | 1208744.24   |
-| 18    | Asia   | 2559474.10    | 634745.90    |
+|   | Region | Order Priority | Sales Channel | Total Revenue | Total Profit |
+|-------|--------|----------------|---------------|---------------|--------------|
+| 10    | Asia   | H              | Online        | 19103.44      | 7828.12      |
+| 12    | Asia   | L              | Online        | 902980.64     | 606834.72    |
+| 14    | Asia   | C              | Offline       | 400558.73     | 122819.06    |
+| 16    | Asia   | M              | Offline       | 3039414.40    | 1208744.24   |
+| 18    | Asia   | L              | Offline       | 2559474.10    | 634745.90    |
 {: .table}
 </div>
 
@@ -210,13 +209,13 @@ df[df.loc[:,"Region"]=="Asia"]
 
 Output:
 
-|   | Region | Total Revenue | Total Profit |
-|-------|--------|---------------|--------------|
-| 10    | Asia   | 19103.44      | 7828.12      |
-| 12    | Asia   | 902980.64     | 606834.72    |
-| 14    | Asia   | 400558.73     | 122819.06    |
-| 16    | Asia   | 3039414.40    | 1208744.24   |
-| 18    | Asia   | 2559474.10    | 634745.90    |
+|   | Region | Order Priority | Sales Channel | Total Revenue | Total Profit |
+|-------|--------|----------------|---------------|---------------|--------------|
+| 10    | Asia   | H              | Online        | 19103.44      | 7828.12      |
+| 12    | Asia   | L              | Online        | 902980.64     | 606834.72    |
+| 14    | Asia   | C              | Offline       | 400558.73     | 122819.06    |
+| 16    | Asia   | M              | Offline       | 3039414.40    | 1208744.24   |
+| 18    | Asia   | L              | Offline       | 2559474.10    | 634745.90    |
 {: .table}
 </div>
 
@@ -271,7 +270,7 @@ For example suppose we wanted to group `df` by `Region`, apply the `sum()` metho
 <div class="alert alert-secondary" role="alert" markdown="1">
 Code:
 ```python
-grouped_by_region = df.groupby('Region')
+grouped_by_region = df.loc[:, ['Region', 'Total Revenue', 'Total Profit']].groupby("Region")
 grouped_by_region.sum()
 ```
 
@@ -348,8 +347,107 @@ Output:
 {: .table}
 </div>
 
+###### Transform
 
+ __Transformations__ change the data in a way that is group-specific. As opposed to aggregations, which reduce the data into a single value, transformations modify the data but don't change the shape of the groups.
 
+Applying a transformation is done using the `transform()` `GroupBy` method. The `transform()` method takes as input a function name, which it calls on each group of the `GroupBy` object. The function passed to `transform()` must take a `DataFrame`, which will be a group of the calling `GroupBy` object. 
+
+For example, suppose we wanted to transform the `Total Revenue` column of the `df` DataFrame to hold the percentage of the Total Revenue by Region that rows makes up.  First, we would define a function which will take a `DataFrame` and calculate the the percentage of the total each entry takes up. Then we will create a new `GroupBy` object groupded by `specialty` from a subset of `df` that only has the columns `Total Revenue` and `Region`. Then we will call transform passing it the name of our defined function. 
+
+<div class="alert alert-secondary" role="alert" markdown="1">
+
+Code:
+```python
+def my_function(x):
+    return (x   / x.sum() ) * 100
+grouped_by_region = df.loc[:, ["Region", "Total Revenue"]].groupby("Region")
+grouped_by_region.transform(my_function)
+```
+
+Output:
+
+|    | Total Revenue |
+|----|---------------|
+| 0  | 76.943949     |
+| 1  | 8.773913      |
+| 2  | 86.369819     |
+| 3  | 0.757387      |
+| 4  | 33.028359     |
+| 5  | 23.056051     |
+| 6  | 28.034881     |
+| 7  | 12.475344     |
+| 8  | 4.970659      |
+| 9  | 13.588176     |
+| 10 | 0.276000      |
+| 11 | 4.563649      |
+| 12 | 13.045966     |
+| 13 | 91.226087     |
+| 14 | 5.787140      |
+| 15 | 13.630181     |
+| 16 | 43.912456     |
+| 17 | 2.581546      |
+| 18 | 36.978437     |
+{: .table}
+</div>
+
+We see that the result is a new `DataFrame` with an index matching that of the original `DataFrame` used to initialize the `GroupBy` object. This is different than the aggregation example because aggregation reduces the group to a single value, while transformation maintains the shape of the calling `DataFrame`.
+
+Let us save these results into a new column in `df` called `Total_Revenue_Percentage`.
+
+<div class="alert alert-secondary" role="alert" markdown="1">
+
+Code:
+```python
+df["Total_Revenue_Percentage"] = grouped_by_region.transform(my_function)
+```
+</div>
+
+Suppose we wanted to see the percent Total Revenue by `Order Priority` and `Region`. One solution to achieve this would be to group on both the `Region` and the `Order Priority` columns and then sum the `Total_Revenue_Percentage` that was computed previously.
+
+<div class="alert alert-secondary" role="alert" markdown="1">
+
+Code:
+```python
+order_priority_pct = df.loc[:, ["Region", "Order Priority", "Total_Revenue_Percentage"]].groupby(["Region", "Order Priority"]).sum()
+order_priority_pct.head(n=4)
+```
+
+Output:
+
+|        |                | Total_Revenue_Percentage |
+| Region | Order Priority |                          |
+|--------|----------------|--------------------------|
+| Asia   | C              | 5.787140                 |
+|        | H              | 0.276000                 |
+|        | L              | 50.024403                |
+|        | M              | 43.912456                |
+{: .table}
+</div>
+
+Notice that since we are grouping on two columns, the resulting index of `order_priority_pct` also contains two columns. Now we can sort first on the values in the `Region` column, so that all the entries with a common `Region` are clustered together, and then on the values in the `Total_Revenue_Percentage` columns.
+
+<div class="alert alert-secondary" role="alert" markdown="1">
+
+Code:
+```python
+order_priority_pct = df.loc[:, ["Region", "Order Priority", "Total_Revenue_Percentage"]].groupby(["Region", "Order Priority"]).sum()
+order_priority_pct.sort_values(["Region", "Total_Revenue_Percentage"], ascending=[True, False]).head(n=6)
+```
+
+Output:
+
+|                       |                | Total_Revenue_Percentage |
+| Region                | Order Priority |                          |
+|---------------------- |----------------|--------------------------|
+| Asia                  | L              | 50.024403                |
+|                       | M              | 43.912456                |
+|                       | C              | 5.787140                 |
+|                       | H              | 0.276000                 |
+| Australia and Oceania | H              | 76.943949                |
+|                       | C              | 23.056051                |
+{: .table}
+</div>
 
 
 
