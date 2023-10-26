@@ -449,6 +449,86 @@ Output:
 {: .table}
 </div>
 
+###### Filter
+
+ __Filtering__  a group consists of dropping or retaining groups in a way that depends on a group-specific computation that returns `True` or `False`. Groups that are retained will be left unmodified. For instance, we can filter specialties from `spending_df` that don't have enough entries or for which the mean `spending` is below a certain threshold.
+
+Filtering a group is done using the `GroupBy` method `filter()`. The method `filter()` takes as input a function name, which it calls on each group of the `GroupBy` object. The function must return either `True` or `False` and groups for which the function returns `False` are dropped. The resulting `DataFrame` will have entries in the same order as the original `DataFrame`.
+
+
+Suppose we want to filter out the **Regions** that are having low Total Revenue, i.e. we want to filter out the Regions for which the aggregate `Total Revenue` is less than some defined threshold, let say $4,000,000. To do this we can define a function named `filter_on_total_revenue()`. The defined function will take a `DataFrame`, determine whether the sum of the `Total Revenue` column in that `DataFrame` is less than 5000000, and then return `True` if it is or `False` if not. 
+
+Then, to apply the filter on `df`, we first subset the `DataFrame` so that only the columns `Region` and `Total Revenue` are remaining and then group by `Region`. Then the `GroupBy filter()` method can be called with the `filter_on_total_revenue()` function passed as an argument. We can save the results into a new `DataFrame` named `low_revenue_df`. Then to see which Regions are less than the $4,000,000 Total Revenue threshold we can print the unique values in the `Region` column of `low_revenue_df`.
+
+
+<div class="alert alert-secondary" role="alert" markdown="1">
+
+Code:
+```python
+def filter_on_total_revenue(x):
+    return x['Total Revenue'].sum() < 4000000
+low_revenue_df = df[["Region", "Total Revenue"]].groupby("Region").filter(filter_on_total_revenue)
+low_revenue_df["Region"].unique()
+```
+
+Output:
+```python
+array(['Australia and Oceania', 'Europe'], dtype=object)
+```
+</div>
+
+We see that only two Regions are under the threshold of Total Revenue.
+
+###### Thinning Data and The Flexible `apply()`  GroupBy Method
+
+`pandas` provides a few built-in `GroupBy` methods for thinning the data including `nlargest()`, `nsmallest()`, and more. An example usage of `nlargest()`, a thinning method, would be grouping a subset of `df` which contains only the `Total Revenue` and `Region` columns by `Region` and then obtaining the 2 largest of each Region. The result will be a new `DataFrame` with only the top 2 spenders from each unique specialty.
+
+
+<div class="alert alert-secondary" role="alert" markdown="1">
+
+Code:
+```python
+grouped_by_region = df.loc[:, ["Region", "Total Revenue"]].groupby("Region")
+grouped_by_region["Total Revenue"].nlargest(2).head(n=4)
+```
+
+Output:
+```python
+Region                   
+Asia                   16    3039414.40
+                       18    2559474.10
+Australia and Oceania  0     2533654.00
+                       5      759202.72
+Name: Total Revenue, dtype: float64
+```
+</div>
+    
+Though `pandas` has the more common and basic aggregation, transformation, and thinning methods implmented for us, they could not possibly cover all cases. Therefore cases that do not fit into any one of these categories may be carried out by using the more flexible `apply() GroupBy` method. `apply()` takes as input a function name, which it calls on each group of the calling `GroupBy` object.
+
+For example suppose we wanted to thin our dataset so that there are only 50% of each specialty represented. To do this we can define a new function, we will call it, `sample_50p`, and this function will utilize the `sample()` `DataFrame` method. The `sample()` `DataFrame` method will take a parameter `frac` that specifies the fraction of the original `DataFrame` that is to be returned. We can then use the `apply()` method and pass it the name of our newly defined function to obtain a new `DataFrame` that is filtered at the group specific level. 
+
+<div class="alert alert-secondary" role="alert" markdown="1">
+
+Code:
+```python
+def sample_50p(x):
+    return x.sample(frac=0.5)
+grouped_by_region = df.loc[:, ["Region", "Total Revenue", "Order Priority"]].groupby("Region")
+grouped_by_region.apply(sample_50p).head(n=5)
+```
+
+Output:
+
+|                              |       | Region                   | Total Revenue | Order Priority |
+| Region                       |       |                          |               |                |
+|------------------------------|-------|--------------------------|---------------|----------------|
+| Asia                         | 10    | Asia                     | 19103.44      | H              |
+|                              | 18    | Asia                     | 2559474.10    | L              |
+| Australia and Oceania        | 0     | Australia and Oceania    | 2533654.00    | H              |
+| Central America and the Caribbean | 1 | Central America and the Caribbean | 576782.80 | C              |
+| Europe                       | 15    | Europe                   | 182825.44     | M              |
+{: .table}
+</div>
 
 
 
