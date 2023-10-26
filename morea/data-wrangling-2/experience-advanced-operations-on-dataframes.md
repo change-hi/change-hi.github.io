@@ -12,6 +12,10 @@ morea_enable_toc: true
 
 # 6. Advanced Operations on Series and DataFrames
 
+<a target="_blank" href="https://colab.research.google.com/github/mahdi-b/change-hi.github.io/blob/main/morea/data-wrangling-2/Notebooks/06-advanced-operations-on-series-and-dataframes.ipynb">
+  <img src="https://colab.research.google.com/assets/colab-badge.svg" alt="Open In Colab"/>
+</a>
+
 <div class="alert alert-success mt-3" role="alert" markdown="1">
 <i class="fa-solid fa-globe fa-xl"></i> **Overview**
 <hr/>
@@ -162,7 +166,6 @@ Output:
 | 17    | Sub-Saharan Africa              | C              | Offline       | 257653.50     | 85033.80     |
 | 18    | Asia                            | L              | Offline       | 2559474.10    | 634745.90    |
 {: .table}
-
 </div>
 
 
@@ -248,9 +251,9 @@ There are 3 classes of split-apply-combine operations that can be applied to gro
 
 3.  __Filters__ retain or discard a group based on group-specific boolean computations.
 
-![](fig/E6_aggregate.png)
-![](fig/E6_transform.png)
-![](fig/E6_filter.png)
+<img src="fig/E6_aggregate.png" width="1000">
+<img src="fig/E6_transform.png" width="1000">
+<img src="fig/E6_filter.png" width="1000">
 
 ###### Aggregate
 
