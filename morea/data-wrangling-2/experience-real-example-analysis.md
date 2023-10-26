@@ -32,8 +32,6 @@ morea_enable_toc: true
 
 </div>
 
-[![Binder](https://mybinder.org/badge_logo.svg)](https://mybinder.org/v2/gh/CI-TRACS/Data_Wrangling_with_Computational_Notebooks/HEAD)
-
 # Analyzing Real Data
 
 This episode continues from the previous one and utilizes the final `DataFrame` described there.
