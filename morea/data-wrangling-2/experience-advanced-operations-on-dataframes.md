@@ -202,6 +202,58 @@ Output:
 ```
 </div>
 
+#### Split Apply Combine
+Getting groups can be easily implemented using subsetting. For instance, we could have obtained the "A" group of the `df` DataFrame by subsetting `df` with the boolean `Series` returned from the following operation.
+
+<div class="alert alert-secondary" role="alert" markdown="1">
+Code:
+```python
+df[df.loc[:, "X"]=="A"]
+```
+
+Output:
+```python
+   X  Y
+0  A  2
+1  A  4
+```
+</div>
+
+We see in the above example that the returned `DataFrame` is exactly the same as the result we saw in the previous cell introducing `groupby()` and `get_group()`. So why use `GroupBy` objects anyway?
+
+An ideal usage of `groupby()`, and the resulting `GroupBy object`, will apply operations to **each** group independently. Furthermore, `GroupBy` objects are intended to be applied in the context of the data processing paradigm called 
+"split-apply-combine"
+
+* **Split** the data into chunks defined using one or more columns.
+* **Apply** some operation on the chunks generated. 
+* **Combine** the results of the applied operation into a new `DataFrame`.
+
+For instance, suppose we wanted to compute the the sum by `X` and save the result to a news `DataFrame`, the steps we would need to take are:
+
+   1. Split the data by `X`, i.e. `groupby('X')`
+   2. Apply the `sum()` method to the `Y` column for each group
+   3. Combine the results from each group into a new `DataFrame`
+
+![](fig/E6_split_apply_combine_example.png)
+
+So rather than manually subsetting each group and then applying the desired operation we could automate this workflow using the helpful `GroupBy` methods implemented by `pandas` to save ourselves some time and effort.
+
+##### The 3 Classes of Opearations on Groups
+
+There are 3 classes of split-apply-combine operations that can be applied to group data.
+
+1. __Aggregations__ generate a single value for each group
+  
+2.  __Transformations__ convert the data and generate a group of the same size as the original group.
+
+3.  __Filters__ retain or discard a group based on group-specific boolean computations.
+
+![](fig/E6_aggregate.png)
+![](fig/E6_transform.png)
+![](fig/E6_filter.png)
+
+
+
 <div class="alert alert-success mt-3" role="alert" markdown="1">
 <i class="fa-solid fa-globe fa-xl"></i> **Key Points**
 <hr/>
