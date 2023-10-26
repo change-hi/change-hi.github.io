@@ -1,5 +1,5 @@
 ---
-title: "6. Real Example Cleanup"
+title: "7. Real Example Cleanup"
 published: true
 morea_id: experience-real-example-cleaning
 morea_type: experience
@@ -10,7 +10,7 @@ morea_labels:
 morea_enable_toc: true
 ---
 
-# 6. Real Example Cleanup
+# 7. Real Example Cleanup
 
 <div class="alert alert-success mt-3" role="alert" markdown="1">
 <i class="fa-solid fa-globe fa-xl"></i> **Overview**
