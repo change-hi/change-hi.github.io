@@ -34,7 +34,7 @@ morea_enable_toc: true
 ## `DataFrame` Attributes and Arithmetic
 
 
-Once you have loaded one or more `DataFrames`, you may want to investigate various aspects of the data. This could be by looking at the shape (number of rows and columns) of the `DataFrame` or the mean of a single column. This could also involve computing arithmetic operations across columns (i.e. `Series`). The following module focuses on these two concepts and will help you better understand how you can analyze the data you have loaded into Pandas.
+Once you have loaded one or more `DataFrames`, you may want to investigate various aspects of the data. This could be done by looking at the shape (number of rows and columns) of the `DataFrame` or the mean of a single column. This could also involve computing arithmetic operations across columns (i.e. `Series`). The following module focuses on these two concepts and will help you better understand how you can analyze the data you have loaded into Pandas.
 
 ### `DataFrame` Attributes
 
@@ -86,7 +86,7 @@ Index(['Sample ID', 'date mmddyy', 'press dbar', 'temp ITS-90', 'csal PSS-78',
 
 </div>
 
-However, what if we wanted to see the data type associated with each column header? Luckily, there is a quick and easy way to do this by accessing the `dtypes` attribute. `dtypes` is a series maintained by each `DataFrame` that contains the data type for each column inside a `DataFrame`. As an example if we want to access the `dtypes` attribute the `DataFrame` called `df` (seen below) we can access the `dtypes` of the `DataFrame`.
+However, what if we wanted to see the data type associated with each column header? Luckily, there is a quick and easy way to do this by accessing the `dtypes` attribute. `dtypes` is a series maintained by each `DataFrame` that contains the data type for each column inside a `DataFrame`. As an example, if we want to access the `dtypes` attribute the `DataFrame` called `df` (seen below) we can access the `dtypes` of the `DataFrame`.
 
 {% include figure.html url="" max-width="60%" file="/morea/data-wrangling-1/fig/E5_1_types_dataframe.png" alt="Types Dataframe" caption="" %}
 
@@ -193,7 +193,7 @@ dtype: object
 
 </div>
 
-For reference this is what the final `DataFrame` looks like. **Note that the date column is at the right side of the `DataFrame` since it was added last.**
+For reference, this is what the final `DataFrame` looks like. **Note that the date column is at the right side of the `DataFrame` since it was added last.**
 
 {% include figure.html url="" max-width="60%" file="/morea/data-wrangling-1/fig/E5_2_converted_dataframe.png" alt="Converted DataFrame" caption="" %}
 
@@ -269,7 +269,7 @@ The `describe()` method offers a variety of statistical summaries for the `DataF
 
 <div class="alert alert-secondary" role="alert" markdown="1">
 
-By default the `describe()` method will only use numeric columns. To tell it to use all columns regardless of whether they are numeric or not we have to use `include='all'` as a parameter.
+By default, the `describe()` method will only use numeric columns. To tell it to use all columns regardless of whether they are numeric or not we have to use `include='all'` as a parameter.
 
 ###### Python
 
@@ -335,7 +335,7 @@ For `Series` containing specialized data types (like strings, datetime values, o
 | `ordered`| Checks if the categories have an order. |
 {: .table}  
   
-Pandas provides accessors, mechanisms that enable you to use specialized methods and functions tailored for specific data types, such as strings, datetime values, or categorical data. These accessors provide access to methods tailored to these data types. Access to these methods is achieved through the syntax `series.data_type.method()`, where `series` represents a `Series` object. Below are examples of these accessors and their corresponding methods as used on sample dataframes:
+Pandas provides accessors, i.e., mechanisms that enable you to use specialized methods and functions tailored for specific data types, such as strings, datetime values, or categorical data. These accessors provide access to methods tailored to these data types. Access to these methods is achieved through the syntax `series.data_type.method()`, where `series` represents a `Series` object. Below are examples of these accessors and their corresponding methods as used on sample dataframes:
 
 
 <div class="alert alert-secondary" role="alert" markdown="1">
@@ -405,7 +405,7 @@ df_1["AA"] + df_2["AA"]
 
 </div>
 
-To perform this operation, Pandas will first align the two columns (`Series`) based on their indexes. Following this any indexes that contain values in both `Series` will have their sum calculated. However, for indexes where one of the `Series` value is NaN the output value will be NaN. A diagram of this process is shown below:
+To perform this operation, Pandas will first align the two columns (`Series`) based on their indexes. Following this, any indexes that contain values in both `Series` will have their sum calculated. However, for indexes where one of the `Series` value is NaN the output value will be NaN. A diagram of this process is shown below:
 
 {% include figure.html url="" max-width="60%" file="/morea/data-wrangling-1/fig/E5_4_alignment_arithmetic_method.png" alt="Alignment Arithmetic Method" caption="" %}
 

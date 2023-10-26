@@ -26,21 +26,19 @@ morea_enable_toc: true
 
 ## Notebook Basics
 
-[![Open Colab](https://colab.research.google.com/assets/colab-badge.svg)](https://colab.research.google.com/)
-
 Clicking the [following URL](https://colab.research.google.com/) will take you to Google Colab where you can start a new notebook or open an existing one. When you load up the Colab page, you should be presented with a layout that closely resembles that in the image below.
 
 {% include figure.html url="" max-width="80%" file="/morea/data-wrangling-1/fig/Colab Int.JPG" alt="Basic Binder Webpage" caption="" %}
 
 If, after clicking the button, you encounter the message **"We are sorry, but you do not have access to this serive. Please contact your Organization Administrator for access."** please follow the instructions provided in this [link](https://www.hawaii.edu/askus/1649) to enable consumer apps.
 
-With the Open notebook modal window open, click on the **New Notebook**. This will create a colab notebook named `Untitled0.ipynb`, containing  a single blank cell. Your view of the web page should appear similar to the image shown below. A cell in a Jupyter Notebook is essentially a single, modifiable unit that acts as a container for either code or text. Imagine it as a piece of digital paper where you can write a script or make notes. 
+With the Open notebook modal window open, click on the **New Notebook**. This will create a colab notebook named `Untitled0.ipynb`, containing  a single blank cell. Your view of the web page should appear similar to the image shown below. A cell in a Jupyter Notebook is essentially a single editable unit that acts as a container for either code or text. Imagine it as a piece of digital paper where you can write a script or make notes. 
 
 {% include figure.html url="" max-width="80%" file="/morea/data-wrangling-1/fig/untitled0.PNG" alt="New Notebook Page" caption="" %}
 
-As you'll notice the notebook contains a single cell. Type
+As you'll notice the notebook contains a single cell, which is still empty. Type
 
-`print("This is a code cell")`
+`print("290 + 180 = ", 290 + 180)`
 
 and then click the run button (triangle at the right side of the cell) you will see the output appear below the cell.
 

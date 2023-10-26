@@ -34,14 +34,14 @@ morea_enable_toc: true
 
 # Selection, Subsetting and Sorting a `DataFrame`
 
-When exploring our data we will often want to modfiy specific rows, columns,  or entries that satisfy certain conditions. We may want to either look at a single column of the data or work with a subset of the original data. Furthermore, it is often helpful to sort our data set using a particular relation to identify patterns and to understand the data's structure. For example, suppose the original dataset we acquire and want to analyze describes a sport team's performance for each game during a season and its original order is chronological. It may be interesting to sort the game play statistics using a different relation such as number of points scored to easily identify high and low scoring games.
+When exploring our data we will often want to modify specific rows, columns,  or entries that satisfy certain conditions. We may want to either look at a single column of the data or work with a subset of the original data. Furthermore, it is often helpful to sort our data set using a particular relation to identify patterns and to understand the data's structure. For example, suppose the original dataset we acquire and want to analyze describes a sports team's performance for each game during a season and its original order is chronological. It may be interesting to sort the gameplay statistics using a different relation such as number of points scored to easily identify high and low-scoring games.
 
-As with previous modules you should follow along in the notebook, which can be opened by clicking the Open in Colab button above.
+As with previous modules, you should follow along in the notebook, which can be opened by clicking the Open in Colab button above.
 
 
 ## Selection
 
-Selecting data from a `DataFrame` intuitive and builds on concepts we discussed in the previous module. A `DataFrame` holds column names, called headers, and row names, called indexes. Depending on how we loaded the data these might be integers, strings (text) or combinations of both.
+Selecting data from a `DataFrame` is intuitive and builds on concepts we discussed in the previous module. A `DataFrame` holds column names, called headers, and row names, called indexes. Depending on how we loaded the data these might be integers, strings (text) or combinations of both.
 
 
 In the context of the table shown in the image below, Pandas allows us to choose specific combinations of rows and columns from the associated DataFrame. We will cover some ways to do that in the sections that follow:
@@ -81,9 +81,9 @@ Name: ph, dtype: float64
 
 ### Selecting Rows
 
-If on the other hand we want to access a subset rows we have to use a slightly different approach. While previously we could just pass the name of the column inside brackets if we want to access one or more rows we need to use the `.loc` or `.iloc` methods.
+If on the other hand, we want to access a subset rows we have to use a slightly different approach. Previously, we could just pass the name of the column inside brackets if we want to access one or more rows we need to use the `.loc` or `.iloc` methods.
 
-The first abbreviation, 'loc,' represents 'location' and requires you to specify the names of the rows you wish to access. The second abbreviation, 'iloc,' represents 'integer location' and requires you to provide the row index (a numerical value). Both methods can be set to retrieve the complete row(s), or a only a subset of values associated with columns of interest.
+The first abbreviation, 'loc,' represents 'location' and requires you to specify the names of the rows you wish to access. The second abbreviation, 'iloc,' represents 'integer location' and requires you to provide the row index (a numerical value). Both methods can be set to retrieve the complete row(s), or only a subset of values associated with columns of interest.
 
 So if we again have a `DataFrame` called `df` and a row called 'Sample-1' we can access it using `df.loc['Sample-1', df.columns]`.
 
@@ -140,7 +140,7 @@ Name: Sample-1, dtype: float64
 <div class="alert alert-secondary" role="alert" markdown="1">
 
 
-When used inside brackets, the `:` operator will return the range between the two values it is given. For example if we had a Python list `x` with the following values ['a', 'b', 'c', 'd', 'e'] and wanted to select 'b', 'c', and 'd' we can do this very concisely using the `:` operator.
+When used inside brackets, the `:` operator will return the range between the two values it is given. For example, if we had a Python list `x` with the following values ['a', 'b', 'c', 'd', 'e'] and wanted to select 'b', 'c', and 'd' we can do this very concisely using the `:` operator.
 
 ###### Python
 
@@ -159,7 +159,7 @@ With the output:
 
 ### Selecting Columns and Rows Simultaneously
 
-As we saw in the previous section we can select one or more rows and/or columns to view. For example if we wanted to view the 'ph' entry of 'Sample-1' from the previous example we could use `.loc` in the following manner.
+As we saw in the previous section we can select one or more rows and/or columns to view. For example, if we wanted to view the 'ph' entry of 'Sample-1' from the previous example we could use `.loc` in the following manner.
 
 <div class="alert alert-secondary" role="alert" markdown="1">
 
@@ -320,7 +320,7 @@ Sample-8          110.7      34.0424        40610  7.496       497.8       7.146
 
 Here we can see that we've ordered the columns alphabetically.
 
-If we want to instead order the `DataFrame` based on the value in a particular column or row we instead use `sort_values()`. We can again use the pressure i.e. 'press dbar' column as an example and sort the rows by greatest to smallest pressure value.
+If we want to order the `DataFrame` based on the value in a particular column or row we instead use `sort_values()`. We can again use the pressure i.e. 'press dbar' column as an example and sort the rows by greatest to smallest pressure value.
 
 <div class="alert alert-secondary" role="alert" markdown="1">
 
@@ -363,7 +363,7 @@ Sample-1         40610       239.8      18.9625      35.0636           NaN  7.95
 
 Try it yourself! Going back to our `20_sales_records.xlsx` file, identify which orders are `Online` and `High Priority`
 
-* Read the first couple rows to get a sense of the data. Which column contain the status (`Online` or `Offline`).
+* Read the first couple rows to get a sense of the data. Which column contains the status (`Online` or `Offline`).
 * A 'High Priority' order is indicated by the label 'H' in a designated column. 
 * Retrieve all rows that correspond to online and high-priority orders. In Pandas, you have the option to combine conditions using the `&` (and) and `|` (or) operators, as opposed to Python's 'and' and 'or' operators.
 
@@ -388,7 +388,7 @@ So we use loc along with a combination of conditionals to subset our DataFrame f
 The resulting subset should show rows 7, 9, and 10 only.
 
 
-Below shows how our subsetted `DataFrame` now looks:
+Below is an image that shows how the subsetted `DataFrame` now looks:
 {% include figure.html url="" max-width="80%" file="/morea/data-wrangling-1/fig/E4_5_exercise.png" alt="Output DataFrame" caption="" %}
 </details>
 </div>

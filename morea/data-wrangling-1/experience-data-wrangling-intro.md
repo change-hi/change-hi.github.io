@@ -34,7 +34,7 @@ morea_enable_toc: true
 
 ### What should we care about data wrangling?
 
-Data scientists devote the bulk of their time to the routine work of collecting and preparing messy digital data, prior to it being analyzed for valuable gems. While new libraries have emerged to assist with data handling, the data itself has grown more complex and voluminous, thereby maintaining pace with the ongoing challenges in data science.
+Data scientists devote the bulk of their time to the routine work of collecting and preparing messy digital data, in preparation for analysis. While new libraries have emerged to assist with data handling, the data itself has grown more complex and voluminous, thereby maintaining pace with the ongoing challenges in data science.
 
 Here is a brief illustration of how data wrangling can be used to clean and understand data. Below, data wrangling is employed to transform the given table, which presents various data quality issues including non-descriptive or inadequate column labels and label inconsistencies. This process results in a corrected version of the table with appropriate column names and labels. Subsequently, the corrected table is used to construct a summary aggregate table to calculate the average population size per neighborhood.
 
@@ -55,7 +55,7 @@ Addressing these limitations, Python stands out as a powerful language that can 
 
 While many tools are available for coding and data wrangling, Jupyter Notebooks have become the go-to option for these tasks. Jupyter Notebooks are an open-source web-based application that allows you to create and share documents containing code, equations, visualizations, and narrative text. Their popularity stems from their interactive nature, allowing you to write brief code snippets, examine the results, and iterate as needed. Jupyter Notebooks also allow users to mix code, visuals, and text in one place. This setup makes writing workflow easy to follow and document, which is ideal for collaboration and for dissemination. Furthermore, Jupyter supports multiple languages and connects well with data science tools, making it a versatile choice for different projects. 
 
-In this first workshop, you will learn the basics of utilizing Jupyter Notebooks with Pandas ([Link to Pandas Website](https://pandas.pydata.org/)) and the Jupyter environment. The Pandas library helps provide various bells and whistles for both cleaning and analyzing your data. However, since it is built on top of Python, a basic understanding of the Python ([Link to Python Website](https://www.python.org/)) programming language is required. Through these tools you will learn how to analyze a raw dataset by cleaning it up and formatting it so that it can be used for further analysis or other workflows.
+In this first workshop, you will learn the basics of using Jupyter Notebooks ([Link to the Jupyter Project](https://jupyter.org/)) and  Pandas ([Link to Pandas Website](https://pandas.pydata.org/)).  The Pandas library helps provide various bells and whistles for both cleaning and analyzing your data. However, since it is built on top of Python, a basic understanding of the Python ([Link to Python Website](https://www.python.org/)) programming language is required. Through these tools you will learn how to analyze a raw dataset by cleaning it up and formatting it so that it can be used for further analysis or other workflows.
 
 ### What this lesson will **not** teach you
 
