@@ -124,82 +124,79 @@ A common scenario is applying a function to a specific group of data. By group o
 
 The `groupby()` DataFrame method is used to group rows of data by one or more of the column entries . The `groupby()` method accepts the parameter `by` which specifies how you want to group the rows of the calling `DataFrame`. The creation of groups `by` can be a single column label, a list of column lables, or a callable function. The method will return a `pandas` `GroupBy` object, an object we have not seen before. This object has certain attributes and methods that will be useful to us. In this chapter we will only cover the case of setting the `by` parameter of the `groupby()` method to a single column entry, if you are interested you can read more about the method [here](https://pandas.pydata.org/pandas-docs/stable/generated/pandas.DataFrame.groupby.html). 
 
-If `by` is a sinlge label then the calling `DataFrame` will be grouped by the values in the column with the passed label, i.e. every entry with the same value in the specified column will be in the same group. 
+If `by` is a single label then the calling `DataFrame` will be grouped by the values in the column with the passed label, i.e. every entry with the same value in the specified column will be in the same group. 
 
-For example, consider the following `DataFrame`:
+For example, consider the [`20_sales_records.xlsx`](https://github.com/mahdi-b/change-hi.github.io/raw/main/morea/data-wrangling-1/Notebook/data/20_sales_records.xlsx) DataFrame from the previous week. To simply things, we will select only `Region`, `Total Revenue` and `Total Profits` columns and call it `df_revenue_and_profit`.
 <div class="alert alert-secondary" role="alert" markdown="1">
 Code:
 ```python
-df = pd.DataFrame([[ 'A', 2], ['A', 4], ['B', 0], ['B', 5], ['C', 5], ['C', 10]], columns=['X', 'Y'])
+import pandas as pd
+URL = "https://github.com/mahdi-b/change-hi.github.io/raw/main/morea/data-wrangling-1/Notebook/data/20_sales_records.xlsx"
+df = pd.read_excel(URL)
+
+df = df.loc[:, ["Region", "Total Revenue", "Total Profit"]]
 df
 ```
 
+
 Output:
-```python
-   X   Y
-0  A   2
-1  A   4
-2  B   0
-3  B   5
-4  C   5
-5  C  10
-```
+
+|   | Region                          | Total Revenue | Total Profit |
+|-------|---------------------------------|---------------|--------------|
+| 0     | Australia and Oceania           | 2533654.00    | 951410.50    |
+| 1     | Central America and the Caribbean| 576782.80     | 248406.36    |
+| 2     | Europe                          | 1158502.59    | 224598.75    |
+| 3     | Sub-Saharan Africa              | 75591.66      | 19525.82     |
+| 4     | Sub-Saharan Africa              | 3296425.02    | 639077.50    |
+| 5     | Australia and Oceania           | 759202.72     | 285087.64    |
+| 6     | Sub-Saharan Africa              | 2798046.49    | 693911.51    |
+| 7     | Sub-Saharan Africa              | 1245112.92    | 510216.66    |
+| 8     | Sub-Saharan Africa              | 496101.10     | 152114.20    |
+| 9     | Sub-Saharan Africa              | 1356180.10    | 584073.87    |
+| 10    | Asia                            | 19103.44      | 7828.12      |
+| 11    | Sub-Saharan Africa              | 455479.04     | 306097.92    |
+| 12    | Asia                            | 902980.64     | 606834.72    |
+| 13    | Central America and the Caribbean| 5997054.98    | 1487261.02   |
+| 14    | Asia                            | 400558.73     | 122819.06    |
+| 15    | Europe                          | 182825.44     | 122865.12    |
+| 16    | Asia                            | 3039414.40    | 1208744.24   |
+| 17    | Sub-Saharan Africa              | 257653.50     | 85033.80     |
+| 18    | Asia                            | 2559474.10    | 634745.90    |
+{: .table}
+
 </div>
 
-For example, let us group the above `df` DataFrame by the values in the `X` column and save the returned GroupBy object to the variable we will call `df_grouped_by_X`. To do this we use the following code.
+
+For example, let us group the above `df` DataFrame by the values in the `Region` column and save the returned GroupBy object to the variable we will call `grouped_by_region`. To do this we use the following code.
 
 For example, consider the following `DataFrame`:
 <div class="alert alert-secondary" role="alert" markdown="1">
 Code:
 ```python
-df_grouped_by_X = df.groupby('X')
+grouped_by_region = df.groupby('Region')
 ```
 </div>
 
 `GroupBy` objects have a handy method called `get_group()`, which returns all the entries of a specified group as a `DataFrame`. The `get_group()` method will take a positional argument that is the name of the group to access. Then the method returns a `DataFrame`, which is a subset of the initial `DataFrame` used to instantiate the `GroupBy` object. The entries of the returned `DataFrame` are all those entries in the column specified by the `by` parameter in the original `groupby()` call that match the name used in the `get_group()` call.
 
-Continuing with the example of the `df_grouped_by_X` object, let us see how we would retrieve the group of rows from the `df` whos entries in the `df` column were all the same value of 'A'. This group will conviently have the name 'A', thus when we use the `get_group` method we will simply pass the value 'A'.
+Continuing with the example of the `grouped_by_region` object, let us see how we would retrieve the group of rows from the `df` whos entries in the `df` column were all the same value of 'Asia'. This group will conviently have the name 'Asia', thus when we use the `get_group` method we will simply pass the value 'Asia'.
 
 <div class="alert alert-secondary" role="alert" markdown="1">
 Code:
 ```python
-df.get_group('A')
+grouped_by_region.get_group('Asia')
 ```
 
 Output:
-```python
-   X  Y
-0  A  2
-1  A  4
-```
-</div>
 
-The same is valid for 'B' and 'C'.
-<div class="alert alert-secondary" role="alert" markdown="1">
-Code:
-```python
-df.get_group('B')
-```
-
-Output:
-```python
-   X  Y
-2  B  0
-3  B  5
-```
-</div>
-<div class="alert alert-secondary" role="alert" markdown="1">
-Code:
-```python
-df.get_group('C')
-```
-
-Output:
-```python
-   X   Y
-4  C   5
-5  C  10
-```
+|   | Region | Total Revenue | Total Profit |
+|-------|--------|---------------|--------------|
+| 10    | Asia   | 19103.44      | 7828.12      |
+| 12    | Asia   | 902980.64     | 606834.72    |
+| 14    | Asia   | 400558.73     | 122819.06    |
+| 16    | Asia   | 3039414.40    | 1208744.24   |
+| 18    | Asia   | 2559474.10    | 634745.90    |
+{: .table}
 </div>
 
 #### Split Apply Combine
@@ -208,15 +205,19 @@ Getting groups can be easily implemented using subsetting. For instance, we coul
 <div class="alert alert-secondary" role="alert" markdown="1">
 Code:
 ```python
-df[df.loc[:, "X"]=="A"]
+df[df.loc[:,"Region"]=="Asia"]
 ```
 
 Output:
-```python
-   X  Y
-0  A  2
-1  A  4
-```
+
+|   | Region | Total Revenue | Total Profit |
+|-------|--------|---------------|--------------|
+| 10    | Asia   | 19103.44      | 7828.12      |
+| 12    | Asia   | 902980.64     | 606834.72    |
+| 14    | Asia   | 400558.73     | 122819.06    |
+| 16    | Asia   | 3039414.40    | 1208744.24   |
+| 18    | Asia   | 2559474.10    | 634745.90    |
+{: .table}
 </div>
 
 We see in the above example that the returned `DataFrame` is exactly the same as the result we saw in the previous cell introducing `groupby()` and `get_group()`. So why use `GroupBy` objects anyway?
@@ -228,9 +229,9 @@ An ideal usage of `groupby()`, and the resulting `GroupBy object`, will apply op
 * **Apply** some operation on the chunks generated. 
 * **Combine** the results of the applied operation into a new `DataFrame`.
 
-For instance, suppose we wanted to compute the the sum by `X` and save the result to a news `DataFrame`, the steps we would need to take are:
+For instance, suppose we wanted to compute the the sum by `Region` and save the result to a news `DataFrame`, the steps we would need to take are:
 
-   1. Split the data by `X`, i.e. `groupby('X')`
+   1. Split the data by `X`, i.e. `groupby('Region')`
    2. Apply the `sum()` method to the `Y` column for each group
    3. Combine the results from each group into a new `DataFrame`
 
@@ -251,6 +252,114 @@ There are 3 classes of split-apply-combine operations that can be applied to gro
 ![](fig/E6_aggregate.png)
 ![](fig/E6_transform.png)
 ![](fig/E6_filter.png)
+
+###### Aggregate
+
+__Aggregations__ aggregate the data in each group, i.e., they reduce the data to a single value. This includes, for instance, computing group sums, means, maximums, minimums, _etc_. Some of the interesting/important summary aggregation methods of `GroupBy`  objects are:
+
+|Methods| Decription|
+|:----------|:----------------|
+| `mean`, `median` | Computes the mean and the median in each group| 
+| `min` , `max` | computes the min and max in each group| 
+| `size` | computes the number of values in each group|
+{: .table}
+
+When one of these methods are called by the `GroupBy` object, they are applied to each group individually and then the group is combined into a new `DataFrame`.
+
+For example suppose we wanted to group `df` by `Region`, apply the `sum()` method to calculate the aggregate `Total Revenue` by `Region` and aggregate `Total Profit` by `Region`. Then we can combine the results into a new `DataFrame` which holds the aggregate `Total Revenue` by `Region` and the aggregate `Total Profit` by `Region`. We could achieve this by first splitting the data using the `groupby()` `DataFrame` method to obtain a new `GroupBy` object, we will call it `grouped_by_region`. Then we could apply and combine using the `GroupBy` object's `sum()` method.
+
+<div class="alert alert-secondary" role="alert" markdown="1">
+Code:
+```python
+grouped_by_region = df.groupby('Region')
+grouped_by_region.sum()
+```
+
+Output:
+
+|        | Total Revenue | Total Profit |
+|--------|---------------|--------------|
+| Region |               |              |
+| Asia   | 6921531.31    | 2580972.04   |
+| Australia and Oceania | 3292856.72 | 1236498.14 |
+| Central America and the Caribbean | 6573837.78 | 1735667.38 |
+| Europe | 1341328.03 | 347463.87 |
+| Sub-Saharan Africa | 9980589.83 | 2990051.28 |
+{: .table}
+</div>
+
+We see from the above example that the `GroupBy` `sum()` method returns a `DataFrame` with an index labeling the group that the row entry corresponds to and entries telling us the aggregate `Total Revenue` and aggregate `Total Profit` by `Region`.
+
+###### Aggregate Continued
+
+As discussed in the previous cell, `pandas` has implemented for us the most common aggregate methods for us, like `sum()` and `mean()`, but sometimes our data requires unique processing. The `GroupBy` method `agg()` can be used where complex or custom aggregation logic is required. The method `agg()` will take a function and use it to aggregate the group in the same way that we saw `sum()` do in the previous cell. The function passed must take a `DataFrame` as an argument, and that passed `DataFrame` will be each group of the calling `GroupBy` object.
+
+For example, suppose we wanted to find the aggregate `Total Revenue` by Region in Canadian dollars. We can define a function called `sum_total_revenue_CAD()` to return the sum of the `Total Revenue` of a group in Canadian Dollars. Then we can create a new `GroupBy` object, call it `grouped_by_region`, using a subset of the `df` DataFrame only containing the `Region` and `Total Revenue` columns. Lastly, we can can call `agg()` with the `grouped_by_region` GroupBy object and pass it the `sum_total_revenue_CAD` function.
+
+<div class="alert alert-secondary" role="alert" markdown="1">
+Code:
+```python
+def sum_total_revenue_CAD(x):
+    return x.sum() * 1.33
+
+grouped_by_region = df.loc[:, ["Region", "Total Revenue"]].groupby("Region")
+grouped_by_region.agg(sum_total_revenue_CAD)
+```
+
+Output:
+
+|        | Total Revenue |
+|--------|---------------|
+| **Region** |               |
+| Asia                           | 9.205637e+06  |
+| Australia and Oceania          | 4.379499e+06  |
+| Central America and the Caribbean | 8.743204e+06 |
+| Europe                         | 1.783966e+06  |
+| Sub-Saharan Africa             | 1.327418e+07  |
+
+{: .table}
+
+</div>
+
+We see in the above example that the result is a new `DataFrame` with the unique `Region` values as the index and values corresponding the sum of the `Total Revenue` by `Region` in Candian dollars.
+
+To customize group specific processing even further `agg()` can also take a dictionary of functions to aggregate on. The dictionary should be the name of a column of the group and the value a callable function that will take a `Series`. 
+
+For example, suppose we wanted to create a new `DataFrame` that tells us the sum of `Total Revenue` and the max `Total Profit` by Region from `df`. To do this we would first `groupby()` `Region` and then call `agg()` with the new `GroupBy` object, passing it the dictionary: `{'Total Revenue' :sum,'Total Profit' : max}`, which specifies that we want to sum the `Total Revenue` column and find the max of the `Total Profit` column.
+
+<div class="alert alert-secondary" role="alert" markdown="1">
+
+Code:
+```python
+grouped_by_region = df.groupby("Region")
+grouped_by_region.agg({'Total Revenue' :sum,'Total Profit' : max})
+```
+
+Output:
+
+|        | Total Revenue | Total Profit |
+|--------|---------------|--------------|
+| **Region** |               |              |
+| Asia                           | 6921531.31    | 1208744.24   |
+| Australia and Oceania          | 3292856.72    | 951410.50    |
+| Central America and the Caribbean | 6573837.78 | 1487261.02   |
+| Europe                         | 1341328.03    | 224598.75    |
+| Sub-Saharan Africa             | 9980589.83    | 693911.51    |
+{: .table}
+</div>
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 
