@@ -41,15 +41,15 @@ Function application falls into one of two categories:
 
 Global processing is applying the same function to every entry (referring to a singular data point or an entire row or column) in a `Series` or `DataFrame`. Group specific processing, on the other hand, is applying functions to entries that belong to a certain group based on some defining characteristic.
 
-We will begin by covering global processing in the following cells.
+We will begin by covering global processing in the following sections.
 
-### Global Processing
+### 1. Global Processing
 
 In one clever way or another, every global processing problem you will ever run into when working with `DataFrames` will fit into one of two levels of granularity. Corresponding to these two levels are two `DataFrame` methods, `apply()` and `applymap()`.
 
 To apply a function to every row or column of a `DataFrame` we use the `apply()` DataFrame method. The `apply()` method takes a function that will be applied to the specified axis (columns or rows), the axis, and other keyword arguments that are defined by default. Depending on the function passed to the `apply()` can behave in the same way as the `applymap()` function.
 
-#### Global Processing-apply()
+#### 1.1) Global Processing-apply()
 Let us look at two examples use cases, using a reducing function, and a universal function. The function passed to the `apply()` method will process a `Series`, either a `DataFrame` row or column depending on the axis parameter, and return a result. 
 
 Most of the time when you call the `apply()` method you should be using a reducing function. A reducing function is one which takes a `Series` object and reduces the `Series` to a either a new `Series` or a single entry using a process that relies on data in the `Series`. You are already familiar with some reducing functions such as the Series `sum()` method, which returns the sum of all the entries in the calling `Series`. Consider the following example of calling `apply()` with a reducing function.
@@ -59,7 +59,7 @@ Code:
 ```python
 df = pd.DataFrame([[ 0,  3,  6], [ 9, 12, 15], [18, 21, 24]], columns=['a', 'b', 'c'])
 def square_sum(x_series):
-   return x_series.sum() ** 2
+  return x_series.sum() ** 2
 df.apply(square_sum, axis=1) # apply to each row
 ```
 
@@ -96,7 +96,7 @@ Output:
 
 The example above shows how the `apply()` method behaves when a universal function is passed as the argument. The resulting `DataFrame` is constructed from original `DataFrame` except each individual entry is divided by three.
 
-#### Global Processing-applymap()
+#### 1.2) Global Processing-applymap()
 There is a shorthand way achieve the same exact behavior shown in the example of applying a universal function in the **Global Processing-apply()** cell above, and the method is appropriately named `applymap()`, as first we call the `apply()` DataFrame method and then we call the `map()` method. 
 
 To apply a function to every individual element in a `DataFrame` we can use the `applymap()` DataFrame method.  The `applymap()` method is a function which takes one positional argument as input and that is a callable function which takes a single value and returns a single value. The `applymap()` method will apply the function passed to every single entry in the calling `DataFrame` and return a new `DataFrame` with the processed entries.
@@ -122,7 +122,7 @@ Output:
 
 This type of processing is relatively rare since it should be the case that it makes sense to apply the same function to every entry regardless of its location. But when you need this functionality, the `applymap()` function is quite useful. 
 
-### Group Specific Processing
+### 2. Group Specific Processing
 
 A common scenario is applying a function to a specific group of data. By group of data I mean a subset of the data that is the same based on a criterion. 
 
@@ -201,7 +201,7 @@ Output:
 {: .table}
 </div>
 
-#### Split Apply Combine
+#### 2.1) Split-Apply-Combine
 Getting groups can be easily implemented using subsetting. For instance, we could have obtained the "A" group of the `df` DataFrame by subsetting `df` with the boolean `Series` returned from the following operation.
 
 <div class="alert alert-secondary" role="alert" markdown="1">
@@ -241,21 +241,21 @@ For instance, suppose we wanted to compute the the sum by `Region` and save the 
 
 So rather than manually subsetting each group and then applying the desired operation we could automate this workflow using the helpful `GroupBy` methods implemented by `pandas` to save ourselves some time and effort.
 
-##### The 3 Classes of Opearations on Groups
+#### 2.2) The 3 Classes of Opearations on Groups
 
 There are 3 classes of split-apply-combine operations that can be applied to group data.
 
-1. __Aggregations__ generate a single value for each group
+a. __Aggregations__ generate a single value for each group
   
-2.  __Transformations__ convert the data and generate a group of the same size as the original group.
+b.  __Transformations__ convert the data and generate a group of the same size as the original group.
 
-3.  __Filters__ retain or discard a group based on group-specific boolean computations.
+c.  __Filters__ retain or discard a group based on group-specific boolean computations.
 
-<img src="fig/E6_aggregate.png" width="1000">
-<img src="fig/E6_transform.png" width="1000">
-<img src="fig/E6_filter.png" width="1000">
+<img src="fig/E6_aggregate.png" width="80%">
+<img src="fig/E6_transform.png" width="80%">
+<img src="fig/E6_filter.png" width="80%">
 
-###### Aggregate
+##### 2.2.a) Aggregate
 
 __Aggregations__ aggregate the data in each group, i.e., they reduce the data to a single value. This includes, for instance, computing group sums, means, maximums, minimums, _etc_. Some of the interesting/important summary aggregation methods of `GroupBy`  objects are:
 
@@ -292,7 +292,7 @@ Output:
 
 We see from the above example that the `GroupBy` `sum()` method returns a `DataFrame` with an index labeling the group that the row entry corresponds to and entries telling us the aggregate `Total Revenue` and aggregate `Total Profit` by `Region`.
 
-###### Aggregate Continued
+##### Aggregate Continued
 
 As discussed in the previous cell, `pandas` has implemented for us the most common aggregate methods for us, like `sum()` and `mean()`, but sometimes our data requires unique processing. The `GroupBy` method `agg()` can be used where complex or custom aggregation logic is required. The method `agg()` will take a function and use it to aggregate the group in the same way that we saw `sum()` do in the previous cell. The function passed must take a `DataFrame` as an argument, and that passed `DataFrame` will be each group of the calling `GroupBy` object.
 
@@ -318,7 +318,6 @@ Output:
 | Central America and the Caribbean | 8.743204e+06 |
 | Europe                         | 1.783966e+06  |
 | Sub-Saharan Africa             | 1.327418e+07  |
-
 {: .table}
 
 </div>
@@ -350,7 +349,7 @@ Output:
 {: .table}
 </div>
 
-###### Transform
+##### 2.2.b) Transform
 
  __Transformations__ change the data in a way that is group-specific. As opposed to aggregations, which reduce the data into a single value, transformations modify the data but don't change the shape of the groups.
 
@@ -452,7 +451,7 @@ Output:
 {: .table}
 </div>
 
-###### Filter
+##### 2.2.c) Filter
 
  __Filtering__  a group consists of dropping or retaining groups in a way that depends on a group-specific computation that returns `True` or `False`. Groups that are retained will be left unmodified. For instance, we can filter specialties from `spending_df` that don't have enough entries or for which the mean `spending` is below a certain threshold.
 
@@ -577,7 +576,7 @@ Output:
 <div class="alert alert-info" role="alert" markdown="1">
 <i class="fa-solid fa-circle-info fa-xl"></i> **For more information**
 <hr/>
-
+You can read more about `groupby` from the official pandas documentation of [groupby](https://pandas.pydata.org/docs/user_guide/groupby.html)
 </div>
 
 
