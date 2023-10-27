@@ -16,7 +16,7 @@ morea_experiences:
   #- experience-real-example-cleaning
   #- experience-real-example-analysis
 morea_assessments:
-  - assessment-data-wrangling-workshop
+  - assessment-data-wrangling-workshop-1
 morea_prerequisites:
 morea_type: module
 morea_icon_url: /morea/data-wrangling-1/logo.png
