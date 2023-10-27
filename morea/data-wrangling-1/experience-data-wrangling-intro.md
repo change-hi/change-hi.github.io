@@ -6,7 +6,7 @@ morea_type: experience
 morea_summary: "Understand why Jupyter Notebooks are useful for data wrangling"
 morea_sort_order: 2
 morea_labels:
-  - 2:00pm
+  - 2:10pm
 morea_enable_toc: true
 ---
 

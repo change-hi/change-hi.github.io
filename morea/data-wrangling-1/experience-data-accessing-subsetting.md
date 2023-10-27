@@ -6,7 +6,7 @@ morea_type: experience
 morea_summary: "Understading the basics of data accessing and subsetting"
 morea_sort_order: 3
 morea_labels:
-  - 2:40pm
+  - 3:05pm
 morea_enable_toc: true
 ---
 

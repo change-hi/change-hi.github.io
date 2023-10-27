@@ -6,7 +6,7 @@ morea_type: experience
 morea_summary: "Understand how the google colab interfrace is setup"
 morea_sort_order: 3
 morea_labels:
-  - 2:10pm
+  - 2:20pm
 morea_enable_toc: true
 ---
 
