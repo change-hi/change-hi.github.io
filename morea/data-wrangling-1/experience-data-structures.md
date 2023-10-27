@@ -6,7 +6,7 @@ morea_type: experience
 morea_summary: "Understand Pandas data structures basics"
 morea_sort_order: 3
 morea_labels:
-  - 2:20pm
+  - 2:25pm
 morea_enable_toc: true
 ---
 
@@ -261,6 +261,12 @@ Use the method `.shape` to verify that `DataFrame` should have 10 rows, 14 colum
 
 
 </details>
+</div>
+
+<div class="alert alert-warning" role="alert" markdown="1">
+<i class="fa-solid fa-circle-info fa-xl"></i> **Bio Break!**
+We will start again at 3:05 PM.
+<hr/>
 </div>
 
 {% include next-button.html 

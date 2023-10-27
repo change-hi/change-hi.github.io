@@ -6,7 +6,7 @@ morea_type: experience
 morea_summary: "Understanding the basics of the Pandas data structure - DataFrames"
 morea_sort_order: 3
 morea_labels:
-  - 2:50pm
+  - 3:30pm
 morea_enable_toc: true
 ---
 
@@ -513,11 +513,6 @@ The output should now display the "Sales Channel" entries in uppercase.
 </details>
 </div>
 
-<div class="alert alert-warning" role="alert" markdown="1">
-<i class="fa-solid fa-circle-info fa-xl"></i> **Bio Break!**
-<hr/>
-
-</div>
 
 {% include next-button.html
   top-label="Assessment ->"
