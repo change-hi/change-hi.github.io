@@ -32,7 +32,7 @@ morea_enable_toc: true
 
 </div>
 
-## Global Processing Vs. Group Specific Processing
+## Global Vs. Group-Specific Processing
 
 Function application falls into one of two categories:
 
