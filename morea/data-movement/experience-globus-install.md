@@ -1,16 +1,16 @@
 ---
-title: "10. Globus Installation "
+title: "9. Globus Installation "
 published: true
 morea_id: experience-globus-install
 morea_type: experience
 morea_summary: "Understand how to setup and use Globus to move data."
 morea_sort_order: 9
 morea_labels:
-  - 3:35pm
+  - 2:45pm
 morea_enable_toc: true
 ---
 
-# 10. Globus Installation
+# 9. Globus Installation
 
 <div class="alert alert-success mt-3" role="alert" markdown="1">
 <i class="fa-solid fa-globe fa-xl"></i> **Overview**
@@ -99,11 +99,11 @@ _[Globus Connect Personal for Windows](https://docs.globus.org/how-to/globus-con
 <i class="fa-solid fa-globe fa-xl"></i> **Key Points**
 <hr/>
 
-  * Dual factor authentication is a prerequisite to using Globus with MANA.
+  * Dual factor authentication is a prerequisite to using Globus with MANA or KOA.
   * Both systems to transfer data to and from must have Globus installed on them. 
 </div>
 
 {% include next-button.html
   top-label="Transferring Data ->"
-  bottom-label="3:40pm"
+  bottom-label="2:55pm"
   url="/morea/data-movement/experience-transferring-data.html" %}

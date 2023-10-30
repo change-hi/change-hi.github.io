@@ -1,16 +1,16 @@
 ---
-title: "7. Scientific Data Transfer Examples"
+title: "Scientific Data Transfer Examples"
 published: true
-morea_id: experience-data-transfer-examples
-morea_type: experience
+morea_id: reading-data-transfer-examples
+morea_type: reading
 morea_summary: "Be able to identify real world examples of data transfer issues that can be fixed."
-morea_sort_order: 7
+morea_sort_order: 3
 morea_labels:
-  - 3:00pm
+- Additional-reading
 morea_enable_toc: true
 ---
 
-# 7. Scientific Data Transfer Examples
+# Scientific Data Transfer Examples
 
 <div class="alert alert-success mt-3" role="alert" markdown="1">
 <i class="fa-solid fa-globe fa-xl"></i> **Overview**
@@ -37,13 +37,8 @@ morea_enable_toc: true
   * You should never try to workaround a data transfer problem first. You should instead reach out to the IT Cyberinfrastructure staff or Network staff at your institution as they can help alleviate a lot of pain and frustration.
 </div>
 
-<div class="alert alert-warning" role="alert" markdown="1">
-<i class="fa-solid fa-circle-info fa-xl"></i> **Bio Break!**
-<hr/>
-Let's take a brief break to stretch before moving on to the next page.  See you in a few minutes.
-</div>
 
 {% include next-button.html
   top-label="File Transfers with Remote Computers ->"
-  bottom-label="3:10pm"
-  url="/morea/data-movement/experience-remote-computers.html" %}
+  bottom-label="File Transfer"
+  url="/morea/data-movement/readings-remote-computers.html" %}

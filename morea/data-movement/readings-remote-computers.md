@@ -1,16 +1,16 @@
 ---
-title: "8. File Transfers with Remote Computers"
+title: "File Transfers with Remote Computers"
 published: true
-morea_id: experience-remote-computers
-morea_type: experience
+morea_id: reading-remote-computers
+morea_type: reading
 morea_summary: "Understand how to transfer files using wget, scp, and rsync."
-morea_sort_order: 8
+morea_sort_order: 4
 morea_labels:
-  - 3:10pm
+  - Additonal-reading
 morea_enable_toc: true
 ---
 
-# 8. File Transfers with Remote Computers
+# File Transfers with Remote Computers
 
 <div class="alert alert-success mt-3" role="alert" markdown="1">
 <i class="fa-solid fa-globe fa-xl"></i> **Overview**
@@ -477,7 +477,4 @@ back to Windows format, you can run `unix2dos filename`.)
   * You can use an SFTP client like FileZilla to transfer files through a GUI. 
 </div>
 
-{% include next-button.html
-  top-label="Globus ->"
-  bottom-label="3:30pm"
-  url="/morea/data-movement/experience-globus.html" %}
+

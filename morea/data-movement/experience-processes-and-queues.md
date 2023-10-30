@@ -1,16 +1,16 @@
 ---
-title: "4. Processes and Queues"
+title: "5. Processes and Queues"
 published: true
 morea_id: experience-processes-and-queues
 morea_type: experience
 morea_summary: "Understand how data actually moves between machines and explain queues and buffers."
-morea_sort_order: 4
+morea_sort_order: 5
 morea_labels:
-  - 2:30pm
+  - 2:20pm
 morea_enable_toc: true
 ---
 
-# 4. Processes and Queues
+# 5. Processes and Queues
 
 <div class="alert alert-success mt-3" role="alert" markdown="1">
 <i class="fa-solid fa-globe fa-xl"></i> **Overview**
@@ -74,5 +74,5 @@ Now let's add buffering:
 
 {% include next-button.html
   top-label="Transmission Control Protocol (TCP) ->"
-  bottom-label="2:40pm"
+  bottom-label="2:25pm"
   url="/morea/data-movement/experience-transmission-control-protocol.html" %}

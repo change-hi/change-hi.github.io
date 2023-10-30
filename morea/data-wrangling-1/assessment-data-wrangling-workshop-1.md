@@ -1,7 +1,7 @@
 ---
 title: "Help us assess this workshop"
 published: true
-morea_id: assessment-data-wrangling-workshop
+morea_id: assessment-data-wrangling-workshop-1
 morea_summary: Provide feedback to the workshop organizers
 morea_outcomes_assessed:
 - outcome-data-wrangling
@@ -15,7 +15,7 @@ morea_labels:
 
 ## For the participants
 
-Thank you for attending today's workshop! To help us learn about your experience, we would like to ask that you take approximately 10 minutes to fill out a short 10 question survey.  The participant survey The participant survey is available [here](https://forms.gle/PQaFAqwuWXzAbHPp9).
+Thank you for attending today's workshop! To help us learn about your experience, we would like to ask that you take approximately 10 minutes to fill out a short 10 question survey.  The participant survey The participant survey is available [here](https://forms.gle/PxDFot4w1WB7wKCv9).
 
 ## For the instructors
 
