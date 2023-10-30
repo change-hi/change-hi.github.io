@@ -12,6 +12,10 @@ morea_enable_toc: true
 
 # 7. Real Example Cleanup
 
+<a target="_blank" href="https://colab.research.google.com/github/mahdi-b/change-hi.github.io/blob/main/morea/data-wrangling-2/Notebooks/07-real-example-analysis.ipynb">
+  <img src="https://colab.research.google.com/assets/colab-badge.svg" alt="Open In Colab"/>
+</a>
+
 <div class="alert alert-success mt-3" role="alert" markdown="1">
 <i class="fa-solid fa-globe fa-xl"></i> **Overview**
 <hr/>
@@ -25,8 +29,6 @@ morea_enable_toc: true
 * Clean an example dataset using both previously described concepts and some new ones.
 
 </div>
-
-[![Binder](https://mybinder.org/badge_logo.svg)](https://mybinder.org/v2/gh/CI-TRACS/Data_Wrangling_with_Computational_Notebooks/HEAD)
 
 # Cleaning Real Data
 
