@@ -101,13 +101,13 @@ To start off try fixing the read_csv() method so that all -9 values are treated 
 <details>
   <summary>Solution</summary>
 
-  To fix this we can add the parameter `na_values=-9` to the `read_csv()` method giving us the following code bit:
+  To fix this we can add the parameter <code>na_values= -9</code> to the <code>read_csv()</code> method giving us the following code bit:
   
   <pre>
   pd.read_csv("./data/hot_dogs_data.csv", nrows=5, na_values=-9)
   </pre>
 
-Below shows how our `DataFrame` now looks:
+Below shows how our <code>DataFrame</code> now looks:
 {% include figure.html url="" max-width="60%" file="/morea/data-wrangling-2/fig/E6_02_nan_dataframe.png" alt="Output DataFrame" caption="" %}
 </details>
 </div>
@@ -139,7 +139,7 @@ To get the name of the column we will want to utilize a `DataFrame` attribute th
 <details>
   <summary>Solution</summary>
 
-  To get the name of the columns we can simply access the `columns` `Series` attribute that ever `DataFrame` has. This can be done either through chaining it after our `read_csv` method or by store it in a variable and then call the method using that variable. Below we use the chain approach.
+  To get the name of the columns we can simply access the <code>columns</code>, <code>Series</code> attribute that ever <code>DataFrame</code> has. This can be done either through chaining it after our <code>read_csv</code> method or by store it in a variable and then call the method using that variable. Below we use the chain approach.
   
   <pre>
   pd.read_csv("./data/hot_dogs_data.csv", nrows=5, na_values=-9).columns
@@ -153,7 +153,7 @@ To get the name of the column we will want to utilize a `DataFrame` attribute th
   dtype='object')
   </pre>
 
-  The last entry in the `Series` is our 'blank' column i.e. `' '`. We add this as the only entry to our drop method and get the following code bit.
+  The last entry in the <code>Series</code> is our 'blank' column i.e. `' '`. We add this as the only entry to our drop method and get the following code bit.
 
   <pre>
   pd.read_csv("./data/hot_dogs_data.csv", nrows=5, na_values=-9).drop(columns=[" "], axis=1)
@@ -184,7 +184,7 @@ To set the index column we can use a parameter in `read_csv` that was mentioned 
 <details>
   <summary>Solution</summary>
 
-  To set the index column when we load the data we just have to add the parameter `index_col` and set it to 'botid #'. **Note:** we have removed the `nrows=5` parameter in the code bit below since we no longer need it.
+  To set the index column when we load the data we just have to add the parameter <code>index_col</code> and set it to botid #. Note: we have removed the <code>nrows=5</code> parameter in the code bit below since we no longer need it.
   
   <pre>
   pd.read_csv("./data/hot_dogs_data.csv", na_values=-9, index_col="botid #").drop(columns=[" "], axis=1)
