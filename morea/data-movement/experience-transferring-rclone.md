@@ -1,24 +1,26 @@
 ---
-title: "Transferring Files with Rclone"
+title: "12. Transferring Files with Rclone"
 published: true
-morea_id: reading-transferring-rclone
-morea_type: reading
+morea_id: experience-transferring-rclone
+morea_type: experience
 morea_summary: "Understand how to transfer files using Rclone."
-morea_sort_order: 3
+morea_sort_order: 12
 morea_labels:
+  - 3:25pm
 morea_enable_toc: true
 ---
+# 12. Transferring Files with Rclone
 
 <div class="alert alert-success mt-3" role="alert" markdown="1">
 <i class="fa-solid fa-globe fa-xl"></i> **Overview**
 <hr/>
 
 **Questions**
-* How do I move data from google drive to MANA? 
-* How do I move data from MANA to google drive?
+* How do I move data from google drive to KOA? 
+* How do I move data from KOA to google drive?
 
  **Objectives**
-  * Move data to and from MANA and gdrive. 
+  * Move data to and from KOA and gdrive. 
 
 </div>
 
@@ -35,7 +37,7 @@ $ rclone lsf rclone-gdrive:/
 {% include figure.html url="" max-width="75%" file="/morea/data-movement/fig/Rclonesuccess.png" alt="Node anatomy" caption="" %}
 ---
 
-# Now we can create a directory to transfer files to/from MANA/GDrive
+# Now we can create a directory to transfer files to/from KOA/GDrive
 * Make a directory called “rclonefiles” using the “mkdir” command
 
 <div class="alert alert-secondary" role="alert" markdown="1">
@@ -70,7 +72,7 @@ Within that folder create a new doc and call it “testfile”
 {% include figure.html url="" max-width="75%" file="/morea/data-movement/fig/RCloneGD2.png" alt="Node anatomy" caption="" %}
 ---
 
-# Copying the directory contents from GDrive to Mana
+# Copying the directory contents from GDrive to KOA
 
 ‘rclone copy’ has a source and destination required
 
@@ -87,9 +89,9 @@ This will copy the folder contents to the current directory - Note the ‘.’ a
 
 ---
 
-# MANA to GDrive
+# KOA to GDrive
 
-* Create a testfile2.docx on the Mana DTN by copying testfile.docx
+* Create a testfile2.docx on the KOA DTN by copying testfile.docx
 
 <div class="alert alert-secondary" role="alert" markdown="1">
 ```
@@ -188,3 +190,8 @@ Note - there is an experimental GUI for your laptop/workstation [https://rclone.
   * nohup can be used for large rclone file transfers to ensure your ssh session will not disconnect a transfer
 
 </div>
+
+{% include next-button.html
+  top-label="Assessment ->"
+  bottom-label="3:45pm"
+  url="/morea/data-movement/assessment-data-movement.html" %}

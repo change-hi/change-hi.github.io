@@ -370,7 +370,7 @@ Try it yourself! Going back to our `20_sales_records.xlsx` file, identify which 
 <details>
   <summary>Solution</summary>
 
- First, we read in the first few lines of our data set to identify which columns we want to filter on. We want `Online` orders of `High Priority`
+ First, we read in the first few lines of our data set to identify which columns we want to filter on. We want <code>Online</code> orders of  <code>High Priority</code>
   
   <pre>
   df = pd.read_excel('data/20_sales_records.xlsx', nrows=5)
