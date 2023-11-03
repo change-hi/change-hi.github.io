@@ -102,7 +102,7 @@ To start off try fixing the read_csv() method so that all -9 values are treated 
   <summary>Solution</summary>
 
   To fix this we can add the parameter <code>na_values= -9</code> to the <code>read_csv()</code> method giving us the following code bit:
-
+  
   <pre>
   pd.read_csv("./data/hot_dogs_data.csv", nrows=5, na_values=-9)
   </pre>
