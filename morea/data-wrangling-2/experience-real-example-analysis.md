@@ -306,4 +306,4 @@ There is a lot we didn't cover in this workshop. To go further, take a look at t
 {% include next-button.html
 top-label="Assessment ->"
 bottom-label="3:50pm"
-url="/morea/data-wrangling-2/assessment-data-wrangling-workshop.html" %}
+url="/morea/data-wrangling-2/assessment-data-wrangling-workshop-2.html" %}
