@@ -9,6 +9,7 @@ morea_readings:
   - reading-data-wrangling-setup
 morea_experiences:
   - experience-advanced-operations-on-dataframes
+  - experience-advanced-operations-on-dataframes-2  
   - experience-real-example-cleaning
   - experience-real-example-analysis
 morea_assessments:

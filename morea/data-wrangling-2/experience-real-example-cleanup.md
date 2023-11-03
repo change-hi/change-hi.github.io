@@ -6,7 +6,7 @@ morea_type: experience
 morea_summary: "A real world example of data cleaning"
 morea_sort_order: 3
 morea_labels:
-  - 3:10pm
+  - 3:05pm
 morea_enable_toc: true
 ---
 
@@ -41,7 +41,7 @@ The Hawaiian Ocean Time Series has been collecting samples from station ALOHA lo
 
 (Original image from: <https://www.soest.hawaii.edu/HOT_WOCE/bath_HOT_Hawaii.html>)
 
-Going forward we are going to be using data from HOT between the 1st of January 2010 to the 1st of January 2020. This particular data we are going to be utilizing comes from bottle extractions between depths 0 to 500m. The environmental variables that we will be looking at include:
+Going forward we are going to be using data from HOT between the 1st of January 2010 to the 1st of January 2020. This particular data we are going to be utilizing comes from bottle extractions between depths from 0 to 500m. The environmental variables that we will be looking at include:
 
 | Column name     | Environmental Variable                 |
 | --------------- | -------------------------------------- |
@@ -67,7 +67,7 @@ The data contains over 20000 individual samples. To analyze the data we are goin
 
 ### `DataFrame` Content Cleanup
 
-During our initial clean up we will only load in the first few rows of our dataset entire `DataFrame`. This will make it easier to work with and less daunting.
+During our initial clean up we will only load in the first few rows of our datasets entire `DataFrame`. This will make it easier to work with and less daunting.
 
 <div class="alert alert-secondary" role="alert" markdown="1">
 
@@ -88,9 +88,9 @@ From this we can see a few things:
 - This is likely to denote Null values in the dataset
 - The last column (to the right of the no2 column) doesn't seem to contain a header or any data
 
-Both of these issues can easily be fixed using Pandas and things we've learn previously.
+Both of these issues can easily be fixed using Pandas and things we've learned previously.
 
-To start off let's fix the first problem we saw which was was the large number of -9 values in the dataset. These are especially strange for some of the columns e.g. how can there be a negative concentration of hbact i.e. heterotrophic bacteria? This is a stand in for places where no measurement was obtained.
+To start off let's fix the first problem we saw which was the large number of -9 values in the dataset. These are especially strange for some of the columns e.g. how can there be a negative concentration of hbact i.e. heterotrophic bacteria? This is a stand-in for places where no measurement was obtained.
 
 <div class="alert alert-secondary" role="alert" markdown="1">
 <i class="fa-solid fa-user-pen fa-xl"></i>  **Exercise: Treating -9 values as NaN values when loading data**
@@ -112,7 +112,7 @@ Below shows how our <code>DataFrame</code> now looks:
 </details>
 </div>
 
-With this we have fixed the problematic -9 values from our initial `DataFrame`.
+With this, we have fixed the problematic -9 values from our initial `DataFrame`.
 
 <div class="alert alert-info" role="alert" markdown="1">
 <i class="fa-solid fa-circle-info fa-xl"></i> **Temperature Column**
@@ -128,7 +128,7 @@ There are various methods to deal with this. However, we are going to use a rela
 <i class="fa-solid fa-user-pen fa-xl"></i>  **Exercise: Dropping the blank column**
 <hr/>
 
-The final command we will be using can be seen below. However, the columns parameter is missing any entries in its list of columns to drop. You will be fixing this by adding the name of the column that is empty (hint: the name isn't actually empty).
+The final command we will be using can be seen below. However, the columns parameter is missing any entries in its list of columns to drop. You will be fixing this by adding the name of the column that is empty (hint: the name isn't empty).
 
 ~~~python
 pd.read_csv("./data/hot_dogs_data.csv", nrows=5, na_values=-9).drop(columns=[])
@@ -140,7 +140,7 @@ To get the name of the column we will want to utilize a `DataFrame` attribute th
   <summary>Solution</summary>
 
   To get the name of the columns we can simply access the <code>columns</code>, <code>Series</code> attribute that ever <code>DataFrame</code> has. This can be done either through chaining it after our <code>read_csv</code> method or by store it in a variable and then call the method using that variable. Below we use the chain approach.
-  
+
   <pre>
   pd.read_csv("./data/hot_dogs_data.csv", nrows=5, na_values=-9).columns
   </pre>
@@ -165,7 +165,7 @@ To get the name of the column we will want to utilize a `DataFrame` attribute th
 This then gives us the output `DataFrame` seen below:
 {% include figure.html url="" max-width="60%" file="/morea/data-wrangling-2/fig/E6_03_no_blank_column.png" alt="No Blank Column DataFrame" caption="" %}
 
-With this we have fixed some of the initial issues related to our dataset. It should be noted that there might still exist other issues with our dataset since we have only relied on the first few rows.
+We now have fixed some of the initial issues related to our dataset. It should be noted that there might still exist other issues with our dataset since we have only relied on the first few rows.
 
 <div class="alert alert-info" role="alert" markdown="1">
 <i class="fa-solid fa-circle-info fa-xl"></i> **Column Names**
@@ -185,7 +185,7 @@ To set the index column we can use a parameter in `read_csv` that was mentioned 
   <summary>Solution</summary>
 
   To set the index column when we load the data we just have to add the parameter <code>index_col</code> and set it to botid #. Note: we have removed the <code>nrows=5</code> parameter in the code bit below since we no longer need it.
-  
+
   <pre>
   pd.read_csv("./data/hot_dogs_data.csv", na_values=-9, index_col="botid #").drop(columns=[" "], axis=1)
   </pre>
@@ -236,7 +236,7 @@ dtype: object
 
 Most of the columns have the correct type with the exception of the 'date mmddyy' column that has the int64 type. Pandas has a built in type to format date and time columns and conversion of the date column to this datetime type will help us later on.
 
-To change the type of a column from an int64 to a datetime type is a bit more difficult than e.g. a int64 to float64 conversion. This is because we both need to tell Pandas the type that we want it to convert the column's data to and the format that it is in. For our data this is MMDDYY which we can give to Pandas using `format='%m%d%y'`. This format parameter can be very complicated but is based on native python more information can be found on the `to_datetime` method docs ([Link to datetime method docs](https://pandas.pydata.org/docs/reference/api/pandas.to_datetime.html)).
+To change the type of a column from an int64 to a datetime type is a bit more difficult than e.g. a int64 to float64 conversion. This is because we both need to tell Pandas the type that we want it to convert the column's data to and the format that it is in. For our data, this is MMDDYY which we can give to Pandas using `format='%m%d%y'`. This format parameter can be very complicated but is based on native Python more information can be found on the `to_datetime` method docs ([Link to datetime method docs](https://pandas.pydata.org/docs/reference/api/pandas.to_datetime.html)).
 
 The code bit below creates a new column called 'date' that contains the same data for each row as is found in the 'date mmddyy' column but instead with the datetime64 type. It will **not** delete the original 'date mmddyy' column.
 
@@ -362,7 +362,7 @@ max          3.555000        0.091000          NaN
 
 </div>
 
-A look at the output shows us that the 'no2 nmol/kg' column does not contain any useable data based on its count value being 0. This then leads to the NaN for e.g. the min and max values. Since this column doesn't contain any information of interest we can drop it to clean up our `DataFrame`.
+A look at the output shows us that the 'no2 nmol/kg' column does not contain any useable data based on its count value being 0. Since this column doesn't contain any information of interest we can drop it to clean up our `DataFrame`.
 
 <div class="alert alert-secondary" role="alert" markdown="1">
 
@@ -374,7 +374,7 @@ df = df.drop(columns=["no2 nmol/kg"])
 
 </div>
 
-With this done our data is reasonably cleaned up and we have the `DataFrame` seen in the image below:
+With this done, our data is reasonably cleaned up and we have the `DataFrame` seen in the image below:
 
 {% include figure.html url="" max-width="60%" file="/morea/data-wrangling-2/fig/E6_05_cleaned_dataframe.png" alt="Cleaned Dataframe" caption="" %}
 
@@ -383,12 +383,12 @@ We can now move on to the analysis and visualization of the data in our `DataFra
 
 ## Summary
 
-With this we've clean up our initial dataset. To summarize we have:
+With this we've cleaned up our initial dataset. To summarize we have:
 
 1. Replaced the -9 placeholder for Null values with NaN values
 2. Fixed an issue with an extra column containing no data
 3. Added a custom row index
-4. Converted the data in 'date mmddyy' to a Pandas supported datetime type
+4. Converted the data in 'date mmddyy' to a Pandas-supported datetime type
 5. Dropped two columns:
    - 'date mmddyy' column since the new 'date' column contains the same data but in a better type
    - 'no2 nmol/kg' column since it contained no data
@@ -401,7 +401,7 @@ With this we've clean up our initial dataset. To summarize we have:
 * Restart the kernel when cleaning a dataset to make sure that your code encompasses all the cleaning needed.
 </div>
 
-{% include next-button.html 
-           top-label="8. Real Example Analysis>" 
-           bottom-label="3:30pm" 
+{% include next-button.html
+           top-label="8. Real Example Analysis>"
+           bottom-label="3:25pm"
            url="/morea/data-wrangling-2/experience-real-example-analysis.html" %}
