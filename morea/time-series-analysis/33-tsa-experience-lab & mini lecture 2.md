@@ -1,5 +1,5 @@
 ---
-title: "lab & mini lecture 2: Correlation"
+title: "Lab & Mini Lecture 2: Correlation"
 published: true
 morea_id: 33-tsa-experience-lab & mini lecture 2
 morea_type: experience

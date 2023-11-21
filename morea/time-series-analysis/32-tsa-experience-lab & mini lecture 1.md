@@ -1,5 +1,5 @@
 ---
-title: "lab & mini lecture 1: What is Time Series Analysis?"
+title: "Lab & Mini Lecture 1: What is Time Series Analysis?"
 published: true
 morea_id: 32-tsa-experience-lab & mini lecture 1
 morea_type: experience

@@ -1,5 +1,5 @@
 ---
-title: "lab & mini lecture 3: Causality"
+title: "Lab & Mini Lecture 3: Causality"
 published: true
 morea_id: 34-tsa-experience-lab & mini lecture 3
 morea_type: experience
