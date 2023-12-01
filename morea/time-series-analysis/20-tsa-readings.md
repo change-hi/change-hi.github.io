@@ -25,9 +25,13 @@ You may find the following guide helpful for the above:
   
 2. R Packages: Make sure to install the following R packages by running the following
 commands in your R console or RStudio:
+
 `install.packages("ggplot")`
+
 `install.packages("xts")`
+
 `install.packages("TTR")`
+
 `install.packages("tseries")`
 
 These packages are essential for the workshop, and having them installed in advance
