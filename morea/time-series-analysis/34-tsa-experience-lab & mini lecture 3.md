@@ -20,11 +20,7 @@ morea_labels:
 
 2. Expand the components further by applying the decomposition function to each figure. What can you assess from the overall trend? Overall seasonality? 
 
-3. Multiplicative Model–use the decompose function to break  apart the trend, seasonal, and irregular components. (Make sure type equals m.) 
-
-4. What can you assess from the anomaly figure?
-
-
+3. Multiplicative Model–use the decompose function to break  apart the trend, seasonal, and irregular components. (Make sure type equals m.). What can you assess from the irregular component?
 
 
 ###

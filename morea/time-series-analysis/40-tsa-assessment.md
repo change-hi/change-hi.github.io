@@ -1,5 +1,5 @@
 ---
-title: "Help us assess this workshop"
+title: "Help Us Assess This Workshop"
 published: true
 morea_id: 40-tsa-assessment
 morea_summary: Provide feedback to the workshop organizers
@@ -11,14 +11,13 @@ morea_labels:
   - 3:50pm 
 ---
 
-# Help us assess this workshop
+# Help Us Assess This Workshop
 
-## For the participants
-
+## For the Participants
 Thank you for attending today's workshop! To help us learn about your experience, we would like to ask that you take approximately 10 minutes to fill out a short 10 question survey.  The participant survey The participant survey is available [here](https://forms.gle/g5pouBC3NNuZkfzw7).
 
 ## For the instructors
 
-Thank you for leading today's workshop! While the participants are filling out their questionnaire, we'd like to get your insights while they are still fresh in your mind.  The instructor survey is available [here](https://forms.gle/kRKw8aM3c9VrGu127).
+Thank you for leading today's workshop! While the participants are filling out their questionnaire, we'd like to get your insights while they are still fresh in your mind.  The instructor survey is available [here].
 
 Thank you!

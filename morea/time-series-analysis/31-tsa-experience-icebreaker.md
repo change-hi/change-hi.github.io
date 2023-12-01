@@ -3,7 +3,7 @@ title: "1. Ice Breaker: Climate Fresk"
 published: true
 morea_id: 31-tsa-experience-icebreaker
 morea_type: experience
-morea_summary: "Complete the Climate Fresk challenge with your group."
+morea_summary: "Complete the Climate Fresk Challenge"
 morea_sort_order: 3
 morea_labels:
   - 2:00pm-2:10pm
@@ -12,7 +12,6 @@ morea_labels:
 # 1. Ice Breaker: Climate Fresk
 
 The instructors will introduce Climate Fresk cards that each correspond to a climate change factor/element.
-
  
 ### Task: 
 
@@ -33,8 +32,3 @@ The instructors will introduce Climate Fresk cards that each correspond to a cli
 * Rising Sea Levels
 * Rising Surface Temperatures
 
-
-{% include next-button.html
-top-label="1. What is time series analysis? ->"
-bottom-label="2:10pm-2:40pm"
-url="32-tsa-experience-lab & mini lecture 1" %}
