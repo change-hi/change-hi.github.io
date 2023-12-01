@@ -1,7 +1,7 @@
 ---
 title: "Preparations"
 published: true
-morea_id: 20-tsa-readings
+morea_id: "20-tsa-readings"
 morea_type: readings
 morea_summary: "A few things to complete prior to this workshop"
 morea_sort_order: 1
