@@ -35,6 +35,7 @@ morea_labels:
 
 # Mini Lab #4: Cross-Correlation and Causality
 
+
 {% include next-button.html
 top-label="Assess this workshop ->"
 bottom-label="3:50pm"

@@ -33,20 +33,22 @@ Ensure the installation of the specified R packages by executing the following c
 These packages are essential for the workshop, and having them installed in advance will save time and ensure a seamless learning experience. If there are no error messages, you&#39;re all set!
 
 ### Past HI-DSI Workshop Attendees:
-Please login to KOA with your own accounts and start an R-Studio interactive session: https://koa.its.hawaii.edu/ 
+Please login to KOA with your own accounts and start an R-Studio interactive session: [Click Here](https://koa.its.hawaii.edu/) 
 
 ### Resources:
-* Workshop Presentation: https://docs.google.com/presentation/d/1YLgclYe3Hkf8lIDctmLbreOeoq1R_nHEQ0Me4weTEMg/edit?usp=sharing
+* Workshop Presentation: [Click Here](https://docs.google.com/presentation/d/1YLgclYe3Hkf8lIDctmLbreOeoq1R_nHEQ0Me4weTEMg/edit?usp=sharing)
 
-* Ice Breaker Google Slide: https://docs.google.com/presentation/d/13LXlBwBo1M4IRdF3K1uq5_U_FXInqP216wlHB8ESqcM/edit?usp=sharing
+* Ice Breaker Google Slide: [Click Here](https://docs.google.com/presentation/d/13LXlBwBo1M4IRdF3K1uq5_U_FXInqP216wlHB8ESqcM/edit?usp=sharing)
 
-* Data Set: 
+* Data Set: (Pending)
 
-* Data Wrangling Part I: https://change-hi.github.io/modules/data-wrangling-1/ 
+* R Notebook: (Pending)
 
-* Data Wrangling Part II: https://change-hi.github.io/modules/data-wrangling-2/
+* Data Wrangling Part I: [Click Here](https://change-hi.github.io/modules/data-wrangling-1/) 
 
-* Stationarity Testing (Addtl Info): https://rpubs.com/richkt/269797 
+* Data Wrangling Part II: [Click Here](https://change-hi.github.io/modules/data-wrangling-2/)
+
+* Stationarity Testing (Addtl Info): [Click Here](https://rpubs.com/richkt/269797) 
 
 ### You're All Set!
 
