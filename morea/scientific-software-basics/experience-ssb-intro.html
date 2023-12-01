@@ -1,0 +1,255 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <title> Change-HI/EDU | 2. Introducing the Shell </title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta charset="utf-8">
+
+  <link rel="stylesheet" href="/css/themes/spacelab/bootstrap.min.css">
+  <link rel="stylesheet" href="/css/style.css">
+  <link rel="stylesheet" href="/css/syntax.css">
+  <link rel="shortcut icon" href="/favicon.ico" type="image/x-icon" />
+  <link href="/css/fontawesome/css/fontawesome.css" rel="stylesheet">
+  <link href="/css/fontawesome/css/brands.css" rel="stylesheet">
+  <link href="/css/fontawesome/css/solid.css" rel="stylesheet">
+  <script src="https://cdn.jsdelivr.net/npm/anchor-js/anchor.min.js"></script>
+
+  
+
+  <!-- Load JQuery, then use it to attach the class 'active' to navbar item currently displayed. -->
+  <script src="https://code.jquery.com/jquery-3.6.0.min.js" integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4=" crossorigin="anonymous"></script>
+  <script>
+    $(window).on('load', function () {
+      $('.nav-item').find('a[href="' + location.pathname + '"]').addClass('active');
+    });
+  </script>
+
+</head>
+<body>
+
+<div class="navbar navbar-expand-lg fixed-top navbar-light bg-light">
+  <div class="container">
+    <a class="navbar-brand" href="/index.html"> Change-HI/EDU </a>
+    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarResponsive" aria-controls="navbarResponsive" aria-expanded="false" aria-label="Toggle navigation">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+    <div class="collapse navbar-collapse" id="navbarResponsive">
+      <ul class="navbar-nav">
+        
+        <li class="nav-item"><a class="nav-link" href="/modules/">Modules</a></li>
+        
+        <li class="nav-item"><a class="nav-link" href="/outcomes/">Outcomes</a></li>
+        
+        
+        <li class="nav-item"><a class="nav-link" href="/readings/">Readings</a></li>
+        
+        
+        <li class="nav-item"><a class="nav-link" href="/experiences/">Experiences</a></li>
+        
+        
+        <li class="nav-item"><a class="nav-link" href="/assessments/">Assessments</a></li>
+        
+        
+      </ul>
+    </div>
+  </div>
+</div>
+
+<!-- Internal fragment for displaying the breadcrumb bar -->
+<div class="breadcrumb-background" style="padding-top: 1em; padding-bottom: .01em">
+  <div class="container">
+    <nav aria-label="breadcrumb">
+      <ol class="breadcrumb">
+        
+        <li class="breadcrumb-item"><a href="/">Home</a></li>
+        <li class="breadcrumb-item"><a href="/modules">Modules</a></li>
+        <li class="breadcrumb-item"><a href="/modules/scientific-software-basics">Scientific Software Basics</a></li>
+        <li class="breadcrumb-item active">2. Introducing the Shell</li>
+      </ol>
+    </nav>
+  </div>
+</div>
+
+
+<div class="container">
+  <h1 id="2-introducing-the-shell">2. Introducing the Shell</h1>
+
+<div class="alert alert-success mt-3" role="alert">
+  <p><i class="fa-solid fa-globe fa-xl"></i> <strong>Overview</strong></p>
+  <hr />
+
+  <p><strong>Key Points</strong></p>
+  <ul>
+    <li>A shell is a program whose primary purpose is to read commands and run other programs.</li>
+    <li>This lesson uses Bash, the default shell in many implementations of Unix.</li>
+    <li>Programs can be run in Bash by entering commands at the command-line prompt.</li>
+    <li>The shell’s main advantages are its high action-to-keystroke ratio, its support for automating repetitive tasks, and its capacity to access networked machines.</li>
+    <li>The shell’s main disadvantages are its primarily textual nature and how cryptic its commands and operation can be.</li>
+  </ul>
+
+  <p><strong>Objectives</strong></p>
+  <ul>
+    <li>Explain how the shell relates to the keyboard, the screen, the operating system, and users’ programs.</li>
+    <li>Explain when and why command-line interfaces should be used instead of graphical interfaces.</li>
+  </ul>
+</div>
+
+<h2 id="what-is-the-shell">What is the Shell?</h2>
+
+<p>Humans interact with computers in various ways, including keyboards, mice, touch screens, and speech recognition. The most common method for personal computers is the <strong>graphical user interface</strong> (GUI), where instructions involve clicking a mouse and using menu-driven interactions.</p>
+
+<p>While GUIs are user-friendly, this way of delivering instructions to a computer scales very poorly. Imagine copying the third line from a thousand text files in various directories for a literature search. With a GUI, this would mean hours of repetitive clicking and potential errors. Here’s where the Unix shell comes in. It’s a <strong>command-line interface</strong> (CLI) and scripting language, creating repetitive tasks to be done automatically and fast. With the proper commands, the shell can repeat tasks easily, making the literature task a matter of seconds.</p>
+
+<h2 id="the-shell">The Shell</h2>
+
+<p>The shell is a program where users can type and execute commands, from complex tasks like running climate modeling software to simple ones like creating directories with one command. 
+The leading Unix shell, Bash (Bourne Again SHell), is the default on modern Unix systems and many Windows packages with Unix-like tools.</p>
+
+<p>Learning the shell requires time and effort. While a GUI presents you with choices to select, CLI choices are not automatically presented to you, similar to learning new vocabulary. However, a small number of “words” (i.e. commands) can get you a long way which we will learn today.</p>
+
+<p>The grammar of a shell allows you to combine existing tools into powerful
+pipelines and handle large volumes of data automatically. Sequences of
+commands can be written into a <em>script</em>, improving the reproducibility of
+workflows.</p>
+
+<p>The command line is the easiest way to interact with remote and supercomputers. Shell proficiency is essential for various specialized tools, including high-performance computing. As clusters and cloud systems rise in scientific data analysis, being able to interact with the shell becomes a necessary skill. These skills enable us to tackle diverse scientific and computational challenges.</p>
+
+<p>Let’s get started.</p>
+
+<p>When the shell is first opened, you are presented with a <strong>prompt</strong>,
+indicating that the shell is waiting for input.</p>
+
+<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="err">$</span>
+</code></pre></div></div>
+
+<p>The shell prompt is often <code class="language-plaintext highlighter-rouge">$</code>, but it may use a different symbol. In our examples, we’ll use <code class="language-plaintext highlighter-rouge">$</code>. When entering commands, <em>do not type the prompt</em> and only type the commands that follow it. Remember to press <kbd>Enter</kbd> after typing a command to execute it.</p>
+
+<p>The prompt is followed by a <strong>text cursor</strong> that shows the position where your typing will appear. It often looks like a flashing block, but it can also be an underscore or pipe.</p>
+
+<p>So let’s try our first command, <code class="language-plaintext highlighter-rouge">ls</code> which is short for listing.
+This command will list the contents of the current directory:</p>
+
+<div class="alert alert-secondary" role="alert">
+
+  <p>Input:</p>
+
+  <div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nv">$ </span><span class="nb">ls</span>
+</code></pre></div>  </div>
+
+  <p>Output:</p>
+
+  <div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code>Desktop     Downloads   Movies      Pictures
+Documents   Library     Music       Public
+</code></pre></div>  </div>
+</div>
+
+<div class="alert alert-info" role="alert">
+  <p><i class="fa-solid fa-circle-info fa-xl"></i> <strong>Note: Command Not Found</strong></p>
+  <hr />
+
+  <p>If the shell can’t find a program whose name is the command you typed, it
+will print an error message such as:</p>
+
+  <div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nv">$ </span>ks
+</code></pre></div>  </div>
+  <div class="language-plaintext output highlighter-rouge"><div class="highlight"><pre class="highlight"><code>ks: command not found
+</code></pre></div>  </div>
+
+  <p>This might happen if the command was mis-typed or if the program corresponding to that command
+is not installed.</p>
+</div>
+
+<h3 id="nelles-pipeline-a-typical-problem">Nelle’s Pipeline: A Typical Problem</h3>
+
+<p>Nelle Nemo, a marine biologist,
+has just returned from a six-month survey of the
+<a href="http://en.wikipedia.org/wiki/North_Pacific_Gyre">North Pacific Gyre</a>,
+where she has been sampling gelatinous marine life in the
+<a href="http://en.wikipedia.org/wiki/Great_Pacific_Garbage_Patch">Great Pacific Garbage Patch</a>.
+She has 1520 samples that she’s run through an assay machine to measure the relative abundance
+of 300 proteins.
+She needs to run these 1520 files through an imaginary program called <code class="language-plaintext highlighter-rouge">goostats.sh</code> she inherited.
+On top of this huge task, she has to write up results by the end of the month so her paper
+can appear in a special issue of <em>Aquatic Goo Letters</em>.</p>
+
+<p>The downside is that if she has to run <code class="language-plaintext highlighter-rouge">goostats.sh</code> manually using a GUI, it means she is opening and selecting a file 1520 times. If <code class="language-plaintext highlighter-rouge">goostats.sh</code> takes 30 seconds to run each file, the whole process will take over 12 hours of Nelle’s time. Using the shell, she can delegate this task to her computer while she works on her paper.</p>
+
+<p>The next few lessons will show how Nelle can achieve this. They explain how she can use a command shell to run ‘goostats.sh’ with loops, automating repetitive steps of entering file names, and allowing her computer to work as she writes her paper.</p>
+
+<p>As a bonus,
+once she has put a processing pipeline together,
+she will be able to use it again whenever she collects more data.</p>
+
+<p>In order to achieve her task, Nelle needs to know how to:</p>
+<ul>
+  <li>navigate to a file/directory</li>
+  <li>create a file/directory</li>
+  <li>check the length of a file</li>
+  <li>chain commands together</li>
+  <li>retrieve a set of files</li>
+  <li>iterate over files</li>
+  <li>run a shell script containing her pipeline</li>
+</ul>
+
+<div style="text-align: right; padding-bottom: 10px">
+  <hr />
+  <button type="button" onclick="window.location='/morea/scientific-software-basics/experience-ssb-filedir.html'" class="btn btn-primary">
+    <p style="font-size:16px; margin: 0">Navigating Files and Directories -&gt;</p>
+    <p style="font-size:12px; margin: 0">2:20pm</p>
+    </button>
+</div>
+
+
+</div>
+
+
+
+
+<!-- Maybe find a different way?
+<script src="/js/scrollIfAnchor.js"></script>
+-->
+
+<footer class="footer footer-background" style="padding-top: 1em; padding-bottom: 1em">
+  <div class="container text-center">
+    
+    
+
+    
+    <p style="margin: 0">Powered by the <a class="footer-link" href="https://morea-framework.github.io/">Morea Framework</a> (Theme: spacelab)<br>
+      Last update on: <span>2023-12-01 13:58:35 -1000</span></p>
+
+    <p style="margin: 0">
+      
+      18 modules
+      
+      | 17 outcomes
+      
+      
+      | 55 readings
+      
+      
+      | 100 experiences
+      
+      
+      | 15 assessments
+      
+    </p>
+  </div>
+</footer>
+
+
+<!-- Load Bootstrap JavaScript components -->
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM" crossorigin="anonymous"></script>
+
+
+<script type="text/javascript" async
+        src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.7/latest.js?config=TeX-MML-AM_CHTML">
+</script>
+
+
+<!-- Add anchors to pages. -->
+<script>anchors.add();</script>
+
+
+</body>
+</html>

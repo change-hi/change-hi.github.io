@@ -1,0 +1,1178 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <title> Change-HI/EDU | 4. Working With Files and Directories </title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta charset="utf-8">
+
+  <link rel="stylesheet" href="/css/themes/spacelab/bootstrap.min.css">
+  <link rel="stylesheet" href="/css/style.css">
+  <link rel="stylesheet" href="/css/syntax.css">
+  <link rel="shortcut icon" href="/favicon.ico" type="image/x-icon" />
+  <link href="/css/fontawesome/css/fontawesome.css" rel="stylesheet">
+  <link href="/css/fontawesome/css/brands.css" rel="stylesheet">
+  <link href="/css/fontawesome/css/solid.css" rel="stylesheet">
+  <script src="https://cdn.jsdelivr.net/npm/anchor-js/anchor.min.js"></script>
+
+  
+
+  <!-- Load JQuery, then use it to attach the class 'active' to navbar item currently displayed. -->
+  <script src="https://code.jquery.com/jquery-3.6.0.min.js" integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4=" crossorigin="anonymous"></script>
+  <script>
+    $(window).on('load', function () {
+      $('.nav-item').find('a[href="' + location.pathname + '"]').addClass('active');
+    });
+  </script>
+
+</head>
+<body>
+
+<div class="navbar navbar-expand-lg fixed-top navbar-light bg-light">
+  <div class="container">
+    <a class="navbar-brand" href="/index.html"> Change-HI/EDU </a>
+    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarResponsive" aria-controls="navbarResponsive" aria-expanded="false" aria-label="Toggle navigation">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+    <div class="collapse navbar-collapse" id="navbarResponsive">
+      <ul class="navbar-nav">
+        
+        <li class="nav-item"><a class="nav-link" href="/modules/">Modules</a></li>
+        
+        <li class="nav-item"><a class="nav-link" href="/outcomes/">Outcomes</a></li>
+        
+        
+        <li class="nav-item"><a class="nav-link" href="/readings/">Readings</a></li>
+        
+        
+        <li class="nav-item"><a class="nav-link" href="/experiences/">Experiences</a></li>
+        
+        
+        <li class="nav-item"><a class="nav-link" href="/assessments/">Assessments</a></li>
+        
+        
+      </ul>
+    </div>
+  </div>
+</div>
+
+<!-- Internal fragment for displaying the breadcrumb bar -->
+<div class="breadcrumb-background" style="padding-top: 1em; padding-bottom: .01em">
+  <div class="container">
+    <nav aria-label="breadcrumb">
+      <ol class="breadcrumb">
+        
+        <li class="breadcrumb-item"><a href="/">Home</a></li>
+        <li class="breadcrumb-item"><a href="/modules">Modules</a></li>
+        <li class="breadcrumb-item"><a href="/modules/scientific-software-basics">Scientific Software Basics</a></li>
+        <li class="breadcrumb-item active">4. Working With Files and Directories</li>
+      </ol>
+    </nav>
+  </div>
+</div>
+
+
+<div class="container">
+  <h1 id="4-working-with-files-and-directories">4. Working With Files and Directories</h1>
+
+<div class="alert alert-success mt-3" role="alert">
+  <p><i class="fa-solid fa-globe fa-xl"></i> <strong>Overview</strong></p>
+  <hr />
+
+  <p><strong>Questions</strong></p>
+  <ul>
+    <li>How can I create, copy, and delete files and directories?</li>
+    <li>How can I edit files?</li>
+  </ul>
+
+  <p><strong>Objectives</strong></p>
+  <ul>
+    <li>Create a directory hierarchy that matches a given diagram.</li>
+    <li>Create files in that hierarchy using an editor or by copying and renaming existing files.</li>
+    <li>Delete, copy and move specified files and/or directories.</li>
+  </ul>
+
+  <p><strong>Keypoints</strong></p>
+  <ul>
+    <li><code class="language-plaintext highlighter-rouge">cp old new</code> copies a file.</li>
+    <li><code class="language-plaintext highlighter-rouge">mkdir path</code> creates a new directory.</li>
+    <li><code class="language-plaintext highlighter-rouge">mv old new</code> moves (renames) a file or directory.</li>
+    <li><code class="language-plaintext highlighter-rouge">rm path</code> removes (deletes) a file.</li>
+    <li><code class="language-plaintext highlighter-rouge">-</code> matches zero or more characters in a filename, so <code class="language-plaintext highlighter-rouge">-.txt</code> matches all files ending in <code class="language-plaintext highlighter-rouge">.txt</code>.</li>
+    <li>Use of the Control key may be described in many ways, including <code class="language-plaintext highlighter-rouge">Ctrl-X</code>, <code class="language-plaintext highlighter-rouge">Control-X</code>, and <code class="language-plaintext highlighter-rouge">^X</code>.</li>
+    <li>The shell does not have a trash bin: once something is deleted, it’s really gone.</li>
+    <li>Most files’ names are <code class="language-plaintext highlighter-rouge">something.extension</code>. The extension isn’t required, and doesn’t guarantee anything, but is normally used to indicate the type of data in the file.</li>
+    <li>Depending on the type of work you do, you may need a more powerful text editor than Nano.</li>
+  </ul>
+
+</div>
+
+<h2 id="creating-directories">Creating directories</h2>
+<p>We now know how to explore files and directories,
+but how do we create them in the first place?</p>
+
+<h3 id="step-one-see-where-we-are-and-what-we-already-have">Step one: see where we are and what we already have</h3>
+<p>Let’s go back to our <code class="language-plaintext highlighter-rouge">data-shell</code> directory on the Desktop
+and use <code class="language-plaintext highlighter-rouge">ls -F</code> to see what it contains:</p>
+
+<div class="alert alert-secondary" role="alert">
+
+  <p>Input:</p>
+
+  <div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nv">$ </span><span class="nb">pwd</span>
+</code></pre></div>  </div>
+
+  <p>Output:</p>
+
+  <div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code>/Users/nelle/Desktop/data-shell
+</code></pre></div>  </div>
+</div>
+
+<div class="alert alert-secondary" role="alert">
+
+  <p>Input:</p>
+
+  <div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nv">$ </span><span class="nb">ls</span> <span class="nt">-F</span>
+</code></pre></div>  </div>
+
+  <p>Output:</p>
+
+  <div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code>creatures/  data/  molecules/  north-pacific-gyre/  notes.txt  pizza.cfg  solar.pdf  writing/
+</code></pre></div>  </div>
+</div>
+
+<h3 id="create-a-directory">Create a directory</h3>
+
+<p>Let’s create a new directory called <code class="language-plaintext highlighter-rouge">thesis</code> using the command <code class="language-plaintext highlighter-rouge">mkdir thesis</code>
+(which has no output):</p>
+
+<div class="alert alert-secondary" role="alert">
+
+  <p>Input:</p>
+
+  <div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nv">$ </span><span class="nb">mkdir </span>thesis
+</code></pre></div>  </div>
+
+</div>
+
+<p>As you might guess from its name,
+<code class="language-plaintext highlighter-rouge">mkdir</code> means “make directory”.
+Since <code class="language-plaintext highlighter-rouge">thesis</code> is a relative path
+(i.e., does not have a leading slash, like <code class="language-plaintext highlighter-rouge">/what/ever/thesis</code>),
+the new directory is created in the current working directory:</p>
+
+<div class="alert alert-secondary" role="alert">
+
+  <p>Input:</p>
+
+  <div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nv">$ </span><span class="nb">ls</span> <span class="nt">-F</span>
+</code></pre></div>  </div>
+  <p>Output:</p>
+
+  <div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code>creatures/  data/  molecules/  north-pacific-gyre/  notes.txt  pizza.cfg  solar.pdf  thesis/  writing/
+</code></pre></div>  </div>
+</div>
+
+<div class="alert alert-info" role="alert">
+  <p><i class="fa-solid fa-circle-info fa-xl"></i> <strong>Note: Two ways of doing the same thing</strong></p>
+  <hr />
+
+  <p>Using the shell to create a directory is no different than using a file explorer. If you open the current directory using your operating system’s graphical file explorer, the <code class="language-plaintext highlighter-rouge">thesis</code> directory will appear there too. While the shell and the file explorer are two different ways of interacting with the files, the files and directories themselves are the same.</p>
+</div>
+
+<div class="alert alert-info" role="alert">
+  <p><i class="fa-solid fa-circle-info fa-xl"></i> <strong>Note: Good names for files and directories</strong></p>
+  <hr />
+
+  <p>Complicated names of files and directories can make your life painful when working on the command line. Here we provide a few useful tips for the names of your files.</p>
+
+  <ol>
+    <li>
+      <p>Don’t use spaces.</p>
+
+      <p>Spaces can make a name more meaningful, but since spaces are used to separate arguments on the command line it is better to avoid them in names of files and directories. You can use - or _ instead (e.g. north-pacific-gyre/ rather than north pacific gyre/).</p>
+    </li>
+    <li>
+      <p>Don’t begin the name with - (dash).</p>
+
+      <p>Commands treat names starting with - as options.</p>
+    </li>
+    <li>
+      <p>Stick with letters, numbers, . (period or ‘full stop’), - (dash) and _ (underscore).</p>
+
+      <p>Many other characters have special meanings on the command line. We will learn about some of these during this lesson. There are special characters that can cause your command to not work as expected and can even result in data loss.</p>
+    </li>
+  </ol>
+
+  <p>If you need to refer to names of files or directories that have spaces or other special characters, you should surround the name in quotes (“”).</p>
+</div>
+
+<p>Since we’ve just created the <code class="language-plaintext highlighter-rouge">thesis</code> directory, there’s nothing in it yet:</p>
+
+<div class="alert alert-secondary" role="alert">
+
+  <p>Input:</p>
+
+  <div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nv">$ </span><span class="nb">ls</span> <span class="nt">-F</span> thesis
+</code></pre></div>  </div>
+</div>
+
+<h3 id="create-a-text-file">Create a text file</h3>
+
+<p>Let’s change our working directory to <code class="language-plaintext highlighter-rouge">thesis</code> using <code class="language-plaintext highlighter-rouge">cd</code>,
+then run a text editor called Nano to create a file called <code class="language-plaintext highlighter-rouge">draft.txt</code>.</p>
+
+<p>On  a Koa compute node do this first:</p>
+
+<div class="alert alert-secondary" role="alert">
+
+  <p>Input:</p>
+
+  <div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nv">$ </span>module load tools/nano
+</code></pre></div>  </div>
+</div>
+
+<p>(The login nodes have the editors, nano, vim and emacs so one can skip the module load above.)</p>
+
+<div class="alert alert-secondary" role="alert">
+
+  <p>Input:</p>
+
+  <div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nv">$ </span><span class="nb">cd </span>thesis
+<span class="nv">$ </span>nano draft.txt
+</code></pre></div>  </div>
+</div>
+
+<div class="alert alert-info" role="alert">
+  <p><i class="fa-solid fa-circle-info fa-xl"></i> <strong>Note: Which Editor?</strong></p>
+  <hr />
+
+  <p>When we say, “<code class="language-plaintext highlighter-rouge">nano</code> is a text editor,” we really do mean “text”: it can
+ only work with plain character data, not tables, images, or any other
+ human-friendly media. We use it in examples because it is one of the
+ least complex text editors. However, because of this trait, it may
+ not be powerful enough or flexible enough for the work you need to do
+ after this workshop. On Unix systems (such as Linux and Mac OS X),
+ many programmers use <a href="http://www.gnu.org/software/emacs/">Emacs</a> or
+ <a href="http://www.vim.org/">Vim</a> (both of which require more time to learn),
+ or a graphical editor such as
+ <a href="http://projects.gnome.org/gedit/">Gedit</a>. On Windows, you may wish to
+ use <a href="http://notepad-plus-plus.org/">Notepad++</a>.  Windows also has a built-in
+ editor called <code class="language-plaintext highlighter-rouge">notepad</code> that can be run from the command line in the same
+ way as <code class="language-plaintext highlighter-rouge">nano</code> for the purposes of this lesson.</p>
+
+  <p>No matter what editor you use, you will need to know where it searches
+ for and saves files. If you start it from the shell, it will (probably)
+ use your current working directory as its default location. If you use
+ your computer’s start menu, it may want to save files in your desktop or
+ documents directory instead. You can change this by navigating to
+ another directory the first time you “Save As…”</p>
+</div>
+
+<p>Let’s type in a few lines of text.</p>
+
+<p>Once we’re happy with our text, we can press <kbd>Ctrl</kbd>+<kbd>O</kbd> (press the Ctrl or Control key and, while
+holding it down, press the O key) to write our data to disk
+(we’ll be asked what file we want to save this to:
+press <kbd>Return</kbd> to accept the suggested default of <code class="language-plaintext highlighter-rouge">draft.txt</code>).</p>
+
+<figure>
+  
+    <img src="/morea/scientific-software-basics/fig/nano_screenshot_new.png" style="max-width: 100%;" alt="/Node%20anatomy" class="img-fluid mx-auto d-block border" />
+  
+  <figcaption style="text-align: center">
+    <small>
+      
+    </small>
+  </figcaption>
+</figure>
+
+<p>Once our file is saved, we can use <code class="language-plaintext highlighter-rouge">Ctrl-X</code> to quit the editor and
+return to the shell.</p>
+
+<div class="alert alert-info" role="alert">
+  <p><i class="fa-solid fa-circle-info fa-xl"></i> <strong>Note: Control, Ctrl, or ^ Key</strong></p>
+  <hr />
+
+  <p>The Control key is also called the “Ctrl” key. There are various ways
+ in which using the Control key may be described. For example, you may
+ see an instruction to press the Control key and, while holding it down,
+ press the X key, described as any of:</p>
+
+  <ul>
+    <li><code class="language-plaintext highlighter-rouge">Control-X</code></li>
+    <li><code class="language-plaintext highlighter-rouge">Control+X</code></li>
+    <li><code class="language-plaintext highlighter-rouge">Ctrl-X</code></li>
+    <li><code class="language-plaintext highlighter-rouge">Ctrl+X</code></li>
+    <li><code class="language-plaintext highlighter-rouge">^X</code></li>
+    <li><code class="language-plaintext highlighter-rouge">C-x</code></li>
+  </ul>
+
+  <p>In nano, along the bottom of the screen you’ll see <code class="language-plaintext highlighter-rouge">^G Get Help ^O WriteOut</code>.
+ This means that you can use <code class="language-plaintext highlighter-rouge">Control-G</code> to get help and <code class="language-plaintext highlighter-rouge">Control-O</code> to save your
+ file.</p>
+</div>
+
+<p><code class="language-plaintext highlighter-rouge">nano</code> doesn’t leave any output on the screen after it exits,
+but <code class="language-plaintext highlighter-rouge">ls</code> now shows that we have created a file called <code class="language-plaintext highlighter-rouge">draft.txt</code>:</p>
+
+<div class="alert alert-secondary" role="alert">
+
+  <p>Input:</p>
+
+  <div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nv">$ </span><span class="nb">ls</span>
+</code></pre></div>  </div>
+
+  <p>Output:</p>
+
+  <div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code>draft.txt
+</code></pre></div>  </div>
+</div>
+
+<h2 id="creating-files-a-different-way">Creating Files a Different Way</h2>
+
+<p>We have seen how to create text files using the <code class="language-plaintext highlighter-rouge">nano</code> editor.</p>
+
+<p>Now, try the following command:</p>
+
+<div class="alert alert-secondary" role="alert">
+  <p><i class="fa-solid fa-user-pen fa-xl"></i>  <strong>Exercise: Try touch</strong></p>
+  <hr />
+
+  <p>Input:</p>
+
+  <div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nv">$ </span><span class="nb">touch </span>my_file.txt
+</code></pre></div>  </div>
+
+  <ol>
+    <li>
+      <p>What did the <code class="language-plaintext highlighter-rouge">touch</code> command do?
+When you look at your current directory using the GUI file explorer,
+does the file show up?</p>
+    </li>
+    <li>
+      <p>Use <code class="language-plaintext highlighter-rouge">ls -l</code> to inspect the files.  How large is <code class="language-plaintext highlighter-rouge">my_file.txt</code>?</p>
+    </li>
+    <li>
+      <p>When might you want to create a file this way?</p>
+    </li>
+  </ol>
+
+  <details>
+    <summary>Solution</summary>
+    <ol>
+      <li>
+        <p>The <code class="language-plaintext highlighter-rouge">touch</code> command generates a new file called <code class="language-plaintext highlighter-rouge">my_file.txt</code> in
+your current directory.  You
+can observe this newly generated file by typing <code class="language-plaintext highlighter-rouge">ls</code> at the
+command line prompt.  <code class="language-plaintext highlighter-rouge">my_file.txt</code> can also be viewed in your
+GUI file explorer.</p>
+      </li>
+      <li>
+        <p>When you inspect the file with <code class="language-plaintext highlighter-rouge">ls -l</code>, note that the size of
+<code class="language-plaintext highlighter-rouge">my_file.txt</code> is 0 bytes.  In other words, it contains no data.
+If you open <code class="language-plaintext highlighter-rouge">my_file.txt</code> using your text editor it is blank.</p>
+      </li>
+      <li>
+        <p>Some programs do not generate output files themselves, but
+instead require that empty files have already been generated.
+When the program is run, it searches for an existing file to
+populate with its output.  The touch command allows you to
+efficiently generate a blank text file to be used by such
+programs.</p>
+      </li>
+    </ol>
+  </details>
+</div>
+
+<h2 id="moving-files-and-directories">Moving files and directories</h2>
+<p>Returning to the <code class="language-plaintext highlighter-rouge">data-shell</code> directory,</p>
+
+<div class="alert alert-secondary" role="alert">
+
+  <p>Input:</p>
+
+  <div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nv">$ </span><span class="nb">cd</span> ~/Desktop/data-shell/
+</code></pre></div>  </div>
+</div>
+
+<p>In our <code class="language-plaintext highlighter-rouge">thesis</code> directory we have a file <code class="language-plaintext highlighter-rouge">draft.txt</code>
+which isn’t a particularly informative name,
+so let’s change the file’s name using <code class="language-plaintext highlighter-rouge">mv</code>,
+which is short for “move”:</p>
+
+<div class="alert alert-secondary" role="alert">
+
+  <p>Input:</p>
+
+  <div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nv">$ </span><span class="nb">mv </span>thesis/draft.txt thesis/quotes.txt
+</code></pre></div>  </div>
+</div>
+
+<p>The first argument tells <code class="language-plaintext highlighter-rouge">mv</code> what we’re “moving”,
+while the second is where it’s to go.
+In this case,
+we’re moving <code class="language-plaintext highlighter-rouge">thesis/draft.txt</code> to <code class="language-plaintext highlighter-rouge">thesis/quotes.txt</code>,
+which has the same effect as renaming the file.
+Sure enough,
+<code class="language-plaintext highlighter-rouge">ls</code> shows us that <code class="language-plaintext highlighter-rouge">thesis</code> now contains one file called <code class="language-plaintext highlighter-rouge">quotes.txt</code>:</p>
+
+<div class="alert alert-secondary" role="alert">
+
+  <p>Input:</p>
+
+  <div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nv">$ </span><span class="nb">ls </span>thesis
+</code></pre></div>  </div>
+  <p>Output:</p>
+
+  <div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code>quotes.txt
+</code></pre></div>  </div>
+</div>
+
+<p>One has to be careful when specifying the target file name, since <code class="language-plaintext highlighter-rouge">mv</code> will
+silently overwrite any existing file with the same name, which could
+lead to data loss. An additional option, <code class="language-plaintext highlighter-rouge">mv -i</code> (or <code class="language-plaintext highlighter-rouge">mv --interactive</code>),
+can be used to make <code class="language-plaintext highlighter-rouge">mv</code> ask you for confirmation before overwriting.</p>
+
+<p>Note that <code class="language-plaintext highlighter-rouge">mv</code> also works on directories.</p>
+
+<p>Let’s move <code class="language-plaintext highlighter-rouge">quotes.txt</code> into the current working directory.
+We use <code class="language-plaintext highlighter-rouge">mv</code> once again,
+but this time we’ll just use the name of a directory as the second argument
+to tell <code class="language-plaintext highlighter-rouge">mv</code> that we want to keep the filename,
+but put the file somewhere new.
+(This is why the command is called “move”.)
+In this case,
+the directory name we use is the special directory name <code class="language-plaintext highlighter-rouge">.</code> that we mentioned earlier.</p>
+
+<div class="alert alert-secondary" role="alert">
+
+  <p>Input:</p>
+
+  <div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nv">$ </span><span class="nb">mv </span>thesis/quotes.txt <span class="nb">.</span>
+</code></pre></div>  </div>
+</div>
+
+<p>The effect is to move the file from the directory it was in to the current working directory.
+<code class="language-plaintext highlighter-rouge">ls</code> now shows us that <code class="language-plaintext highlighter-rouge">thesis</code> is empty:</p>
+
+<div class="alert alert-secondary" role="alert">
+
+  <p>Input:</p>
+
+  <div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nv">$ </span><span class="nb">ls </span>thesis
+</code></pre></div>  </div>
+</div>
+
+<p>Further,
+<code class="language-plaintext highlighter-rouge">ls</code> with a filename or directory name as an argument only lists that file or directory.
+We can use this to see that <code class="language-plaintext highlighter-rouge">quotes.txt</code> is still in our current directory:</p>
+
+<div class="alert alert-secondary" role="alert">
+
+  <p>Input:</p>
+
+  <div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nv">$ </span><span class="nb">ls </span>quotes.txt
+</code></pre></div>  </div>
+  <p>Output:</p>
+
+  <div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code>quotes.txt
+</code></pre></div>  </div>
+</div>
+
+<h2 id="moving-to-the-current-folder">Moving to the Current Folder</h2>
+
+<div class="alert alert-secondary" role="alert">
+  <p><i class="fa-solid fa-user-pen fa-xl"></i> <strong>Exercise: Moving multiple files</strong></p>
+  <hr />
+
+  <p>After running the following commands,
+ Jamie realizes that she put the files <code class="language-plaintext highlighter-rouge">sucrose.dat</code> and <code class="language-plaintext highlighter-rouge">maltose.dat</code> into the wrong folder:</p>
+
+  <div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nv">$ </span><span class="nb">ls</span> <span class="nt">-F</span>
+  analyzed/ raw/
+<span class="nv">$ </span><span class="nb">ls</span> <span class="nt">-F</span> analyzed
+ fructose.dat glucose.dat maltose.dat sucrose.dat
+<span class="nv">$ </span><span class="nb">cd </span>raw/
+</code></pre></div>  </div>
+
+  <p>Fill in the blanks to move these files to the current folder
+(i.e., the one she is currently in):</p>
+
+  <p>Input:</p>
+
+  <div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code> <span class="nv">$ $ </span><span class="nb">mv </span>___/sucrose.dat  ___/maltose.dat ___
+</code></pre></div>  </div>
+
+  <details>
+    <summary>Solution</summary>
+
+    <div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>$ mv ../analyzed/sucrose.dat ../analyzed/maltose.dat .
+</code></pre></div>    </div>
+  </details>
+</div>
+
+<p>Recall that <code class="language-plaintext highlighter-rouge">..</code> refers to the parent directory (i.e. one above the current directory) and that <code class="language-plaintext highlighter-rouge">.</code> refers to the current directory.</p>
+
+<h2 id="copying-files-and-directories">Copying files and directories</h2>
+
+<p>The <code class="language-plaintext highlighter-rouge">cp</code> command works very much like <code class="language-plaintext highlighter-rouge">mv</code>,
+except it copies a file instead of moving it.
+We can check that it did the right thing using <code class="language-plaintext highlighter-rouge">ls</code>
+with two paths as arguments — like most Unix commands,
+<code class="language-plaintext highlighter-rouge">ls</code> can be given multiple paths at once:</p>
+
+<div class="alert alert-secondary" role="alert">
+
+  <p>Input:</p>
+
+  <div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nv">$ </span><span class="nb">cp </span>quotes.txt thesis/quotations.txt
+<span class="nv">$ </span><span class="nb">ls </span>quotes.txt thesis/quotations.txt
+</code></pre></div>  </div>
+
+  <p>Output:</p>
+
+  <div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code>quotes.txt   thesis/quotations.txt
+</code></pre></div>  </div>
+</div>
+
+<p>We can also copy a directory and all its contents by using the
+<a href="https://en.wikipedia.org/wiki/Recursion">recursive</a> option <code class="language-plaintext highlighter-rouge">-r</code>,
+e.g. to back up a directory:</p>
+
+<div class="alert alert-secondary" role="alert">
+
+  <p>Input:</p>
+
+  <div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nv">$ </span><span class="nb">cp</span> <span class="nt">-r</span> thesis thesis_backup
+</code></pre></div>  </div>
+
+</div>
+
+<p>We can check the result by listing the contents of both the <code class="language-plaintext highlighter-rouge">thesis</code> and <code class="language-plaintext highlighter-rouge">thesis_backup</code> directory:</p>
+
+<div class="alert alert-secondary" role="alert">
+
+  <p>Input:</p>
+
+  <div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nv">$ </span><span class="nb">ls </span>thesis thesis_backup
+</code></pre></div>  </div>
+  <p>Output:</p>
+
+  <div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code>thesis:
+quotations.txt
+
+thesis_backup:
+quotations.txt
+</code></pre></div>  </div>
+</div>
+
+<div class="alert alert-secondary" role="alert">
+  <p><i class="fa-solid fa-circle-info fa-xl"></i> <strong>Exercise: Renaming Files</strong></p>
+  <hr />
+
+  <p>Suppose that you created a plain-text file in your current directory to contain a list of the
+ statistical tests you will need to do to analyze your data, and named it: <code class="language-plaintext highlighter-rouge">statstics.txt</code></p>
+
+  <p>After creating and saving this file you realize you misspelled the filename! You want to
+ correct the mistake, which of the following commands could you use to do so?</p>
+
+  <ol>
+    <li><code class="language-plaintext highlighter-rouge">cp statstics.txt statistics.txt</code></li>
+    <li><code class="language-plaintext highlighter-rouge">mv statstics.txt statistics.txt</code></li>
+    <li><code class="language-plaintext highlighter-rouge">mv statstics.txt .</code></li>
+    <li><code class="language-plaintext highlighter-rouge">cp statstics.txt .</code></li>
+  </ol>
+
+  <details>
+    <summary>Solution</summary>
+    <ol>
+      <li>No.  While this would create a file with the correct name, the incorrectly named file still exists in the directory
+    and would need to be deleted.</li>
+      <li>Yes, this would work to rename the file.</li>
+      <li>No, the period(.) indicates where to move the file, but does not provide a new file name; identical file names
+    cannot be created.</li>
+      <li>No, the period(.) indicates where to copy the file, but does not provide a new file name; identical file names
+    cannot be created.</li>
+    </ol>
+  </details>
+</div>
+
+<h2 id="moving-and-copying">Moving and Copying</h2>
+
+<div class="alert alert-secondary" role="alert">
+  <p><i class="fa-solid fa-user-pen fa-xl"></i> <strong>Exercise: Understanding movement</strong></p>
+  <hr />
+
+  <p>Let’s start by assuming the following directory structure situation:</p>
+
+  <p>Input:</p>
+
+  <div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code> <span class="nv">$ </span><span class="nb">pwd</span>
+</code></pre></div>  </div>
+
+  <p>Output:</p>
+
+  <div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code> /Users/jamie/data
+</code></pre></div>  </div>
+
+  <p>Input:</p>
+
+  <div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code> <span class="nv">$ </span><span class="nb">ls</span>
+</code></pre></div>  </div>
+
+  <p>Output:</p>
+
+  <div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code> proteins.dat
+</code></pre></div>  </div>
+
+  <p>Now assume you run the following commands:</p>
+
+  <div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nv">$ </span><span class="nb">mkdir </span>recombine
+<span class="nv">$ </span><span class="nb">mv </span>proteins.dat recombine/
+<span class="nv">$ </span><span class="nb">cp </span>recombine/proteins.dat ../proteins-saved.dat
+</code></pre></div>  </div>
+
+  <p>Which one of the following would be the output of running the ‘ls’ command?</p>
+
+  <ol>
+    <li><code class="language-plaintext highlighter-rouge">proteins-saved.dat recombine</code></li>
+    <li><code class="language-plaintext highlighter-rouge">recombine</code></li>
+    <li><code class="language-plaintext highlighter-rouge">proteins.dat recombine</code></li>
+    <li><code class="language-plaintext highlighter-rouge">proteins-saved.dat</code></li>
+  </ol>
+
+  <details>
+    <summary>Solution</summary>
+
+    <p>Let’s first recap what the commands did.</p>
+
+    <p>First we start in the ‘/Users/jamie/data’ directory, and create a new folder called ‘recombine’.</p>
+
+    <p>The second command moves (‘mv’) the file ‘proteins.dat’ to the new folder (‘recombine’).</p>
+
+    <p>The third command makes a copy of the file we just moved.  The tricky part here is where the file was copied to.  Recall that ‘..’ means “go up a level”, so the copied file is now in ‘/Users/jamie’.</p>
+
+    <p>Notice that ‘..’ is interpreted with respect to the current working
+  directory, <strong>not</strong> with respect to the location of the file being copied.
+  So, the only thing that will show using ls (in ‘/Users/jamie/data’) is the recombine folder.</p>
+
+    <p>So, here’s the answer:</p>
+
+    <ol>
+      <li>No, see explanation above.  ‘proteins-saved.dat’ is located at ‘/Users/jamie’.</li>
+      <li>Yes.</li>
+      <li>No, see explanation above.  ‘proteins.dat’ is located at ‘/Users/jamie/data/recombine’</li>
+      <li>No, see explanation above.  ‘proteins-saved.dat’ is located at ‘/Users/jamie’</li>
+    </ol>
+
+  </details>
+</div>
+
+<h2 id="removing-files-and-directories">Removing files and directories</h2>
+
+<p>Returning to the <code class="language-plaintext highlighter-rouge">data-shell</code> directory,
+let’s tidy up this directory by removing the <code class="language-plaintext highlighter-rouge">quotes.txt</code> file we created.
+The Unix command we’ll use for this is <code class="language-plaintext highlighter-rouge">rm</code> (short for ‘remove’):</p>
+
+<div class="alert alert-secondary" role="alert">
+
+  <p>Input:</p>
+
+  <div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nv">$ </span><span class="nb">rm </span>quotes.txt
+</code></pre></div>  </div>
+</div>
+
+<p>We can confirm the file has gone using <code class="language-plaintext highlighter-rouge">ls</code>:</p>
+
+<div class="alert alert-secondary" role="alert">
+
+  <p>Input:</p>
+
+  <div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nv">$ </span><span class="nb">ls </span>quotes.txt
+</code></pre></div>  </div>
+  <p>Output:</p>
+
+  <div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nb">ls</span>: cannot access <span class="s1">'quotes.txt'</span>: No such file or directory
+</code></pre></div>  </div>
+</div>
+
+<div class="alert alert-warning" role="alert">
+  <p><i class="fa-solid fa-triangle-exclamation fa-xl"></i> <strong>Warning: Deleting Is Forever!!!</strong></p>
+  <hr />
+
+  <p>The Unix shell doesn’t have a trash bin that we can recover deleted
+files from (though most graphical interfaces to Unix do).  Instead,
+when we delete files, they are unlinked from the file system so that
+their storage space on disk can be recycled. Tools for finding and
+recovering deleted files do exist, but there’s no guarantee they’ll
+work in any particular situation, since the computer may recycle the
+file’s disk space right away.</p>
+</div>
+
+<div class="alert alert-secondary" role="alert">
+  <p><i class="fa-solid fa-user-pen fa-xl"></i>  <strong>Exercise: Using ‘rm’ Safely</strong></p>
+  <hr />
+
+  <p>What happens when we execute <code class="language-plaintext highlighter-rouge">rm -i thesis_backup/quotations.txt</code>?
+Why would we want this protection when using <code class="language-plaintext highlighter-rouge">rm</code>?</p>
+
+  <details>
+    <summary>Answer</summary>
+    <p>The ‘-i’ option will prompt before (every) removal (use <kbd>Y</kbd> to confirm deletion or <kbd>N</kbd> to keep the file).</p>
+
+    <p>The Unix shell doesn’t have a trash bin, so all the files removed will disappear forever.</p>
+
+    <p>By using the ‘-i’ option, we have the chance to check that we are deleting only the files that we want to remove.</p>
+  </details>
+</div>
+
+<p>If we try to remove the <code class="language-plaintext highlighter-rouge">thesis</code> directory using <code class="language-plaintext highlighter-rouge">rm thesis</code>,
+we get an error message:</p>
+
+<div class="alert alert-secondary" role="alert">
+
+  <p>Input:</p>
+
+  <div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nv">$ </span><span class="nb">rm </span>thesis
+</code></pre></div>  </div>
+
+  <p>Output:</p>
+
+  <div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nb">rm</span>: cannot remove <span class="s1">'thesis'</span>: Is a directory
+</code></pre></div>  </div>
+</div>
+
+<p>This happens because <code class="language-plaintext highlighter-rouge">rm</code> by default only works on files, not directories.</p>
+
+<p><code class="language-plaintext highlighter-rouge">rm</code> can remove a directory <em>and all its contents</em> if we use the
+recursive option <code class="language-plaintext highlighter-rouge">-r</code>, and it will do so <em>without any confirmation prompts</em>:</p>
+
+<div class="alert alert-secondary" role="alert">
+
+  <p>Input:</p>
+
+  <div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nv">$ </span><span class="nb">rm</span> <span class="nt">-r</span> thesis
+</code></pre></div>  </div>
+</div>
+
+<p>Given that there is no way to retrieve files deleted using the shell,
+<code class="language-plaintext highlighter-rouge">rm -r</code> <em>should be used with great caution</em> (you might consider adding the interactive option <code class="language-plaintext highlighter-rouge">rm -r -i</code>).</p>
+
+<div class="alert alert-info" role="alert">
+  <p><i class="fa-solid fa-circle-info fa-xl"></i> <strong>Note: Operations with multiple files and directories</strong></p>
+  <hr />
+
+  <p>Oftentimes one needs to copy or move several files at once. This can be done by providing a list of individual filenames, or specifying a naming pattern using wildcards.</p>
+</div>
+
+<h2 id="copy-with-multiple-filenames">Copy with Multiple Filenames</h2>
+
+<p>For this exercise, you can test the commands in the <code class="language-plaintext highlighter-rouge">data-shell/data</code> directory.</p>
+
+<div class="alert alert-secondary" role="alert">
+  <p><i class="fa-solid fa-user-pen fa-xl"></i>  <strong>Exercise: The cp command</strong></p>
+  <hr />
+
+  <p>In the example below, what does <code class="language-plaintext highlighter-rouge">cp</code> do when given several filenames and a directory name?</p>
+
+  <div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code> <span class="nv">$ </span><span class="nb">mkdir </span>backup
+ <span class="nv">$ </span><span class="nb">cp </span>amino-acids.txt animals.txt backup/
+</code></pre></div>  </div>
+
+  <details>
+    <summary>Solution</summary>
+    <p>When the last argument is a directory, <code class="language-plaintext highlighter-rouge">cp</code> will copy all of the files to that directory.</p>
+  </details>
+</div>
+
+<div class="alert alert-secondary" role="alert">
+  <p><i class="fa-solid fa-user-pen fa-xl"></i>  <strong>Exercise: Another call to cp</strong></p>
+  <hr />
+
+  <p>Given the following:</p>
+
+  <div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code> <span class="nv">$ </span> <span class="nb">ls</span> <span class="nt">-F</span>
+</code></pre></div>  </div>
+
+  <p>Output:</p>
+
+  <div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code> amino-acids.txt  animals.txt  backup/  elements/  morse.txt  pdb/  planets.txt  salmon.txt  sunspot.txt
+</code></pre></div>  </div>
+
+  <p>In the example below, what will <code class="language-plaintext highlighter-rouge">cp</code> do when given three or more file names?</p>
+
+  <div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nv">$ </span><span class="nb">cp </span>amino-acids.txt animals.txt morse.txt
+</code></pre></div>  </div>
+
+  <details>
+    <summary>Solution</summary>
+
+    <p>If given more than one file name followed by a directory name (i.e. the destination directory must be the last argument), ‘cp’ copies the files to the named directory.</p>
+
+    <p>If given three file names, ‘cp’ throws an error such as the one below, because it is expecting a directory name as the last argument:</p>
+
+    <div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nb">cp</span>: target ‘morse.txt’ is not a directory
+</code></pre></div>    </div>
+  </details>
+</div>
+
+<h3 id="using-wildcards-for-accessing-multiple-files-at-once">Using wildcards for accessing multiple files at once</h3>
+
+<p>Note that <code class="language-plaintext highlighter-rouge">*</code>  is a <strong>wildcard</strong>, which matches zero or more  characters.</p>
+
+<p>Let’s consider the <code class="language-plaintext highlighter-rouge">data-shell/molecules</code> directory:</p>
+<ol>
+  <li><code class="language-plaintext highlighter-rouge">*.pdb</code> matches <code class="language-plaintext highlighter-rouge">ethane.pdb</code>, <code class="language-plaintext highlighter-rouge">propane.pdb</code>, and every
+ file that ends with ‘.pdb’.</li>
+  <li>On the other hand, <code class="language-plaintext highlighter-rouge">p*.pdb</code> only matches
+ <code class="language-plaintext highlighter-rouge">pentane.pdb</code> and <code class="language-plaintext highlighter-rouge">propane.pdb</code>, because the ‘p’ at the front only
+ matches filenames that begin with the letter ‘p’.</li>
+</ol>
+
+<p>The character <code class="language-plaintext highlighter-rouge">?</code> is also a wildcard, but it matches exactly one character.</p>
+
+<p>So <code class="language-plaintext highlighter-rouge">?ethane.pdb</code> would match <code class="language-plaintext highlighter-rouge">methane.pdb</code> whereas
+ <code class="language-plaintext highlighter-rouge">*ethane.pdb</code> matches both <code class="language-plaintext highlighter-rouge">ethane.pdb</code>, and <code class="language-plaintext highlighter-rouge">methane.pdb</code>.</p>
+
+<p>Wildcards can be used in combination with each other.</p>
+
+<p>For example, <code class="language-plaintext highlighter-rouge">???ane.pdb</code> matches three characters followed by <code class="language-plaintext highlighter-rouge">ane.pdb</code>,
+ giving <code class="language-plaintext highlighter-rouge">cubane.pdb  ethane.pdb  octane.pdb</code>.</p>
+
+<p>When the shell sees a wildcard, it expands the wildcard to create a
+ list of matching filenames <em>before</em> running the command that was
+ asked for. As an exception, if a wildcard expression does not match
+ any file, Bash will pass the expression as an argument to the command
+ as it is. For example typing <code class="language-plaintext highlighter-rouge">ls *.pdf</code> in the <code class="language-plaintext highlighter-rouge">molecules</code> directory
+ (which contains only files with names ending with <code class="language-plaintext highlighter-rouge">.pdb</code>) results in
+ an error message that there is no file called <code class="language-plaintext highlighter-rouge">*.pdf</code>.
+ However, generally commands like <code class="language-plaintext highlighter-rouge">wc</code> and <code class="language-plaintext highlighter-rouge">ls</code> see the lists of
+ file names matching these expressions, but not the wildcards
+ themselves. It is the shell, not the other programs, that deals with
+ expanding wildcards, and this is another example of orthogonal design.</p>
+
+<h2 id="list-filenames-matching-a-pattern">List filenames matching a pattern</h2>
+
+<div class="alert alert-secondary" role="alert">
+  <p><i class="fa-solid fa-user-pen fa-xl"></i>  <strong>Exercise: Wildcards</strong></p>
+  <hr />
+
+  <p>When in the <code class="language-plaintext highlighter-rouge">molecules</code> directory, which <code class="language-plaintext highlighter-rouge">ls</code> command(s) will
+produce this output?</p>
+
+  <p><code class="language-plaintext highlighter-rouge">ethane.pdb   methane.pdb</code></p>
+
+  <p>Is the correct command(s):</p>
+
+  <ol>
+    <li><code class="language-plaintext highlighter-rouge">ls *t*ane.pdb</code></li>
+    <li><code class="language-plaintext highlighter-rouge">ls *t?ne.*</code></li>
+    <li><code class="language-plaintext highlighter-rouge">ls *t??ne.pdb</code></li>
+    <li><code class="language-plaintext highlighter-rouge">ls ethane.*</code></li>
+  </ol>
+
+  <details>
+    <summary>Solution</summary>
+
+    <p>The solution is number 3.</p>
+
+    <ol>
+      <li>No. The first <code class="language-plaintext highlighter-rouge">*</code> matches any files whose names contain any zero or more characters, followed by the letter ‘t’, then the next <code class="language-plaintext highlighter-rouge">*</code> matches any zero or more characters followed by ‘ane.pdb’. The output of this command is:
+        <div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code>ethane.pdb  methane.pdb  octane.pdb  pentane.pdb
+</code></pre></div>        </div>
+      </li>
+      <li>No. The first <code class="language-plaintext highlighter-rouge">*</code> matches any zero or more characters, then by the letter ‘t’, then the <code class="language-plaintext highlighter-rouge">?</code> would match a single character, then the characters ‘ne.’ and the last <code class="language-plaintext highlighter-rouge">*</code> would match any zero or more characters. The output of this command is:
+        <div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code>octane.pdb pentane.pdb
+</code></pre></div>        </div>
+        <p>These options do not contain anything with ‘thane.pdb’ at the end.</p>
+      </li>
+      <li>Yes. The two <code class="language-plaintext highlighter-rouge">??</code> fixes the problems of option 2 by matching two characters between ‘t’ and ‘ne’. The output of this command is:
+        <div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code>ethane.pdb  methane.pdb
+</code></pre></div>        </div>
+      </li>
+      <li>No. This command will only list files whos name only starts with ‘ethane.’ and then <code class="language-plaintext highlighter-rouge">*</code> matches any zero or more characters. The output of this command is:
+        <div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code>ethane.pdb
+</code></pre></div>        </div>
+      </li>
+    </ol>
+
+  </details>
+</div>
+
+<h2 id="more-on-wildcards">More on Wildcards</h2>
+
+<div class="alert alert-secondary" role="alert">
+  <p><i class="fa-solid fa-user-pen fa-xl"></i>  <strong>Exercise: Fill in the blanks</strong></p>
+  <hr />
+
+  <p>Sam has a directory containing calibration data, datasets, and descriptions of
+ the datasets:</p>
+
+  <div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code> <span class="nb">.</span>
+ ├── 2015-10-23-calibration.txt
+ ├── 2015-10-23-dataset1.txt
+ ├── 2015-10-23-dataset2.txt
+ ├── 2015-10-23-dataset_overview.txt
+ ├── 2015-10-26-calibration.txt
+ ├── 2015-10-26-dataset1.txt
+ ├── 2015-10-26-dataset2.txt
+ ├── 2015-10-26-dataset_overview.txt
+ ├── 2015-11-23-calibration.txt
+ ├── 2015-11-23-dataset1.txt
+ ├── 2015-11-23-dataset2.txt
+ ├── 2015-11-23-dataset_overview.txt
+ ├── backup
+ │   ├── calibration
+ │   └── datasets
+ └── send_to_bob
+     ├── all_datasets_created_on_a_23rd
+     └── all_november_files
+</code></pre></div>  </div>
+
+  <p>Before heading off to another field trip, she wants to back up her data and
+ send some datasets to her colleague Bob. Sam knows that if she fills in the blanks correctly with the following commands, she can get the job done:</p>
+
+  <div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code> <span class="nv">$ </span><span class="nb">cp</span> <span class="k">*</span>dataset<span class="k">*</span> backup/datasets
+ <span class="nv">$ </span><span class="nb">cp </span>____calibration____ backup/calibration
+ <span class="nv">$ </span><span class="nb">cp </span>2015-____-____ send_to_bob/all_november_files/
+ <span class="nv">$ </span><span class="nb">cp </span>____ send_to_bob/all_datasets_created_on_a_23rd/
+</code></pre></div>  </div>
+
+  <p>Help Sam by filling in the blanks. The resulting directory structure should look like this</p>
+
+  <div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code> <span class="nb">.</span>
+ ├── 2015-10-23-calibration.txt
+ ├── 2015-10-23-dataset1.txt
+ ├── 2015-10-23-dataset2.txt
+ ├── 2015-10-23-dataset_overview.txt
+ ├── 2015-10-26-calibration.txt
+ ├── 2015-10-26-dataset1.txt
+ ├── 2015-10-26-dataset2.txt
+ ├── 2015-10-26-dataset_overview.txt
+ ├── 2015-11-23-calibration.txt
+ ├── 2015-11-23-dataset1.txt
+ ├── 2015-11-23-dataset2.txt
+ ├── 2015-11-23-dataset_overview.txt
+ ├── backup
+ │   ├── calibration
+ │   │   ├── 2015-10-23-calibration.txt
+ │   │   ├── 2015-10-26-calibration.txt
+ │   │   └── 2015-11-23-calibration.txt
+ │   └── datasets
+ │       ├── 2015-10-23-dataset1.txt
+ │       ├── 2015-10-23-dataset2.txt
+ │       ├── 2015-10-23-dataset_overview.txt
+ │       ├── 2015-10-26-dataset1.txt
+ │       ├── 2015-10-26-dataset2.txt
+ │       ├── 2015-10-26-dataset_overview.txt
+ │       ├── 2015-11-23-dataset1.txt
+ │       ├── 2015-11-23-dataset2.txt
+ │       └── 2015-11-23-dataset_overview.txt
+ └── send_to_bob
+     ├── all_datasets_created_on_a_23rd
+     │   ├── 2015-10-23-dataset1.txt
+     │   ├── 2015-10-23-dataset2.txt
+     │   ├── 2015-10-23-dataset_overview.txt
+     │   ├── 2015-11-23-dataset1.txt
+     │   ├── 2015-11-23-dataset2.txt
+     │   └── 2015-11-23-dataset_overview.txt
+     └── all_november_files
+         ├── 2015-11-23-calibration.txt
+         ├── 2015-11-23-dataset1.txt
+         ├── 2015-11-23-dataset2.txt
+         └── 2015-11-23-dataset_overview.txt
+</code></pre></div>  </div>
+
+  <details>
+    <summary>Solution</summary>
+
+    <div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nv">$ </span><span class="nb">cp</span> <span class="k">*</span>calibration.txt backup/calibration
+<span class="nv">$ </span><span class="nb">cp </span>2015-11-<span class="k">*</span> send_to_bob/all_november_files/
+<span class="nv">$ </span><span class="nb">cp</span> <span class="k">*</span><span class="nt">-23-dataset</span><span class="k">*</span> send_to_bob/all_datasets_created_on_a_23rd/
+</code></pre></div>    </div>
+  </details>
+</div>
+
+<h2 id="organizing-directories-and-files">Organizing Directories and Files</h2>
+
+<div class="alert alert-secondary" role="alert">
+
+  <p><i class="fa-solid fa-user-pen fa-xl"></i>  <strong>Exercise: Organizing Files</strong></p>
+  <hr />
+
+  <p>Jamie is working on a project and she sees that her files aren’t very well organized:</p>
+
+  <p>Input:</p>
+
+  <div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code> <span class="nv">$ </span><span class="nb">ls</span> <span class="nt">-F</span>
+</code></pre></div>  </div>
+
+  <p>Output:</p>
+
+  <div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code> analyzed/  fructose.dat    raw/   sucrose.dat
+</code></pre></div>  </div>
+
+  <p>The <code class="language-plaintext highlighter-rouge">fructose.dat</code> and <code class="language-plaintext highlighter-rouge">sucrose.dat</code> files contain output from her data
+analysis. What command(s) covered in this lesson does she need to run so that the commands below will produce the output shown?</p>
+
+  <p>Input:</p>
+
+  <div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code> <span class="nv">$ </span><span class="nb">ls</span> <span class="nt">-F</span>
+</code></pre></div>  </div>
+
+  <p>Output:</p>
+
+  <div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code> analyzed/   raw/   
+</code></pre></div>  </div>
+
+  <p>Input:</p>
+
+  <div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code> <span class="nv">$ </span><span class="nb">ls </span>analyzed
+</code></pre></div>  </div>
+
+  <p>Output:</p>
+
+  <div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code> fructose.dat    sucrose.dat   
+</code></pre></div>  </div>
+  <details>
+    <summary>Solution</summary>
+
+    <div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nv">$ </span><span class="nb">mv</span> <span class="k">*</span>.dat analyzed
+</code></pre></div>    </div>
+
+    <p>Jamie needs to move her files ‘fructose.dat’ and ‘sucrose.dat’ to the ‘analyzed’ directory.
+The shell will expand * .dat to match all .dat files in the current directory.
+The ‘mv’ command then moves the list of .dat files to the “analyzed” directory.</p>
+  </details>
+</div>
+
+<h2 id="reproduce-a-folder-structure">Reproduce a folder structure</h2>
+
+<div class="alert alert-secondary" role="alert">
+  <p><i class="fa-solid fa-user-pen fa-xl"></i>  <strong>Exercise: Reproduce Folder Structure</strong></p>
+  <hr />
+
+  <p>You’re starting a new experiment, and would like to duplicate the directory
+ structure from your previous experiment so you can add new data.</p>
+
+  <p>Assume that the previous experiment is in a folder called ‘2016-05-18’,
+ which contains a <code class="language-plaintext highlighter-rouge">data</code> folder that in turn contains folders named <code class="language-plaintext highlighter-rouge">raw</code> and
+ <code class="language-plaintext highlighter-rouge">processed</code> that contain data files.  The goal is to copy the folder structure
+ of the <code class="language-plaintext highlighter-rouge">2016-05-18-data</code> folder into a folder called <code class="language-plaintext highlighter-rouge">2016-05-20</code>
+ so that your final directory structure looks like this:</p>
+
+  <div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>2016-05-20/
+└── data
+    ├── processed
+    └── raw
+</code></pre></div>  </div>
+
+  <p>Which of the following sequence of commands would achieve this objective? What would the other sequences do?</p>
+
+  <ol>
+    <li>Command sequence 1:
+      <div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code> <span class="nv">$ </span><span class="nb">mkdir </span>2016-05-20
+ <span class="nv">$ </span><span class="nb">mkdir </span>2016-05-20/data
+ <span class="nv">$ </span><span class="nb">mkdir </span>2016-05-20/data/processed
+ <span class="nv">$ </span><span class="nb">mkdir </span>2016-05-20/data/raw
+</code></pre></div>      </div>
+    </li>
+    <li>Command sequence 2:
+      <div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code> <span class="nv">$ </span><span class="nb">mkdir </span>2016-05-20
+ <span class="nv">$ </span><span class="nb">cd </span>2016-05-20
+ <span class="nv">$ </span><span class="nb">mkdir </span>data
+ <span class="nv">$ </span><span class="nb">cd </span>data
+ <span class="nv">$ </span><span class="nb">mkdir </span>raw processed
+</code></pre></div>      </div>
+    </li>
+    <li>Command sequence 3:
+      <div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code> <span class="nv">$ </span><span class="nb">mkdir </span>2016-05-20/data/raw
+ <span class="nv">$ </span><span class="nb">mkdir </span>2016-05-20/data/processed
+</code></pre></div>      </div>
+    </li>
+    <li>Command sequence 4:
+      <div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code> <span class="nv">$ </span><span class="nb">mkdir </span>2016-05-20
+ <span class="nv">$ </span><span class="nb">cd </span>2016-05-20
+ <span class="nv">$ </span><span class="nb">mkdir </span>data
+ <span class="nv">$ </span><span class="nb">mkdir </span>raw processed
+</code></pre></div>      </div>
+    </li>
+  </ol>
+
+  <details>
+    <summary>Solution</summary>
+
+    <p>The first two command sequences achieve this objective.</p>
+
+    <ol>
+      <li>Yes. The first command sequence uses relative paths to create the top level directory before the subdirectories.</li>
+      <li>Yes. The second command sequence makes a directory and then moving inside it to create the next one sequentially.</li>
+      <li>No. The third command sequence will give an error because ‘mkdir’ won’t create a subdirectory of a non-existant 
+directory: the intermediate level folders must be created first.</li>
+      <li>No. The fourth command sequence generates the ‘raw’ and ‘processed’ directories at the same level as the ‘data’ directory.</li>
+    </ol>
+  </details>
+</div>
+
+<div style="text-align: right; padding-bottom: 10px">
+  <hr />
+  <button type="button" onclick="window.location='/morea/scientific-software-basics/experience-ssb-pipefilter.html'" class="btn btn-primary">
+    <p style="font-size:16px; margin: 0">Pipes and Filters -&gt;</p>
+    <p style="font-size:12px; margin: 0">2:55pm</p>
+    </button>
+</div>
+
+
+</div>
+
+
+
+
+<!-- Maybe find a different way?
+<script src="/js/scrollIfAnchor.js"></script>
+-->
+
+<footer class="footer footer-background" style="padding-top: 1em; padding-bottom: 1em">
+  <div class="container text-center">
+    
+    
+
+    
+    <p style="margin: 0">Powered by the <a class="footer-link" href="https://morea-framework.github.io/">Morea Framework</a> (Theme: spacelab)<br>
+      Last update on: <span>2023-12-01 13:58:35 -1000</span></p>
+
+    <p style="margin: 0">
+      
+      18 modules
+      
+      | 17 outcomes
+      
+      
+      | 55 readings
+      
+      
+      | 100 experiences
+      
+      
+      | 15 assessments
+      
+    </p>
+  </div>
+</footer>
+
+
+<!-- Load Bootstrap JavaScript components -->
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM" crossorigin="anonymous"></script>
+
+
+<script type="text/javascript" async
+        src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.7/latest.js?config=TeX-MML-AM_CHTML">
+</script>
+
+
+<!-- Add anchors to pages. -->
+<script>anchors.add();</script>
+
+
+</body>
+</html>

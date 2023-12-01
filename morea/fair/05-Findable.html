@@ -1,0 +1,375 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <title> Change-HI/EDU | 5. Fair: Findable </title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta charset="utf-8">
+
+  <link rel="stylesheet" href="/css/themes/spacelab/bootstrap.min.css">
+  <link rel="stylesheet" href="/css/style.css">
+  <link rel="stylesheet" href="/css/syntax.css">
+  <link rel="shortcut icon" href="/favicon.ico" type="image/x-icon" />
+  <link href="/css/fontawesome/css/fontawesome.css" rel="stylesheet">
+  <link href="/css/fontawesome/css/brands.css" rel="stylesheet">
+  <link href="/css/fontawesome/css/solid.css" rel="stylesheet">
+  <script src="https://cdn.jsdelivr.net/npm/anchor-js/anchor.min.js"></script>
+
+  
+
+  <!-- Load JQuery, then use it to attach the class 'active' to navbar item currently displayed. -->
+  <script src="https://code.jquery.com/jquery-3.6.0.min.js" integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4=" crossorigin="anonymous"></script>
+  <script>
+    $(window).on('load', function () {
+      $('.nav-item').find('a[href="' + location.pathname + '"]').addClass('active');
+    });
+  </script>
+
+</head>
+<body>
+
+<div class="navbar navbar-expand-lg fixed-top navbar-light bg-light">
+  <div class="container">
+    <a class="navbar-brand" href="/index.html"> Change-HI/EDU </a>
+    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarResponsive" aria-controls="navbarResponsive" aria-expanded="false" aria-label="Toggle navigation">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+    <div class="collapse navbar-collapse" id="navbarResponsive">
+      <ul class="navbar-nav">
+        
+        <li class="nav-item"><a class="nav-link" href="/modules/">Modules</a></li>
+        
+        <li class="nav-item"><a class="nav-link" href="/outcomes/">Outcomes</a></li>
+        
+        
+        <li class="nav-item"><a class="nav-link" href="/readings/">Readings</a></li>
+        
+        
+        <li class="nav-item"><a class="nav-link" href="/experiences/">Experiences</a></li>
+        
+        
+        <li class="nav-item"><a class="nav-link" href="/assessments/">Assessments</a></li>
+        
+        
+      </ul>
+    </div>
+  </div>
+</div>
+
+<!-- Internal fragment for displaying the breadcrumb bar -->
+<div class="breadcrumb-background" style="padding-top: 1em; padding-bottom: .01em">
+  <div class="container">
+    <nav aria-label="breadcrumb">
+      <ol class="breadcrumb">
+        
+        <li class="breadcrumb-item"><a href="/">Home</a></li>
+        <li class="breadcrumb-item"><a href="/modules">Modules</a></li>
+        <li class="breadcrumb-item"><a href="/modules/"></a></li>
+        <li class="breadcrumb-item active">5. Fair: Findable</li>
+      </ol>
+    </nav>
+  </div>
+</div>
+
+
+<div class="container">
+  <h1 id="fair-findable">FAIR: Findable</h1>
+
+<p>This section will describe what it means for a scholarly resource to be findable.</p>
+
+<h2 id="for-data--software-to-be-findable">For data &amp; software to be findable:</h2>
+
+<ol>
+  <li>(meta)data are assigned a globally unique and eternally persistent identifier or PID</li>
+  <li>data are described with rich metadata</li>
+  <li>(meta)data are registered or indexed in a searchable resource</li>
+  <li>metadata specify the data identifier</li>
+</ol>
+
+<h2 id="persistent-identifiers-pids-101">Persistent identifiers (PIDs) 101</h2>
+
+<p>A persistent identifier (PID) is a long-lasting reference to a (digital or physical) resource:</p>
+
+<ul>
+  <li>Designed to provide access to information about a resource even if the resource it describes has moved location on the web</li>
+  <li>Requires technical, governance and community to provide the persistence</li>
+  <li>There are many different PIDs available for many different types of scholarly resources e.g. articles, data, samples, authors, grants, projects, conference papers and so much more</li>
+</ul>
+
+<h2 id="different-types-of-pids">Different types of PIDs</h2>
+
+<p>PIDs have community support, organizational commitment and technical infrastructure to ensure persistence of identifiers. They often are created to respond to a community need. For instance, the International Standard Book Number or ISBN was created to assign unique numbers to books, is used by book publishers, and is managed by the International ISBN Agency. Another type of PID, the Open Researcher and Contributor ID or ORCID (iD) was created to help with author disambiguation by providing unique identifiers for authors. The <a href="https://project-thor.readme.io/docs/project-glossary">ODIN Project identifies additional PIDs</a> along with <a href="https://en.wikipedia.org/wiki/Persistent_identifier">Wikipedia’s page on PIDs</a>.</p>
+
+<h2 id="digital-object-identifiers-dois">Digital Object Identifiers (DOIs)</h2>
+
+<p>The DOI is a common identifier used for academic, professional, and governmental information such as articles, datasets, reports, and other supplemental information. The <a href="https://www.doi.org/">International DOI Foundation (IDF)</a> is the agency that oversees DOIs. <a href="https://www.crossref.org/">CrossRef</a> and <a href="https://datacite.org/">Datacite</a> are two prominent not-for-profit registries that provide services to create or mint DOIs. Both have membership models where their clients are able to mint DOIs distinguished by their prefix. For example, DataCite features a <a href="https://stats.datacite.org/">statistics page</a> where you can see registrations by members.</p>
+
+<h2 id="anatomy-of-a-doi">Anatomy of a DOI</h2>
+
+<p>A DOI has three main parts:</p>
+
+<ul>
+  <li>Proxy or DOI resolver service</li>
+  <li>Prefix which is unique to the registrant or member</li>
+  <li>Suffix, a unique identifier assigned locally by the registrant to an object</li>
+</ul>
+
+<figure>
+  
+    <img src="/morea/fair/fig/anatomy-of-a-doi.jpeg" style="max-width: 80%;" alt="/Anatomy%20of%20a%20DOI" class="img-fluid mx-auto d-block border" />
+  
+  <figcaption style="text-align: center">
+    <small>
+      
+    </small>
+  </figcaption>
+</figure>
+
+<p>In the example above, the prefix is used by the Australian National Data Service (ANDS) now called the Australia Research Data Commons (ARDC) and the suffix is a unique identifier for an object at Griffith University. DataCite provides DOI <a href="https://support.datacite.org/docs/datacite-doi-display-guidelines">display guidance</a> so that they are easy to recognize and use, for both humans and machines.</p>
+
+<h2 id="exploring-hydroshare">Exploring Hydroshare</h2>
+
+<div class="alert alert-secondary" role="alert">
+  <p><i class="fa-solid fa-user-pen fa-xl"></i>  <strong>Exercise: Hydroshare</strong></p>
+  <hr />
+
+  <ul>
+    <li>HydroShare is a data repository for water data from a variety of biological disciplines.</li>
+    <li>It allows researchers to share and access water data for research.</li>
+    <li>Visit the HydroShare resource search at <a href="https://www.hydroshare.org/search/">Discover</a>.</li>
+    <li>Choose any dataset by clicking on the link. Now use <kbd>control</kbd> + <kbd>F</kbd> or <kbd>command</kbd> + <kbd>F</kbd> and search for ‘http’.</li>
+    <li>Did the author use DOIs or persistent link from HydroShare for their data and software?</li>
+  </ul>
+
+  <details>
+  <summary>Solution</summary>
+ Authors will often link to platforms such as GitHub where they have shared their software and/or they will link to their website where they are hosting the data used in the paper. The danger here is that platforms like GitHub and personal websites are not permanent. Instead, authors can use repositories to deposit and preserve their data and software while minting a DOI. Links to software sharing platforms or personal websites might move but DOIs will always resolve to information about the software and/or data. See DataCite's <a href="https://support.datacite.org/docs/tombstone-pages">Best Practices for a Tombstone Page</a>.
+</details>
+</div>
+
+<h2 id="rich-metadata">Rich Metadata</h2>
+
+<p>More and more services are using common schemas such as <a href="https://schema.datacite.org">DataCite’s Metadata Schema</a> or <a href="https://www.dublincore.org">Dublin Core</a> to foster greater use and discovery. A schema provides an overall structure for the metadata and describes core metadata properties. While DataCite’s Metadata Schema is more general, there are discipline specific schemas such as <a href="https://en.wikipedia.org/wiki/Metadata_standard">Data Documentation Initiative (DDI) and Darwin Core</a>.</p>
+
+<p>Thanks to schemas, the process of adding metadata has been standardized to some extent but there is still room for error. For instance, DataCite <a href="https://blog.datacite.org/citation-analysis-scholix-rda/">reports</a> that links between papers and data are still very low. Publishers and authors are missing this opportunity.</p>
+
+<p>Challenges:
+Automatic ORCID profile update when DOI is minted
+RelatedIdentifiers linking papers, data, software in Zenodo</p>
+
+<h2 id="connecting-research-outputs">Connecting research outputs</h2>
+
+<p>DOIs are everywhere. Examples.</p>
+
+<ul>
+  <li>Resource IDs (articles, data, software, …)</li>
+  <li>Researcher IDs</li>
+  <li>Organisation IDs, Funder IDs</li>
+  <li>Projects IDs</li>
+  <li>Instrument IDs</li>
+  <li>Ship cruises IDs</li>
+  <li>Physical sample IDs,</li>
+  <li>DMP IDs…</li>
+  <li>videos</li>
+  <li>images</li>
+  <li>3D models</li>
+  <li>grey literature</li>
+</ul>
+
+<figure>
+  
+    <img src="/morea/fair/fig/datacite-arxiv-crossref.png" style="max-width: 80%;" alt="/Connecting%20Research%20Outputs" class="img-fluid mx-auto d-block border" />
+  
+  <figcaption style="text-align: center">
+    <small>
+      
+    </small>
+  </figcaption>
+</figure>
+
+<div class="alert alert-info" role="alert">
+  <p><i class="fa-solid fa-circle-info fa-xl"></i> <strong>For more information</strong></p>
+  <hr />
+
+  <ul>
+    <li><a href="https://support.datacite.org/docs/connecting-research-outputs">Making and using connection metadata</a></li>
+    <li><a href="https://blog.datacite.org/citation-analysis-scholix-rda/">Bullet points about the current state of linking</a></li>
+  </ul>
+</div>
+
+<h2 id="provenance">Provenance?</h2>
+
+<p>Provenance refers to the data lineage (inputs, entitites, systems, etc.) that ultimately impact validation &amp; credibility. A researcher should comply to good scientific practices and be sure about what should get a PID (and what not).</p>
+
+<p>Metadata is central to visibility and citability – metadata behind a PID should be provided with consideration.</p>
+
+<p>Policies behind a PID system ensure persistence in the WWW - point. At least metadata will be available for a long time.</p>
+
+<p>Machine readability will be an essential part of future discoverability – resources should be checked and formats should be adjusted (as far possible).</p>
+
+<p>Metrics (e.g. altmetrics) are supported by PID systems.</p>
+
+<h2 id="publishing-behaviour-of-researchers">Publishing behaviour of researchers</h2>
+
+<p>According to: <a href="https://doi.org/10.22000/54">Questionnaire and Dataset of the TIB Survey 2017 on information procurement and publishing behavior of researchers in the natural sciences and engineering</a>:</p>
+
+<ul>
+  <li>Responses from 1400 scientists in the natural sciences &amp; engineering (across Germany)</li>
+  <li>70% of the researchers are using DOIs for journal publications</li>
+  <li>Less than 10% use DOIs for research data</li>
+  <li>56% answered that they don’t know about the option to use DOIs for other publications (datasets, conference papers etc.)</li>
+  <li>57% stated no need for DOI counselling services</li>
+  <li>40% of the questioned researchers need more information</li>
+  <li>30% cannot see a benefit from a DOI</li>
+</ul>
+
+<h2 id="choosing-the-right-repository">Choosing the right repository</h2>
+
+<p>Some things to check:</p>
+
+<ul>
+  <li>Ask your colleagues &amp; collaborators</li>
+  <li>determining the right repo for your research</li>
+  <li>That data are kept safe in a secure environment and data are regularly backed up and preserved (long-term) for future use</li>
+  <li>Data can be easily discovered by search engines and included in online catalogues</li>
+  <li>Intellectual property rights and licencing of data are managed</li>
+  <li>Access to data can be administered and usage monitored</li>
+  <li>That visibility of data can be enhanced to enable more use and citation</li>
+</ul>
+
+<p>The decision for or against a specific repository depends on various criteria, e.g.</p>
+
+<ul>
+  <li>Data quality</li>
+  <li>Discipline</li>
+  <li>Institutional requirements</li>
+  <li>Reputation (researcher and/or repository)</li>
+  <li>Visibility of research</li>
+  <li>Legal terms and conditions</li>
+  <li>Data value (FAIR Principles)</li>
+</ul>
+
+<p>Some recommendations:
+→ look for the usage of PIDs
+→ look for the usage of standards (DataCite, Dublin Core, discipline-specific metadata
+→ look for licences offered
+→ look for certifications (DSA / Core Trust Seal, DINI/nestor, WDS, …)</p>
+
+<div class="alert alert-info" role="alert">
+  <p><i class="fa-solid fa-circle-info fa-xl"></i> <strong>For more information</strong></p>
+  <hr />
+
+  <ul>
+    <li>
+      <p>Results from searching <a href="https://www.re3data.org">https://www.re3data.org</a>: 
+Out of more than 2115 repository systems listed in re3data.org in July 2018, only 809 (less than 39 %!) state to provide a PID service, with 524 of them using the DOI system.</p>
+    </li>
+    <li>
+      <p>Search open access repos: <a href="https://v2.sherpa.ac.uk/opendoar/">https://v2.sherpa.ac.uk/opendoar/</a></p>
+    </li>
+    <li>
+      <p>FAIRSharing databases: <a href="https://fairsharing.org/databases/">https://fairsharing.org/databases/</a></p>
+    </li>
+  </ul>
+</div>
+
+<h2 id="data-journals">Data Journals</h2>
+
+<p>Another method available to researchers to cite and give credit to research data is to author works in data journals or supplemental approaches used by publishers, societies, disciplines, and/or journals.</p>
+
+<p>Articles in data journals allow authors to:</p>
+
+<ul>
+  <li>Describe their research data (including information about process, qualities, etc)</li>
+  <li>Explain how the data can be reused</li>
+  <li>Improve discoverability (through citation/linking mechanisms and indexing)</li>
+  <li>Provide information on data deposit</li>
+  <li>Allow for further (peer) review and quality assurance</li>
+  <li>Offer the opportunity for further recognition and awards</li>
+</ul>
+
+<p>Examples:</p>
+
+<ul>
+  <li><a href="https://www.nature.com/sdata/">Nature Scientific data</a> - published by Nature and established in 2013</li>
+  <li><a href="https://rmets.onlinelibrary.wiley.com/journal/20496060">Geoscience Data Journal</a> - published by Wiley and established in 2012</li>
+  <li><a href="https://openarchaeologydata.metajnl.com/">Journal of Open Archaeology Data</a> - published by Ubiquity and established in 2011</li>
+  <li><a href="https://bdj.pensoft.net/">Biodiversity Data Journal</a> - published by Pensoft and established in 2013.</li>
+  <li><a href="https://www.earth-system-science-data.net/">Earth System Science Data</a> - published by Copernicus Publications and established in 2009</li>
+</ul>
+
+<p>Also, the following study discusses data journals in depth and reviews over 100 data journals:
+Candela, L. , Castelli, D. , Manghi, P. and Tani, A. (2015), Data Journals: A Survey. J Assn Inf Sci Tec, 66: 1747-1762. doi:<a href="https://doi.org/10.1002/asi.23358">10.1002/asi.23358</a></p>
+
+<h2 id="how-does-your-discipline-share-data">How does your discipline share data</h2>
+
+<p>Does your discipline have a data journal? Or some other mechanism to share data? For example, the American Astronomical Society (AAS) via the publisher IOP Physics offers a <a href="https://iopscience.iop.org/journal/0067-0049">supplement series</a> as a way for astronomers to publish data.</p>
+
+<div class="alert alert-info" role="alert">
+  <p><i class="fa-solid fa-circle-info fa-xl"></i> <strong>For more information</strong></p>
+  <hr />
+
+  <p>The content is this page was adapted from: <a href="https://librarycarpentry.org/lc-fair-research">https://librarycarpentry.org/lc-fair-research</a>.</p>
+</div>
+
+<div style="text-align: right; padding-bottom: 10px">
+  <hr />
+  <button type="button" onclick="window.location='/morea/fair/06-Accessible.html'" class="btn btn-primary">
+    <p style="font-size:16px; margin: 0">FAIR: Accessible -&gt;</p>
+    <p style="font-size:12px; margin: 0">2:35pm</p>
+    </button>
+</div>
+
+
+</div>
+
+
+
+
+<!-- Maybe find a different way?
+<script src="/js/scrollIfAnchor.js"></script>
+-->
+
+<footer class="footer footer-background" style="padding-top: 1em; padding-bottom: 1em">
+  <div class="container text-center">
+    
+    
+
+    
+    <p style="margin: 0">Powered by the <a class="footer-link" href="https://morea-framework.github.io/">Morea Framework</a> (Theme: spacelab)<br>
+      Last update on: <span>2023-12-01 13:58:35 -1000</span></p>
+
+    <p style="margin: 0">
+      
+      18 modules
+      
+      | 17 outcomes
+      
+      
+      | 55 readings
+      
+      
+      | 100 experiences
+      
+      
+      | 15 assessments
+      
+    </p>
+  </div>
+</footer>
+
+
+<!-- Load Bootstrap JavaScript components -->
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM" crossorigin="anonymous"></script>
+
+
+<script type="text/javascript" async
+        src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.7/latest.js?config=TeX-MML-AM_CHTML">
+</script>
+
+
+<!-- Add anchors to pages. -->
+<script>anchors.add();</script>
+
+
+</body>
+</html>

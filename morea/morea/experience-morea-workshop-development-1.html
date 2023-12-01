@@ -1,0 +1,192 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <title> Change-HI/EDU | 4. Workshop Development, Part 1 </title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta charset="utf-8">
+
+  <link rel="stylesheet" href="/css/themes/spacelab/bootstrap.min.css">
+  <link rel="stylesheet" href="/css/style.css">
+  <link rel="stylesheet" href="/css/syntax.css">
+  <link rel="shortcut icon" href="/favicon.ico" type="image/x-icon" />
+  <link href="/css/fontawesome/css/fontawesome.css" rel="stylesheet">
+  <link href="/css/fontawesome/css/brands.css" rel="stylesheet">
+  <link href="/css/fontawesome/css/solid.css" rel="stylesheet">
+  <script src="https://cdn.jsdelivr.net/npm/anchor-js/anchor.min.js"></script>
+
+  
+
+  <!-- Load JQuery, then use it to attach the class 'active' to navbar item currently displayed. -->
+  <script src="https://code.jquery.com/jquery-3.6.0.min.js" integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4=" crossorigin="anonymous"></script>
+  <script>
+    $(window).on('load', function () {
+      $('.nav-item').find('a[href="' + location.pathname + '"]').addClass('active');
+    });
+  </script>
+
+</head>
+<body>
+
+<div class="navbar navbar-expand-lg fixed-top navbar-light bg-light">
+  <div class="container">
+    <a class="navbar-brand" href="/index.html"> Change-HI/EDU </a>
+    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarResponsive" aria-controls="navbarResponsive" aria-expanded="false" aria-label="Toggle navigation">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+    <div class="collapse navbar-collapse" id="navbarResponsive">
+      <ul class="navbar-nav">
+        
+        <li class="nav-item"><a class="nav-link" href="/modules/">Modules</a></li>
+        
+        <li class="nav-item"><a class="nav-link" href="/outcomes/">Outcomes</a></li>
+        
+        
+        <li class="nav-item"><a class="nav-link" href="/readings/">Readings</a></li>
+        
+        
+        <li class="nav-item"><a class="nav-link" href="/experiences/">Experiences</a></li>
+        
+        
+        <li class="nav-item"><a class="nav-link" href="/assessments/">Assessments</a></li>
+        
+        
+      </ul>
+    </div>
+  </div>
+</div>
+
+<!-- Internal fragment for displaying the breadcrumb bar -->
+<div class="breadcrumb-background" style="padding-top: 1em; padding-bottom: .01em">
+  <div class="container">
+    <nav aria-label="breadcrumb">
+      <ol class="breadcrumb">
+        
+        <li class="breadcrumb-item"><a href="/">Home</a></li>
+        <li class="breadcrumb-item"><a href="/modules">Modules</a></li>
+        <li class="breadcrumb-item"><a href="/modules/morea">Design and Implementation of Workshops</a></li>
+        <li class="breadcrumb-item active">4. Workshop Development, Part 1</li>
+      </ol>
+    </nav>
+  </div>
+</div>
+
+
+<div class="container">
+  <h1 id="4-workshop-development">4. Workshop Development</h1>
+
+<p>If you’ve gotten this far, you should now have your own personal version of the Change-HI workshop site running in your own browser.</p>
+
+<p>In this section, you’ll start to learn how to add content to build your own workshop.</p>
+
+<div class="alert alert-success mt-3" role="alert">
+  <p><i class="fa-solid fa-globe fa-xl"></i> <strong>Best Recipe Ever!</strong></p>
+  <hr />
+
+  <p>There is a “secret” module in the Change-HI repository called “Best Recipe Ever”. It is unpublished by default.  In this part of the workshop, you are going to edit this module to create a simple workshop that teaches everyone how to cook (what you consider to be) the best recipe ever!</p>
+</div>
+
+<h2 id="publish-the-best-recipe-ever-workshop-module">Publish the Best Recipe Ever workshop module</h2>
+
+<p>Open the morea directory in your browser-based VS Code editor, then open the file named “module-best-recipe-ever.md”. You should see something like the following displayed in your browser:</p>
+
+<p><img src="./fig/recipe-1.png" width="100%" /></p>
+
+<p>Line 2 of this file contains <code class="language-plaintext highlighter-rouge">published: false</code>.  That’s why this module is secret. Edit this line to be <code class="language-plaintext highlighter-rouge">published: true</code>, then type command-S to save the file.</p>
+
+<p>Now, do the following:</p>
+
+<ul>
+  <li>Click the mouse inside the Terminal window to make it the active window</li>
+  <li>Type <code class="language-plaintext highlighter-rouge">control-c</code> (to stop the running process)</li>
+  <li>Type <code class="language-plaintext highlighter-rouge">control-p</code> (to redisplay the last command).</li>
+  <li>Press <code class="language-plaintext highlighter-rouge">return</code> (to re-run the last command (<code class="language-plaintext highlighter-rouge">bundle exec jekyll serve</code>))</li>
+</ul>
+
+<p>If all goes well, you’ve restarted Jekyll and the last line in the Terminal window is “Server running… press control-c to stop”.</p>
+
+<p>Switch to your browser tab displaying the site, click on the “Modules” link, and you should now see the Best Recipe Ever workshop:</p>
+
+<p><img src="./fig/recipe-2.png" width="100%" /></p>
+
+<p>Click this link to see the contents:</p>
+
+<p><img src="./fig/recipe-3.png" width="100%" /></p>
+
+<h2 id="code-walkthrough">Code walkthrough</h2>
+
+<div class="alert alert-success mt-3" role="alert">
+  <p><i class="fa-solid fa-globe fa-xl"></i> <strong>Sit back and relax</strong></p>
+  <hr />
+
+  <p>Let the instructor give you a guided tour of the Best Recipe Ever module.</p>
+</div>
+
+<div class="alert alert-warning" role="alert">
+  <p><i class="fa-solid fa-circle-info fa-xl"></i> <strong>Bio Break!</strong></p>
+  <hr />
+
+  <p>Let’s take a brief break to stretch before moving on to the next page.  See you in a few minutes.</p>
+</div>
+
+<div style="text-align: right; padding-bottom: 10px">
+  <hr />
+  <button type="button" onclick="window.location='/morea/morea/experience-morea-workshop-development-2.html'" class="btn btn-primary">
+    <p style="font-size:16px; margin: 0">Experience Workshop Development, Part 2 -&gt;</p>
+    <p style="font-size:12px; margin: 0">3:00pm</p>
+    </button>
+</div>
+
+
+</div>
+
+
+
+
+<!-- Maybe find a different way?
+<script src="/js/scrollIfAnchor.js"></script>
+-->
+
+<footer class="footer footer-background" style="padding-top: 1em; padding-bottom: 1em">
+  <div class="container text-center">
+    
+    
+
+    
+    <p style="margin: 0">Powered by the <a class="footer-link" href="https://morea-framework.github.io/">Morea Framework</a> (Theme: spacelab)<br>
+      Last update on: <span>2023-12-01 13:58:35 -1000</span></p>
+
+    <p style="margin: 0">
+      
+      18 modules
+      
+      | 17 outcomes
+      
+      
+      | 55 readings
+      
+      
+      | 100 experiences
+      
+      
+      | 15 assessments
+      
+    </p>
+  </div>
+</footer>
+
+
+<!-- Load Bootstrap JavaScript components -->
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM" crossorigin="anonymous"></script>
+
+
+<script type="text/javascript" async
+        src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.7/latest.js?config=TeX-MML-AM_CHTML">
+</script>
+
+
+<!-- Add anchors to pages. -->
+<script>anchors.add();</script>
+
+
+</body>
+</html>

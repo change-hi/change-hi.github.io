@@ -1,0 +1,238 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <title> Change-HI/EDU | 7. FAIR: Interoperable </title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta charset="utf-8">
+
+  <link rel="stylesheet" href="/css/themes/spacelab/bootstrap.min.css">
+  <link rel="stylesheet" href="/css/style.css">
+  <link rel="stylesheet" href="/css/syntax.css">
+  <link rel="shortcut icon" href="/favicon.ico" type="image/x-icon" />
+  <link href="/css/fontawesome/css/fontawesome.css" rel="stylesheet">
+  <link href="/css/fontawesome/css/brands.css" rel="stylesheet">
+  <link href="/css/fontawesome/css/solid.css" rel="stylesheet">
+  <script src="https://cdn.jsdelivr.net/npm/anchor-js/anchor.min.js"></script>
+
+  
+
+  <!-- Load JQuery, then use it to attach the class 'active' to navbar item currently displayed. -->
+  <script src="https://code.jquery.com/jquery-3.6.0.min.js" integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4=" crossorigin="anonymous"></script>
+  <script>
+    $(window).on('load', function () {
+      $('.nav-item').find('a[href="' + location.pathname + '"]').addClass('active');
+    });
+  </script>
+
+</head>
+<body>
+
+<div class="navbar navbar-expand-lg fixed-top navbar-light bg-light">
+  <div class="container">
+    <a class="navbar-brand" href="/index.html"> Change-HI/EDU </a>
+    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarResponsive" aria-controls="navbarResponsive" aria-expanded="false" aria-label="Toggle navigation">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+    <div class="collapse navbar-collapse" id="navbarResponsive">
+      <ul class="navbar-nav">
+        
+        <li class="nav-item"><a class="nav-link" href="/modules/">Modules</a></li>
+        
+        <li class="nav-item"><a class="nav-link" href="/outcomes/">Outcomes</a></li>
+        
+        
+        <li class="nav-item"><a class="nav-link" href="/readings/">Readings</a></li>
+        
+        
+        <li class="nav-item"><a class="nav-link" href="/experiences/">Experiences</a></li>
+        
+        
+        <li class="nav-item"><a class="nav-link" href="/assessments/">Assessments</a></li>
+        
+        
+      </ul>
+    </div>
+  </div>
+</div>
+
+<!-- Internal fragment for displaying the breadcrumb bar -->
+<div class="breadcrumb-background" style="padding-top: 1em; padding-bottom: .01em">
+  <div class="container">
+    <nav aria-label="breadcrumb">
+      <ol class="breadcrumb">
+        
+        <li class="breadcrumb-item"><a href="/">Home</a></li>
+        <li class="breadcrumb-item"><a href="/modules">Modules</a></li>
+        <li class="breadcrumb-item"><a href="/modules/"></a></li>
+        <li class="breadcrumb-item active">7. FAIR: Interoperable</li>
+      </ol>
+    </nav>
+  </div>
+</div>
+
+
+<div class="container">
+  <h1 id="fair-interoperable">FAIR: Interoperable</h1>
+
+<p>This section will describe what it means for research to be interoperable</p>
+
+<h2 id="for-data--software-to-be-interoperable">For data &amp; software to be interoperable:</h2>
+
+<ul>
+  <li>(Meta)data use a formal, accessible, shared, and broadly applicable language for knowledge representation</li>
+  <li>(Meta)data use vocabularies that follow FAIR principles</li>
+  <li>(Meta)data include qualified references to other (meta)data</li>
+</ul>
+
+<h2 id="what-is-interoperability-for-data-and-software">What is interoperability for data and software?</h2>
+
+<p>Interoperability means: A shared understanding of concepts, for humans as well as machines.</p>
+
+<h3 id="what-does-it-mean-to-be-machine-readable-vs-human-readable">What does it mean to be machine readable vs human readable?</h3>
+
+<p>According to the <a href="https://opendatahandbook.org/glossary/en/">Open Data Handbook</a>:</p>
+
+<p><em>Human Readable</em><br />
+“Data in a format that can be conveniently read by a human. Some human-readable formats, such as PDF, are not machine-readable as they are not structured data, i.e. the representation of the data on disk does not represent the actual relationships present in the data.”</p>
+
+<p><em>Machine Readable</em><br />
+“Data in a data format that can be automatically read and processed by a computer, such as CSV, JSON, XML, etc. Machine-readable data must be structured data. Compare human-readable.
+Non-digital material (for example printed or hand-written documents) is by its non-digital nature not machine-readable. But even digital material need not be machine-readable. For example, consider a PDF document containing tables of data. These are definitely digital but are not machine-readable because a computer would struggle to access the tabular information - even though they are very human readable. The equivalent tables in a format such as a spreadsheet would be machine readable.
+As another example scans (photographs) of text are not machine-readable (but are human readable!) but the equivalent text in a format such as a simple ASCII text file can machine readable and processable.”</p>
+
+<p>Software uses community accepted standards and platforms, making it possible for users to run the software.</p>
+
+<div class="alert alert-info" role="alert">
+  <p><i class="fa-solid fa-circle-info fa-xl"></i> <strong>For more information</strong></p>
+  <hr />
+
+  <p>The <a href="https://librarycarpentry.org/Top-10-FAIR//2018/12/01/research-software/">Top 10 FAIR things for research software</a> is a list of suggestions for making your research software FAIR, including:</p>
+  <ul>
+    <li>Provide a description</li>
+    <li>Register your software</li>
+    <li>Get and use a PID</li>
+    <li>Support downloading and installation</li>
+    <li>Document the functionality</li>
+    <li>Use standard formats for I/O</li>
+    <li>Provide a license</li>
+    <li>Provide a citation</li>
+    <li>Follow software development best practices</li>
+  </ul>
+</div>
+
+<h3 id="beyond-the-pdf">Beyond the PDF</h3>
+
+<p>Publishers, librarians, researchers, developers, funders, they have all been working towards a future where we can move beyond the PDF, from ‘static and disparate data and knowledge representations to richly integrated content which grows and changes the more we learn.” Research objects of the future will capture all aspects of scholarship: hypotheses, data, methods, results, presentations etc.) that are semantically enriched, interoperable and easily transmitted and comprehended.
+Attribution, Evaluation, Archiving, Impact
+<a href="https://sites.google.com/site/beyondthepdf/">https://sites.google.com/site/beyondthepdf/</a></p>
+
+<p>Beyond the PDF has now grown into FORCE…
+Towards a vision where research will move from document- to knowledge-based information flows
+semantic descriptions of research data &amp; their structures
+aggregation, development &amp; teaching of subject-specific vocabularies, ontologies &amp; knowledge graphs
+Paper of the Future
+<a href="https://www.authorea.com/users/23/articles/8762-the-paper-of-the-future">https://www.authorea.com/users/23/articles/8762-the-paper-of-the-future</a> to Jupyter Notebooks/Stencilia
+<a href="https://stenci.la/">https://stenci.la/</a></p>
+
+<h3 id="making-metadata-interoperable">Making Metadata Interoperable</h3>
+
+<ul>
+  <li>provide machine-readable (meta)data with a well-established formalism</li>
+  <li>provide as precise &amp; complete metadata as possible</li>
+  <li>look for metrics to evaluate the FAIRness of a controlled vocabulary / ontology / thesaurus
+often do not (yet) exist</li>
+  <li>clearly identify relationships between datasets in the metadata (e.g. “is new version of”, “is supplement to”, “relates to”, etc.)</li>
+  <li>request support regarding these tasks from the repositories in your field of study
+for software: follow established code style guides</li>
+</ul>
+
+<p>Examples of Dataste Interoperability:</p>
+
+<ul>
+  <li>Automatic ORCID profile update when DOI is minted
+– DataCite – CrossRef – ORCID</li>
+</ul>
+
+<p>If others can use your code, convey the meaning of updates with SemVer.org (CC BY 3.0)
+“version number[ changes] convey meaning about the underlying code” (Tom Preston-Werner)</p>
+
+<div class="alert alert-info" role="alert">
+  <p><i class="fa-solid fa-circle-info fa-xl"></i> <strong>For more information</strong></p>
+  <hr />
+
+  <ul>
+    <li><a href="https://librarycarpentry.org/Top-10-FAIR//2019/09/05/linked-open-data/">Top 10 FAIR things: Linked Open Data</a></li>
+    <li>Standards: <a href="https://fairsharing.org/standards">https://fairsharing.org/standards</a></li>
+    <li>Schema.org: <a href="https://schema.org">https://schema.org</a>. Example: <a href="https://docs.ropensci.org/codemetar/">https://docs.ropensci.org/codemetar/</a></li>
+    <li>ISA framework: ‘Investigation’ (the project context), ‘Study’ (a unit of research) and ‘Assay’ (analytical measurement) - <a href="https://isa-tools.github.io/">https://isa-tools.github.io/</a></li>
+    <li>Modularity: <a href="https://bioschemas.org">https://bioschemas.org</a></li>
+    <li>Codemeta crosswalks to other standards: <a href="https://codemeta.github.io/crosswalk/">https://codemeta.github.io/crosswalk/</a></li>
+    <li>Data Catalog Vocabulary (DCAT): <a href="https://www.w3.org/TR/vocab-dcat/">https://www.w3.org/TR/vocab-dcat/</a></li>
+    <li>Using community accepted code style guidelines such as PEP 8 for Python (PEP 8 itself is FAIR)</li>
+    <li>Scholix - related indentifiers - Zenodo example linking data/software to papers: <a href="https://dliservice.research-infrastructures.eu/#/">https://dliservice.research-infrastructures.eu/#/</a></li>
+    <li><a href="https://authorcarpentry.github.io/dois-citation-data/01-register-doi.html">https://authorcarpentry.github.io/dois-citation-data/01-register-doi.html</a></li>
+  </ul>
+</div>
+
+<div style="text-align: right; padding-bottom: 10px">
+  <hr />
+  <button type="button" onclick="window.location='/morea/fair/08-Reusable.html'" class="btn btn-primary">
+    <p style="font-size:16px; margin: 0">FAIR: Reusable -&gt;</p>
+    <p style="font-size:12px; margin: 0">2:50pm</p>
+    </button>
+</div>
+
+
+</div>
+
+
+
+
+<!-- Maybe find a different way?
+<script src="/js/scrollIfAnchor.js"></script>
+-->
+
+<footer class="footer footer-background" style="padding-top: 1em; padding-bottom: 1em">
+  <div class="container text-center">
+    
+    
+
+    
+    <p style="margin: 0">Powered by the <a class="footer-link" href="https://morea-framework.github.io/">Morea Framework</a> (Theme: spacelab)<br>
+      Last update on: <span>2023-12-01 13:58:35 -1000</span></p>
+
+    <p style="margin: 0">
+      
+      18 modules
+      
+      | 17 outcomes
+      
+      
+      | 55 readings
+      
+      
+      | 100 experiences
+      
+      
+      | 15 assessments
+      
+    </p>
+  </div>
+</footer>
+
+
+<!-- Load Bootstrap JavaScript components -->
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM" crossorigin="anonymous"></script>
+
+
+<script type="text/javascript" async
+        src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.7/latest.js?config=TeX-MML-AM_CHTML">
+</script>
+
+
+<!-- Add anchors to pages. -->
+<script>anchors.add();</script>
+
+
+</body>
+</html>

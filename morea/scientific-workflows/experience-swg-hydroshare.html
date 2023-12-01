@@ -1,0 +1,482 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <title> Change-HI/EDU | 3. HydroShare: A Science Gateway for Hydrological Sciences </title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta charset="utf-8">
+
+  <link rel="stylesheet" href="/css/themes/spacelab/bootstrap.min.css">
+  <link rel="stylesheet" href="/css/style.css">
+  <link rel="stylesheet" href="/css/syntax.css">
+  <link rel="shortcut icon" href="/favicon.ico" type="image/x-icon" />
+  <link href="/css/fontawesome/css/fontawesome.css" rel="stylesheet">
+  <link href="/css/fontawesome/css/brands.css" rel="stylesheet">
+  <link href="/css/fontawesome/css/solid.css" rel="stylesheet">
+  <script src="https://cdn.jsdelivr.net/npm/anchor-js/anchor.min.js"></script>
+
+  
+
+  <!-- Load JQuery, then use it to attach the class 'active' to navbar item currently displayed. -->
+  <script src="https://code.jquery.com/jquery-3.6.0.min.js" integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4=" crossorigin="anonymous"></script>
+  <script>
+    $(window).on('load', function () {
+      $('.nav-item').find('a[href="' + location.pathname + '"]').addClass('active');
+    });
+  </script>
+
+</head>
+<body>
+
+<div class="navbar navbar-expand-lg fixed-top navbar-light bg-light">
+  <div class="container">
+    <a class="navbar-brand" href="/index.html"> Change-HI/EDU </a>
+    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarResponsive" aria-controls="navbarResponsive" aria-expanded="false" aria-label="Toggle navigation">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+    <div class="collapse navbar-collapse" id="navbarResponsive">
+      <ul class="navbar-nav">
+        
+        <li class="nav-item"><a class="nav-link" href="/modules/">Modules</a></li>
+        
+        <li class="nav-item"><a class="nav-link" href="/outcomes/">Outcomes</a></li>
+        
+        
+        <li class="nav-item"><a class="nav-link" href="/readings/">Readings</a></li>
+        
+        
+        <li class="nav-item"><a class="nav-link" href="/experiences/">Experiences</a></li>
+        
+        
+        <li class="nav-item"><a class="nav-link" href="/assessments/">Assessments</a></li>
+        
+        
+      </ul>
+    </div>
+  </div>
+</div>
+
+<!-- Internal fragment for displaying the breadcrumb bar -->
+<div class="breadcrumb-background" style="padding-top: 1em; padding-bottom: .01em">
+  <div class="container">
+    <nav aria-label="breadcrumb">
+      <ol class="breadcrumb">
+        
+        <li class="breadcrumb-item"><a href="/">Home</a></li>
+        <li class="breadcrumb-item"><a href="/modules">Modules</a></li>
+        <li class="breadcrumb-item"><a href="/modules/"></a></li>
+        <li class="breadcrumb-item active">3. HydroShare: A Science Gateway for Hydrological Sciences</li>
+      </ol>
+    </nav>
+  </div>
+</div>
+
+
+<div class="container">
+  <h1 id="3-hydroshare-a-science-gateway-for-hydrological-sciences">3. HydroShare: A Science Gateway for Hydrological Sciences</h1>
+
+<div class="alert alert-success mt-3" role="alert">
+  <p><i class="fa-solid fa-globe fa-xl"></i> <strong>Overview</strong></p>
+  <hr />
+
+  <p><strong>Questions</strong></p>
+  <ul>
+    <li>What is HydroShare?</li>
+    <li>How does HydroShare work?</li>
+    <li>What is a HydroShare resource?</li>
+    <li>How do you share resources with others?</li>
+    <li>How do you create a HydroShare group?</li>
+    <li>What are HydroShare webapps?</li>
+    <li>What is JupyterHub?</li>
+  </ul>
+
+  <p><strong>Objectives</strong></p>
+  <ul>
+    <li>Allow the audience some experience using a scientific gateway and existing workflows</li>
+    <li>Introduce attendees to HydroShare</li>
+  </ul>
+</div>
+
+<h2 id="exploring-hydroshare">Exploring HydroShare</h2>
+<figure>
+  
+    <img src="/morea/scientific-workflows/fig/exp_hydroshare_1hydro.png" style="max-width: 100%;" alt="/Node%20anatomy" class="img-fluid mx-auto d-block border" />
+  
+  <figcaption style="text-align: center">
+    <small>
+      
+    </small>
+  </figcaption>
+</figure>
+
+<h2 id="hydroshare">HydroShare</h2>
+<p>According to the HydroShare website, HydroShare is a web based hydrologic information system. It is developed and maintained by Consortium of Universities for the Advancement of Hydrologic Science, Inc. (CUAHSI) and was established for users to share and publish data and models. HydroShare makes this information available in a citable, shareable and discoverable manner.</p>
+
+<p>This collaborative aspect of HydroShare is one of its most useful features. It enables users to work as teams in a web-based environment. Additionally, HydroShare includes tools such as web applications backed by computational resources which can be used to perform tasks on data within HydroShare. These web apps usually provide users with scientific workflows to perform computational analysis.</p>
+
+<p>HydroShare has several functionalities which can provide overall research and educational advancement. These functionalities include the following:</p>
+
+<ul>
+  <li>
+    <p><strong>Archiving and Disseminating Data</strong></p>
+
+    <p>HydroShare enables users to upload and store data and corresponding metadata. Data and models uploaded into HydroShare can be assigned citation information which can be used to reference it. By permanently publishing and obtaining a citable digital object identifier (DOI) for resources in HydroShare, resources may no longer be edited and are stored in HydroShare. This data can then be discoverable and be used for reproducibility of research. This is an important feature for satisfying data management plans when research finalizes.</p>
+  </li>
+  <li>
+    <p><strong>Collaboration</strong></p>
+
+    <p>Users can control who the data and models are shared with. This helps users connect with other members in their research community, collaborate and receive constructive feedback about their work. HydroShare allows users to create or join groups with common research interests. By sharing data and models with other researchers in their community, users can not only connect with other colleagues within the same field, but also collaborate on research and recieve appropriate feedback from other community members.</p>
+  </li>
+  <li>
+    <p><strong>Discover and Use Existing Datasets</strong></p>
+
+    <p>HydroShare provides functions to help users discover data and models within its platform. It consists of a wide range of users many of which contribute data and models to users with particular research interests.</p>
+  </li>
+</ul>
+
+<h2 id="how-hydroshare-works">How HydroShare Works</h2>
+<p>Typical use of HydroShare includes a few steps. These include:</p>
+
+<ul>
+  <li>
+    <p><strong>Create data</strong></p>
+
+    <p>This step involves the act of collecting data. This can be collecting data using sensors, taking images, or any other method. HydroShare supports a variey of data types i.e. GIS, NetCDF, etc.</p>
+  </li>
+  <li>
+    <p><strong>Upload to HydroShare</strong></p>
+
+    <p>By uploading data to HydroShare, the user is provided a place to store the information and given the option to make it open and accessible. Alternatively, the user can retain privacy until ready. Uploading is simple through the web user interface. HydroShare automatically extracts as much metadata as it can from the files uploaded.</p>
+  </li>
+  <li>
+    <p><strong>Describe with metadata</strong></p>
+
+    <p>HydroShare enables users to annotate data with metadata. This annotation makes data interpretable and discoverable. Together, data and metadata form what HydroShare refers to as a resource.</p>
+  </li>
+  <li>
+    <p><strong>Share with colleagues</strong></p>
+
+    <p>Users can share data and models with individuals or make them publicly accesible. There are various method to interact with other researchers. Sharing within a group particularly, gives all members interested in a specific research topic the ability to access that resource and collaborate.</p>
+  </li>
+  <li>
+    <p><strong>Permanently publish</strong></p>
+
+    <p>When a HydroShare user publishes data they recieve a digital object identifyer (DOI). This enables users to cite their data resource and reference it in related journals publications. Additionally, DOI’s provide your readers with a way to find your data.</p>
+  </li>
+</ul>
+
+<p>A visual of the overall process on how HydroShare is provided on their site.</p>
+
+<figure>
+  
+    <img src="/morea/scientific-workflows/fig/exp_hydroshare_2works.png" style="max-width: 100%;" alt="/Node%20anatomy" class="img-fluid mx-auto d-block border" />
+  
+  <figcaption style="text-align: center">
+    <small>
+      
+    </small>
+  </figcaption>
+</figure>
+
+<h2 id="hydroshare-resources">HydroShare Resources</h2>
+<p>HydroShare’s website defines a “resource” as the fundamental unit of digital content in HydroShare that contains data and/or model files and their corresponding metadata. Resources act as a container into which the sharable content is placed.</p>
+
+<p>Together, data, models and their metadata form the resource which acts as the single unit of digital content on which much of HydroShare’s functionality is based on. A resource can hold multiple files of different types and enables users to manage access, version, and share with colleagues and collaborative groups. Content within a resource can be either public or private, each with their own unique identifier, url, or DOI if published.</p>
+
+<p>All resources within HydroShare each have their own landing page. This page displays all resource metadata and its content files. Upon logging into a HydroShare account, users can access resources they have created or that others have shared with them in the “My Resources” section.</p>
+
+<figure>
+  
+    <img src="/morea/scientific-workflows/fig/exp_hydroshare_3resources.png" style="max-width: 100%;" alt="/Node%20anatomy" class="img-fluid mx-auto d-block border" />
+  
+  <figcaption style="text-align: center">
+    <small>
+      
+    </small>
+  </figcaption>
+</figure>
+
+<h2 id="creating-a-resource-and-uploading-data">Creating a Resource and Uploading Data</h2>
+<p>In this section, readers will read about how HydroShare stores and describes data. They will also get a chance to follow along and create their own resource and share amongst other members or keep it private.</p>
+
+<p>To upload data to HydroShare, users must first sign up and into their account. In the users profile page:</p>
+
+<ul>
+  <li>Click on the <strong>Create</strong> button in the top right navigation menu.</li>
+</ul>
+<figure>
+  
+    <img src="/morea/scientific-workflows/fig/exp_hydroshare_4creating.png" style="max-width: 100%;" alt="/Node%20anatomy" class="img-fluid mx-auto d-block border" />
+  
+  <figcaption style="text-align: center">
+    <small>
+      
+    </small>
+  </figcaption>
+</figure>
+
+<ul>
+  <li>From the dropdown, select <strong>Resource</strong>.</li>
+</ul>
+<figure>
+  
+    <img src="/morea/scientific-workflows/fig/exp_hydroshare_5creating.png" style="max-width: 100%;" alt="/Node%20anatomy" class="img-fluid mx-auto d-block border" />
+  
+  <figcaption style="text-align: center">
+    <small>
+      
+    </small>
+  </figcaption>
+</figure>
+
+<ul>
+  <li>Provide a resource title and click <strong>Create</strong>.</li>
+</ul>
+<figure>
+  
+    <img src="/morea/scientific-workflows/fig/exp_hydroshare_6creating.png" style="max-width: 100%;" alt="/Node%20anatomy" class="img-fluid mx-auto d-block border" />
+  
+  <figcaption style="text-align: center">
+    <small>
+      
+    </small>
+  </figcaption>
+</figure>
+
+<p>HydroShare will create the new resource and direct to the landing page. The resource is now ready for adding files and metadata. Metadata sections within the resource include but are not limited to sections for abstract, key words, geographic coverage, references, comments, and a content section in which files are added into.</p>
+
+<p>It is important to emphasize the use of metadata to the resource. It is what makes the content within it interpretable and discoverable. If making the resource public or discoverable, users must at least fill out a descriptive title, abstract, and one subject keyword.</p>
+
+<p>Users should organize files into folders as needed and use descriptive names that can be used to delineate data. Also, the “Add content from the web” icon allows users to provide a link to external web resources in the case the user wants to store only metadata while data is stored elsewhere.</p>
+
+<p>Users must have editing privileges on a resource in order to edit it. To verify if one can edit, navigate to the resource landing page and look for a pencil icon in the top right corner. If no pencil icon is visible then the user has no editing rights. Otherwise, clicking on the pencil icon will allow modification to metadata and content files. Users can also delete resources if necessary by clicking the “Delete” button on the resources landing page.</p>
+
+<figure>
+  
+    <img src="/morea/scientific-workflows/fig/exp_hydroshare_7creating.png" style="max-width: 100%;" alt="/Node%20anatomy" class="img-fluid mx-auto d-block border" />
+  
+  <figcaption style="text-align: center">
+    <small>
+      
+    </small>
+  </figcaption>
+</figure>
+
+<div class="alert alert-info" role="alert">
+  <p><i class="fa-solid fa-circle-info fa-xl"></i> <strong>Note: Note on published resources</strong></p>
+  <hr />
+
+  <ul>
+    <li>Content in formally published resources can no longer be changed. Limited metadata fields can be changed. However authors, title, and content files cannot be changed.</li>
+    <li>More information on how to formally publish data on HydroShare can be found in their help <a href="https://help.hydroshare.org/creating-and-managing-resources/formally-publishing-data/">documentation</a>.</li>
+  </ul>
+</div>
+
+<h2 id="sharing-resources">Sharing Resources</h2>
+<p>The owner of a resource can share that resource allowing HydroShare users, user groups, or the public the right to access the content and metadata of a resource. Shared resources may still be private when shared only with individual users or groups. In this case they would not be discoverable by the public.</p>
+
+<p>One can access the sharing permissions by clicking the share icon in the upper right corner of the resource landing page.</p>
+
+<figure>
+  
+    <img src="/morea/scientific-workflows/fig/exp_hydroshare_8sharing.png" style="max-width: 100%;" alt="/Node%20anatomy" class="img-fluid mx-auto d-block border" />
+  
+  <figcaption style="text-align: center">
+    <small>
+      
+    </small>
+  </figcaption>
+</figure>
+
+<p>Here, users can control access and sharing status. More information on sharing and privacy can be found at HydroShare’s help <a href="https://help.hydroshare.org/sharing-and-privacy/">documentation</a>.</p>
+
+<h2 id="hydroshare-groups-and-communities">HydroShare Groups and Communities</h2>
+<p>A group is a collection of Hydroshare users with a common resource landing page, that is populated by the resources owned and shared by the users in the group. A major part of HydroShare’s functionality includes ‘Groups’. You can create a Group for your research team and share resources within that group. Groups can be public or private, and you have control over what is shared with the group and what access group members have to the resources you share.</p>
+
+<p>Communities are designed for groups to share resources more seamlessly, fostering public data sharing and open access. A community is a set of groups, which allows several differently administered groups to collaborate toward a common goal. Communities are ideal when a project spans administrative domains, e.g., universities, research groups, and/or businesses. Current examples of communities include collaborations between large research networks and collections of universities. As communities consist of groups, an individual user is part of a community through an associated group.</p>
+
+<h3 id="creating-a-group">Creating a Group</h3>
+<p>To create a group:</p>
+<ul>
+  <li>Go to <strong>Collaborate</strong> tab in HydroShare and click on Groups.</li>
+</ul>
+<figure>
+  
+    <img src="/morea/scientific-workflows/fig/exp_hydroshare_9group.png" style="max-width: 100%;" alt="/Node%20anatomy" class="img-fluid mx-auto d-block border" />
+  
+  <figcaption style="text-align: center">
+    <small>
+      
+    </small>
+  </figcaption>
+</figure>
+
+<ul>
+  <li>Click on <strong>Create Group</strong>. We Can also <strong>search for an existing group</strong> from here.</li>
+</ul>
+<figure>
+  
+    <img src="/morea/scientific-workflows/fig/exp_hydroshare_10groups.png" style="max-width: 100%;" alt="/Node%20anatomy" class="img-fluid mx-auto d-block border" />
+  
+  <figcaption style="text-align: center">
+    <small>
+      
+    </small>
+  </figcaption>
+</figure>
+
+<ul>
+  <li>Fill in fields.</li>
+</ul>
+<figure>
+  
+    <img src="/morea/scientific-workflows/fig/exp_hydroshare_11groups.png" style="max-width: 100%;" alt="/Node%20anatomy" class="img-fluid mx-auto d-block border" />
+  
+  <figcaption style="text-align: center">
+    <small>
+      
+    </small>
+  </figcaption>
+</figure>
+
+<ul>
+  <li>Select access permissions.</li>
+  <li>Click <strong>Create</strong>.</li>
+</ul>
+
+<p>The next episode will discuss HydroShare groups in more detail.</p>
+
+<h2 id="hydroshare-web-apps">HydroShare Web Apps</h2>
+<p>Apps are the software tools that allow you to visualize, analyze, and work with resources, more specifically data and models. Apps are hosted on separate web servers from the HydroShare website and access HydroShare resources using web services via the REST applications programmers interface (API).</p>
+
+<p>Web apps are how users can work with data that is stored within HydroShare. They usually are applications which can be used to perform computational tasks or scientific workflows. Web apps run from remote servers which act as a computational backend to HydroShare. They act as tools which can be used for exploring and visualizing different types of data or performing general analysis.</p>
+
+<p>Web apps communicate with HydroShare to move data in and out of it by means of a REST API. A set of apps are approved by the HydroShare development team and require account access to use. This is because they can save results that one might want to store back into their HydroShare account. Use of certain apps also requires that users join a HydroShare group associated with that web app.</p>
+
+<figure>
+  
+    <img src="/morea/scientific-workflows/fig/exp_hydroshare_12apps.png" style="max-width: 100%;" alt="/Node%20anatomy" class="img-fluid mx-auto d-block border" />
+  
+  <figcaption style="text-align: center">
+    <small>
+      
+    </small>
+  </figcaption>
+</figure>
+
+<h3 id="cuahsi-jupyterhub">CUAHSI JupyterHub</h3>
+<p>The CUAHSI JupyterHub is a web application that allows HydroShare users to execute scientific code in the cloud.</p>
+
+<p>This application supports the execution of code written in several programming languages, including Python and R, and is specifically designed to support the development of research and education focused Jupyter Notebooks</p>
+
+<p>Jupyter notebooks combine narrative text and code into a single document which can be used for creating and disseminating scientific workflows as well as educational tools for classroom exercises and professional workshops. The CUAHSI JupyterHub combines this functionality with the HydroShare data repository to provide a rich computational environment for water sciences.</p>
+
+<p>There are multiple ways to access the CUAHSI JupyterHub web application from HydroShare. The simplest is to launch it from the HydroShare Apps library by clicking the tab labeled ‘APPS’ at the top of the HydroShare webpage.</p>
+
+<figure>
+  
+    <img src="/morea/scientific-workflows/fig/exp_hydroshare_13apps.png" style="max-width: 100%;" alt="/Node%20anatomy" class="img-fluid mx-auto d-block border" />
+  
+  <figcaption style="text-align: center">
+    <small>
+      
+    </small>
+  </figcaption>
+</figure>
+
+<p>Any data that is uploaded, downloaded, and created is associated with your HydroShare account and will persist between sessions, meaning that it will be there next time you log in.</p>
+
+<p>HydroShare resources can also be “launched” into the CUAHSI JupyterHub environment. While in a HydroShare resource click the “Open with …” functionality as pictured below. This button can be found in the top right corner of any HydroShare resource landing page.</p>
+
+<p>After launching the CUAHSI JupyterHub application, you will be presented with several purpose-built environments to choose from. Each of these environments contain pre-installed software to assist in the rapid development of code. You will receive the following server options:</p>
+
+<figure>
+  
+    <img src="/morea/scientific-workflows/fig/exp_hydroshare_14apps.png" style="max-width: 100%;" alt="/Node%20anatomy" class="img-fluid mx-auto d-block border" />
+  
+  <figcaption style="text-align: center">
+    <small>
+      
+    </small>
+  </figcaption>
+</figure>
+
+<p>More information on CUAHSI JupyterHub could be found in HydroShare’s help <a href="https://help.hydroshare.org/apps/CUAHSI-JupyterHub/">documentation</a>.</p>
+
+<p>Much of the information used here was kindly provided by the following reference.</p>
+<ul>
+  <li>“HydroShare Support. https://help.hydroshare.org”</li>
+</ul>
+
+<div class="alert alert-info" role="alert">
+  <p><i class="fa-solid fa-circle-info fa-xl"></i> <strong>Key Points</strong></p>
+  <hr />
+
+  <ul>
+    <li>Scientific gateways like HydroShare, give researchers access to domain specific data sets and workflows which can help in the analysis and visualization of data.</li>
+    <li>HydroShare provides tools to create resources which can contain data, models, workflows and other useful resources researchers can use and expand on.</li>
+    <li>HydroShare provides users simple ways to openly collaborate with the public community, privately with specific individuals, or research groups consisting of individuals with similar interests.</li>
+    <li>Webapps in HydroShare can be used to gain access to computational resources and workflows which perform data analysis tasks.</li>
+  </ul>
+</div>
+
+<div style="text-align: right; padding-bottom: 10px">
+  <hr />
+  <button type="button" onclick="window.location='/morea/scientific-workflows/experience-swg-collaboration.html'" class="btn btn-primary">
+    <p style="font-size:16px; margin: 0">Scientific Workflow -&gt;</p>
+    <p style="font-size:12px; margin: 0">3:00pm</p>
+    </button>
+</div>
+
+</div>
+
+
+
+
+<!-- Maybe find a different way?
+<script src="/js/scrollIfAnchor.js"></script>
+-->
+
+<footer class="footer footer-background" style="padding-top: 1em; padding-bottom: 1em">
+  <div class="container text-center">
+    
+    
+
+    
+    <p style="margin: 0">Powered by the <a class="footer-link" href="https://morea-framework.github.io/">Morea Framework</a> (Theme: spacelab)<br>
+      Last update on: <span>2023-12-01 13:58:35 -1000</span></p>
+
+    <p style="margin: 0">
+      
+      18 modules
+      
+      | 17 outcomes
+      
+      
+      | 55 readings
+      
+      
+      | 100 experiences
+      
+      
+      | 15 assessments
+      
+    </p>
+  </div>
+</footer>
+
+
+<!-- Load Bootstrap JavaScript components -->
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM" crossorigin="anonymous"></script>
+
+
+<script type="text/javascript" async
+        src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.7/latest.js?config=TeX-MML-AM_CHTML">
+</script>
+
+
+<!-- Add anchors to pages. -->
+<script>anchors.add();</script>
+
+
+</body>
+</html>

@@ -1,0 +1,321 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <title> Change-HI/EDU | Machine Learning Workshop 2023 Assessment Results </title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta charset="utf-8">
+
+  <link rel="stylesheet" href="/css/themes/spacelab/bootstrap.min.css">
+  <link rel="stylesheet" href="/css/style.css">
+  <link rel="stylesheet" href="/css/syntax.css">
+  <link rel="shortcut icon" href="/favicon.ico" type="image/x-icon" />
+  <link href="/css/fontawesome/css/fontawesome.css" rel="stylesheet">
+  <link href="/css/fontawesome/css/brands.css" rel="stylesheet">
+  <link href="/css/fontawesome/css/solid.css" rel="stylesheet">
+  <script src="https://cdn.jsdelivr.net/npm/anchor-js/anchor.min.js"></script>
+
+  
+
+  <!-- Load JQuery, then use it to attach the class 'active' to navbar item currently displayed. -->
+  <script src="https://code.jquery.com/jquery-3.6.0.min.js" integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4=" crossorigin="anonymous"></script>
+  <script>
+    $(window).on('load', function () {
+      $('.nav-item').find('a[href="' + location.pathname + '"]').addClass('active');
+    });
+  </script>
+
+</head>
+<body>
+
+<div class="navbar navbar-expand-lg fixed-top navbar-light bg-light">
+  <div class="container">
+    <a class="navbar-brand" href="/index.html"> Change-HI/EDU </a>
+    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarResponsive" aria-controls="navbarResponsive" aria-expanded="false" aria-label="Toggle navigation">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+    <div class="collapse navbar-collapse" id="navbarResponsive">
+      <ul class="navbar-nav">
+        
+        <li class="nav-item"><a class="nav-link" href="/modules/">Modules</a></li>
+        
+        <li class="nav-item"><a class="nav-link" href="/outcomes/">Outcomes</a></li>
+        
+        
+        <li class="nav-item"><a class="nav-link" href="/readings/">Readings</a></li>
+        
+        
+        <li class="nav-item"><a class="nav-link" href="/experiences/">Experiences</a></li>
+        
+        
+        <li class="nav-item"><a class="nav-link" href="/assessments/">Assessments</a></li>
+        
+        
+      </ul>
+    </div>
+  </div>
+</div>
+
+<!-- Internal fragment for displaying the breadcrumb bar -->
+<div class="breadcrumb-background" style="padding-top: 1em; padding-bottom: .01em">
+  <div class="container">
+    <nav aria-label="breadcrumb">
+      <ol class="breadcrumb">
+        
+        <li class="breadcrumb-item"><a href="/">Home</a></li>
+        <li class="breadcrumb-item"><a href="/modules">Modules</a></li>
+        <li class="breadcrumb-item"><a href="/modules/"></a></li>
+        <li class="breadcrumb-item active">Machine Learning Workshop 2023 Assessment Results</li>
+      </ol>
+    </nav>
+  </div>
+</div>
+
+
+<div class="container">
+  <h1 id="machine-learning-workshop-2023-assessment-results">Machine Learning Workshop 2023 Assessment Results</h1>
+
+<h2 id="participant-assessment-comments">Participant Assessment Comments</h2>
+
+<p><em>Why select a Radial Basis Function to model CO2 concentrations at Mauna Loa? If you don’t recall, just write “I don’t recall”.</em></p>
+
+<ul>
+  <li>I don’t recall (5x)</li>
+  <li>Data is sinusoidal</li>
+  <li>RBF can capture complex, nonlinear relationships between the input variables (e.g., time, temperature, etc.) and the target variable (CO2 concentration).</li>
+  <li>It would be fast and plotted smoother.</li>
+</ul>
+
+<p><em>Why might you need to use the “forward fill” capability in Pandas? If you don’t recall, just write “I don’t recall”.</em></p>
+
+<ul>
+  <li>I don’t recall (3x).</li>
+  <li>To fill NaN values</li>
+  <li>To impute missing values</li>
+  <li>To make sure that the missing data uses the correct intervals when filling it in.</li>
+  <li>Fill gaps in dataset</li>
+  <li>We use forward fill to fill missing values with the most recent known value, rather than imputing the missing values in some other way.</li>
+  <li>Data interpolation</li>
+  <li>Data is missing; its likely that data in a close time period had similar values</li>
+  <li>The data is consecutive data (time-series).</li>
+</ul>
+
+<p><em>Has this workshop material caused you to consider making changes to the way you use machine learning in your own research and/or practice? If so, please briefly describe what changes you might make. If not, just write “No changes at the moment.”</em></p>
+
+<ul>
+  <li>No changes at the moment. (4x)</li>
+  <li>Yes, this workshop helped illuminate some of the intricacies of utilizing machine learning to analyze time series data in efficient and appropriate ways.</li>
+  <li>Yes, exploring different workflows and adjustments and hyperparameters to models. I’m also curious to explore language processing more.</li>
+  <li>Yes, I have a lot of timeseries data that I have not been doing much with and I am excited to start looking at predictions including using other variables. Also, it did make me more interested in NLP.</li>
+  <li>Yes, in my process in doing machine learning research or practices, I learned that sometimes we need to think out of the box with what we’re predicting rather than just making a stronger model (e.g. predicting the change rather than future values).</li>
+  <li>I am going to try to learn how to implement pytorch instead of leaning on sklearn and keras all the time.</li>
+  <li>More frequent use of Colab</li>
+  <li>I will be working with collaborators on a project utilizing neural networks and this workshop was a very nice introduction</li>
+  <li>Yes. I would like to use LSTM for practice.</li>
+  <li>I learned appropriate way to forecast the results with time-series data.</li>
+</ul>
+
+<p><em>In general, did you find the CONTENT of this workshop to be useful?  If so, please briefly summarize up to three skills you acquired (or started to acquire) as a result of this workshop.  If not, please write “Content not useful.”</em></p>
+
+<ul>
+  <li>Yes, I think Machine Learning is a very hot topic. I took a Machine Learning course in my Master’s class so this workshop was not too useful in terms of learning new skills.</li>
+  <li>Yes, I learned how to use Google collab and learned it is easier to run some codes here since the are many preinstalled libraries.</li>
+  <li>The content was very useful and served as a good broad exposure to machine/deep learning while seeing specific use cases.</li>
+  <li>Yes, I appreciate having a functional script with a working model i can go back and reference / test with different settings. I learned about language processing.</li>
+  <li>Yes, especialy that we were all going along and running the code.</li>
+  <li>Yes, modeling different parts of data, using pytorch, minmax scaling.</li>
+  <li>The content was useful as it provided a good entry level description of how to use pytorch and sklearn.</li>
+  <li>Visualizing complex datasets; reasoning about ML models; discussion of overtraining/overfitting pitfalls.</li>
+  <li>Yes, it was a good refresher for the basics steps to using ML to solve time series problems. How to clean data, handle missing values, scale numbers.</li>
+  <li>Yes. Skills: Preparing data, training the neural network model, evaluating the model through visual inspection.</li>
+  <li>yes- learned the tradeoffs in chosing classifiers</li>
+  <li>Useful. But I got stuck at the beginning as using collab.</li>
+  <li>Use of pytorch, large language models, decision trees.</li>
+  <li>It touches on useful codes and topics in machine learning.</li>
+</ul>
+
+<p><em>In general, did you find the PEDAGOGY (i.e. method of teaching) of this workshop to be appropriate?  If so, please briefly summarize one or two teaching methods you found to be useful. If not, please write “Pedagogy was not appropriate.”</em></p>
+
+<ul>
+  <li>Pedagogy was not appropriate. I think the data we were working with was too complex to learn Machine Learning and Climate Data at the same time. I think starting off with a more simpler dataset and moving to complex datasets would have been a better plan.</li>
+  <li>Yes, but fast for someone without background knowledge to follow.</li>
+  <li>I liked that the entirety of the workshop was very hands on but not so intensive that the flow of the workshop was impacted.</li>
+  <li>yes, i enjoyed in ‘live’ testing and questions to the audience. it made me reflect and think about the types of models, how to chose and how to test them.</li>
+  <li>I believe it was appropreate and matched the ML talks I have for courses.</li>
+  <li>Yes, sharing notebook on screen, encouraging questions.</li>
+  <li>The method of having notebooks for us to use and play with is good because it allows us to tweak things and see how it affects the models.</li>
+  <li>Experiential learning/learn by example; Live debugging of issues rather than perfect presentation (makes it more approachable for beginners)</li>
+  <li>Yes, it was a well planned 2 hours.</li>
+  <li>I thought following along with the coding live was very engaging</li>
+  <li>Good approach, could have been explained why interpolation was used instead of dropna</li>
+  <li>Real data implemented. The radiation section shows how to train the data is vital.</li>
+  <li>Concrete examples showing how to apply concepts and/or ideas.</li>
+  <li>I think sharing the codes and giving fellows time to follow up were very effective in fully understanding the instructors’ contents.</li>
+</ul>
+
+<p><em>No workshop is perfect. What are one or two things you would suggest we change to improve this workshop in future?  If you can’t think of anything, then write “You’re wrong. This workshop was perfect.”</em></p>
+
+<ul>
+  <li>You’re wrong. This workshop was perfect. (2x)</li>
+  <li>If the student speaker could speak up, that would have been great</li>
+  <li>It would be nice to see some other ML models alongside decision trees.</li>
+  <li>I had a hard time finding the website and datasets. i would be really helpful if there was a place it was listed as we jumped between websites - even just typed out on the big screen (sorry if there was and i missed it) also had a hard time hearing the first speaker.</li>
+  <li>With materials provide links to the morea sites used.</li>
+  <li>Ensure that the code posted on the website is up to date, and verify that the model(s) will perform in a way that can be explained.</li>
+  <li>Maybe more comments throughout the code</li>
+  <li>There were just some bugs in the code that could have been avoided beforehand if tested.</li>
+  <li>I’m very familiar with Jupyter notebooks so I didn’t have any issues, but emphasizing that folks should be ready with their on notebook or a colab notebook would be helpful.</li>
+  <li>This is probably another workshop all together but explaining the preprocessing of the raw climate data.</li>
+  <li>It would be better if the data would be two-dimensional.</li>
+  <li>The “sharing of the files” before the workshop could be better by providing the link to the workshop module on Change-HI instead of being a zip file of one of the web pages that had been saved. As at least one participant was confused, it would be more helpful to state that if the code is run in a local Jupyter notebook there are some prerequisite Python packages that must be installed. This would help participants be ready to go before the workshop if they are using their local Jupyter Notebook or Lab set-up.</li>
+</ul>
+
+<p><em>Did this workshop result in any new potential collaborations (i.e. people who you might contact in future to discuss research and/or professional issues)?</em></p>
+
+<ul>
+  <li>6 responses: No the workshop did not result in any new potential collaborations</li>
+  <li>7 responses: I am not sure if the workshop resulted in any new potential collaborations</li>
+  <li>2 responses: Yes, the workshop resulted in new collaborations.</li>
+</ul>
+
+<p><em>If the workshops resulted in any new potential collaborations, are any of them with people outside your “home” discipline (i.e. your department)?</em></p>
+
+<ul>
+  <li>7 responses: No.</li>
+  <li>5 responses: I don’t know</li>
+  <li>3 responses: Yes.</li>
+</ul>
+
+<p><em>Do you have any ideas for new workshops that would help you with your research and professional development? If so, please briefly describe. If not, please write (“No ideas at the moment.”)</em></p>
+
+<ul>
+  <li>A workshop working with spatial data / rasters / images / would be super cool!</li>
+  <li>A more in-depth workshop on tweaking neural net models</li>
+  <li>Other workshops that explore different machine learning approaches would be great. Workshops on ChatGPT usage would also be very interesting.</li>
+  <li>Preprocessing the climate data, or something more general; preprocessing different types of raw data including sensor data etc.</li>
+</ul>
+
+<p><em>Is there anything else you would like us to know about this workshop?</em></p>
+
+<ul>
+  <li>Thanks for the workshop</li>
+  <li>The workshop was excellent! Thank you for taking the time to put this together.</li>
+  <li>Good job!!</li>
+  <li>I found it very informative. Thanks!</li>
+  <li>I would like to know how serial correlation in time series data may critically affect on machine learning, and any appropriate solutions to deal with the issues. Thank you very much!</li>
+</ul>
+
+<h2 id="instructor-assessment-comments">Instructor Assessment Comments</h2>
+
+<p><em>For your workshop, how would you rate the overall “success” of the workshop (i.e. your subjective sense of things like student engagement, questions, discussion, completion of activities, etc.)?</em></p>
+
+<ul>
+  <li>2 responses: About as successful as expected.</li>
+</ul>
+
+<p><em>What aspects of your workshop did not work as well as possible, and what are your thoughts on how to improve them in future?</em></p>
+
+<ul>
+  <li>It would be great to have more audience participation. Things that could be improved: (1) spending more time generating interactive content; (2) bigger, simpler space so more people could join in person.</li>
+  <li>Our workshops wasn’t as thoroughly prepared as it could’ve been (especially my part). Not being able to update the github in the last 24hrs contributed. I know we had fair warning, so that was my own fault! But it would be good if more people had the ability to approve PRs. We reached out to a few people but no one had access.</li>
+  <li>I expected to just need to port the previous year’s content into Morea, but Peter wanted us to make new content instead. I think that was a good experience, but I didn’t find out about that early enough. I could’ve avoided that situation by meeting with Peter to plan the workshop earlier.</li>
+  <li>I couldn’t get the local Morea site running on my PC laptop, although with some tinkering of the gemfile it worked on my PC desktop. I never got it working on laptop due to dependency errors.</li>
+  <li>Live reloading never seemed to do anything for me. I still had to kill and relaunch the site every time I made a change. That was a bit tedious.</li>
+  <li>Since our topic involved so much code, it felt like the ability to make it interactive was a bit limited. Including line by line of code that users need to copy into a notebook felt more tedious than educational. But it seems like including a pre-solved jupyter notebook instead would’ve removed any need for user participation. I’m not sure what the answer is, maybe we could’ve done it more similar to the data wrangling workshop.</li>
+</ul>
+
+<p><em>What aspects of your workshop do you feel worked well (so that we know to encourage their use in future workshops when appropriate)?</em></p>
+
+<ul>
+  <li>Audience seemed interested in the topic.</li>
+  <li>Morea is easy to work with once you get your environment running.</li>
+  <li>Michelle taking care of zoom, camera, mics etc is nice, so we can just focus on the content.</li>
+</ul>
+
+<p><em>Is there anything else you would like us to know about your workshop? Are there ways we can better support your instruction in future?</em></p>
+
+<ul>
+  <li>The morea interface is nice and lends itself pretty well to workshops. I especially liked the ability to link to  previous modules and create call outs that gave more information on the topic.  However, it adds a lot of overhead to building workshops compared to doing everything in jupyter notebooks + github. Getting ruby configured on my machine was a hassle (even though I already use it for my jekyll github page).</li>
+  <li>When Peter and I were thinking about the topics we wanted to cover, his main questions for me were about who the audience would be and what they will be interested in. I didn’t have much of an answer. Most workshops have small attendance, mostly just the fellows, and it feels like the fellows don’t benefit much from intro-level coding tutorials. On the other hand, we get some external attendees, and sometimes a lot of them (like this time). Those people are a bit of a mystery. With them it’s probably best to give a very intro-level workshop? I don’t know.</li>
+</ul>
+
+<p><em>Do you have ideas for new workshops (don’t worry, we’ll find someone else to lead them!) If so, please jot down your idea here. If not, write “Nothing at the moment”.</em></p>
+
+<ul>
+  <li>There is only one explicitly machine learning workshop this year, but there are a lot of different specialized topics that people might be interested. e.g. ML object detection in satellite images. Speeding up human data annotation. Making use of LLMs. Topic modeling. Hyperparameter optimization. Distributed neural network training. Model compression. Model interpretability tools. Model de-biasing tools.</li>
+  <li>Maybe something about measuring and communicating the significance of results. Very quick “stats refresher for researchers” and with some advice about how to avoid cherrypicking etc.</li>
+  <li>There are also tooling workshops that could be done. Running VisualStudio on the cluster. Using copilot.</li>
+</ul>
+
+<h2 id="discussion-and-recommendations">Discussion and recommendations</h2>
+
+<p>The initial questions assess a couple of the learning outcomes.  The responses provide partial evidence that the learning outcomes assessed were achieved. It may be that the first question (in particular) was not appropriate for assessing learning outcomes.</p>
+
+<p>Participant feedback seems to indicate that the pacing of this workshop was reasonable.</p>
+
+<p>Machine Learning is a very interesting topic and there is a lot of interest in expanding the treatment of this topic in some manner in future years.</p>
+
+<p>It seems that the workshop participants ranged greatly in background: from some who have taken ML courses in the past to those with no prior experience. Satisfying both audiences is challenging, but you seem to have done a pretty good job.</p>
+
+<p>Jekyll is notorious for being difficult to set up on Windows. Since Morea depends upon Jekyll, this can be a problem. Fortunately, I will soon be documenting a cloud-based approach based upon GitPod.io which will significantly simplify Morea use for Windows (and even Unix) users.</p>
+
+<p>Recommendations for next time:</p>
+
+<ol>
+  <li>There was interesting constructive feedback on potential improvements; these can be considered for the next time this workshop is run.</li>
+  <li>Think about ways to change the in-class interaction so that more collaborative connections between folks in different disciplines occurs.</li>
+  <li>Find better questions for assessing learning outcomes.</li>
+</ol>
+
+</div>
+
+
+
+
+<!-- Maybe find a different way?
+<script src="/js/scrollIfAnchor.js"></script>
+-->
+
+<footer class="footer footer-background" style="padding-top: 1em; padding-bottom: 1em">
+  <div class="container text-center">
+    
+    
+
+    
+    <p style="margin: 0">Powered by the <a class="footer-link" href="https://morea-framework.github.io/">Morea Framework</a> (Theme: spacelab)<br>
+      Last update on: <span>2023-12-01 13:58:35 -1000</span></p>
+
+    <p style="margin: 0">
+      
+      18 modules
+      
+      | 17 outcomes
+      
+      
+      | 55 readings
+      
+      
+      | 100 experiences
+      
+      
+      | 15 assessments
+      
+    </p>
+  </div>
+</footer>
+
+
+<!-- Load Bootstrap JavaScript components -->
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM" crossorigin="anonymous"></script>
+
+
+<script type="text/javascript" async
+        src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.7/latest.js?config=TeX-MML-AM_CHTML">
+</script>
+
+
+<!-- Add anchors to pages. -->
+<script>anchors.add();</script>
+
+
+</body>
+</html>

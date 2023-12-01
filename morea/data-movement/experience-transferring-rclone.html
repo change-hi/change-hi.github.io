@@ -1,0 +1,369 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <title> Change-HI/EDU | 12. Transferring Files with Rclone </title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta charset="utf-8">
+
+  <link rel="stylesheet" href="/css/themes/spacelab/bootstrap.min.css">
+  <link rel="stylesheet" href="/css/style.css">
+  <link rel="stylesheet" href="/css/syntax.css">
+  <link rel="shortcut icon" href="/favicon.ico" type="image/x-icon" />
+  <link href="/css/fontawesome/css/fontawesome.css" rel="stylesheet">
+  <link href="/css/fontawesome/css/brands.css" rel="stylesheet">
+  <link href="/css/fontawesome/css/solid.css" rel="stylesheet">
+  <script src="https://cdn.jsdelivr.net/npm/anchor-js/anchor.min.js"></script>
+
+  
+
+  <!-- Load JQuery, then use it to attach the class 'active' to navbar item currently displayed. -->
+  <script src="https://code.jquery.com/jquery-3.6.0.min.js" integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4=" crossorigin="anonymous"></script>
+  <script>
+    $(window).on('load', function () {
+      $('.nav-item').find('a[href="' + location.pathname + '"]').addClass('active');
+    });
+  </script>
+
+</head>
+<body>
+
+<div class="navbar navbar-expand-lg fixed-top navbar-light bg-light">
+  <div class="container">
+    <a class="navbar-brand" href="/index.html"> Change-HI/EDU </a>
+    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarResponsive" aria-controls="navbarResponsive" aria-expanded="false" aria-label="Toggle navigation">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+    <div class="collapse navbar-collapse" id="navbarResponsive">
+      <ul class="navbar-nav">
+        
+        <li class="nav-item"><a class="nav-link" href="/modules/">Modules</a></li>
+        
+        <li class="nav-item"><a class="nav-link" href="/outcomes/">Outcomes</a></li>
+        
+        
+        <li class="nav-item"><a class="nav-link" href="/readings/">Readings</a></li>
+        
+        
+        <li class="nav-item"><a class="nav-link" href="/experiences/">Experiences</a></li>
+        
+        
+        <li class="nav-item"><a class="nav-link" href="/assessments/">Assessments</a></li>
+        
+        
+      </ul>
+    </div>
+  </div>
+</div>
+
+<!-- Internal fragment for displaying the breadcrumb bar -->
+<div class="breadcrumb-background" style="padding-top: 1em; padding-bottom: .01em">
+  <div class="container">
+    <nav aria-label="breadcrumb">
+      <ol class="breadcrumb">
+        
+        <li class="breadcrumb-item"><a href="/">Home</a></li>
+        <li class="breadcrumb-item"><a href="/modules">Modules</a></li>
+        <li class="breadcrumb-item"><a href="/modules/data-movement">Data Movement</a></li>
+        <li class="breadcrumb-item active">12. Transferring Files with Rclone</li>
+      </ol>
+    </nav>
+  </div>
+</div>
+
+
+<div class="container">
+  <h1 id="12-transferring-files-with-rclone">12. Transferring Files with Rclone</h1>
+
+<div class="alert alert-success mt-3" role="alert">
+  <p><i class="fa-solid fa-globe fa-xl"></i> <strong>Overview</strong></p>
+  <hr />
+
+  <p><strong>Questions</strong></p>
+  <ul>
+    <li>How do I move data from google drive to KOA?</li>
+    <li>How do I move data from KOA to google drive?</li>
+  </ul>
+
+  <p><strong>Objectives</strong></p>
+  <ul>
+    <li>Move data to and from KOA and gdrive.</li>
+  </ul>
+
+</div>
+
+<h1 id="now-we-can-list-files-from-gdrive">Now we can list files from GDrive</h1>
+<ul>
+  <li>‘lsf’ is how we list files using Rclone</li>
+</ul>
+
+<div class="alert alert-secondary" role="alert">
+  <div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>$ rclone lsf rclone-gdrive:/
+</code></pre></div>  </div>
+
+</div>
+
+<figure>
+  
+    <img src="/morea/data-movement/fig/Rclonesuccess.png" style="max-width: 75%;" alt="/Node%20anatomy" class="img-fluid mx-auto d-block border" />
+  
+  <figcaption style="text-align: center">
+    <small>
+      
+    </small>
+  </figcaption>
+</figure>
+
+<hr />
+
+<h1 id="now-we-can-create-a-directory-to-transfer-files-tofrom-koagdrive">Now we can create a directory to transfer files to/from KOA/GDrive</h1>
+<ul>
+  <li>Make a directory called “rclonefiles” using the “mkdir” command</li>
+</ul>
+
+<div class="alert alert-secondary" role="alert">
+  <div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>$ mkdir rclonefiles
+</code></pre></div>  </div>
+
+</div>
+
+<ul>
+  <li>Move into the directory we just created</li>
+</ul>
+
+<div class="alert alert-secondary" role="alert">
+  <div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>$ cd rclonefiles
+</code></pre></div>  </div>
+
+</div>
+
+<ul>
+  <li>‘cd’ is the change directory command</li>
+</ul>
+
+<hr />
+
+<h1 id="create-a-test-document-for-transfer">Create a test document for transfer</h1>
+
+<p>In google drive create a folder name it “rclonetest”</p>
+
+<figure>
+  
+    <img src="/morea/data-movement/fig/RCloneGD1.png" style="max-width: 75%;" alt="/Node%20anatomy" class="img-fluid mx-auto d-block border" />
+  
+  <figcaption style="text-align: center">
+    <small>
+      
+    </small>
+  </figcaption>
+</figure>
+
+<p>Within that folder create a new doc and call it “testfile”</p>
+
+<figure>
+  
+    <img src="/morea/data-movement/fig/RCloneGD2.png" style="max-width: 75%;" alt="/Node%20anatomy" class="img-fluid mx-auto d-block border" />
+  
+  <figcaption style="text-align: center">
+    <small>
+      
+    </small>
+  </figcaption>
+</figure>
+
+<hr />
+
+<h1 id="copying-the-directory-contents-from-gdrive-to-koa">Copying the directory contents from GDrive to KOA</h1>
+
+<p>‘rclone copy’ has a source and destination required</p>
+
+<p>GDrive being the source in the example below and the current directory (represented by the ‘.’) the destination</p>
+
+<div class="alert alert-secondary" role="alert">
+  <div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>$ rclone copy rclone-gdrive:/rclonetest .
+</code></pre></div>  </div>
+
+</div>
+
+<p>This will copy the folder contents to the current directory - Note the ‘.’ at the end this is represents the current directory as the destination folder - we could also have used ~/rclonefiles or /home/username/rclonefiles as that same folder path.</p>
+
+<hr />
+
+<h1 id="koa-to-gdrive">KOA to GDrive</h1>
+
+<ul>
+  <li>Create a testfile2.docx on the KOA DTN by copying testfile.docx</li>
+</ul>
+
+<div class="alert alert-secondary" role="alert">
+  <div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>$ cp testfile.docx testfile2.docx
+</code></pre></div>  </div>
+
+</div>
+
+<figure>
+  
+    <img src="/morea/data-movement/fig/Rclonecp.png" style="max-width: 75%;" alt="/Node%20anatomy" class="img-fluid mx-auto d-block border" />
+  
+  <figcaption style="text-align: center">
+    <small>
+      
+    </small>
+  </figcaption>
+</figure>
+
+<p>‘cp’ is the copy command in the terminal/shell</p>
+
+<div class="alert alert-secondary" role="alert">
+  <div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>$ ls
+</code></pre></div>  </div>
+
+</div>
+
+<hr />
+
+<h1 id="now-copy-testfile2docx-to-gdrive">Now copy testfile2.docx to GDrive</h1>
+<p>The source is the Mana testfile2.docx and the destination is gdrive</p>
+
+<div class="alert alert-secondary" role="alert">
+  <div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>$ rclone copy testfile2.docx rclone-gdrive:/rclonetest
+</code></pre></div>  </div>
+
+</div>
+
+<hr />
+
+<p>You can check GDrive and the file should appear!</p>
+<figure>
+  
+    <img src="/morea/data-movement/fig/rclonetf.png" style="max-width: 75%;" alt="/Node%20anatomy" class="img-fluid mx-auto d-block border" />
+  
+  <figcaption style="text-align: center">
+    <small>
+      
+    </small>
+  </figcaption>
+</figure>
+
+<hr />
+
+<p>The copy command on a folder will overwrite files that have the same name but if a files exists on the destination that isn’t in the folder being copied it will be retained on the destination (when we get to sync you will see a difference in this behavior)</p>
+
+<p>The sync command is useful to keep a folder on GDrive and somewhere else with identical contents - meaning that if the destination folder has files that do not exist on the source they will be removed (so be careful)</p>
+
+<hr />
+
+<h1 id="rclone-sync-source-destination">Rclone sync source destination</h1>
+
+<p>Let’s remove testfile.docx and sync our rclonefiles folder to our GDrive rclonetest folder</p>
+<div class="alert alert-secondary" role="alert">
+  <div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>$ rm testfile.docx
+</code></pre></div>  </div>
+
+</div>
+
+<div class="alert alert-secondary" role="alert">
+  <div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>$ rclone sync ~/rclonefiles rclone-gdrive:/rclonetest
+</code></pre></div>  </div>
+
+</div>
+
+<p>We should see in GDrive that now only testfile2.docx is there because the folders are in sync - Mana’s rclonefiles folder was the source so the GDrive rclonetest folder is now identical to rclonefiles</p>
+
+<p>RClone large transfer - use nohup</p>
+
+<p>For transfers that make take a long time that you do not wish to observe or that your connection might disconnect you should use ‘nohup’ so they run in the background until complete. Example of nohup ‘rclone copy’ below:</p>
+
+<div class="alert alert-secondary" role="alert">
+  <div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>$ nohup rclone copy source destination &gt; nohup.out &amp;
+</code></pre></div>  </div>
+
+</div>
+
+<p>The ‘&gt;’ after the destination will direct any standard output to be written to the nohup.out file and the ‘&amp;’ on the end tells the shell to disconnect the command issued and run it in the background so you can still use your terminal/shell for other commands or exiting the session - the command issued with ‘nohup’ will continue to run.</p>
+
+<hr />
+
+<h1 id="rclone-documentation">Rclone documentation</h1>
+
+<p>More information about Rclone and Google Drive can be found here:</p>
+
+<p><a href="https://rclone.org/drive/#limitations">https://rclone.org/drive/#limitations</a></p>
+
+<p>You can download for your machine here <a href="https://rclone.org/downloads/">https://rclone.org/downloads/</a></p>
+
+<p>Note - there is an experimental GUI for your laptop/workstation <a href="https://rclone.org/gui/">https://rclone.org/gui/</a></p>
+
+<div class="alert alert-success mt-3" role="alert">
+  <p><i class="fa-solid fa-globe fa-xl"></i> <strong>Key Points</strong></p>
+  <hr />
+
+  <ul>
+    <li>‘lsf’ is how to list file with Rclone</li>
+    <li>rclone copy is used to copy files</li>
+    <li>rclone sync can be used to sync files across two storage systems</li>
+    <li>nohup can be used for large rclone file transfers to ensure your ssh session will not disconnect a transfer</li>
+  </ul>
+
+</div>
+
+<div style="text-align: right; padding-bottom: 10px">
+  <hr />
+  <button type="button" onclick="window.location='/morea/data-movement/assessment-data-movement.html'" class="btn btn-primary">
+    <p style="font-size:16px; margin: 0">Assessment -&gt;</p>
+    <p style="font-size:12px; margin: 0">3:45pm</p>
+    </button>
+</div>
+
+</div>
+
+
+
+
+<!-- Maybe find a different way?
+<script src="/js/scrollIfAnchor.js"></script>
+-->
+
+<footer class="footer footer-background" style="padding-top: 1em; padding-bottom: 1em">
+  <div class="container text-center">
+    
+    
+
+    
+    <p style="margin: 0">Powered by the <a class="footer-link" href="https://morea-framework.github.io/">Morea Framework</a> (Theme: spacelab)<br>
+      Last update on: <span>2023-12-01 13:58:35 -1000</span></p>
+
+    <p style="margin: 0">
+      
+      18 modules
+      
+      | 17 outcomes
+      
+      
+      | 55 readings
+      
+      
+      | 100 experiences
+      
+      
+      | 15 assessments
+      
+    </p>
+  </div>
+</footer>
+
+
+<!-- Load Bootstrap JavaScript components -->
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM" crossorigin="anonymous"></script>
+
+
+<script type="text/javascript" async
+        src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.7/latest.js?config=TeX-MML-AM_CHTML">
+</script>
+
+
+<!-- Add anchors to pages. -->
+<script>anchors.add();</script>
+
+
+</body>
+</html>

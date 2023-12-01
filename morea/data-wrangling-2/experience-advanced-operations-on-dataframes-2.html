@@ -1,0 +1,740 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <title> Change-HI/EDU | 7. Applying GroupBy Operations </title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta charset="utf-8">
+
+  <link rel="stylesheet" href="/css/themes/spacelab/bootstrap.min.css">
+  <link rel="stylesheet" href="/css/style.css">
+  <link rel="stylesheet" href="/css/syntax.css">
+  <link rel="shortcut icon" href="/favicon.ico" type="image/x-icon" />
+  <link href="/css/fontawesome/css/fontawesome.css" rel="stylesheet">
+  <link href="/css/fontawesome/css/brands.css" rel="stylesheet">
+  <link href="/css/fontawesome/css/solid.css" rel="stylesheet">
+  <script src="https://cdn.jsdelivr.net/npm/anchor-js/anchor.min.js"></script>
+
+  
+
+  <!-- Load JQuery, then use it to attach the class 'active' to navbar item currently displayed. -->
+  <script src="https://code.jquery.com/jquery-3.6.0.min.js" integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4=" crossorigin="anonymous"></script>
+  <script>
+    $(window).on('load', function () {
+      $('.nav-item').find('a[href="' + location.pathname + '"]').addClass('active');
+    });
+  </script>
+
+</head>
+<body>
+
+<div class="navbar navbar-expand-lg fixed-top navbar-light bg-light">
+  <div class="container">
+    <a class="navbar-brand" href="/index.html"> Change-HI/EDU </a>
+    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarResponsive" aria-controls="navbarResponsive" aria-expanded="false" aria-label="Toggle navigation">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+    <div class="collapse navbar-collapse" id="navbarResponsive">
+      <ul class="navbar-nav">
+        
+        <li class="nav-item"><a class="nav-link" href="/modules/">Modules</a></li>
+        
+        <li class="nav-item"><a class="nav-link" href="/outcomes/">Outcomes</a></li>
+        
+        
+        <li class="nav-item"><a class="nav-link" href="/readings/">Readings</a></li>
+        
+        
+        <li class="nav-item"><a class="nav-link" href="/experiences/">Experiences</a></li>
+        
+        
+        <li class="nav-item"><a class="nav-link" href="/assessments/">Assessments</a></li>
+        
+        
+      </ul>
+    </div>
+  </div>
+</div>
+
+<!-- Internal fragment for displaying the breadcrumb bar -->
+<div class="breadcrumb-background" style="padding-top: 1em; padding-bottom: .01em">
+  <div class="container">
+    <nav aria-label="breadcrumb">
+      <ol class="breadcrumb">
+        
+        <li class="breadcrumb-item"><a href="/">Home</a></li>
+        <li class="breadcrumb-item"><a href="/modules">Modules</a></li>
+        <li class="breadcrumb-item"><a href="/modules/data-wrangling-2">Data Wrangling, Part 2</a></li>
+        <li class="breadcrumb-item active">7. Applying GroupBy Operations</li>
+      </ol>
+    </nav>
+  </div>
+</div>
+
+
+<div class="container">
+  <h1 id="7-applying-groupby-operations">7. Applying GroupBy Operations</h1>
+
+<h5 id="22a-aggregate">2.2.a) Aggregate</h5>
+
+<p><strong>Aggregations</strong> aggregate the data in each group, i.e., they reduce the data to a single value. This includes, for instance, computing group sums, means, maximums, minimums, <em>etc</em>. Some of the interesting/important summary aggregation methods of <code class="language-plaintext highlighter-rouge">GroupBy</code>  objects are:</p>
+
+<table class="table">
+  <thead>
+    <tr>
+      <th style="text-align: left">Methods</th>
+      <th style="text-align: left">Decription</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td style="text-align: left"><code class="language-plaintext highlighter-rouge">mean</code>, <code class="language-plaintext highlighter-rouge">median</code></td>
+      <td style="text-align: left">Computes the mean and the median in each group</td>
+    </tr>
+    <tr>
+      <td style="text-align: left"><code class="language-plaintext highlighter-rouge">min</code> , <code class="language-plaintext highlighter-rouge">max</code></td>
+      <td style="text-align: left">computes the min and max in each group</td>
+    </tr>
+    <tr>
+      <td style="text-align: left"><code class="language-plaintext highlighter-rouge">size</code></td>
+      <td style="text-align: left">computes the number of values in each group</td>
+    </tr>
+  </tbody>
+</table>
+
+<p>When one of these methods is called by the <code class="language-plaintext highlighter-rouge">GroupBy</code> object, it is applied to each group individually and then the group is combined into a new <code class="language-plaintext highlighter-rouge">DataFrame</code>.</p>
+
+<p>For example, suppose we wanted to group <code class="language-plaintext highlighter-rouge">df</code> by <code class="language-plaintext highlighter-rouge">Region</code>, apply the <code class="language-plaintext highlighter-rouge">sum()</code> method to calculate the aggregate <code class="language-plaintext highlighter-rouge">Total Revenue</code> by <code class="language-plaintext highlighter-rouge">Region</code> and aggregate <code class="language-plaintext highlighter-rouge">Total Profit</code> by <code class="language-plaintext highlighter-rouge">Region</code>. Then we can combine the results into a new <code class="language-plaintext highlighter-rouge">DataFrame</code> which holds the aggregate <code class="language-plaintext highlighter-rouge">Total Revenue</code> by <code class="language-plaintext highlighter-rouge">Region</code> and the aggregate <code class="language-plaintext highlighter-rouge">Total Profit</code> by <code class="language-plaintext highlighter-rouge">Region</code>. We could achieve this by first splitting the data using the <code class="language-plaintext highlighter-rouge">groupby()</code> <code class="language-plaintext highlighter-rouge">DataFrame</code> method to obtain a new <code class="language-plaintext highlighter-rouge">GroupBy</code> object, we will call it <code class="language-plaintext highlighter-rouge">grouped_by_region</code>. Then we could apply and combine using the <code class="language-plaintext highlighter-rouge">GroupBy</code> object’s <code class="language-plaintext highlighter-rouge">sum()</code> method.</p>
+
+<div class="alert alert-secondary" role="alert">
+  <p>Code:</p>
+  <div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="n">grouped_by_region</span> <span class="o">=</span> <span class="n">df</span><span class="p">.</span><span class="n">loc</span><span class="p">[:,</span> <span class="p">[</span><span class="s">'Region'</span><span class="p">,</span> <span class="s">'Total Revenue'</span><span class="p">,</span> <span class="s">'Total Profit'</span><span class="p">]].</span><span class="n">groupby</span><span class="p">(</span><span class="s">"Region"</span><span class="p">)</span>
+<span class="n">grouped_by_region</span><span class="p">.</span><span class="nb">sum</span><span class="p">()</span>
+</code></pre></div>  </div>
+
+  <p>Output:</p>
+
+  <table class="table">
+    <thead>
+      <tr>
+        <th> </th>
+        <th>Total Revenue</th>
+        <th>Total Profit</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td>Region</td>
+        <td> </td>
+        <td> </td>
+      </tr>
+      <tr>
+        <td>Asia</td>
+        <td>6921531.31</td>
+        <td>2580972.04</td>
+      </tr>
+      <tr>
+        <td>Australia and Oceania</td>
+        <td>3292856.72</td>
+        <td>1236498.14</td>
+      </tr>
+      <tr>
+        <td>Central America and the Caribbean</td>
+        <td>6573837.78</td>
+        <td>1735667.38</td>
+      </tr>
+      <tr>
+        <td>Europe</td>
+        <td>1341328.03</td>
+        <td>347463.87</td>
+      </tr>
+      <tr>
+        <td>Sub-Saharan Africa</td>
+        <td>9980589.83</td>
+        <td>2990051.28</td>
+      </tr>
+    </tbody>
+  </table>
+</div>
+
+<p>We see from the above example that the <code class="language-plaintext highlighter-rouge">GroupBy</code> <code class="language-plaintext highlighter-rouge">sum()</code> method returns a <code class="language-plaintext highlighter-rouge">DataFrame</code> with an index labeling the group that the row entry corresponds to and entries telling us the aggregate <code class="language-plaintext highlighter-rouge">Total Revenue</code> and aggregate <code class="language-plaintext highlighter-rouge">Total Profit</code> by <code class="language-plaintext highlighter-rouge">Region</code>.</p>
+
+<h5 id="aggregate-continued">Aggregate Continued</h5>
+
+<p>As discussed in the previous cell, <code class="language-plaintext highlighter-rouge">pandas</code> has implemented the most common aggregate methods for us, like <code class="language-plaintext highlighter-rouge">sum()</code> and <code class="language-plaintext highlighter-rouge">mean()</code>, but sometimes our data requires unique processing. The <code class="language-plaintext highlighter-rouge">GroupBy</code> method <code class="language-plaintext highlighter-rouge">agg()</code> can be used where complex or custom aggregation logic is required. The method <code class="language-plaintext highlighter-rouge">agg()</code> will take a function and use it to aggregate the group in the same way that we saw <code class="language-plaintext highlighter-rouge">sum()</code> do in the previous cell. The function passed must take a <code class="language-plaintext highlighter-rouge">DataFrame</code> as an argument, and that passed <code class="language-plaintext highlighter-rouge">DataFrame</code> will be each group of the calling <code class="language-plaintext highlighter-rouge">GroupBy</code> object.</p>
+
+<p>For example, suppose we wanted to find the aggregate <code class="language-plaintext highlighter-rouge">Total Revenue</code> by Region in Canadian dollars. We can define a function called <code class="language-plaintext highlighter-rouge">sum_total_revenue_CAD()</code> to return the sum of the <code class="language-plaintext highlighter-rouge">Total Revenue</code> of a group in Canadian Dollars. Then we can create a new <code class="language-plaintext highlighter-rouge">GroupBy</code> object, call it <code class="language-plaintext highlighter-rouge">grouped_by_region</code>, using a subset of the <code class="language-plaintext highlighter-rouge">df</code> DataFrame only containing the <code class="language-plaintext highlighter-rouge">Region</code> and <code class="language-plaintext highlighter-rouge">Total Revenue</code> columns. Lastly, we can call <code class="language-plaintext highlighter-rouge">agg()</code> with the <code class="language-plaintext highlighter-rouge">grouped_by_region</code> GroupBy object and pass it the <code class="language-plaintext highlighter-rouge">sum_total_revenue_CAD</code> function.</p>
+
+<div class="alert alert-secondary" role="alert">
+  <p>Code:</p>
+  <div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="k">def</span> <span class="nf">sum_total_revenue_CAD</span><span class="p">(</span><span class="n">x</span><span class="p">):</span>
+    <span class="k">return</span> <span class="n">x</span><span class="p">.</span><span class="nb">sum</span><span class="p">()</span> <span class="o">*</span> <span class="mf">1.33</span>
+
+<span class="n">grouped_by_region</span> <span class="o">=</span> <span class="n">df</span><span class="p">.</span><span class="n">loc</span><span class="p">[:,</span> <span class="p">[</span><span class="s">"Region"</span><span class="p">,</span> <span class="s">"Total Revenue"</span><span class="p">]].</span><span class="n">groupby</span><span class="p">(</span><span class="s">"Region"</span><span class="p">)</span>
+<span class="n">grouped_by_region</span><span class="p">.</span><span class="n">agg</span><span class="p">(</span><span class="n">sum_total_revenue_CAD</span><span class="p">)</span>
+</code></pre></div>  </div>
+
+  <p>Output:</p>
+
+  <table class="table">
+    <thead>
+      <tr>
+        <th> </th>
+        <th>Total Revenue</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><strong>Region</strong></td>
+        <td> </td>
+      </tr>
+      <tr>
+        <td>Asia</td>
+        <td>9.205637e+06</td>
+      </tr>
+      <tr>
+        <td>Australia and Oceania</td>
+        <td>4.379499e+06</td>
+      </tr>
+      <tr>
+        <td>Central America and the Caribbean</td>
+        <td>8.743204e+06</td>
+      </tr>
+      <tr>
+        <td>Europe</td>
+        <td>1.783966e+06</td>
+      </tr>
+      <tr>
+        <td>Sub-Saharan Africa</td>
+        <td>1.327418e+07</td>
+      </tr>
+    </tbody>
+  </table>
+
+</div>
+
+<p>We see in the above example that the result is a new <code class="language-plaintext highlighter-rouge">DataFrame</code> with the unique <code class="language-plaintext highlighter-rouge">Region</code> values as the index and values corresponding to the sum of the <code class="language-plaintext highlighter-rouge">Total Revenue</code> by <code class="language-plaintext highlighter-rouge">Region</code> in Canadian dollars.</p>
+
+<p>To customize group-specific processing even further <code class="language-plaintext highlighter-rouge">agg()</code> can also take a dictionary of functions to aggregate on. The dictionary should be the name of a column of the group and the value of a callable function that will take a <code class="language-plaintext highlighter-rouge">Series</code>.</p>
+
+<p>For example, suppose we wanted to create a new <code class="language-plaintext highlighter-rouge">DataFrame</code> that tells us the sum of <code class="language-plaintext highlighter-rouge">Total Revenue</code> and the max <code class="language-plaintext highlighter-rouge">Total Profit</code> by Region from <code class="language-plaintext highlighter-rouge">df</code>. To do this we would first <code class="language-plaintext highlighter-rouge">groupby()</code> <code class="language-plaintext highlighter-rouge">Region</code> and then call <code class="language-plaintext highlighter-rouge">agg()</code> with the new <code class="language-plaintext highlighter-rouge">GroupBy</code> object, passing it the dictionary: <code class="language-plaintext highlighter-rouge">{'Total Revenue' :sum,'Total Profit' : max}</code>, which specifies that we want to sum the <code class="language-plaintext highlighter-rouge">Total Revenue</code> column and find the max of the <code class="language-plaintext highlighter-rouge">Total Profit</code> column.</p>
+
+<div class="alert alert-secondary" role="alert">
+
+  <p>Code:</p>
+  <div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="n">grouped_by_region</span> <span class="o">=</span> <span class="n">df</span><span class="p">.</span><span class="n">groupby</span><span class="p">(</span><span class="s">"Region"</span><span class="p">)</span>
+<span class="n">grouped_by_region</span><span class="p">.</span><span class="n">agg</span><span class="p">({</span><span class="s">'Total Revenue'</span> <span class="p">:</span><span class="nb">sum</span><span class="p">,</span><span class="s">'Total Profit'</span> <span class="p">:</span> <span class="nb">max</span><span class="p">})</span>
+</code></pre></div>  </div>
+
+  <p>Output:</p>
+
+  <table class="table">
+    <thead>
+      <tr>
+        <th> </th>
+        <th>Total Revenue</th>
+        <th>Total Profit</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><strong>Region</strong></td>
+        <td> </td>
+        <td> </td>
+      </tr>
+      <tr>
+        <td>Asia</td>
+        <td>6921531.31</td>
+        <td>1208744.24</td>
+      </tr>
+      <tr>
+        <td>Australia and Oceania</td>
+        <td>3292856.72</td>
+        <td>951410.50</td>
+      </tr>
+      <tr>
+        <td>Central America and the Caribbean</td>
+        <td>6573837.78</td>
+        <td>1487261.02</td>
+      </tr>
+      <tr>
+        <td>Europe</td>
+        <td>1341328.03</td>
+        <td>224598.75</td>
+      </tr>
+      <tr>
+        <td>Sub-Saharan Africa</td>
+        <td>9980589.83</td>
+        <td>693911.51</td>
+      </tr>
+    </tbody>
+  </table>
+</div>
+
+<h5 id="22b-transform">2.2.b) Transform</h5>
+
+<p><strong>Transformations</strong> change the data in a group-specific way. As opposed to aggregations, which reduce the data into a single value, transformations modify the data but don’t change the shape of the groups.</p>
+
+<p>Applying a transformation is done using the <code class="language-plaintext highlighter-rouge">transform()</code> <code class="language-plaintext highlighter-rouge">GroupBy</code> method. The <code class="language-plaintext highlighter-rouge">transform()</code> method takes as input a function name, which it calls on each group of the <code class="language-plaintext highlighter-rouge">GroupBy</code> object. The function passed to <code class="language-plaintext highlighter-rouge">transform()</code> must take a <code class="language-plaintext highlighter-rouge">DataFrame</code>, which will be a group of the calling <code class="language-plaintext highlighter-rouge">GroupBy</code> object.</p>
+
+<p>For example, suppose we wanted to transform the <code class="language-plaintext highlighter-rouge">Total Revenue</code> column of the <code class="language-plaintext highlighter-rouge">df</code> DataFrame to hold the percentage of the Total Revenue by Region that rows make up.  First, we would define a function that will take a <code class="language-plaintext highlighter-rouge">DataFrame</code> and calculate the percentage of the total each entry takes up. Then we will create a new <code class="language-plaintext highlighter-rouge">GroupBy</code> object grouped by <code class="language-plaintext highlighter-rouge">specialty</code> from a subset of <code class="language-plaintext highlighter-rouge">df</code> that only has the columns <code class="language-plaintext highlighter-rouge">Total Revenue</code> and <code class="language-plaintext highlighter-rouge">Region</code>. Then we will call transform passing it the name of our defined function.</p>
+
+<div class="alert alert-secondary" role="alert">
+
+  <p>Code:</p>
+  <div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="k">def</span> <span class="nf">my_function</span><span class="p">(</span><span class="n">x</span><span class="p">):</span>
+    <span class="k">return</span> <span class="p">(</span><span class="n">x</span>   <span class="o">/</span> <span class="n">x</span><span class="p">.</span><span class="nb">sum</span><span class="p">()</span> <span class="p">)</span> <span class="o">*</span> <span class="mi">100</span>
+<span class="n">grouped_by_region</span> <span class="o">=</span> <span class="n">df</span><span class="p">.</span><span class="n">loc</span><span class="p">[:,</span> <span class="p">[</span><span class="s">"Region"</span><span class="p">,</span> <span class="s">"Total Revenue"</span><span class="p">]].</span><span class="n">groupby</span><span class="p">(</span><span class="s">"Region"</span><span class="p">)</span>
+<span class="n">grouped_by_region</span><span class="p">.</span><span class="n">transform</span><span class="p">(</span><span class="n">my_function</span><span class="p">)</span>
+</code></pre></div>  </div>
+
+  <p>Output:</p>
+
+  <table class="table">
+    <thead>
+      <tr>
+        <th> </th>
+        <th>Total Revenue</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td>0</td>
+        <td>76.943949</td>
+      </tr>
+      <tr>
+        <td>1</td>
+        <td>8.773913</td>
+      </tr>
+      <tr>
+        <td>2</td>
+        <td>86.369819</td>
+      </tr>
+      <tr>
+        <td>3</td>
+        <td>0.757387</td>
+      </tr>
+      <tr>
+        <td>4</td>
+        <td>33.028359</td>
+      </tr>
+      <tr>
+        <td>5</td>
+        <td>23.056051</td>
+      </tr>
+      <tr>
+        <td>6</td>
+        <td>28.034881</td>
+      </tr>
+      <tr>
+        <td>7</td>
+        <td>12.475344</td>
+      </tr>
+      <tr>
+        <td>8</td>
+        <td>4.970659</td>
+      </tr>
+      <tr>
+        <td>9</td>
+        <td>13.588176</td>
+      </tr>
+      <tr>
+        <td>10</td>
+        <td>0.276000</td>
+      </tr>
+      <tr>
+        <td>11</td>
+        <td>4.563649</td>
+      </tr>
+      <tr>
+        <td>12</td>
+        <td>13.045966</td>
+      </tr>
+      <tr>
+        <td>13</td>
+        <td>91.226087</td>
+      </tr>
+      <tr>
+        <td>14</td>
+        <td>5.787140</td>
+      </tr>
+      <tr>
+        <td>15</td>
+        <td>13.630181</td>
+      </tr>
+      <tr>
+        <td>16</td>
+        <td>43.912456</td>
+      </tr>
+      <tr>
+        <td>17</td>
+        <td>2.581546</td>
+      </tr>
+      <tr>
+        <td>18</td>
+        <td>36.978437</td>
+      </tr>
+    </tbody>
+  </table>
+</div>
+
+<p>We see that the result is a new <code class="language-plaintext highlighter-rouge">DataFrame</code> with an index matching that of the original <code class="language-plaintext highlighter-rouge">DataFrame</code> used to initialize the <code class="language-plaintext highlighter-rouge">GroupBy</code> object. This is different than the aggregation example because aggregation reduces the group to a single value, while transformation maintains the shape of the calling <code class="language-plaintext highlighter-rouge">DataFrame</code>.</p>
+
+<p>Let us save these results into a new column in <code class="language-plaintext highlighter-rouge">df</code> called <code class="language-plaintext highlighter-rouge">Total_Revenue_Percentage</code>.</p>
+
+<div class="alert alert-secondary" role="alert">
+
+  <p>Code:</p>
+  <div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="n">df</span><span class="p">[</span><span class="s">"Total_Revenue_Percentage"</span><span class="p">]</span> <span class="o">=</span> <span class="n">grouped_by_region</span><span class="p">.</span><span class="n">transform</span><span class="p">(</span><span class="n">my_function</span><span class="p">)</span>
+</code></pre></div>  </div>
+</div>
+
+<p>Suppose we wanted to see the percent Total Revenue by <code class="language-plaintext highlighter-rouge">Order Priority</code> and <code class="language-plaintext highlighter-rouge">Region</code>. One solution to achieve this would be to group on both the <code class="language-plaintext highlighter-rouge">Region</code> and the <code class="language-plaintext highlighter-rouge">Order Priority</code> columns and then sum the <code class="language-plaintext highlighter-rouge">Total_Revenue_Percentage</code> that was computed previously.</p>
+
+<div class="alert alert-secondary" role="alert">
+
+  <p>Code:</p>
+  <div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="n">order_priority_pct</span> <span class="o">=</span> <span class="n">df</span><span class="p">.</span><span class="n">loc</span><span class="p">[:,</span> <span class="p">[</span><span class="s">"Region"</span><span class="p">,</span> <span class="s">"Order Priority"</span><span class="p">,</span> <span class="s">"Total_Revenue_Percentage"</span><span class="p">]].</span><span class="n">groupby</span><span class="p">([</span><span class="s">"Region"</span><span class="p">,</span> <span class="s">"Order Priority"</span><span class="p">]).</span><span class="nb">sum</span><span class="p">()</span>
+<span class="n">order_priority_pct</span><span class="p">.</span><span class="n">head</span><span class="p">(</span><span class="n">n</span><span class="o">=</span><span class="mi">4</span><span class="p">)</span>
+</code></pre></div>  </div>
+
+  <p>Output:</p>
+
+  <table class="table">
+    <thead>
+      <tr>
+        <th> </th>
+        <th> </th>
+        <th>Total_Revenue_Percentage</th>
+      </tr>
+      <tr>
+        <th>Region</th>
+        <th>Order Priority</th>
+        <th> </th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td>Asia</td>
+        <td>C</td>
+        <td>5.787140</td>
+      </tr>
+      <tr>
+        <td> </td>
+        <td>H</td>
+        <td>0.276000</td>
+      </tr>
+      <tr>
+        <td> </td>
+        <td>L</td>
+        <td>50.024403</td>
+      </tr>
+      <tr>
+        <td> </td>
+        <td>M</td>
+        <td>43.912456</td>
+      </tr>
+    </tbody>
+  </table>
+</div>
+
+<p>Notice that since we are grouping on two columns, the resulting index of <code class="language-plaintext highlighter-rouge">order_priority_pct</code> also contains two columns. Now we can sort first on the values in the <code class="language-plaintext highlighter-rouge">Region</code> column so that all the entries with a common <code class="language-plaintext highlighter-rouge">Region</code> are clustered together, and then on the values in the <code class="language-plaintext highlighter-rouge">Total_Revenue_Percentage</code> columns.</p>
+
+<div class="alert alert-secondary" role="alert">
+
+  <p>Code:</p>
+  <div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="n">order_priority_pct</span> <span class="o">=</span> <span class="n">df</span><span class="p">.</span><span class="n">loc</span><span class="p">[:,</span> <span class="p">[</span><span class="s">"Region"</span><span class="p">,</span> <span class="s">"Order Priority"</span><span class="p">,</span> <span class="s">"Total_Revenue_Percentage"</span><span class="p">]].</span><span class="n">groupby</span><span class="p">([</span><span class="s">"Region"</span><span class="p">,</span> <span class="s">"Order Priority"</span><span class="p">]).</span><span class="nb">sum</span><span class="p">()</span>
+<span class="n">order_priority_pct</span><span class="p">.</span><span class="n">sort_values</span><span class="p">([</span><span class="s">"Region"</span><span class="p">,</span> <span class="s">"Total_Revenue_Percentage"</span><span class="p">],</span> <span class="n">ascending</span><span class="o">=</span><span class="p">[</span><span class="bp">True</span><span class="p">,</span> <span class="bp">False</span><span class="p">]).</span><span class="n">head</span><span class="p">(</span><span class="n">n</span><span class="o">=</span><span class="mi">6</span><span class="p">)</span>
+</code></pre></div>  </div>
+
+  <p>Output:</p>
+
+  <table class="table">
+    <thead>
+      <tr>
+        <th> </th>
+        <th> </th>
+        <th>Total_Revenue_Percentage</th>
+      </tr>
+      <tr>
+        <th>Region</th>
+        <th>Order Priority</th>
+        <th> </th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td>Asia</td>
+        <td>L</td>
+        <td>50.024403</td>
+      </tr>
+      <tr>
+        <td> </td>
+        <td>M</td>
+        <td>43.912456</td>
+      </tr>
+      <tr>
+        <td> </td>
+        <td>C</td>
+        <td>5.787140</td>
+      </tr>
+      <tr>
+        <td> </td>
+        <td>H</td>
+        <td>0.276000</td>
+      </tr>
+      <tr>
+        <td>Australia and Oceania</td>
+        <td>H</td>
+        <td>76.943949</td>
+      </tr>
+      <tr>
+        <td> </td>
+        <td>C</td>
+        <td>23.056051</td>
+      </tr>
+    </tbody>
+  </table>
+</div>
+
+<h5 id="22c-filter">2.2.c) Filter</h5>
+
+<p><strong>Filtering</strong>  a group consists of dropping or retaining groups in a way that depends on a group-specific computation that returns <code class="language-plaintext highlighter-rouge">True</code> or <code class="language-plaintext highlighter-rouge">False</code>. Groups that are retained will be left unmodified. For instance, we can filter specialties from <code class="language-plaintext highlighter-rouge">spending_df</code> that don’t have enough entries or for which the mean <code class="language-plaintext highlighter-rouge">spending</code> is below a certain threshold.</p>
+
+<p>Filtering a group is done using the <code class="language-plaintext highlighter-rouge">GroupBy</code> method <code class="language-plaintext highlighter-rouge">filter()</code>. The method <code class="language-plaintext highlighter-rouge">filter()</code> takes as input a function name, which it calls on each group of the <code class="language-plaintext highlighter-rouge">GroupBy</code> object. The function must return either <code class="language-plaintext highlighter-rouge">True</code> or <code class="language-plaintext highlighter-rouge">False</code> and groups for which the function returns <code class="language-plaintext highlighter-rouge">False</code> are dropped. The resulting <code class="language-plaintext highlighter-rouge">DataFrame</code> will have entries in the same order as the original <code class="language-plaintext highlighter-rouge">DataFrame</code>.</p>
+
+<p>Suppose we want to filter out the <strong>Regions</strong> that having low Total Revenue, i.e. we want to filter out the Regions for which the aggregate <code class="language-plaintext highlighter-rouge">Total Revenue</code> is less than some defined threshold, let say $4,000,000. To do this we can define a function named <code class="language-plaintext highlighter-rouge">filter_on_total_revenue()</code>. The defined function will take a <code class="language-plaintext highlighter-rouge">DataFrame</code>, determine whether the sum of the <code class="language-plaintext highlighter-rouge">Total Revenue</code> column in that <code class="language-plaintext highlighter-rouge">DataFrame</code> is less than 5000000, and then return <code class="language-plaintext highlighter-rouge">True</code> if it is or <code class="language-plaintext highlighter-rouge">False</code> if not.</p>
+
+<p>Then, to apply the filter on <code class="language-plaintext highlighter-rouge">df</code>, we first subset the <code class="language-plaintext highlighter-rouge">DataFrame</code> so that only the columns <code class="language-plaintext highlighter-rouge">Region</code> and <code class="language-plaintext highlighter-rouge">Total Revenue</code> are remaining and then group by <code class="language-plaintext highlighter-rouge">Region</code>. Then the <code class="language-plaintext highlighter-rouge">GroupBy filter()</code> method can be called with the <code class="language-plaintext highlighter-rouge">filter_on_total_revenue()</code> function passed as an argument. We can save the results into a new <code class="language-plaintext highlighter-rouge">DataFrame</code> named <code class="language-plaintext highlighter-rouge">low_revenue_df</code>. Then to see which Regions are less than the $4,000,000 Total Revenue threshold we can print the unique values in the <code class="language-plaintext highlighter-rouge">Region</code> column of <code class="language-plaintext highlighter-rouge">low_revenue_df</code>.</p>
+
+<div class="alert alert-secondary" role="alert">
+
+  <p>Code:</p>
+  <div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="k">def</span> <span class="nf">filter_on_total_revenue</span><span class="p">(</span><span class="n">x</span><span class="p">):</span>
+    <span class="k">return</span> <span class="n">x</span><span class="p">[</span><span class="s">'Total Revenue'</span><span class="p">].</span><span class="nb">sum</span><span class="p">()</span> <span class="o">&lt;</span> <span class="mi">4000000</span>
+<span class="n">low_revenue_df</span> <span class="o">=</span> <span class="n">df</span><span class="p">[[</span><span class="s">"Region"</span><span class="p">,</span> <span class="s">"Total Revenue"</span><span class="p">]].</span><span class="n">groupby</span><span class="p">(</span><span class="s">"Region"</span><span class="p">).</span><span class="nb">filter</span><span class="p">(</span><span class="n">filter_on_total_revenue</span><span class="p">)</span>
+<span class="n">low_revenue_df</span><span class="p">[</span><span class="s">"Region"</span><span class="p">].</span><span class="n">unique</span><span class="p">()</span>
+</code></pre></div>  </div>
+
+  <p>Output:</p>
+  <div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="n">array</span><span class="p">([</span><span class="s">'Australia and Oceania'</span><span class="p">,</span> <span class="s">'Europe'</span><span class="p">],</span> <span class="n">dtype</span><span class="o">=</span><span class="nb">object</span><span class="p">)</span>
+</code></pre></div>  </div>
+</div>
+
+<p>We see that only two Regions are under the threshold of Total Revenue.</p>
+
+<h6 id="thinning-data-and-the-flexible-apply--groupby-method">Thinning Data and The Flexible <code class="language-plaintext highlighter-rouge">apply()</code>  GroupBy Method</h6>
+
+<p><code class="language-plaintext highlighter-rouge">pandas</code> provides a few built-in <code class="language-plaintext highlighter-rouge">GroupBy</code> methods for thinning the data including <code class="language-plaintext highlighter-rouge">nlargest()</code>, <code class="language-plaintext highlighter-rouge">nsmallest()</code>, and more. An example usage of <code class="language-plaintext highlighter-rouge">nlargest()</code>, a thinning method, would be grouping a subset of <code class="language-plaintext highlighter-rouge">df</code> which contains only the <code class="language-plaintext highlighter-rouge">Total Revenue</code> and <code class="language-plaintext highlighter-rouge">Region</code> columns by <code class="language-plaintext highlighter-rouge">Region</code> and then obtaining the 2 largest of each Region. The result will be a new <code class="language-plaintext highlighter-rouge">DataFrame</code> with only the top 2 spenders from each unique specialty.</p>
+
+<div class="alert alert-secondary" role="alert">
+
+  <p>Code:</p>
+  <div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="n">grouped_by_region</span> <span class="o">=</span> <span class="n">df</span><span class="p">.</span><span class="n">loc</span><span class="p">[:,</span> <span class="p">[</span><span class="s">"Region"</span><span class="p">,</span> <span class="s">"Total Revenue"</span><span class="p">]].</span><span class="n">groupby</span><span class="p">(</span><span class="s">"Region"</span><span class="p">)</span>
+<span class="n">grouped_by_region</span><span class="p">[</span><span class="s">"Total Revenue"</span><span class="p">].</span><span class="n">nlargest</span><span class="p">(</span><span class="mi">2</span><span class="p">).</span><span class="n">head</span><span class="p">(</span><span class="n">n</span><span class="o">=</span><span class="mi">4</span><span class="p">)</span>
+</code></pre></div>  </div>
+
+  <p>Output:</p>
+  <div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="n">Region</span>                   
+<span class="n">Asia</span>                   <span class="mi">16</span>    <span class="mf">3039414.40</span>
+                       <span class="mi">18</span>    <span class="mf">2559474.10</span>
+<span class="n">Australia</span> <span class="ow">and</span> <span class="n">Oceania</span>  <span class="mi">0</span>     <span class="mf">2533654.00</span>
+                       <span class="mi">5</span>      <span class="mf">759202.72</span>
+<span class="n">Name</span><span class="p">:</span> <span class="n">Total</span> <span class="n">Revenue</span><span class="p">,</span> <span class="n">dtype</span><span class="p">:</span> <span class="n">float64</span>
+</code></pre></div>  </div>
+</div>
+
+<p>Though <code class="language-plaintext highlighter-rouge">pandas</code> has the more common and basic aggregation, transformation, and thinning methods implemented for us, they could not possibly cover all cases. Therefore cases that do not fit into any one of these categories may be carried out by using the more flexible <code class="language-plaintext highlighter-rouge">apply() GroupBy</code> method. <code class="language-plaintext highlighter-rouge">apply()</code> takes as input a function name, which it calls on each group of the calling <code class="language-plaintext highlighter-rouge">GroupBy</code> object.</p>
+
+<p>For example, suppose we wanted to thin our dataset so that there are only 50% of each specialty represented. To do this we can define a new function, we will call it, <code class="language-plaintext highlighter-rouge">sample_50p</code>, and this function will utilize the <code class="language-plaintext highlighter-rouge">sample()</code> <code class="language-plaintext highlighter-rouge">DataFrame</code> method. The <code class="language-plaintext highlighter-rouge">sample()</code> <code class="language-plaintext highlighter-rouge">DataFrame</code> method will take a parameter <code class="language-plaintext highlighter-rouge">frac</code> that specifies the fraction of the original <code class="language-plaintext highlighter-rouge">DataFrame</code> that is to be returned. We can then use the <code class="language-plaintext highlighter-rouge">apply()</code> method and pass it the name of our newly defined function to obtain a new <code class="language-plaintext highlighter-rouge">DataFrame</code> that is filtered at the group-specific level.</p>
+
+<div class="alert alert-secondary" role="alert">
+
+  <p>Code:</p>
+  <div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="k">def</span> <span class="nf">sample_50p</span><span class="p">(</span><span class="n">x</span><span class="p">):</span>
+    <span class="k">return</span> <span class="n">x</span><span class="p">.</span><span class="n">sample</span><span class="p">(</span><span class="n">frac</span><span class="o">=</span><span class="mf">0.5</span><span class="p">)</span>
+<span class="n">grouped_by_region</span> <span class="o">=</span> <span class="n">df</span><span class="p">.</span><span class="n">loc</span><span class="p">[:,</span> <span class="p">[</span><span class="s">"Region"</span><span class="p">,</span> <span class="s">"Total Revenue"</span><span class="p">,</span> <span class="s">"Order Priority"</span><span class="p">]].</span><span class="n">groupby</span><span class="p">(</span><span class="s">"Region"</span><span class="p">)</span>
+<span class="n">grouped_by_region</span><span class="p">.</span><span class="nb">apply</span><span class="p">(</span><span class="n">sample_50p</span><span class="p">).</span><span class="n">head</span><span class="p">(</span><span class="n">n</span><span class="o">=</span><span class="mi">5</span><span class="p">)</span>
+</code></pre></div>  </div>
+
+  <p>Output:</p>
+
+  <table class="table">
+    <thead>
+      <tr>
+        <th> </th>
+        <th> </th>
+        <th>Region</th>
+        <th>Total Revenue</th>
+        <th>Order Priority</th>
+      </tr>
+      <tr>
+        <th>Region</th>
+        <th> </th>
+        <th> </th>
+        <th> </th>
+        <th> </th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td>Asia</td>
+        <td>10</td>
+        <td>Asia</td>
+        <td>19103.44</td>
+        <td>H</td>
+      </tr>
+      <tr>
+        <td> </td>
+        <td>18</td>
+        <td>Asia</td>
+        <td>2559474.10</td>
+        <td>L</td>
+      </tr>
+      <tr>
+        <td>Australia and Oceania</td>
+        <td>0</td>
+        <td>Australia and Oceania</td>
+        <td>2533654.00</td>
+        <td>H</td>
+      </tr>
+      <tr>
+        <td>Central America and the Caribbean</td>
+        <td>1</td>
+        <td>Central America and the Caribbean</td>
+        <td>576782.80</td>
+        <td>C</td>
+      </tr>
+      <tr>
+        <td>Europe</td>
+        <td>15</td>
+        <td>Europe</td>
+        <td>182825.44</td>
+        <td>M</td>
+      </tr>
+    </tbody>
+  </table>
+</div>
+
+<div class="alert alert-success mt-3" role="alert">
+  <p><i class="fa-solid fa-globe fa-xl"></i> <strong>Key Points</strong></p>
+  <hr />
+
+  <p><strong>Function Application and Mapping</strong></p>
+
+  <ul>
+    <li><strong>Global Processing</strong>
+      <ul>
+        <li>To apply a function to every row or column in a <code class="language-plaintext highlighter-rouge">DataFrame</code> we can use the <code class="language-plaintext highlighter-rouge">apply()</code> method</li>
+        <li>To apply a function to every element in a <code class="language-plaintext highlighter-rouge">Series</code> we can use the <code class="language-plaintext highlighter-rouge">map()</code> method</li>
+        <li>To apply a function to every element in a <code class="language-plaintext highlighter-rouge">DataFrame</code> we can use the <code class="language-plaintext highlighter-rouge">applymap()</code> method</li>
+      </ul>
+    </li>
+    <li>
+      <p><strong>Group Specific Processing</strong></p>
+
+      <ul>
+        <li>
+          <p>The <code class="language-plaintext highlighter-rouge">groupby()</code> method is used to group the data using values on one or more columns</p>
+        </li>
+        <li><code class="language-plaintext highlighter-rouge">groupby()</code> is often applied in the context of the data processing paradigm called “split-apply-combine”
+          <ul>
+            <li><strong>Split</strong>: you need to split the data into chunks defined using one or more columns</li>
+            <li><strong>Apply</strong>: apply some operation on the chunks generated.</li>
+            <li><strong>Combine</strong>: combine the results of the applied operation into a new <code class="language-plaintext highlighter-rouge">DataFrame</code></li>
+          </ul>
+        </li>
+        <li>
+          <p>There are 3 common classes of split-apply-combine operations that can be applied to group data.</p>
+
+          <ol>
+            <li>
+              <p><strong>Aggregations</strong> generate a single value for each group</p>
+            </li>
+            <li>
+              <p><strong>Transformations</strong> convert the data and generate a group of the same size as the original group.</p>
+            </li>
+            <li>
+              <p><strong>Filters</strong> retain or discard a group based on group-specific boolean computations.</p>
+            </li>
+          </ol>
+        </li>
+      </ul>
+    </li>
+  </ul>
+</div>
+
+<div class="alert alert-info" role="alert">
+  <p><i class="fa-solid fa-circle-info fa-xl"></i> <strong>For more information</strong></p>
+  <hr />
+
+  <p>You can read more about <code class="language-plaintext highlighter-rouge">groupby</code> from the official pandas documentation of <a href="https://pandas.pydata.org/docs/user_guide/groupby.html">groupby</a></p>
+</div>
+
+<div style="text-align: right; padding-bottom: 10px">
+  <hr />
+  <button type="button" onclick="window.location='/morea/data-wrangling-2/experience-real-example-cleanup.html'" class="btn btn-primary">
+    <p style="font-size:16px; margin: 0">7. Real Example Cleanup&gt;</p>
+    <p style="font-size:12px; margin: 0">3:05pm</p>
+    </button>
+</div>
+
+<div class="alert alert-warning" role="alert">
+  <p><i class="fa-solid fa-circle-info fa-xl"></i> <strong>Bio Break!</strong>
+We will start again at 3:05 PM.</p>
+  <hr />
+
+</div>
+
+</div>
+
+
+
+
+<!-- Maybe find a different way?
+<script src="/js/scrollIfAnchor.js"></script>
+-->
+
+<footer class="footer footer-background" style="padding-top: 1em; padding-bottom: 1em">
+  <div class="container text-center">
+    
+    
+
+    
+    <p style="margin: 0">Powered by the <a class="footer-link" href="https://morea-framework.github.io/">Morea Framework</a> (Theme: spacelab)<br>
+      Last update on: <span>2023-12-01 13:58:35 -1000</span></p>
+
+    <p style="margin: 0">
+      
+      18 modules
+      
+      | 17 outcomes
+      
+      
+      | 55 readings
+      
+      
+      | 100 experiences
+      
+      
+      | 15 assessments
+      
+    </p>
+  </div>
+</footer>
+
+
+<!-- Load Bootstrap JavaScript components -->
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM" crossorigin="anonymous"></script>
+
+
+<script type="text/javascript" async
+        src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.7/latest.js?config=TeX-MML-AM_CHTML">
+</script>
+
+
+<!-- Add anchors to pages. -->
+<script>anchors.add();</script>
+
+
+</body>
+</html>

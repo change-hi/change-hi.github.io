@@ -1,0 +1,668 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <title> Change-HI/EDU | 6. Applying Function to Data </title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta charset="utf-8">
+
+  <link rel="stylesheet" href="/css/themes/spacelab/bootstrap.min.css">
+  <link rel="stylesheet" href="/css/style.css">
+  <link rel="stylesheet" href="/css/syntax.css">
+  <link rel="shortcut icon" href="/favicon.ico" type="image/x-icon" />
+  <link href="/css/fontawesome/css/fontawesome.css" rel="stylesheet">
+  <link href="/css/fontawesome/css/brands.css" rel="stylesheet">
+  <link href="/css/fontawesome/css/solid.css" rel="stylesheet">
+  <script src="https://cdn.jsdelivr.net/npm/anchor-js/anchor.min.js"></script>
+
+  
+
+  <!-- Load JQuery, then use it to attach the class 'active' to navbar item currently displayed. -->
+  <script src="https://code.jquery.com/jquery-3.6.0.min.js" integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4=" crossorigin="anonymous"></script>
+  <script>
+    $(window).on('load', function () {
+      $('.nav-item').find('a[href="' + location.pathname + '"]').addClass('active');
+    });
+  </script>
+
+</head>
+<body>
+
+<div class="navbar navbar-expand-lg fixed-top navbar-light bg-light">
+  <div class="container">
+    <a class="navbar-brand" href="/index.html"> Change-HI/EDU </a>
+    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarResponsive" aria-controls="navbarResponsive" aria-expanded="false" aria-label="Toggle navigation">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+    <div class="collapse navbar-collapse" id="navbarResponsive">
+      <ul class="navbar-nav">
+        
+        <li class="nav-item"><a class="nav-link" href="/modules/">Modules</a></li>
+        
+        <li class="nav-item"><a class="nav-link" href="/outcomes/">Outcomes</a></li>
+        
+        
+        <li class="nav-item"><a class="nav-link" href="/readings/">Readings</a></li>
+        
+        
+        <li class="nav-item"><a class="nav-link" href="/experiences/">Experiences</a></li>
+        
+        
+        <li class="nav-item"><a class="nav-link" href="/assessments/">Assessments</a></li>
+        
+        
+      </ul>
+    </div>
+  </div>
+</div>
+
+<!-- Internal fragment for displaying the breadcrumb bar -->
+<div class="breadcrumb-background" style="padding-top: 1em; padding-bottom: .01em">
+  <div class="container">
+    <nav aria-label="breadcrumb">
+      <ol class="breadcrumb">
+        
+        <li class="breadcrumb-item"><a href="/">Home</a></li>
+        <li class="breadcrumb-item"><a href="/modules">Modules</a></li>
+        <li class="breadcrumb-item"><a href="/modules/data-wrangling-2">Data Wrangling, Part 2</a></li>
+        <li class="breadcrumb-item active">6. Applying Function to Data</li>
+      </ol>
+    </nav>
+  </div>
+</div>
+
+
+<div class="container">
+  <h1 id="6-advanced-operations-on-series-and-dataframes">6. Advanced Operations on Series and DataFrames</h1>
+
+<p><a target="_blank" href="https://colab.research.google.com/github/mahdi-b/change-hi.github.io/blob/main/morea/data-wrangling-2/Notebooks/06-advanced-operations-on-series-and-dataframes.ipynb">
+  <img src="https://colab.research.google.com/assets/colab-badge.svg" alt="Open In Colab" />
+</a></p>
+
+<div class="alert alert-success mt-3" role="alert">
+  <p><i class="fa-solid fa-globe fa-xl"></i> <strong>Overview</strong></p>
+  <hr />
+
+  <p><strong>Questions</strong></p>
+
+  <ul>
+    <li>How do you apply operations on data chunks?</li>
+    <li>How do you combin the results (processed chunks) into a new <code class="language-plaintext highlighter-rouge">DataFrame</code>?</li>
+    <li>How do you create data chunks using values on one or more columns?</li>
+  </ul>
+
+  <p><strong>Objectives</strong></p>
+  <ul>
+    <li>Learn how to apply functions to your data.</li>
+    <li>Learn how to conditionally split data into chunks.</li>
+    <li>Conceptually understand how groupby operations work before we delve into implementation</li>
+  </ul>
+
+</div>
+
+<h2 id="global-vs-group-specific-processing">Global Vs. Group-Specific Processing</h2>
+
+<p>Function application falls into one of two categories:</p>
+
+<ol>
+  <li><strong>Global Processing</strong></li>
+  <li><strong>Group Specific Processing</strong></li>
+</ol>
+
+<p>Global processing is applying the same function to every entry (referring to a singular data point or an entire row or column) in a <code class="language-plaintext highlighter-rouge">Series</code> or <code class="language-plaintext highlighter-rouge">DataFrame</code>. Group specific processing, on the other hand, is applying functions to entries that belong to a certain group based on some defining characteristic.</p>
+
+<p>We will begin by covering global processing in the following sections.</p>
+
+<h3 id="1-global-processing">1. Global Processing</h3>
+
+<p>In one clever way or another, every global processing problem you will ever run into when working with <code class="language-plaintext highlighter-rouge">DataFrames</code> will fit into one of two levels of granularity. Corresponding to these two levels are two <code class="language-plaintext highlighter-rouge">DataFrame</code> methods, <code class="language-plaintext highlighter-rouge">apply()</code> and <code class="language-plaintext highlighter-rouge">applymap()</code>.</p>
+
+<p>To apply a function to every row or column of a <code class="language-plaintext highlighter-rouge">DataFrame</code> we use the <code class="language-plaintext highlighter-rouge">apply()</code> DataFrame method. The <code class="language-plaintext highlighter-rouge">apply()</code> method takes a function that will be applied to the specified axis (columns or rows). Depending on the function it is passed, <code class="language-plaintext highlighter-rouge">apply()</code> can behave in the same way as the <code class="language-plaintext highlighter-rouge">applymap()</code> function.</p>
+
+<h4 id="11-global-processing-apply">1.1) Global Processing-apply()</h4>
+
+<p>The function passed to the <code class="language-plaintext highlighter-rouge">apply()</code> method will process a <code class="language-plaintext highlighter-rouge">Series</code>, i.e., a row or column, and return a result some result. Let us look at two example use cases, using a reducing function, and a universal function. A reducing function is one which takes a <code class="language-plaintext highlighter-rouge">Series</code> object and reduces the <code class="language-plaintext highlighter-rouge">Series</code> to a single entry. You are already familiar with some reducing functions such as the Series <code class="language-plaintext highlighter-rouge">sum()</code> method, which returns the sum of all the entries in the calling <code class="language-plaintext highlighter-rouge">Series</code>. Consider the following example of calling <code class="language-plaintext highlighter-rouge">apply()</code> with a reducing function.</p>
+
+<div class="alert alert-secondary" role="alert">
+  <p>Code:</p>
+  <div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="n">df</span> <span class="o">=</span> <span class="n">pd</span><span class="p">.</span><span class="n">DataFrame</span><span class="p">([[</span> <span class="mi">0</span><span class="p">,</span>  <span class="mi">3</span><span class="p">,</span>  <span class="mi">6</span><span class="p">],</span> <span class="p">[</span> <span class="mi">9</span><span class="p">,</span> <span class="mi">12</span><span class="p">,</span> <span class="mi">15</span><span class="p">],</span> <span class="p">[</span><span class="mi">18</span><span class="p">,</span> <span class="mi">21</span><span class="p">,</span> <span class="mi">24</span><span class="p">]],</span> <span class="n">columns</span><span class="o">=</span><span class="p">[</span><span class="s">'a'</span><span class="p">,</span> <span class="s">'b'</span><span class="p">,</span> <span class="s">'c'</span><span class="p">])</span>
+<span class="k">def</span> <span class="nf">square_sum</span><span class="p">(</span><span class="n">x_series</span><span class="p">):</span>
+  <span class="k">return</span> <span class="n">x_series</span><span class="p">.</span><span class="nb">sum</span><span class="p">()</span> <span class="o">**</span> <span class="mi">2</span>
+<span class="n">df</span><span class="p">.</span><span class="nb">apply</span><span class="p">(</span><span class="n">square_sum</span><span class="p">,</span> <span class="n">axis</span><span class="o">=</span><span class="mi">1</span><span class="p">)</span> <span class="c1"># apply to each row
+</span></code></pre></div>  </div>
+
+  <p>Output:</p>
+  <div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="mi">0</span>      <span class="mi">81</span>
+<span class="mi">1</span>    <span class="mi">1296</span>
+<span class="mi">2</span>    <span class="mi">3969</span>
+<span class="n">dtype</span><span class="p">:</span> <span class="n">int64</span>
+</code></pre></div>  </div>
+</div>
+
+<p>The reducing function, <code class="language-plaintext highlighter-rouge">square_sum()</code> in the example above sums all the entries in the <code class="language-plaintext highlighter-rouge">Series</code> and the squares the result. You can define custom reducing functions just like we showed above to to achieve your desired analysis.</p>
+
+<p>A universal function will return a new <code class="language-plaintext highlighter-rouge">Series</code> that was created by universally applying the same procedure to each <code class="language-plaintext highlighter-rouge">Series</code> entry. A universal function can be defined using the <code class="language-plaintext highlighter-rouge">Series</code> <code class="language-plaintext highlighter-rouge">map()</code> method. The <code class="language-plaintext highlighter-rouge">map()</code> method will take a function as an argument which will process each individual <code class="language-plaintext highlighter-rouge">Series</code> entry according to the function definition. For instance, refer to the following code example.</p>
+
+<div class="alert alert-secondary" role="alert">
+  <p>Code:</p>
+  <div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="n">df</span> <span class="o">=</span> <span class="n">pd</span><span class="p">.</span><span class="n">DataFrame</span><span class="p">([[</span> <span class="mi">0</span><span class="p">,</span>  <span class="mi">3</span><span class="p">,</span>  <span class="mi">6</span><span class="p">],</span> <span class="p">[</span> <span class="mi">9</span><span class="p">,</span> <span class="mi">12</span><span class="p">,</span> <span class="mi">15</span><span class="p">],</span> <span class="p">[</span><span class="mi">18</span><span class="p">,</span> <span class="mi">21</span><span class="p">,</span> <span class="mi">24</span><span class="p">]],</span> <span class="n">columns</span><span class="o">=</span><span class="p">[</span><span class="s">'a'</span><span class="p">,</span> <span class="s">'b'</span><span class="p">,</span> <span class="s">'c'</span><span class="p">])</span>
+<span class="k">def</span> <span class="nf">divide_by_three</span><span class="p">(</span><span class="n">x_series</span><span class="p">):</span>
+   <span class="k">return</span> <span class="n">x_series</span><span class="p">.</span><span class="nb">map</span><span class="p">(</span><span class="k">lambda</span> <span class="n">x</span><span class="p">:</span> <span class="n">x</span> <span class="o">/</span> <span class="mi">3</span><span class="p">)</span>
+<span class="n">df</span><span class="p">.</span><span class="nb">apply</span><span class="p">(</span><span class="n">divide_by_three</span><span class="p">,</span> <span class="n">axis</span><span class="o">=</span><span class="mi">0</span><span class="p">)</span> <span class="c1"># apply to each column
+</span></code></pre></div>  </div>
+
+  <p>Output:</p>
+  <div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code>     <span class="n">a</span>    <span class="n">b</span>    <span class="n">c</span>
+<span class="mi">0</span>  <span class="mf">0.0</span>  <span class="mf">1.0</span>  <span class="mf">2.0</span>
+<span class="mi">1</span>  <span class="mf">3.0</span>  <span class="mf">4.0</span>  <span class="mf">5.0</span>
+<span class="mi">2</span>  <span class="mf">6.0</span>  <span class="mf">7.0</span>  <span class="mf">8.0</span>
+</code></pre></div>  </div>
+</div>
+
+<p>The example above shows how the <code class="language-plaintext highlighter-rouge">apply()</code> method behaves when a universal function is passed as the argument. The resulting <code class="language-plaintext highlighter-rouge">DataFrame</code> is constructed from original <code class="language-plaintext highlighter-rouge">DataFrame</code> except each entry is divided by three.</p>
+
+<h4 id="12-global-processing-applymap">1.2) Global Processing-applymap()</h4>
+<p>There is a shorthand way to achieve the same exact behavior shown in the example of applying a universal function in the <strong>Global Processing-apply()</strong> cell above, and the method is appropriately named <code class="language-plaintext highlighter-rouge">applymap()</code>, as first we call the <code class="language-plaintext highlighter-rouge">apply()</code> DataFrame method and then we call the <code class="language-plaintext highlighter-rouge">map()</code> method.</p>
+
+<p>To apply a function to every individual element in a <code class="language-plaintext highlighter-rouge">DataFrame</code> we can use the <code class="language-plaintext highlighter-rouge">applymap()</code> DataFrame method.  The <code class="language-plaintext highlighter-rouge">applymap()</code> method is a function which takes one positional argument as input and that is a callable function which takes a single value and returns a single value. The <code class="language-plaintext highlighter-rouge">applymap()</code> method will apply the function passed to every single entry in the calling <code class="language-plaintext highlighter-rouge">DataFrame</code> and return a new <code class="language-plaintext highlighter-rouge">DataFrame</code> with the processed entries.</p>
+
+<p>Let us see a simple example. We will construct a DataFrame <code class="language-plaintext highlighter-rouge">df</code> that is 3x3, i.e. there are three rows and three columns. The entries will be consecutive multiples of 3. To each entry we will apply the anonymous function: <code class="language-plaintext highlighter-rouge">lambda x: x / 3</code> which will divide a given input by 3. The result will be a new 3x3 <code class="language-plaintext highlighter-rouge">DataFrame</code> with the same index and columns as the caller with entries that are the results of the passed function.</p>
+
+<div class="alert alert-secondary" role="alert">
+
+  <p>Code:</p>
+  <div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="n">df</span> <span class="o">=</span> <span class="n">pd</span><span class="p">.</span><span class="n">DataFrame</span><span class="p">([[</span> <span class="mi">0</span><span class="p">,</span>  <span class="mi">3</span><span class="p">,</span>  <span class="mi">6</span><span class="p">],</span> <span class="p">[</span> <span class="mi">9</span><span class="p">,</span> <span class="mi">12</span><span class="p">,</span> <span class="mi">15</span><span class="p">],</span> <span class="p">[</span><span class="mi">18</span><span class="p">,</span> <span class="mi">21</span><span class="p">,</span> <span class="mi">24</span><span class="p">]],</span> <span class="n">columns</span><span class="o">=</span><span class="p">[</span><span class="s">'a'</span><span class="p">,</span> <span class="s">'b'</span><span class="p">,</span> <span class="s">'c'</span><span class="p">])</span>
+<span class="n">df</span><span class="p">.</span><span class="n">applymap</span><span class="p">(</span><span class="k">lambda</span> <span class="n">x</span><span class="p">:</span> <span class="n">x</span> <span class="o">/</span> <span class="mi">3</span><span class="p">)</span>
+</code></pre></div>  </div>
+
+  <p>Output:</p>
+  <div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code>     <span class="n">a</span>    <span class="n">b</span>    <span class="n">c</span>
+<span class="mi">0</span>  <span class="mf">0.0</span>  <span class="mf">1.0</span>  <span class="mf">2.0</span>
+<span class="mi">1</span>  <span class="mf">3.0</span>  <span class="mf">4.0</span>  <span class="mf">5.0</span>
+<span class="mi">2</span>  <span class="mf">6.0</span>  <span class="mf">7.0</span>  <span class="mf">8.0</span>
+</code></pre></div>  </div>
+</div>
+
+<h3 id="2-group-specific-processing">2. Group-Specific Processing</h3>
+
+<p>A common scenario is applying a function to a specific group of data. By group of data I mean a subset of the data that is the same based on a criterion.</p>
+
+<p>The <code class="language-plaintext highlighter-rouge">groupby()</code> DataFrame method is used to group rows of data by one or more of the column entries . The <code class="language-plaintext highlighter-rouge">groupby()</code> method accepts the parameter <code class="language-plaintext highlighter-rouge">by</code> which specifies how you want to group the rows of the calling <code class="language-plaintext highlighter-rouge">DataFrame</code>. The creation of groups <code class="language-plaintext highlighter-rouge">by</code> can be a single column label, a list of column lables, or a callable function. The method will return a <code class="language-plaintext highlighter-rouge">pandas</code> <code class="language-plaintext highlighter-rouge">GroupBy</code> object, an object we have not seen before. This object has certain attributes and methods that will be useful to us. In this module, we will only cover the case of setting the <code class="language-plaintext highlighter-rouge">by</code> parameter of the <code class="language-plaintext highlighter-rouge">groupby()</code> method to a single column entry, if you are interested you can read more about the method <a href="https://pandas.pydata.org/pandas-docs/stable/generated/pandas.DataFrame.groupby.html">here</a>.</p>
+
+<p>If <code class="language-plaintext highlighter-rouge">by</code> is a single label then the calling <code class="language-plaintext highlighter-rouge">DataFrame</code> will be grouped by the values in the column with the passed label, i.e. every entry with the same value in the specified column will be in the same group.</p>
+
+<p>For example, consider the <a href="https://github.com/mahdi-b/change-hi.github.io/raw/main/morea/data-wrangling-1/Notebook/data/20_sales_records.xlsx"><code class="language-plaintext highlighter-rouge">20_sales_records.xlsx</code></a> DataFrame from the previous week. To simplify things, we will select only <code class="language-plaintext highlighter-rouge">Region</code>, <code class="language-plaintext highlighter-rouge">Order Priority</code>, <code class="language-plaintext highlighter-rouge">Sales Channel</code>, <code class="language-plaintext highlighter-rouge">Total Revenue</code> and <code class="language-plaintext highlighter-rouge">Total Profit</code> columns and call it <code class="language-plaintext highlighter-rouge">df</code>.</p>
+<div class="alert alert-secondary" role="alert">
+  <p>Code:</p>
+  <div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kn">import</span> <span class="nn">pandas</span> <span class="k">as</span> <span class="n">pd</span>
+<span class="n">URL</span> <span class="o">=</span> <span class="s">"https://github.com/mahdi-b/change-hi.github.io/raw/main/morea/data-wrangling-1/Notebook/data/20_sales_records.xlsx"</span>
+<span class="n">df</span> <span class="o">=</span> <span class="n">pd</span><span class="p">.</span><span class="n">read_excel</span><span class="p">(</span><span class="n">URL</span><span class="p">)</span>
+
+<span class="n">df</span> <span class="o">=</span> <span class="n">df</span><span class="p">.</span><span class="n">loc</span><span class="p">[:,</span> <span class="p">[</span><span class="s">"Region"</span><span class="p">,</span> <span class="s">"Order Priority"</span><span class="p">,</span> <span class="s">"Sales Channel"</span><span class="p">,</span> <span class="s">"Total Revenue"</span><span class="p">,</span> <span class="s">"Total Profit"</span><span class="p">]]</span>
+<span class="n">df</span>
+</code></pre></div>  </div>
+
+  <p>Output:</p>
+
+  <table class="table">
+    <thead>
+      <tr>
+        <th> </th>
+        <th>Region</th>
+        <th>Order Priority</th>
+        <th>Sales Channel</th>
+        <th>Total Revenue</th>
+        <th>Total Profit</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td>0</td>
+        <td>Australia and Oceania</td>
+        <td>H</td>
+        <td>Offline</td>
+        <td>2533654.00</td>
+        <td>951410.50</td>
+      </tr>
+      <tr>
+        <td>1</td>
+        <td>Central America and the Caribbean</td>
+        <td>C</td>
+        <td>none</td>
+        <td>576782.80</td>
+        <td>248406.36</td>
+      </tr>
+      <tr>
+        <td>2</td>
+        <td>Europe</td>
+        <td>none</td>
+        <td>Offline</td>
+        <td>1158502.59</td>
+        <td>224598.75</td>
+      </tr>
+      <tr>
+        <td>3</td>
+        <td>Sub-Saharan Africa</td>
+        <td>L</td>
+        <td>Online</td>
+        <td>75591.66</td>
+        <td>19525.82</td>
+      </tr>
+      <tr>
+        <td>4</td>
+        <td>Sub-Saharan Africa</td>
+        <td>L</td>
+        <td>Offline</td>
+        <td>3296425.02</td>
+        <td>639077.50</td>
+      </tr>
+      <tr>
+        <td>5</td>
+        <td>Australia and Oceania</td>
+        <td>C</td>
+        <td>Online</td>
+        <td>759202.72</td>
+        <td>285087.64</td>
+      </tr>
+      <tr>
+        <td>6</td>
+        <td>Sub-Saharan Africa</td>
+        <td>M</td>
+        <td>none</td>
+        <td>2798046.49</td>
+        <td>693911.51</td>
+      </tr>
+      <tr>
+        <td>7</td>
+        <td>Sub-Saharan Africa</td>
+        <td>H</td>
+        <td>Online</td>
+        <td>1245112.92</td>
+        <td>510216.66</td>
+      </tr>
+      <tr>
+        <td>8</td>
+        <td>Sub-Saharan Africa</td>
+        <td>M</td>
+        <td>Offline</td>
+        <td>496101.10</td>
+        <td>152114.20</td>
+      </tr>
+      <tr>
+        <td>9</td>
+        <td>Sub-Saharan Africa</td>
+        <td>H</td>
+        <td>Online</td>
+        <td>1356180.10</td>
+        <td>584073.87</td>
+      </tr>
+      <tr>
+        <td>10</td>
+        <td>Asia</td>
+        <td>H</td>
+        <td>Online</td>
+        <td>19103.44</td>
+        <td>7828.12</td>
+      </tr>
+      <tr>
+        <td>11</td>
+        <td>Sub-Saharan Africa</td>
+        <td>H</td>
+        <td>Offline</td>
+        <td>455479.04</td>
+        <td>306097.92</td>
+      </tr>
+      <tr>
+        <td>12</td>
+        <td>Asia</td>
+        <td>L</td>
+        <td>Online</td>
+        <td>902980.64</td>
+        <td>606834.72</td>
+      </tr>
+      <tr>
+        <td>13</td>
+        <td>Central America and the Caribbean</td>
+        <td>H</td>
+        <td>Offline</td>
+        <td>5997054.98</td>
+        <td>1487261.02</td>
+      </tr>
+      <tr>
+        <td>14</td>
+        <td>Asia</td>
+        <td>C</td>
+        <td>Offline</td>
+        <td>400558.73</td>
+        <td>122819.06</td>
+      </tr>
+      <tr>
+        <td>15</td>
+        <td>Europe</td>
+        <td>M</td>
+        <td>Online</td>
+        <td>182825.44</td>
+        <td>122865.12</td>
+      </tr>
+      <tr>
+        <td>16</td>
+        <td>Asia</td>
+        <td>M</td>
+        <td>Offline</td>
+        <td>3039414.40</td>
+        <td>1208744.24</td>
+      </tr>
+      <tr>
+        <td>17</td>
+        <td>Sub-Saharan Africa</td>
+        <td>C</td>
+        <td>Offline</td>
+        <td>257653.50</td>
+        <td>85033.80</td>
+      </tr>
+      <tr>
+        <td>18</td>
+        <td>Asia</td>
+        <td>L</td>
+        <td>Offline</td>
+        <td>2559474.10</td>
+        <td>634745.90</td>
+      </tr>
+    </tbody>
+  </table>
+</div>
+
+<p>For example, let us group the above <code class="language-plaintext highlighter-rouge">df</code> DataFrame by the values in the <code class="language-plaintext highlighter-rouge">Region</code> column and save the returned GroupBy object to the variable we will call <code class="language-plaintext highlighter-rouge">grouped_by_region</code>. To do this we use the following code.</p>
+
+<p>For example, consider the following <code class="language-plaintext highlighter-rouge">DataFrame</code>:</p>
+<div class="alert alert-secondary" role="alert">
+  <p>Code:</p>
+  <div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="n">grouped_by_region</span> <span class="o">=</span> <span class="n">df</span><span class="p">.</span><span class="n">groupby</span><span class="p">(</span><span class="s">'Region'</span><span class="p">)</span>
+</code></pre></div>  </div>
+</div>
+
+<p><code class="language-plaintext highlighter-rouge">GroupBy</code> objects have a handy method called <code class="language-plaintext highlighter-rouge">get_group()</code>, which returns all the entries of a specified group as a <code class="language-plaintext highlighter-rouge">DataFrame</code>. The <code class="language-plaintext highlighter-rouge">get_group()</code> method will take a positional argument that is the name of the group to access. Then the method returns a <code class="language-plaintext highlighter-rouge">DataFrame</code>, which is a subset of the initial <code class="language-plaintext highlighter-rouge">DataFrame</code> used to instantiate the <code class="language-plaintext highlighter-rouge">GroupBy</code> object. The entries of the returned <code class="language-plaintext highlighter-rouge">DataFrame</code> are all those entries in the column specified by the <code class="language-plaintext highlighter-rouge">by</code> parameter in the original <code class="language-plaintext highlighter-rouge">groupby()</code> call that match the name used in the <code class="language-plaintext highlighter-rouge">get_group()</code> call.</p>
+
+<p>Continuing with the example of the <code class="language-plaintext highlighter-rouge">grouped_by_region</code> object, let us see how we would retrieve the group of rows from the <code class="language-plaintext highlighter-rouge">df</code> whose entries in the <code class="language-plaintext highlighter-rouge">df</code> column were all the same value of ‘Asia’. This group will conveniently have the name ‘Asia’, thus when we use the <code class="language-plaintext highlighter-rouge">get_group</code> method we will simply pass the value ‘Asia’.</p>
+
+<div class="alert alert-secondary" role="alert">
+  <p>Code:</p>
+  <div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="n">grouped_by_region</span><span class="p">.</span><span class="n">get_group</span><span class="p">(</span><span class="s">'Asia'</span><span class="p">)</span>
+</code></pre></div>  </div>
+
+  <p>Output:</p>
+
+  <table class="table">
+    <thead>
+      <tr>
+        <th> </th>
+        <th>Region</th>
+        <th>Order Priority</th>
+        <th>Sales Channel</th>
+        <th>Total Revenue</th>
+        <th>Total Profit</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td>10</td>
+        <td>Asia</td>
+        <td>H</td>
+        <td>Online</td>
+        <td>19103.44</td>
+        <td>7828.12</td>
+      </tr>
+      <tr>
+        <td>12</td>
+        <td>Asia</td>
+        <td>L</td>
+        <td>Online</td>
+        <td>902980.64</td>
+        <td>606834.72</td>
+      </tr>
+      <tr>
+        <td>14</td>
+        <td>Asia</td>
+        <td>C</td>
+        <td>Offline</td>
+        <td>400558.73</td>
+        <td>122819.06</td>
+      </tr>
+      <tr>
+        <td>16</td>
+        <td>Asia</td>
+        <td>M</td>
+        <td>Offline</td>
+        <td>3039414.40</td>
+        <td>1208744.24</td>
+      </tr>
+      <tr>
+        <td>18</td>
+        <td>Asia</td>
+        <td>L</td>
+        <td>Offline</td>
+        <td>2559474.10</td>
+        <td>634745.90</td>
+      </tr>
+    </tbody>
+  </table>
+</div>
+
+<h4 id="21-split-apply-combine">2.1) Split-Apply-Combine</h4>
+<p>Getting groups can be easily implemented using subsetting. For instance, we could have obtained the “A” group of the <code class="language-plaintext highlighter-rouge">df</code> DataFrame by subsetting <code class="language-plaintext highlighter-rouge">df</code> with the boolean <code class="language-plaintext highlighter-rouge">Series</code> returned from the following operation.</p>
+
+<div class="alert alert-secondary" role="alert">
+  <p>Code:</p>
+  <div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="n">df</span><span class="p">[</span><span class="n">df</span><span class="p">.</span><span class="n">loc</span><span class="p">[:,</span><span class="s">"Region"</span><span class="p">]</span><span class="o">==</span><span class="s">"Asia"</span><span class="p">]</span>
+</code></pre></div>  </div>
+
+  <p>Output:</p>
+
+  <table class="table">
+    <thead>
+      <tr>
+        <th> </th>
+        <th>Region</th>
+        <th>Order Priority</th>
+        <th>Sales Channel</th>
+        <th>Total Revenue</th>
+        <th>Total Profit</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td>10</td>
+        <td>Asia</td>
+        <td>H</td>
+        <td>Online</td>
+        <td>19103.44</td>
+        <td>7828.12</td>
+      </tr>
+      <tr>
+        <td>12</td>
+        <td>Asia</td>
+        <td>L</td>
+        <td>Online</td>
+        <td>902980.64</td>
+        <td>606834.72</td>
+      </tr>
+      <tr>
+        <td>14</td>
+        <td>Asia</td>
+        <td>C</td>
+        <td>Offline</td>
+        <td>400558.73</td>
+        <td>122819.06</td>
+      </tr>
+      <tr>
+        <td>16</td>
+        <td>Asia</td>
+        <td>M</td>
+        <td>Offline</td>
+        <td>3039414.40</td>
+        <td>1208744.24</td>
+      </tr>
+      <tr>
+        <td>18</td>
+        <td>Asia</td>
+        <td>L</td>
+        <td>Offline</td>
+        <td>2559474.10</td>
+        <td>634745.90</td>
+      </tr>
+    </tbody>
+  </table>
+</div>
+
+<p>We see in the above example that the returned <code class="language-plaintext highlighter-rouge">DataFrame</code> is exactly the same as the result we saw in the previous cell introducing <code class="language-plaintext highlighter-rouge">groupby()</code> and <code class="language-plaintext highlighter-rouge">get_group()</code>. So why use <code class="language-plaintext highlighter-rouge">GroupBy</code> objects anyway?</p>
+
+<p>Ideal usage of <code class="language-plaintext highlighter-rouge">groupby()</code>, and the resulting <code class="language-plaintext highlighter-rouge">GroupBy object</code>, will apply operations to <strong>each</strong> group independently. Furthermore, <code class="language-plaintext highlighter-rouge">GroupBy</code> objects are intended to be applied in the context of the data processing paradigm called 
+“split-apply-combine”</p>
+
+<ul>
+  <li><strong>Split</strong> the data into chunks defined using one or more columns.</li>
+  <li><strong>Apply</strong> some operation on the chunks generated.</li>
+  <li><strong>Combine</strong> the results of the applied operation into a new <code class="language-plaintext highlighter-rouge">DataFrame</code>.</li>
+</ul>
+
+<p>For instance, suppose we wanted to compute the the sum by <code class="language-plaintext highlighter-rouge">Region</code> and save the result to a new <code class="language-plaintext highlighter-rouge">DataFrame</code>, the steps we would need to take are:</p>
+
+<ol>
+  <li>Split the data by <code class="language-plaintext highlighter-rouge">X</code>, i.e. <code class="language-plaintext highlighter-rouge">groupby('Region')</code></li>
+  <li>Apply the <code class="language-plaintext highlighter-rouge">sum()</code> method to the <code class="language-plaintext highlighter-rouge">Y</code> column for each group</li>
+  <li>Combine the results from each group into a new <code class="language-plaintext highlighter-rouge">DataFrame</code></li>
+</ol>
+
+<p><img src="fig/E6_split_apply_combine_example.png" alt="" /></p>
+
+<p>So rather than manually subsetting each group and then applying the desired operation we could automate this workflow using the helpful <code class="language-plaintext highlighter-rouge">GroupBy</code> methods implemented by <code class="language-plaintext highlighter-rouge">pandas</code> to save ourselves some time and effort.</p>
+
+<h4 id="22-the-3-classes-of-opearations-on-groups">2.2) The 3 Classes of Opearations on Groups</h4>
+
+<p>There are 3 classes of split-apply-combine operations that can be applied to group data.</p>
+
+<p>a. <strong>Aggregations</strong> generate a single value for each group</p>
+
+<p>b.  <strong>Transformations</strong> convert the data and generate a group of the same size as the original group.</p>
+
+<p>c.  <strong>Filters</strong> retain or discard a group based on group-specific boolean computations.</p>
+
+<p><img src="fig/E6_aggregate.png" width="80%" />
+<img src="fig/E6_transform.png" width="80%" />
+<img src="fig/E6_filter.png" width="80%" /></p>
+
+<div class="alert alert-success mt-3" role="alert">
+  <p><i class="fa-solid fa-globe fa-xl"></i> <strong>Key Points</strong></p>
+  <hr />
+
+  <p><strong>Function Application and Mapping</strong></p>
+
+  <ul>
+    <li><strong>Global Processing</strong>
+      <ul>
+        <li>To apply a function to every row or column in a <code class="language-plaintext highlighter-rouge">DataFrame</code> we can use the <code class="language-plaintext highlighter-rouge">apply()</code> method</li>
+        <li>To apply a function to every element in a <code class="language-plaintext highlighter-rouge">Series</code> we can use the <code class="language-plaintext highlighter-rouge">map()</code> method</li>
+        <li>To apply a function to every element in a <code class="language-plaintext highlighter-rouge">DataFrame</code> we can use the <code class="language-plaintext highlighter-rouge">applymap()</code> method</li>
+      </ul>
+    </li>
+    <li>
+      <p><strong>Group Specific Processing</strong></p>
+
+      <ul>
+        <li>
+          <p>The <code class="language-plaintext highlighter-rouge">groupby()</code> method is used to group the data using values on one or more columns</p>
+        </li>
+        <li><code class="language-plaintext highlighter-rouge">groupby()</code> is often applied in the context of the data processing paradigm called “split-apply-combine”
+          <ul>
+            <li><strong>Split</strong>: you need to split the data into chunks defined using one or more columns</li>
+            <li><strong>Apply</strong>: apply some operation on the chunks generated.</li>
+            <li><strong>Combine</strong>: combine the results of the applied operation into a new <code class="language-plaintext highlighter-rouge">DataFrame</code></li>
+          </ul>
+        </li>
+        <li>
+          <p>There are 3 common classes of split-apply-combine operations that can be applied to group data.</p>
+
+          <ol>
+            <li>
+              <p><strong>Aggregations</strong> generate a single value for each group</p>
+            </li>
+            <li>
+              <p><strong>Transformations</strong> convert the data and generate a group of the same size as the original group.</p>
+            </li>
+            <li>
+              <p><strong>Filters</strong> retain or discard a group based on group-specific boolean computations.</p>
+            </li>
+          </ol>
+        </li>
+      </ul>
+    </li>
+  </ul>
+</div>
+
+<div class="alert alert-info" role="alert">
+  <p><i class="fa-solid fa-circle-info fa-xl"></i> <strong>For more information</strong></p>
+  <hr />
+
+  <p>You can read more about <code class="language-plaintext highlighter-rouge">groupby</code> from the official pandas documentation of <a href="https://pandas.pydata.org/docs/user_guide/groupby.html">groupby</a></p>
+</div>
+
+<div style="text-align: right; padding-bottom: 10px">
+  <hr />
+  <button type="button" onclick="window.location='/morea/data-wrangling-2/experience-real-example-cleanup.html'" class="btn btn-primary">
+    <p style="font-size:16px; margin: 0">7. Real Example Cleanup&gt;</p>
+    <p style="font-size:12px; margin: 0">2:35pm</p>
+    </button>
+</div>
+
+</div>
+
+
+
+
+<!-- Maybe find a different way?
+<script src="/js/scrollIfAnchor.js"></script>
+-->
+
+<footer class="footer footer-background" style="padding-top: 1em; padding-bottom: 1em">
+  <div class="container text-center">
+    
+    
+
+    
+    <p style="margin: 0">Powered by the <a class="footer-link" href="https://morea-framework.github.io/">Morea Framework</a> (Theme: spacelab)<br>
+      Last update on: <span>2023-12-01 13:58:35 -1000</span></p>
+
+    <p style="margin: 0">
+      
+      18 modules
+      
+      | 17 outcomes
+      
+      
+      | 55 readings
+      
+      
+      | 100 experiences
+      
+      
+      | 15 assessments
+      
+    </p>
+  </div>
+</footer>
+
+
+<!-- Load Bootstrap JavaScript components -->
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM" crossorigin="anonymous"></script>
+
+
+<script type="text/javascript" async
+        src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.7/latest.js?config=TeX-MML-AM_CHTML">
+</script>
+
+
+<!-- Add anchors to pages. -->
+<script>anchors.add();</script>
+
+
+</body>
+</html>

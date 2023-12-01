@@ -1,0 +1,218 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <title> Change-HI/EDU | 13. Security </title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta charset="utf-8">
+
+  <link rel="stylesheet" href="/css/themes/spacelab/bootstrap.min.css">
+  <link rel="stylesheet" href="/css/style.css">
+  <link rel="stylesheet" href="/css/syntax.css">
+  <link rel="shortcut icon" href="/favicon.ico" type="image/x-icon" />
+  <link href="/css/fontawesome/css/fontawesome.css" rel="stylesheet">
+  <link href="/css/fontawesome/css/brands.css" rel="stylesheet">
+  <link href="/css/fontawesome/css/solid.css" rel="stylesheet">
+  <script src="https://cdn.jsdelivr.net/npm/anchor-js/anchor.min.js"></script>
+
+  
+
+  <!-- Load JQuery, then use it to attach the class 'active' to navbar item currently displayed. -->
+  <script src="https://code.jquery.com/jquery-3.6.0.min.js" integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4=" crossorigin="anonymous"></script>
+  <script>
+    $(window).on('load', function () {
+      $('.nav-item').find('a[href="' + location.pathname + '"]').addClass('active');
+    });
+  </script>
+
+</head>
+<body>
+
+<div class="navbar navbar-expand-lg fixed-top navbar-light bg-light">
+  <div class="container">
+    <a class="navbar-brand" href="/index.html"> Change-HI/EDU </a>
+    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarResponsive" aria-controls="navbarResponsive" aria-expanded="false" aria-label="Toggle navigation">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+    <div class="collapse navbar-collapse" id="navbarResponsive">
+      <ul class="navbar-nav">
+        
+        <li class="nav-item"><a class="nav-link" href="/modules/">Modules</a></li>
+        
+        <li class="nav-item"><a class="nav-link" href="/outcomes/">Outcomes</a></li>
+        
+        
+        <li class="nav-item"><a class="nav-link" href="/readings/">Readings</a></li>
+        
+        
+        <li class="nav-item"><a class="nav-link" href="/experiences/">Experiences</a></li>
+        
+        
+        <li class="nav-item"><a class="nav-link" href="/assessments/">Assessments</a></li>
+        
+        
+      </ul>
+    </div>
+  </div>
+</div>
+
+<!-- Internal fragment for displaying the breadcrumb bar -->
+<div class="breadcrumb-background" style="padding-top: 1em; padding-bottom: .01em">
+  <div class="container">
+    <nav aria-label="breadcrumb">
+      <ol class="breadcrumb">
+        
+        <li class="breadcrumb-item"><a href="/">Home</a></li>
+        <li class="breadcrumb-item"><a href="/modules">Modules</a></li>
+        <li class="breadcrumb-item"><a href="/modules/"></a></li>
+        <li class="breadcrumb-item active">13. Security</li>
+      </ol>
+    </nav>
+  </div>
+</div>
+
+
+<div class="container">
+  <h1 id="security">Security</h1>
+
+<p>Today, we will approach two different aspects of data security.</p>
+
+<ul>
+  <li>Securing data from hostile people and groups that would compromise the system.</li>
+  <li>Securing data from general threats such as power outages, fires, floods, and hardware failure.</li>
+</ul>
+
+<p>Securing data from hostile groups:
+Types of attacks</p>
+
+<ol>
+  <li>
+    <p><em>Malware:</em> Malicious software. Malware is activated when a user clicks on a malicious link or attachment, which leads to installing dangerous software. Cisco reports that malware, once activated, can:
+-Block access to key network components (ransomware)
+-Install additional harmful software
+-Covertly obtain information by transmitting data from the hard drive (spyware)
+-Disrupt individual parts, making the system inoperable</p>
+  </li>
+  <li>
+    <p><em>Emotet:</em> The Cybersecurity and Infrastructure Security Agency (CISA) describes Emotet as “an advanced, modular banking Trojan that primarily functions as a downloader or dropper of other banking Trojans. Emotet continues to be among the most costly and destructive malware.”</p>
+  </li>
+  <li>
+    <p><em>Denial of Service:</em> A denial of service (DoS) is a type of cyber attack that floods a computer or network so it can’t respond to requests. A distributed DoS (DDoS) does the same thing, but the attack originates from a computer network. Cyber attackers often use a flood attack to disrupt the “handshake” process and carry out a DoS. Several other techniques may be used, and some cyber attackers use the time that a network is disabled to launch other attacks. A botnet is a type of DDoS in which millions of systems can be infected with malware and controlled by a hacker, according to Jeff Melnick of Netwrix, an information technology security software company. Botnets, sometimes called zombie systems, target and overwhelm a target’s processing capabilities. Botnets are in different geographic locations and hard to trace.</p>
+  </li>
+  <li>
+    <p><em>Man in the Middle:</em> A man-in-the-middle (MITM) attack occurs when hackers insert themselves into a two-party transaction. After interrupting the traffic, they can filter and steal data, according to Cisco. MITM attacks often occur when a visitor uses an unsecured public Wi-Fi network. Attackers insert themselves between the visitor and the network, and then use malware to install software and use data maliciously.</p>
+  </li>
+  <li>
+    <p><em>Phishing:</em> Phishing attacks use fake communication, such as an email, to trick the receiver into opening it and carrying out the instructions inside, such as providing a credit card number. “The goal is to steal sensitive data like credit card and login information or to install malware on the victim’s machine,” Cisco reports.</p>
+  </li>
+  <li>
+    <p><em>SQL Injection:</em> A Structured Query Language (SQL) injection is a type of cyber attack that results from inserting malicious code into a server that uses SQL. When infected, the server releases information. Submitting the malicious code can be as simple as entering it into a vulnerable website search box.</p>
+  </li>
+  <li>
+    <p><em>Password Attacks:</em> With the right password, a cyber attacker has access to a wealth of information. Social engineering is a type of password attack that Data Insider defines as “a strategy cyber attackers use that relies heavily on human interaction and often involves tricking people into breaking standard security practices.” Other types of password attacks include accessing a password database or outright guessing.</p>
+  </li>
+</ol>
+
+<p><em>An Arms Race</em></p>
+
+<p>Cyber security practices continue to evolve as the internet and digitally dependent operations develop and change. Data storage on devices such as laptops and cellphones makes it easier for cyber attackers to find an entry point into a network through a personal device. For example, in the May 2019 book Exploding Data: Reclaiming Our Cyber Security in the Digital Age, former U.S. Secretary of Homeland Security Michael Chertoff warns of a pervasive exposure of individuals’ personal information, which has become increasingly vulnerable to cyber attacks. Increase in both <em>data use</em> and <em>data sharing</em> are contributing to cybersecurity threats. Volume and connectedness both create new areas to exploit.</p>
+
+<p>Strategies to Prevent Hostile Groups from Stealing Data:</p>
+
+<ul>
+  <li>Complex Passwords</li>
+  <li>Setting 2 Factor Authentication</li>
+  <li>Choosing a Reputible Data Repository</li>
+</ul>
+
+<p>Securing Data from Other Natural Events
+Data loss can happen for many reasons such as fires, floods, and hardware failure. The main strategy for preventing this is data redundancy, where data is stored in multiple locations.</p>
+
+<p>Large datasets, will often span multiple hard disks as we approach 1 terabit per square inch (though to be the superparamagnetic limit) of storage density in magnetic hard drives with increasing data size. Storage arrays are ften redundent, redundancy is often created using various types of RAID configurations.</p>
+
+<ul>
+  <li><em>Raid 1</em> is an exact copy (or mirror) of a set of data on two or more disks.</li>
+  <li><em>Raid 5</em> consists of block-level striping with distributed parity and requires that all drives but one be present to operate. Upon failure of a single drive, subsequent reads can be calculated from the distributed parity such that no data is lost. RAID 5 requires at least three disks.</li>
+</ul>
+
+<p>Small datasets and files are often stored on laptops and computer hard drives. While storage on these devices is more reliable than ever, the data could be lost in the event of damage to the computer. <em>Data storage is affordable, recreating data is not! Important files should never be in only 1 place.</em> Cloud storage can be useful for this. Some cloud storage services:</p>
+
+<ul>
+  <li>Dropbox</li>
+  <li>GSuite</li>
+  <li>OneDrive</li>
+  <li>iCloud</li>
+</ul>
+
+<div class="alert alert-info" role="alert">
+  <p><i class="fa-solid fa-circle-info fa-xl"></i> <strong>For more information</strong></p>
+  <hr />
+
+  <ul>
+    <li><a href="https://onlinedegrees.und.edu/blog/types-of-cyber-security-threats/">Attribution</a></li>
+    <li><a href="https://en.wikipedia.org/wiki/Standard_RAID_levels">RAID</a></li>
+    <li><a href="https://www.wiki.ed.ac.uk/display/RDMS/">BioRDM wiki</a>.</li>
+  </ul>
+</div>
+
+<div style="text-align: right; padding-bottom: 10px">
+  <hr />
+  <button type="button" onclick="window.location='/morea/fair/assessment-fair-workshop.html'" class="btn btn-primary">
+    <p style="font-size:16px; margin: 0">Workshop Assessment -&gt;</p>
+    <p style="font-size:12px; margin: 0">3:50pm</p>
+    </button>
+</div>
+
+
+</div>
+
+
+
+
+<!-- Maybe find a different way?
+<script src="/js/scrollIfAnchor.js"></script>
+-->
+
+<footer class="footer footer-background" style="padding-top: 1em; padding-bottom: 1em">
+  <div class="container text-center">
+    
+    
+
+    
+    <p style="margin: 0">Powered by the <a class="footer-link" href="https://morea-framework.github.io/">Morea Framework</a> (Theme: spacelab)<br>
+      Last update on: <span>2023-12-01 13:58:35 -1000</span></p>
+
+    <p style="margin: 0">
+      
+      18 modules
+      
+      | 17 outcomes
+      
+      
+      | 55 readings
+      
+      
+      | 100 experiences
+      
+      
+      | 15 assessments
+      
+    </p>
+  </div>
+</footer>
+
+
+<!-- Load Bootstrap JavaScript components -->
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM" crossorigin="anonymous"></script>
+
+
+<script type="text/javascript" async
+        src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.7/latest.js?config=TeX-MML-AM_CHTML">
+</script>
+
+
+<!-- Add anchors to pages. -->
+<script>anchors.add();</script>
+
+
+</body>
+</html>

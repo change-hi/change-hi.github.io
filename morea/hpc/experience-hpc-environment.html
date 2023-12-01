@@ -1,0 +1,265 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <title> Change-HI/EDU | 5. Install Modules and Setup an Environment </title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta charset="utf-8">
+
+  <link rel="stylesheet" href="/css/themes/spacelab/bootstrap.min.css">
+  <link rel="stylesheet" href="/css/style.css">
+  <link rel="stylesheet" href="/css/syntax.css">
+  <link rel="shortcut icon" href="/favicon.ico" type="image/x-icon" />
+  <link href="/css/fontawesome/css/fontawesome.css" rel="stylesheet">
+  <link href="/css/fontawesome/css/brands.css" rel="stylesheet">
+  <link href="/css/fontawesome/css/solid.css" rel="stylesheet">
+  <script src="https://cdn.jsdelivr.net/npm/anchor-js/anchor.min.js"></script>
+
+  
+
+  <!-- Load JQuery, then use it to attach the class 'active' to navbar item currently displayed. -->
+  <script src="https://code.jquery.com/jquery-3.6.0.min.js" integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4=" crossorigin="anonymous"></script>
+  <script>
+    $(window).on('load', function () {
+      $('.nav-item').find('a[href="' + location.pathname + '"]').addClass('active');
+    });
+  </script>
+
+</head>
+<body>
+
+<div class="navbar navbar-expand-lg fixed-top navbar-light bg-light">
+  <div class="container">
+    <a class="navbar-brand" href="/index.html"> Change-HI/EDU </a>
+    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarResponsive" aria-controls="navbarResponsive" aria-expanded="false" aria-label="Toggle navigation">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+    <div class="collapse navbar-collapse" id="navbarResponsive">
+      <ul class="navbar-nav">
+        
+        <li class="nav-item"><a class="nav-link" href="/modules/">Modules</a></li>
+        
+        <li class="nav-item"><a class="nav-link" href="/outcomes/">Outcomes</a></li>
+        
+        
+        <li class="nav-item"><a class="nav-link" href="/readings/">Readings</a></li>
+        
+        
+        <li class="nav-item"><a class="nav-link" href="/experiences/">Experiences</a></li>
+        
+        
+        <li class="nav-item"><a class="nav-link" href="/assessments/">Assessments</a></li>
+        
+        
+      </ul>
+    </div>
+  </div>
+</div>
+
+<!-- Internal fragment for displaying the breadcrumb bar -->
+<div class="breadcrumb-background" style="padding-top: 1em; padding-bottom: .01em">
+  <div class="container">
+    <nav aria-label="breadcrumb">
+      <ol class="breadcrumb">
+        
+        <li class="breadcrumb-item"><a href="/">Home</a></li>
+        <li class="breadcrumb-item"><a href="/modules">Modules</a></li>
+        <li class="breadcrumb-item"><a href="/modules/hpc">High Performance Computing</a></li>
+        <li class="breadcrumb-item active">5. Install Modules and Setup an Environment</li>
+      </ol>
+    </nav>
+  </div>
+</div>
+
+
+<div class="container">
+  <h1 id="5-install-modules-and-setup-an-environment">5. Install Modules and Setup an Environment</h1>
+
+<div class="alert alert-success mt-3" role="alert">
+  <p><i class="fa-solid fa-globe fa-xl"></i> <strong>Overview</strong></p>
+  <hr />
+
+  <p><strong>Questions</strong></p>
+  <ul>
+    <li>What is an environment?</li>
+    <li>How do we install software and modules on Koa?</li>
+    <li>How do we create a Python kernel?</li>
+  </ul>
+
+  <p><strong>Objectives</strong></p>
+  <ul>
+    <li>Create an environment with Anaconda.</li>
+    <li>Install packages needed for deep learning tasks.</li>
+    <li>Create a Python kernel.</li>
+  </ul>
+</div>
+
+<h2 id="how-to-access-and-install-software-and-modules">How to access and install software and modules?</h2>
+
+<h3 id="use-a-package-manager">Use a package manager</h3>
+
+<p>Working with Python requires one to have different packages installed with a specific version which gets updated once in a while. On Koa, there are software packages already installed on the cluster which one can use to install the required libraries, softwares and can even choose which version to install.</p>
+
+<p>You can use following commands to see what modules are available on the cluster or which ones are already loaded or to load a specific module in your environment:</p>
+
+<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code>module avail
+module list 
+module load &lt;MODULE_NAME&gt;
+</code></pre></div></div>
+
+<h3 id="so-what-is-an-environment-then">So what is an environment then?</h3>
+
+<p>Sometimes different applications require different versions of the Python packages than the one you’ve been using and this is where a Python environment comes in handy.</p>
+
+<p>An environment (or a conda environment specifically, which we’ll discuss later) is a directory, specific or isolated to a project, that contains a specific collection of python packages and their different versions that you have installed. There are 2 most popular tools to set up your environment:</p>
+
+<ol>
+  <li>
+    <p>Pip: a tool to install Python software packages only.</p>
+  </li>
+  <li>
+    <p>Anaconda (or Conda): cross platform package and environment manager which lets you access C, C++ libraries, R package for scientific computing along with Python.</p>
+  </li>
+</ol>
+
+<div class="alert alert-info" role="alert">
+  <p><i class="fa-solid fa-circle-info fa-xl"></i> <strong>Note on packages</strong></p>
+  <hr />
+
+  <p>Packages contains all the files you need for the modules it supplies</p>
+</div>
+
+<h3 id="the-anaconda-package-manager">The Anaconda package manager</h3>
+
+<p>This is a popular package manager in scientific computing which handles the Python and R programming language related dependencies rather easily. It is preferred more because:</p>
+
+<ul>
+  <li>it has a clear directory structure which is easy to understand,</li>
+  <li>it allows you to install softwares written in any programming language,</li>
+  <li>it gives you a flexibility to create different environments with different software versions (and can install pip packages as well),</li>
+  <li>one can use both CLI and GUI.</li>
+</ul>
+
+<figure>
+  
+    <img src="/morea/hpc/fig/Anaconda+Python.png" style="max-width: 50%;" alt="/Anaconda%20+%20Python" class="img-fluid mx-auto d-block border" />
+  
+  <figcaption style="text-align: center">
+    <small>
+      
+    </small>
+  </figcaption>
+</figure>
+
+<div class="alert alert-info" role="alert">
+  <p><i class="fa-solid fa-circle-info fa-xl"></i> <strong>Environment isolation</strong></p>
+  <hr />
+
+  <p>If you try to access a library with different version based on your project, pip may throw an error.
+To create isolated environments, you can use virtual environment (venv) with pip.</p>
+</div>
+
+<h3 id="activity-learn-how-to-setup-an-environment">Activity: Learn how to setup an environment</h3>
+
+<div class="alert alert-secondary" role="alert">
+  <p><i class="fa-solid fa-user-pen fa-xl"></i>  <strong>Exercise: Load Anaconda and libraries</strong></p>
+  <hr />
+
+  <p>First, create a conda environment:</p>
+
+  <div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code>module load lang/Anaconda3
+conda create <span class="nt">--name</span> tf2 
+<span class="nb">source </span>activate tf2
+</code></pre></div>  </div>
+
+  <p>Second, install relevant libraries:</p>
+
+  <div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code>mamba <span class="nb">install</span> <span class="nt">-c</span> conda-forge <span class="nt">-c</span> nvidia <span class="nv">tensorflow</span><span class="o">=</span>2.10 matplotlib keras cudatoolkit
+</code></pre></div>  </div>
+</div>
+
+<h3 id="activity-learn-to-create-a-python-kernel">Activity: Learn to create a Python kernel</h3>
+
+<p>Although we created a conda environment, the Jupyter notebook still cannot access it because “conda” is the directory that contains all the installed conda packages but it is the “kernel” that runs the user’s code and can use and access different conda environments, if required.</p>
+
+<p>A kernel is the computational engine that executes the code contained in Jupyter notebook or it is the interface which tells Jupyter notebook which kernel it should use to access the packages and softwares.</p>
+
+<div class="alert alert-secondary" role="alert">
+  <p><i class="fa-solid fa-user-pen fa-xl"></i>  <strong>Exercise: Create an ipykernel</strong></p>
+  <hr />
+
+  <p>Start up a python kernel:</p>
+
+  <div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code>conda <span class="nb">install </span>ipykernel
+python <span class="nt">-m</span> ipykernel <span class="nb">install</span> <span class="nt">--user</span> <span class="nt">--name</span> tf2 <span class="nt">--display-name</span> tf2
+</code></pre></div>  </div>
+</div>
+
+<div class="alert alert-warning" role="alert">
+  <p><i class="fa-solid fa-circle-info fa-xl"></i> <strong>Bio Break!</strong></p>
+  <hr />
+
+  <p>Let’s take a brief break to stretch before moving on to the next page.  See you in a few minutes.</p>
+</div>
+
+<div style="text-align: right; padding-bottom: 10px">
+  <hr />
+  <button type="button" onclick="window.location='/morea/hpc/experience-hpc-deep-learning.html'" class="btn btn-primary">
+    <p style="font-size:16px; margin: 0">Deep Learning Tutorial -&gt;</p>
+    <p style="font-size:12px; margin: 0">3:10pm</p>
+    </button>
+</div>
+
+
+</div>
+
+
+
+
+<!-- Maybe find a different way?
+<script src="/js/scrollIfAnchor.js"></script>
+-->
+
+<footer class="footer footer-background" style="padding-top: 1em; padding-bottom: 1em">
+  <div class="container text-center">
+    
+    
+
+    
+    <p style="margin: 0">Powered by the <a class="footer-link" href="https://morea-framework.github.io/">Morea Framework</a> (Theme: spacelab)<br>
+      Last update on: <span>2023-12-01 13:58:35 -1000</span></p>
+
+    <p style="margin: 0">
+      
+      18 modules
+      
+      | 17 outcomes
+      
+      
+      | 55 readings
+      
+      
+      | 100 experiences
+      
+      
+      | 15 assessments
+      
+    </p>
+  </div>
+</footer>
+
+
+<!-- Load Bootstrap JavaScript components -->
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM" crossorigin="anonymous"></script>
+
+
+<script type="text/javascript" async
+        src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.7/latest.js?config=TeX-MML-AM_CHTML">
+</script>
+
+
+<!-- Add anchors to pages. -->
+<script>anchors.add();</script>
+
+
+</body>
+</html>

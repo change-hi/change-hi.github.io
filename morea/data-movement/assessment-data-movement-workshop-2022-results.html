@@ -1,0 +1,283 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <title> Change-HI/EDU | Data Movement Workshop 2022 Assessment Results </title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta charset="utf-8">
+
+  <link rel="stylesheet" href="/css/themes/spacelab/bootstrap.min.css">
+  <link rel="stylesheet" href="/css/style.css">
+  <link rel="stylesheet" href="/css/syntax.css">
+  <link rel="shortcut icon" href="/favicon.ico" type="image/x-icon" />
+  <link href="/css/fontawesome/css/fontawesome.css" rel="stylesheet">
+  <link href="/css/fontawesome/css/brands.css" rel="stylesheet">
+  <link href="/css/fontawesome/css/solid.css" rel="stylesheet">
+  <script src="https://cdn.jsdelivr.net/npm/anchor-js/anchor.min.js"></script>
+
+  
+
+  <!-- Load JQuery, then use it to attach the class 'active' to navbar item currently displayed. -->
+  <script src="https://code.jquery.com/jquery-3.6.0.min.js" integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4=" crossorigin="anonymous"></script>
+  <script>
+    $(window).on('load', function () {
+      $('.nav-item').find('a[href="' + location.pathname + '"]').addClass('active');
+    });
+  </script>
+
+</head>
+<body>
+
+<div class="navbar navbar-expand-lg fixed-top navbar-light bg-light">
+  <div class="container">
+    <a class="navbar-brand" href="/index.html"> Change-HI/EDU </a>
+    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarResponsive" aria-controls="navbarResponsive" aria-expanded="false" aria-label="Toggle navigation">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+    <div class="collapse navbar-collapse" id="navbarResponsive">
+      <ul class="navbar-nav">
+        
+        <li class="nav-item"><a class="nav-link" href="/modules/">Modules</a></li>
+        
+        <li class="nav-item"><a class="nav-link" href="/outcomes/">Outcomes</a></li>
+        
+        
+        <li class="nav-item"><a class="nav-link" href="/readings/">Readings</a></li>
+        
+        
+        <li class="nav-item"><a class="nav-link" href="/experiences/">Experiences</a></li>
+        
+        
+        <li class="nav-item"><a class="nav-link" href="/assessments/">Assessments</a></li>
+        
+        
+      </ul>
+    </div>
+  </div>
+</div>
+
+<!-- Internal fragment for displaying the breadcrumb bar -->
+<div class="breadcrumb-background" style="padding-top: 1em; padding-bottom: .01em">
+  <div class="container">
+    <nav aria-label="breadcrumb">
+      <ol class="breadcrumb">
+        
+        <li class="breadcrumb-item"><a href="/">Home</a></li>
+        <li class="breadcrumb-item"><a href="/modules">Modules</a></li>
+        <li class="breadcrumb-item"><a href="/modules/"></a></li>
+        <li class="breadcrumb-item active">Data Movement Workshop 2022 Assessment Results</li>
+      </ol>
+    </nav>
+  </div>
+</div>
+
+
+<div class="container">
+  <h1 id="data-movement-workshop-2022-assessment-results">Data Movement Workshop 2022 Assessment Results</h1>
+
+<h2 id="participant-assessment-comments">Participant Assessment Comments</h2>
+
+<p><em>What is a simple way to test the speed of the network connected to your laptop? If you don’t recall, just write “I don’t recall”.</em></p>
+
+<ul>
+  <li>speedtest.net (3 responses)</li>
+  <li>LibreSpeedTest (3 responses)</li>
+  <li>Don’t recall</li>
+</ul>
+
+<p><em>Why might you want to use the FileZilla client? If you don’t recall, just write “I don’t recall”.</em></p>
+
+<ul>
+  <li>easy to set up ftp transfer</li>
+  <li>To have a GUI for transferring files</li>
+  <li>Easy to use, interactive.</li>
+  <li>visual file browsing, saved connections</li>
+  <li>for faster data transfers</li>
+  <li>A GUI based alternative to commands such as scp or rsync</li>
+  <li>It is another way to upload and download files to and from a remote computer using sftp. It may be good to use if you aren’t familiar with using sftp on the command line.</li>
+</ul>
+
+<p><em>Why might you want to use the Globus service? If you don’t recall, just write “I don’t recall”.</em></p>
+
+<ul>
+  <li>file transfer between GridFTP servers</li>
+  <li>To be able to share files from any device and within people on a team</li>
+  <li>Unattended transfer; uses existing institutional login.</li>
+  <li>resumable/interruptible</li>
+  <li>For reliable data transfer</li>
+  <li>For the transfer of large data across institutions</li>
+  <li>Globus is an interface that allows you to move data from different sources you can connect to (your own laptop, desktop, HPC, etc.)</li>
+</ul>
+
+<p><em>Has this workshop material caused you to consider making changes to the way you move data in your own research and/or practice? If so, please briefly describe what changes you might make. If not, just write “No changes at the moment.”</em></p>
+
+<ul>
+  <li>No changes at the moment (3x)</li>
+  <li>I will use scp more in my research to move files more efficiently than uploading them one at a time using OOD</li>
+  <li>Yes. It has made me consider using Globus for when I want to transfer some of the larger tarballs I have.</li>
+  <li>Yes, Globus seems like a great tool to use for transferring data and I will consider it next time I need to transfer data to/from a remote computer. In the past I have just done sftp on the command line.</li>
+</ul>
+
+<p><em>In general, did you find the CONTENT of this workshop to be useful?  If so, please briefly summarize up to three skills you acquired (or started to acquire) as a result of this workshop.  If not, please write “Content not useful.”</em></p>
+
+<ul>
+  <li>Content not useful</li>
+  <li>Learned about new tools, practice using curl, practice using some of the tools</li>
+  <li>I learned how to use scp, I learned about how to install globus, and learned how to use the –help option</li>
+  <li>Yes, useful. like the summary of different transfer methods.</li>
+  <li>Configuring globus, great review of network from alan</li>
+  <li>Information regarding the different kinds of networks in use. Insight into how queues work and keywords that could be useful for future debugging. Learning about other data transfer tools besides rsync and scp that I might use in the future.</li>
+  <li>The content is helpful and will be good to come back to. Globus is a tool I’d consider using and seems simple to use, the walkthrough nice. It has been a few months since I’ve used sftp on the command line so small exercises were a good refresher. It was interesting to learn about networks and how were are connected to different places.</li>
+</ul>
+
+<p><em>In general, did you find the PEDAGOGY (i.e. method of teaching) of this workshop to be appropriate?  If so, please briefly summarize one or two teaching methods you found to be useful. If not, please write “Pedagogy was not appropriate.”</em></p>
+
+<ul>
+  <li>Pedagogy was not appropriate</li>
+  <li>Yes, it was OK (2x)</li>
+  <li>It was appropriate, I especially liked the exercises, I was able to follow along with the workshop</li>
+  <li>Yes, interactive problems were great, along with the descriptions</li>
+  <li>I found it to be appropriate where the first portion of the workshop was gave insight into the workings behind data transfer. The second portion had a quick hands on on using the tools.</li>
+  <li>Yes, I liked how this workshop went over a few different ways to transfer data and had a few simple exercises along the way.</li>
+</ul>
+
+<p><em>No workshop is perfect. What are one or two things you would suggest we change to improve this workshop in future?  If you can’t think of anything, then write “You’re wrong. This workshop was perfect.”</em></p>
+
+<ul>
+  <li>You’re wrong. This workshop was perfect. (2x)</li>
+  <li>Maybe a way to indicate when we were done with the exercise, I sometimes felt a bit rushed moving onto the next part of the workshop</li>
+  <li>Make the slides and recording available to the participants. (I know, you’re gonna do that.)</li>
+  <li>I would have wanted to see more activities in this workshop. I did not understand the use of transferring data at higher speeds.</li>
+  <li>Maybe more time towards using Globus, but considering the setup overhead to start using it, it was understandable why it was not dwelled upon. In other words, you’re wrong. This workshop was perfect.</li>
+  <li>I don’t have the strongest computer science background, so some of the smaller details about networks were difficult to grasp.</li>
+</ul>
+
+<p><em>Did this workshop result in any new potential collaborations (i.e. people who you might contact in future to discuss research and/or professional issues)?</em></p>
+
+<ul>
+  <li>4 responses: No the workshop did not result in any new potential collaborations</li>
+  <li>3 responses: I am not sure if the workshop resulted in any new potential collaborations</li>
+</ul>
+
+<p><em>If the workshops resulted in any new potential collaborations, are any of them with people outside your “home” discipline (i.e. your department)?</em></p>
+
+<ul>
+  <li>4 responses: No.</li>
+  <li>2 responses: I don’t know</li>
+  <li>1 response: Yes</li>
+</ul>
+
+<p><em>Do you have any ideas for new workshops that would help you with your research and professional development? If so, please briefly describe. If not, please write (“No ideas at the moment.”)</em></p>
+
+<ul>
+  <li>Collaborate with students from other disciplines to solve problems together.</li>
+</ul>
+
+<p><em>Is there anything else you would like us to know about this workshop?</em></p>
+
+<ul>
+  <li>Thanks for offering this.</li>
+  <li>just FYI i noticed the instructions for Rclone (with Google Drive) finally stopped working (as of Oct 3 2022) since google deprecated their OOB API credential verification.
+<a href="https://change-hi.github.io/morea/data-movement/reading-configuring-rclone.html">https://change-hi.github.io/morea/data-movement/reading-configuring-rclone.html</a>
+Google’s docs: <a href="https://developers.google.com/identity/protocols/oauth2/resources/oob-migration">https://developers.google.com/identity/protocols/oauth2/resources/oob-migration</a></li>
+  <li>Awesome job presenting this workshop!</li>
+</ul>
+
+<h2 id="instructor-assessment-comments">Instructor Assessment Comments</h2>
+
+<p><em>For your workshop, how would you rate the overall “success” of the workshop (i.e. your subjective sense of things like student engagement, questions, discussion, completion of activities, etc.)?</em></p>
+
+<ul>
+  <li>1 response: About as successful as expected.</li>
+</ul>
+
+<p><em>What aspects of your workshop did not work as well as possible, and what are your thoughts on how to improve them in future?</em></p>
+
+<ul>
+  <li>The primary aspect of the workshop that didn’t work as well as I had hoped was activities and engagement. I am not sure how to improve this in the future as, from my perspective, the workshop introduces a number of great tools but doesn’t lend itself to viewer interactions very well.</li>
+</ul>
+
+<p><em>What aspects of your workshop do you feel worked well (so that we know to encourage their use in future workshops when appropriate)?</em></p>
+
+<ul>
+  <li>In terms of content, the workshop provides a plethora of great information that viewers can easily implement to better use the tools available to them.</li>
+</ul>
+
+<p><em>Is there anything else you would like us to know about your workshop? Are there ways we can better support your instruction in future?</em></p>
+
+<ul>
+  <li>Depending on the workshop, it is hard to relate the material to the fellows; however, the process felt as if I was just going through the motions and very disconnected to the overall material and value of the workshop.</li>
+</ul>
+
+<h2 id="discussion-and-recommendations">Discussion and recommendations</h2>
+
+<p>The initial questions assess several of the learning outcomes.  The responses provide evidence that the learning outcomes assessed were, in general, achieved.</p>
+
+<p>About half the respondants indicated they did not see an immediate application of this material to their own research.  On the other hand, about half said they <em>did</em> see an application to their own research. Maybe a 50% hit rate is totally fine?</p>
+
+<p>Recommendations for next time:</p>
+
+<ol>
+  <li>
+    <p>Perhaps try to trim some introductory material by 5-10 minutes and allocate that time to going deeper into Globus, since that is the most impactful aspect of the workshop.</p>
+  </li>
+  <li>
+    <p>An instructor brought up an interesting point: they did not know much about the background of the fellows, so it was more difficult to connect the material directly to them. This is something we could address more globally in future. For example, we could have the Data Fellows create a “profile” about their research interests, technical background, and self-identified “gaps” in knowledge at the beginning of the year. Then instructors of all workshops could review the profiles and tailor the contents and delivery more specifically to the participants.</p>
+  </li>
+  <li>
+    <p>Update the RClone reading.</p>
+  </li>
+</ol>
+
+</div>
+
+
+
+
+<!-- Maybe find a different way?
+<script src="/js/scrollIfAnchor.js"></script>
+-->
+
+<footer class="footer footer-background" style="padding-top: 1em; padding-bottom: 1em">
+  <div class="container text-center">
+    
+    
+
+    
+    <p style="margin: 0">Powered by the <a class="footer-link" href="https://morea-framework.github.io/">Morea Framework</a> (Theme: spacelab)<br>
+      Last update on: <span>2023-12-01 13:58:35 -1000</span></p>
+
+    <p style="margin: 0">
+      
+      18 modules
+      
+      | 17 outcomes
+      
+      
+      | 55 readings
+      
+      
+      | 100 experiences
+      
+      
+      | 15 assessments
+      
+    </p>
+  </div>
+</footer>
+
+
+<!-- Load Bootstrap JavaScript components -->
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM" crossorigin="anonymous"></script>
+
+
+<script type="text/javascript" async
+        src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.7/latest.js?config=TeX-MML-AM_CHTML">
+</script>
+
+
+<!-- Add anchors to pages. -->
+<script>anchors.add();</script>
+
+
+</body>
+</html>

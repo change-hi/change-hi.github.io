@@ -1,0 +1,292 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <title> Change-HI/EDU | 2. Google Colab Interface </title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta charset="utf-8">
+
+  <link rel="stylesheet" href="/css/themes/spacelab/bootstrap.min.css">
+  <link rel="stylesheet" href="/css/style.css">
+  <link rel="stylesheet" href="/css/syntax.css">
+  <link rel="shortcut icon" href="/favicon.ico" type="image/x-icon" />
+  <link href="/css/fontawesome/css/fontawesome.css" rel="stylesheet">
+  <link href="/css/fontawesome/css/brands.css" rel="stylesheet">
+  <link href="/css/fontawesome/css/solid.css" rel="stylesheet">
+  <script src="https://cdn.jsdelivr.net/npm/anchor-js/anchor.min.js"></script>
+
+  
+
+  <!-- Load JQuery, then use it to attach the class 'active' to navbar item currently displayed. -->
+  <script src="https://code.jquery.com/jquery-3.6.0.min.js" integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4=" crossorigin="anonymous"></script>
+  <script>
+    $(window).on('load', function () {
+      $('.nav-item').find('a[href="' + location.pathname + '"]').addClass('active');
+    });
+  </script>
+
+</head>
+<body>
+
+<div class="navbar navbar-expand-lg fixed-top navbar-light bg-light">
+  <div class="container">
+    <a class="navbar-brand" href="/index.html"> Change-HI/EDU </a>
+    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarResponsive" aria-controls="navbarResponsive" aria-expanded="false" aria-label="Toggle navigation">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+    <div class="collapse navbar-collapse" id="navbarResponsive">
+      <ul class="navbar-nav">
+        
+        <li class="nav-item"><a class="nav-link" href="/modules/">Modules</a></li>
+        
+        <li class="nav-item"><a class="nav-link" href="/outcomes/">Outcomes</a></li>
+        
+        
+        <li class="nav-item"><a class="nav-link" href="/readings/">Readings</a></li>
+        
+        
+        <li class="nav-item"><a class="nav-link" href="/experiences/">Experiences</a></li>
+        
+        
+        <li class="nav-item"><a class="nav-link" href="/assessments/">Assessments</a></li>
+        
+        
+      </ul>
+    </div>
+  </div>
+</div>
+
+<!-- Internal fragment for displaying the breadcrumb bar -->
+<div class="breadcrumb-background" style="padding-top: 1em; padding-bottom: .01em">
+  <div class="container">
+    <nav aria-label="breadcrumb">
+      <ol class="breadcrumb">
+        
+        <li class="breadcrumb-item"><a href="/">Home</a></li>
+        <li class="breadcrumb-item"><a href="/modules">Modules</a></li>
+        <li class="breadcrumb-item"><a href="/modules/data-wrangling-1">Data Wrangling, Part 1</a></li>
+        <li class="breadcrumb-item active">2. Google Colab Interface</li>
+      </ol>
+    </nav>
+  </div>
+</div>
+
+
+<div class="container">
+  <h1 id="2-google-colab-interface">2. Google Colab Interface</h1>
+
+<p><a href="https://colab.research.google.com/github/mahdi-b/change-hi.github.io/blob/main/morea/data-wrangling-1/Notebook/02-jupyter-notebook-interface.ipynb"><img src="https://colab.research.google.com/assets/colab-badge.svg" alt="Open In Colab" /></a></p>
+
+<div class="alert alert-success mt-3" role="alert">
+  <p><i class="fa-solid fa-globe fa-xl"></i> <strong>Overview</strong></p>
+  <hr />
+
+  <p><strong>Objectives</strong></p>
+  <ul>
+    <li>Provide an overview of the fundamental features of the Google Colab environment.</li>
+    <li>Illustrate the different cell categories utilized in Notebook environments.</li>
+    <li>Show how notebooks handle segments of code and explain the idea of rebooting the runtime.</li>
+  </ul>
+</div>
+
+<h2 id="notebook-basics">Notebook Basics</h2>
+
+<p>Clicking the <a href="https://colab.research.google.com/">following URL</a> will take you to Google Colab where you can start a new notebook or open an existing one. When you load up the Colab page, you should be presented with a layout that closely resembles that in the image below.</p>
+
+<figure>
+  
+    <img src="/morea/data-wrangling-1/fig/Colab%20Int.JPG" style="max-width: 80%;" alt="/Basic%20Binder%20Webpage" class="img-fluid mx-auto d-block border" />
+  
+  <figcaption style="text-align: center">
+    <small>
+      
+    </small>
+  </figcaption>
+</figure>
+
+<p>If, after clicking the button, you encounter the message <strong>“We are sorry, but you do not have access to this serive. Please contact your Organization Administrator for access.”</strong> please follow the instructions provided in this <a href="https://www.hawaii.edu/askus/1649">link</a> to enable consumer apps.</p>
+
+<p>With the Open notebook modal window open, click on the <strong>New Notebook</strong>. This will create a colab notebook named <code class="language-plaintext highlighter-rouge">Untitled0.ipynb</code>, containing  a single blank cell. Your view of the web page should appear similar to the image shown below. A cell in a Jupyter Notebook is essentially a single editable unit that acts as a container for either code or text. Imagine it as a piece of digital paper where you can write a script or make notes.</p>
+
+<figure>
+  
+    <img src="/morea/data-wrangling-1/fig/untitled0.PNG" style="max-width: 80%;" alt="/New%20Notebook%20Page" class="img-fluid mx-auto d-block border" />
+  
+  <figcaption style="text-align: center">
+    <small>
+      
+    </small>
+  </figcaption>
+</figure>
+
+<p>As you’ll notice the notebook contains a single cell, which is still empty. Type</p>
+
+<p><code class="language-plaintext highlighter-rouge">print("290 + 180 = ", 290 + 180)</code></p>
+
+<p>and then click the run button (triangle at the right side of the cell) you will see the output appear below the cell.</p>
+
+<h3 id="cell-types">Cell Types</h3>
+
+<p>Cells are the base unit in Google notebooks. A notebook is essentially just a collection of cells of different types. In Google notebooks there are two primary types of cells:</p>
+
+<ul>
+  <li><strong>Code</strong> cells
+    <ul>
+      <li>Code cells treat everything typed inside them as code (Python by default)</li>
+      <li>Code can be executed – we often say running the cell –  by clicking the <strong>run</strong> button on the immediate left of  the cell.</li>
+    </ul>
+  </li>
+  <li><strong>Markdown</strong> cells
+    <ul>
+      <li>Markdown cells treat everything typed inside them as markdown, an easy to read and write formatting syntax, to format text, links, lists, and more.</li>
+      <li>When they are <strong>run</strong>, jupyter formats the text they contain and diplays it below the cell.</li>
+    </ul>
+  </li>
+</ul>
+
+<p>If you click Open in Colab button at the top of this page, you will be presented with a notebook that already has some cells filled in. Underneath the header <strong>Cell Types</strong> you will find two different cells that each correspond to one type of cell. You can select the top cell and then click the run button to run all the cells.</p>
+
+<p>If you wish to rename the file, click on <code class="language-plaintext highlighter-rouge">Notebook-interface.ipynb</code> in the top-left corner. You can then enter a new name for the file. Refer to the image below for guidance.</p>
+
+<figure>
+  
+    <img src="/morea/data-wrangling-1/fig/filename.PNG" style="max-width: 60%;" alt="/New%20Notebook%20Page" class="img-fluid mx-auto d-block border" />
+  
+  <figcaption style="text-align: center">
+    <small>
+      
+    </small>
+  </figcaption>
+</figure>
+
+<blockquote class="callout">
+  <h2 id="running-cells">Running Cells</h2>
+
+  <p>You can also run a selected cell by pressing <kbd>Shift</kbd>+<kbd>Return</kbd></p>
+
+</blockquote>
+
+<p>You will see that the action performed after running a cell is different for each of the cells.</p>
+
+<figure>
+  
+    <img src="/morea/data-wrangling-1/fig/Cell.PNG" style="max-width: 60%;" alt="/Notebook%20Cell%20Types" class="img-fluid mx-auto d-block border" />
+  
+  <figcaption style="text-align: center">
+    <small>
+      
+    </small>
+  </figcaption>
+</figure>
+
+<h3 id="editing-cells">Editing Cells</h3>
+
+<p>You can also edit cells after running them by clicking on the cell like normal text. For markdown cells you will need to double click on the cell area in order revert it back into a editable format.</p>
+
+<p>When modifying code cells, caution is required as any changes — including deletions or edits made to the cell afterward — won’t alter the effects the previous run of the cell had. These effects persist until the cell is rerun with new values of the runtime or runtime is restarted.</p>
+
+<p>The image below gives a visual example of this with the notebook cells on the left, and a python code that does the same set of commands on the right. You can try running the cells found in the left image by looking for the header <strong>Editing Cells</strong> in this Notebook referenced from the Open in Colab button above.</p>
+
+<figure>
+  
+    <img src="/morea/data-wrangling-1/fig/E2_4_running_code.png" style="max-width: 80%;" alt="/Running%20Code" class="img-fluid mx-auto d-block border" />
+  
+  <figcaption style="text-align: center">
+    <small>
+      
+    </small>
+  </figcaption>
+</figure>
+
+<p>To show the dangers of rerunning cells we can try rerunning the two bottom cells containing the code <code class="language-plaintext highlighter-rouge">a = a + 2</code> and <code class="language-plaintext highlighter-rouge">print(a)</code>. This will be reflected as a fifth and sixth command executed in the python console. You can see this reflected in the Python console below where the same commands have been issued in the same order. So despite the fact that we only have four cells of python we have executed 6 cells worth of code.</p>
+
+<figure>
+  
+    <img src="/morea/data-wrangling-1/fig/E2_5_rerunning_code.png" style="max-width: 60%;" alt="/Rerunnig%20Cells" class="img-fluid mx-auto d-block border" />
+  
+  <figcaption style="text-align: center">
+    <small>
+      
+    </small>
+  </figcaption>
+</figure>
+
+<div class="alert alert-info" role="alert">
+  <p><i class="fa-solid fa-circle-info fa-xl"></i> <strong>Re-running Cells</strong></p>
+  <hr />
+
+  <p>Rerunning code cells will erase the output of that code cell and update the counter next to the cell with the most recent time the cell was run.</p>
+</div>
+
+<div class="alert alert-success mt-3" role="alert">
+  <p><i class="fa-solid fa-globe fa-xl"></i> <strong>Key Points</strong></p>
+  <hr />
+
+  <ul>
+    <li>A notebook is divided into cells that are of type code or markdown.</li>
+    <li>Markdown cells enhance documentation by allowing users to insert images, videos, equations, and apply text styling, enhancing the notebook’s readability and comprehensiveness.</li>
+    <li>Jupyter facilitates an interactive coding environment, enabling users to write and execute code in real-time, view the results immediately, and make iterative improvements, promoting a more efficient and explorative workflow.</li>
+  </ul>
+</div>
+
+<div style="text-align: right; padding-bottom: 10px">
+  <hr />
+  <button type="button" onclick="window.location='/morea/data-wrangling-1/experience-data-structures.html'" class="btn btn-primary">
+    <p style="font-size:16px; margin: 0">3. Loading and Handling Pandas Data -&gt;</p>
+    <p style="font-size:12px; margin: 0">2:20pm</p>
+    </button>
+</div>
+
+
+</div>
+
+
+
+
+<!-- Maybe find a different way?
+<script src="/js/scrollIfAnchor.js"></script>
+-->
+
+<footer class="footer footer-background" style="padding-top: 1em; padding-bottom: 1em">
+  <div class="container text-center">
+    
+    
+
+    
+    <p style="margin: 0">Powered by the <a class="footer-link" href="https://morea-framework.github.io/">Morea Framework</a> (Theme: spacelab)<br>
+      Last update on: <span>2023-12-01 13:58:35 -1000</span></p>
+
+    <p style="margin: 0">
+      
+      18 modules
+      
+      | 17 outcomes
+      
+      
+      | 55 readings
+      
+      
+      | 100 experiences
+      
+      
+      | 15 assessments
+      
+    </p>
+  </div>
+</footer>
+
+
+<!-- Load Bootstrap JavaScript components -->
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM" crossorigin="anonymous"></script>
+
+
+<script type="text/javascript" async
+        src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.7/latest.js?config=TeX-MML-AM_CHTML">
+</script>
+
+
+<!-- Add anchors to pages. -->
+<script>anchors.add();</script>
+
+
+</body>
+</html>

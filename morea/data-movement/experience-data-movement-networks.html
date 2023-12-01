@@ -1,0 +1,332 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <title> Change-HI/EDU | 3. Networks </title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta charset="utf-8">
+
+  <link rel="stylesheet" href="/css/themes/spacelab/bootstrap.min.css">
+  <link rel="stylesheet" href="/css/style.css">
+  <link rel="stylesheet" href="/css/syntax.css">
+  <link rel="shortcut icon" href="/favicon.ico" type="image/x-icon" />
+  <link href="/css/fontawesome/css/fontawesome.css" rel="stylesheet">
+  <link href="/css/fontawesome/css/brands.css" rel="stylesheet">
+  <link href="/css/fontawesome/css/solid.css" rel="stylesheet">
+  <script src="https://cdn.jsdelivr.net/npm/anchor-js/anchor.min.js"></script>
+
+  
+
+  <!-- Load JQuery, then use it to attach the class 'active' to navbar item currently displayed. -->
+  <script src="https://code.jquery.com/jquery-3.6.0.min.js" integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4=" crossorigin="anonymous"></script>
+  <script>
+    $(window).on('load', function () {
+      $('.nav-item').find('a[href="' + location.pathname + '"]').addClass('active');
+    });
+  </script>
+
+</head>
+<body>
+
+<div class="navbar navbar-expand-lg fixed-top navbar-light bg-light">
+  <div class="container">
+    <a class="navbar-brand" href="/index.html"> Change-HI/EDU </a>
+    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarResponsive" aria-controls="navbarResponsive" aria-expanded="false" aria-label="Toggle navigation">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+    <div class="collapse navbar-collapse" id="navbarResponsive">
+      <ul class="navbar-nav">
+        
+        <li class="nav-item"><a class="nav-link" href="/modules/">Modules</a></li>
+        
+        <li class="nav-item"><a class="nav-link" href="/outcomes/">Outcomes</a></li>
+        
+        
+        <li class="nav-item"><a class="nav-link" href="/readings/">Readings</a></li>
+        
+        
+        <li class="nav-item"><a class="nav-link" href="/experiences/">Experiences</a></li>
+        
+        
+        <li class="nav-item"><a class="nav-link" href="/assessments/">Assessments</a></li>
+        
+        
+      </ul>
+    </div>
+  </div>
+</div>
+
+<!-- Internal fragment for displaying the breadcrumb bar -->
+<div class="breadcrumb-background" style="padding-top: 1em; padding-bottom: .01em">
+  <div class="container">
+    <nav aria-label="breadcrumb">
+      <ol class="breadcrumb">
+        
+        <li class="breadcrumb-item"><a href="/">Home</a></li>
+        <li class="breadcrumb-item"><a href="/modules">Modules</a></li>
+        <li class="breadcrumb-item"><a href="/modules/data-movement">Data Movement</a></li>
+        <li class="breadcrumb-item active">3. Networks</li>
+      </ol>
+    </nav>
+  </div>
+</div>
+
+
+<div class="container">
+  <h1 id="3-networks">3. Networks</h1>
+
+<div class="alert alert-success mt-3" role="alert">
+  <p><i class="fa-solid fa-globe fa-xl"></i> <strong>Overview</strong></p>
+  <hr />
+
+  <p><strong>Questions</strong></p>
+  <ul>
+    <li>What do networks look like?</li>
+    <li>What does the equipment that connects everything look like?</li>
+  </ul>
+
+  <p><strong>Objectives</strong></p>
+  <ul>
+    <li>Understand the topology of scientific networks.</li>
+    <li>Have an idea of what some of the technology underlying networks looks like.</li>
+  </ul>
+
+</div>
+
+<h2 id="pictures-of-actual-networks">Pictures Of Actual Networks</h2>
+
+<h3 id="u-hawaii-inter-island-and-ren-peer-connectivity">U. Hawaii inter-island and REN peer connectivity</h3>
+<figure>
+  
+    <img src="/morea/data-movement/fig/ep20.png" style="max-width: 50%;" alt="/Node%20anatomy" class="img-fluid mx-auto d-block border" />
+  
+  <figcaption style="text-align: center">
+    <small>
+      
+    </small>
+  </figcaption>
+</figure>
+
+<h3 id="guam-open-research-and-education-exchange">Guam Open Research and Education eXchange</h3>
+<figure>
+  
+    <img src="/morea/data-movement/fig/ep21.jpg" style="max-width: 50%;" alt="/Node%20anatomy" class="img-fluid mx-auto d-block border" />
+  
+  <figcaption style="text-align: center">
+    <small>
+      
+    </small>
+  </figcaption>
+</figure>
+
+<h3 id="aponet-collaboration-of-pacific-and-pacific-rim-networks">APONet: collaboration of Pacific and Pacific Rim Networks</h3>
+<figure>
+  
+    <img src="/morea/data-movement/fig/ep22.jpg" style="max-width: 50%;" alt="/Node%20anatomy" class="img-fluid mx-auto d-block border" />
+  
+  <figcaption style="text-align: center">
+    <small>
+      
+    </small>
+  </figcaption>
+</figure>
+
+<h3 id="quilt-diagram-of-us-regional-research-and-education-networks">Quilt diagram of US regional research and education networks</h3>
+<figure>
+  
+    <img src="/morea/data-movement/fig/ep23.jpg" style="max-width: 50%;" alt="/Node%20anatomy" class="img-fluid mx-auto d-block border" />
+  
+  <figcaption style="text-align: center">
+    <small>
+      
+    </small>
+  </figcaption>
+</figure>
+
+<p>Here is the same Quilt map with Internet2 links added:</p>
+
+<figure>
+  
+    <img src="/morea/data-movement/fig/ep24.jpg" style="max-width: 50%;" alt="/Node%20anatomy" class="img-fluid mx-auto d-block border" />
+  
+  <figcaption style="text-align: center">
+    <small>
+      
+    </small>
+  </figcaption>
+</figure>
+
+<h3 id="noaa-nwave">NOAA NWave</h3>
+
+<p>U. Hawaii provides connectivity for Oahu NOAA activities to reach US mainland:</p>
+
+<figure>
+  
+    <img src="/morea/data-movement/fig/ep25.png" style="max-width: 50%;" alt="/Node%20anatomy" class="img-fluid mx-auto d-block border" />
+  
+  <figcaption style="text-align: center">
+    <small>
+      
+    </small>
+  </figcaption>
+</figure>
+
+<h3 id="us-department-of-energy-esnet">US Department of Energy ESNet</h3>
+
+<p>ESNet is part of various paths to and from UH, notably to DOE Labs and to CERN:</p>
+
+<figure>
+  
+    <img src="/morea/data-movement/fig/ep26.png" style="max-width: 50%;" alt="/Node%20anatomy" class="img-fluid mx-auto d-block border" />
+  
+  <figcaption style="text-align: center">
+    <small>
+      
+    </small>
+  </figcaption>
+</figure>
+
+<h2 id="hardware">Hardware</h2>
+
+<h3 id="medium-scale-juniper-router">Medium scale Juniper router</h3>
+
+<p>This router is capable of supporting 10Gbps and 100Gbps interfaces for long distance links:</p>
+
+<figure>
+  
+    <img src="/morea/data-movement/fig/ep27.png" style="max-width: 50%;" alt="/Node%20anatomy" class="img-fluid mx-auto d-block border" />
+  
+  <figcaption style="text-align: center">
+    <small>
+      
+    </small>
+  </figcaption>
+</figure>
+
+<h3 id="fiber-distribution-in-data-center">Fiber distribution in data center</h3>
+
+<figure>
+  
+    <img src="/morea/data-movement/fig/ep28.jpg" style="max-width: 50%;" alt="/Node%20anatomy" class="img-fluid mx-auto d-block border" />
+  
+  <figcaption style="text-align: center">
+    <small>
+      
+    </small>
+  </figcaption>
+</figure>
+
+<h3 id="copper-distribution-in-data-center">Copper distribution in data center</h3>
+
+<figure>
+  
+    <img src="/morea/data-movement/fig/ep29.jpg" style="max-width: 50%;" alt="/Node%20anatomy" class="img-fluid mx-auto d-block border" />
+  
+  <figcaption style="text-align: center">
+    <small>
+      
+    </small>
+  </figcaption>
+</figure>
+
+<h3 id="lc-connectors">LC Connectors</h3>
+
+<p>Here is a pair of glass fiber LC connectors, and the 10Gbps Ethernet card which connects to the fiber:</p>
+
+<figure>
+  
+    <img src="/morea/data-movement/fig/ep210.jpg" style="max-width: 50%;" alt="/Node%20anatomy" class="img-fluid mx-auto d-block border" />
+  
+  <figcaption style="text-align: center">
+    <small>
+      
+    </small>
+  </figcaption>
+</figure>
+
+<h3 id="infrared-laser">Infrared laser</h3>
+
+<p>The infrared laser that transmits over the fiber is visible in the upper connector. The light is visible to my phone camera, but not to the naked eye.</p>
+
+<figure>
+  
+    <img src="/morea/data-movement/fig/ep211.jpg" style="max-width: 50%;" alt="/Node%20anatomy" class="img-fluid mx-auto d-block border" />
+  
+  <figcaption style="text-align: center">
+    <small>
+      
+    </small>
+  </figcaption>
+</figure>
+
+<div class="alert alert-success mt-3" role="alert">
+  <p><i class="fa-solid fa-globe fa-xl"></i> <strong>Key Points</strong></p>
+  <hr />
+
+  <ul>
+    <li>There are many sub-networks that connect research.</li>
+  </ul>
+
+</div>
+
+<div style="text-align: right; padding-bottom: 10px">
+  <hr />
+  <button type="button" onclick="window.location='/morea/data-movement/experience-data-transfer-eval.html'" class="btn btn-primary">
+    <p style="font-size:16px; margin: 0">Data Transfer Evaluation of the Network -&gt;</p>
+    <p style="font-size:12px; margin: 0">2:15pm</p>
+    </button>
+</div>
+
+
+</div>
+
+
+
+
+<!-- Maybe find a different way?
+<script src="/js/scrollIfAnchor.js"></script>
+-->
+
+<footer class="footer footer-background" style="padding-top: 1em; padding-bottom: 1em">
+  <div class="container text-center">
+    
+    
+
+    
+    <p style="margin: 0">Powered by the <a class="footer-link" href="https://morea-framework.github.io/">Morea Framework</a> (Theme: spacelab)<br>
+      Last update on: <span>2023-12-01 13:58:35 -1000</span></p>
+
+    <p style="margin: 0">
+      
+      18 modules
+      
+      | 17 outcomes
+      
+      
+      | 55 readings
+      
+      
+      | 100 experiences
+      
+      
+      | 15 assessments
+      
+    </p>
+  </div>
+</footer>
+
+
+<!-- Load Bootstrap JavaScript components -->
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM" crossorigin="anonymous"></script>
+
+
+<script type="text/javascript" async
+        src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.7/latest.js?config=TeX-MML-AM_CHTML">
+</script>
+
+
+<!-- Add anchors to pages. -->
+<script>anchors.add();</script>
+
+
+</body>
+</html>

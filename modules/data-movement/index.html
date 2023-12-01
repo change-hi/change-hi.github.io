@@ -1,0 +1,580 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <title> Change-HI/EDU | Data Movement </title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta charset="utf-8">
+
+  <link rel="stylesheet" href="/css/themes/spacelab/bootstrap.min.css">
+  <link rel="stylesheet" href="/css/style.css">
+  <link rel="stylesheet" href="/css/syntax.css">
+  <link rel="shortcut icon" href="/favicon.ico" type="image/x-icon" />
+  <link href="/css/fontawesome/css/fontawesome.css" rel="stylesheet">
+  <link href="/css/fontawesome/css/brands.css" rel="stylesheet">
+  <link href="/css/fontawesome/css/solid.css" rel="stylesheet">
+  <script src="https://cdn.jsdelivr.net/npm/anchor-js/anchor.min.js"></script>
+
+  
+
+  <!-- Load JQuery, then use it to attach the class 'active' to navbar item currently displayed. -->
+  <script src="https://code.jquery.com/jquery-3.6.0.min.js" integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4=" crossorigin="anonymous"></script>
+  <script>
+    $(window).on('load', function () {
+      $('.nav-item').find('a[href="' + location.pathname + '"]').addClass('active');
+    });
+  </script>
+
+</head>
+<body>
+
+<div class="navbar navbar-expand-lg fixed-top navbar-light bg-light">
+  <div class="container">
+    <a class="navbar-brand" href="/index.html"> Change-HI/EDU </a>
+    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarResponsive" aria-controls="navbarResponsive" aria-expanded="false" aria-label="Toggle navigation">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+    <div class="collapse navbar-collapse" id="navbarResponsive">
+      <ul class="navbar-nav">
+        
+        <li class="nav-item"><a class="nav-link" href="/modules/">Modules</a></li>
+        
+        <li class="nav-item"><a class="nav-link" href="/outcomes/">Outcomes</a></li>
+        
+        
+        <li class="nav-item"><a class="nav-link" href="/readings/">Readings</a></li>
+        
+        
+        <li class="nav-item"><a class="nav-link" href="/experiences/">Experiences</a></li>
+        
+        
+        <li class="nav-item"><a class="nav-link" href="/assessments/">Assessments</a></li>
+        
+        
+      </ul>
+    </div>
+  </div>
+</div>
+
+
+<!-- Internal fragment for displaying the breadcrumb bar -->
+<div class="breadcrumb-background" style="padding-top: 1em; padding-bottom: .01em">
+  <div class="container">
+    <nav aria-label="breadcrumb">
+      <ol class="breadcrumb">
+        
+        <li class="breadcrumb-item"><a href="/">Home</a></li>
+        <li class="breadcrumb-item"><a href="/modules">Modules</a></li>
+        <li class="breadcrumb-item active">Data Movement</li>
+      </ol>
+    </nav>
+  </div>
+</div>
+
+
+<div class="container">
+  <h1><small class="header-small">Module: </small> Data Movement </h1>
+  <p><p>An introduction to the challenges and options in moving scientific data over the network.</p>
+</p>
+  
+</div>
+
+
+
+
+
+<div class="section-background-1">
+  <div class="container">
+    <h2>Learning Outcomes</h2>
+
+    
+      
+      <h3>You understand the challenges and options in moving scientific data over the network</h3>
+      <p>
+        
+      </p>
+      <ul>
+  <li>Demonstrate understanding of advantages and disadvantages of various bulk data transfer tools.</li>
+  <li>Understand appropriate solutions for a data transfer workflow, taking into account current computing, storage and network infrastructure, and end-point sites.</li>
+  <li>Demonstrate the ability to identify, communicate, and mitigate potential bottlenecks in collaboration with campus cyberinfrastructure and network operators.</li>
+  <li>Transfer data using Rclone.</li>
+  <li>Transfer data using Globus.</li>
+</ul>
+
+    
+
+  </div>
+</div>
+
+
+
+
+
+<div class="section-background-2">
+  <div class="container">
+  <h2>Readings</h2>
+
+    <div class="row">
+      
+        
+        <!-- Internal fragment for displaying reading, experience, prereq cards. Prereqs have icons. -->
+<div class="col-md-6 col-lg-4" style="padding-bottom: 20px">
+  <div class="card h-100">
+    
+    <div class="card-body">
+      <h4 class="card-title">Preparation</h4>
+      <p>A few things to check prior to this workshop.</p>
+
+
+    
+    </div>
+
+    <div style="border-top-color: transparent" class="card-footer bg-body">
+      
+      <span class="badge bg-primary">Pre-workshop</span>
+      
+    </div>
+    <a href="/morea/data-movement/readings-prep.html" class="stretched-link"></a>
+  </div>
+</div>
+      
+        
+        <!-- Internal fragment for displaying reading, experience, prereq cards. Prereqs have icons. -->
+<div class="col-md-6 col-lg-4" style="padding-bottom: 20px">
+  <div class="card h-100">
+    
+    <div class="card-body">
+      <h4 class="card-title">Install RClone</h4>
+      <p>Installing RClone on your local machine</p>
+
+
+    
+    </div>
+
+    <div style="border-top-color: transparent" class="card-footer bg-body">
+      
+      <span class="badge bg-primary">Pre-workshop</span>
+      
+    </div>
+    <a href="/morea/data-movement/readings-rclone.html" class="stretched-link"></a>
+  </div>
+</div>
+      
+        
+        <!-- Internal fragment for displaying reading, experience, prereq cards. Prereqs have icons. -->
+<div class="col-md-6 col-lg-4" style="padding-bottom: 20px">
+  <div class="card h-100">
+    
+    <div class="card-body">
+      <h4 class="card-title">Scientific Data Transfer Examples</h4>
+      <p>Be able to identify real world examples of data transfer issues that can be fixed.</p>
+
+
+    
+    </div>
+
+    <div style="border-top-color: transparent" class="card-footer bg-body">
+      
+      <span class="badge bg-primary">Additional-reading</span>
+      
+    </div>
+    <a href="/morea/data-movement/readings-data-transfer-examples.html" class="stretched-link"></a>
+  </div>
+</div>
+      
+        
+        <!-- Internal fragment for displaying reading, experience, prereq cards. Prereqs have icons. -->
+<div class="col-md-6 col-lg-4" style="padding-bottom: 20px">
+  <div class="card h-100">
+    
+    <div class="card-body">
+      <h4 class="card-title">File Transfers with Remote Computers</h4>
+      <p>Understand how to transfer files using wget, scp, and rsync.</p>
+
+
+    
+    </div>
+
+    <div style="border-top-color: transparent" class="card-footer bg-body">
+      
+      <span class="badge bg-primary">Additonal-reading</span>
+      
+    </div>
+    <a href="/morea/data-movement/readings-remote-computers.html" class="stretched-link"></a>
+  </div>
+</div>
+      
+    </div>
+  </div>
+</div>
+
+
+
+<div class="section-background-1">
+  <div class="container">
+  <h2>Experiential Learning</h2>
+    <div class="row">
+      
+        
+        <!-- Internal fragment for displaying reading, experience, prereq cards. Prereqs have icons. -->
+<div class="col-md-6 col-lg-4" style="padding-bottom: 20px">
+  <div class="card h-100">
+    
+    <div class="card-body">
+      <h4 class="card-title">1. Ice Breaker</h4>
+      <p>Data Movement Ice Breaker</p>
+
+
+    
+    </div>
+
+    <div style="border-top-color: transparent" class="card-footer bg-body">
+      
+      <span class="badge bg-primary">2:00pm</span>
+      
+    </div>
+    <a href="/morea/data-movement/experience-data-movement-icebreaker.html" class="stretched-link"></a>
+  </div>
+</div>
+      
+        
+        <!-- Internal fragment for displaying reading, experience, prereq cards. Prereqs have icons. -->
+<div class="col-md-6 col-lg-4" style="padding-bottom: 20px">
+  <div class="card h-100">
+    
+    <div class="card-body">
+      <h4 class="card-title">2. Introduction to Scientific Data Networks</h4>
+      <p>Understand how networks connect everything and how UH is connected.</p>
+
+
+    
+    </div>
+
+    <div style="border-top-color: transparent" class="card-footer bg-body">
+      
+      <span class="badge bg-primary">2:05pm</span>
+      
+    </div>
+    <a href="/morea/data-movement/experience-data-movement-intro.html" class="stretched-link"></a>
+  </div>
+</div>
+      
+        
+        <!-- Internal fragment for displaying reading, experience, prereq cards. Prereqs have icons. -->
+<div class="col-md-6 col-lg-4" style="padding-bottom: 20px">
+  <div class="card h-100">
+    
+    <div class="card-body">
+      <h4 class="card-title">3. Networks</h4>
+      <p>Understand what networks, and the equipment that connects everything, look like.</p>
+
+
+    
+    </div>
+
+    <div style="border-top-color: transparent" class="card-footer bg-body">
+      
+      <span class="badge bg-primary">2:10pm</span>
+      
+    </div>
+    <a href="/morea/data-movement/experience-data-movement-networks.html" class="stretched-link"></a>
+  </div>
+</div>
+      
+        
+        <!-- Internal fragment for displaying reading, experience, prereq cards. Prereqs have icons. -->
+<div class="col-md-6 col-lg-4" style="padding-bottom: 20px">
+  <div class="card h-100">
+    
+    <div class="card-body">
+      <h4 class="card-title">4. Data Transfer Evaluation of the Network</h4>
+      <p>Understand what tools we use to test network throughput.</p>
+
+
+    
+    </div>
+
+    <div style="border-top-color: transparent" class="card-footer bg-body">
+      
+      <span class="badge bg-primary">2:15pm</span>
+      
+    </div>
+    <a href="/morea/data-movement/experience-data-transfer-eval.html" class="stretched-link"></a>
+  </div>
+</div>
+      
+        
+        <!-- Internal fragment for displaying reading, experience, prereq cards. Prereqs have icons. -->
+<div class="col-md-6 col-lg-4" style="padding-bottom: 20px">
+  <div class="card h-100">
+    
+    <div class="card-body">
+      <h4 class="card-title">5. Processes and Queues</h4>
+      <p>Understand how data actually moves between machines and explain queues and buffers.</p>
+
+
+    
+    </div>
+
+    <div style="border-top-color: transparent" class="card-footer bg-body">
+      
+      <span class="badge bg-primary">2:20pm</span>
+      
+    </div>
+    <a href="/morea/data-movement/experience-processes-and-queues.html" class="stretched-link"></a>
+  </div>
+</div>
+      
+        
+        <!-- Internal fragment for displaying reading, experience, prereq cards. Prereqs have icons. -->
+<div class="col-md-6 col-lg-4" style="padding-bottom: 20px">
+  <div class="card h-100">
+    
+    <div class="card-body">
+      <h4 class="card-title">6. Transmission Control Protocol (TCP)</h4>
+      <p>Understand what transmission control protocol is.</p>
+
+
+    
+    </div>
+
+    <div style="border-top-color: transparent" class="card-footer bg-body">
+      
+      <span class="badge bg-primary">2:25pm</span>
+      
+    </div>
+    <a href="/morea/data-movement/experience-transmission-control-protocol.html" class="stretched-link"></a>
+  </div>
+</div>
+      
+        
+        <!-- Internal fragment for displaying reading, experience, prereq cards. Prereqs have icons. -->
+<div class="col-md-6 col-lg-4" style="padding-bottom: 20px">
+  <div class="card h-100">
+    
+    <div class="card-body">
+      <h4 class="card-title">7. Transfer Programs</h4>
+      <p>Be able to identify common/best transfer applications.</p>
+
+
+    
+    </div>
+
+    <div style="border-top-color: transparent" class="card-footer bg-body">
+      
+      <span class="badge bg-primary">2:30pm</span>
+      
+    </div>
+    <a href="/morea/data-movement/experience-transfer-programs.html" class="stretched-link"></a>
+  </div>
+</div>
+      
+        
+        <!-- Internal fragment for displaying reading, experience, prereq cards. Prereqs have icons. -->
+<div class="col-md-6 col-lg-4" style="padding-bottom: 20px">
+  <div class="card h-100">
+    
+    <div class="card-body">
+      <h4 class="card-title">8. Globus</h4>
+      <p>Understand what Globus is.</p>
+
+
+    
+    </div>
+
+    <div style="border-top-color: transparent" class="card-footer bg-body">
+      
+      <span class="badge bg-primary">2:35pm</span>
+      
+    </div>
+    <a href="/morea/data-movement/experience-globus.html" class="stretched-link"></a>
+  </div>
+</div>
+      
+        
+        <!-- Internal fragment for displaying reading, experience, prereq cards. Prereqs have icons. -->
+<div class="col-md-6 col-lg-4" style="padding-bottom: 20px">
+  <div class="card h-100">
+    
+    <div class="card-body">
+      <h4 class="card-title">9. Globus Installation </h4>
+      <p>Understand how to setup and use Globus to move data.</p>
+
+
+    
+    </div>
+
+    <div style="border-top-color: transparent" class="card-footer bg-body">
+      
+      <span class="badge bg-primary">2:45pm</span>
+      
+    </div>
+    <a href="/morea/data-movement/experience-globus-install.html" class="stretched-link"></a>
+  </div>
+</div>
+      
+        
+        <!-- Internal fragment for displaying reading, experience, prereq cards. Prereqs have icons. -->
+<div class="col-md-6 col-lg-4" style="padding-bottom: 20px">
+  <div class="card h-100">
+    
+    <div class="card-body">
+      <h4 class="card-title">10. Transferring Data using Globus </h4>
+      <p>Understand how to setup and use Globus to move data.</p>
+
+
+    
+    </div>
+
+    <div style="border-top-color: transparent" class="card-footer bg-body">
+      
+      <span class="badge bg-primary">2:55pm</span>
+      
+    </div>
+    <a href="/morea/data-movement/experience-transferring-data.html" class="stretched-link"></a>
+  </div>
+</div>
+      
+        
+        <!-- Internal fragment for displaying reading, experience, prereq cards. Prereqs have icons. -->
+<div class="col-md-6 col-lg-4" style="padding-bottom: 20px">
+  <div class="card h-100">
+    
+    <div class="card-body">
+      <h4 class="card-title">11. Configuring and Using Rclone</h4>
+      <p>Understand how to configure and use Rclone.</p>
+
+
+    
+    </div>
+
+    <div style="border-top-color: transparent" class="card-footer bg-body">
+      
+      <span class="badge bg-primary">3:05pm</span>
+      
+    </div>
+    <a href="/morea/data-movement/experience-configuring-rclone.html" class="stretched-link"></a>
+  </div>
+</div>
+      
+        
+        <!-- Internal fragment for displaying reading, experience, prereq cards. Prereqs have icons. -->
+<div class="col-md-6 col-lg-4" style="padding-bottom: 20px">
+  <div class="card h-100">
+    
+    <div class="card-body">
+      <h4 class="card-title">12. Transferring Files with Rclone</h4>
+      <p>Understand how to transfer files using Rclone.</p>
+
+
+    
+    </div>
+
+    <div style="border-top-color: transparent" class="card-footer bg-body">
+      
+      <span class="badge bg-primary">3:25pm</span>
+      
+    </div>
+    <a href="/morea/data-movement/experience-transferring-rclone.html" class="stretched-link"></a>
+  </div>
+</div>
+      
+    </div>
+  </div>
+</div>
+
+
+
+<div class="section-background-2">
+  <div class="container">
+    <h2>Assessments</h2>
+    <div class="row">
+    
+      
+    <!-- Internal fragment for displaying reading, experience, prereq cards. Prereqs have icons. -->
+<div class="col-md-6 col-lg-4" style="padding-bottom: 20px">
+  <div class="card h-100">
+    
+    <div class="card-body">
+      <h4 class="card-title">Help us assess this workshop</h4>
+      <p>Provide feedback to the workshop organizers</p>
+
+
+    
+      <p>
+        <em>Outcome(s) assessed:</em>
+        
+          You understand the challenges and options in moving scientific data over the network
+        
+      </p>
+    
+    </div>
+
+    <div style="border-top-color: transparent" class="card-footer bg-body">
+      
+      <span class="badge bg-primary">3:45pm</span>
+      
+    </div>
+    <a href="/morea/data-movement/assessment-data-movement.html" class="stretched-link"></a>
+  </div>
+</div>
+    
+    </div>
+  </div>
+</div>
+
+
+
+
+
+
+
+
+
+<!-- Maybe find a different way?
+<script src="/js/scrollIfAnchor.js"></script>
+-->
+
+<footer class="footer footer-background" style="padding-top: 1em; padding-bottom: 1em">
+  <div class="container text-center">
+    
+    
+
+    
+    <p style="margin: 0">Powered by the <a class="footer-link" href="https://morea-framework.github.io/">Morea Framework</a> (Theme: spacelab)<br>
+      Last update on: <span>2023-12-01 13:58:35 -1000</span></p>
+
+    <p style="margin: 0">
+      
+      18 modules
+      
+      | 17 outcomes
+      
+      
+      | 55 readings
+      
+      
+      | 100 experiences
+      
+      
+      | 15 assessments
+      
+    </p>
+  </div>
+</footer>
+
+
+<!-- Load Bootstrap JavaScript components -->
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM" crossorigin="anonymous"></script>
+
+
+<script type="text/javascript" async
+        src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.7/latest.js?config=TeX-MML-AM_CHTML">
+</script>
+
+
+<!-- Add anchors to pages. -->
+<script>anchors.add();</script>
+
+
+</body>
+</html>

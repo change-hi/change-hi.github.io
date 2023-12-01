@@ -1,0 +1,694 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <title> Change-HI/EDU | 7. Shell Scripts </title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta charset="utf-8">
+
+  <link rel="stylesheet" href="/css/themes/spacelab/bootstrap.min.css">
+  <link rel="stylesheet" href="/css/style.css">
+  <link rel="stylesheet" href="/css/syntax.css">
+  <link rel="shortcut icon" href="/favicon.ico" type="image/x-icon" />
+  <link href="/css/fontawesome/css/fontawesome.css" rel="stylesheet">
+  <link href="/css/fontawesome/css/brands.css" rel="stylesheet">
+  <link href="/css/fontawesome/css/solid.css" rel="stylesheet">
+  <script src="https://cdn.jsdelivr.net/npm/anchor-js/anchor.min.js"></script>
+
+  
+
+  <!-- Load JQuery, then use it to attach the class 'active' to navbar item currently displayed. -->
+  <script src="https://code.jquery.com/jquery-3.6.0.min.js" integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4=" crossorigin="anonymous"></script>
+  <script>
+    $(window).on('load', function () {
+      $('.nav-item').find('a[href="' + location.pathname + '"]').addClass('active');
+    });
+  </script>
+
+</head>
+<body>
+
+<div class="navbar navbar-expand-lg fixed-top navbar-light bg-light">
+  <div class="container">
+    <a class="navbar-brand" href="/index.html"> Change-HI/EDU </a>
+    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarResponsive" aria-controls="navbarResponsive" aria-expanded="false" aria-label="Toggle navigation">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+    <div class="collapse navbar-collapse" id="navbarResponsive">
+      <ul class="navbar-nav">
+        
+        <li class="nav-item"><a class="nav-link" href="/modules/">Modules</a></li>
+        
+        <li class="nav-item"><a class="nav-link" href="/outcomes/">Outcomes</a></li>
+        
+        
+        <li class="nav-item"><a class="nav-link" href="/readings/">Readings</a></li>
+        
+        
+        <li class="nav-item"><a class="nav-link" href="/experiences/">Experiences</a></li>
+        
+        
+        <li class="nav-item"><a class="nav-link" href="/assessments/">Assessments</a></li>
+        
+        
+      </ul>
+    </div>
+  </div>
+</div>
+
+<!-- Internal fragment for displaying the breadcrumb bar -->
+<div class="breadcrumb-background" style="padding-top: 1em; padding-bottom: .01em">
+  <div class="container">
+    <nav aria-label="breadcrumb">
+      <ol class="breadcrumb">
+        
+        <li class="breadcrumb-item"><a href="/">Home</a></li>
+        <li class="breadcrumb-item"><a href="/modules">Modules</a></li>
+        <li class="breadcrumb-item"><a href="/modules/scientific-software-basics">Scientific Software Basics</a></li>
+        <li class="breadcrumb-item active">7. Shell Scripts</li>
+      </ol>
+    </nav>
+  </div>
+</div>
+
+
+<div class="container">
+  <h1 id="7-shell-scripts">7. Shell Scripts</h1>
+
+<div class="alert alert-success mt-3" role="alert">
+  <p><i class="fa-solid fa-globe fa-xl"></i> <strong>Overview</strong></p>
+  <hr />
+
+  <p><strong>Questions</strong></p>
+  <ul>
+    <li>How can I save and re-use commands?</li>
+  </ul>
+
+  <p><strong>Objectives</strong></p>
+  <ul>
+    <li>Write a shell script that runs a command or series of commands for a fixed set of files.</li>
+    <li>Run a shell script from the command line.</li>
+    <li>Write a shell script that operates on a set of files defined by the user on the command line.</li>
+    <li>Create pipelines that include shell scripts you, and others, have written.</li>
+  </ul>
+
+  <p><strong>Keypoints</strong></p>
+  <ul>
+    <li>Save commands in files (usually called shell scripts) for re-use.</li>
+    <li><code class="language-plaintext highlighter-rouge">bash filename</code> runs the commands saved in a file.</li>
+    <li><code class="language-plaintext highlighter-rouge">$@</code> refers to all of a shell script’s command-line arguments.</li>
+    <li><code class="language-plaintext highlighter-rouge">$1</code>, <code class="language-plaintext highlighter-rouge">$2</code>, etc., refer to the first command-line argument, the second command-line argument, etc.</li>
+    <li>Place variables in quotes if the values might have spaces in them.</li>
+    <li>Letting users decide what files to process is more flexible and more consistent with built-in Unix commands.</li>
+  </ul>
+
+</div>
+
+<p>We are finally ready to see what makes the shell such a powerful programming environment.
+We’re taking the commands we’ve previously been using up till now and save them in files, allowing us to rerun them with a single command. These files are typically called <strong>shell scripts</strong>, but they’re essentially small programs.</p>
+
+<p>Let’s start by going back to <code class="language-plaintext highlighter-rouge">molecules/</code> and creating a new file, <code class="language-plaintext highlighter-rouge">middle.sh</code> which will
+become our shell script:</p>
+
+<div class="alert alert-secondary" role="alert">
+
+  <div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nv">$ </span><span class="nb">cd </span>molecules
+<span class="nv">$ </span>nano middle.sh
+</code></pre></div>  </div>
+</div>
+
+<p>The command <code class="language-plaintext highlighter-rouge">nano middle.sh</code> opens the file <code class="language-plaintext highlighter-rouge">middle.sh</code> within the text editor “nano”
+(which runs within the shell).
+If the file does not exist, it will be created.
+We can use the text editor to directly edit the file – we’ll simply insert the following line:</p>
+
+<div class="alert alert-secondary" role="alert">
+
+  <div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nb">head</span> <span class="nt">-n</span> 15 octane.pdb | <span class="nb">tail</span> <span class="nt">-n</span> 5
+</code></pre></div>  </div>
+</div>
+
+<p>This is a variation on the pipe we constructed earlier:
+it selects lines 11-15 of the file <code class="language-plaintext highlighter-rouge">octane.pdb</code>.
+Remember, we are <em>not</em> running it as a command just yet:
+we are putting the commands in a file.</p>
+
+<p>Then we save the file (<code class="language-plaintext highlighter-rouge">Ctrl-O</code> in nano),
+ and exit the text editor (<code class="language-plaintext highlighter-rouge">Ctrl-X</code> in nano).
+Check that the directory <code class="language-plaintext highlighter-rouge">molecules</code> now contains a file called <code class="language-plaintext highlighter-rouge">middle.sh</code>.</p>
+
+<p>Once we have saved the file,
+we can ask the shell to execute the commands it contains.
+Our shell is called <code class="language-plaintext highlighter-rouge">bash</code>, so we run the following command:</p>
+
+<div class="alert alert-secondary" role="alert">
+
+  <p>Input:</p>
+
+  <div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nv">$ </span>bash middle.sh
+</code></pre></div>  </div>
+
+  <p>Output:</p>
+
+  <div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code>ATOM      9  H           1      <span class="nt">-4</span>.502   0.681   0.785  1.00  0.00
+ATOM     10  H           1      <span class="nt">-5</span>.254  <span class="nt">-0</span>.243  <span class="nt">-0</span>.537  1.00  0.00
+ATOM     11  H           1      <span class="nt">-4</span>.357   1.252  <span class="nt">-0</span>.895  1.00  0.00
+ATOM     12  H           1      <span class="nt">-3</span>.009  <span class="nt">-0</span>.741  <span class="nt">-1</span>.467  1.00  0.00
+ATOM     13  H           1      <span class="nt">-3</span>.172  <span class="nt">-1</span>.337   0.206  1.00  0.00
+</code></pre></div>  </div>
+</div>
+
+<p>Sure enough,
+our script’s output is exactly what we would get if we ran that pipeline directly.</p>
+
+<div class="alert alert-warning" role="alert">
+  <p><i class="fa-solid fa-triangle-exclamation fa-xl"></i> <strong>Text vs. Whatever</strong></p>
+  <hr />
+
+  <p>We usually call programs like Microsoft Word or LibreOffice Writer “text
+editors”, but we need to be a bit more careful when it comes to
+programming. By default, Microsoft Word uses <code class="language-plaintext highlighter-rouge">.docx</code> files to store not
+only text, but also formatting information about fonts, headings, and so
+on. This extra information isn’t stored as characters, and doesn’t mean
+anything to tools like <code class="language-plaintext highlighter-rouge">head</code>: they expect input files to contain
+nothing but the letters, digits, and punctuation on a standard computer
+keyboard. When editing programs, therefore, you must either use a plain
+text editor, or be careful to save files as plain text.</p>
+</div>
+
+<p>What if we want to select lines from an arbitrary file?
+We could edit <code class="language-plaintext highlighter-rouge">middle.sh</code> each time to change the filename,
+but that would probably take longer than just retyping the command.
+Instead, let’s edit <code class="language-plaintext highlighter-rouge">middle.sh</code> and make it more versatile:</p>
+
+<div class="alert alert-secondary" role="alert">
+
+  <div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nv">$ </span>nano middle.sh
+</code></pre></div>  </div>
+</div>
+
+<p>Now, within “nano”, replace the text <code class="language-plaintext highlighter-rouge">octane.pdb</code> with the special variable called <code class="language-plaintext highlighter-rouge">$1</code>:</p>
+
+<div class="alert alert-secondary" role="alert">
+
+  <p>Output:</p>
+  <div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nb">head</span> <span class="nt">-n</span> 15 <span class="s2">"</span><span class="nv">$1</span><span class="s2">"</span> | <span class="nb">tail</span> <span class="nt">-n</span> 5
+</code></pre></div>  </div>
+</div>
+
+<p>Inside a shell script,
+<code class="language-plaintext highlighter-rouge">$1</code> means “the first filename (or other argument) on the command line”.
+We can now run our script like this:</p>
+
+<div class="alert alert-secondary" role="alert">
+
+  <p>Input:</p>
+
+  <div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nv">$ </span>bash middle.sh octane.pdb
+</code></pre></div>  </div>
+
+  <p>Output:</p>
+
+  <div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code>ATOM      9  H           1      <span class="nt">-4</span>.502   0.681   0.785  1.00  0.00
+ATOM     10  H           1      <span class="nt">-5</span>.254  <span class="nt">-0</span>.243  <span class="nt">-0</span>.537  1.00  0.00
+ATOM     11  H           1      <span class="nt">-4</span>.357   1.252  <span class="nt">-0</span>.895  1.00  0.00
+ATOM     12  H           1      <span class="nt">-3</span>.009  <span class="nt">-0</span>.741  <span class="nt">-1</span>.467  1.00  0.00
+ATOM     13  H           1      <span class="nt">-3</span>.172  <span class="nt">-1</span>.337   0.206  1.00  0.00
+</code></pre></div>  </div>
+</div>
+
+<p>or on a different file like this:</p>
+
+<div class="alert alert-secondary" role="alert">
+
+  <p>Input:</p>
+
+  <div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nv">$ </span>bash middle.sh pentane.pdb
+</code></pre></div>  </div>
+
+  <p>Output:</p>
+
+  <div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code>ATOM      9  H           1       1.324   0.350  <span class="nt">-1</span>.332  1.00  0.00
+ATOM     10  H           1       1.271   1.378   0.122  1.00  0.00
+ATOM     11  H           1      <span class="nt">-0</span>.074  <span class="nt">-0</span>.384   1.288  1.00  0.00
+ATOM     12  H           1      <span class="nt">-0</span>.048  <span class="nt">-1</span>.362  <span class="nt">-0</span>.205  1.00  0.00
+ATOM     13  H           1      <span class="nt">-1</span>.183   0.500  <span class="nt">-1</span>.412  1.00  0.00
+</code></pre></div>  </div>
+</div>
+
+<div class="alert alert-info" role="alert">
+  <p><i class="fa-solid fa-circle-info fa-xl"></i> <strong>Note: Double-Quotes Around Arguments</strong></p>
+  <hr />
+
+  <p>For the same reason that we put the loop variable inside double-quotes,
+ in case the filename happens to contain any spaces,
+ we surround <code class="language-plaintext highlighter-rouge">$1</code> with double-quotes.</p>
+
+</div>
+
+<p>We still need to edit <code class="language-plaintext highlighter-rouge">middle.sh</code> each time we want to adjust the range of lines,
+though.
+Let’s fix that by using the special variables <code class="language-plaintext highlighter-rouge">$2</code> and <code class="language-plaintext highlighter-rouge">$3</code> for the
+number of lines to be passed to <code class="language-plaintext highlighter-rouge">head</code> and <code class="language-plaintext highlighter-rouge">tail</code> respectively:</p>
+
+<div class="alert alert-secondary" role="alert">
+  <p>Input:</p>
+
+  <div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nv">$ </span>nano middle.sh
+</code></pre></div>  </div>
+
+  <p>Output:</p>
+
+  <div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nb">head</span> <span class="nt">-n</span> <span class="s2">"</span><span class="nv">$2</span><span class="s2">"</span> <span class="s2">"</span><span class="nv">$1</span><span class="s2">"</span> | <span class="nb">tail</span> <span class="nt">-n</span> <span class="s2">"</span><span class="nv">$3</span><span class="s2">"</span>
+</code></pre></div>  </div>
+</div>
+
+<p>We can now run:</p>
+
+<div class="alert alert-secondary" role="alert">
+  <p>Input:</p>
+
+  <div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nv">$ </span>bash middle.sh pentane.pdb 15 5
+</code></pre></div>  </div>
+
+  <p>Output:</p>
+
+  <div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code>ATOM      9  H           1       1.324   0.350  <span class="nt">-1</span>.332  1.00  0.00
+ATOM     10  H           1       1.271   1.378   0.122  1.00  0.00
+ATOM     11  H           1      <span class="nt">-0</span>.074  <span class="nt">-0</span>.384   1.288  1.00  0.00
+ATOM     12  H           1      <span class="nt">-0</span>.048  <span class="nt">-1</span>.362  <span class="nt">-0</span>.205  1.00  0.00
+ATOM     13  H           1      <span class="nt">-1</span>.183   0.500  <span class="nt">-1</span>.412  1.00  0.00
+</code></pre></div>  </div>
+</div>
+
+<p>By changing the arguments to our command we can change our script’s
+behaviour:</p>
+
+<div class="alert alert-secondary" role="alert">
+  <p>Input:</p>
+
+  <div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nv">$ </span>bash middle.sh pentane.pdb 20 5
+</code></pre></div>  </div>
+
+  <p>Output:</p>
+
+  <div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code>ATOM     14  H           1      <span class="nt">-1</span>.259   1.420   0.112  1.00  0.00
+ATOM     15  H           1      <span class="nt">-2</span>.608  <span class="nt">-0</span>.407   1.130  1.00  0.00
+ATOM     16  H           1      <span class="nt">-2</span>.540  <span class="nt">-1</span>.303  <span class="nt">-0</span>.404  1.00  0.00
+ATOM     17  H           1      <span class="nt">-3</span>.393   0.254  <span class="nt">-0</span>.321  1.00  0.00
+TER      18              1
+</code></pre></div>  </div>
+</div>
+
+<p>This works,
+but it may take the next person who reads <code class="language-plaintext highlighter-rouge">middle.sh</code> a moment to figure out what it does.
+We can improve our script by adding some <strong>comments</strong> at the top:</p>
+
+<div class="alert alert-secondary" role="alert">
+
+  <p>Input:</p>
+
+  <div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nv">$ </span>nano middle.sh
+</code></pre></div>  </div>
+
+  <p>Output:</p>
+
+  <div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="c"># Select lines from the middle of a file.</span>
+<span class="c"># Usage: bash middle.sh filename end_line num_lines</span>
+<span class="nb">head</span> <span class="nt">-n</span> <span class="s2">"</span><span class="nv">$2</span><span class="s2">"</span> <span class="s2">"</span><span class="nv">$1</span><span class="s2">"</span> | <span class="nb">tail</span> <span class="nt">-n</span> <span class="s2">"</span><span class="nv">$3</span><span class="s2">"</span>
+</code></pre></div>  </div>
+</div>
+
+<p>A comment starts with a <code class="language-plaintext highlighter-rouge">#</code> character and runs to the end of the line.
+The computer ignores comments, but they’re invaluable for helping people (including your future self) understand and use scripts. However, each time you change your script remember to check that the comment is still accurate: misleading comments are worse than no comments.</p>
+
+<p>What if we want to process many files in a single pipeline?
+For example, if we want to sort our <code class="language-plaintext highlighter-rouge">.pdb</code> files by length, we would type:</p>
+
+<div class="alert alert-secondary" role="alert">
+
+  <div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nv">$ </span><span class="nb">wc</span> <span class="nt">-l</span> <span class="k">*</span>.pdb | <span class="nb">sort</span> <span class="nt">-n</span>
+</code></pre></div>  </div>
+
+</div>
+
+<p>Since <code class="language-plaintext highlighter-rouge">wc -l</code> counts lines and <code class="language-plaintext highlighter-rouge">sort -n</code> sorts numerically, we could create a script. However, it would only work on <code class="language-plaintext highlighter-rouge">.pdb</code> files in the current directory. To handle various file types, we use <code class="language-plaintext highlighter-rouge">$@</code>, representing all command-line arguments, enclosed in double-quotes to handle spaces. For example:</p>
+
+<div class="alert alert-secondary" role="alert">
+
+  <p>Input:</p>
+
+  <div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nv">$ </span>nano sorted.sh
+</code></pre></div>  </div>
+  <p>Output:</p>
+
+  <div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="c"># Sort filenames by their length.</span>
+<span class="c"># Usage: bash sorted.sh one_or_more_filenames</span>
+<span class="nb">wc</span> <span class="nt">-l</span> <span class="s2">"</span><span class="nv">$@</span><span class="s2">"</span> | <span class="nb">sort</span> <span class="nt">-n</span>
+</code></pre></div>  </div>
+  <p>Input:</p>
+
+  <div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nv">$ </span>bash sorted.sh <span class="k">*</span>.pdb ../creatures/<span class="k">*</span>.dat
+</code></pre></div>  </div>
+  <p>Output:</p>
+
+  <div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code>9 methane.pdb
+12 ethane.pdb
+15 propane.pdb
+20 cubane.pdb
+21 pentane.pdb
+30 octane.pdb
+163 ../creatures/basilisk.dat
+163 ../creatures/unicorn.dat
+433 total
+</code></pre></div>  </div>
+</div>
+
+<h2 id="list-unique-species">List Unique Species</h2>
+
+<div class="alert alert-secondary" role="alert">
+  <p><i class="fa-solid fa-user-pen fa-xl"></i> <strong>Exercise: Leah’s Data</strong></p>
+  <hr />
+
+  <p>Leah has several hundred data files, each of which is formatted like this:</p>
+
+  <div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code> 2013-11-05,deer,5
+ 2013-11-05,rabbit,22
+ 2013-11-05,raccoon,7
+ 2013-11-06,rabbit,19
+ 2013-11-06,deer,2
+ 2013-11-06,fox,1
+ 2013-11-07,rabbit,18
+ 2013-11-07,bear,1
+</code></pre></div>  </div>
+  <p>An example of this type of file is given in <code class="language-plaintext highlighter-rouge">data-shell/data/animal-counts/animals.txt</code>.</p>
+
+  <p>To find unique species in <code class="language-plaintext highlighter-rouge">animals.txt</code>, you can use <code class="language-plaintext highlighter-rouge">cut -d , -f 2 animals.txt | sort | uniq</code>. For convenience, scientists often create a shell script to avoid repetitive typing.</p>
+
+  <p>Write a shell script called <code class="language-plaintext highlighter-rouge">species.sh</code> that takes any number of
+ filenames as command-line arguments, and uses and uses a variation of the above command to print a list of the unique species appearing in each of those files separately.</p>
+  <details>
+    <summary>Solution</summary>
+
+    <div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code>  <span class="c"># Script to find unique species in csv files where species is the second data field</span>
+  <span class="c"># This script accepts any number of file names as command line arguments</span>
+
+  <span class="c"># Loop over all files</span>
+  <span class="k">for </span>file <span class="k">in</span> <span class="nv">$@</span>
+  <span class="k">do
+  	</span><span class="nb">echo</span> <span class="s2">"Unique species in </span><span class="nv">$file</span><span class="s2">:"</span>
+  	<span class="c"># Extract species names</span>
+  	<span class="nb">cut</span> <span class="nt">-d</span> , <span class="nt">-f</span> 2 <span class="nv">$file</span> | <span class="nb">sort</span> | <span class="nb">uniq
+  </span><span class="k">done</span>
+</code></pre></div>    </div>
+  </details>
+</div>
+
+<p>Suppose we’ve executed a useful series of commands, like creating a graph for a paper. To ensure we can recreate it accurately later and avoiding potential errors from retyping them, we can save these commands in a file with the following command:</p>
+<div class="alert alert-secondary" role="alert">
+
+  <div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nv">$ </span><span class="nb">history</span> | <span class="nb">tail</span> <span class="nt">-n</span> 5 <span class="o">&gt;</span> redo-figure-3.sh
+</code></pre></div>  </div>
+</div>
+
+<p>The file <code class="language-plaintext highlighter-rouge">redo-figure-3.sh</code> now contains:</p>
+
+<div class="alert alert-secondary" role="alert">
+
+  <div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code>297 bash goostats NENE01729B.txt stats-NENE01729B.txt
+298 bash goodiff stats-NENE01729B.txt /data/validated/01729.txt <span class="o">&gt;</span> 01729-differences.txt
+299 <span class="nb">cut</span> <span class="nt">-d</span> <span class="s1">','</span> <span class="nt">-f</span> 2-3 01729-differences.txt <span class="o">&gt;</span> 01729-time-series.txt
+300 ygraph <span class="nt">--format</span> scatter <span class="nt">--color</span> bw <span class="nt">--borders</span> none 01729-time-series.txt figure-3.png
+301 <span class="nb">history</span> | <span class="nb">tail</span> <span class="nt">-n</span> 5 <span class="o">&gt;</span> redo-figure-3.sh
+</code></pre></div>  </div>
+
+</div>
+
+<p>After a moment’s work in an editor to remove the serial numbers on the commands,
+and to remove the final line where we called the <code class="language-plaintext highlighter-rouge">history</code> command,
+we have a completely accurate record of how we created that figure.</p>
+
+<div class="alert alert-secondary" role="alert">
+  <p><i class="fa-solid fa-circle-info fa-xl"></i> <strong>Exercise: Why Record Commands in the History Before Running Them?</strong></p>
+  <hr />
+
+  <p>If you run the command:</p>
+
+  <div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nv">$ </span><span class="nb">history</span> | <span class="nb">tail</span> <span class="nt">-n</span> 5  recent.sh
+</code></pre></div>  </div>
+
+  <p>the last command in the file is the <code class="language-plaintext highlighter-rouge">history</code> command itself, i.e.,
+the shell has added <code class="language-plaintext highlighter-rouge">history</code> to the command log before actually
+running it. In fact, the shell <em>always</em> adds commands to the log
+before running them. Why do you think it does this?</p>
+
+  <details>
+    <summary>Solution</summary>
+    <p>If a command causes something to crash or hang, it might be useful
+  to know what that command was, in order to investigate the problem.
+  Were the command only be recorded after running it, we would not
+  have a record of the last command run in the event of a crash.</p>
+  </details>
+</div>
+
+<p>In practice, most people develop shell scripts by running commands at the shell prompt a few times to make sure they’re doing the right thing, then saving them in a file for re-use. This style of work allows people to recycle what they discover about their data and their workflow with one call to <code class="language-plaintext highlighter-rouge">history</code> and a bit of editing to clean up the output and save it as a shell script.</p>
+
+<h2 id="nelles-pipeline-creating-a-script">Nelle’s Pipeline: Creating a Script</h2>
+
+<p>Nelle’s supervisor insisted that all her analytics must be reproducible. The easiest way to capture all the steps is in a script.</p>
+
+<p>First we return to Nelle’s data directory:</p>
+
+<div class="alert alert-secondary" role="alert">
+
+  <div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nv">$ </span><span class="nb">cd</span> ../north-pacific-gyre/2012-07-03/
+</code></pre></div>  </div>
+</div>
+
+<p>She runs the editor and writes the following:</p>
+
+<div class="alert alert-secondary" role="alert">
+
+  <div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="c"># Calculate stats for data files.</span>
+<span class="k">for </span>datafile <span class="k">in</span> <span class="s2">"</span><span class="nv">$@</span><span class="s2">"</span>
+<span class="k">do
+    </span><span class="nb">echo</span> <span class="nv">$datafile</span>
+    bash goostats <span class="nv">$datafile</span> stats-<span class="nv">$datafile</span>
+<span class="k">done</span>
+</code></pre></div>  </div>
+</div>
+
+<p>She saves this in a file called <code class="language-plaintext highlighter-rouge">do-stats.sh</code>
+so that she can now re-do the first stage of her analysis by typing:</p>
+
+<div class="alert alert-secondary" role="alert">
+
+  <div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nv">$ </span>bash <span class="k">do</span><span class="nt">-stats</span>.sh NENE<span class="k">*</span><span class="o">[</span>AB].txt
+</code></pre></div>  </div>
+  <p>She can also do this:</p>
+
+  <div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nv">$ </span>bash <span class="k">do</span><span class="nt">-stats</span>.sh NENE<span class="k">*</span><span class="o">[</span>AB].txt | <span class="nb">wc</span> <span class="nt">-l</span>
+</code></pre></div>  </div>
+</div>
+
+<p>so that the output is just the number of files processed
+rather than the names of the files that were processed.</p>
+
+<p>One thing to note about Nelle’s script is that
+it lets the person running it decide what files to process.
+She could have written it as:</p>
+
+<div class="alert alert-secondary" role="alert">
+
+  <div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="c"># Calculate stats for Site A and Site B data files.</span>
+<span class="k">for </span>datafile <span class="k">in </span>NENE<span class="k">*</span><span class="o">[</span>AB].txt
+<span class="k">do
+    </span><span class="nb">echo</span> <span class="nv">$datafile</span>
+    bash goostats <span class="nv">$datafile</span> stats-<span class="nv">$datafile</span>
+<span class="k">done</span>
+</code></pre></div>  </div>
+</div>
+
+<p>The advantage is that this always selects the right files:
+she doesn’t have to remember to exclude the ‘Z’ files.
+The disadvantage is that it <em>always</em> selects just those files — she can’t run it on all files
+(including the ‘Z’ files),
+or on the ‘G’ or ‘H’ files her colleagues in Antarctica are producing,
+without editing the script.
+If she wanted to be more adventurous,
+she could modify her script to check for command-line arguments,
+and use <code class="language-plaintext highlighter-rouge">NENE*[AB].txt</code> if none were provided.
+Of course, this introduces another tradeoff between flexibility and complexity.</p>
+
+<h2 id="variables-in-shell-scripts">Variables in Shell Scripts</h2>
+
+<div class="alert alert-secondary" role="alert">
+  <p><i class="fa-solid fa-user-pen fa-xl"></i> <strong>Exercise: Variables in Shell Scripts</strong></p>
+  <hr />
+
+  <p>In the <code class="language-plaintext highlighter-rouge">molecules</code> directory, imagine you have a shell script called <code class="language-plaintext highlighter-rouge">script.sh</code> containing the
+following commands:</p>
+
+  <div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code> <span class="nb">head</span> <span class="nt">-n</span> <span class="nv">$2</span> <span class="nv">$1</span>
+ <span class="nb">tail</span> <span class="nt">-n</span> <span class="nv">$3</span> <span class="nv">$1</span>
+</code></pre></div>  </div>
+  <p>While you are in the <code class="language-plaintext highlighter-rouge">molecules</code> directory, you type the following command:</p>
+  <div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code> bash script.sh <span class="s1">'*.pdb'</span> 1 1
+</code></pre></div>  </div>
+  <p>Which of the following outputs would you expect to see?</p>
+
+  <ol>
+    <li>All of the lines between the first and the last lines of each file ending in <code class="language-plaintext highlighter-rouge">.pdb</code>
+in the <code class="language-plaintext highlighter-rouge">molecules</code> directory</li>
+    <li>The first and the last line of each file ending in <code class="language-plaintext highlighter-rouge">.pdb</code> in the <code class="language-plaintext highlighter-rouge">molecules</code> directory</li>
+    <li>The first and the last line of each file in the <code class="language-plaintext highlighter-rouge">molecules</code> directory</li>
+    <li>An error because of the quotes around <code class="language-plaintext highlighter-rouge">*.pdb</code></li>
+  </ol>
+
+  <details>
+    <summary>Solution</summary>
+    <p>The correct answer is 2.</p>
+
+    <p>The special variables $1, $2 and $3 represent the command line arguments given to the
+  script, such that the commands run are:</p>
+
+    <div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nv">$ </span><span class="nb">head</span> <span class="nt">-n</span> 1 cubane.pdb ethane.pdb octane.pdb pentane.pdb propane.pdb
+<span class="nv">$ </span><span class="nb">tail</span> <span class="nt">-n</span> 1 cubane.pdb ethane.pdb octane.pdb pentane.pdb propane.pdb
+</code></pre></div>    </div>
+    <p>The shell does not expand <code class="language-plaintext highlighter-rouge">'*.pdb'</code> because it is enclosed by quote marks.
+  As such, the first argument to the script is <code class="language-plaintext highlighter-rouge">'*.pdb'</code> which gets expanded within the
+  script by <code class="language-plaintext highlighter-rouge">head</code> and <code class="language-plaintext highlighter-rouge">tail</code>.</p>
+  </details>
+</div>
+
+<h2 id="find-the-longest-file-with-a-given-extension">Find the Longest File With a Given Extension</h2>
+
+<div class="alert alert-secondary" role="alert">
+  <p><i class="fa-solid fa-user-pen fa-xl"></i> <strong>Exercise: Write a script</strong></p>
+  <hr />
+
+  <p>Write a shell script called <code class="language-plaintext highlighter-rouge">longest.sh</code> that takes the name of a
+directory and a filename extension as its arguments, and prints
+out the name of the file with the most lines in that directory
+with that extension. For example:</p>
+
+  <div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code> <span class="nv">$ </span>bash longest.sh /tmp/data pdb
+</code></pre></div>  </div>
+  <p>would print the name of the <code class="language-plaintext highlighter-rouge">.pdb</code> file in <code class="language-plaintext highlighter-rouge">/tmp/data</code> that has
+ the most lines.</p>
+
+  <details>
+    <summary>Solution</summary>
+
+    <div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code>   <span class="c"># Shell script which takes two arguments:</span>
+   <span class="c">#    1. a directory name</span>
+   <span class="c">#    2. a file extension</span>
+   <span class="c"># and prints the name of the file in that directory</span>
+   <span class="c"># with the most lines which matches the file extension.</span>
+
+   <span class="nb">wc</span> <span class="nt">-l</span> <span class="nv">$1</span>/<span class="k">*</span>.<span class="nv">$2</span> | <span class="nb">sort</span> <span class="nt">-n</span> | <span class="nb">tail</span> <span class="nt">-n</span> 2 | <span class="nb">head</span> <span class="nt">-n</span> 1
+</code></pre></div>    </div>
+
+  </details>
+</div>
+
+<h2 id="debugging-scripts">Debugging Scripts</h2>
+
+<div class="alert alert-secondary" role="alert">
+  <p><i class="fa-solid fa-user-pen fa-xl"></i> <strong>Exercise: Debugging</strong></p>
+  <hr />
+
+  <p>Suppose you have saved the following script in a file called <code class="language-plaintext highlighter-rouge">do-errors.sh</code>
+in Nelle’s <code class="language-plaintext highlighter-rouge">north-pacific-gyre/2012-07-03</code> directory:</p>
+
+  <div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code> <span class="c"># Calculate stats for data files.</span>
+ <span class="k">for </span>datafile <span class="k">in</span> <span class="s2">"</span><span class="nv">$@</span><span class="s2">"</span>
+ <span class="k">do
+     </span><span class="nb">echo</span> <span class="nv">$datfile</span>
+     bash goostats <span class="nv">$datafile</span> stats-<span class="nv">$datafile</span>
+ <span class="k">done</span>
+</code></pre></div>  </div>
+  <p>When you run it:</p>
+
+  <div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code> <span class="c"># Calculate stats for data files.</span>
+ <span class="nv">$ </span>bash <span class="k">do</span><span class="nt">-errors</span>.sh NENE<span class="k">*</span><span class="o">[</span>AB].txt
+</code></pre></div>  </div>
+  <p>the output is blank.</p>
+
+  <p>To figure out why, re-run the script using the <code class="language-plaintext highlighter-rouge">-x</code> option:</p>
+  <div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code> bash <span class="nt">-x</span> <span class="k">do</span><span class="nt">-errors</span>.sh NENE<span class="k">*</span><span class="o">[</span>AB].txt
+</code></pre></div>  </div>
+  <p>What is the output showing you?</p>
+
+  <p>Which line is responsible for the error?</p>
+  <details>
+    <summary>Solution</summary>
+    <p>The ‘-x’ option causes ‘bash’ to run in debug mode.
+This prints out each command as it is run, which will help you to locate errors.
+In this example, we can see that ‘echo’ isn’t printing anything. We have made a typo
+in the loop variable name, and the variable ‘datfile’ doesn’t exist, hence returning
+an empty string.</p>
+  </details>
+</div>
+
+<div style="text-align: right; padding-bottom: 10px">
+  <hr />
+  <button type="button" onclick="window.location='/morea/scientific-software-basics/experience-ssb-find.html'" class="btn btn-primary">
+    <p style="font-size:16px; margin: 0">Finding Things -&gt;</p>
+    <p style="font-size:12px; margin: 0">3:50pm</p>
+    </button>
+</div>
+
+
+</div>
+
+
+
+
+<!-- Maybe find a different way?
+<script src="/js/scrollIfAnchor.js"></script>
+-->
+
+<footer class="footer footer-background" style="padding-top: 1em; padding-bottom: 1em">
+  <div class="container text-center">
+    
+    
+
+    
+    <p style="margin: 0">Powered by the <a class="footer-link" href="https://morea-framework.github.io/">Morea Framework</a> (Theme: spacelab)<br>
+      Last update on: <span>2023-12-01 13:58:35 -1000</span></p>
+
+    <p style="margin: 0">
+      
+      18 modules
+      
+      | 17 outcomes
+      
+      
+      | 55 readings
+      
+      
+      | 100 experiences
+      
+      
+      | 15 assessments
+      
+    </p>
+  </div>
+</footer>
+
+
+<!-- Load Bootstrap JavaScript components -->
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM" crossorigin="anonymous"></script>
+
+
+<script type="text/javascript" async
+        src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.7/latest.js?config=TeX-MML-AM_CHTML">
+</script>
+
+
+<!-- Add anchors to pages. -->
+<script>anchors.add();</script>
+
+
+</body>
+</html>

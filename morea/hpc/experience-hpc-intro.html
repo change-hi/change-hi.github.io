@@ -1,0 +1,247 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <title> Change-HI/EDU | 2. What is High Performance Computing (HPC)? </title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta charset="utf-8">
+
+  <link rel="stylesheet" href="/css/themes/spacelab/bootstrap.min.css">
+  <link rel="stylesheet" href="/css/style.css">
+  <link rel="stylesheet" href="/css/syntax.css">
+  <link rel="shortcut icon" href="/favicon.ico" type="image/x-icon" />
+  <link href="/css/fontawesome/css/fontawesome.css" rel="stylesheet">
+  <link href="/css/fontawesome/css/brands.css" rel="stylesheet">
+  <link href="/css/fontawesome/css/solid.css" rel="stylesheet">
+  <script src="https://cdn.jsdelivr.net/npm/anchor-js/anchor.min.js"></script>
+
+  
+
+  <!-- Load JQuery, then use it to attach the class 'active' to navbar item currently displayed. -->
+  <script src="https://code.jquery.com/jquery-3.6.0.min.js" integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4=" crossorigin="anonymous"></script>
+  <script>
+    $(window).on('load', function () {
+      $('.nav-item').find('a[href="' + location.pathname + '"]').addClass('active');
+    });
+  </script>
+
+</head>
+<body>
+
+<div class="navbar navbar-expand-lg fixed-top navbar-light bg-light">
+  <div class="container">
+    <a class="navbar-brand" href="/index.html"> Change-HI/EDU </a>
+    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarResponsive" aria-controls="navbarResponsive" aria-expanded="false" aria-label="Toggle navigation">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+    <div class="collapse navbar-collapse" id="navbarResponsive">
+      <ul class="navbar-nav">
+        
+        <li class="nav-item"><a class="nav-link" href="/modules/">Modules</a></li>
+        
+        <li class="nav-item"><a class="nav-link" href="/outcomes/">Outcomes</a></li>
+        
+        
+        <li class="nav-item"><a class="nav-link" href="/readings/">Readings</a></li>
+        
+        
+        <li class="nav-item"><a class="nav-link" href="/experiences/">Experiences</a></li>
+        
+        
+        <li class="nav-item"><a class="nav-link" href="/assessments/">Assessments</a></li>
+        
+        
+      </ul>
+    </div>
+  </div>
+</div>
+
+<!-- Internal fragment for displaying the breadcrumb bar -->
+<div class="breadcrumb-background" style="padding-top: 1em; padding-bottom: .01em">
+  <div class="container">
+    <nav aria-label="breadcrumb">
+      <ol class="breadcrumb">
+        
+        <li class="breadcrumb-item"><a href="/">Home</a></li>
+        <li class="breadcrumb-item"><a href="/modules">Modules</a></li>
+        <li class="breadcrumb-item"><a href="/modules/hpc">High Performance Computing</a></li>
+        <li class="breadcrumb-item active">2. What is High Performance Computing (HPC)?</li>
+      </ol>
+    </nav>
+  </div>
+</div>
+
+
+<div class="container">
+  <h1 id="2-what-is-high-performance-computing-hpc">2. What is High Performance Computing (HPC)?</h1>
+
+<div class="alert alert-success mt-3" role="alert">
+  <p><i class="fa-solid fa-globe fa-xl"></i> <strong>Overview</strong></p>
+  <hr />
+
+  <p><strong>Questions</strong></p>
+  <ul>
+    <li>What is an HPC System?</li>
+    <li>What are the components of an HPC System?</li>
+  </ul>
+
+  <p><strong>Objectives</strong></p>
+  <ul>
+    <li>Understand the general HPC System architecture.</li>
+  </ul>
+</div>
+
+<p>The words “cloud” and the phrase cluster or high-performance computing (HPC) are used a lot in different contexts and with various related meanings. So what do they mean? And more importantly, how do we use them in our work?</p>
+
+<p>The <em>cloud</em> is a generic term commonly used to refer to computing resources that are a) <em>provisioned</em> to users on demand or as needed and b) represent real or <em>virtual</em> resources that may be located anywhere on Earth. For example, a large company with computing resources in Brazil and Japan may manage those resources as its own <em>internal</em> cloud and that same company may also use commercial cloud resources provided by Amazon or Google. Cloud resources may refer to machines performing relatively simple tasks such as serving websites, providing shared storage, providing web services (such as e-mail or social media platforms), as well as more traditional compute intensive tasks such as running a simulation.</p>
+
+<p>The term <em>HPC system</em>, on the other hand, describes a stand-alone resource for computationally intensive workloads. They are typically comprised of a multitude of integrated processing and storage elements, designed to handle high volumes of data and/or large numbers of floating-point operations (<a href="https://en.wikipedia.org/wiki/FLOPS">FLOPS</a>) with the highest possible performance. For example, all of the machines on the <a href="https://www.top500.org">Top-500</a> list are HPC systems. To support these constraints, an HPC resource must exist in a specific, fixed location: networking cables can only stretch so far, and electrical and optical signals can travel only so fast.</p>
+
+<div class="alert alert-info" role="alert">
+  <p><i class="fa-solid fa-circle-info fa-xl"></i> <strong>What else is an HPC system good for?</strong></p>
+  <hr />
+
+  <p>While HPC is typically seen as where you go if you have large problems, HPC clusters can be used for even smaller cases where a single server is all that you need, or you have a reserach problem in which the task is very short, but you need to do tens of thousands of iterations, which is typically known as <a href="https://en.wikipedia.org/wiki/High-throughput_computing">High Throughput Computing (HTC)</a>.</p>
+
+</div>
+
+<h2 id="components-of-an-hpc-system">Components of an HPC System</h2>
+
+<p>Individual computers that compose a cluster are typically called <em>nodes</em> (although you will also hear people call them <em>servers</em>, <em>computers</em> and <em>machines</em>). On a cluster, there are different types of nodes for different types of tasks.</p>
+
+<h3 id="anatomy-of-a-node">Anatomy of a Node</h3>
+
+<p>All of the nodes in an HPC system have the same components as your own laptop or desktop: <em>CPUs</em> (sometimes also called <em>processors</em> or <em>cores</em>), <em>memory</em> (or <em>RAM</em>), and <em>disk</em> space. CPUs are a computer’s tool for actually running programs and calculations. Information about a current task is stored in the computer’s memory. Disk refers to all storage that can be accessed like a file system. This is generally storage that can hold data permanently, i.e. data is still there even if the computer has been restarted. While this storage can be local (a hard drive installed inside of it), it is more common for nodes to connect to a shared, remote/network fileserver or cluster of servers.</p>
+
+<figure>
+  
+    <img src="/morea/hpc/fig/node_anatomy.png" style="max-width: 40%;" alt="/Node%20anatomy" class="img-fluid mx-auto d-block border" />
+  
+  <figcaption style="text-align: center">
+    <small>
+      
+    </small>
+  </figcaption>
+</figure>
+
+<h3 id="login-nodes">Login Nodes</h3>
+
+<p>Serves as an access point to the cluster. As a gateway, it is suitable for uploading and downloading small files.</p>
+
+<h3 id="data-transfer-nodes">Data Transfer Nodes</h3>
+
+<p>If you want to transfer larger amounts of data to or from a cluster, some systems offer dedicated nodes for data transfers only. The motivation for this lies in the fact that larger data transfers should not obstruct operation of the login node. As a rule of thumb, consider all transfers of a volume larger than 500 MB to 1 GB as large. But these numbers change, e.g., depending on the network connection of yourself and of your cluster or other factors.</p>
+
+<div class="alert alert-info" role="alert">
+  <p><i class="fa-solid fa-circle-info fa-xl"></i> <strong>Data transfer nodes on Koa</strong></p>
+  <hr />
+
+  <p>Koa has four such data transfer nodes that are available for use with <a href="https://www.globus.org/">Globus</a>.</p>
+
+</div>
+
+<h3 id="compute-nodes">Compute Nodes</h3>
+
+<p>The real work on a cluster gets done by the <em>compute</em> (or <em>worker</em>) <em>nodes</em>. Compute nodes come in many shapes and sizes, but generally are dedicated to long or hard tasks that require a lot of computational resources.</p>
+
+<div class="alert alert-info" role="alert">
+  <p><i class="fa-solid fa-circle-info fa-xl"></i> <strong>Differences Between Compute Nodes</strong></p>
+  <hr />
+
+  <p>Many HPC clusters have a variety of nodes optimized for particular workloads. Some nodes may have larger amount of memory, or specialized resources such as Graphical Processing Units (GPUs).</p>
+
+</div>
+
+<p>All interaction with the compute nodes is handled by a specialized piece of software called a scheduler.</p>
+
+<div class="alert alert-info" role="alert">
+  <p><i class="fa-solid fa-circle-info fa-xl"></i> <strong>Koa scheduler</strong></p>
+  <hr />
+
+  <p>Koa utilizes a scheduler known as the <a href="https://slurm.schedmd.com/overview.html">Slurm Workload Manager</a>.</p>
+
+</div>
+
+<h3 id="support-nodes">Support nodes</h3>
+
+<p>There are also specialized machines used for managing disk storage, user authentication, and other infrastructure-related tasks. Although we do not typically logon to or interact with these machines directly, they enable a number of key features like
+ensuring our user account and files are available throughout the HPC system.</p>
+
+<div class="alert alert-success" role="alert">
+  <p><i class="fa-solid fa-globe fa-xl"></i> <strong>Key Points</strong></p>
+  <hr />
+
+  <ul>
+    <li>High Performance Computing (HPC) typically involves connecting to very large computing systems elsewhere in the world.</li>
+    <li>These systems can be used to do work that would either be impossible or much slower on smaller systems.</li>
+  </ul>
+</div>
+
+<div class="alert alert-info" role="alert">
+  <p><i class="fa-solid fa-circle-info fa-xl"></i> <strong>For more information</strong></p>
+  <hr />
+
+  <p>This chapter used and modified material from the <a href="https://carpentries-incubator.github.io/hpc-intro/">Introduction to High-Performance Computing Incubator workshop</a>.</p>
+</div>
+
+<div style="text-align: right; padding-bottom: 10px">
+  <hr />
+  <button type="button" onclick="window.location='/morea/hpc/experience-hpc-connecting.html'" class="btn btn-primary">
+    <p style="font-size:16px; margin: 0">Connecting to a remote HPC system -&gt;</p>
+    <p style="font-size:12px; margin: 0">2:20pm</p>
+    </button>
+</div>
+
+
+</div>
+
+
+
+
+<!-- Maybe find a different way?
+<script src="/js/scrollIfAnchor.js"></script>
+-->
+
+<footer class="footer footer-background" style="padding-top: 1em; padding-bottom: 1em">
+  <div class="container text-center">
+    
+    
+
+    
+    <p style="margin: 0">Powered by the <a class="footer-link" href="https://morea-framework.github.io/">Morea Framework</a> (Theme: spacelab)<br>
+      Last update on: <span>2023-12-01 13:58:35 -1000</span></p>
+
+    <p style="margin: 0">
+      
+      18 modules
+      
+      | 17 outcomes
+      
+      
+      | 55 readings
+      
+      
+      | 100 experiences
+      
+      
+      | 15 assessments
+      
+    </p>
+  </div>
+</footer>
+
+
+<!-- Load Bootstrap JavaScript components -->
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM" crossorigin="anonymous"></script>
+
+
+<script type="text/javascript" async
+        src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.7/latest.js?config=TeX-MML-AM_CHTML">
+</script>
+
+
+<!-- Add anchors to pages. -->
+<script>anchors.add();</script>
+
+
+</body>
+</html>

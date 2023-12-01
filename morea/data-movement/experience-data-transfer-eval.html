@@ -1,0 +1,306 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <title> Change-HI/EDU | 4. Data Transfer Evaluation of the Network </title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta charset="utf-8">
+
+  <link rel="stylesheet" href="/css/themes/spacelab/bootstrap.min.css">
+  <link rel="stylesheet" href="/css/style.css">
+  <link rel="stylesheet" href="/css/syntax.css">
+  <link rel="shortcut icon" href="/favicon.ico" type="image/x-icon" />
+  <link href="/css/fontawesome/css/fontawesome.css" rel="stylesheet">
+  <link href="/css/fontawesome/css/brands.css" rel="stylesheet">
+  <link href="/css/fontawesome/css/solid.css" rel="stylesheet">
+  <script src="https://cdn.jsdelivr.net/npm/anchor-js/anchor.min.js"></script>
+
+  
+
+  <!-- Load JQuery, then use it to attach the class 'active' to navbar item currently displayed. -->
+  <script src="https://code.jquery.com/jquery-3.6.0.min.js" integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4=" crossorigin="anonymous"></script>
+  <script>
+    $(window).on('load', function () {
+      $('.nav-item').find('a[href="' + location.pathname + '"]').addClass('active');
+    });
+  </script>
+
+</head>
+<body>
+
+<div class="navbar navbar-expand-lg fixed-top navbar-light bg-light">
+  <div class="container">
+    <a class="navbar-brand" href="/index.html"> Change-HI/EDU </a>
+    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarResponsive" aria-controls="navbarResponsive" aria-expanded="false" aria-label="Toggle navigation">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+    <div class="collapse navbar-collapse" id="navbarResponsive">
+      <ul class="navbar-nav">
+        
+        <li class="nav-item"><a class="nav-link" href="/modules/">Modules</a></li>
+        
+        <li class="nav-item"><a class="nav-link" href="/outcomes/">Outcomes</a></li>
+        
+        
+        <li class="nav-item"><a class="nav-link" href="/readings/">Readings</a></li>
+        
+        
+        <li class="nav-item"><a class="nav-link" href="/experiences/">Experiences</a></li>
+        
+        
+        <li class="nav-item"><a class="nav-link" href="/assessments/">Assessments</a></li>
+        
+        
+      </ul>
+    </div>
+  </div>
+</div>
+
+<!-- Internal fragment for displaying the breadcrumb bar -->
+<div class="breadcrumb-background" style="padding-top: 1em; padding-bottom: .01em">
+  <div class="container">
+    <nav aria-label="breadcrumb">
+      <ol class="breadcrumb">
+        
+        <li class="breadcrumb-item"><a href="/">Home</a></li>
+        <li class="breadcrumb-item"><a href="/modules">Modules</a></li>
+        <li class="breadcrumb-item"><a href="/modules/data-movement">Data Movement</a></li>
+        <li class="breadcrumb-item active">4. Data Transfer Evaluation of the Network</li>
+      </ol>
+    </nav>
+  </div>
+</div>
+
+
+<div class="container">
+  <h1 id="4-data-transfer-evaluation-of-the-network">4. Data Transfer Evaluation of the Network</h1>
+
+<div class="alert alert-success mt-3" role="alert">
+  <p><i class="fa-solid fa-globe fa-xl"></i> <strong>Overview</strong></p>
+  <hr />
+
+  <p><strong>Questions</strong></p>
+  <ul>
+    <li>What are some tools we can use to test network throughput?</li>
+  </ul>
+
+  <p><strong>Objectives</strong></p>
+  <ul>
+    <li>Learn about some of the tools used to test network performance.</li>
+  </ul>
+
+</div>
+
+<h2 id="network-only-evaluation">Network (Only) Evaluation</h2>
+
+<h3 id="throughput-testing">Throughput testing</h3>
+<div class="alert alert-info" role="alert">
+  <p><i class="fa-solid fa-circle-info fa-xl"></i> <strong>Iperf3 (as distinct from “iperf” which is v2 or less)</strong></p>
+  <hr />
+
+  <blockquote>
+
+    <ul>
+      <li><a href="https://software.es.net/iperf/">https://software.es.net/iperf/</a></li>
+      <li><a href="https://github.com/esnet/iperf">https://github.com/esnet/iperf</a></li>
+      <li>Pre-compiled binaries for (everything)
+        <ul>
+          <li><a href="https://iperf.fr/iperf-download.php">https://iperf.fr/iperf-download.php</a></li>
+        </ul>
+      </li>
+    </ul>
+  </blockquote>
+</div>
+
+<div class="alert alert-info" role="alert">
+  <p><i class="fa-solid fa-circle-info fa-xl"></i> <strong>nuttcp</strong></p>
+  <hr />
+
+  <blockquote>
+
+    <ul>
+      <li><a href="[http://nuttcp.org/">http://nuttcp.org/</a></li>
+      <li>Much overlap with iperf3</li>
+      <li>Allows “3rd party” operation where one machine can initiate tests between 2 other machines</li>
+    </ul>
+  </blockquote>
+</div>
+
+<h3 id="perfsonar-test-nodes">perfSONAR test nodes</h3>
+
+<div class="alert alert-info" role="alert">
+  <p><i class="fa-solid fa-circle-info fa-xl"></i> <strong>Provides test endpoints</strong></p>
+  <hr />
+
+  <blockquote>
+
+    <ul>
+      <li>iperf3</li>
+      <li>owping/ping</li>
+      <li>traceroute/tracepath</li>
+    </ul>
+  </blockquote>
+</div>
+
+<ul>
+  <li>Academic and research centric</li>
+  <li>Many servers around the world</li>
+  <li>Multiple servers within UH Net</li>
+  <li>You can install the clients on Linux laptop
+    <ul>
+      <li>Which allows you to control remote servers</li>
+    </ul>
+  </li>
+  <li>perfSONAR toolkit is available as a Docker Container, which will work on Linux-based Docker engines. Getting the networking side working on MacOS or Windows (or WSL) is complicated, if at all possible</li>
+</ul>
+
+<h3 id="perfsonar-installation-options">perfSONAR installation options</h3>
+
+<p><a href="https://docs.perfsonar.net/install_options.html">https://docs.perfsonar.net/install_options.html</a></p>
+
+<figure>
+  
+    <img src="/morea/data-movement/fig/ep30.png" style="max-width: 75%;" alt="/Node%20anatomy" class="img-fluid mx-auto d-block border" />
+  
+  <figcaption style="text-align: center">
+    <small>
+      
+    </small>
+  </figcaption>
+</figure>
+
+<h3 id="librespeedtest">LibreSpeedTest</h3>
+
+<ul>
+  <li><a href="https://github.com/librespeed/speedtest">https://github.com/librespeed/speedtest</a></li>
+  <li>Take this code and drop it into a directory on any web server</li>
+  <li>It will provide a browser-based throughput estimate for a path</li>
+</ul>
+
+<div class="alert alert-info" role="alert">
+
+  <blockquote>
+    <ul>
+      <li>I have one in my house</li>
+      <li>UH has one on Manoa Campus</li>
+    </ul>
+  </blockquote>
+</div>
+
+<ul>
+  <li><a href="http://speedtest.uhnet.net">http://speedtest.uhnet.net</a></li>
+</ul>
+
+<h3 id="librespeedtest-on-a-home-network">LibreSpeedTest On A Home Network</h3>
+
+<figure>
+  
+    <img src="/morea/data-movement/fig/ep31.png" style="max-width: ;" alt="" class="img-fluid mx-auto d-block border" />
+  
+  <figcaption style="text-align: center">
+    <small>
+      
+    </small>
+  </figcaption>
+</figure>
+
+<h3 id="ookla-speedtest-speedtestnet">Ookla Speedtest (speedtest.net)</h3>
+
+<ul>
+  <li>Allows you to test to many points around the world from a web browser
+    <ul>
+      <li><a href="https://www.speedtest.net/">https://www.speedtest.net/</a></li>
+      <li>Allow page to load and choose: “Change Server”</li>
+    </ul>
+  </li>
+  <li>Also offers a command line version
+    <ul>
+      <li><a href="https://www.speedtest.net/apps/cli">https://www.speedtest.net/apps/cli</a>
+        <ul>
+          <li>Which could be used to test from a remote machine via a terminal interface
+            <blockquote>
+
+              <ul>
+                <li>Important to recognize that it focuses on testing your tester’s Internet connectivity, possibly from multiple server locations</li>
+                <li>Distinct from testing between your location and a specific location</li>
+                <li>There are Ookla Speedtest servers at some universities, and if you test from a U. Hawaii campus to those servers, they should use REN paths</li>
+                <li>Typically, an ISP hosted server will use commodity paths</li>
+              </ul>
+            </blockquote>
+          </li>
+        </ul>
+      </li>
+    </ul>
+  </li>
+</ul>
+
+<div class="alert alert-success mt-3" role="alert">
+  <p><i class="fa-solid fa-globe fa-xl"></i> <strong>Key Points</strong></p>
+  <hr />
+
+  <ul>
+    <li>Many times data transfer is impacted by factors other than the networks, but it helps to know how to test the network.</li>
+  </ul>
+</div>
+
+<div style="text-align: right; padding-bottom: 10px">
+  <hr />
+  <button type="button" onclick="window.location='/morea/data-movement/experience-processes-and-queues.html'" class="btn btn-primary">
+    <p style="font-size:16px; margin: 0">Processes and Queues -&gt;</p>
+    <p style="font-size:12px; margin: 0">2:20pm</p>
+    </button>
+</div>
+
+
+</div>
+
+
+
+
+<!-- Maybe find a different way?
+<script src="/js/scrollIfAnchor.js"></script>
+-->
+
+<footer class="footer footer-background" style="padding-top: 1em; padding-bottom: 1em">
+  <div class="container text-center">
+    
+    
+
+    
+    <p style="margin: 0">Powered by the <a class="footer-link" href="https://morea-framework.github.io/">Morea Framework</a> (Theme: spacelab)<br>
+      Last update on: <span>2023-12-01 13:58:35 -1000</span></p>
+
+    <p style="margin: 0">
+      
+      18 modules
+      
+      | 17 outcomes
+      
+      
+      | 55 readings
+      
+      
+      | 100 experiences
+      
+      
+      | 15 assessments
+      
+    </p>
+  </div>
+</footer>
+
+
+<!-- Load Bootstrap JavaScript components -->
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM" crossorigin="anonymous"></script>
+
+
+<script type="text/javascript" async
+        src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.7/latest.js?config=TeX-MML-AM_CHTML">
+</script>
+
+
+<!-- Add anchors to pages. -->
+<script>anchors.add();</script>
+
+
+</body>
+</html>

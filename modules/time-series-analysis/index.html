@@ -1,0 +1,364 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <title> Change-HI/EDU | Exploratory Time Series Analysis in R </title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta charset="utf-8">
+
+  <link rel="stylesheet" href="/css/themes/spacelab/bootstrap.min.css">
+  <link rel="stylesheet" href="/css/style.css">
+  <link rel="stylesheet" href="/css/syntax.css">
+  <link rel="shortcut icon" href="/favicon.ico" type="image/x-icon" />
+  <link href="/css/fontawesome/css/fontawesome.css" rel="stylesheet">
+  <link href="/css/fontawesome/css/brands.css" rel="stylesheet">
+  <link href="/css/fontawesome/css/solid.css" rel="stylesheet">
+  <script src="https://cdn.jsdelivr.net/npm/anchor-js/anchor.min.js"></script>
+
+  
+
+  <!-- Load JQuery, then use it to attach the class 'active' to navbar item currently displayed. -->
+  <script src="https://code.jquery.com/jquery-3.6.0.min.js" integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4=" crossorigin="anonymous"></script>
+  <script>
+    $(window).on('load', function () {
+      $('.nav-item').find('a[href="' + location.pathname + '"]').addClass('active');
+    });
+  </script>
+
+</head>
+<body>
+
+<div class="navbar navbar-expand-lg fixed-top navbar-light bg-light">
+  <div class="container">
+    <a class="navbar-brand" href="/index.html"> Change-HI/EDU </a>
+    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarResponsive" aria-controls="navbarResponsive" aria-expanded="false" aria-label="Toggle navigation">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+    <div class="collapse navbar-collapse" id="navbarResponsive">
+      <ul class="navbar-nav">
+        
+        <li class="nav-item"><a class="nav-link" href="/modules/">Modules</a></li>
+        
+        <li class="nav-item"><a class="nav-link" href="/outcomes/">Outcomes</a></li>
+        
+        
+        <li class="nav-item"><a class="nav-link" href="/readings/">Readings</a></li>
+        
+        
+        <li class="nav-item"><a class="nav-link" href="/experiences/">Experiences</a></li>
+        
+        
+        <li class="nav-item"><a class="nav-link" href="/assessments/">Assessments</a></li>
+        
+        
+      </ul>
+    </div>
+  </div>
+</div>
+
+
+<!-- Internal fragment for displaying the breadcrumb bar -->
+<div class="breadcrumb-background" style="padding-top: 1em; padding-bottom: .01em">
+  <div class="container">
+    <nav aria-label="breadcrumb">
+      <ol class="breadcrumb">
+        
+        <li class="breadcrumb-item"><a href="/">Home</a></li>
+        <li class="breadcrumb-item"><a href="/modules">Modules</a></li>
+        <li class="breadcrumb-item active">Exploratory Time Series Analysis in R</li>
+      </ol>
+    </nav>
+  </div>
+</div>
+
+
+<div class="container">
+  <h1><small class="header-small">Module: </small> Exploratory Time Series Analysis in R </h1>
+  <p><p>A workshop covering modeling and analysis of climate-change time-series data using R.</p>
+</p>
+  
+</div>
+
+
+
+
+
+<div class="section-background-1">
+  <div class="container">
+    <h2>Learning Outcomes</h2>
+
+    
+      
+      <h3>Learn Exploratory Data Analysis of a Time Series in R</h3>
+      <p>
+        
+      </p>
+      <h1 id="workshop-description">Workshop Description</h1>
+<p>This workshop will cover the fundamentals of descriptive models and methods for exploring characteristics of time series. Attendees will learn how to decompose and analyze a time series’ secular trend, seasonal, cyclical, and irregular variability components; create descriptive additive/multiplicative models of time series; and explore characteristics of stationarity, autocorrelation, and cross-correlation with other time series. The workshop aims to investigate the practical application of Exploratory Data Analysis (EDA) using NOAA/GML climate change data, including factors like Annual Surface Temperature Change, CO2 concentration, and the frequency of climate-related disasters. The session will involve hands-on EDA using the R programming language.</p>
+
+<h1 id="learning-outcomes">Learning Outcomes</h1>
+<ol>
+  <li>Grasp the process of decomposing time series utilizing climate change data available on the R-Studio server during the workshop.</li>
+  <li>Comprehend the exploratory techniques applied to time series analysis by breaking down climate change trends and variations to discern underlying causes and contributing factors.</li>
+  <li>Acquire practical experience using R as a tool for exploratory time series analysis.</li>
+  <li>Recognize the significance of exploratory data analysis in time series, acknowledging its pivotal role in achieving a more precise understanding of time series data.</li>
+</ol>
+
+<h3 id="primary-outcomes">Primary Outcomes</h3>
+<ul>
+  <li>Understand the workflow for decomposing time-series using climate change data provided in the workshops R-Studio server.</li>
+  <li>Understand key methods for additive/multiplicative models of time-series.</li>
+  <li>Understand exploratory methods of time-series by decomposing climate change trends and variations to identify causes and factors.</li>
+  <li>Experience with R as a tool for exploratory time-series analysis.</li>
+  <li>Understand why exploratory data analysis of a time-series is a crucial tool for a more accurate understanding of data.</li>
+</ul>
+
+<h3 id="secondary-outcomes">Secondary Outcomes</h3>
+<ul>
+  <li>Explore evidence of climate change via time series analysis
+    <ul>
+      <li>Climate change as evidenced by increasing global temperatures</li>
+      <li>Solar activity does not explain increasing global temperatures</li>
+      <li>A significant factor in increasing global temperatures is increasing CO2 concentrations in the atmosphere (greenhouse effect)</li>
+      <li>Increasing CO2 concentrations are due to human generated CO2 emissions</li>
+      <li>Increasing human generated CO2 emissions has increased frequency of climate disasters</li>
+      <li>What is the expected impact of decreasing human generated CO2 emissions</li>
+    </ul>
+  </li>
+</ul>
+
+    
+
+  </div>
+</div>
+
+
+
+
+
+<div class="section-background-2">
+  <div class="container">
+  <h2>Readings</h2>
+
+    <div class="row">
+      
+        
+        <!-- Internal fragment for displaying reading, experience, prereq cards. Prereqs have icons. -->
+<div class="col-md-6 col-lg-4" style="padding-bottom: 20px">
+  <div class="card h-100">
+    
+    <div class="card-body">
+      <h4 class="card-title">Preparations</h4>
+      <p>A few things to complete prior to this workshop</p>
+
+
+    
+    </div>
+
+    <div style="border-top-color: transparent" class="card-footer bg-body">
+      
+      <span class="badge bg-primary">Pre-workshop</span>
+      
+    </div>
+    <a href="/morea/time-series-analysis/20-tsa-readings.html" class="stretched-link"></a>
+  </div>
+</div>
+      
+    </div>
+  </div>
+</div>
+
+
+
+<div class="section-background-1">
+  <div class="container">
+  <h2>Experiential Learning</h2>
+    <div class="row">
+      
+        
+        <!-- Internal fragment for displaying reading, experience, prereq cards. Prereqs have icons. -->
+<div class="col-md-6 col-lg-4" style="padding-bottom: 20px">
+  <div class="card h-100">
+    
+    <div class="card-body">
+      <h4 class="card-title">1. Ice Breaker: Climate Fresk</h4>
+      <p>Complete the Climate Fresk Challenge</p>
+
+
+    
+    </div>
+
+    <div style="border-top-color: transparent" class="card-footer bg-body">
+      
+      <span class="badge bg-primary">2:00pm-2:10pm</span>
+      
+    </div>
+    <a href="/morea/time-series-analysis/31-tsa-experience-icebreaker.html" class="stretched-link"></a>
+  </div>
+</div>
+      
+        
+        <!-- Internal fragment for displaying reading, experience, prereq cards. Prereqs have icons. -->
+<div class="col-md-6 col-lg-4" style="padding-bottom: 20px">
+  <div class="card h-100">
+    
+    <div class="card-body">
+      <h4 class="card-title">Lab & Mini Lecture 1: What is Time Series Data?</h4>
+      <p>Introduction to Time Series Data</p>
+
+
+    
+    </div>
+
+    <div style="border-top-color: transparent" class="card-footer bg-body">
+      
+      <span class="badge bg-primary">2:10pm-2:40pm</span>
+      
+    </div>
+    <a href="/morea/time-series-analysis/32-tsa-experience-lab & mini lecture 1.html" class="stretched-link"></a>
+  </div>
+</div>
+      
+        
+        <!-- Internal fragment for displaying reading, experience, prereq cards. Prereqs have icons. -->
+<div class="col-md-6 col-lg-4" style="padding-bottom: 20px">
+  <div class="card h-100">
+    
+    <div class="card-body">
+      <h4 class="card-title">Lab & Mini Lecture 2: Stationarity</h4>
+      <p>Testing for Stationarity</p>
+
+
+    
+    </div>
+
+    <div style="border-top-color: transparent" class="card-footer bg-body">
+      
+      <span class="badge bg-primary">2:40pm-3:10pm</span>
+      
+    </div>
+    <a href="/morea/time-series-analysis/33-tsa-experience-lab & mini lecture 2.html" class="stretched-link"></a>
+  </div>
+</div>
+      
+        
+        <!-- Internal fragment for displaying reading, experience, prereq cards. Prereqs have icons. -->
+<div class="col-md-6 col-lg-4" style="padding-bottom: 20px">
+  <div class="card h-100">
+    
+    <div class="card-body">
+      <h4 class="card-title">Lab & Mini Lecture 3: Modeling & Cross-Correlating</h4>
+      <p>Explore causality through decomposing time series and then cross-correlating data sets.</p>
+
+
+    
+    </div>
+
+    <div style="border-top-color: transparent" class="card-footer bg-body">
+      
+      <span class="badge bg-primary">3:20pm-3:50pm</span>
+      
+    </div>
+    <a href="/morea/time-series-analysis/34-tsa-experience-lab & mini lecture 3.html" class="stretched-link"></a>
+  </div>
+</div>
+      
+    </div>
+  </div>
+</div>
+
+
+
+<div class="section-background-2">
+  <div class="container">
+    <h2>Assessments</h2>
+    <div class="row">
+    
+      
+    <!-- Internal fragment for displaying reading, experience, prereq cards. Prereqs have icons. -->
+<div class="col-md-6 col-lg-4" style="padding-bottom: 20px">
+  <div class="card h-100">
+    
+    <div class="card-body">
+      <h4 class="card-title">Help Us Assess This Workshop</h4>
+      <p>Provide feedback to the workshop organizers</p>
+
+
+    
+      <p>
+        <em>Outcome(s) assessed:</em>
+        
+          You understand basic machine learning concepts
+        
+      </p>
+    
+    </div>
+
+    <div style="border-top-color: transparent" class="card-footer bg-body">
+      
+      <span class="badge bg-primary">3:50pm</span>
+      
+    </div>
+    <a href="/morea/time-series-analysis/40-tsa-assessment.html" class="stretched-link"></a>
+  </div>
+</div>
+    
+    </div>
+  </div>
+</div>
+
+
+
+
+
+
+
+
+
+<!-- Maybe find a different way?
+<script src="/js/scrollIfAnchor.js"></script>
+-->
+
+<footer class="footer footer-background" style="padding-top: 1em; padding-bottom: 1em">
+  <div class="container text-center">
+    
+    
+
+    
+    <p style="margin: 0">Powered by the <a class="footer-link" href="https://morea-framework.github.io/">Morea Framework</a> (Theme: spacelab)<br>
+      Last update on: <span>2023-12-01 13:58:35 -1000</span></p>
+
+    <p style="margin: 0">
+      
+      18 modules
+      
+      | 17 outcomes
+      
+      
+      | 55 readings
+      
+      
+      | 100 experiences
+      
+      
+      | 15 assessments
+      
+    </p>
+  </div>
+</footer>
+
+
+<!-- Load Bootstrap JavaScript components -->
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM" crossorigin="anonymous"></script>
+
+
+<script type="text/javascript" async
+        src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.7/latest.js?config=TeX-MML-AM_CHTML">
+</script>
+
+
+<!-- Add anchors to pages. -->
+<script>anchors.add();</script>
+
+
+</body>
+</html>

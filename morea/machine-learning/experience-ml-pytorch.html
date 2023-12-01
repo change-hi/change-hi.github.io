@@ -1,0 +1,431 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <title> Change-HI/EDU | 2. Pytorch </title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta charset="utf-8">
+
+  <link rel="stylesheet" href="/css/themes/spacelab/bootstrap.min.css">
+  <link rel="stylesheet" href="/css/style.css">
+  <link rel="stylesheet" href="/css/syntax.css">
+  <link rel="shortcut icon" href="/favicon.ico" type="image/x-icon" />
+  <link href="/css/fontawesome/css/fontawesome.css" rel="stylesheet">
+  <link href="/css/fontawesome/css/brands.css" rel="stylesheet">
+  <link href="/css/fontawesome/css/solid.css" rel="stylesheet">
+  <script src="https://cdn.jsdelivr.net/npm/anchor-js/anchor.min.js"></script>
+
+  
+
+  <!-- Load JQuery, then use it to attach the class 'active' to navbar item currently displayed. -->
+  <script src="https://code.jquery.com/jquery-3.6.0.min.js" integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4=" crossorigin="anonymous"></script>
+  <script>
+    $(window).on('load', function () {
+      $('.nav-item').find('a[href="' + location.pathname + '"]').addClass('active');
+    });
+  </script>
+
+</head>
+<body>
+
+<div class="navbar navbar-expand-lg fixed-top navbar-light bg-light">
+  <div class="container">
+    <a class="navbar-brand" href="/index.html"> Change-HI/EDU </a>
+    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarResponsive" aria-controls="navbarResponsive" aria-expanded="false" aria-label="Toggle navigation">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+    <div class="collapse navbar-collapse" id="navbarResponsive">
+      <ul class="navbar-nav">
+        
+        <li class="nav-item"><a class="nav-link" href="/modules/">Modules</a></li>
+        
+        <li class="nav-item"><a class="nav-link" href="/outcomes/">Outcomes</a></li>
+        
+        
+        <li class="nav-item"><a class="nav-link" href="/readings/">Readings</a></li>
+        
+        
+        <li class="nav-item"><a class="nav-link" href="/experiences/">Experiences</a></li>
+        
+        
+        <li class="nav-item"><a class="nav-link" href="/assessments/">Assessments</a></li>
+        
+        
+      </ul>
+    </div>
+  </div>
+</div>
+
+<!-- Internal fragment for displaying the breadcrumb bar -->
+<div class="breadcrumb-background" style="padding-top: 1em; padding-bottom: .01em">
+  <div class="container">
+    <nav aria-label="breadcrumb">
+      <ol class="breadcrumb">
+        
+        <li class="breadcrumb-item"><a href="/">Home</a></li>
+        <li class="breadcrumb-item"><a href="/modules">Modules</a></li>
+        <li class="breadcrumb-item"><a href="/modules/"></a></li>
+        <li class="breadcrumb-item active">2. Pytorch</li>
+      </ol>
+    </nav>
+  </div>
+</div>
+
+
+<div class="container">
+  <div class="alert alert-success mt-3" role="alert">
+  <p><i class="fa-solid fa-globe fa-xl"></i> <strong>Overview</strong></p>
+  <hr />
+
+  <p><strong>Questions</strong></p>
+  <ul>
+    <li>How can we forecast timeseries data with machine learning?</li>
+    <li>How can we gap-fill missing data in timeseries?</li>
+    <li>How do we prepare timeseries data for neural networks?</li>
+  </ul>
+
+  <p><strong>Objectives</strong></p>
+  <ul>
+    <li>Understand how to train a neural network in Pytorch</li>
+    <li>Understand how to use Pandas for handling timeseries data.</li>
+  </ul>
+</div>
+
+<h2 id="tutorial-of-timeseries-modeling-with-deep-learning">Tutorial of Timeseries Modeling with Deep Learning</h2>
+
+<p>This is a time series prediction tutorial using Pytorch. Pytorch is an open source software used in machine learning particularly for training neural networks. This tutorial will use a Pytorch recurrent neural network model to step through the basic workflow of a machine learning project:</p>
+
+<ol>
+  <li>Install and import software libraries</li>
+  <li>Download and preprocess data</li>
+  <li>Define the training set</li>
+  <li>Define a model</li>
+  <li>Train the model</li>
+  <li>Evaluate/test the model</li>
+</ol>
+
+<div class="alert alert-info" role="alert">
+  <p><i class="fa-solid fa-circle-info fa-xl"></i> <strong>Installing Pytorch</strong></p>
+  <hr />
+
+  <p>Installing deep learning software stacks can be tricky. Pytorch and other deep learning frameworks like Tensorflow and JAX are under rapid development and often depend on particular versions of dependencies.</p>
+
+  <p>Google Colab is the easiest way to do the following activity because Pytorch comes preinstalled. Otherwise, use Anaconda to install Pytorch in a <a href="/morea/hpc/experience-hpc-environment">new conda environment</a>.</p>
+
+</div>
+
+<h3 id="the-tsangstreamlab-dataset">The TsangStreamLab dataset</h3>
+
+<p>UH Professor Yinphan Tsang’s lab monitors rainfall and stream flow in Manoa Valley. Sensors at Lyon’s arboretum take data at regular 15 minute intervals. Raw data can be downloaded from her <a href="https://tsangstreamlab.github.io/#stream-lyon-aihualama-stream-above-diversion">website</a>.</p>
+
+<p>A subset of the data has already been downloaded for this workshop. In particular, we will use the pyranometer data which quantifies the amount of solar radiation hitting the ground. We will perform timeseries forecasting with a recurrent neural network. Forecasting solar irradiation is important for managing the variability in renewable energy production.</p>
+
+<figure>
+  
+    <img src="/morea/machine-learning/fig/lyons_variables.jpg" style="max-width: 50%;" alt="/Lyons" class="img-fluid mx-auto d-block border" />
+  
+  <figcaption style="text-align: center">
+    <small>
+      Example timeseries data from the TsangStreamLab
+    </small>
+  </figcaption>
+</figure>
+
+<h2 id="activity-timeseries-model-in-pytorch">Activity: Timeseries Model in Pytorch</h2>
+
+<div class="alert alert-secondary" role="alert">
+  <p><i class="fa-solid fa-user-pen fa-xl"></i>  <strong>Exercise: Import dataset, check configuration</strong></p>
+  <hr />
+
+  <h3 id="import-libraries">Import Libraries</h3>
+
+  <p>To start, import all the relevant libraries.</p>
+
+  <div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="n">np</span>
+<span class="kn">import</span> <span class="nn">pandas</span> <span class="k">as</span> <span class="n">pd</span>
+<span class="kn">import</span> <span class="nn">matplotlib.pyplot</span> <span class="k">as</span> <span class="n">plt</span>
+<span class="kn">from</span> <span class="nn">tqdm</span> <span class="kn">import</span> <span class="n">tqdm</span>
+<span class="kn">from</span> <span class="nn">sklearn.preprocessing</span> <span class="kn">import</span> <span class="n">MinMaxScaler</span>
+
+<span class="kn">import</span> <span class="nn">torch</span>
+<span class="kn">import</span> <span class="nn">torch.nn</span> <span class="k">as</span> <span class="n">nn</span>
+<span class="kn">import</span> <span class="nn">torch.nn.functional</span> <span class="k">as</span> <span class="n">F</span>
+<span class="kn">import</span> <span class="nn">torch.optim</span> <span class="k">as</span> <span class="n">optim</span>
+
+<span class="o">%</span><span class="n">matplotlib</span> <span class="n">inline</span>
+</code></pre></div>  </div>
+
+  <h3 id="download-and-preprocess-data">Download and Preprocess Data</h3>
+
+  <p>Download the data from <a href="https://drive.google.com/file/d/1JhC1KT4M1e6DQ5oj404f19ZO4GQpis8g/view?usp=share_link">this link</a>. This .csv file contains three columns: a timestamp, a measurement of shortwave radiation (in Watts/meter^2) from the sun, and a measurement of rainfall (in mm). Measurements are every 15 minutes from 2018-02-23 12:30:00 to 2020-12-03 12:30:00.</p>
+
+  <p>Move or upload the file into your jupyterlab workspace. Load the data into a pandas dataframe.</p>
+
+  <div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="n">df</span> <span class="o">=</span> <span class="n">pd</span><span class="p">.</span><span class="n">read_csv</span><span class="p">(</span><span class="s">'./lyons_radiation.csv'</span><span class="p">)</span>
+</code></pre></div>  </div>
+
+  <p>Now let’s preprocess the data. First we set the index of the dataframe to be a series of DateTime objects. This lets pandas know that we are working with timestamps. We then fill in any missing timesteps using the <em>forward fill</em> method, which simply copies previous observations forward to fill any gaps. This is probably not the best method; usually we would inspect the data and use a more careful method, but this is simple, fast, and good enough for this demo.</p>
+
+  <div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="n">df</span><span class="p">[</span><span class="s">'timestamp'</span><span class="p">]</span> <span class="o">=</span> <span class="n">pd</span><span class="p">.</span><span class="n">to_datetime</span><span class="p">(</span><span class="n">df</span><span class="p">[</span><span class="s">'timestamp'</span><span class="p">])</span>
+<span class="n">df</span> <span class="o">=</span> <span class="n">df</span><span class="p">.</span><span class="n">set_index</span><span class="p">([</span><span class="s">'timestamp'</span><span class="p">])</span>
+<span class="n">df</span> <span class="o">=</span> <span class="n">df</span><span class="p">.</span><span class="n">resample</span><span class="p">(</span><span class="s">'15min'</span><span class="p">).</span><span class="n">last</span><span class="p">().</span><span class="n">ffill</span><span class="p">()</span>
+</code></pre></div>  </div>
+
+  <p>Now we convert the radiation column into a numpy vector (removing meta data), and scale the values to be between zero and one. Large data values make it much more difficult to train the neural network, so it is critical to make the data (both inputs and outputs) <em>neural network friendly</em>. The Scikit-Learn package has nice tools for doing this. Remember that after training, any model predictions will need to undergo the inverse transform to get useful predictions.</p>
+
+  <p>We also convert the timeseries vector into a torch FloatTensor, since that is the data format expected by Pytorch.</p>
+
+  <div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="n">data</span> <span class="o">=</span> <span class="n">df</span><span class="p">[</span><span class="s">'radiation'</span><span class="p">].</span><span class="n">to_numpy</span><span class="p">(</span><span class="n">dtype</span><span class="o">=</span><span class="s">'float32'</span><span class="p">)</span>
+<span class="n">scaler</span> <span class="o">=</span> <span class="n">MinMaxScaler</span><span class="p">(</span><span class="n">feature_range</span><span class="o">=</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="mi">1</span><span class="p">))</span>
+<span class="n">data_normalized</span> <span class="o">=</span> <span class="n">scaler</span><span class="p">.</span><span class="n">fit_transform</span><span class="p">(</span><span class="n">data</span><span class="p">.</span><span class="n">reshape</span><span class="p">(</span><span class="o">-</span><span class="mi">1</span><span class="p">,</span> <span class="mi">1</span><span class="p">))</span>
+<span class="n">data_normalized</span> <span class="o">=</span> <span class="n">torch</span><span class="p">.</span><span class="n">FloatTensor</span><span class="p">(</span><span class="n">data_normalized</span><span class="p">).</span><span class="n">view</span><span class="p">(</span><span class="o">-</span><span class="mi">1</span><span class="p">)</span>
+</code></pre></div>  </div>
+
+  <h3 id="define-the-training-set">Define the Training Set</h3>
+
+  <p>Training a neural network model is done by presenting sets of (input, output) example pairs. We need to specify what those examples should look like. Our inputs can be of arbitrary length, but we choose to only consider a finite length of 100 timesteps because this is approximately one day (15min * 4 * 24 hrs/day = 1 day).</p>
+
+  <div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code>
+<span class="k">def</span> <span class="nf">create_in_out_pairs</span><span class="p">(</span><span class="n">input_data</span><span class="p">,</span> <span class="n">tw</span><span class="p">):</span>
+    <span class="n">inout_seq</span> <span class="o">=</span> <span class="p">[]</span>
+    <span class="n">L</span> <span class="o">=</span> <span class="nb">len</span><span class="p">(</span><span class="n">input_data</span><span class="p">)</span>
+    <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="n">L</span><span class="o">-</span><span class="n">tw</span><span class="p">):</span>
+        <span class="n">train_seq</span> <span class="o">=</span> <span class="n">input_data</span><span class="p">[</span><span class="n">i</span><span class="p">:</span><span class="n">i</span><span class="o">+</span><span class="n">tw</span><span class="p">]</span>
+        <span class="n">train_label</span> <span class="o">=</span> <span class="n">input_data</span><span class="p">[</span><span class="n">i</span><span class="o">+</span><span class="n">tw</span><span class="p">:</span><span class="n">i</span><span class="o">+</span><span class="n">tw</span><span class="o">+</span><span class="mi">1</span><span class="p">]</span>
+        <span class="n">inout_seq</span><span class="p">.</span><span class="n">append</span><span class="p">((</span><span class="n">train_seq</span> <span class="p">,</span><span class="n">train_label</span><span class="p">))</span>
+    <span class="k">return</span> <span class="n">inout_seq</span>
+
+<span class="n">train_window</span> <span class="o">=</span> <span class="mi">100</span>
+<span class="n">in_out_data</span> <span class="o">=</span> <span class="n">create_in_out_pairs</span><span class="p">(</span><span class="n">data_normalized</span><span class="p">,</span> <span class="n">train_window</span><span class="p">)</span>
+</code></pre></div>  </div>
+
+  <p>We select a small sample of the total dataset as our training set, leaving some examples for evaluating the model.</p>
+
+  <div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="n">train_in_out_data</span> <span class="o">=</span> <span class="n">in_out_data</span><span class="p">[</span><span class="mi">100</span><span class="p">:</span><span class="mi">1000</span><span class="p">:</span><span class="mi">10</span><span class="p">]</span>
+</code></pre></div>  </div>
+
+  <div class="alert alert-info" role="alert">
+    <p><i class="fa-solid fa-circle-info fa-xl"></i> <strong>Creating Train/Test Splits</strong></p>
+    <hr />
+
+    <p>In machine learning, it is critical to split the data into “training” and “test” sets. The training set is used to train the model, while the test set is used to evaluate the model. Machine learning models tend to memorize the training data, so the training error always goes to zero — the only way to know if the model <strong>generalizes</strong> to new data is by evaluating the performance on the test set, a method known as <strong>cross-validation</strong>.</p>
+
+    <p>In timeseries data, there is a danger of <strong>information leakage</strong> where the training set is highly correlated to the test set (even if the exact examples are different). Thus, it is common use <strong>chrono-cross-validation</strong>, where the training data consists of examples before a certain time T, while the test set consists of examples after time T.</p>
+  </div>
+
+  <h3 id="defining-the-model">Defining the Model</h3>
+
+  <p>A Long-Short Term Memory (LSTM) neural network is a particular neural network architecture adept at processing sequence data. Because of their recurrent structure, they can take input sequences of arbitrary length (though in practice we limit the length due to computational constraints). See this <a href="http://karpathy.github.io/2015/05/21/rnn-effectiveness/">blog post</a> for a good introduction to recurrent neural networks (RNNs).</p>
+
+  <p>Pytorch provides a convenient way to define a complex model in a couple lines of code.</p>
+
+  <div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="k">class</span> <span class="nc">LSTM</span><span class="p">(</span><span class="n">nn</span><span class="p">.</span><span class="n">Module</span><span class="p">):</span>
+    <span class="k">def</span> <span class="nf">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">input_size</span><span class="o">=</span><span class="mi">1</span><span class="p">,</span> <span class="n">hidden_layer_size</span><span class="o">=</span><span class="mi">100</span><span class="p">,</span> <span class="n">output_size</span><span class="o">=</span><span class="mi">1</span><span class="p">):</span>
+        <span class="nb">super</span><span class="p">().</span><span class="n">__init__</span><span class="p">()</span>
+        <span class="bp">self</span><span class="p">.</span><span class="n">hidden_layer_size</span> <span class="o">=</span> <span class="n">hidden_layer_size</span>
+
+        <span class="bp">self</span><span class="p">.</span><span class="n">lstm</span> <span class="o">=</span> <span class="n">nn</span><span class="p">.</span><span class="n">LSTM</span><span class="p">(</span><span class="n">input_size</span><span class="p">,</span> <span class="n">hidden_layer_size</span><span class="p">)</span>
+
+        <span class="bp">self</span><span class="p">.</span><span class="n">linear</span> <span class="o">=</span> <span class="n">nn</span><span class="p">.</span><span class="n">Linear</span><span class="p">(</span><span class="n">hidden_layer_size</span><span class="p">,</span> <span class="n">output_size</span><span class="p">)</span>
+
+        <span class="bp">self</span><span class="p">.</span><span class="n">hidden_cell</span> <span class="o">=</span> <span class="p">(</span><span class="n">torch</span><span class="p">.</span><span class="n">zeros</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span><span class="mi">1</span><span class="p">,</span><span class="bp">self</span><span class="p">.</span><span class="n">hidden_layer_size</span><span class="p">),</span>
+                            <span class="n">torch</span><span class="p">.</span><span class="n">zeros</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span><span class="mi">1</span><span class="p">,</span><span class="bp">self</span><span class="p">.</span><span class="n">hidden_layer_size</span><span class="p">))</span>
+
+    <span class="k">def</span> <span class="nf">forward</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">input_seq</span><span class="p">):</span>
+        <span class="n">lstm_out</span><span class="p">,</span> <span class="bp">self</span><span class="p">.</span><span class="n">hidden_cell</span> <span class="o">=</span> <span class="bp">self</span><span class="p">.</span><span class="n">lstm</span><span class="p">(</span><span class="n">input_seq</span><span class="p">.</span><span class="n">view</span><span class="p">(</span><span class="nb">len</span><span class="p">(</span><span class="n">input_seq</span><span class="p">)</span> <span class="p">,</span><span class="mi">1</span><span class="p">,</span> <span class="o">-</span><span class="mi">1</span><span class="p">),</span> <span class="bp">self</span><span class="p">.</span><span class="n">hidden_cell</span><span class="p">)</span>
+        <span class="n">predictions</span> <span class="o">=</span> <span class="bp">self</span><span class="p">.</span><span class="n">linear</span><span class="p">(</span><span class="n">lstm_out</span><span class="p">.</span><span class="n">view</span><span class="p">(</span><span class="nb">len</span><span class="p">(</span><span class="n">input_seq</span><span class="p">),</span> <span class="o">-</span><span class="mi">1</span><span class="p">))</span>
+        <span class="k">return</span> <span class="n">predictions</span><span class="p">[</span><span class="o">-</span><span class="mi">1</span><span class="p">]</span>
+    
+<span class="n">model</span> <span class="o">=</span> <span class="n">LSTM</span><span class="p">(</span><span class="n">input_size</span><span class="o">=</span><span class="mi">1</span><span class="p">,</span> <span class="n">hidden_layer_size</span><span class="o">=</span><span class="mi">10</span><span class="p">,</span> <span class="n">output_size</span><span class="o">=</span><span class="mi">1</span><span class="p">)</span>
+</code></pre></div>  </div>
+
+  <p>We now have a Pytorch neural network model that takes in a sequence of values, and outputs a prediction (a single scalar). The model parameters have been initialized randomly, so the predictions are random. Now we need to train the model using our dataset.</p>
+
+  <div class="alert alert-info" role="alert">
+    <p><i class="fa-solid fa-circle-info fa-xl"></i> <strong>Designing a neural network architecture</strong></p>
+    <hr />
+
+    <p>The neural network architecture can have a large impact on performance. The <strong>inductive bias</strong> of a model refers to the set of assumptions and prior beliefs that are inherent in this choice. All machine learning models have inductive bias. This is not a bad thing, but it means some models are more appropriate for some problems than others. This is formalized in what is known as <a href="https://en.wikipedia.org/wiki/No_free_lunch_theorem">The No Free Lunch Theorem</a>.</p>
+
+    <p>Experienced practicioners know which architectures tend to work best for certain types of problems. Bigger models usually work better, but are slower because of computational constraints. In practice, it is common to try lots of different models and perform <strong>model selection</strong> to pick the best based on how well the model performs on a test set.</p>
+  </div>
+
+  <h3 id="training-the-model">Training the Model</h3>
+
+  <p>Training the model is an iterative process. Starting from randomly initialized parameters, we iterate through the training examples, make predictions, and update the weight parameters to minimize the <strong>loss function</strong>. In this case, we use the mean squared error (MSE) loss. We keep track of the average loss over the training set, and report it every time we iterate through the training dataset — each iteration through the training set is called an <strong>epoch</strong>.</p>
+
+  <div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="n">loss_function</span> <span class="o">=</span> <span class="n">nn</span><span class="p">.</span><span class="n">MSELoss</span><span class="p">()</span>
+<span class="n">optimizer</span> <span class="o">=</span> <span class="n">torch</span><span class="p">.</span><span class="n">optim</span><span class="p">.</span><span class="n">Adam</span><span class="p">(</span><span class="n">model</span><span class="p">.</span><span class="n">parameters</span><span class="p">(),</span> <span class="n">lr</span><span class="o">=</span><span class="mf">0.001</span><span class="p">)</span>
+<span class="n">epochs</span> <span class="o">=</span> <span class="mi">20</span>
+
+<span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="n">epochs</span><span class="p">):</span>
+    <span class="k">for</span> <span class="n">x</span><span class="p">,</span> <span class="n">y</span> <span class="ow">in</span> <span class="n">train_in_out_data</span><span class="p">:</span>
+        <span class="n">optimizer</span><span class="p">.</span><span class="n">zero_grad</span><span class="p">()</span>
+        <span class="n">model</span><span class="p">.</span><span class="n">hidden_cell</span> <span class="o">=</span> <span class="p">(</span><span class="n">torch</span><span class="p">.</span><span class="n">zeros</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="n">model</span><span class="p">.</span><span class="n">hidden_layer_size</span><span class="p">),</span>
+                             <span class="n">torch</span><span class="p">.</span><span class="n">zeros</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="n">model</span><span class="p">.</span><span class="n">hidden_layer_size</span><span class="p">))</span>
+
+        <span class="n">y_pred</span> <span class="o">=</span> <span class="n">model</span><span class="p">(</span><span class="n">x</span><span class="p">)</span>
+
+        <span class="n">single_loss</span> <span class="o">=</span> <span class="n">loss_function</span><span class="p">(</span><span class="n">y_pred</span><span class="p">,</span> <span class="n">y</span><span class="p">)</span>
+        <span class="n">single_loss</span><span class="p">.</span><span class="n">backward</span><span class="p">()</span>
+        <span class="n">optimizer</span><span class="p">.</span><span class="n">step</span><span class="p">()</span>
+
+    <span class="k">if</span> <span class="bp">True</span><span class="p">:</span> <span class="c1">#i%1 == 1:
+</span>        <span class="k">print</span><span class="p">(</span><span class="sa">f</span><span class="s">'epoch: </span><span class="si">{</span><span class="n">i</span><span class="si">:</span><span class="mi">3</span><span class="si">}</span><span class="s"> loss: </span><span class="si">{</span><span class="n">single_loss</span><span class="p">.</span><span class="n">item</span><span class="p">()</span><span class="si">:</span><span class="mf">10.8</span><span class="n">f</span><span class="si">}</span><span class="s">'</span><span class="p">)</span>
+
+<span class="k">print</span><span class="p">(</span><span class="sa">f</span><span class="s">'epoch: </span><span class="si">{</span><span class="n">i</span><span class="si">:</span><span class="mi">3</span><span class="si">}</span><span class="s"> loss: </span><span class="si">{</span><span class="n">single_loss</span><span class="p">.</span><span class="n">item</span><span class="p">()</span><span class="si">:</span><span class="mf">10.10</span><span class="n">f</span><span class="si">}</span><span class="s">'</span><span class="p">)</span>
+</code></pre></div>  </div>
+
+  <details>
+  <summary>Solution</summary>
+
+<pre>
+epoch:   0 loss: 0.04469438
+epoch:   1 loss: 0.04004482
+epoch:   2 loss: 0.03381182
+epoch:   3 loss: 0.02361814
+epoch:   4 loss: 0.01961462
+epoch:   5 loss: 0.01725977
+epoch:   6 loss: 0.01528491
+epoch:   7 loss: 0.01404397
+epoch:   8 loss: 0.01311346
+epoch:   9 loss: 0.01235864
+epoch:  10 loss: 0.01172257
+epoch:  11 loss: 0.01118899
+epoch:  12 loss: 0.01075610
+epoch:  13 loss: 0.01042009
+epoch:  14 loss: 0.01016921
+epoch:  15 loss: 0.00998601
+epoch:  16 loss: 0.00985228
+epoch:  17 loss: 0.00975257
+epoch:  18 loss: 0.00967518
+epoch:  19 loss: 0.00961193
+epoch:  19 loss: 0.0096119326
+</pre>
+
+</details>
+
+  <div class="alert alert-info" role="alert">
+    <p><i class="fa-solid fa-circle-info fa-xl"></i> <strong>How do I know if it’s working?</strong></p>
+    <hr />
+
+    <p>Training a neural network is notoriously difficult. The problem is that we are performing <strong>stochastic gradient descent</strong> optimization on a very non-convex function. You should look to see that the loss function decreases during the first few epochs, indicating that the model is improving. If it doesn’t, try decreasing the learning rate. If that doesn’t help, then you have a bug or the model is not appropriate for your problem.</p>
+  </div>
+
+  <div class="alert alert-info" role="alert">
+    <p><i class="fa-solid fa-circle-info fa-xl"></i> <strong>How long do I train?</strong></p>
+    <hr />
+
+    <p>It is hard to know when to stop training, because even when the model seems to have converged, it might suddenly have “a revelation” that allows it to explain the training data perfectly. To build your intuition, we highly recommend playing with the toy neural networks in <a href="https://playground.tensorflow.org/">Tensorflow Playground</a>.</p>
+
+    <p>In practice, we train until we run out of patience or when we start overfitting to a held out test set (known as <strong>early stopping</strong>).</p>
+  </div>
+
+  <h3 id="evaluating-the-model">Evaluating the Model</h3>
+
+  <p>Typically we will evaluate the model on a clean, held-out test set that has not been used for training. Evaluation is done by comparing the test set predictions with ground truth labels and computing metrics such as the MSE. Here, we simply demonstrate predictions and visualize them.</p>
+
+  <p>The model should be set to eval mode, then we can pass in some test input sequence to get a prediction for the next value. Iteratively passing in the previous input gives a predicted sequence.</p>
+
+  <div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="n">test_inputs</span> <span class="o">=</span> <span class="n">data_normalized</span><span class="p">[</span><span class="o">-</span><span class="n">train_window</span><span class="p">:].</span><span class="n">tolist</span><span class="p">()</span>
+<span class="k">print</span><span class="p">(</span><span class="n">test_inputs</span><span class="p">)</span>
+
+<span class="n">model</span><span class="p">.</span><span class="nb">eval</span><span class="p">()</span>
+
+<span class="n">fut_pred</span> <span class="o">=</span> <span class="mi">12</span>  <span class="c1"># Number of predictions to make.
+</span><span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="n">fut_pred</span><span class="p">):</span>
+    <span class="n">seq</span> <span class="o">=</span> <span class="n">torch</span><span class="p">.</span><span class="n">FloatTensor</span><span class="p">(</span><span class="n">test_inputs</span><span class="p">[</span><span class="o">-</span><span class="n">train_window</span><span class="p">:])</span>
+    <span class="k">with</span> <span class="n">torch</span><span class="p">.</span><span class="n">no_grad</span><span class="p">():</span>
+        <span class="n">model</span><span class="p">.</span><span class="n">hidden</span> <span class="o">=</span> <span class="p">(</span><span class="n">torch</span><span class="p">.</span><span class="n">zeros</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="n">model</span><span class="p">.</span><span class="n">hidden_layer_size</span><span class="p">),</span>
+                        <span class="n">torch</span><span class="p">.</span><span class="n">zeros</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="n">model</span><span class="p">.</span><span class="n">hidden_layer_size</span><span class="p">))</span>
+        <span class="n">test_inputs</span><span class="p">.</span><span class="n">append</span><span class="p">(</span><span class="n">model</span><span class="p">(</span><span class="n">seq</span><span class="p">).</span><span class="n">item</span><span class="p">())</span>
+        
+<span class="c1"># Predictions need to be scaled back into W/m^2
+</span><span class="n">actual_predictions</span> <span class="o">=</span> <span class="n">scaler</span><span class="p">.</span><span class="n">inverse_transform</span><span class="p">(</span><span class="n">np</span><span class="p">.</span><span class="n">array</span><span class="p">(</span><span class="n">test_inputs</span><span class="p">[</span><span class="n">train_window</span><span class="p">:]</span> <span class="p">).</span><span class="n">reshape</span><span class="p">(</span><span class="o">-</span><span class="mi">1</span><span class="p">,</span> <span class="mi">1</span><span class="p">))</span>
+</code></pre></div>  </div>
+
+  <p>We can plot the observed and predicted values. Pandas datetimes can be used to label the x-axis.</p>
+
+  <div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>plt.title('')
+plt.ylabel('Solar Irradiance $(W/m^2)$')
+plt.grid(True)
+plt.autoscale(axis='x', tight=True)
+plt.plot(data[-train_window:], label='Observed')
+plt.plot(np.arange(train_window, train_window +fut_pred), actual_predictions, label='Predicted')
+plt.xticks(ticks=np.arange(0, train_window, 20), 
+           labels=df['radiation'][-train_window:].index[np.arange(0, 100, 20)], 
+           rotation=45)
+plt.legend()
+plt.show()
+</code></pre></div>  </div>
+
+  <div class="alert alert-info" role="alert">
+    <p><i class="fa-solid fa-circle-info fa-xl"></i> <strong>Improving the model</strong></p>
+    <hr />
+
+    <p>If we want to improve the model, the first thing to ask ourselves is whether we are <strong>underfitting</strong> or <strong>overfitting</strong>. If we are not overfitting, then we are underfitting and we should increase the size of the model and train longer. If we are overfitting, then we should add regularization or get more training data.</p>
+  </div>
+
+</div>
+
+<div style="text-align: right; padding-bottom: 10px">
+  <hr />
+  <button type="button" onclick="window.location='/morea/machine-learning/experience-ml-nlp-example.html'" class="btn btn-primary">
+    <p style="font-size:16px; margin: 0">NLP Example -&gt;</p>
+    <p style="font-size:12px; margin: 0">3:30pm</p>
+    </button>
+</div>
+
+
+</div>
+
+
+
+
+<!-- Maybe find a different way?
+<script src="/js/scrollIfAnchor.js"></script>
+-->
+
+<footer class="footer footer-background" style="padding-top: 1em; padding-bottom: 1em">
+  <div class="container text-center">
+    
+    
+
+    
+    <p style="margin: 0">Powered by the <a class="footer-link" href="https://morea-framework.github.io/">Morea Framework</a> (Theme: spacelab)<br>
+      Last update on: <span>2023-12-01 13:58:35 -1000</span></p>
+
+    <p style="margin: 0">
+      
+      18 modules
+      
+      | 17 outcomes
+      
+      
+      | 55 readings
+      
+      
+      | 100 experiences
+      
+      
+      | 15 assessments
+      
+    </p>
+  </div>
+</footer>
+
+
+<!-- Load Bootstrap JavaScript components -->
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM" crossorigin="anonymous"></script>
+
+
+<script type="text/javascript" async
+        src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.7/latest.js?config=TeX-MML-AM_CHTML">
+</script>
+
+
+<!-- Add anchors to pages. -->
+<script>anchors.add();</script>
+
+
+</body>
+</html>

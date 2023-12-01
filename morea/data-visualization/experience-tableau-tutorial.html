@@ -1,0 +1,426 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <title> Change-HI/EDU | 4. Tableau Tutorial </title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta charset="utf-8">
+
+  <link rel="stylesheet" href="/css/themes/spacelab/bootstrap.min.css">
+  <link rel="stylesheet" href="/css/style.css">
+  <link rel="stylesheet" href="/css/syntax.css">
+  <link rel="shortcut icon" href="/favicon.ico" type="image/x-icon" />
+  <link href="/css/fontawesome/css/fontawesome.css" rel="stylesheet">
+  <link href="/css/fontawesome/css/brands.css" rel="stylesheet">
+  <link href="/css/fontawesome/css/solid.css" rel="stylesheet">
+  <script src="https://cdn.jsdelivr.net/npm/anchor-js/anchor.min.js"></script>
+
+  
+
+  <!-- Load JQuery, then use it to attach the class 'active' to navbar item currently displayed. -->
+  <script src="https://code.jquery.com/jquery-3.6.0.min.js" integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4=" crossorigin="anonymous"></script>
+  <script>
+    $(window).on('load', function () {
+      $('.nav-item').find('a[href="' + location.pathname + '"]').addClass('active');
+    });
+  </script>
+
+</head>
+<body>
+
+<div class="navbar navbar-expand-lg fixed-top navbar-light bg-light">
+  <div class="container">
+    <a class="navbar-brand" href="/index.html"> Change-HI/EDU </a>
+    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarResponsive" aria-controls="navbarResponsive" aria-expanded="false" aria-label="Toggle navigation">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+    <div class="collapse navbar-collapse" id="navbarResponsive">
+      <ul class="navbar-nav">
+        
+        <li class="nav-item"><a class="nav-link" href="/modules/">Modules</a></li>
+        
+        <li class="nav-item"><a class="nav-link" href="/outcomes/">Outcomes</a></li>
+        
+        
+        <li class="nav-item"><a class="nav-link" href="/readings/">Readings</a></li>
+        
+        
+        <li class="nav-item"><a class="nav-link" href="/experiences/">Experiences</a></li>
+        
+        
+        <li class="nav-item"><a class="nav-link" href="/assessments/">Assessments</a></li>
+        
+        
+      </ul>
+    </div>
+  </div>
+</div>
+
+<!-- Internal fragment for displaying the breadcrumb bar -->
+<div class="breadcrumb-background" style="padding-top: 1em; padding-bottom: .01em">
+  <div class="container">
+    <nav aria-label="breadcrumb">
+      <ol class="breadcrumb">
+        
+        <li class="breadcrumb-item"><a href="/">Home</a></li>
+        <li class="breadcrumb-item"><a href="/modules">Modules</a></li>
+        <li class="breadcrumb-item"><a href="/modules/"></a></li>
+        <li class="breadcrumb-item active">4. Tableau Tutorial</li>
+      </ol>
+    </nav>
+  </div>
+</div>
+
+
+<div class="container">
+  <h1 id="4-tableau-tutorial">4. Tableau Tutorial</h1>
+
+<div class="alert alert-info mt-3" role="alert">
+  <p><i class="fa-solid fa-globe fa-xl"></i> <strong>Overview</strong></p>
+  <hr />
+
+  <p><strong>Objectives</strong></p>
+  <ul>
+    <li>Provide you with an introduction to the Tableau User interface.</li>
+    <li>Help you get started with simple graph plotting with Tableau.</li>
+  </ul>
+</div>
+
+<h3 id="tableau-revolutionizing-data-analysis-and-visualization">Tableau: Revolutionizing Data Analysis and Visualization</h3>
+<p>In 2003, a brilliant team of computer science enthusiasts at Stanford embarked on a mission to democratize data analysis. Their vision was to create a tool that would make it easy for everyone to gain insights from complex data sets. The result of their tireless efforts is <a href="https://www.tableau.com/why-tableau/what-is-tableau">Tableau</a>, a data visualization software that has revolutionized the way people work with data. At the heart of Tableau’s success is its groundbreaking technology, VizQL. VizQL’s intuitive interface translates even the most complex data queries into simple drag-and-drop actions, empowering users to visualize and analyze data seamlessly. With Tableau, you can turn mountains of data into interactive, visual insights in a matter of minutes. With its easy-to-use interface and powerful capabilities, Tableau continues to transform the way people work with data, making it more accessible and impactful than ever before.</p>
+
+<figure>
+  
+    <img src="/morea/data-visualization/fig/tab_next_1.png" style="max-width: 95%;" alt="/tab" class="img-fluid mx-auto d-block border" />
+  
+  <figcaption style="text-align: center">
+    <small>
+      
+    </small>
+  </figcaption>
+</figure>
+
+<h3 id="initial-screen-overview">Initial Screen Overview</h3>
+
+<p>When you log into Tableau, you are presented with a dashboard-like interface.</p>
+
+<figure>
+  
+    <img src="/morea/data-visualization/fig/tab_initial.png" style="max-width: 95%;" alt="/tab" class="img-fluid mx-auto d-block border" />
+  
+  <figcaption style="text-align: center">
+    <small>
+      
+    </small>
+  </figcaption>
+</figure>
+
+<p>The Tableau initial interface is divided into three sections: the left pane, the middle pane, and the right pane.</p>
+
+<p>The right pane contains resources to help you learn Tableau. This pane is marked with the number “4” in the image. Here, you’ll find a wealth of information on how to use Tableau, including tutorials, forums, and other helpful resources.</p>
+
+<p>The middle pane contains your previous workbooks. These workbooks are marked with the number “3” as you can see in the image. This pane is a great way to keep track of your previous work and quickly access it when you need to make updates or changes.</p>
+
+<p>The left pane contains all the connectors you need to load data into Tableau. As you can see in the image, the connectors are divided into two sections: file connectors (marked with “1”) and server connectors (Marked with “2”). The file connectors allow you to load data from files like .csv, .tsv, or .hyper, while the server connectors allow you to connect to MySQL servers or other options. If your desired file type is not in the file connectors list, don’t worry. Simply click “More” to open a file browser, where you can select your desired files (marked with “*” in the following image).</p>
+
+<figure>
+  
+    <img src="/morea/data-visualization/fig/tab_file_more.png" style="max-width: 95%;" alt="/tab" class="img-fluid mx-auto d-block border" />
+  
+  <figcaption style="text-align: center">
+    <small>
+      
+    </small>
+  </figcaption>
+</figure>
+
+<p>Similarly, If your desired server connector is not in the server connectors list, you can click “More” to open a list of server connectors. At Tableau 2022.4.0 There are 73 available server connectors (Marked with “*” in the following image). It has popular data reservoirs like Google Bigquery (Marked with “1”), Google Drive (Marked with “2”), MySQL (Marked with “3”), or any Web data connectors (Marked with “4”). Even with this versatile range of options, if your desired connector can’t be found in the list, you may create a custom connector for your datasource.</p>
+
+<figure>
+  
+    <img src="/morea/data-visualization/fig/tab_server_more.png" style="max-width: 95%;" alt="/tab" class="img-fluid mx-auto d-block border" />
+  
+  <figcaption style="text-align: center">
+    <small>
+      
+    </small>
+  </figcaption>
+</figure>
+
+<h3 id="load-data-source">Load Data-source</h3>
+<p>For this tutorial we shall use one of the most popular filetypes for storing data - “.csv” - a short form for “Comma Separated Values”. Be aware, even though, most of the time, we load .csv files with Excel, it’s actually a text file where data is separated by a specific separator; most commonly the searator is comma or tab. To load the data, we need to click “Text File” on the left panel (Marked with 1 in the folloing image) and select the CSV file we want to work with.</p>
+
+<figure>
+  
+    <img src="/morea/data-visualization/fig/tab_load_data.png" style="max-width: 95%;" alt="/tab" class="img-fluid mx-auto d-block border" />
+  
+  <figcaption style="text-align: center">
+    <small>
+      
+    </small>
+  </figcaption>
+</figure>
+
+<h3 id="data-dashboard-interface-overview">Data Dashboard Interface Overview</h3>
+<p>Once we have successfully loaded the data, we will be directed to a comprehensive Dashboard that encapsulates a multitude of features designed to enhance the readability of the data. The section denoted by “1” in the accompanying image contains the file connectors, with a text file connection being appropriate for our purposes. The section marked as “2” displays the previously loaded files. Additionally, the “3” area provides information on the number of columns and rows, with our current example consisting of 11 columns (referred to as fields throughout the tutorial) and 16,598 rows. The Gear icon highlighted as “4” provides options for sorting data, while the “5” area displays the field names and field types, which can be String values, Date values, Date &amp; Time values, Numeric values, Boolean values, Geographical values, Cluster or mixed values. Finally, the main workspace located at the bottom of the Dashboard is known as “Worksheets” (Marked with “6”). Although the panel also offers options to open “Dashboards” and “Stories”, they will not be covered in this tutorial.</p>
+
+<figure>
+  
+    <img src="/morea/data-visualization/fig/tab_loaded_data.png" style="max-width: 95%;" alt="/tab" class="img-fluid mx-auto d-block border" />
+  
+  <figcaption style="text-align: center">
+    <small>
+      
+    </small>
+  </figcaption>
+</figure>
+
+<h3 id="worksheet-interface-overview">Worksheet interface Overview</h3>
+<p>The Tables section, highlighted as “1” in the accompanying image, displays all available fields within the dataset. The names of these fields are accompanied by an indication of their respective data types to the left. Divided into two sections, the names atop the line (in our case, the top six) are called “Dimensions”, while those beneath are referred to as “Measures”. In the area marked as “2”, we can observe the rows and columns of the graph, which can be manipulated by dragging and dropping fields into this section. The dropdown menu denoted by “3” offers options for selecting the graph type. Setting it to “Automatic” will automatically alter the graph type to align with the fields dropped in the Rows and Columns section (marked as “2”). The pane marked with “4” offers an array of configurable attributes for the graph. The button marked by “5” displays graph types that align well with the data while disabling others. Finally, the button marked as “6” leads to a presentation view that allows a full-screen display of the graph.</p>
+
+<figure>
+  
+    <img src="/morea/data-visualization/fig/tab_sheet.png" style="max-width: 95%;" alt="/tab" class="img-fluid mx-auto d-block border" />
+  
+  <figcaption style="text-align: center">
+    <small>
+      
+    </small>
+  </figcaption>
+</figure>
+
+<h3 id="our-first-plot">Our first Plot</h3>
+<p>Now we have enough familiarity with the interface. Let’s make our first plot. From the “Tables” pane drag and drop “Global Sales” to Rows and “Genre” to Columns. Voila!! We have our first plot without any code at all!!! Your plot should look like the following.</p>
+
+<figure>
+  
+    <img src="/morea/data-visualization/fig/tab_g2.png" style="max-width: 95%;" alt="/tab" class="img-fluid mx-auto d-block border" />
+  
+  <figcaption style="text-align: center">
+    <small>
+      
+    </small>
+  </figcaption>
+</figure>
+
+<p>Similarly, We can generate a different graph by placing “Year” at columns instead of “Genre”.</p>
+
+<figure>
+  
+    <img src="/morea/data-visualization/fig/tab_g1.png" style="max-width: 95%;" alt="/tab" class="img-fluid mx-auto d-block border" />
+  
+  <figcaption style="text-align: center">
+    <small>
+      
+    </small>
+  </figcaption>
+</figure>
+
+<h3 id="lets-heat-things-up-a-bit">Let’s heat things up a bit</h3>
+<p>The Year vs Global Sales graph is a bit dull and dosen’t contain much information, right? Let’s break the sales into different Genres. To do that we will need to drag and drop Genre into the Marks section. The graph should now contain sales for all the genres by the years.</p>
+
+<figure>
+  
+    <img src="/morea/data-visualization/fig/tab_g1_2.png" style="max-width: 95%;" alt="/tab" class="img-fluid mx-auto d-block border" />
+  
+  <figcaption style="text-align: center">
+    <small>
+      
+    </small>
+  </figcaption>
+</figure>
+
+<p>But it’s hard to see which line belongs to which genre. To have a better understanding let’s assign a different color to each genre. We can do that in 2 ways. Either click on the icon left to “Genre” and select color or drag and drop Genre into the Color mark. That should give us a beautiful graph.</p>
+
+<figure>
+  
+    <img src="/morea/data-visualization/fig/tab_g1_3.png" style="max-width: 95%;" alt="/tab" class="img-fluid mx-auto d-block border" />
+  
+  <figcaption style="text-align: center">
+    <small>
+      
+    </small>
+  </figcaption>
+</figure>
+
+<p>The graph looks good now, but it still lacks information. We can label the graph with values by dragging and dropping the Global Sales field onto the Label Mark. We can edit how which values we want to see on the graph by left clicking on the Label Button.</p>
+
+<figure>
+  
+    <img src="/morea/data-visualization/fig/tab_g1_4.png" style="max-width: 95%;" alt="/tab" class="img-fluid mx-auto d-block border" />
+  
+  <figcaption style="text-align: center">
+    <small>
+      
+    </small>
+  </figcaption>
+</figure>
+
+<p>We can play around with the different fields and place them as rows or columns to generate different graphs.</p>
+
+<figure>
+  
+    <img src="/morea/data-visualization/fig/tab_g4_2.png" style="max-width: 95%;" alt="/tab" class="img-fluid mx-auto d-block border" />
+  
+  <figcaption style="text-align: center">
+    <small>
+      
+    </small>
+  </figcaption>
+</figure>
+
+<div class="text-center">
+<img src="/morea/data-visualization/fig/tab_g3.png" width="45%" /> 
+<img src="/morea/data-visualization/fig/tab_g4.png" width="45%" /> 
+</div>
+
+<h3 id="calculated-fields">Calculated Fields</h3>
+<p>We can create new fields as an arithmatical result of the other fields. For an example we can exclude The Japanese Sales from the Global Sales to see its impact on the global sales.</p>
+
+<div class="text-center">
+<img src="/morea/data-visualization/fig/tab_calc_1.png" width="60%" /> 
+<img src="/morea/data-visualization/fig/tab_calc_1_2.png" width="35%" /> 
+</div>
+
+<figure>
+  
+    <img src="/morea/data-visualization/fig/tab_calc_1_3.png" style="max-width: 95%;" alt="/tab" class="img-fluid mx-auto d-block border" />
+  
+  <figcaption style="text-align: center">
+    <small>
+      
+    </small>
+  </figcaption>
+</figure>
+
+<p>Similarly The N.A. sales can be removed from global sales to see a comparative impact. Try it yourself to create a similar graph as follows.</p>
+
+<figure>
+  
+    <img src="/morea/data-visualization/fig/tab_calc_1_4.png" style="max-width: 95%;" alt="/tab" class="img-fluid mx-auto d-block border" />
+  
+  <figcaption style="text-align: center">
+    <small>
+      
+    </small>
+  </figcaption>
+</figure>
+
+<p>Now try dropping Genre in the Columns to have a representation split across gonre. Notice that the “Markes” Section (Highlighted by “1”) has the fields you put in Rows. Make sure to set the attributes differently for each graph to have meaningful labels across the graphs. You can check which Label you are displaying at the Mark highlighted with “2”.</p>
+
+<figure>
+  
+    <img src="/morea/data-visualization/fig/tab_calc_1_5.png" style="max-width: 95%;" alt="/tab" class="img-fluid mx-auto d-block border" />
+  
+  <figcaption style="text-align: center">
+    <small>
+      
+    </small>
+  </figcaption>
+</figure>
+
+<h3 id="where-do-we-go-from-here">Where do we go from here?</h3>
+<figure>
+  
+    <img src="/morea/data-visualization/fig/tab_next_2.gif" style="max-width: 95%;" alt="/tab" class="img-fluid mx-auto d-block border" />
+  
+  <figcaption style="text-align: center">
+    <small>
+      
+    </small>
+  </figcaption>
+</figure>
+
+<p>As this workshop aims to give an introduction to tableau, we started with straightforward graphs and ended up with a much complex graph. But Tableau is much more powerful than that. It allows us to join multiple tables, make connections between tables, select data based on condition and much more. It let’s us build fabulous dashboards with unique visuals which looks good on portfolios, websites, or research papers.</p>
+
+<figure>
+  
+    <img src="/morea/data-visualization/fig/tab_next_3.jpg" style="max-width: 95%;" alt="/tab" class="img-fluid mx-auto d-block border" />
+  
+  <figcaption style="text-align: center">
+    <small>
+      
+    </small>
+  </figcaption>
+</figure>
+
+<p>Tableau has so many options that sometimes it may feel like its use is bound by our imaginations. <a href="https://www.youtube.com/playlist?list=PLkZ_g9Y7eszLQMnIy0hylgO9kJD4643jn">Here is a Youtube playlist</a> that will guide your spark of interest to a burning flame of passion fueling your motivation to go further with data visualization.</p>
+
+<p>If you want to make a project with Tableau, below is a wonderful Tableau project made from scratch.</p>
+
+<div class="video-container">
+  <iframe src="//www.youtube.com/embed/zOR0-nygfDE" frameborder="0" allowfullscreen=""></iframe>
+</div>
+
+<div class="alert alert-success mt-3" role="alert">
+  <p><i class="fa-solid fa-globe fa-xl"></i> <strong>Key Points</strong></p>
+  <hr />
+
+  <ul>
+    <li>Tableau has an easy-to-learn inteface.</li>
+    <li>It’s easy to get started with Tableau.</li>
+    <li>Simple graphs are very easy but complex graphs can be really hard to plot.</li>
+  </ul>
+</div>
+
+<div style="text-align: right; padding-bottom: 10px">
+  <hr />
+  <button type="button" onclick="window.location='/morea/data-visualization/assessment-data-visualization-workshop.html'" class="btn btn-primary">
+    <p style="font-size:16px; margin: 0">Assessment -&gt;</p>
+    <p style="font-size:12px; margin: 0">3:50pm</p>
+    </button>
+</div>
+
+
+</div>
+
+
+
+
+<!-- Maybe find a different way?
+<script src="/js/scrollIfAnchor.js"></script>
+-->
+
+<footer class="footer footer-background" style="padding-top: 1em; padding-bottom: 1em">
+  <div class="container text-center">
+    
+    
+
+    
+    <p style="margin: 0">Powered by the <a class="footer-link" href="https://morea-framework.github.io/">Morea Framework</a> (Theme: spacelab)<br>
+      Last update on: <span>2023-12-01 13:58:35 -1000</span></p>
+
+    <p style="margin: 0">
+      
+      18 modules
+      
+      | 17 outcomes
+      
+      
+      | 55 readings
+      
+      
+      | 100 experiences
+      
+      
+      | 15 assessments
+      
+    </p>
+  </div>
+</footer>
+
+
+<!-- Load Bootstrap JavaScript components -->
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM" crossorigin="anonymous"></script>
+
+
+<script type="text/javascript" async
+        src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.7/latest.js?config=TeX-MML-AM_CHTML">
+</script>
+
+
+<!-- Add anchors to pages. -->
+<script>anchors.add();</script>
+
+
+</body>
+</html>

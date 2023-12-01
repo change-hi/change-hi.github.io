@@ -1,0 +1,458 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <title> Change-HI/EDU | 9. Metadata </title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta charset="utf-8">
+
+  <link rel="stylesheet" href="/css/themes/spacelab/bootstrap.min.css">
+  <link rel="stylesheet" href="/css/style.css">
+  <link rel="stylesheet" href="/css/syntax.css">
+  <link rel="shortcut icon" href="/favicon.ico" type="image/x-icon" />
+  <link href="/css/fontawesome/css/fontawesome.css" rel="stylesheet">
+  <link href="/css/fontawesome/css/brands.css" rel="stylesheet">
+  <link href="/css/fontawesome/css/solid.css" rel="stylesheet">
+  <script src="https://cdn.jsdelivr.net/npm/anchor-js/anchor.min.js"></script>
+
+  
+
+  <!-- Load JQuery, then use it to attach the class 'active' to navbar item currently displayed. -->
+  <script src="https://code.jquery.com/jquery-3.6.0.min.js" integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4=" crossorigin="anonymous"></script>
+  <script>
+    $(window).on('load', function () {
+      $('.nav-item').find('a[href="' + location.pathname + '"]').addClass('active');
+    });
+  </script>
+
+</head>
+<body>
+
+<div class="navbar navbar-expand-lg fixed-top navbar-light bg-light">
+  <div class="container">
+    <a class="navbar-brand" href="/index.html"> Change-HI/EDU </a>
+    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarResponsive" aria-controls="navbarResponsive" aria-expanded="false" aria-label="Toggle navigation">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+    <div class="collapse navbar-collapse" id="navbarResponsive">
+      <ul class="navbar-nav">
+        
+        <li class="nav-item"><a class="nav-link" href="/modules/">Modules</a></li>
+        
+        <li class="nav-item"><a class="nav-link" href="/outcomes/">Outcomes</a></li>
+        
+        
+        <li class="nav-item"><a class="nav-link" href="/readings/">Readings</a></li>
+        
+        
+        <li class="nav-item"><a class="nav-link" href="/experiences/">Experiences</a></li>
+        
+        
+        <li class="nav-item"><a class="nav-link" href="/assessments/">Assessments</a></li>
+        
+        
+      </ul>
+    </div>
+  </div>
+</div>
+
+<!-- Internal fragment for displaying the breadcrumb bar -->
+<div class="breadcrumb-background" style="padding-top: 1em; padding-bottom: .01em">
+  <div class="container">
+    <nav aria-label="breadcrumb">
+      <ol class="breadcrumb">
+        
+        <li class="breadcrumb-item"><a href="/">Home</a></li>
+        <li class="breadcrumb-item"><a href="/modules">Modules</a></li>
+        <li class="breadcrumb-item"><a href="/modules/"></a></li>
+        <li class="breadcrumb-item active">9. Metadata</li>
+      </ol>
+    </nav>
+  </div>
+</div>
+
+
+<div class="container">
+  <h1 id="metadata">Metadata</h1>
+<p>This section will describe what metadata is.</p>
+
+<h2 id="what-is-or-are-metadata">What is (or are) metadata?</h2>
+
+<p>Simply put, metadata is data about the data. Sound confusing? Lets clarify: metadata is the <em>description of data</em>. It allows deeper understanding of data and provides insight for its interpretation. Hence, your metadata should be considered as important as your data. Further, metadata plays a very important role in making your data FAIR. It should be continuously added to your research data (not just at the beginning or end of a project!). Metadata can be produced in an automated way (e.g. when you capture a microscopy image usually the accompanying software saves metadata as part of it) or manually.</p>
+
+<p><ins>Let’s take a look at an example:</ins></p>
+
+<p>This is a confocal microscopy image of a <em>C. elegans</em> nematode strain used
+as a proteostasis model (Pretty! Isn’t it?). The image is part of the raw data
+associated to <a href="https://doi.org/10.1016/j.celrep.2019.12.078">Goya et al., 2020</a>,
+which was deposited in a Public Omero Server<br />
+<a href="https://publicomero.bio.ed.ac.uk/webclient/?show=project-58">Project</a><br />
+<a href="https://publicomero.bio.ed.ac.uk/webclient/?show=dataset-231">Figure1 set</a></p>
+
+<figure>
+  
+    <img src="/morea/fair/fig/04-microscopy_with_metadata.png" style="max-width: 80%;" alt="/nematode_confocal_microscopy_image" class="img-fluid mx-auto d-block border" />
+  
+  <figcaption style="text-align: center">
+    <small>
+      Figure credits: María Eugenia Goya
+    </small>
+  </figcaption>
+</figure>
+
+<p>.
+What information <strong>can you get</strong> from the image, without the associated description (metadata)?</p>
+
+<p>Let’s see the associated metadata of the image and the dataset to which it belongs:</p>
+
+<h2 id="image-metadata">Image metadata</h2>
+
+<p>Name: OP50 D10Ad_06.czi
+Image ID: 3485
+Owner: Maria Eugenia Goya
+ORCID: 0000-0002-5031-2470</p>
+
+<p>Acquisition Date: 2018-12-12 17:53:55
+Import Date: 2020-04-30 22:38:59
+Dimensions (XY): 1344 x 1024
+Pixels Type: uint16
+Pixels Size (XYZ) (µm): 0.16 x 0.16 x 1.00
+Z-sections/Timepoints: 56 x 1
+Channels: TL DIC, TagYFP
+ROI Count: 0</p>
+
+<p>Tags: time course; day 10; adults; food switching; E. coli OP50;
+NL5901; C. elegans</p>
+
+<h2 id="dataset-metadata">Dataset metadata</h2>
+
+<p>Name: Figure2_Figure2B
+Dataset ID: 263
+Owner: Maria Eugenia Goya
+ORCID: 0000-0002-5031-2470</p>
+
+<p>Description:
+The datasets contains a time course of α-syn aggregation in NL5901 C.
+elegans worms after a food switch at the L4 stage:</p>
+
+<p>E. coli OP50 to OP50
+Day 01 adults
+Day 03 adults
+Day 05 adults
+Day 07 adults
+Day 10 adults
+Day 13 adults</p>
+
+<p>E. coli OP50 to B. subtilis PXN21
+Day 01 adults
+Day 03 adults
+Day 05 adults
+Day 07 adults
+Day 10 adults
+Day 13 adults</p>
+
+<p>Images were taken at 6 developmental timepoints (D1Ad, D3Ad, D5Ad,
+D7Ad, D10Ad, D13Ad)</p>
+
+<p>* Some images contain more than one nematode.</p>
+
+<p>Each image contains ~30 (or more) Z-sections, 1 µmeters apart. The
+TagYFP channel is used to follow the alpha-synuclein particles. The TL
+DIC channel is used to image the whole nematode head.</p>
+
+<p>These images were used to construct Figure 2B of the Cell Reports
+paper (<a href="https://doi.org/10.1016/j.celrep.2019.12.078">https://doi.org/10.1016/j.celrep.2019.12.078</a>).</p>
+
+<p>Creation date: 2020-04-30 22:16:39</p>
+
+<p>Tags: protein aggregation; time course; E. coli OP50 to B. subtilis PXN21; food switching; E. coli OP50;
+10.1016/j.celrep.2019.12.078; NL5901; C. elegans</p>
+
+<p>This is a lot of information!</p>
+
+<h2 id="types-of-metadata">Types of metadata</h2>
+
+<p>According to <a href="https://howtofair.dk/">How to FAIR</a> we can distinguish
+between three main types of metadata:</p>
+
+<ul>
+  <li><strong>Administrative metadata:</strong> data about a project or resource
+that are relevant for managing it; E.g. project/resource owner,
+principal investigator, project collaborators, funder, project period,
+etc. They are usually assigned to the data, before you collect or create
+them.</li>
+  <li><strong>Descriptive or citation metadata:</strong> data about a dataset or
+resource that allow people to discover and identify it; E.g.
+authors, title, abstract, keywords, persistent identifier, related
+publications, etc.</li>
+  <li><strong>Structural metadata:</strong> data about how a dataset or resource
+came about, but also how it is internally structured. E.g. the unit
+of analysis, collection method, sampling procedure, sample size,
+categories, variables, etc. Structural metadata have to be gathered by
+the researchers according to best practice in their research community
+and will be published together with the data.</li>
+</ul>
+
+<p>Descriptive and structural <strong>metadata should be added
+continuously</strong> throughout the project.</p>
+
+<h2 id="identifying-metadata">Identifying metadata</h2>
+
+<div class="alert alert-secondary" role="alert">
+  <p><i class="fa-solid fa-user-pen fa-xl"></i>  <strong>Exercise: Identifying metadata</strong></p>
+  <hr />
+
+  <p>Here we have an excel spreadsheet that contains project metadata for
+a made-up experiment of plant metabolites</p>
+  <figure>
+  
+    <img src="/morea/fair/fig/04-metadatafull_spreadsheet.png" style="max-width: 80%;" alt="/Metadata%20in%20data%20table%20example" class="img-fluid mx-auto d-block border" />
+  
+  <figcaption style="text-align: center">
+    <small>
+      _Figure credits: Tomasz Zielinski and Andrés Romanowski_
+    </small>
+  </figcaption>
+</figure>
+
+  <blockquote>
+
+    <p>In groups, identify different types of metadata (administrative,
+descriptive, structural) present in this example.</p>
+  </blockquote>
+
+  <details>
+  <summary>Solution</summary>
+
+<figure>
+  
+    <img src="/morea/fair/fig/04-metadatafull_spreadsheet_solution.png" style="max-width: 80%;" alt="/metadata-full-spreadhseet" class="img-fluid mx-auto d-block border" />
+  
+  <figcaption style="text-align: center">
+    <small>
+      _Figure credits: Tomasz Zielinski and Andrés Romanowski_
+    </small>
+  </figcaption>
+</figure>
+
+
+<ul>
+<li>Administrative metadata marked in blue</li>
+<li>Descriptive metadata marked in orange</li>
+<li>Structural metadata marked in green</li>
+</ul>
+
+</details>
+</div>
+
+<h2 id="where-does-data-end-and-metadata-start">Where does data end and metadata start?</h2>
+
+<p>What is “data” and what is “metadata” can be a matter of
+perspective: Some researchers’ metadata can be other researchers’
+data.</p>
+
+<p>For example, a funding body is categorised as typical administrative metadata,
+however, it can be used to calculate numbers of public datasets per funder
+and then used to compare effects of different funders’ policies on open practices.</p>
+
+<h2 id="adding-metadata-to-your-experiments">Adding metadata to your experiments</h2>
+
+<p>Good metadata are crucial for assuring re-usability of your outcomes.
+Adding metadata is also a very time-consuming process if done manually,
+so collecting metadata should be done incrementally during your experiment.</p>
+
+<p>As we saw metadata can take many forms
+from as simple as including a ReadMe.txt file,
+by embedding them inside the Excel files,
+to using domain specific metadata standards and formats.</p>
+
+<p>But,</p>
+
+<ul>
+  <li><strong>What should be included in metadata?</strong></li>
+  <li><strong>What terms should be used in descriptions?</strong></li>
+</ul>
+
+<p>For many assay methods and experiment types, there are defined recommendations
+and guidelines called <strong>Minimal Information Standards</strong>.</p>
+
+<h2 id="minimal-information-standard">Minimal Information Standard</h2>
+
+<p>The minimum information standard is a set of guidelines for reporting data
+derived by relevant methods in biosciences.
+If followed, it ensures that the data can be easily verified,
+analysed and clearly interpreted by the wider scientific community.
+Keeping with these recommendations also facilitates the foundation of structuralized
+databases, public repositories and development of data analysis tools.
+Individual minimum information standards are brought by the communities of cross-disciplinary
+specialists focused on issues of the specific method used in experimental biology.</p>
+
+<p>Minimum Information for Biological and Biomedical Investigations <a href="https://fairsharing.org/collection/MIBBI">(MIBBI)</a>
+is the collection of the most known standards.</p>
+
+<p><a href="https://fairsharing.org/standards/">FAIRSharing</a> offers excellent search service
+for finding standards</p>
+
+<div class="alert alert-secondary" role="alert">
+  <p><i class="fa-solid fa-user-pen fa-xl"></i>  <strong>Exercise: Minimum information</strong></p>
+  <hr />
+
+  <p>Look at <strong><em>Minimum Information about a Neuroscience Investigation (MINI) Electrophysiology</em></strong> <a href="https://www.nature.com/articles/npre.2008.1720.1.pdf">Gibson, F. et al. Nat Prec (2008)</a>.
+which contains recommendations for reporting the use of electrophysiology in a neuroscience study.<br />
+(<em>Neuroscience (or neurobiology) is the scientific study of the nervous system</em>).</p>
+
+  <p>Scroll to <em>Reporting requirement</em> and decide which of the points 1-8 are:</p>
+  <ul>
+    <li>important for understanding and reuse of data</li>
+    <li>important for technical replication</li>
+    <li>could be applied to other experiments in neuroscience</li>
+  </ul>
+
+  <details>
+  <summary>Solution</summary>
+
+Possible answers:
+
+- a) 
+- b) 
+- c) 
+<ul>
+<li>2, 3, 4, 5, 6, 8a-b</li>
+<li>3, 7</li>
+<li>2, 3, 4, 5, 6</li>
+</ul>
+<p>
+What if there are no metadata standards defined for your data / field of research?
+</p>
+
+<p>
+Think about the minimum information that someone else (from your lab or from any
+other lab in the world) would need to know to be able to work with your dataset
+without any further input from you.
+</p>
+Think as a consumer of your data not the producer!
+
+</details>
+</div>
+
+<h2 id="what-to-include">What to include?</h2>
+
+<div class="alert alert-secondary" role="alert">
+  <p><i class="fa-solid fa-user-pen fa-xl"></i>  <strong>Exercise: Sharing data</strong></p>
+  <hr />
+
+  <p>Think of the data you generate in your projects,and imagine you are going to share them.</p>
+
+  <p>What information would another researcher need to understand or reproduce your data (the structural metadata)?</p>
+
+  <p>For example, we believe that any dataset should have:</p>
+  <ul>
+    <li>a name/title</li>
+    <li>its purpose or experimental hypothesis</li>
+  </ul>
+
+  <p>Write down and compare your proposals, can we find some common elements?</p>
+
+  <details>
+  <summary>Solution</summary>
+
+Some typical elements are:
+<ul>
+<li>Biological material, e.g. Species, Genotypes, Tissue type, Age, Health conditions</li>
+<li>Biological context, e.g. speciment growth, entrainment, samples preparation</li>
+<li>Experimental factors and conditions, e.g. drug treatments, stress factors</li>
+<li>Primers, plasmid sequences, cell line information, plasmid construction</li>
+<li>Specifics of data acquisition</li>
+<li>Specifics of data processing and analysis</li>
+<li>Definition of variables</li>
+<li>Accompanying code, software used (version nr), parameters applied, statistical tests used, seed for randomisation</li>
+<li>LOT numbers</li>
+</ul>
+</details>
+</div>
+
+<h2 id="metadata-and-fair-guidelines">Metadata and FAIR guidelines</h2>
+
+<p>Metadata provides extremely valuable information for us and others to be able to
+interpret, process, reuse and reproduce the research data it accompanies.</p>
+
+<p>Because metadata are data about data, all of the FAIR principles i.e.
+Findable, Accessible, Interoperable and Reusable apply to metadata.</p>
+
+<p>Ideally, metadata should not only be machine-readable, but also interoperable
+so that they can interlink or be reasoned about by computer systems.</p>
+
+<div class="alert alert-info" role="alert">
+  <p><i class="fa-solid fa-circle-info fa-xl"></i> <strong>For more information</strong></p>
+  <hr />
+
+  <p>The content of this chapter was adapted from:</p>
+  <ul>
+    <li><a href="https://esciencecenter-digital-skills.github.io/Lesson-FAIR-Data-Climate/metadata/index.html">Metadata - FAIR data for climate sciences</a>.</li>
+    <li><a href="https://howtofair.dk/how-to-fair/metadata/">Metadata - How to FAIR</a></li>
+    <li><a href="https://fairsharing.org/collection/MIBBI">MIBBI</a></li>
+  </ul>
+
+</div>
+
+<div style="text-align: right; padding-bottom: 10px">
+  <hr />
+  <button type="button" onclick="window.location='/morea/fair/09-Repositories.html'" class="btn btn-primary">
+    <p style="font-size:16px; margin: 0">Repositories -&gt;</p>
+    <p style="font-size:12px; margin: 0">3:10pm</p>
+    </button>
+</div>
+
+
+</div>
+
+
+
+
+<!-- Maybe find a different way?
+<script src="/js/scrollIfAnchor.js"></script>
+-->
+
+<footer class="footer footer-background" style="padding-top: 1em; padding-bottom: 1em">
+  <div class="container text-center">
+    
+    
+
+    
+    <p style="margin: 0">Powered by the <a class="footer-link" href="https://morea-framework.github.io/">Morea Framework</a> (Theme: spacelab)<br>
+      Last update on: <span>2023-12-01 13:58:35 -1000</span></p>
+
+    <p style="margin: 0">
+      
+      18 modules
+      
+      | 17 outcomes
+      
+      
+      | 55 readings
+      
+      
+      | 100 experiences
+      
+      
+      | 15 assessments
+      
+    </p>
+  </div>
+</footer>
+
+
+<!-- Load Bootstrap JavaScript components -->
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM" crossorigin="anonymous"></script>
+
+
+<script type="text/javascript" async
+        src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.7/latest.js?config=TeX-MML-AM_CHTML">
+</script>
+
+
+<!-- Add anchors to pages. -->
+<script>anchors.add();</script>
+
+
+</body>
+</html>

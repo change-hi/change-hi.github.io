@@ -1,0 +1,750 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <title> Change-HI/EDU | 5. Common Methods on Series or DataFrames </title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta charset="utf-8">
+
+  <link rel="stylesheet" href="/css/themes/spacelab/bootstrap.min.css">
+  <link rel="stylesheet" href="/css/style.css">
+  <link rel="stylesheet" href="/css/syntax.css">
+  <link rel="shortcut icon" href="/favicon.ico" type="image/x-icon" />
+  <link href="/css/fontawesome/css/fontawesome.css" rel="stylesheet">
+  <link href="/css/fontawesome/css/brands.css" rel="stylesheet">
+  <link href="/css/fontawesome/css/solid.css" rel="stylesheet">
+  <script src="https://cdn.jsdelivr.net/npm/anchor-js/anchor.min.js"></script>
+
+  
+
+  <!-- Load JQuery, then use it to attach the class 'active' to navbar item currently displayed. -->
+  <script src="https://code.jquery.com/jquery-3.6.0.min.js" integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4=" crossorigin="anonymous"></script>
+  <script>
+    $(window).on('load', function () {
+      $('.nav-item').find('a[href="' + location.pathname + '"]').addClass('active');
+    });
+  </script>
+
+</head>
+<body>
+
+<div class="navbar navbar-expand-lg fixed-top navbar-light bg-light">
+  <div class="container">
+    <a class="navbar-brand" href="/index.html"> Change-HI/EDU </a>
+    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarResponsive" aria-controls="navbarResponsive" aria-expanded="false" aria-label="Toggle navigation">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+    <div class="collapse navbar-collapse" id="navbarResponsive">
+      <ul class="navbar-nav">
+        
+        <li class="nav-item"><a class="nav-link" href="/modules/">Modules</a></li>
+        
+        <li class="nav-item"><a class="nav-link" href="/outcomes/">Outcomes</a></li>
+        
+        
+        <li class="nav-item"><a class="nav-link" href="/readings/">Readings</a></li>
+        
+        
+        <li class="nav-item"><a class="nav-link" href="/experiences/">Experiences</a></li>
+        
+        
+        <li class="nav-item"><a class="nav-link" href="/assessments/">Assessments</a></li>
+        
+        
+      </ul>
+    </div>
+  </div>
+</div>
+
+<!-- Internal fragment for displaying the breadcrumb bar -->
+<div class="breadcrumb-background" style="padding-top: 1em; padding-bottom: .01em">
+  <div class="container">
+    <nav aria-label="breadcrumb">
+      <ol class="breadcrumb">
+        
+        <li class="breadcrumb-item"><a href="/">Home</a></li>
+        <li class="breadcrumb-item"><a href="/modules">Modules</a></li>
+        <li class="breadcrumb-item"><a href="/modules/data-wrangling-1">Data Wrangling, Part 1</a></li>
+        <li class="breadcrumb-item active">5. Common Methods on Series or DataFrames</li>
+      </ol>
+    </nav>
+  </div>
+</div>
+
+
+<div class="container">
+  <h1 id="5-common-methods-on-series-or-dataframes">5. Common Methods on Series or DataFrames</h1>
+
+<p><a href="https://colab.research.google.com/github/mahdi-b/change-hi.github.io/blob/main/morea/data-wrangling-1/Notebook/05-dataframe-analysis.ipynb"><img src="https://colab.research.google.com/assets/colab-badge.svg" alt="Open In Colab" /></a></p>
+
+<div class="alert alert-success mt-3" role="alert">
+  <p><i class="fa-solid fa-globe fa-xl"></i> <strong>Overview</strong></p>
+  <hr />
+
+  <p><strong>Questions</strong></p>
+  <ul>
+    <li>What are some common attributes of Pandas <code class="language-plaintext highlighter-rouge">DataFrame</code>s?</li>
+    <li>What are some common methods of Pandas <code class="language-plaintext highlighter-rouge">DataFrame</code>s?</li>
+    <li>How can you do arithmetic between two Pandas columns?</li>
+  </ul>
+
+  <p><strong>Objectives</strong></p>
+  <ul>
+    <li>Learn new attributes and methods of a <code class="language-plaintext highlighter-rouge">DataFrame</code>.</li>
+    <li>Learn how to obtain statistics from a loaded <code class="language-plaintext highlighter-rouge">DataFrame</code>.</li>
+    <li>Learn how to perform pairwise operations on Pandas <code class="language-plaintext highlighter-rouge">DataFrame</code> columns.</li>
+  </ul>
+
+</div>
+
+<h2 id="dataframe-attributes-and-arithmetic"><code class="language-plaintext highlighter-rouge">DataFrame</code> Attributes and Arithmetic</h2>
+
+<p>Once you have loaded one or more <code class="language-plaintext highlighter-rouge">DataFrames</code>, you may want to investigate various aspects of the data. This could be done by looking at the shape (number of rows and columns) of the <code class="language-plaintext highlighter-rouge">DataFrame</code> or the mean of a single column. This could also involve computing arithmetic operations across columns (i.e. <code class="language-plaintext highlighter-rouge">Series</code>). The following module focuses on these two concepts and will help you better understand how you can analyze the data you have loaded into Pandas.</p>
+
+<h3 id="dataframe-attributes"><code class="language-plaintext highlighter-rouge">DataFrame</code> Attributes</h3>
+
+<p>A DataFrame provides various attributes to access information (metadata) about the data it stores. Among these attributes, the ‘shape’ attribute, previously introduced, provides the number of rows and columns. However, several other attributes convey information such as data types and the total number of values. When exploring a dataset, the following four attributes are particularly valuable:</p>
+
+<table class="table">
+  <thead>
+    <tr>
+      <th style="text-align: left">Attribute</th>
+      <th>Description</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td style="text-align: left"><code class="language-plaintext highlighter-rouge">shape</code></td>
+      <td>Returns a tuple representing the dimensionality of the <code class="language-plaintext highlighter-rouge">DataFrame</code>.</td>
+    </tr>
+    <tr>
+      <td style="text-align: left"><code class="language-plaintext highlighter-rouge">size</code></td>
+      <td>Returns an int representing the number of elements in this object.</td>
+    </tr>
+    <tr>
+      <td style="text-align: left"><code class="language-plaintext highlighter-rouge">dtypes</code></td>
+      <td>Returns the data types in the <code class="language-plaintext highlighter-rouge">DataFrame</code>.</td>
+    </tr>
+    <tr>
+      <td style="text-align: left"><code class="language-plaintext highlighter-rouge">columns</code></td>
+      <td>Returns a <code class="language-plaintext highlighter-rouge">Series</code> of the header names from the <code class="language-plaintext highlighter-rouge">DataFrame</code></td>
+    </tr>
+  </tbody>
+</table>
+
+<div class="alert alert-info" role="alert">
+  <p><i class="fa-solid fa-circle-info fa-xl"></i> <strong>For more information</strong></p>
+  <hr />
+
+  <p>A list of all the <code class="language-plaintext highlighter-rouge">DataFrame</code> attributes can be found on the Pandas website (<a href="https://pandas.pydata.org/pandas-docs/stable/reference/api/pandas.DataFrame.html">Link to <code class="language-plaintext highlighter-rouge">DataFrame</code> Docs</a>).</p>
+
+</div>
+
+<h3 id="inspecting-data-types">Inspecting Data Types</h3>
+
+<p><code class="language-plaintext highlighter-rouge">DataFrame</code> data types determine which methods are applicable to a column. For instance, calculating the mean of an <code class="language-plaintext highlighter-rouge">Object</code> column is not feasible, as Pandas interprets this type as containing strings (i.e., textual data).</p>
+
+<p>We have already used <code class="language-plaintext highlighter-rouge">.columns</code> attribute to return column labels.</p>
+
+<div class="alert alert-secondary" role="alert">
+
+  <h6 id="python">Python</h6>
+
+  <div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="n">df</span><span class="p">.</span><span class="n">columns</span>
+</code></pre></div>  </div>
+
+  <h6 id="that-returns">That returns:</h6>
+
+  <div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>Index(['Sample ID', 'date mmddyy', 'press dbar', 'temp ITS-90', 'csal PSS-78',
+       'coxy umol/kg', 'ph'],
+      dtype='object')
+</code></pre></div>  </div>
+
+</div>
+
+<p>However, what if we wanted to see the data type associated with each column header? Luckily, there is a quick and easy way to do this by accessing the <code class="language-plaintext highlighter-rouge">dtypes</code> attribute. <code class="language-plaintext highlighter-rouge">dtypes</code> is a series maintained by each <code class="language-plaintext highlighter-rouge">DataFrame</code> that contains the data type for each column inside a <code class="language-plaintext highlighter-rouge">DataFrame</code>. As an example, if we want to access the <code class="language-plaintext highlighter-rouge">dtypes</code> attribute the <code class="language-plaintext highlighter-rouge">DataFrame</code> called <code class="language-plaintext highlighter-rouge">df</code> (seen below) we can access the <code class="language-plaintext highlighter-rouge">dtypes</code> of the <code class="language-plaintext highlighter-rouge">DataFrame</code>.</p>
+
+<figure>
+  
+    <img src="/morea/data-wrangling-1/fig/E5_1_types_dataframe.png" style="max-width: 60%;" alt="/Types%20Dataframe" class="img-fluid mx-auto d-block border" />
+  
+  <figcaption style="text-align: center">
+    <small>
+      
+    </small>
+  </figcaption>
+</figure>
+
+<div class="alert alert-secondary" role="alert">
+
+  <h6 id="python-1">Python</h6>
+
+  <div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="n">df</span><span class="p">.</span><span class="n">dtypes</span>
+</code></pre></div>  </div>
+
+  <h6 id="output">Output:</h6>
+
+  <div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>Sample ID        object
+date mmddyy       int64
+press dbar      float64
+temp ITS-90     float64
+csal PSS-78     float64
+coxy umol/kg    float64
+ph              float64
+dtype: object
+</code></pre></div>  </div>
+
+</div>
+
+<h2 id="data-types">Data Types</h2>
+
+<p>Remember that Pandas has a number of different data types:</p>
+
+<table class="table">
+  <thead>
+    <tr>
+      <th style="text-align: left">Python Type</th>
+      <th style="text-align: left">Equivalent Pandas Type</th>
+      <th style="text-align: left">Description</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td style="text-align: left"><code class="language-plaintext highlighter-rouge">string or mixed</code></td>
+      <td style="text-align: left"><code class="language-plaintext highlighter-rouge">object</code></td>
+      <td style="text-align: left">Columns contain partially or completely made up from strings</td>
+    </tr>
+    <tr>
+      <td style="text-align: left"><code class="language-plaintext highlighter-rouge">int</code></td>
+      <td style="text-align: left"><code class="language-plaintext highlighter-rouge">int64</code></td>
+      <td style="text-align: left">Columns with numeric (integer) values. The 64 here refers <br />to size of the memory space allocated to this type</td>
+    </tr>
+    <tr>
+      <td style="text-align: left"><code class="language-plaintext highlighter-rouge">float</code></td>
+      <td style="text-align: left"><code class="language-plaintext highlighter-rouge">float64</code></td>
+      <td style="text-align: left">Columns with floating points numbers (numbers with decimal points)</td>
+    </tr>
+    <tr>
+      <td style="text-align: left"><code class="language-plaintext highlighter-rouge">bool</code></td>
+      <td style="text-align: left"><code class="language-plaintext highlighter-rouge">bool</code></td>
+      <td style="text-align: left">True/False values</td>
+    </tr>
+    <tr>
+      <td style="text-align: left"><code class="language-plaintext highlighter-rouge">datetime</code></td>
+      <td style="text-align: left"><code class="language-plaintext highlighter-rouge">datetime</code></td>
+      <td style="text-align: left">Date and/or time values</td>
+    </tr>
+  </tbody>
+</table>
+
+<p>Pandas can automatically infer column types, but manual specification is required when necessary. For instance, below we will use the column named ‘date mmddyy’ to derive a new column named ‘date’ with the data type ‘datetime’.</p>
+
+<p>We convert the data in the ‘date mmddyy’ column to a new ‘datetime’ Series using the ‘to_datetime’ method, specifying the date format as ‘%m%d%y’, which in date formatting language mean month day and then year with each denoted by two numbers and no separators. This format parameter is based on native Python string conversion to datetime format. More information can be found in the Python docs. (<a href="https://docs.python.org/3/library/datetime.html#strftime-and-strptime-behavior">Link to string to <code class="language-plaintext highlighter-rouge">datetime</code> conversion docs</a>)</p>
+
+<div class="alert alert-info" role="alert">
+  <p><i class="fa-solid fa-circle-info fa-xl"></i> <strong>For more information</strong></p>
+  <hr />
+
+  <p>More information on the <code class="language-plaintext highlighter-rouge">to_datetime</code> method can be found on the Pandas website (<a href="https://pandas.pydata.org/docs/reference/api/pandas.to_datetime.html">Link to <code class="language-plaintext highlighter-rouge">to_datetime</code> method docs</a>).</p>
+
+</div>
+
+<div class="alert alert-secondary" role="alert">
+
+  <h6 id="python-2">Python</h6>
+
+  <div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="n">pd</span><span class="p">.</span><span class="n">to_datetime</span><span class="p">(</span><span class="n">df</span><span class="p">[</span><span class="s">'date mmddyy'</span><span class="p">],</span> <span class="nb">format</span><span class="o">=</span><span class="s">'%m%d%y'</span><span class="p">)</span>
+</code></pre></div>  </div>
+
+  <h6 id="output-1">Output</h6>
+
+  <div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>0   2010-04-06
+1   2010-04-06
+2   2010-04-06
+3   2010-04-06
+4   2010-04-06
+5   2010-04-06
+6   2010-04-06
+7   2010-04-06
+Name: date mmddyy, dtype: datetime64[ns]
+</code></pre></div>  </div>
+
+</div>
+
+<p>Now that we have the correct output format, we can create a new column to hold the converted data by creating a new named column. We will also drop the previously used ‘date mmddyy’ column to prevent confusion.</p>
+
+<div class="alert alert-secondary" role="alert">
+
+  <h6 id="python-3">Python</h6>
+
+  <div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="n">df</span><span class="p">[</span><span class="s">"date"</span><span class="p">]</span> <span class="o">=</span> <span class="n">pd</span><span class="p">.</span><span class="n">to_datetime</span><span class="p">(</span><span class="n">df</span><span class="p">[</span><span class="s">'date mmddyy'</span><span class="p">],</span> <span class="nb">format</span><span class="o">=</span><span class="s">'%m%d%y'</span><span class="p">)</span>
+<span class="n">df</span> <span class="o">=</span> <span class="n">df</span><span class="p">.</span><span class="n">drop</span><span class="p">(</span><span class="n">columns</span><span class="o">=</span><span class="p">[</span><span class="s">"date mmddyy"</span><span class="p">])</span>
+<span class="n">df</span><span class="p">.</span><span class="n">dtypes</span>
+</code></pre></div>  </div>
+
+  <h6 id="output-2">Output</h6>
+
+  <div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>Sample ID               object
+press dbar             float64
+temp ITS-90            float64
+csal PSS-78            float64
+coxy umol/kg           float64
+ph                     float64
+date            datetime64[ns]
+dtype: object
+</code></pre></div>  </div>
+
+</div>
+
+<p>For reference, this is what the final <code class="language-plaintext highlighter-rouge">DataFrame</code> looks like. <strong>Note that the date column is at the right side of the <code class="language-plaintext highlighter-rouge">DataFrame</code> since it was added last.</strong></p>
+
+<figure>
+  
+    <img src="/morea/data-wrangling-1/fig/E5_2_converted_dataframe.png" style="max-width: 60%;" alt="/Converted%20DataFrame" class="img-fluid mx-auto d-block border" />
+  
+  <figcaption style="text-align: center">
+    <small>
+      
+    </small>
+  </figcaption>
+</figure>
+
+<h3 id="dataframe-methods"><code class="language-plaintext highlighter-rouge">DataFrame</code> Methods</h3>
+
+<p>When dealing with a <code class="language-plaintext highlighter-rouge">DataFrame</code>, there are various built-in methods to help summarize the data. Mehtods are accessible using the <code class="language-plaintext highlighter-rouge">df.method()</code> syntax, where <code class="language-plaintext highlighter-rouge">df</code> is a <code class="language-plaintext highlighter-rouge">DataFrame</code>. A list of some of these methods is provided below:</p>
+
+<table class="table">
+  <thead>
+    <tr>
+      <th style="text-align: left">Method</th>
+      <th>Description</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td style="text-align: left"><code class="language-plaintext highlighter-rouge">head()</code></td>
+      <td>Return the first n rows.</td>
+    </tr>
+    <tr>
+      <td style="text-align: left"><code class="language-plaintext highlighter-rouge">tail()</code></td>
+      <td>Return the last n rows.</td>
+    </tr>
+    <tr>
+      <td style="text-align: left"><code class="language-plaintext highlighter-rouge">min()</code>, <code class="language-plaintext highlighter-rouge">max()</code></td>
+      <td>Computes the numeric (for numeric value) or alphanumeric (for object values) row-wise min, max in a Series or DataFrame.</td>
+    </tr>
+    <tr>
+      <td style="text-align: left"><code class="language-plaintext highlighter-rouge">sum()</code>, <code class="language-plaintext highlighter-rouge">mean()</code>, <code class="language-plaintext highlighter-rouge">std()</code>, <code class="language-plaintext highlighter-rouge">var()</code></td>
+      <td>Computes the row-wise sum, mean, standard deviation and variance in a <code class="language-plaintext highlighter-rouge">Series</code> or DataFrame.</td>
+    </tr>
+    <tr>
+      <td style="text-align: left"><code class="language-plaintext highlighter-rouge">nlargest()</code></td>
+      <td>\tReturn the first n rows of the <code class="language-plaintext highlighter-rouge">Series</code> or <code class="language-plaintext highlighter-rouge">DataFrame</code>, ordered by the specified columns in descending order.</td>
+    </tr>
+    <tr>
+      <td style="text-align: left"><code class="language-plaintext highlighter-rouge">count()</code></td>
+      <td>Returns the number of non-NaN values in the in a <code class="language-plaintext highlighter-rouge">Series</code> or <code class="language-plaintext highlighter-rouge">DataFrame</code>.</td>
+    </tr>
+    <tr>
+      <td style="text-align: left"><code class="language-plaintext highlighter-rouge">value_counts()</code></td>
+      <td>Returns the frequency for each value in the <code class="language-plaintext highlighter-rouge">Series</code>.</td>
+    </tr>
+    <tr>
+      <td style="text-align: left"><code class="language-plaintext highlighter-rouge">describe()</code></td>
+      <td>Computes row-wise statistics.</td>
+    </tr>
+  </tbody>
+</table>
+
+<div class="alert alert-info" role="alert">
+  <p><i class="fa-solid fa-circle-info fa-xl"></i> <strong>For more information</strong></p>
+  <hr />
+
+  <p>A full list of methods for <code class="language-plaintext highlighter-rouge">DataFrames</code> can be found in the Pandas documentation (<a href="https://pandas.pydata.org/pandas-docs/stable/reference/api/pandas.DataFrame.html">Link to <code class="language-plaintext highlighter-rouge">DataFrame</code> Docs</a>).</p>
+
+</div>
+<p>In this section, we will explore the <code class="language-plaintext highlighter-rouge">mean()</code> method, which serves as a typical example of method behavior. Subsequently, we will employ the <code class="language-plaintext highlighter-rouge">describe()</code> method, which presents more complex functionality.</p>
+
+<h4 id="mean-method"><code class="language-plaintext highlighter-rouge">mean()</code> Method</h4>
+
+<p>The <code class="language-plaintext highlighter-rouge">mean()</code> method calculates the mean across a given axis (rows = 0, columns = 1). As an example let’s reuse our previous <code class="language-plaintext highlighter-rouge">DataFrame</code> <code class="language-plaintext highlighter-rouge">df</code>.</p>
+
+<p>If we want to find the mean of all our numeric columns, we could use the following command:</p>
+
+<div class="alert alert-secondary" role="alert">
+
+  <h6 id="python-4">Python</h6>
+
+  <div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="n">df</span><span class="p">.</span><span class="n">mean</span><span class="p">(</span><span class="n">numeric_only</span><span class="o">=</span><span class="bp">True</span><span class="p">)</span>
+</code></pre></div>  </div>
+
+  <h6 id="output-3">Output:</h6>
+
+  <div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>press dbar      358.562500
+temp ITS-90      12.196838
+csal PSS-78      34.311013
+coxy umol/kg    176.971429
+ph                7.742333
+dtype: float64
+</code></pre></div>  </div>
+
+  <p><strong>Note: only the columns with numeric data types had their means calculated.</strong></p>
+
+</div>
+
+<h4 id="single-column-series-methods">Single Column (<code class="language-plaintext highlighter-rouge">Series</code>) Methods</h4>
+
+<p>If we only want the mean of a single column we would instead give the <code class="language-plaintext highlighter-rouge">mean()</code> method a single column (i.e. a <code class="language-plaintext highlighter-rouge">Series</code>). This could be done for the latitude column in the example above via the code bit <code class="language-plaintext highlighter-rouge">df['Latitude'].mean()</code> which would return a single value 31.09682 which is the mean of that column (as seen above).</p>
+
+<p>Other methods like <code class="language-plaintext highlighter-rouge">max()</code>, <code class="language-plaintext highlighter-rouge">var()</code>, and <code class="language-plaintext highlighter-rouge">count()</code> work the same way as <code class="language-plaintext highlighter-rouge">mean()</code>.</p>
+
+<h4 id="describe-method"><code class="language-plaintext highlighter-rouge">describe()</code> Method</h4>
+
+<p>The <code class="language-plaintext highlighter-rouge">describe()</code> method offers a variety of statistical summaries for the <code class="language-plaintext highlighter-rouge">DataFrame</code> based on its contents, with some customization options demonstrated below.</p>
+
+<div class="alert alert-secondary" role="alert">
+
+  <p>By default, the <code class="language-plaintext highlighter-rouge">describe()</code> method will only use numeric columns. To tell it to use all columns regardless of whether they are numeric or not we have to use <code class="language-plaintext highlighter-rouge">include='all'</code> as a parameter.</p>
+
+  <h6 id="python-5">Python</h6>
+
+  <div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="n">df</span><span class="p">.</span><span class="n">describe</span><span class="p">(</span><span class="n">include</span><span class="o">=</span><span class="s">'all'</span><span class="p">,</span> <span class="n">datetime_is_numeric</span><span class="o">=</span><span class="bp">True</span><span class="p">)</span>
+</code></pre></div>  </div>
+
+  <h6 id="output-4">Output:</h6>
+
+  <div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>       Sample ID  press dbar  temp ITS-90  csal PSS-78  coxy umol/kg  \
+count          8    8.000000     8.000000     8.000000      7.000000   
+unique         8         NaN          NaN          NaN           NaN   
+top     Sample-1         NaN          NaN          NaN           NaN   
+freq           1         NaN          NaN          NaN           NaN   
+mean         NaN  358.562500    12.196838    34.311013    176.971429   
+min          NaN  239.800000     7.146400    34.042400    110.700000   
+25%          NaN  310.250000     9.995125    34.095400    173.650000   
+50%          NaN  350.700000    11.665050    34.179650    191.300000   
+75%          NaN  399.675000    13.757050    34.338200    193.000000   
+max          NaN  497.800000    18.962500    35.063600    203.500000   
+std          NaN   83.905762     3.853666     0.353064     32.726376   
+
+              ph                 date  
+count   3.000000                    8  
+unique       NaN                  NaN  
+top          NaN                  NaN  
+freq         NaN                  NaN  
+mean    7.742333  2010-04-06 00:00:00  
+min     7.496000  2010-04-06 00:00:00  
+25%     7.638000  2010-04-06 00:00:00  
+50%     7.780000  2010-04-06 00:00:00  
+75%     7.865500  2010-04-06 00:00:00  
+max     7.951000  2010-04-06 00:00:00  
+std     0.229827                  NaN  
+</code></pre></div>  </div>
+
+</div>
+
+<p>Here we get various statistics, such as the mean of each column, how many non-<code class="language-plaintext highlighter-rouge">NaN</code> values contained in each column, the standard deviation of the column, etc. The percent values correspond to the different percentiles of each column e.g. the 25% percentile. The presence of NaN values indicates that certain statistics, e.g., the <code class="language-plaintext highlighter-rouge">mean()</code>, cannot be computed for an <code class="language-plaintext highlighter-rouge">object</code> type column.</p>
+
+<div class="alert alert-info" role="alert">
+  <p><i class="fa-solid fa-circle-info fa-xl"></i> <strong>For more information</strong></p>
+  <hr />
+
+  <p>More information about the <code class="language-plaintext highlighter-rouge">describe()</code> method can be found on the Pandas website (<a href="https://pandas.pydata.org/pandas-docs/stable/reference/api/pandas.DataFrame.describe.html">Link to <code class="language-plaintext highlighter-rouge">describe()</code> method docs</a>).</p>
+
+</div>
+
+<h4 id="accessor-methods"><code class="language-plaintext highlighter-rouge">Accessor</code> Methods</h4>
+
+<p>For <code class="language-plaintext highlighter-rouge">Series</code> containing specialized data types (like strings, datetime values, or categorical data), Pandas provides accessors to offer specialized methods for those data types. These are accessed as <code class="language-plaintext highlighter-rouge">series.accessor.method()</code> where <code class="language-plaintext highlighter-rouge">series</code> is a <code class="language-plaintext highlighter-rouge">Series</code> object. Here are some of the examples of accessors and their methods:</p>
+
+<table class="table">
+  <thead>
+    <tr>
+      <th style="text-align: left">Method</th>
+      <th>Description</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td style="text-align: left"><code class="language-plaintext highlighter-rouge">upper()</code></td>
+      <td>Converts strings in the Series to uppercase.</td>
+    </tr>
+    <tr>
+      <td style="text-align: left"><code class="language-plaintext highlighter-rouge">lower()</code></td>
+      <td>Converts strings in the Series to lowercase.</td>
+    </tr>
+    <tr>
+      <td style="text-align: left"><code class="language-plaintext highlighter-rouge">len()</code></td>
+      <td>Computes the length of each string.</td>
+    </tr>
+    <tr>
+      <td style="text-align: left"><code class="language-plaintext highlighter-rouge">year</code>, <code class="language-plaintext highlighter-rouge">month</code>, <code class="language-plaintext highlighter-rouge">day</code>, <code class="language-plaintext highlighter-rouge">hour</code></td>
+      <td>Returns the year, month, day and hour of the datetime.</td>
+    </tr>
+    <tr>
+      <td style="text-align: left"><code class="language-plaintext highlighter-rouge">categories</code></td>
+      <td>Returns the categories of the Series.</td>
+    </tr>
+    <tr>
+      <td style="text-align: left"><code class="language-plaintext highlighter-rouge">ordered</code></td>
+      <td>Checks if the categories have an order.</td>
+    </tr>
+  </tbody>
+</table>
+
+<p>Pandas provides accessors, i.e., mechanisms that enable you to use specialized methods and functions tailored for specific data types, such as strings, datetime values, or categorical data. These accessors provide access to methods tailored to these data types. Access to these methods is achieved through the syntax <code class="language-plaintext highlighter-rouge">series.data_type.method()</code>, where <code class="language-plaintext highlighter-rouge">series</code> represents a <code class="language-plaintext highlighter-rouge">Series</code> object. Below are examples of these accessors and their corresponding methods as used on sample dataframes:</p>
+
+<div class="alert alert-secondary" role="alert">
+
+  <h6 id="python-6">Python</h6>
+
+  <div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="n">pd</span><span class="p">.</span><span class="n">Series</span><span class="p">([</span><span class="s">'cat'</span><span class="p">,</span> <span class="s">'dog'</span><span class="p">,</span> <span class="s">'fish'</span><span class="p">]).</span><span class="nb">str</span><span class="p">.</span><span class="n">upper</span><span class="p">()</span>
+</code></pre></div>  </div>
+
+  <h6 id="output-5">Output:</h6>
+
+  <div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>0      CAT
+1      DOG
+2      FISH
+dtype: object
+</code></pre></div>  </div>
+
+  <h6 id="python-7">Python</h6>
+
+  <div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="c1"># Create a Pandas Series containing datetime values
+</span><span class="n">dates</span> <span class="o">=</span> <span class="n">pd</span><span class="p">.</span><span class="n">to_datetime</span><span class="p">([</span><span class="s">'2023-01-15'</span><span class="p">,</span> <span class="s">'2023-02-20'</span><span class="p">,</span> <span class="s">'2023-03-25'</span><span class="p">])</span>
+
+<span class="c1"># Use the datetime accessor to extract the day of the week
+</span><span class="n">day_of_week</span> <span class="o">=</span> <span class="n">dates</span><span class="p">.</span><span class="n">dt</span><span class="p">.</span><span class="n">day_name</span><span class="p">()</span>
+</code></pre></div>  </div>
+
+  <h6 id="output-6">Output:</h6>
+
+  <div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>0    Sunday
+1    Monday
+2  Saturday
+dtype: object
+</code></pre></div>  </div>
+
+</div>
+
+<div class="alert alert-info" role="alert">
+  <p><i class="fa-solid fa-circle-info fa-xl"></i> <strong>For more information</strong></p>
+  <hr />
+
+  <p>A full list of methods for <code class="language-plaintext highlighter-rouge">Accessor</code> can be found in the Pandas docs.<br />
+<a href="https://pandas.pydata.org/pandas-docs/stable/user_guide/text.html">Link to <code class="language-plaintext highlighter-rouge">String</code> method docs</a><br />
+<a href="https://pandas.pydata.org/pandas-docs/stable/user_guide/timeseries.html">Link to <code class="language-plaintext highlighter-rouge">Datetime</code> method docs</a><br />
+<a href="https://pandas.pydata.org/pandas-docs/stable/user_guide/categorical.html">Link to <code class="language-plaintext highlighter-rouge">Categorical</code> method docs</a></p>
+
+</div>
+
+<h3 id="dataframe-arithmetic"><code class="language-plaintext highlighter-rouge">DataFrame</code> Arithmetic</h3>
+
+<p>To perform arithmetic operations between columns or rows of distinct Pandas DataFrames, Pandas provides a straightforward solution. For instance, if we have two <code class="language-plaintext highlighter-rouge">DataFrames</code> as depicted below and wish to add the ‘AA’ columns together, we can achieve this by utilizing the following code snippet:</p>
+
+<figure>
+  
+    <img src="/morea/data-wrangling-1/fig/E5_3_alignment_arithmetic_columns.jpg" style="max-width: 60%;" alt="/Alignment%20Arithmetic%20Columns" class="img-fluid mx-auto d-block border" />
+  
+  <figcaption style="text-align: center">
+    <small>
+      
+    </small>
+  </figcaption>
+</figure>
+
+<div class="alert alert-secondary" role="alert">
+
+  <h6 id="python-8">Python</h6>
+
+  <div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="n">df_1</span><span class="p">[</span><span class="s">"AA"</span><span class="p">]</span> <span class="o">+</span> <span class="n">df_2</span><span class="p">[</span><span class="s">"AA"</span><span class="p">]</span>
+</code></pre></div>  </div>
+
+</div>
+
+<p>To perform this operation, Pandas will first align the two columns (<code class="language-plaintext highlighter-rouge">Series</code>) based on their indexes. Following this, any indexes that contain values in both <code class="language-plaintext highlighter-rouge">Series</code> will have their sum calculated. However, for indexes where one of the <code class="language-plaintext highlighter-rouge">Series</code> value is NaN the output value will be NaN. A diagram of this process is shown below:</p>
+
+<figure>
+  
+    <img src="/morea/data-wrangling-1/fig/E5_4_alignment_arithmetic_method.png" style="max-width: 60%;" alt="/Alignment%20Arithmetic%20Method" class="img-fluid mx-auto d-block border" />
+  
+  <figcaption style="text-align: center">
+    <small>
+      
+    </small>
+  </figcaption>
+</figure>
+
+<p>In our notebook we would get a <code class="language-plaintext highlighter-rouge">Series</code> as our output:</p>
+
+<div class="alert alert-secondary" role="alert">
+
+  <h6 id="output-7">Output</h6>
+
+  <div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>A    100.0
+C      NaN
+D      NaN
+T     18.0
+X      NaN
+Name: AA, dtype: float64
+</code></pre></div>  </div>
+
+</div>
+
+<h4 id="dataframe-row-arithmetic"><code class="language-plaintext highlighter-rouge">DataFrame</code> Row Arithmetic</h4>
+
+<p>Calculating the sum across different rows is quite similar to column-wise calculations. The key difference is that you must use a method for selecting rows, such as <code class="language-plaintext highlighter-rouge">.loc</code>. An illustrative figure is shown below.</p>
+
+<figure>
+  
+    <img src="/morea/data-wrangling-1/fig/E5_5_alignment_arithmetic_row.png" style="max-width: 60%;" alt="/Alignment%20Arithmetic%20Row" class="img-fluid mx-auto d-block border" />
+  
+  <figcaption style="text-align: center">
+    <small>
+      
+    </small>
+  </figcaption>
+</figure>
+
+<h4 id="broadcasting">Broadcasting</h4>
+
+<p>Pandas also allows you to do arithmetic operations between a <code class="language-plaintext highlighter-rouge">DataFrame</code> or <code class="language-plaintext highlighter-rouge">Series</code> and a scalar (i.e. a single number). If you were to do the following code bit using the ‘AA’ column from the previously described <code class="language-plaintext highlighter-rouge">DataFrame</code> called <code class="language-plaintext highlighter-rouge">df_1</code></p>
+
+<div class="alert alert-secondary" role="alert">
+
+  <h6 id="python-9">Python</h6>
+
+  <div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="n">df_1</span><span class="p">[</span><span class="s">"AA"</span><span class="p">]</span> <span class="o">+</span> <span class="mf">0.3</span>
+</code></pre></div>  </div>
+
+  <h6 id="output-8">Output:</h6>
+
+  <div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>A    79.3
+C     2.3
+T    13.3
+X    21.3
+Name: AA, dtype: float64
+</code></pre></div>  </div>
+
+</div>
+
+<p>Here you essentially just add 0.3 to each entry in the <code class="language-plaintext highlighter-rouge">Series</code>. The same occurs if you were to do it for a whole <code class="language-plaintext highlighter-rouge">DataFrame</code> with 0.3 being added to each entry. <strong>Note:</strong> this only works for <code class="language-plaintext highlighter-rouge">DataFrame</code>s that are entirely numeric, if there are any object columns you will get an error message.</p>
+
+<div class="alert alert-success mt-3" role="alert">
+  <p><i class="fa-solid fa-globe fa-xl"></i> <strong>Key Points</strong></p>
+  <hr />
+
+  <ul>
+    <li>Use <code class="language-plaintext highlighter-rouge">.dtypes</code> to get the types of each column in a <code class="language-plaintext highlighter-rouge">DataFrame</code>.</li>
+    <li>To get general statistics on the DataFrame you can use the <code class="language-plaintext highlighter-rouge">describe</code> method.</li>
+    <li>You can add a constant to a numeric column by using the <code class="language-plaintext highlighter-rouge">column + constant</code>.</li>
+  </ul>
+</div>
+
+<div class="alert alert-secondary" role="alert">
+  <p><i class="fa-solid fa-user-pen fa-xl"></i>  <strong>Exercise: Analyzing and Modifying the Data Set</strong></p>
+  <hr />
+
+  <p>Let’s dive deeper into our <code class="language-plaintext highlighter-rouge">20_sales_records.xlsx</code> file.</p>
+
+  <ul>
+    <li>First, compute the mean, minimum, and maximum of the “Total Profit” column.</li>
+    <li>Convert the “Sales Channel” column entries from lowercase to uppercase.</li>
+  </ul>
+
+  <details>
+  <summary>Solution</summary>
+
+Step 1: Start by reading the data set and computing the desired statistics for the "Total Profit" column.
+
+  <pre>
+  df = pd.read_excel('data/20_sales_records.xlsx')
+  mean_profit = df["Total Profit"].mean()
+  min_profit = df["Total Profit"].min()
+  max_profit = df["Total Profit"].max()
+  print(f"Mean Total Profit: {mean_profit}")
+  print(f"Minimum Total Profit: {min_profit}")
+  print(f"Maximum Total Profit: {max_profit}")
+  </pre>
+
+You should get the following outputs:
+
+  <pre>
+  Mean Total Profit: $467,929.09
+  Minimum Total Profit: $7,828.12
+  Maximum Total Profit: $1,487,261.02
+  </pre>
+
+Step 2: Convert the "Sales Channel" column to uppercase.
+
+  <pre>
+  df["Sales Channel"] = df["Sales Channel"].str.upper()
+  df["Sales Channel"].head()
+  </pre>
+
+The output should now display the "Sales Channel" entries in uppercase.
+
+</details>
+</div>
+
+<div style="text-align: right; padding-bottom: 10px">
+  <hr />
+  <button type="button" onclick="window.location='/morea/data-wrangling-1/assessment-data-wrangling-workshop.html'" class="btn btn-primary">
+    <p style="font-size:16px; margin: 0">Assessment -&gt;</p>
+    <p style="font-size:12px; margin: 0">2:50pm</p>
+    </button>
+</div>
+
+
+</div>
+
+
+
+
+<!-- Maybe find a different way?
+<script src="/js/scrollIfAnchor.js"></script>
+-->
+
+<footer class="footer footer-background" style="padding-top: 1em; padding-bottom: 1em">
+  <div class="container text-center">
+    
+    
+
+    
+    <p style="margin: 0">Powered by the <a class="footer-link" href="https://morea-framework.github.io/">Morea Framework</a> (Theme: spacelab)<br>
+      Last update on: <span>2023-12-01 13:58:35 -1000</span></p>
+
+    <p style="margin: 0">
+      
+      18 modules
+      
+      | 17 outcomes
+      
+      
+      | 55 readings
+      
+      
+      | 100 experiences
+      
+      
+      | 15 assessments
+      
+    </p>
+  </div>
+</footer>
+
+
+<!-- Load Bootstrap JavaScript components -->
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM" crossorigin="anonymous"></script>
+
+
+<script type="text/javascript" async
+        src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.7/latest.js?config=TeX-MML-AM_CHTML">
+</script>
+
+
+<!-- Add anchors to pages. -->
+<script>anchors.add();</script>
+
+
+</body>
+</html>

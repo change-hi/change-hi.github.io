@@ -1,0 +1,643 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <title> Change-HI/EDU | 9. Real Example Analysis </title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta charset="utf-8">
+
+  <link rel="stylesheet" href="/css/themes/spacelab/bootstrap.min.css">
+  <link rel="stylesheet" href="/css/style.css">
+  <link rel="stylesheet" href="/css/syntax.css">
+  <link rel="shortcut icon" href="/favicon.ico" type="image/x-icon" />
+  <link href="/css/fontawesome/css/fontawesome.css" rel="stylesheet">
+  <link href="/css/fontawesome/css/brands.css" rel="stylesheet">
+  <link href="/css/fontawesome/css/solid.css" rel="stylesheet">
+  <script src="https://cdn.jsdelivr.net/npm/anchor-js/anchor.min.js"></script>
+
+  
+
+  <!-- Load JQuery, then use it to attach the class 'active' to navbar item currently displayed. -->
+  <script src="https://code.jquery.com/jquery-3.6.0.min.js" integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4=" crossorigin="anonymous"></script>
+  <script>
+    $(window).on('load', function () {
+      $('.nav-item').find('a[href="' + location.pathname + '"]').addClass('active');
+    });
+  </script>
+
+</head>
+<body>
+
+<div class="navbar navbar-expand-lg fixed-top navbar-light bg-light">
+  <div class="container">
+    <a class="navbar-brand" href="/index.html"> Change-HI/EDU </a>
+    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarResponsive" aria-controls="navbarResponsive" aria-expanded="false" aria-label="Toggle navigation">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+    <div class="collapse navbar-collapse" id="navbarResponsive">
+      <ul class="navbar-nav">
+        
+        <li class="nav-item"><a class="nav-link" href="/modules/">Modules</a></li>
+        
+        <li class="nav-item"><a class="nav-link" href="/outcomes/">Outcomes</a></li>
+        
+        
+        <li class="nav-item"><a class="nav-link" href="/readings/">Readings</a></li>
+        
+        
+        <li class="nav-item"><a class="nav-link" href="/experiences/">Experiences</a></li>
+        
+        
+        <li class="nav-item"><a class="nav-link" href="/assessments/">Assessments</a></li>
+        
+        
+      </ul>
+    </div>
+  </div>
+</div>
+
+<!-- Internal fragment for displaying the breadcrumb bar -->
+<div class="breadcrumb-background" style="padding-top: 1em; padding-bottom: .01em">
+  <div class="container">
+    <nav aria-label="breadcrumb">
+      <ol class="breadcrumb">
+        
+        <li class="breadcrumb-item"><a href="/">Home</a></li>
+        <li class="breadcrumb-item"><a href="/modules">Modules</a></li>
+        <li class="breadcrumb-item"><a href="/modules/data-wrangling-2">Data Wrangling, Part 2</a></li>
+        <li class="breadcrumb-item active">9. Real Example Analysis</li>
+      </ol>
+    </nav>
+  </div>
+</div>
+
+
+<div class="container">
+  <h1 id="9-real-example-analysis">9. Real Example Analysis</h1>
+
+<p><a target="_blank" href="https://colab.research.google.com/github/mahdi-b/change-hi.github.io/blob/main/morea/data-wrangling-2/Notebooks/08-real-example-analysis.ipynb">
+  <img src="https://colab.research.google.com/assets/colab-badge.svg" alt="Open In Colab" />
+</a></p>
+
+<div class="alert alert-success mt-3" role="alert">
+  <p><i class="fa-solid fa-globe fa-xl"></i> <strong>Overview</strong></p>
+  <hr />
+
+  <p><strong>Questions</strong></p>
+  <ul>
+    <li>How do you visualize data from a <code class="language-plaintext highlighter-rouge">DataFrame</code>?</li>
+    <li>How do you group data by year and month?</li>
+    <li>How do you plot multiple measurements in a single plot?</li>
+  </ul>
+
+  <p><strong>Objectives</strong></p>
+  <ul>
+    <li>Learn how to plot the cleaned data.</li>
+    <li>Learn how to subset and plot the data.</li>
+    <li>Learn how to use the groupby method to visualize yearly and monthly changes.</li>
+  </ul>
+
+</div>
+
+<h1 id="analyzing-real-data">Analyzing Real Data</h1>
+
+<p>This episode continues from the previous one and utilizes the final <code class="language-plaintext highlighter-rouge">DataFrame</code> described there.</p>
+
+<h2 id="analysis">Analysis</h2>
+
+<p>Before we get started on our analysis let us take stock of how much data we have for the various columns. To do this we can use two <code class="language-plaintext highlighter-rouge">DataFrame</code> methods that we’ve previously used.</p>
+
+<p>First, we can check how many rows of data we have in total. We can check this easily through the shape attribute of the <code class="language-plaintext highlighter-rouge">DataFrame</code></p>
+
+<div class="alert alert-secondary" role="alert">
+
+  <h6 id="python">Python</h6>
+
+  <div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="n">df</span><span class="p">.</span><span class="n">shape</span>
+</code></pre></div>  </div>
+  <h6 id="output">Output</h6>
+
+  <div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>(21222, 13)
+</code></pre></div>  </div>
+
+</div>
+
+<p>From this, we can see that we have 21222 rows in our data and 13 columns. At most, we can have 21222 rows of data for each column. However, as we saw during the cleaning phase there are NaN values in our dataset so many of our columns won’t contain data in every row.</p>
+
+<p>To check how many rows of data we have for each column we can again use the <code class="language-plaintext highlighter-rouge">describe()</code> method. It will count how many rows of data are <strong>not</strong> NaN for each column. To reduce the size of the output we will use <code class="language-plaintext highlighter-rouge">loc</code> to only view the counts for each column.</p>
+
+<div class="alert alert-secondary" role="alert">
+
+  <h6 id="python-1">Python</h6>
+
+  <div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="n">df</span><span class="p">.</span><span class="n">describe</span><span class="p">().</span><span class="n">loc</span><span class="p">[</span><span class="s">"count"</span><span class="p">,:]</span>
+</code></pre></div>  </div>
+  <h6 id="output-1">Output</h6>
+
+  <div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>time hhmmss       21222.0
+press dbar        21222.0
+temp ITS-90       21222.0
+csal PSS-78       21210.0
+coxy umol/kg       3727.0
+ph                  885.0
+phos umol/kg       2259.0
+nit umol/kg        2253.0
+doc umol/kg         868.0
+hbact #*1e5/ml      750.0
+pbact #*1e5/ml      749.0
+sbact #*1e5/ml      750.0
+Name: count, dtype: float64
+</code></pre></div>  </div>
+
+</div>
+
+<p>As we can see we have highly variable amounts of data for each of our columns. We will ignore pressure since it is roughly a depth estimate. These fit fairly neatly into three groups:</p>
+
+<ol>
+  <li>Data that is found in almost all rows
+    <ul>
+      <li>Temperature</li>
+      <li>Salinity</li>
+    </ul>
+  </li>
+  <li>Data that is found in around 2000-4000 samples
+    <ul>
+      <li>Oxygen</li>
+      <li>Phosphorus</li>
+      <li>Nitrate+Nitrite</li>
+    </ul>
+  </li>
+  <li>Data that is found in fewer than 1000 samples
+    <ul>
+      <li>pH</li>
+      <li>Dissolved organic carbon</li>
+      <li>Heterotrophic bacteria</li>
+      <li>Prochlorococcus</li>
+      <li>Synechococcus</li>
+    </ul>
+  </li>
+</ol>
+
+<p>Note here that pressure is roughly akin to “depth” so we won’t be using it.</p>
+
+<h3 id="groupby-and-visualization"><code class="language-plaintext highlighter-rouge">GroupBy</code> and Visualization</h3>
+
+<p>To start off we can focus on the measurements that we have plenty of data for.</p>
+
+<div class="alert alert-secondary" role="alert">
+  <p><i class="fa-solid fa-user-pen fa-xl"></i>  <strong>Exercise: Plotting Temperature</strong></p>
+  <hr />
+
+  <p>We can quickly get a matplotlib visualization for temperature by calling the <code class="language-plaintext highlighter-rouge">plot</code> method from our <code class="language-plaintext highlighter-rouge">DataFrame</code>. We can tell it what columns we want to use as the x axis and y-axis via the parameters <code class="language-plaintext highlighter-rouge">x</code> and <code class="language-plaintext highlighter-rouge">y</code>. The <code class="language-plaintext highlighter-rouge">kind</code> parameter lets the <code class="language-plaintext highlighter-rouge">plot()</code> method know what kind of plot we want e.g. line or scatter. For more information about the plot function check out the docs (<a href="https://pandas.pydata.org/docs/reference/api/pandas.DataFrame.plot.html">Link to plot method docs</a>).</p>
+
+  <div class="alert alert-secondary" role="alert">
+
+    <h6 id="python-2">Python</h6>
+
+    <div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="n">df</span><span class="p">.</span><span class="n">plot</span><span class="p">(</span><span class="n">x</span><span class="o">=</span><span class="s">"date"</span><span class="p">,</span> <span class="n">y</span><span class="o">=</span><span class="s">"temp ITS-90"</span><span class="p">,</span> <span class="n">kind</span><span class="o">=</span><span class="s">"line"</span><span class="p">)</span>
+</code></pre></div>    </div>
+  </div>
+
+  <details>
+  <summary>Solution</summary>
+
+  Below is the output plot
+<figure>
+  
+    <img src="/morea/data-wrangling-2/fig/E7_01_temp_plot.png" style="max-width: 60%;" alt="/Temperature%20Plot" class="img-fluid mx-auto d-block border" />
+  
+  <figcaption style="text-align: center">
+    <small>
+      
+    </small>
+  </figcaption>
+</figure>
+
+
+</details>
+</div>
+
+<p>The resulting plot appears cluttered. Notable yearly temperature fluctuate between 7°C and 25°C and the lines are densely packed.</p>
+
+<div class="alert alert-secondary" role="alert">
+  <p><i class="fa-solid fa-user-pen fa-xl"></i>  <strong>Exercise: Plotting Surface Temperature</strong></p>
+  <hr />
+
+  <p>This cluttered plot results, in part, from  all high variance of the temperature values in our dataset, regardless of depth (i.e. pressure). To resolve some of the variation we can ask Pandas to only plot data that is from roughly the top 100m of the water column this would be roughly any rows that come from pressures of less than 100 dbar.</p>
+
+  <div class="alert alert-secondary" role="alert">
+
+    <h6 id="python-3">Python</h6>
+
+    <div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="n">surface_samples</span> <span class="o">=</span> <span class="n">df</span><span class="p">[</span><span class="n">df</span><span class="p">[</span><span class="s">"press dbar"</span><span class="p">]</span> <span class="o">&lt;</span> <span class="mi">100</span><span class="p">]</span>
+<span class="n">surface_samples</span><span class="p">.</span><span class="n">plot</span><span class="p">(</span><span class="n">x</span><span class="o">=</span><span class="s">"date"</span><span class="p">,</span> <span class="n">y</span><span class="o">=</span><span class="s">"temp ITS-90"</span><span class="p">,</span> <span class="n">kind</span><span class="o">=</span><span class="s">"line"</span><span class="p">)</span>
+</code></pre></div>    </div>
+  </div>
+
+  <details>
+  <summary>Solution</summary>
+
+  Below is the output plot
+  <figure>
+  
+    <img src="/morea/data-wrangling-2/fig/E7_02_temp_srf_plot.png" style="max-width: 60%;" alt="/Temperature%20Surface%20Plot" class="img-fluid mx-auto d-block border" />
+  
+  <figcaption style="text-align: center">
+    <small>
+      
+    </small>
+  </figcaption>
+</figure>
+
+
+</details>
+</div>
+
+<p>Now we can see that we have removed some of the variation we saw in the previous figure. However, it is still somewhat difficult to make out any trends in the data. One way of dealing with this would be to e.g. get the average temperature for each year and then plot those results.</p>
+
+<p>To this end, we will introduce a new method called <code class="language-plaintext highlighter-rouge">groupby</code> which allows us to run calculations like <code class="language-plaintext highlighter-rouge">mean()</code> on groups we specify. We want to get the mean temperature for each year. Thanks to our previous work in setting up the date column type this is very easy. We can also reuse <code class="language-plaintext highlighter-rouge">surface_samples</code> to only get samples from the upper 100m of the water column.</p>
+
+<div class="alert alert-secondary" role="alert">
+
+  <h6 id="python-4">Python</h6>
+
+  <div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="n">grouped_surface_samples</span> <span class="o">=</span> <span class="n">surface_samples</span><span class="p">.</span><span class="n">groupby</span><span class="p">(</span><span class="n">df</span><span class="p">.</span><span class="n">date</span><span class="p">.</span><span class="n">dt</span><span class="p">.</span><span class="n">year</span><span class="p">).</span><span class="n">mean</span><span class="p">()</span>
+</code></pre></div>  </div>
+
+  <h6 id="output-2">Output</h6>
+
+  <table class="table">
+    <thead>
+      <tr>
+        <th style="text-align: right"> </th>
+        <th style="text-align: right">press dbar</th>
+        <th style="text-align: right">temp ITS-90</th>
+        <th style="text-align: right">csal PSS-78</th>
+        <th style="text-align: right">coxy umol/kg</th>
+        <th style="text-align: right">ph</th>
+        <th style="text-align: right">phos umol/kg</th>
+        <th style="text-align: right">nit umol/kg</th>
+        <th style="text-align: right">doc umol/kg</th>
+        <th style="text-align: right">hbact #*1e5/ml</th>
+        <th style="text-align: right">pbact #*1e5/ml</th>
+        <th style="text-align: right">sbact #*1e5/ml</th>
+      </tr>
+      <tr>
+        <th style="text-align: right">date</th>
+        <th style="text-align: right"> </th>
+        <th style="text-align: right"> </th>
+        <th style="text-align: right"> </th>
+        <th style="text-align: right"> </th>
+        <th style="text-align: right"> </th>
+        <th style="text-align: right"> </th>
+        <th style="text-align: right"> </th>
+        <th style="text-align: right"> </th>
+        <th style="text-align: right"> </th>
+        <th style="text-align: right"> </th>
+        <th style="text-align: right"> </th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td style="text-align: right">2010</td>
+        <td style="text-align: right">37.517</td>
+        <td style="text-align: right">24.4383</td>
+        <td style="text-align: right">35.2826</td>
+        <td style="text-align: right">213.306</td>
+        <td style="text-align: right">8.06385</td>
+        <td style="text-align: right">0.0758416</td>
+        <td style="text-align: right">0.0334653</td>
+        <td style="text-align: right">73.8102</td>
+        <td style="text-align: right">4.61495</td>
+        <td style="text-align: right">1.90935</td>
+        <td style="text-align: right">0.0143514</td>
+      </tr>
+      <tr>
+        <td style="text-align: right">2011</td>
+        <td style="text-align: right">40.0254</td>
+        <td style="text-align: right">24.546</td>
+        <td style="text-align: right">35.2255</td>
+        <td style="text-align: right">210.138</td>
+        <td style="text-align: right">8.07209</td>
+        <td style="text-align: right">0.0564545</td>
+        <td style="text-align: right">0.0294643</td>
+        <td style="text-align: right">74.384</td>
+        <td style="text-align: right">4.6512</td>
+        <td style="text-align: right">1.78386</td>
+        <td style="text-align: right">0.0193878</td>
+      </tr>
+      <tr>
+        <td style="text-align: right">2012</td>
+        <td style="text-align: right">37.5037</td>
+        <td style="text-align: right">24.2862</td>
+        <td style="text-align: right">35.2003</td>
+        <td style="text-align: right">211.909</td>
+        <td style="text-align: right">8.06153</td>
+        <td style="text-align: right">0.114953</td>
+        <td style="text-align: right">0.0182243</td>
+        <td style="text-align: right">72.5789</td>
+        <td style="text-align: right">4.78708</td>
+        <td style="text-align: right">1.96827</td>
+        <td style="text-align: right">0.0153514</td>
+      </tr>
+      <tr>
+        <td style="text-align: right">2013</td>
+        <td style="text-align: right">38.5446</td>
+        <td style="text-align: right">24.4499</td>
+        <td style="text-align: right">35.3025</td>
+        <td style="text-align: right">211.057</td>
+        <td style="text-align: right">8.06493</td>
+        <td style="text-align: right">0.0872642</td>
+        <td style="text-align: right">0.0269811</td>
+        <td style="text-align: right">71.5484</td>
+        <td style="text-align: right">4.778</td>
+        <td style="text-align: right">2.34522</td>
+        <td style="text-align: right">0.0201622</td>
+      </tr>
+      <tr>
+        <td style="text-align: right">2014</td>
+        <td style="text-align: right">40.7634</td>
+        <td style="text-align: right">24.7555</td>
+        <td style="text-align: right">35.2871</td>
+        <td style="text-align: right">211.539</td>
+        <td style="text-align: right">8.06979</td>
+        <td style="text-align: right">0.0659829</td>
+        <td style="text-align: right">0.0256522</td>
+        <td style="text-align: right">72.2371</td>
+        <td style="text-align: right">4.84544</td>
+        <td style="text-align: right">2.22315</td>
+        <td style="text-align: right">0.0189268</td>
+      </tr>
+      <tr>
+        <td style="text-align: right">2015</td>
+        <td style="text-align: right">37.9309</td>
+        <td style="text-align: right">24.7992</td>
+        <td style="text-align: right">35.2105</td>
+        <td style="text-align: right">210.16</td>
+        <td style="text-align: right">8.06583</td>
+        <td style="text-align: right">0.0717949</td>
+        <td style="text-align: right">0.0292105</td>
+        <td style="text-align: right">70.8942</td>
+        <td style="text-align: right">4.83866</td>
+        <td style="text-align: right">2.18234</td>
+        <td style="text-align: right">0.0183864</td>
+      </tr>
+      <tr>
+        <td style="text-align: right">2016</td>
+        <td style="text-align: right">37.8143</td>
+        <td style="text-align: right">24.9402</td>
+        <td style="text-align: right">34.9958</td>
+        <td style="text-align: right">208.771</td>
+        <td style="text-align: right">8.07224</td>
+        <td style="text-align: right">0.0681081</td>
+        <td style="text-align: right">0.0556757</td>
+        <td style="text-align: right">72.5621</td>
+        <td style="text-align: right">4.46732</td>
+        <td style="text-align: right">2.12753</td>
+        <td style="text-align: right">0.0144706</td>
+      </tr>
+      <tr>
+        <td style="text-align: right">2017</td>
+        <td style="text-align: right">36.4994</td>
+        <td style="text-align: right">24.8369</td>
+        <td style="text-align: right">35.001</td>
+        <td style="text-align: right">211.144</td>
+        <td style="text-align: right">8.06492</td>
+        <td style="text-align: right">0.0529464</td>
+        <td style="text-align: right">0.0335135</td>
+        <td style="text-align: right">70.5569</td>
+        <td style="text-align: right">4.74498</td>
+        <td style="text-align: right">2.10988</td>
+        <td style="text-align: right">0.0199268</td>
+      </tr>
+      <tr>
+        <td style="text-align: right">2018</td>
+        <td style="text-align: right">37.0647</td>
+        <td style="text-align: right">24.5807</td>
+        <td style="text-align: right">34.9996</td>
+        <td style="text-align: right">213.029</td>
+        <td style="text-align: right">8.05466</td>
+        <td style="text-align: right">0.06</td>
+        <td style="text-align: right">0.08525</td>
+        <td style="text-align: right">nan</td>
+        <td style="text-align: right">4.55555</td>
+        <td style="text-align: right">2.03562</td>
+        <td style="text-align: right">0.0207105</td>
+      </tr>
+      <tr>
+        <td style="text-align: right">2019</td>
+        <td style="text-align: right">38.4616</td>
+        <td style="text-align: right">25.0876</td>
+        <td style="text-align: right">34.8056</td>
+        <td style="text-align: right">212.239</td>
+        <td style="text-align: right">8.06179</td>
+        <td style="text-align: right">0.0600935</td>
+        <td style="text-align: right">0.0216667</td>
+        <td style="text-align: right">nan</td>
+        <td style="text-align: right">5.08483</td>
+        <td style="text-align: right">2.12312</td>
+        <td style="text-align: right">0.0152143</td>
+      </tr>
+    </tbody>
+  </table>
+</div>
+
+<p>We see now that the new <code class="language-plaintext highlighter-rouge">DataFrame</code> generated by <code class="language-plaintext highlighter-rouge">groupby()</code> and <code class="language-plaintext highlighter-rouge">mean()</code> contains the mean for each year for each of our columns.</p>
+
+<div class="alert alert-secondary" role="alert">
+  <p><i class="fa-solid fa-user-pen fa-xl"></i>  <strong>Exercise: Plotting Yearly Surface Temperature</strong></p>
+  <hr />
+
+  <p>Now we can just run the same plot method as previously but using <code class="language-plaintext highlighter-rouge">grouped_surface_samples</code> instead of <code class="language-plaintext highlighter-rouge">surface_samples</code>.</p>
+
+  <div class="alert alert-secondary" role="alert">
+
+    <h6 id="python-5">Python</h6>
+
+    <div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="n">grouped_surface_samples</span> <span class="o">=</span> <span class="n">surface_samples</span><span class="p">.</span><span class="n">groupby</span><span class="p">(</span><span class="n">df</span><span class="p">.</span><span class="n">date</span><span class="p">.</span><span class="n">dt</span><span class="p">.</span><span class="n">year</span><span class="p">).</span><span class="n">mean</span><span class="p">()</span>
+</code></pre></div>    </div>
+  </div>
+
+  <details>
+  <summary>Solution</summary>
+
+  Below is the output plot
+  
+  <figure>
+  
+    <img src="/morea/data-wrangling-2/fig/E7_03_temp_yearly_srf_plot.png" style="max-width: 60%;" alt="/Temperature%20Yearly%20Surface%20Plot" class="img-fluid mx-auto d-block border" />
+  
+  <figcaption style="text-align: center">
+    <small>
+      
+    </small>
+  </figcaption>
+</figure>
+
+
+</details>
+</div>
+
+<p>Now it looks a lot smoother, but now we have another issue. We’ve smoothed out any month-to-month variations that are present in the data. To fix this we can instead use the <code class="language-plaintext highlighter-rouge">groupby</code> method to group by year and month.</p>
+
+<div class="alert alert-secondary" role="alert">
+
+  <h6 id="python-6">Python</h6>
+
+  <div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="n">grouped_surface_samples</span> <span class="o">=</span> <span class="n">surface_samples</span><span class="p">.</span><span class="n">groupby</span><span class="p">([(</span><span class="n">surface_samples</span><span class="p">.</span><span class="n">date</span><span class="p">.</span><span class="n">dt</span><span class="p">.</span><span class="n">year</span><span class="p">),(</span><span class="n">surface_samples</span><span class="p">.</span><span class="n">date</span><span class="p">.</span><span class="n">dt</span><span class="p">.</span><span class="n">month</span><span class="p">)]).</span><span class="n">mean</span><span class="p">()</span>
+</code></pre></div>  </div>
+</div>
+
+<div class="alert alert-secondary" role="alert">
+  <p><i class="fa-solid fa-user-pen fa-xl"></i>  <strong>Exercise: Plotting Monthly Surface Temperature</strong></p>
+  <hr />
+
+  <p>If we plot this we get a month-by-month plot of temperature variations.</p>
+
+  <div class="alert alert-secondary" role="alert">
+
+    <h6 id="python-7">Python</h6>
+
+    <div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="n">grouped_surface_samples</span><span class="p">.</span><span class="n">plot</span><span class="p">(</span><span class="n">y</span><span class="o">=</span><span class="s">"temp ITS-90"</span><span class="p">,</span> <span class="n">kind</span><span class="o">=</span><span class="s">"line"</span><span class="p">)</span>
+</code></pre></div>    </div>
+  </div>
+
+  <details>
+  <summary>Solution</summary>
+
+  Below is the output plot
+  
+<figure>
+  
+    <img src="/morea/data-wrangling-2/fig/E7_04_temp_monthly_srf_plot.png" style="max-width: 60%;" alt="/Temperature%20Yearly%20Surface%20Plot" class="img-fluid mx-auto d-block border" />
+  
+  <figcaption style="text-align: center">
+    <small>
+      
+    </small>
+  </figcaption>
+</figure>
+
+
+</details>
+</div>
+
+<p>While we have been focusing on temperature there is no reason that we can’t redo the same plots that we have been making with measurements other than temperature. We can also plot multiple measurements at the same time if we want to as well.</p>
+
+<div class="alert alert-secondary" role="alert">
+  <p><i class="fa-solid fa-user-pen fa-xl"></i>  <strong>Exercise: Plotting Monthly Surface Temperature</strong></p>
+  <hr />
+
+  <p>To test this we will try plotting the abundance of Prochlorococcus, Synechococcus, and heterotrophic bacteria.</p>
+
+  <div class="alert alert-secondary" role="alert">
+
+    <h6 id="python-8">Python</h6>
+
+    <div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="n">grouped_surface_samples</span><span class="p">.</span><span class="n">plot</span><span class="p">(</span><span class="n">y</span><span class="o">=</span><span class="p">[</span><span class="s">"hbact #*1e5/ml"</span><span class="p">,</span> <span class="s">"pbact #*1e5/ml"</span><span class="p">,</span>
+                                <span class="s">"sbact #*1e5/ml"</span><span class="p">],</span> <span class="n">kind</span><span class="o">=</span><span class="s">"line"</span><span class="p">)</span>
+</code></pre></div>    </div>
+  </div>
+
+  <details>
+  <summary>Solution</summary>
+
+  Below is the output plot
+  
+<figure>
+  
+    <img src="/morea/data-wrangling-2/fig/E7_05_bact_monthly_srf_plot.png" style="max-width: 60%;" alt="/Bacterial%20Yearly%20Abundance%20Plot" class="img-fluid mx-auto d-block border" />
+  
+  <figcaption style="text-align: center">
+    <small>
+      
+    </small>
+  </figcaption>
+</figure>
+
+
+</details>
+</div>
+
+<p>We explored various methods of plotting our data. We’ve also learned how to group different measurements depending on when the measurement was taken. If you are interested you can keep testing different methods of grouping the data or plotting some of the measurements that we did not use e.g. pH or dissolved organic carbon (<code class="language-plaintext highlighter-rouge">doc umol/kg</code>).</p>
+
+<div class="alert alert-success mt-3" role="alert">
+  <p><i class="fa-solid fa-globe fa-xl"></i> <strong>Key Points</strong></p>
+  <hr />
+
+  <ul>
+    <li>Grouping data by year and months is a powerful way to identify monthly and yearly changes.</li>
+    <li>You can easily add more measurements to a single plot by using a list.</li>
+  </ul>
+
+</div>
+
+<div class="alert alert-info" role="alert">
+  <p><i class="fa-solid fa-circle-info fa-xl"></i> <strong>For more information</strong></p>
+  <hr />
+
+  <p>There is a lot we didn’t cover in this workshop. To go further, take a look at the Matplotlib docs (<a href="https://matplotlib.org/">Link to Matplotlib docs</a>) and other libraries that can allow you to make dynamic plots e.g. Plotly (<a href="https://plotly.com/graphing-libraries/">Link to Plotly docs</a>)</p>
+
+</div>
+
+<div style="text-align: right; padding-bottom: 10px">
+  <hr />
+  <button type="button" onclick="window.location='/morea/data-wrangling-2/assessment-data-wrangling-workshop-2.html'" class="btn btn-primary">
+    <p style="font-size:16px; margin: 0">Assessment -&gt;</p>
+    <p style="font-size:12px; margin: 0">3:50pm</p>
+    </button>
+</div>
+
+
+</div>
+
+
+
+
+<!-- Maybe find a different way?
+<script src="/js/scrollIfAnchor.js"></script>
+-->
+
+<footer class="footer footer-background" style="padding-top: 1em; padding-bottom: 1em">
+  <div class="container text-center">
+    
+    
+
+    
+    <p style="margin: 0">Powered by the <a class="footer-link" href="https://morea-framework.github.io/">Morea Framework</a> (Theme: spacelab)<br>
+      Last update on: <span>2023-12-01 13:58:35 -1000</span></p>
+
+    <p style="margin: 0">
+      
+      18 modules
+      
+      | 17 outcomes
+      
+      
+      | 55 readings
+      
+      
+      | 100 experiences
+      
+      
+      | 15 assessments
+      
+    </p>
+  </div>
+</footer>
+
+
+<!-- Load Bootstrap JavaScript components -->
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM" crossorigin="anonymous"></script>
+
+
+<script type="text/javascript" async
+        src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.7/latest.js?config=TeX-MML-AM_CHTML">
+</script>
+
+
+<!-- Add anchors to pages. -->
+<script>anchors.add();</script>
+
+
+</body>
+</html>

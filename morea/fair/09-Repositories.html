@@ -1,0 +1,340 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <title> Change-HI/EDU | 10. Public repositories </title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta charset="utf-8">
+
+  <link rel="stylesheet" href="/css/themes/spacelab/bootstrap.min.css">
+  <link rel="stylesheet" href="/css/style.css">
+  <link rel="stylesheet" href="/css/syntax.css">
+  <link rel="shortcut icon" href="/favicon.ico" type="image/x-icon" />
+  <link href="/css/fontawesome/css/fontawesome.css" rel="stylesheet">
+  <link href="/css/fontawesome/css/brands.css" rel="stylesheet">
+  <link href="/css/fontawesome/css/solid.css" rel="stylesheet">
+  <script src="https://cdn.jsdelivr.net/npm/anchor-js/anchor.min.js"></script>
+
+  
+
+  <!-- Load JQuery, then use it to attach the class 'active' to navbar item currently displayed. -->
+  <script src="https://code.jquery.com/jquery-3.6.0.min.js" integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4=" crossorigin="anonymous"></script>
+  <script>
+    $(window).on('load', function () {
+      $('.nav-item').find('a[href="' + location.pathname + '"]').addClass('active');
+    });
+  </script>
+
+</head>
+<body>
+
+<div class="navbar navbar-expand-lg fixed-top navbar-light bg-light">
+  <div class="container">
+    <a class="navbar-brand" href="/index.html"> Change-HI/EDU </a>
+    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarResponsive" aria-controls="navbarResponsive" aria-expanded="false" aria-label="Toggle navigation">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+    <div class="collapse navbar-collapse" id="navbarResponsive">
+      <ul class="navbar-nav">
+        
+        <li class="nav-item"><a class="nav-link" href="/modules/">Modules</a></li>
+        
+        <li class="nav-item"><a class="nav-link" href="/outcomes/">Outcomes</a></li>
+        
+        
+        <li class="nav-item"><a class="nav-link" href="/readings/">Readings</a></li>
+        
+        
+        <li class="nav-item"><a class="nav-link" href="/experiences/">Experiences</a></li>
+        
+        
+        <li class="nav-item"><a class="nav-link" href="/assessments/">Assessments</a></li>
+        
+        
+      </ul>
+    </div>
+  </div>
+</div>
+
+<!-- Internal fragment for displaying the breadcrumb bar -->
+<div class="breadcrumb-background" style="padding-top: 1em; padding-bottom: .01em">
+  <div class="container">
+    <nav aria-label="breadcrumb">
+      <ol class="breadcrumb">
+        
+        <li class="breadcrumb-item"><a href="/">Home</a></li>
+        <li class="breadcrumb-item"><a href="/modules">Modules</a></li>
+        <li class="breadcrumb-item"><a href="/modules/"></a></li>
+        <li class="breadcrumb-item active">10. Public repositories</li>
+      </ol>
+    </nav>
+  </div>
+</div>
+
+
+<div class="container">
+  <h1 id="public-repositories">Public repositories</h1>
+<p>This section will describe what are public repositories.</p>
+
+<h2 id="what-are-research-data-repositories">What are research data repositories?</h2>
+
+<p>Research data repositories are online repositories that enable the preservation, curation and publication of research ‘products’. These repositories are mainly used to deposit research ‘data’. However, the scope of the repositories is broader as we can also deposit/publish ‘code’ or ‘protocols’ (as we saw with protocols.io).</p>
+
+<p>There are general “data agnostic” repositories, for example:</p>
+
+<ul>
+  <li><a href="https://datadryad.org">Dryad</a>,</li>
+  <li><a href="https://zenodo.org">Zenodo</a>,</li>
+  <li><a href="https://figshare.com">FigShare</a>,</li>
+</ul>
+
+<p>Or domain specific, for example:</p>
+
+<ul>
+  <li><a href="https://www.uniprot.org/">UniProt</a> protein data,</li>
+  <li><a href="https://www.ncbi.nlm.nih.gov/genbank/">GenBank</a> sequence data,</li>
+  <li><a href="https://www.ebi.ac.uk/metabolights/">MetaboLights</a> metabolomics data</li>
+  <li><a href="https://github.com/">GitHub</a> for code.</li>
+  <li><a href="https://www.hydroshare.org/">Hydroshare</a> for water data.</li>
+</ul>
+
+<p>Research outputs should be submitted to discipline/domain-specific repositories whenever it is possible. When such a resource does not exist, data should be submitted to a ‘general’ repository.
+Research data repositories are a key resource to help in data FAIRification as they
+assure Findability and Accessibility.</p>
+
+<h2 id="what-makes-it-fair">What makes it FAIR?</h2>
+
+<div class="alert alert-secondary" role="alert">
+  <p><i class="fa-solid fa-user-pen fa-xl"></i>  <strong>Exercise: What makes it FAIR?</strong></p>
+  <hr />
+
+  <p>Have a look at the following record for data set in Hydroshare repository:
+<a href="https://www.hydroshare.org/resource/96310f82dd5247ba8201955750093923">Hydroshare</a>.
+What elements make it FAIR?</p>
+
+  <details>
+  <summary>Solution</summary>
+<p>
+The elements that make this deposit FAIR are:
+</p>
+<p>
+Findable (persistent identifiers, easy to find data and metadata):
+</p>
+
+<ul>
+<li>F1. (Meta)data are assigned a globally unique and persistent identifier - YES</li>
+<li>F2. Data are described with rich metadata (defined by R1 below)- YES</li>
+<li>F3. Metadata clearly and explicitly include the identifier of the data they describe - YES</li>
+<li>F4. (Meta)data are registered or indexed in a searchable resource - YES</li>
+</ul>
+
+
+<p>
+Accessible (The (meta)data retrievable by their identifier using a standard web protocols):</p>
+
+<ul>
+<li>A1. (Meta)data are retrievable by their identifier using a standardised communications protocol - YES</li>
+<li>A2. Metadata are accessible, even when the data are no longer available - YES</li>
+</ul>
+
+
+<p>
+Interoperable (The format of the data should be open and interpretable for various tools):
+</p>
+
+<ul>
+<li>I1. (Meta)data use a formal, accessible, shared, and broadly applicable language for knowledge representation. - YES</li>
+<li>I2. (Meta)data use vocabularies that follow FAIR principles - PARTIALLY</li>
+<li>I3. (Meta)data include qualified references to other (meta)data - YES</li>
+</ul>
+
+
+<p>
+Reusable (data should be well-described so that they can be replicated and/or combined in different settings, reuse states with a clear licence):
+</p>
+
+<ul>
+<li>R1. (Meta)data are richly described with a plurality of accurate and relevant attributes - YES</li>
+<li>R1.1. (Meta)data are released with a clear and accessible data usage license - YES</li>
+<li>R1.2. (Meta)data are associated with detailed provenance - YES</li>
+<li>R1.3. (Meta)data meet domain-relevant community standards - YES/PARTIALLY</li>
+</ul>
+
+</details>
+</div>
+
+<h2 id="minimal-data-set">Minimal data set</h2>
+
+<p>Minimal data set to consist of the data required to replicate all study findings reported
+in the article, as well as related metadata and methods.</p>
+
+<ul>
+  <li>The values behind the means, standard deviations and other measures reported;</li>
+  <li>The values used to build graphs;</li>
+  <li>The points extracted from images for analysis.</li>
+</ul>
+
+<p>(no need for raw data if the standard in the field is to share data that have been processed)</p>
+
+<div class="alert alert-info" role="alert">
+  <p><i class="fa-solid fa-circle-info fa-xl"></i> <strong>For more information</strong></p>
+  <hr />
+
+  <p>See the <a href="https://journals.plos.org/plosbiology/s/data-availability">PLOS guidelines for data availability</a></p>
+</div>
+
+<h2 id="how-do-we-choose-a-research-data-repository">How do we choose a research data repository?</h2>
+
+<p>As a general rule, your research needs to be deposited in discipline/data specific repository. If no specific repository can be found, then you can use a generalist repository. Having said this, there are tons of data repositories to choose from. Choosing one can be time consuming and challenging as well.
+So how do you go about finding a repository:</p>
+
+<ul>
+  <li>
+    <p>Check the publisher’s / funder’ recommended list of repositories, some of which can be found below:</p>
+
+    <ul>
+      <li><a href="https://www.springernature.com/gp/authors/research-data-policy/recommended-repositories">BioMed Central / Springer Nature</a></li>
+      <li><a href="https://submit.elifesciences.org/html/elife_author_instructions.html#policies">eLife</a></li>
+      <li><a href="https://www.elsevier.com/about/policies/research-data">Elsevier</a></li>
+      <li><a href="https://www.embopress.org/page/journal/14602075/authorguide#datadeposition">EMBO Press</a></li>
+      <li><a href="https://f1000research.com/for-authors/data-guidelines">F1000 Research</a></li>
+      <li><a href="https://academic.oup.com/gigascience/pages/instructions_to_authors">GIGAscience - OUP</a></li>
+      <li><a href="https://journals.plos.org/plosbiology/s/recommended-repositories">PLoS</a></li>
+      <li><a href="https://www.nature.com/sdata/policies/repositories">Scientific Data - Nature</a></li>
+      <li><a href="https://authorservices.taylorandfrancis.com/data-sharing-policies/repositories/">Taylor and Francis</a></li>
+      <li><a href="https://bbsrc.ukri.org/research/resources/">BBSRC</a></li>
+      <li><a href="https://nerc.ukri.org/research/sites/environmental-data-service-eds/policy/">NERC</a></li>
+      <li><a href="https://royalsociety.org/journals/ethics-policies/data-sharing-mining/">Royal Society</a></li>
+      <li><a href="https://wellcomeopenresearch.org/for-authors/data-guidelines">Wellcome Open Research</a></li>
+    </ul>
+  </li>
+  <li>
+    <p>Check <a href="https://fairsharing.org/recommendations/?q=">Fairsharing recommendations</a></p>
+    <ul>
+      <li>alternatively, check the <a href="https://www.re3data.org/">Registry of research data repositories - re3data</a></li>
+    </ul>
+  </li>
+</ul>
+
+<h2 id="find-a-repository">Find a repository</h2>
+
+<div class="alert alert-secondary" role="alert">
+  <p><i class="fa-solid fa-user-pen fa-xl"></i>  <strong>Exercise: Public Repository</strong></p>
+  <hr />
+
+  <p>Using what you’ve learned so far:</p>
+  <ol>
+    <li>Find a repository for genomics data.</li>
+    <li>Find a repository for microscopy data.</li>
+  </ol>
+
+  <details>
+  <summary>Solution</summary>
+
+<ul>
+<li>GEO/SRA and ENA/ArrayExpress are good examples. Interestingly these repositories do not issue a DOI.  </li>
+<li>IDR is good examples.  </li>
+</ul>
+A list of UoE BioRDM's recommended data repositories can be found <a href="https://www.wiki.ed.ac.uk/display/RDMS/Suggested+data+repositories">here</a>.
+
+</details>
+</div>
+
+<h2 id="what-comes-first-the-repository-or-the-metadata">What comes first? the repository or the metadata?</h2>
+
+<p>Finding a repository first may help in deciding what metadata to collect and how!</p>
+
+<h2 id="extra-features">Extra features</h2>
+
+<p>It is also worth considering that some repositories offer extra features, such as running simulations or providing visualisation. For example, <a href="https://fairdomhub.org/">FAIRDOMhub</a> can run model simulations and has project structures. Do not forget to take this into account when choosing your repository. Extra features might come in handy.</p>
+
+<h2 id="can-github-be-cited">Can GitHub be cited?</h2>
+
+<p>To make your code repositories easier to reference in academic literature, you can create persistent identifiers for them. Particularly, you can use the data archiving tool in Zenodo to archive a GitHub repository and issue a DOI for it.</p>
+
+<h2 id="evaluating-a-research-data-repository">Evaluating a research data repository</h2>
+
+<p>You can evaluate the repositories by following this criteria:</p>
+<ul>
+  <li>who is behind it, what is its funding</li>
+  <li>quality of interaction: is the interaction for purposes of data deposit or reuse efficient, effective and satisfactory for you?</li>
+  <li>take-up and impact: what can I put in it? Is anyone else using it? Will others be able to find stuff deposited in it? Is the repository linked to other data repositories so I don’t have to search there as well? Can anyone reuse the data? Can others cite the data, and will depositing boost citations to related papers?</li>
+  <li>policy and process: does it help you meet community standards of good practice and comply with policies stipulating data deposit?</li>
+</ul>
+
+<div class="alert alert-info" role="alert">
+  <p><i class="fa-solid fa-circle-info fa-xl"></i> <strong>For more information</strong></p>
+  <hr />
+
+  <p>An interesting take can be found at Peter Murray-Rust’s blog post <a href="https://blogs.ch.cam.ac.uk/pmr/2011/08/19/criteria-for-successful-repositories/">Criteria for successful repositories</a>.</p>
+
+  <p>The content of this chapter was adapted or inspired by:</p>
+  <ul>
+    <li><a href="https://www.go-fair.org/fair-principles/">FAIR principles</a></li>
+    <li><a href="https://www.wiki.ed.ac.uk/display/RDMS/Suggested+data+repositories">BioRDM suggested data repositories</a></li>
+    <li><a href="https://www.dcc.ac.uk/news/how-can-we-evaluate-data-repositories-pointers-dryaduk">DCC - How can we evaluate data repositories?</a></li>
+    <li><a href="https://blogs.ch.cam.ac.uk/pmr/2011/08/19/criteria-for-successful-repositories/">Criteria for succesful repositories</a></li>
+  </ul>
+</div>
+
+<div style="text-align: right; padding-bottom: 10px">
+  <hr />
+  <button type="button" onclick="window.location='/morea/fair/10-Exercises.html'" class="btn btn-primary">
+    <p style="font-size:16px; margin: 0">Exercises -&gt;</p>
+    <p style="font-size:12px; margin: 0">3:20pm</p>
+    </button>
+</div>
+
+
+</div>
+
+
+
+
+<!-- Maybe find a different way?
+<script src="/js/scrollIfAnchor.js"></script>
+-->
+
+<footer class="footer footer-background" style="padding-top: 1em; padding-bottom: 1em">
+  <div class="container text-center">
+    
+    
+
+    
+    <p style="margin: 0">Powered by the <a class="footer-link" href="https://morea-framework.github.io/">Morea Framework</a> (Theme: spacelab)<br>
+      Last update on: <span>2023-12-01 13:58:35 -1000</span></p>
+
+    <p style="margin: 0">
+      
+      18 modules
+      
+      | 17 outcomes
+      
+      
+      | 55 readings
+      
+      
+      | 100 experiences
+      
+      
+      | 15 assessments
+      
+    </p>
+  </div>
+</footer>
+
+
+<!-- Load Bootstrap JavaScript components -->
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM" crossorigin="anonymous"></script>
+
+
+<script type="text/javascript" async
+        src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.7/latest.js?config=TeX-MML-AM_CHTML">
+</script>
+
+
+<!-- Add anchors to pages. -->
+<script>anchors.add();</script>
+
+
+</body>
+</html>

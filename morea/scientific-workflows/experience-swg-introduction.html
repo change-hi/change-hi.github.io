@@ -1,0 +1,231 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <title> Change-HI/EDU | 1. Introduction to Scientific Gateways and Workflows </title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta charset="utf-8">
+
+  <link rel="stylesheet" href="/css/themes/spacelab/bootstrap.min.css">
+  <link rel="stylesheet" href="/css/style.css">
+  <link rel="stylesheet" href="/css/syntax.css">
+  <link rel="shortcut icon" href="/favicon.ico" type="image/x-icon" />
+  <link href="/css/fontawesome/css/fontawesome.css" rel="stylesheet">
+  <link href="/css/fontawesome/css/brands.css" rel="stylesheet">
+  <link href="/css/fontawesome/css/solid.css" rel="stylesheet">
+  <script src="https://cdn.jsdelivr.net/npm/anchor-js/anchor.min.js"></script>
+
+  
+
+  <!-- Load JQuery, then use it to attach the class 'active' to navbar item currently displayed. -->
+  <script src="https://code.jquery.com/jquery-3.6.0.min.js" integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4=" crossorigin="anonymous"></script>
+  <script>
+    $(window).on('load', function () {
+      $('.nav-item').find('a[href="' + location.pathname + '"]').addClass('active');
+    });
+  </script>
+
+</head>
+<body>
+
+<div class="navbar navbar-expand-lg fixed-top navbar-light bg-light">
+  <div class="container">
+    <a class="navbar-brand" href="/index.html"> Change-HI/EDU </a>
+    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarResponsive" aria-controls="navbarResponsive" aria-expanded="false" aria-label="Toggle navigation">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+    <div class="collapse navbar-collapse" id="navbarResponsive">
+      <ul class="navbar-nav">
+        
+        <li class="nav-item"><a class="nav-link" href="/modules/">Modules</a></li>
+        
+        <li class="nav-item"><a class="nav-link" href="/outcomes/">Outcomes</a></li>
+        
+        
+        <li class="nav-item"><a class="nav-link" href="/readings/">Readings</a></li>
+        
+        
+        <li class="nav-item"><a class="nav-link" href="/experiences/">Experiences</a></li>
+        
+        
+        <li class="nav-item"><a class="nav-link" href="/assessments/">Assessments</a></li>
+        
+        
+      </ul>
+    </div>
+  </div>
+</div>
+
+<!-- Internal fragment for displaying the breadcrumb bar -->
+<div class="breadcrumb-background" style="padding-top: 1em; padding-bottom: .01em">
+  <div class="container">
+    <nav aria-label="breadcrumb">
+      <ol class="breadcrumb">
+        
+        <li class="breadcrumb-item"><a href="/">Home</a></li>
+        <li class="breadcrumb-item"><a href="/modules">Modules</a></li>
+        <li class="breadcrumb-item"><a href="/modules/"></a></li>
+        <li class="breadcrumb-item active">1. Introduction to Scientific Gateways and Workflows</li>
+      </ol>
+    </nav>
+  </div>
+</div>
+
+
+<div class="container">
+  <h1 id="1-introduction-to-scientific-gateways-and-workflows">1. Introduction to Scientific Gateways and Workflows</h1>
+
+<div class="alert alert-success mt-3" role="alert">
+  <p><i class="fa-solid fa-globe fa-xl"></i> <strong>Overview</strong></p>
+  <hr />
+
+  <p><strong>Questions</strong></p>
+  <ul>
+    <li>What is a scientific gateway?</li>
+    <li>What is a scientific workflow?</li>
+    <li>Why are scientific gateways and workflows important?</li>
+  </ul>
+
+  <p><strong>Objectives</strong></p>
+  <ul>
+    <li>Understand what scientific gateways and workflows are and benefits they provide researchers</li>
+  </ul>
+</div>
+
+<h2 id="motivation">Motivation</h2>
+
+<p>Many sciences have become data intensive, due to numerous simulations, digital collection methods and instrumentation producing many terabytes of data. Moreover new highly complex and massively large data sets are expected by novel and more complex scientific instruments and numerical simulations that will become available in the next decades.</p>
+
+<p>The handling, exploring, and using of these data to make scientific discoveries poses a challenge that requires the adoption of new approaches in organizing <strong>scientific collaboration</strong> and using computing and storage resources. To this extent scientific gateways and workflows have emerged as a paradigm for researchers to collaborate as well as formalize and structure complex scientific experiments in order to enable and accelerate scientific discoveries and reproducibility.</p>
+
+<p>Furthermore, funding agencies are more likely <strong>requiring data management plans</strong> to accompany grant applications while <strong>citing data for publications for science reproducibility</strong> is becoming the norm.</p>
+
+<p>Scientific gateways and workflows combine to provide a framework to enable research communities with computing resources to orchestrate scientific applications and tools via <strong>web-based graphical user interfaces</strong>.</p>
+
+<h2 id="what-is-a-scientific-gateway">What is a Scientific Gateway?</h2>
+
+<p>A science gateway is a community-developed set of tools, applications, and data that are integrated via a portal or suite of applications, usually in the form of a graphical interface, to meet the needs of a specific science community. Communities formed from users of a common discipline can use gateways to access resources used for scientific analysis through a common, optimized interface. This removes the barrier of complexity in assembling the necessary cyberinfrastructure and thorough understanding of programming languages and/or softwares researchers may need to carry out computational tasks.</p>
+
+<p>More succinctly, science gateways are portals to computational and data services and resources. They provide these services and resources to a range of science domains for researchers, engineers, educators, and students. Each gateway is an independent project with its own guidelines for access and available for use by anyone but targeted towards specific research communities.</p>
+
+<div class="alert alert-info" role="alert">
+  <p><i class="fa-solid fa-circle-info fa-xl"></i> <strong>Note: Benefits of using science gateways</strong></p>
+  <hr />
+
+  <p>The benefits scientific gateways provide to researchers are many. We list a few of the most common characteristics of gateways that are helpful.</p>
+
+  <ul>
+    <li>Gateways enable researchers to focus on their scientific research efforts and less on setting up the cyberinfrastructure they would need to carry out heavy computation.</li>
+    <li>Provide access to large community datasets</li>
+    <li>Promote the disseminating of research knowledge and reproducible science</li>
+    <li>Foster collaborations amongst researchers and scientific communities</li>
+  </ul>
+</div>
+
+<h2 id="what-is-a-scientific-workflow">What is a scientific workflow?</h2>
+
+<p>Quantitatively complex science often consists of numerous interconnected computational tasks. In this context, a workflow is the composition of several such complex, data-intensive computing tasks for scientific simulation or data analysis. Common stages in scientific workflows are acquisition, integration, reduction, visualization, and publication of scientific data. Scientific communities use workflows and workflow management systems to manage the complexity associated with such tasks. Workflow technologies can perform scheduling of tasks on distributed resources, managing dependancies, and data staging for compute execution. A workflow management system (WMS) aids in the automation of those operations, namely managing the execution of constituent tasks and the information exchanged between them.</p>
+
+<p>In the context of gateways, computational processes supported by gateways are organized as scientific workflows that explicitly specify dependencies among underlying tasks for orchestrating distributed resources (such as clusters, grids or clouds) appropriately.</p>
+
+<div class="alert alert-info" role="alert">
+  <p><i class="fa-solid fa-circle-info fa-xl"></i> <strong>Note: Benefits of scientific workflows</strong></p>
+  <hr />
+
+  <p>Workflows have been adopted by scientific communities as valuable tools to perform data heavy computational tasks necessary for experimentation. Workflows enable researchers to perform data analysis and computation:</p>
+
+  <ul>
+    <li>while hiding the complexities of job submission, resource allocation, file handling</li>
+    <li>while handling dependencies</li>
+    <li>providing simple to use data pipeline codes which requires minimal knowledge base to perform analysis</li>
+  </ul>
+
+  <p>These benefits save the researcher the time otherwise needed to learn a programming language.</p>
+</div>
+
+<h2 id="why-are-scientific-gateways-and-workflows-important">Why are scientific gateways and workflows important?</h2>
+
+<p>As data-intensive research continues to be a substantial portion of research interest, cyberinfrastructure and access to it helps with data management plans that more commonly must be satisfied. Some funding agencies expect research grants have attached data management plans to proposals to ensure the data does not disappear and proper dissemination of research occurs. The benefit to the researcher is the same dissemination indicating the analysis performed and how conclusions were reached. This can lead to further collaborations, further funding their research and extending their work. Data management plans have the added benefit of helping scientists keep data resources organized.</p>
+
+<p>Gateways are substantial components of such data management plans and can satisfy many of the associated requirements data management plans must meet. Furthermore, gateways typically give researchers the ability to publish their data sets further promoting the reproducibility of science. In fact, many publications now require data sets be cited. Most gateways can serve this need by providing a citable digital object identifier, DOI.</p>
+
+<p>Workflow and science gateway technologies have been adopted by scientific communities as a valuable tool to carry out complex experiments. They offer the possibility to perform computations for data analysis and simulations, whereas hiding details of the complex infrastructures underneath.</p>
+
+<p>Much of the information used here was kindly provided by the following references.</p>
+<ul>
+  <li>” John Towns, Timothy Cockerill, Maytal Dahan, Ian Foster, Kelly Gaither, Andrew Grimshaw, Victor Hazlewood, Scott Lathrop, Dave Lifka, Gregory D. Peterson, Ralph Roskies, J. Ray Scott, Nancy Wilkins-Diehr, “XSEDE: Accelerating Scientific Discovery”, Computing in Science &amp; Engineering, vol.16, no. 5, pp. 62-74, Sept.-Oct. 2014, doi:10.1109/MCSE.2014.80</li>
+  <li>“Scientific Gateways Community Institute. Retrieved from https://sciencegateways.org”</li>
+  <li>“Castelli, Giuliano, et al. “VO-compliant workflows and science gateways.” Astronomy and Computing 11 (2015): 102-108.”</li>
+  <li>“Deelman, Ewa, et al. “The future of scientific workflows.” The International Journal of High Performance Computing Applications 32.1 (2018): 159-175.”</li>
+</ul>
+
+<div class="alert alert-info" role="alert">
+  <p><i class="fa-solid fa-circle-info fa-xl"></i> <strong>Note: Key Points</strong></p>
+  <hr />
+
+  <ul>
+    <li>Scientific gateways are online community spaces providing web-based resources for accessing data, software, computing services, and equipment specific to the needs of a research discipline.</li>
+    <li>Scientific workflows are computational processes which aid in the automation and managing of data-intensive computing tasks while also removing the direct handling of cyberinfrastructure complexities from users.</li>
+  </ul>
+</div>
+
+<div style="text-align: right; padding-bottom: 10px">
+  <hr />
+  <button type="button" onclick="window.location='/morea/scientific-workflows/experience-swg-gateways.html'" class="btn btn-primary">
+    <p style="font-size:16px; margin: 0">Developing and Integrating Science Gateways -&gt;</p>
+    <p style="font-size:12px; margin: 0">2:15pm</p>
+    </button>
+</div>
+
+</div>
+
+
+
+
+<!-- Maybe find a different way?
+<script src="/js/scrollIfAnchor.js"></script>
+-->
+
+<footer class="footer footer-background" style="padding-top: 1em; padding-bottom: 1em">
+  <div class="container text-center">
+    
+    
+
+    
+    <p style="margin: 0">Powered by the <a class="footer-link" href="https://morea-framework.github.io/">Morea Framework</a> (Theme: spacelab)<br>
+      Last update on: <span>2023-12-01 13:58:35 -1000</span></p>
+
+    <p style="margin: 0">
+      
+      18 modules
+      
+      | 17 outcomes
+      
+      
+      | 55 readings
+      
+      
+      | 100 experiences
+      
+      
+      | 15 assessments
+      
+    </p>
+  </div>
+</footer>
+
+
+<!-- Load Bootstrap JavaScript components -->
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM" crossorigin="anonymous"></script>
+
+
+<script type="text/javascript" async
+        src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.7/latest.js?config=TeX-MML-AM_CHTML">
+</script>
+
+
+<!-- Add anchors to pages. -->
+<script>anchors.add();</script>
+
+
+</body>
+</html>

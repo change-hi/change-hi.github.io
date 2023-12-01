@@ -1,0 +1,902 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <title> Change-HI/EDU | 6. Loops </title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta charset="utf-8">
+
+  <link rel="stylesheet" href="/css/themes/spacelab/bootstrap.min.css">
+  <link rel="stylesheet" href="/css/style.css">
+  <link rel="stylesheet" href="/css/syntax.css">
+  <link rel="shortcut icon" href="/favicon.ico" type="image/x-icon" />
+  <link href="/css/fontawesome/css/fontawesome.css" rel="stylesheet">
+  <link href="/css/fontawesome/css/brands.css" rel="stylesheet">
+  <link href="/css/fontawesome/css/solid.css" rel="stylesheet">
+  <script src="https://cdn.jsdelivr.net/npm/anchor-js/anchor.min.js"></script>
+
+  
+
+  <!-- Load JQuery, then use it to attach the class 'active' to navbar item currently displayed. -->
+  <script src="https://code.jquery.com/jquery-3.6.0.min.js" integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4=" crossorigin="anonymous"></script>
+  <script>
+    $(window).on('load', function () {
+      $('.nav-item').find('a[href="' + location.pathname + '"]').addClass('active');
+    });
+  </script>
+
+</head>
+<body>
+
+<div class="navbar navbar-expand-lg fixed-top navbar-light bg-light">
+  <div class="container">
+    <a class="navbar-brand" href="/index.html"> Change-HI/EDU </a>
+    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarResponsive" aria-controls="navbarResponsive" aria-expanded="false" aria-label="Toggle navigation">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+    <div class="collapse navbar-collapse" id="navbarResponsive">
+      <ul class="navbar-nav">
+        
+        <li class="nav-item"><a class="nav-link" href="/modules/">Modules</a></li>
+        
+        <li class="nav-item"><a class="nav-link" href="/outcomes/">Outcomes</a></li>
+        
+        
+        <li class="nav-item"><a class="nav-link" href="/readings/">Readings</a></li>
+        
+        
+        <li class="nav-item"><a class="nav-link" href="/experiences/">Experiences</a></li>
+        
+        
+        <li class="nav-item"><a class="nav-link" href="/assessments/">Assessments</a></li>
+        
+        
+      </ul>
+    </div>
+  </div>
+</div>
+
+<!-- Internal fragment for displaying the breadcrumb bar -->
+<div class="breadcrumb-background" style="padding-top: 1em; padding-bottom: .01em">
+  <div class="container">
+    <nav aria-label="breadcrumb">
+      <ol class="breadcrumb">
+        
+        <li class="breadcrumb-item"><a href="/">Home</a></li>
+        <li class="breadcrumb-item"><a href="/modules">Modules</a></li>
+        <li class="breadcrumb-item"><a href="/modules/scientific-software-basics">Scientific Software Basics</a></li>
+        <li class="breadcrumb-item active">6. Loops</li>
+      </ol>
+    </nav>
+  </div>
+</div>
+
+
+<div class="container">
+  <h1 id="6-loops">6. Loops</h1>
+
+<div class="alert alert-success mt-3" role="alert">
+  <p><i class="fa-solid fa-globe fa-xl"></i> <strong>Overview</strong></p>
+  <hr />
+
+  <p><strong>Questions</strong></p>
+  <ul>
+    <li>How can I perform the same actions on many different files?</li>
+  </ul>
+
+  <p><strong>Objectives</strong></p>
+  <ul>
+    <li>Write a loop that applies one or more commands separately to each file in a set of files.</li>
+    <li>Trace the values taken on by a loop variable during execution of the loop.</li>
+    <li>Explain the difference between a variable’s name and its value.</li>
+    <li>Explain why spaces and some punctuation characters shouldn’t be used in file names.</li>
+    <li>Demonstrate how to see what commands have recently been executed.</li>
+    <li>Re-run recently executed commands without retyping them.</li>
+  </ul>
+
+  <p><strong>Keypoints</strong></p>
+  <ul>
+    <li>A <code class="language-plaintext highlighter-rouge">for</code> loop repeats commands once for every thing in a list.</li>
+    <li>Every <code class="language-plaintext highlighter-rouge">for</code> loop needs a variable to refer to the thing it is currently operating on.</li>
+    <li>Use <code class="language-plaintext highlighter-rouge">$name</code> to expand a variable (i.e., get its value). <code class="language-plaintext highlighter-rouge">${name}</code> can also be used.</li>
+    <li>Do not use spaces, quotes, or wildcard characters such as ‘ * ‘ or ‘?’ in filenames, as it complicates variable expansion.</li>
+    <li>Give files consistent names that are easy to match with wildcard patterns to make it easy to select them for looping.</li>
+    <li>Use the up-arrow key to scroll up through previous commands to edit and repeat them.</li>
+    <li>Use <code class="language-plaintext highlighter-rouge">Ctrl*R</code> to search through the previously entered commands.</li>
+    <li>Use <code class="language-plaintext highlighter-rouge">history</code> to display recent commands, and <code class="language-plaintext highlighter-rouge">!number</code> to repeat a command by number.</li>
+  </ul>
+
+</div>
+
+<h2 id="introducing-loops">Introducing Loops</h2>
+<p><strong>Loops</strong> are a programming construct which allow us to repeat a command or set of commands
+for each item in a list.
+As such they are key to productivity improvements through automation.
+Similar to wildcards and tab completion, using loops also reduces the
+amount of typing required (and hence reduces the number of typing mistakes).</p>
+
+<p>Suppose we have several hundred genome data files named <code class="language-plaintext highlighter-rouge">basilisk.dat</code>, <code class="language-plaintext highlighter-rouge">unicorn.dat</code>, and so on.
+For this example,
+we’ll use the <code class="language-plaintext highlighter-rouge">creatures</code> directory which only has two example files,
+but the principles can be applied to many many more files at once.
+We would like to print out the classification for each species, which is given on the second line of the file.
+For each file, we would need to execute the command <code class="language-plaintext highlighter-rouge">head -n 2</code> and pipe this to <code class="language-plaintext highlighter-rouge">tail -n 1</code>.
+We’ll use a loop to solve this problem, but first let’s look at the general form of a loop:</p>
+
+<div class="alert alert-secondary" role="alert">
+  <p><i class="fa-solid fa-user-pen fa-xl"></i>  <strong>For Loops Explained</strong></p>
+  <hr />
+
+  <p>First:</p>
+
+  <div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="k">for </span>thing <span class="k">in </span>list_of_things
+<span class="k">do
+    </span>operation_using <span class="nv">$thing</span>    <span class="c"># Indentation within the loop is not required, but aids legibility</span>
+<span class="k">done</span>
+</code></pre></div>  </div>
+
+  <p>We can apply this to our example:</p>
+
+  <div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nv">$ </span><span class="k">for </span>filename <span class="k">in </span>basilisk.dat unicorn.dat
+ <span class="k">do
+    </span><span class="nb">head</span> <span class="nt">-n</span> 2 <span class="nv">$filename</span> | <span class="nb">tail</span> <span class="nt">-n</span> 1
+ <span class="k">done</span>
+</code></pre></div>  </div>
+  <p>Output:</p>
+
+  <div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code>CLASSIFICATION: basiliscus vulgaris
+CLASSIFICATION: equus monoceros
+</code></pre></div>  </div>
+</div>
+
+<div class="alert alert-warning" role="alert">
+  <p><i class="fa-solid fa-triangle-exclamation fa-xl"></i> <strong>Follow the Prompt</strong></p>
+  <hr />
+
+  <p>The shell prompt changes from <code class="language-plaintext highlighter-rouge">$</code> to <code class="language-plaintext highlighter-rouge">&gt;</code> and back again as we were
+typing in our loop. The second prompt, <code class="language-plaintext highlighter-rouge">&gt;</code>, is different to remind
+us that we haven’t finished typing a complete command yet. A semicolon, <code class="language-plaintext highlighter-rouge">;</code>,
+can be used to separate two commands written on a single line.</p>
+</div>
+
+<p>When the shell sees the keyword <code class="language-plaintext highlighter-rouge">for</code>,
+it knows to repeat a command (or group of commands) once for each item in a list.</p>
+
+<p>Each time the loop runs (called an iteration), an item in the list is assigned in sequence to
+the <strong>variable</strong>, and the commands inside the loop are executed, before moving on to
+the next item in the list.</p>
+
+<p>Inside the loop,
+we call for the variable’s value by putting <code class="language-plaintext highlighter-rouge">$</code> in front of it.
+The <code class="language-plaintext highlighter-rouge">$</code> tells the shell interpreter to treat
+the variable as a variable name and substitute its value in its place,
+rather than treat it as text or an external command.</p>
+
+<p>In this example, the list is two filenames: <code class="language-plaintext highlighter-rouge">basilisk.dat</code> and <code class="language-plaintext highlighter-rouge">unicorn.dat</code>.
+Each time the loop iterates, it will assign a file name to the variable <code class="language-plaintext highlighter-rouge">filename</code>
+and run the <code class="language-plaintext highlighter-rouge">head</code> command.</p>
+
+<p>The first time through the loop,
+<code class="language-plaintext highlighter-rouge">$filename</code> is <code class="language-plaintext highlighter-rouge">basilisk.dat</code>.
+The interpreter runs the command <code class="language-plaintext highlighter-rouge">head</code> on <code class="language-plaintext highlighter-rouge">basilisk.dat</code>,
+and then prints the
+first three lines of <code class="language-plaintext highlighter-rouge">basilisk.dat</code>.</p>
+
+<p>For the second iteration, <code class="language-plaintext highlighter-rouge">$filename</code> becomes
+<code class="language-plaintext highlighter-rouge">unicorn.dat</code>. This time, the shell runs <code class="language-plaintext highlighter-rouge">head</code> on <code class="language-plaintext highlighter-rouge">unicorn.dat</code>
+and prints the first three lines of <code class="language-plaintext highlighter-rouge">unicorn.dat</code>.
+Since the list was only two items, the shell exits the <code class="language-plaintext highlighter-rouge">for</code> loop.</p>
+
+<div class="alert alert-warning" role="alert">
+  <p><i class="fa-solid fa-triangle-exclamation fa-xl"></i> <strong>Same Symbols, Different Meanings</strong></p>
+  <hr />
+
+  <p>Here we see <code class="language-plaintext highlighter-rouge">&gt;</code> being used a shell prompt, whereas <code class="language-plaintext highlighter-rouge">&gt;</code> is also
+used to redirect output.
+Similarly, <code class="language-plaintext highlighter-rouge">$</code> is used as a shell prompt, but, as we saw earlier,
+it is also used to ask the shell to get the value of a variable.</p>
+
+  <p>If the <em>shell</em> prints `` or <code class="language-plaintext highlighter-rouge">$</code> then it expects you to type something,
+and the symbol is a prompt.</p>
+
+  <p>If <em>you</em> type `` or <code class="language-plaintext highlighter-rouge">$</code> yourself, it is an instruction from you that
+the shell should redirect output or get the value of a variable.</p>
+</div>
+
+<p>When using variables it is also
+possible to put the names into curly braces to clearly delimit the variable
+name: <code class="language-plaintext highlighter-rouge">$filename</code> is equivalent to <code class="language-plaintext highlighter-rouge">${filename}</code>, but is different from
+<code class="language-plaintext highlighter-rouge">${file}name</code>. You may find this notation in other people’s programs.</p>
+
+<p>We have called the variable in this loop <code class="language-plaintext highlighter-rouge">filename</code>
+in order to make its purpose clearer to human readers.
+The shell itself doesn’t care what the variable is called;
+if we wrote this loop as:</p>
+
+<div class="alert alert-secondary" role="alert">
+
+  <div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nv">$ </span><span class="k">for </span>x <span class="k">in </span>basilisk.dat unicorn.dat
+ <span class="k">do
+    </span><span class="nb">head</span> <span class="nt">-n</span> 2 <span class="nv">$x</span> | <span class="nb">tail</span> <span class="nt">-n</span> 1
+ <span class="k">done</span>
+</code></pre></div>  </div>
+</div>
+
+<p>or:</p>
+
+<div class="alert alert-secondary" role="alert">
+  <div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nv">$ </span><span class="k">for </span>temperature <span class="k">in </span>basilisk.dat unicorn.dat
+ <span class="k">do
+    </span><span class="nb">head</span> <span class="nt">-n</span> 2 <span class="nv">$temperature</span> | <span class="nb">tail</span> <span class="nt">-n</span> 1
+ <span class="k">done</span>
+</code></pre></div>  </div>
+</div>
+
+<p>it would work exactly the same way.</p>
+
+<p><em>Don’t do this.</em></p>
+
+<p>Programs are only useful if people can understand them,
+so meaningless names (like <code class="language-plaintext highlighter-rouge">x</code>) or misleading names (like <code class="language-plaintext highlighter-rouge">temperature</code>)
+increase the odds that the program won’t do what its readers think it does.</p>
+
+<div class="alert alert-secondary" role="alert">
+  <p><i class="fa-solid fa-user-pen fa-xl"></i> <strong>Exercise: Variables in Loops</strong></p>
+  <hr />
+
+  <p>This exercise refers to the <code class="language-plaintext highlighter-rouge">data-shell/molecules</code> directory.
+<code class="language-plaintext highlighter-rouge">ls</code> gives the following output:</p>
+
+  <div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code> cubane.pdb  ethane.pdb  methane.pdb  octane.pdb  pentane.pdb  propane.pdb
+</code></pre></div>  </div>
+
+  <p>What is the output of the following code?</p>
+
+  <p>Input:</p>
+  <div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nv">$ </span><span class="k">for </span>datafile <span class="k">in</span> <span class="k">*</span>.pdb
+ <span class="k">do
+    </span><span class="nb">ls</span> <span class="k">*</span>.pdb
+ <span class="k">done</span>
+</code></pre></div>  </div>
+
+  <p>What is the output when this code is executed?</p>
+
+  <details>
+    <summary>Solution</summary>
+    <p>The code gives the same output on each iteration through the loop.</p>
+
+    <p>Bash expands the wildcard ‘* .pdb’ within the loop body (as well as
+before the loop starts) to match all files ending in ‘.pdb’
+and then lists them using ‘ls’.
+The expanded loop would look like this:</p>
+
+    <div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nv">$ </span><span class="k">for </span>datafile <span class="k">in </span>cubane.pdb  ethane.pdb  methane.pdb  octane.pdb  pentane.pdb  propane.pdb
+ <span class="k">do
+  </span><span class="nb">ls </span>cubane.pdb  ethane.pdb  methane.pdb  octane.pdb  pentane.pdb  propane.pdb
+ <span class="k">done</span>
+</code></pre></div>    </div>
+
+    <p>Output:</p>
+    <div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code>cubane.pdb  ethane.pdb  methane.pdb  octane.pdb  pentane.pdb  propane.pdb
+cubane.pdb  ethane.pdb  methane.pdb  octane.pdb  pentane.pdb  propane.pdb
+cubane.pdb  ethane.pdb  methane.pdb  octane.pdb  pentane.pdb  propane.pdb
+cubane.pdb  ethane.pdb  methane.pdb  octane.pdb  pentane.pdb  propane.pdb
+cubane.pdb  ethane.pdb  methane.pdb  octane.pdb  pentane.pdb  propane.pdb
+cubane.pdb  ethane.pdb  methane.pdb  octane.pdb  pentane.pdb  propane.pdb
+</code></pre></div>    </div>
+
+  </details>
+</div>
+
+<h2 id="limiting-sets-of-files">Limiting Sets of Files</h2>
+
+<div class="alert alert-secondary" role="alert">
+  <p><i class="fa-solid fa-user-pen fa-xl"></i> <strong>Exercise: Loops</strong></p>
+  <hr />
+
+  <p>What would be the output of running the following loop in the <code class="language-plaintext highlighter-rouge">data-shell/molecules</code> directory?</p>
+
+  <div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code> <span class="nv">$ </span><span class="k">for </span>filename <span class="k">in </span>c<span class="k">*</span>
+  <span class="k">do
+     </span><span class="nb">ls</span> <span class="nv">$filename</span>
+  <span class="k">done</span>
+</code></pre></div>  </div>
+  <ol>
+    <li>No files are listed.</li>
+    <li>All files are listed.</li>
+    <li>Only <code class="language-plaintext highlighter-rouge">cubane.pdb</code>, <code class="language-plaintext highlighter-rouge">octane.pdb</code> and <code class="language-plaintext highlighter-rouge">pentane.pdb</code> are listed.</li>
+    <li>Only <code class="language-plaintext highlighter-rouge">cubane.pdb</code> is listed.</li>
+  </ol>
+
+  <details>
+    <summary>Solution</summary>
+    <p>4 is the correct answer. ‘ * ‘ matches zero or more characters, so any file name starting with
+  the letter c, followed by zero or more other characters will be matched.</p>
+  </details>
+</div>
+
+<div class="alert alert-secondary" role="alert">
+  <p><i class="fa-solid fa-user-pen fa-xl"></i> <strong>Exercise: Another loop</strong></p>
+  <hr />
+
+  <p>How would the output differ from using this command instead?</p>
+
+  <div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code> <span class="nv">$ </span><span class="k">for </span>filename <span class="k">in</span> <span class="k">*</span>c<span class="k">*</span>
+  <span class="k">do
+     </span><span class="nb">ls</span> <span class="nv">$filename</span>
+  <span class="k">done</span>
+</code></pre></div>  </div>
+  <ol>
+    <li>The same files would be listed.</li>
+    <li>All the files are listed this time.</li>
+    <li>No files are listed this time.</li>
+    <li>The files <code class="language-plaintext highlighter-rouge">cubane.pdb</code> and <code class="language-plaintext highlighter-rouge">octane.pdb</code> will be listed.</li>
+    <li>Only the file <code class="language-plaintext highlighter-rouge">octane.pdb</code> will be listed.</li>
+  </ol>
+
+  <details>
+    <summary>Solution</summary>
+    <p>4 is the correct answer. ‘ * ‘ matches zero or more characters, so a file name with zero or more
+  characters before a letter c and zero or more characters after the letter c will be matched.</p>
+  </details>
+</div>
+
+<details>
+  <summary>Solution</summary>
+  <ol>
+    <li>The text from each file in turn gets written to the ‘alkanes.pdb’ file.
+ However, the file gets overwritten on each loop interation, so the final content of ‘alkanes.pdb’
+ is the text from the ‘propane.pdb’ file.</li>
+  </ol>
+</details>
+<p>&lt;/div&gt;</p>
+
+<h2 id="saving-to-a-file-in-a-loop">Saving to a File in a Loop</h2>
+
+<div class="alert alert-secondary" role="alert">
+  <p><i class="fa-solid fa-user-pen fa-xl"></i> <strong>Exercise: Loops, loops, loops</strong></p>
+  <hr />
+
+  <p>Also in the <code class="language-plaintext highlighter-rouge">data-shell/molecules</code> directory, what would be the output of the following loop?</p>
+
+  <div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="k">for </span>datafile <span class="k">in</span> <span class="k">*</span>.pdb
+<span class="k">do
+    </span><span class="nb">cat</span> <span class="nv">$datafile</span> <span class="o">&gt;</span> all.pdb
+<span class="k">done</span>
+</code></pre></div>  </div>
+  <ol>
+    <li>All of the text from <code class="language-plaintext highlighter-rouge">cubane.pdb</code>, <code class="language-plaintext highlighter-rouge">ethane.pdb</code>, <code class="language-plaintext highlighter-rouge">methane.pdb</code>, <code class="language-plaintext highlighter-rouge">octane.pdb</code>, and
+<code class="language-plaintext highlighter-rouge">pentane.pdb</code> would be concatenated and saved to a file called <code class="language-plaintext highlighter-rouge">all.pdb</code>.</li>
+    <li>The text from <code class="language-plaintext highlighter-rouge">ethane.pdb</code> will be saved to a file called <code class="language-plaintext highlighter-rouge">all.pdb</code>.</li>
+    <li>All of the text from <code class="language-plaintext highlighter-rouge">cubane.pdb</code>, <code class="language-plaintext highlighter-rouge">ethane.pdb</code>, <code class="language-plaintext highlighter-rouge">methane.pdb</code>, <code class="language-plaintext highlighter-rouge">octane.pdb</code>, <code class="language-plaintext highlighter-rouge">pentane.pdb</code>
+and <code class="language-plaintext highlighter-rouge">propane.pdb</code> would be concatenated and saved to a file called <code class="language-plaintext highlighter-rouge">all.pdb</code>.</li>
+    <li>All of the text from <code class="language-plaintext highlighter-rouge">cubane.pdb</code>, <code class="language-plaintext highlighter-rouge">ethane.pdb</code>, <code class="language-plaintext highlighter-rouge">methane.pdb</code>, <code class="language-plaintext highlighter-rouge">octane.pdb</code>, <code class="language-plaintext highlighter-rouge">pentane.pdb</code>
+and <code class="language-plaintext highlighter-rouge">propane.pdb</code> would be printed to the screen and saved to a file called <code class="language-plaintext highlighter-rouge">all.pdb</code>.</li>
+  </ol>
+
+  <details>
+    <summary>Solution</summary>
+    <ol>
+      <li>is the correct answer. <code class="language-plaintext highlighter-rouge">&gt;</code> appends to a file, rather than overwriting it with the redirected
+ output from a command.
+ Given the output from the <code class="language-plaintext highlighter-rouge">cat</code> command has been redirected, nothing is printed to the screen.</li>
+    </ol>
+  </details>
+</div>
+
+<p>NOTE: If you do NOT add ‘&gt;’, then each <code class="language-plaintext highlighter-rouge">$datafile</code> will be overwritten as the next file in <code class="language-plaintext highlighter-rouge">*.pdb</code> is added to <code class="language-plaintext highlighter-rouge">all.pdb</code>. The finished <code class="language-plaintext highlighter-rouge">all.pdb</code> will only contain the contents of the last file in <code class="language-plaintext highlighter-rouge">*.pdb</code>.</p>
+
+<p>Let’s continue with our example in the <code class="language-plaintext highlighter-rouge">data-shell/creatures</code> directory.
+Here’s a slightly more complicated loop:</p>
+
+<div class="alert alert-secondary" role="alert">
+
+  <div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nv">$ </span><span class="k">for </span>filename <span class="k">in</span> <span class="k">*</span>.dat
+ <span class="k">do
+     </span><span class="nb">echo</span> <span class="nv">$filename</span>
+     <span class="nb">head</span> <span class="nt">-n</span> 100 <span class="nv">$filename</span> | <span class="nb">tail</span> <span class="nt">-n</span> 20
+ <span class="k">done</span>
+</code></pre></div>  </div>
+</div>
+
+<p>The shell starts by expanding <code class="language-plaintext highlighter-rouge">*.dat</code> to create the list of files it will process.
+The <strong>loop body</strong>
+then executes two commands for each of those files.
+The first, <code class="language-plaintext highlighter-rouge">echo</code>, just prints its command-line arguments to standard output.
+For example:</p>
+
+<div class="alert alert-secondary" role="alert">
+  <div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nv">$ </span><span class="nb">echo </span>hello there
+</code></pre></div>  </div>
+  <p>prints:</p>
+  <div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code>hello there
+</code></pre></div>  </div>
+</div>
+
+<p>In this case,
+since the shell expands <code class="language-plaintext highlighter-rouge">$filename</code> to be the name of a file,
+<code class="language-plaintext highlighter-rouge">echo $filename</code> just prints the name of the file.
+Note that we can’t write this as:</p>
+
+<div class="alert alert-secondary" role="alert">
+
+  <div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nv">$ </span><span class="k">for </span>filename <span class="k">in</span> <span class="k">*</span>.dat
+ <span class="k">do</span>
+     <span class="nv">$filename</span>
+     <span class="nb">head</span> <span class="nt">-n</span> 100 <span class="nv">$filename</span> | <span class="nb">tail</span> <span class="nt">-n</span> 20
+ <span class="k">done</span>
+</code></pre></div>  </div>
+</div>
+
+<p>because then the first time through the loop,
+when <code class="language-plaintext highlighter-rouge">$filename</code> expanded to <code class="language-plaintext highlighter-rouge">basilisk.dat</code>, the shell would try to run <code class="language-plaintext highlighter-rouge">basilisk.dat</code> as a program.
+Finally,
+the <code class="language-plaintext highlighter-rouge">head</code> and <code class="language-plaintext highlighter-rouge">tail</code> combination selects lines 81-100
+from whatever file is being processed
+(assuming the file has at least 100 lines).</p>
+
+<h2 id="spaces-in-names">Spaces in Names</h2>
+
+<p>Spaces are used to separate the elements of the list
+that we are going to loop over. If one of those elements
+contains a space character, we need to surround it with
+quotes, and do the same thing to our loop variable.
+Suppose our data files are named:</p>
+
+<div class="alert alert-secondary" role="alert">
+
+  <p>Output:</p>
+  <div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code>red dragon.dat
+purple unicorn.dat
+</code></pre></div>  </div>
+</div>
+
+<p>To loop over these files, we would need to add double quotes like so:</p>
+
+<div class="alert alert-secondary" role="alert">
+  <p>Input:</p>
+  <div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code> <span class="nv">$ </span><span class="k">for </span>filename <span class="k">in</span> <span class="s2">"red dragon.dat"</span> <span class="s2">"purple unicorn.dat"</span>
+  <span class="k">do
+      </span><span class="nb">head</span> <span class="nt">-n</span> 100 <span class="s2">"</span><span class="nv">$filename</span><span class="s2">"</span> | <span class="nb">tail</span> <span class="nt">-n</span> 20
+  <span class="k">done</span>
+</code></pre></div>  </div>
+</div>
+
+<p>It is simpler just to avoid using spaces (or other special characters) in filenames.</p>
+
+<p>The files above don’t exist, so if we run the above code, the <code class="language-plaintext highlighter-rouge">head</code> command will be unable
+ to find them, however the error message returned will show the name of the files it is
+ expecting:</p>
+
+<div class="alert alert-secondary" role="alert">
+
+  <p>Output:</p>
+  <div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code> <span class="nb">head</span>: cannot open ‘red dragon.dat’ <span class="k">for </span>reading: No such file or directory
+ <span class="nb">head</span>: cannot open ‘purple unicorn.dat’ <span class="k">for </span>reading: No such file or directory
+</code></pre></div>  </div>
+</div>
+
+<p>Try removing the quotes around <code class="language-plaintext highlighter-rouge">$filename</code> in the loop above to see the effect of the quote
+ marks on spaces. Note that we get a result from the loop command for unicorn.dat when we run this code in the <code class="language-plaintext highlighter-rouge">creatures</code> directory:</p>
+
+<div class="alert alert-secondary" role="alert">
+
+  <p>Output:</p>
+  <div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code> <span class="nb">head</span>: cannot open ‘red’ <span class="k">for </span>reading: No such file or directory
+ <span class="nb">head</span>: cannot open ‘dragon.dat’ <span class="k">for </span>reading: No such file or directory
+ <span class="nb">head</span>: cannot open ‘purple’ <span class="k">for </span>reading: No such file or directory
+ CGGTACCGAA
+ AAGGGTCGCG
+ CAAGTGTTCC
+</code></pre></div>  </div>
+</div>
+
+<p>We would like to modify each of the files in <code class="language-plaintext highlighter-rouge">data-shell/creatures</code>, but also save a version
+of the original files, naming the copies <code class="language-plaintext highlighter-rouge">original-basilisk.dat</code> and <code class="language-plaintext highlighter-rouge">original-unicorn.dat</code>.</p>
+
+<p>We can’t use:</p>
+
+<div class="alert alert-secondary" role="alert">
+
+  <div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nv">$ </span><span class="nb">cp</span> <span class="k">*</span>.dat original-<span class="k">*</span>.dat
+</code></pre></div>  </div>
+</div>
+
+<p>because that would expand to:</p>
+
+<div class="alert alert-secondary" role="alert">
+
+  <div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nv">$ </span><span class="nb">cp </span>basilisk.dat unicorn.dat original-<span class="k">*</span>.dat
+</code></pre></div>  </div>
+</div>
+
+<p>This wouldn’t back up our files, instead we get an error:</p>
+
+<div class="alert alert-secondary" role="alert">
+
+  <p>Output:</p>
+  <div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nb">cp</span>: target <span class="s1">'original-*.dat'</span> is not a directory
+</code></pre></div>  </div>
+</div>
+
+<p>This problem arises when <code class="language-plaintext highlighter-rouge">cp</code> receives more than two inputs. When this happens, it
+expects the last input to be a directory where it can copy all the files it was passed.
+Since there is no directory named <code class="language-plaintext highlighter-rouge">original-*.dat</code> in the <code class="language-plaintext highlighter-rouge">creatures</code> directory we get an
+error.</p>
+
+<p>Instead, we can use a loop:</p>
+
+<div class="alert alert-secondary" role="alert">
+
+  <p>Output:</p>
+  <div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nv">$ </span><span class="k">for </span>filename <span class="k">in</span> <span class="k">*</span>.dat
+ <span class="k">do
+     </span><span class="nb">cp</span> <span class="nv">$filename</span> original-<span class="nv">$filename</span>
+ <span class="k">done</span>
+</code></pre></div>  </div>
+</div>
+
+<p>This loop runs the <code class="language-plaintext highlighter-rouge">cp</code> command once for each filename.
+The first time,
+when <code class="language-plaintext highlighter-rouge">$filename</code> expands to <code class="language-plaintext highlighter-rouge">basilisk.dat</code>,
+the shell executes:</p>
+
+<div class="alert alert-secondary" role="alert">
+
+  <div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nb">cp </span>basilisk.dat original-basilisk.dat
+</code></pre></div>  </div>
+</div>
+
+<p>The second time, the command is:</p>
+
+<div class="alert alert-secondary" role="alert">
+
+  <div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nb">cp </span>unicorn.dat original-unicorn.dat
+</code></pre></div>  </div>
+</div>
+
+<p>Since the <code class="language-plaintext highlighter-rouge">cp</code> command does not normally produce any output, it’s hard to check
+that the loop is doing the correct thing.
+However, we learned earlier how to print strings using <code class="language-plaintext highlighter-rouge">echo</code>, and we can modify the loop
+to use <code class="language-plaintext highlighter-rouge">echo</code> to print our commands without actually executing them.
+As such we can check what commands <em>would be</em> run in the unmodified loop.</p>
+
+<p>The following diagram
+shows what happens when the modified loop is executed, and demonstrates how the
+judicious use of <code class="language-plaintext highlighter-rouge">echo</code> is a good debugging technique.</p>
+
+<figure>
+  
+    <img src="/morea/scientific-software-basics/fig/shell_script_for_loop_flow_chart.svg" style="max-width: 100%;" alt="/Node%20anatomy" class="img-fluid mx-auto d-block border" />
+  
+  <figcaption style="text-align: center">
+    <small>
+      
+    </small>
+  </figcaption>
+</figure>
+
+<h2 id="nelles-pipeline-processing-files">Nelle’s Pipeline: Processing Files</h2>
+
+<p>Nelle is now ready to process her data files using <code class="language-plaintext highlighter-rouge">goostats</code> — a shell script written by her supervisor.
+This calculates some statistics from a protein sample file, and takes two arguments:</p>
+
+<ol>
+  <li>an input file (containing the raw data)</li>
+  <li>an output file (to store the calculated statistics)</li>
+</ol>
+
+<p>Since she’s still learning how to use the shell,
+she decides to build up the required commands in stages.
+Her first step is to make sure that she can select the right input files — remember,
+these are ones whose names end in ‘A’ or ‘B’, rather than ‘Z’. Starting from her home directory, Nelle types:</p>
+
+<div class="alert alert-secondary" role="alert">
+
+  <p>Input:</p>
+  <div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nv">$ </span><span class="nb">cd </span>north-pacific-gyre/2012-07-03
+<span class="nv">$ </span><span class="k">for </span>datafile <span class="k">in </span>NENE<span class="k">*</span><span class="o">[</span>AB].txt
+ <span class="k">do
+     </span><span class="nb">echo</span> <span class="nv">$datafile</span>
+ <span class="k">done</span>
+</code></pre></div>  </div>
+
+  <p>Output:</p>
+  <div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code>NENE01729A.txt
+NENE01729B.txt
+NENE01736A.txt
+...
+NENE02043A.txt
+NENE02043B.txt
+</code></pre></div>  </div>
+</div>
+
+<p>Her next step is to decide
+what to call the files that the <code class="language-plaintext highlighter-rouge">goostats</code> analysis program will create.
+Prefixing each input file’s name with “stats” seems simple,
+so she modifies her loop to do that:</p>
+
+<div class="alert alert-secondary" role="alert">
+
+  <p>Input:</p>
+  <div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nv">$ </span><span class="k">for </span>datafile <span class="k">in </span>NENE<span class="k">*</span><span class="o">[</span>AB].txt
+ <span class="k">do
+     </span><span class="nb">echo</span> <span class="nv">$datafile</span> stats-<span class="nv">$datafile</span>
+ <span class="k">done</span>
+</code></pre></div>  </div>
+
+  <p>Output:</p>
+  <div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code>NENE01729A.txt stats-NENE01729A.txt
+NENE01729B.txt stats-NENE01729B.txt
+NENE01736A.txt stats-NENE01736A.txt
+...
+NENE02043A.txt stats-NENE02043A.txt
+NENE02043B.txt stats-NENE02043B.txt
+</code></pre></div>  </div>
+</div>
+
+<p>She hasn’t actually run <code class="language-plaintext highlighter-rouge">goostats</code> yet,
+but now she’s sure she can select the right files and generate the right output filenames.</p>
+
+<p>Typing in commands over and over again is becoming tedious,
+though,
+and Nelle is worried about making mistakes,
+so instead of re-entering her loop,
+she presses the up arrow.
+In response,
+the shell redisplays the whole loop on one line
+(using semi-colons to separate the pieces):</p>
+
+<div class="alert alert-secondary" role="alert">
+
+  <div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nv">$ </span><span class="k">for </span>datafile <span class="k">in </span>NENE<span class="k">*</span><span class="o">[</span>AB].txt<span class="p">;</span> <span class="k">do </span><span class="nb">echo</span> <span class="nv">$datafile</span> stats-<span class="nv">$datafile</span><span class="p">;</span> <span class="k">done</span>
+</code></pre></div>  </div>
+</div>
+
+<p>Using the left arrow key,
+Nelle backs up and changes the command <code class="language-plaintext highlighter-rouge">echo</code> to <code class="language-plaintext highlighter-rouge">bash goostats</code>:</p>
+
+<div class="alert alert-secondary" role="alert">
+
+  <div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nv">$ </span><span class="k">for </span>datafile <span class="k">in </span>NENE<span class="k">*</span><span class="o">[</span>AB].txt<span class="p">;</span> <span class="k">do </span>bash goostats <span class="nv">$datafile</span> stats-<span class="nv">$datafile</span><span class="p">;</span> <span class="k">done</span>
+</code></pre></div>  </div>
+</div>
+
+<p>When she presses <kbd>Enter</kbd>,
+the shell runs the modified command.
+However, nothing appears to happen — there is no output.
+After a moment, Nelle realizes that since her script doesn’t print anything to the screen any longer,
+she has no idea whether it is running, much less how quickly.
+She kills the running command by typing <code class="language-plaintext highlighter-rouge">Ctrl-C</code>,
+uses up-arrow to repeat the command,
+and edits it to read:</p>
+
+<div class="alert alert-secondary" role="alert">
+
+  <div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nv">$ </span><span class="k">for </span>datafile <span class="k">in </span>NENE<span class="k">*</span><span class="o">[</span>AB].txt<span class="p">;</span> <span class="k">do </span><span class="nb">echo</span> <span class="nv">$datafile</span><span class="p">;</span> bash goostats <span class="nv">$datafile</span> stats-<span class="nv">$datafile</span><span class="p">;</span> <span class="k">done</span>
+</code></pre></div>  </div>
+</div>
+
+<div class="alert alert-info" role="alert">
+  <p><i class="fa-solid fa-circle-info fa-xl"></i> <strong>Note: Beginning and End</strong></p>
+  <hr />
+
+  <p>We can move to the beginning of a line in the shell by typing <code class="language-plaintext highlighter-rouge">Ctrl-a</code>
+ and to the end using <code class="language-plaintext highlighter-rouge">Ctrl-e</code>.</p>
+</div>
+
+<p>When she runs her program now,
+it produces one line of output every five seconds or so:</p>
+
+<div class="alert alert-secondary" role="alert">
+  <p><i class="fa-solid fa-user-pen fa-xl"></i></p>
+  <hr />
+
+  <p>Output:</p>
+  <div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code>NENE01729A.txt
+NENE01729B.txt
+NENE01736A.txt
+...
+</code></pre></div>  </div>
+</div>
+
+<p>1518 times 5 seconds,
+divided by 60,
+tells her that her script will take about two hours to run.
+As a final check,
+she opens another terminal window,
+goes into <code class="language-plaintext highlighter-rouge">north-pacific-gyre/2012-07-03</code>,
+and uses <code class="language-plaintext highlighter-rouge">cat stats-NENE01729B.txt</code>
+to examine one of the output files.
+It looks good,
+so she decides to get some coffee and catch up on her reading.</p>
+
+<div class="alert alert-info" role="alert">
+  <p><i class="fa-solid fa-circle-info fa-xl"></i> <strong>Note: Those Who Know History Can Choose to Repeat It</strong></p>
+  <hr />
+
+  <p>Another way to repeat previous work is to use the <code class="language-plaintext highlighter-rouge">history</code> command to
+get a list of the last few hundred commands that have been executed, and
+then to use <code class="language-plaintext highlighter-rouge">!123</code> (where “123” is replaced by the command number) to
+repeat one of those commands. For example, if Nelle types this:</p>
+
+  <div class="alert alert-secondary" role="alert">
+
+    <p>Input:</p>
+    <div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code> <span class="nv">$ </span><span class="nb">history</span> | <span class="nb">tail</span> <span class="nt">-n</span> 5
+</code></pre></div>    </div>
+    <p>Output:</p>
+    <div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code>456  <span class="nb">ls</span> <span class="nt">-l</span> NENE0<span class="k">*</span>.txt
+457  <span class="nb">rm </span>stats-NENE01729B.txt.txt
+458  bash goostats NENE01729B.txt stats-NENE01729B.txt
+459  <span class="nb">ls</span> <span class="nt">-l</span> NENE0<span class="k">*</span>.txt
+460  <span class="nb">history</span>
+</code></pre></div>    </div>
+  </div>
+  <p>then she can re-run <code class="language-plaintext highlighter-rouge">goostats</code> on <code class="language-plaintext highlighter-rouge">NENE01729B.txt</code> simply by typing <code class="language-plaintext highlighter-rouge">!458</code></p>
+</div>
+
+<h2 id="other-history-commands">Other History Commands</h2>
+
+<p>There are a number of other shortcut commands for getting at the history.</p>
+
+<ul>
+  <li>
+    <p><code class="language-plaintext highlighter-rouge">Ctrl-R</code> enters a history search mode “reverse-i-search” and finds the
+ most recent command in your history that matches the text you enter next.
+ Press <code class="language-plaintext highlighter-rouge">Ctrl-R</code> one or more additional times to search for earlier matches.</p>
+  </li>
+  <li>
+    <p><code class="language-plaintext highlighter-rouge">!!</code> retrieves the immediately preceding command
+(you may or may not find this more convenient than using the up-arrow)</p>
+  </li>
+</ul>
+
+<p>*<code class="language-plaintext highlighter-rouge">!$</code> retrieves the last word of the last command.
+That’s useful more often than you might expect: after
+<code class="language-plaintext highlighter-rouge">bash goostats NENE01729B.txt stats-NENE01729B.txt</code>, you can type
+<code class="language-plaintext highlighter-rouge">less !$</code> to look at the file <code class="language-plaintext highlighter-rouge">stats-NENE01729B.txt</code>, which is
+quicker than doing up-arrow and editing the command-line.</p>
+
+<h2 id="doing-a-dry-run">Doing a Dry Run</h2>
+
+<p>A loop is a way to do many things at once — or to make many mistakes at
+ once if it does the wrong thing. One way to check what a loop <em>would</em> do
+ is to <code class="language-plaintext highlighter-rouge">echo</code> the commands it would run instead of actually running them.</p>
+
+<p>Suppose we want to preview the commands the following loop will execute
+ without actually running those commands:</p>
+
+<div class="alert alert-secondary" role="alert">
+
+  <div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code> <span class="nv">$ </span><span class="k">for </span>file <span class="k">in</span> <span class="k">*</span>.pdb
+  <span class="k">do
+    </span>analyze <span class="nv">$file</span>  analyzed-<span class="nv">$file</span>
+  <span class="k">done</span>
+</code></pre></div>  </div>
+</div>
+
+<div class="alert alert-secondary" role="alert">
+  <p><i class="fa-solid fa-user-pen fa-xl"></i> <strong>Exercise: loop vs loop</strong></p>
+  <hr />
+
+  <p>What is the difference between the two loops below, and which one would we
+want to run?</p>
+
+  <p>Version 1:</p>
+  <div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code> <span class="nv">$ </span><span class="k">for </span>file <span class="k">in</span> <span class="k">*</span>.pdb
+  <span class="k">do
+    </span>analyze <span class="nv">$file</span>  analyzed-<span class="nv">$file</span>
+  <span class="k">done</span>
+</code></pre></div>  </div>
+  <p>Version 2:</p>
+  <div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code>  <span class="nv">$ </span><span class="k">for </span>file <span class="k">in</span> <span class="k">*</span>.pdb
+   <span class="k">do
+     </span><span class="nb">echo</span> <span class="s2">"analyze </span><span class="nv">$file</span><span class="s2">  analyzed-</span><span class="nv">$file</span><span class="s2">"</span>
+   <span class="k">done</span>
+</code></pre></div>  </div>
+
+  <details>
+    <summary>Solution</summary>
+    <p>The second version is the one we want to run.
+   This prints to screen everything enclosed in the quote marks, expanding the
+   loop variable name because we have prefixed it with a dollar sign.</p>
+
+    <p>The first version redirects the output from the command ‘echo analyze $file’ to
+   a file, ‘analyzed-$file’. A series of files is generated: ‘analyzedcubane.pdb’,
+   ‘analyzed-ethane.pdb’ etc.</p>
+
+    <p>Try both versions for yourself to see the output! Be sure to open the
+   ‘analyzed- * .pdb’ files to view their contents.</p>
+  </details>
+</div>
+
+<div class="alert alert-secondary" role="alert">
+  <p><i class="fa-solid fa-circle-info fa-xl"></i> <strong>Exercise: Nested Loops</strong></p>
+  <hr />
+
+  <p>Suppose we want to set up up a directory structure to organize
+ some experiments measuring reaction rate constants with different compounds
+ <em>and</em> different temperatures.  What would be the
+ result of the following code:</p>
+
+  <div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nv">$ </span><span class="k">for </span>species <span class="k">in </span>cubane ethane methane
+ <span class="k">do
+     for </span>temperature <span class="k">in </span>25 30 37 40
+     <span class="k">do
+         </span><span class="nb">mkdir</span> <span class="nv">$species</span>-<span class="nv">$temperature</span>
+     <span class="k">done
+ done</span>
+</code></pre></div>  </div>
+
+  <details>
+    <summary>Solution</summary>
+    <p>We have a nested loop, i.e. contained within another loop, so for each species
+  in the outer loop, the inner loop (the nested loop) iterates over the list of
+  temperatures, and creates a new directory for each combination.</p>
+
+    <p>Try running the code for yourself to see which directories are created!</p>
+  </details>
+</div>
+
+<div style="text-align: right; padding-bottom: 10px">
+  <hr />
+  <button type="button" onclick="window.location='/morea/scientific-software-basics/experience-ssb-script.html'" class="btn btn-primary">
+    <p style="font-size:16px; margin: 0">Shell Scripts -&gt;</p>
+    <p style="font-size:12px; margin: 0">3:35pm</p>
+    </button>
+</div>
+
+
+</div>
+
+
+
+
+<!-- Maybe find a different way?
+<script src="/js/scrollIfAnchor.js"></script>
+-->
+
+<footer class="footer footer-background" style="padding-top: 1em; padding-bottom: 1em">
+  <div class="container text-center">
+    
+    
+
+    
+    <p style="margin: 0">Powered by the <a class="footer-link" href="https://morea-framework.github.io/">Morea Framework</a> (Theme: spacelab)<br>
+      Last update on: <span>2023-12-01 13:58:35 -1000</span></p>
+
+    <p style="margin: 0">
+      
+      18 modules
+      
+      | 17 outcomes
+      
+      
+      | 55 readings
+      
+      
+      | 100 experiences
+      
+      
+      | 15 assessments
+      
+    </p>
+  </div>
+</footer>
+
+
+<!-- Load Bootstrap JavaScript components -->
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM" crossorigin="anonymous"></script>
+
+
+<script type="text/javascript" async
+        src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.7/latest.js?config=TeX-MML-AM_CHTML">
+</script>
+
+
+<!-- Add anchors to pages. -->
+<script>anchors.add();</script>
+
+
+</body>
+</html>

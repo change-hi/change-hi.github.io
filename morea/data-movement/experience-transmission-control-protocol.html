@@ -1,0 +1,373 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <title> Change-HI/EDU | 6. Transmission Control Protocol (TCP) </title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta charset="utf-8">
+
+  <link rel="stylesheet" href="/css/themes/spacelab/bootstrap.min.css">
+  <link rel="stylesheet" href="/css/style.css">
+  <link rel="stylesheet" href="/css/syntax.css">
+  <link rel="shortcut icon" href="/favicon.ico" type="image/x-icon" />
+  <link href="/css/fontawesome/css/fontawesome.css" rel="stylesheet">
+  <link href="/css/fontawesome/css/brands.css" rel="stylesheet">
+  <link href="/css/fontawesome/css/solid.css" rel="stylesheet">
+  <script src="https://cdn.jsdelivr.net/npm/anchor-js/anchor.min.js"></script>
+
+  
+
+  <!-- Load JQuery, then use it to attach the class 'active' to navbar item currently displayed. -->
+  <script src="https://code.jquery.com/jquery-3.6.0.min.js" integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4=" crossorigin="anonymous"></script>
+  <script>
+    $(window).on('load', function () {
+      $('.nav-item').find('a[href="' + location.pathname + '"]').addClass('active');
+    });
+  </script>
+
+</head>
+<body>
+
+<div class="navbar navbar-expand-lg fixed-top navbar-light bg-light">
+  <div class="container">
+    <a class="navbar-brand" href="/index.html"> Change-HI/EDU </a>
+    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarResponsive" aria-controls="navbarResponsive" aria-expanded="false" aria-label="Toggle navigation">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+    <div class="collapse navbar-collapse" id="navbarResponsive">
+      <ul class="navbar-nav">
+        
+        <li class="nav-item"><a class="nav-link" href="/modules/">Modules</a></li>
+        
+        <li class="nav-item"><a class="nav-link" href="/outcomes/">Outcomes</a></li>
+        
+        
+        <li class="nav-item"><a class="nav-link" href="/readings/">Readings</a></li>
+        
+        
+        <li class="nav-item"><a class="nav-link" href="/experiences/">Experiences</a></li>
+        
+        
+        <li class="nav-item"><a class="nav-link" href="/assessments/">Assessments</a></li>
+        
+        
+      </ul>
+    </div>
+  </div>
+</div>
+
+<!-- Internal fragment for displaying the breadcrumb bar -->
+<div class="breadcrumb-background" style="padding-top: 1em; padding-bottom: .01em">
+  <div class="container">
+    <nav aria-label="breadcrumb">
+      <ol class="breadcrumb">
+        
+        <li class="breadcrumb-item"><a href="/">Home</a></li>
+        <li class="breadcrumb-item"><a href="/modules">Modules</a></li>
+        <li class="breadcrumb-item"><a href="/modules/data-movement">Data Movement</a></li>
+        <li class="breadcrumb-item active">6. Transmission Control Protocol (TCP)</li>
+      </ol>
+    </nav>
+  </div>
+</div>
+
+
+<div class="container">
+  <h1 id="6-transmission-control-protocol-tcp">6. Transmission Control Protocol (TCP)</h1>
+
+<div class="alert alert-success mt-3" role="alert">
+  <p><i class="fa-solid fa-globe fa-xl"></i> <strong>Overview</strong></p>
+  <hr />
+
+  <p><strong>Questions</strong></p>
+  <ul>
+    <li>What is TCP?</li>
+  </ul>
+
+  <p><strong>Objectives</strong></p>
+  <ul>
+    <li>Obtain a basic understanding of TCP.</li>
+  </ul>
+
+</div>
+
+<h2 id="why-tcp-acts-as-it-does">Why TCP Acts As It Does</h2>
+
+<figure>
+  
+    <img src="/morea/data-movement/fig/ep51.png" style="max-width: 75%;" alt="/Node%20anatomy" class="img-fluid mx-auto d-block border" />
+  
+  <figcaption style="text-align: center">
+    <small>
+      
+    </small>
+  </figcaption>
+</figure>
+
+<figure>
+  
+    <img src="/morea/data-movement/fig/ep52.png" style="max-width: 75%;" alt="/Node%20anatomy" class="img-fluid mx-auto d-block border" />
+  
+  <figcaption style="text-align: center">
+    <small>
+      
+    </small>
+  </figcaption>
+</figure>
+
+<figure>
+  
+    <img src="/morea/data-movement/fig/ep53.png" style="max-width: 75%;" alt="/Node%20anatomy" class="img-fluid mx-auto d-block border" />
+  
+  <figcaption style="text-align: center">
+    <small>
+      
+    </small>
+  </figcaption>
+</figure>
+
+<figure>
+  
+    <img src="/morea/data-movement/fig/ep54.png" style="max-width: 75%;" alt="/Node%20anatomy" class="img-fluid mx-auto d-block border" />
+  
+  <figcaption style="text-align: center">
+    <small>
+      
+    </small>
+  </figcaption>
+</figure>
+
+<figure>
+  
+    <img src="/morea/data-movement/fig/ep56.png" style="max-width: 75%;" alt="/Node%20anatomy" class="img-fluid mx-auto d-block border" />
+  
+  <figcaption style="text-align: center">
+    <small>
+      
+    </small>
+  </figcaption>
+</figure>
+
+<figure>
+  
+    <img src="/morea/data-movement/fig/ep57.png" style="max-width: 75%;" alt="/Node%20anatomy" class="img-fluid mx-auto d-block border" />
+  
+  <figcaption style="text-align: center">
+    <small>
+      
+    </small>
+  </figcaption>
+</figure>
+
+<div class="alert alert-info" role="alert">
+  <p><i class="fa-solid fa-circle-info fa-xl"></i> <strong>For more information</strong></p>
+  <hr />
+
+  <p>Bandwidth throttling on MacOS:</p>
+
+  <p><a href="https://blog.leiy.me/post/bw-throttling-on-mac/">https://blog.leiy.me/post/bw-throttling-on-mac/</a></p>
+</div>
+
+<h2 id="tcp-tuning">TCP Tuning</h2>
+
+<p>Bandwidth Delay Product (BDP)</p>
+<ul>
+  <li>TCP receive window = round_trip_time * effective_bit_rate
+    <ul>
+      <li>“Effective bit rate” is usually the smallest link in a path</li>
+      <li>Round Trip Time is propagation delay, queuing delay, backlog delay</li>
+    </ul>
+  </li>
+  <li>TCP RWIN max is 2 Gigabytes</li>
+  <li>The max RTT that can support 100 Gbit/sec is 171.8 milliseconds
+    <ul>
+      <li>Meaning: in order to go further, you’d need more than max window</li>
+    </ul>
+  </li>
+  <li>Most modern OS auto-tune, but have limits to the auto that can be raised.</li>
+  <li>Most default limits are insufficient for moving data fast over long distances</li>
+</ul>
+
+<div class="alert alert-info" role="alert">
+  <p><i class="fa-solid fa-circle-info fa-xl"></i> <strong>For more information</strong></p>
+  <hr />
+
+  <p>The Fasterdata Knowledge Base provides proven, operationally sound methods for troubleshooting and solving performance issues.</p>
+
+  <p><a href="https://fasterdata.es.net/">https://fasterdata.es.net/</a></p>
+</div>
+
+<h2 id="examples-of-packet-pacing">Examples of packet pacing</h2>
+
+<h3 id="4-streams-into-a-12-gbps-disk-system">4 streams, into a 12 Gbps disk system</h3>
+
+<h4 id="no-fq-pacing-640-gb-in-577-seconds">No FQ pacing, 640 GB in 577 seconds</h4>
+
+<p>With no pacing, the 100 Gbps Ethernet interface sends packets in short bursts of 100 Gbps. 
+Since our target rate is only 12 Gbps, we could distribute the packets more evenly, 
+and possibly avoid having bursts arrive at one or more queues along the path to the receiver.</p>
+
+<figure>
+  
+    <img src="/morea/data-movement/fig/ep58.png" style="max-width: 75%;" alt="/Node%20anatomy" class="img-fluid mx-auto d-block border" />
+  
+  <figcaption style="text-align: center">
+    <small>
+      
+    </small>
+  </figcaption>
+</figure>
+
+<figure>
+  
+    <img src="/morea/data-movement/fig/ep59.png" style="max-width: 75%;" alt="/Node%20anatomy" class="img-fluid mx-auto d-block border" />
+  
+  <figcaption style="text-align: center">
+    <small>
+      
+    </small>
+  </figcaption>
+</figure>
+
+<h4 id="3gb-per-stream-fq-pacing-640-gb-in-487-seconds">3Gb per stream FQ pacing, 640 GB in 487 seconds</h4>
+
+<p>Notice that when we pace packets at the sender to spread them out, the transfer is much smoother, and there are no more 
+TCP retransmissions</p>
+
+<figure>
+  
+    <img src="/morea/data-movement/fig/ep510.png" style="max-width: 75%;" alt="/Node%20anatomy" class="img-fluid mx-auto d-block border" />
+  
+  <figcaption style="text-align: center">
+    <small>
+      
+    </small>
+  </figcaption>
+</figure>
+
+<figure>
+  
+    <img src="/morea/data-movement/fig/ep511.png" style="max-width: 75%;" alt="/Node%20anatomy" class="img-fluid mx-auto d-block border" />
+  
+  <figcaption style="text-align: center">
+    <small>
+      
+    </small>
+  </figcaption>
+</figure>
+
+<h2 id="other-ways-to-tune">Other ways to tune</h2>
+
+<p>Ethernet driver ring buffers</p>
+<ul>
+  <li>The first and last queues in your network path</li>
+</ul>
+
+<p>Ethernet Offloading</p>
+<ul>
+  <li>The Ethernet card does such things as TCP segmentation and checksums, relieving the computer operating system of those tasks</li>
+</ul>
+
+<p>Ethernet flow control – sometimes mitigates buffer issues</p>
+
+<p>Storage system (formerly “disks”) configuration</p>
+<ul>
+  <li>Multi-devices under a single volume (RAID-1 or mdadm)</li>
+  <li>high performance files systems</li>
+  <li>If you have a fast, clean 100G network, the next limit will be your storage throughput</li>
+  <li><a href="https://fasterdata.es.net/science-dmz/DTN/hardware-selection/storage/">https://fasterdata.es.net/science-dmz/DTN/hardware-selection/storage/</a></li>
+</ul>
+
+<p>MTU (IP maximum transmission unit) akin to Ethernet frame size</p>
+
+<h2 id="sometimes-less-is-more">Sometimes Less Is More</h2>
+
+<p>If you experience sickly performance due to queue loss</p>
+<ul>
+  <li>You might try reducing the max TCP receive window, if you can’t affect queue pacing</li>
+  <li>Congested paths might get more done whenpresentedwith a lower rate that doesn’t cause queue drops</li>
+  <li>This is a temporary, stop-gap suggestion</li>
+</ul>
+
+<h2 id="parallelism">Parallelism</h2>
+
+<p>Currently, up to 10 Gigabit Ethernet can be filled by a typical server grade computer</p>
+
+<p>On 100 Gigabit, various transfer speeds &gt; 80 Gbps have been recorded (see pic)</p>
+
+<p>Working 100G flows tend to be 30 Gbps or less</p>
+
+<p>Most transfers over 10 Gbps is using multiple connections</p>
+
+<p>Globus GridFTP opens on the order of several hundred connections at once.</p>
+
+<div class="alert alert-success mt-3" role="alert">
+  <p><i class="fa-solid fa-globe fa-xl"></i> <strong>Key Points</strong></p>
+  <hr />
+
+  <ul>
+    <li>Tuning TCP can have a large impact on transfer throughput.</li>
+  </ul>
+</div>
+
+<div style="text-align: right; padding-bottom: 10px">
+  <hr />
+  <button type="button" onclick="window.location='/morea/data-movement/experience-transfer-programs.html'" class="btn btn-primary">
+    <p style="font-size:16px; margin: 0">Transfer Programs -&gt;</p>
+    <p style="font-size:12px; margin: 0">2:30pm</p>
+    </button>
+</div>
+
+
+</div>
+
+
+
+
+<!-- Maybe find a different way?
+<script src="/js/scrollIfAnchor.js"></script>
+-->
+
+<footer class="footer footer-background" style="padding-top: 1em; padding-bottom: 1em">
+  <div class="container text-center">
+    
+    
+
+    
+    <p style="margin: 0">Powered by the <a class="footer-link" href="https://morea-framework.github.io/">Morea Framework</a> (Theme: spacelab)<br>
+      Last update on: <span>2023-12-01 13:58:35 -1000</span></p>
+
+    <p style="margin: 0">
+      
+      18 modules
+      
+      | 17 outcomes
+      
+      
+      | 55 readings
+      
+      
+      | 100 experiences
+      
+      
+      | 15 assessments
+      
+    </p>
+  </div>
+</footer>
+
+
+<!-- Load Bootstrap JavaScript components -->
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM" crossorigin="anonymous"></script>
+
+
+<script type="text/javascript" async
+        src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.7/latest.js?config=TeX-MML-AM_CHTML">
+</script>
+
+
+<!-- Add anchors to pages. -->
+<script>anchors.add();</script>
+
+
+</body>
+</html>

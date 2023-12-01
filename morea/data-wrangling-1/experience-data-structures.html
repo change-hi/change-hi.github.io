@@ -1,0 +1,470 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <title> Change-HI/EDU | 3. Loading and Handling Pandas Data </title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta charset="utf-8">
+
+  <link rel="stylesheet" href="/css/themes/spacelab/bootstrap.min.css">
+  <link rel="stylesheet" href="/css/style.css">
+  <link rel="stylesheet" href="/css/syntax.css">
+  <link rel="shortcut icon" href="/favicon.ico" type="image/x-icon" />
+  <link href="/css/fontawesome/css/fontawesome.css" rel="stylesheet">
+  <link href="/css/fontawesome/css/brands.css" rel="stylesheet">
+  <link href="/css/fontawesome/css/solid.css" rel="stylesheet">
+  <script src="https://cdn.jsdelivr.net/npm/anchor-js/anchor.min.js"></script>
+
+  
+
+  <!-- Load JQuery, then use it to attach the class 'active' to navbar item currently displayed. -->
+  <script src="https://code.jquery.com/jquery-3.6.0.min.js" integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4=" crossorigin="anonymous"></script>
+  <script>
+    $(window).on('load', function () {
+      $('.nav-item').find('a[href="' + location.pathname + '"]').addClass('active');
+    });
+  </script>
+
+</head>
+<body>
+
+<div class="navbar navbar-expand-lg fixed-top navbar-light bg-light">
+  <div class="container">
+    <a class="navbar-brand" href="/index.html"> Change-HI/EDU </a>
+    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarResponsive" aria-controls="navbarResponsive" aria-expanded="false" aria-label="Toggle navigation">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+    <div class="collapse navbar-collapse" id="navbarResponsive">
+      <ul class="navbar-nav">
+        
+        <li class="nav-item"><a class="nav-link" href="/modules/">Modules</a></li>
+        
+        <li class="nav-item"><a class="nav-link" href="/outcomes/">Outcomes</a></li>
+        
+        
+        <li class="nav-item"><a class="nav-link" href="/readings/">Readings</a></li>
+        
+        
+        <li class="nav-item"><a class="nav-link" href="/experiences/">Experiences</a></li>
+        
+        
+        <li class="nav-item"><a class="nav-link" href="/assessments/">Assessments</a></li>
+        
+        
+      </ul>
+    </div>
+  </div>
+</div>
+
+<!-- Internal fragment for displaying the breadcrumb bar -->
+<div class="breadcrumb-background" style="padding-top: 1em; padding-bottom: .01em">
+  <div class="container">
+    <nav aria-label="breadcrumb">
+      <ol class="breadcrumb">
+        
+        <li class="breadcrumb-item"><a href="/">Home</a></li>
+        <li class="breadcrumb-item"><a href="/modules">Modules</a></li>
+        <li class="breadcrumb-item"><a href="/modules/data-wrangling-1">Data Wrangling, Part 1</a></li>
+        <li class="breadcrumb-item active">3. Loading and Handling Pandas Data</li>
+      </ol>
+    </nav>
+  </div>
+</div>
+
+
+<div class="container">
+  <h1 id="3-loading-and-handling-pandas-data">3. Loading and Handling Pandas Data</h1>
+
+<p><a href="https://colab.research.google.com/github/mahdi-b/change-hi.github.io/blob/main/morea/data-wrangling-1/Notebook/03-data-structures.ipynb"><img src="https://colab.research.google.com/assets/colab-badge.svg" alt="Open In Colab" /></a></p>
+
+<div class="alert alert-success mt-3" role="alert">
+  <p><i class="fa-solid fa-globe fa-xl"></i> <strong>Overview</strong></p>
+  <hr />
+
+  <p><strong>Questions</strong></p>
+  <ul>
+    <li>How are Pandas data structures created?</li>
+    <li>How to load data into Pandas?</li>
+    <li>How to write a Pandas data structure to a file.</li>
+  </ul>
+
+  <p><strong>Objectives</strong></p>
+  <ul>
+    <li>Learn the Pandas methods used for importing data and addressing typical formatting problems.</li>
+  </ul>
+
+</div>
+
+<h2 id="pandas-data-structures">Pandas Data Structures</h2>
+
+<p>You can follow along using the Jupyter Notebook associated with this module linked to from the Open in Colab button above.</p>
+
+<p>Before we start loading data into Pandas we need to become familiar with two primary data structures used in Pandas:</p>
+
+<ul>
+  <li>Series</li>
+  <li>DataFrames</li>
+</ul>
+
+<p>One of the primary benefits of <code class="language-plaintext highlighter-rouge">Series</code> and <code class="language-plaintext highlighter-rouge">DataFrames</code> over native python data structures is that it is a very natural way to describe a data set by referencing the rows and columns of the data.</p>
+
+<h2 id="pandas-series-vs-dataframes">Pandas <code class="language-plaintext highlighter-rouge">Series</code> Vs. <code class="language-plaintext highlighter-rouge">DataFrames</code></h2>
+
+<p>Pandas has two principal data structures, <code class="language-plaintext highlighter-rouge">Series</code> and <code class="language-plaintext highlighter-rouge">DataFrames</code>. If you are familiar with Microsoft’s Excel, then you can consider <code class="language-plaintext highlighter-rouge">Series</code> to a single column in an Excel sheet and <code class="language-plaintext highlighter-rouge">DataFrames</code> to entire tables (or spreadsheets).</p>
+
+<figure>
+  
+    <img src="/morea/data-wrangling-1/fig/E3_1_series_vs_dataframe.png" style="max-width: 80%;" alt="/Series%20vs%20DataFrames" class="img-fluid mx-auto d-block border" />
+  
+  <figcaption style="text-align: center">
+    <small>
+      
+    </small>
+  </figcaption>
+</figure>
+
+<p>We see in the image above that a <code class="language-plaintext highlighter-rouge">Series</code> in the context of Excel could be the first row of the spreadsheet, while a <code class="language-plaintext highlighter-rouge">DataFrames</code> would be the entire spreadsheet. In other words, a <code class="language-plaintext highlighter-rouge">DataFrames</code> is simply a collection of labeled <code class="language-plaintext highlighter-rouge">Series</code>.</p>
+
+<h2 id="pandas-data-types">Pandas Data Types</h2>
+
+<p>When creating a <code class="language-plaintext highlighter-rouge">Series</code> Pandas will store all the data as the same type. The mapping from the native Python types to what they would be in Pandas is summarized below.</p>
+
+<table class="table">
+  <thead>
+    <tr>
+      <th style="text-align: left">Python Type</th>
+      <th style="text-align: left">Equivalent Pandas Type</th>
+      <th style="text-align: left">Description</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td style="text-align: left"><code class="language-plaintext highlighter-rouge">string or mixed</code></td>
+      <td style="text-align: left"><code class="language-plaintext highlighter-rouge">object</code></td>
+      <td style="text-align: left">Columns are partially or completely made up from strings</td>
+    </tr>
+    <tr>
+      <td style="text-align: left"><code class="language-plaintext highlighter-rouge">int</code></td>
+      <td style="text-align: left"><code class="language-plaintext highlighter-rouge">int64</code></td>
+      <td style="text-align: left">Columns with numeric (integer) values. The 64 here refers <br />to the size of the memory space allocated to this type</td>
+    </tr>
+    <tr>
+      <td style="text-align: left"><code class="language-plaintext highlighter-rouge">float</code></td>
+      <td style="text-align: left"><code class="language-plaintext highlighter-rouge">float64</code></td>
+      <td style="text-align: left">Columns with floating points numbers (numbers with decimal points)</td>
+    </tr>
+    <tr>
+      <td style="text-align: left"><code class="language-plaintext highlighter-rouge">bool</code></td>
+      <td style="text-align: left"><code class="language-plaintext highlighter-rouge">bool</code></td>
+      <td style="text-align: left">True/False values</td>
+    </tr>
+    <tr>
+      <td style="text-align: left"><code class="language-plaintext highlighter-rouge">datetime</code></td>
+      <td style="text-align: left"><code class="language-plaintext highlighter-rouge">datetime</code></td>
+      <td style="text-align: left">Date and/or time values</td>
+    </tr>
+  </tbody>
+</table>
+
+<h2 id="pandas-dataframes-basics">Pandas <code class="language-plaintext highlighter-rouge">DataFrames</code> Basics</h2>
+
+<p>Reiterating the example mentioned earlier, it helps to think of <code class="language-plaintext highlighter-rouge">DataFrames</code> as MS. Excel spreadsheets where each row (or column) is an individual <code class="language-plaintext highlighter-rouge">Series</code>. Just like Excel spreadsheets, which typically have row and column labels (numbers for the rows and letter for the columns), <code class="language-plaintext highlighter-rouge">DataFrames</code> also have two associated <code class="language-plaintext highlighter-rouge">Index</code> objects, one to label rows and another to label columns.</p>
+
+<p>DataFrames may be generated either by importing a data file, such as a CSV, or by transitioning a current Python data structure into a dataframe. Here, we will focus on creating a DataFrame by ingesting data from a file.</p>
+
+<h2 id="import-the-pandas-package">Import the Pandas Package</h2>
+
+<p>Pandas is traditionally imported with the shortcut, or alias, <code class="language-plaintext highlighter-rouge">pd</code>.</p>
+
+<div class="alert alert-secondary" role="alert">
+
+  <h6 id="python">Python</h6>
+
+  <div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kn">import</span> <span class="nn">pandas</span> <span class="k">as</span> <span class="n">pd</span>
+</code></pre></div>  </div>
+
+</div>
+
+<h3 id="loading-and-parsing-data">Loading and Parsing Data</h3>
+
+<p>Pandas can be used to load data from a variety of file formats. The most common ones fall into one of the following two categories: <strong>Delimited</strong> and <strong>Fixed Width</strong></p>
+
+<ul>
+  <li>Delimited files are organized such that columns and rows are separated by a certain character called a delimiter</li>
+  <li>Fixed-width files are those where each entry in a column has a fixed number of characters</li>
+</ul>
+
+<p>We will focus on the delimited .csv file type. The CSV acronym stands for ‘<strong>C</strong>omma <strong>S</strong>eparated <strong>V</strong>alues’ and informs us that the column entries are delimited by commas and the rows are delimited by a new line. So, the example we discussed in this cell conforms to the .csv format.</p>
+
+<p>Pandas provides a suite of <a href="https://pandas.pydata.org/pandas-docs/stable/user_guide/io.html">functions</a> to parse input data into <code class="language-plaintext highlighter-rouge">DataFrames</code>. The function <code class="language-plaintext highlighter-rouge">read_csv()</code> can read any character-delimited text file into <code class="language-plaintext highlighter-rouge">DataFrames</code>. To use <code class="language-plaintext highlighter-rouge">read_csv()</code>, we need to at least provide the path of the input file. For example, if we aim to read a file named <code class="language-plaintext highlighter-rouge">my_input_file.csv</code> in the notebook’s current directory and assign the data to a new <code class="language-plaintext highlighter-rouge">DataFrame</code>, <code class="language-plaintext highlighter-rouge">df</code>, the command would be: <code class="language-plaintext highlighter-rouge">df = pd.read_csv(my_input_file.csv)</code>.</p>
+
+<p>Pandas provides various optional parameters that may be set when calling the <code class="language-plaintext highlighter-rouge">read_csv()</code> function. To learn more, see the <code class="language-plaintext highlighter-rouge">read_csv()</code> <a href="https://pandas.pydata.org/docs/reference/api/pandas.read_csv.html">documentation</a>, which summarizes all of the parameters. We will be covering many of the most important parameters throughout the rest of this module.</p>
+
+<p>By default <code class="language-plaintext highlighter-rouge">read_csv()</code> will separate data entries when it encounters a comma and will separate rows by new lines encoded by ‘\n’. If we wanted to change this behavior so that <code class="language-plaintext highlighter-rouge">read_csv()</code> separates by tabs (encoded with <code class="language-plaintext highlighter-rouge">\t</code>), then we can set the optional parameter <code class="language-plaintext highlighter-rouge">sep = '\t'</code>. Therefore, to read the data in the file ‘tsv_example.tsv’, which is a tab separated values file, and save the data in a Pandas <code class="language-plaintext highlighter-rouge">DataFrame</code> called <code class="language-plaintext highlighter-rouge">df</code>, then we would type:</p>
+
+<div class="alert alert-secondary" role="alert">
+
+  <h6 id="python-1">Python</h6>
+  <div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="n">df</span> <span class="o">=</span> <span class="n">pd</span><span class="p">.</span><span class="n">read_csv</span><span class="p">(</span><span class="s">'data/tsv_example.tsv'</span><span class="p">,</span> <span class="n">sep</span><span class="o">=</span><span class="s">'</span><span class="se">\t</span><span class="s">'</span><span class="p">)</span>
+</code></pre></div>  </div>
+
+</div>
+
+<p>Though <code class="language-plaintext highlighter-rouge">read_csv()</code> can handle <code class="language-plaintext highlighter-rouge">.tsv</code> files, there is a specific parsing function for <code class="language-plaintext highlighter-rouge">.tsv</code> files: <code class="language-plaintext highlighter-rouge">read_table()</code>. The <code class="language-plaintext highlighter-rouge">read_table()</code> documentation is available at this <a href="https://pandas.pydata.org/pandas-docs/stable/reference/api/pandas.read_table.html">link</a>.</p>
+
+<p>In the previous examples, we loaded into a Pandas DataFrame the entire dataset. However, when working with large datasets it is good practice to initially load and explore a small chunk before loading the entire dataset to ensure that the file is parsed correctly. Small data sets are more manageable and errors are easier to spot, while large data sets take more time to parse. So, a good workflow is to read a small portion of the data and analyze the resulting data frame to see if you need to modify any of the default behaviors of the read function.</p>
+
+<p>To load only up to a limited number of rows we can use the <code class="language-plaintext highlighter-rouge">nrows</code> parameter for both <code class="language-plaintext highlighter-rouge">read_table()</code> and <code class="language-plaintext highlighter-rouge">read_csv()</code>. For example, the sample file E3_tara_w1.csv is a csv file with a little over 200 rows, but if we wanted to read only the first 5 rows of this file we can call the Pandas <code class="language-plaintext highlighter-rouge">read_csv()</code> function and set <code class="language-plaintext highlighter-rouge">nrows = 5</code>. We can then use the DataFrame attribute (property or characteristic accessible using the dot notation).</p>
+
+<div class="alert alert-secondary" role="alert">
+
+  <h6 id="python-2">Python</h6>
+
+  <div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="n">df</span> <span class="o">=</span> <span class="n">pd</span><span class="p">.</span><span class="n">read_csv</span><span class="p">(</span><span class="s">'data/tsv_example.tsv'</span><span class="p">,</span> <span class="n">nrows</span><span class="o">=</span><span class="mi">5</span><span class="p">)</span>
+<span class="n">df</span><span class="p">.</span><span class="n">shape</span> <span class="c1"># Returns the number of rows and columns of the DataFrame 'df' (rows, columns)
+</span></code></pre></div>  </div>
+
+  <h6 id="output">Output</h6>
+
+  <div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>(5, 7)
+</code></pre></div>  </div>
+
+</div>
+
+<p>We see that the <code class="language-plaintext highlighter-rouge">DataFrame</code> <code class="language-plaintext highlighter-rouge">df</code>, that we saved the data in, has a shape attribute of <code class="language-plaintext highlighter-rouge">(5, 7)</code>. This means that there are 5 rows (since we set <code class="language-plaintext highlighter-rouge">nrows=5</code>) and 7 columns (all the columns of the dataset).</p>
+
+<h2 id="headers-and-indexes">Headers and Indexes</h2>
+
+<div class="alert alert-secondary" role="alert">
+
+  <p>When we loaded the previous datasets <code class="language-plaintext highlighter-rouge">read_csv()</code> assumed that the first row in our .csv file contained headers for each of the columns. If we want to load in a dataset that does not contain a header row we can tell <code class="language-plaintext highlighter-rouge">read_csv()</code> that there is no header by setting <code class="language-plaintext highlighter-rouge">header=None</code>.</p>
+
+  <h6 id="python-3">Python</h6>
+
+  <div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="n">df</span> <span class="o">=</span> <span class="n">pd</span><span class="p">.</span><span class="n">read_csv</span><span class="p">(</span><span class="s">"data/noheader_example.csv"</span><span class="p">,</span> <span class="n">header</span><span class="o">=</span><span class="bp">None</span><span class="p">)</span>
+<span class="n">df</span>
+</code></pre></div>  </div>
+</div>
+
+<p>However, this does not mean that the <code class="language-plaintext highlighter-rouge">DataFrame</code> does not have headers but rather that Pandas will set them to be an integer value. An example is shown in the figure below:</p>
+
+<figure>
+  
+    <img src="/morea/data-wrangling-1/fig/E3_3_no_columns_dataframe.png" style="max-width: 80%;" alt="/No%20Headers%20Dataframe" class="img-fluid mx-auto d-block border" />
+  
+  <figcaption style="text-align: center">
+    <small>
+      
+    </small>
+  </figcaption>
+</figure>
+
+<p>You might also notice that there is also a corresponding integer number in the far left side of each row. This is the index that is essentially the “index” representing each row. If we have a column that is specific to each row in the Python file we can tell Pandas to use that column instead of the default of using an integer. This can be done by e.g. setting <code class="language-plaintext highlighter-rouge">index_col='unique_id'</code> however, if you don’t have any headers you can also specify the column by using its integer location e.g. <code class="language-plaintext highlighter-rouge">index_col=0</code>. <strong>Note that the integer location of a column goes from left to right and starts at 0.</strong></p>
+
+<div class="alert alert-secondary" role="alert">
+  <h6 id="python-4">Python</h6>
+
+  <div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="n">df</span> <span class="o">=</span> <span class="n">pd</span><span class="p">.</span><span class="n">read_csv</span><span class="p">(</span><span class="s">'data/noheader_example.csv'</span><span class="p">,</span> <span class="n">header</span><span class="o">=</span><span class="bp">None</span><span class="p">,</span> <span class="n">index_col</span><span class="o">=</span><span class="mi">0</span><span class="p">)</span>
+<span class="n">df</span>
+</code></pre></div>  </div>
+</div>
+
+<figure>
+  
+    <img src="/morea/data-wrangling-1/fig/E3_4_no_column_index_specified_dataframe.png" style="max-width: 60%;" alt="/No%20Headers%20Index%20Specified%20Dataframe" class="img-fluid mx-auto d-block border" />
+  
+  <figcaption style="text-align: center">
+    <small>
+      
+    </small>
+  </figcaption>
+</figure>
+
+<h2 id="common-data-loading-problems">Common Data Loading Problems</h2>
+
+<p>Though data storage in plain text files should follow certain formats like .csv for ‘<strong>C</strong>omma <strong>S</strong>eparated <strong>V</strong>alues’ and .tsv for ‘<strong>T</strong>ab <strong>S</strong>eparated <strong>V</strong>alues’, there is still some ambiguity on how things like missing entries, and comments should be denoted. Below we will go through two examples of common issues when loading in data.</p>
+
+<h3 id="missing-values">Missing Values</h3>
+
+<p>real-world data often contain missing values. These missing entries may be identifiable in the dataset by a number of different tags, like ‘NA’, ‘N.A.’, ‘na’, ‘missing’, etc. It is important to properly identify missing values when creating a <code class="language-plaintext highlighter-rouge">DataFrame</code> since certain <code class="language-plaintext highlighter-rouge">DataFrame</code> methods rely on the missing values being accounted for. For example, the <code class="language-plaintext highlighter-rouge">count()</code> method of a <code class="language-plaintext highlighter-rouge">DataFrame</code> returns the number of non-missing values in each column. If we want this to be an accurate count, then we need to be sure of pointing out all the tags, which represent ‘missing’ to Pandas.</p>
+
+<p>As an example, to inform Pandas that missing values in a dataset are represented by the “Null” string value, you can specify na_values=’Null’ while reading the data file. In response, Pandas will substitute these missing values with NaN, which stands for “Not a Number” and carries significance in Python syntax.</p>
+
+<div class="alert alert-secondary" role="alert">
+
+  <h6 id="python-5">Python</h6>
+
+  <div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="n">df</span> <span class="o">=</span> <span class="n">pd</span><span class="p">.</span><span class="n">read_csv</span><span class="p">(</span><span class="s">"data/null_values_example.csv"</span><span class="p">,</span> <span class="n">na_values</span><span class="o">=</span><span class="s">'Null'</span><span class="p">)</span>
+<span class="n">df</span>
+</code></pre></div>  </div>
+</div>
+
+<p><strong>Without <code class="language-plaintext highlighter-rouge">na_values='Null'</code>:</strong></p>
+
+<figure>
+  
+    <img src="/morea/data-wrangling-1/fig/E3_5_null_values.png" style="max-width: 60%;" alt="/Null%20values%20Dataframe" class="img-fluid mx-auto d-block border" />
+  
+  <figcaption style="text-align: center">
+    <small>
+      
+    </small>
+  </figcaption>
+</figure>
+
+<p><strong>With <code class="language-plaintext highlighter-rouge">na_values='Null'</code>:</strong></p>
+
+<figure>
+  
+    <img src="/morea/data-wrangling-1/fig/E3_6_nan_values.png" style="max-width: 60%;" alt="/NaN%20values%20Dataframe" class="img-fluid mx-auto d-block border" />
+  
+  <figcaption style="text-align: center">
+    <small>
+      
+    </small>
+  </figcaption>
+</figure>
+
+<h2 id="auto-nan-values">Auto NaN values</h2>
+
+<p>Pandas will interpret certain values as being NaN values even without user Python. For example if ‘NULL’ is found then Pandas will treat it as a missing value and treat it as a NaN value.</p>
+
+<h2 id="writing-data-in-text-format">Writing Data in Text Format</h2>
+
+<p>When using Pandas’ <code class="language-plaintext highlighter-rouge">read_&lt;filetype&gt;()</code> to import files into DataFrames, the complementary operation for exporting DataFrames to files uses the <code class="language-plaintext highlighter-rouge">to_&lt;filetype&gt;()</code> methods. Here, we will use to_csv(), which has a sole required parameter the output file name. This function will either create a new file or overwrite an existing one. The method <code class="language-plaintext highlighter-rouge">to_csv()</code> has several optional parameters for customization, all of which are detailed in the Pandas documentation for your reference.</p>
+
+<div class="alert alert-secondary" role="alert">
+
+  <h6 id="python-6">Python</h6>
+
+  <pre><code class="language-Python">df.to_csv('data/new_file.csv')
+</code></pre>
+
+</div>
+
+<h2 id="key-points">Key Points</h2>
+
+<div class="alert alert-success" role="alert">
+
+  <ul>
+    <li>“Pandas provides numerous attributes (ex. shape) and methods that are useful for wrangling and analyzing data”</li>
+    <li>“Pandas contains numerous methods to help load/write data to/from files of different types”</li>
+  </ul>
+</div>
+
+<div class="alert alert-secondary" role="alert">
+  <p><i class="fa-solid fa-user-pen fa-xl"></i>  <strong>Exercise: Loading An Excel File</strong></p>
+  <hr />
+
+  <p>Try it yourself! Load the first 10 lines of the Excel file ‘20_sales_records.xlsx’ into a variable and then display your DataFrame using the <code class="language-plaintext highlighter-rouge">.head() method</code>. Can you identify the number of rows and columns in the DataFrame.</p>
+
+  <ul>
+    <li>The file can be opened directly from the following URL: <code class="language-plaintext highlighter-rouge">https://github.com/mahdi-b/change-hi.github.io/raw/main/morea/data-wrangling-1/Notebook/data/20_sales_records.xlsx</code>.</li>
+    <li>Click on the folder to the left side.</li>
+    <li>After downloading the file (<code class="language-plaintext highlighter-rouge">20_sales_records.xlsx</code>), drag and drop it in the Files section to the left side of your Colab Notebook.</li>
+    <li>Use the appropriate <code class="language-plaintext highlighter-rouge">read_&lt;file_&gt;</code> method  along with the argument you learned to only parse 10 rows.</li>
+    <li>This file has <code class="language-plaintext highlighter-rouge">NaN</code> values that are not automatically detected. They are labeled as <code class="language-plaintext highlighter-rouge">'none'</code>. Have Pandas interpret these as <code class="language-plaintext highlighter-rouge">NaN</code> values upon loading of the dataset.</li>
+    <li>Display the results.</li>
+    <li>Identify the number of rows and columns of your resulting DataFrame.</li>
+  </ul>
+
+  <details>
+  <summary>Solution</summary>
+
+  '20_sales_records.xlsx' is an excel file containing 20 rows of data, but we only want Pandas to parse the first 10 rows. In addition, we want to interpret exisitng 'none' values as `NaN` values. This can all be accomplished with the following line of code:
+  
+  <pre>
+    sales_df = pd.read_excel('data/20_sales_records.xlsx', nrows=10, na_values='none')  
+  </pre>
+
+The DataFrame should look like the following:
+<figure>
+  
+    <img src="/morea/data-wrangling-1/fig/E3_7_exercise.png" style="max-width: 40%;" alt="/Output%20DataFrame" class="img-fluid mx-auto d-block border" />
+  
+  <figcaption style="text-align: center">
+    <small>
+      
+    </small>
+  </figcaption>
+</figure>
+
+
+Use the method `.shape` to verify that `DataFrame` should have 10 rows, 14 columns, and `NaN` values replacing the 'none' values.
+
+  <pre>
+    sales_df.shape
+  </pre>
+
+
+</details>
+</div>
+
+<div class="alert alert-warning" role="alert">
+  <p><i class="fa-solid fa-circle-info fa-xl"></i> <strong>Bio Break!</strong>
+We will start again at 3:05 PM.</p>
+  <hr />
+
+</div>
+
+<div style="text-align: right; padding-bottom: 10px">
+  <hr />
+  <button type="button" onclick="window.location='/morea/data-wrangling-1/experience-data-accessing-subsetting.html'" class="btn btn-primary">
+    <p style="font-size:16px; margin: 0">Dataframe Wrangling -&gt;</p>
+    <p style="font-size:12px; margin: 0">2:40pm</p>
+    </button>
+</div>
+
+
+</div>
+
+
+
+
+<!-- Maybe find a different way?
+<script src="/js/scrollIfAnchor.js"></script>
+-->
+
+<footer class="footer footer-background" style="padding-top: 1em; padding-bottom: 1em">
+  <div class="container text-center">
+    
+    
+
+    
+    <p style="margin: 0">Powered by the <a class="footer-link" href="https://morea-framework.github.io/">Morea Framework</a> (Theme: spacelab)<br>
+      Last update on: <span>2023-12-01 13:58:35 -1000</span></p>
+
+    <p style="margin: 0">
+      
+      18 modules
+      
+      | 17 outcomes
+      
+      
+      | 55 readings
+      
+      
+      | 100 experiences
+      
+      
+      | 15 assessments
+      
+    </p>
+  </div>
+</footer>
+
+
+<!-- Load Bootstrap JavaScript components -->
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM" crossorigin="anonymous"></script>
+
+
+<script type="text/javascript" async
+        src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.7/latest.js?config=TeX-MML-AM_CHTML">
+</script>
+
+
+<!-- Add anchors to pages. -->
+<script>anchors.add();</script>
+
+
+</body>
+</html>

@@ -1,0 +1,770 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <title> Change-HI/EDU | 5. Pipes and Filters </title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta charset="utf-8">
+
+  <link rel="stylesheet" href="/css/themes/spacelab/bootstrap.min.css">
+  <link rel="stylesheet" href="/css/style.css">
+  <link rel="stylesheet" href="/css/syntax.css">
+  <link rel="shortcut icon" href="/favicon.ico" type="image/x-icon" />
+  <link href="/css/fontawesome/css/fontawesome.css" rel="stylesheet">
+  <link href="/css/fontawesome/css/brands.css" rel="stylesheet">
+  <link href="/css/fontawesome/css/solid.css" rel="stylesheet">
+  <script src="https://cdn.jsdelivr.net/npm/anchor-js/anchor.min.js"></script>
+
+  
+
+  <!-- Load JQuery, then use it to attach the class 'active' to navbar item currently displayed. -->
+  <script src="https://code.jquery.com/jquery-3.6.0.min.js" integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4=" crossorigin="anonymous"></script>
+  <script>
+    $(window).on('load', function () {
+      $('.nav-item').find('a[href="' + location.pathname + '"]').addClass('active');
+    });
+  </script>
+
+</head>
+<body>
+
+<div class="navbar navbar-expand-lg fixed-top navbar-light bg-light">
+  <div class="container">
+    <a class="navbar-brand" href="/index.html"> Change-HI/EDU </a>
+    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarResponsive" aria-controls="navbarResponsive" aria-expanded="false" aria-label="Toggle navigation">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+    <div class="collapse navbar-collapse" id="navbarResponsive">
+      <ul class="navbar-nav">
+        
+        <li class="nav-item"><a class="nav-link" href="/modules/">Modules</a></li>
+        
+        <li class="nav-item"><a class="nav-link" href="/outcomes/">Outcomes</a></li>
+        
+        
+        <li class="nav-item"><a class="nav-link" href="/readings/">Readings</a></li>
+        
+        
+        <li class="nav-item"><a class="nav-link" href="/experiences/">Experiences</a></li>
+        
+        
+        <li class="nav-item"><a class="nav-link" href="/assessments/">Assessments</a></li>
+        
+        
+      </ul>
+    </div>
+  </div>
+</div>
+
+<!-- Internal fragment for displaying the breadcrumb bar -->
+<div class="breadcrumb-background" style="padding-top: 1em; padding-bottom: .01em">
+  <div class="container">
+    <nav aria-label="breadcrumb">
+      <ol class="breadcrumb">
+        
+        <li class="breadcrumb-item"><a href="/">Home</a></li>
+        <li class="breadcrumb-item"><a href="/modules">Modules</a></li>
+        <li class="breadcrumb-item"><a href="/modules/scientific-software-basics">Scientific Software Basics</a></li>
+        <li class="breadcrumb-item active">5. Pipes and Filters</li>
+      </ol>
+    </nav>
+  </div>
+</div>
+
+
+<div class="container">
+  <h1 id="5-pipes-and-filters">5. Pipes and Filters</h1>
+
+<div class="alert alert-success mt-3" role="alert">
+  <p><i class="fa-solid fa-globe fa-xl"></i> <strong>Overview</strong></p>
+  <hr />
+
+  <p><strong>Questions</strong></p>
+  <ul>
+    <li>How can I combine existing commands to do new things?</li>
+  </ul>
+
+  <p><strong>Objectives</strong></p>
+  <ul>
+    <li>Redirect a command’s output to a file.</li>
+    <li>Process a file instead of keyboard input using redirection.</li>
+    <li>Construct command pipelines with two or more stages.</li>
+    <li>Explain what usually happens if a program or pipeline isn’t given any input to process.</li>
+    <li>Explain Unix’s ‘small pieces, loosely joined’ philosophy.</li>
+  </ul>
+
+  <p><strong>Keypoints</strong></p>
+  <ul>
+    <li><code class="language-plaintext highlighter-rouge">cat</code> displays the contents of its inputs.</li>
+    <li><code class="language-plaintext highlighter-rouge">head</code> displays the first 10 lines of its input.</li>
+    <li><code class="language-plaintext highlighter-rouge">tail</code> displays the last 10 lines of its input.</li>
+    <li><code class="language-plaintext highlighter-rouge">sort</code> sorts its inputs.</li>
+    <li><code class="language-plaintext highlighter-rouge">wc</code> counts lines, words, and characters in its inputs.</li>
+    <li><code class="language-plaintext highlighter-rouge">command &gt; file</code> redirects a command’s output to a file (overwriting any existing content).</li>
+    <li><code class="language-plaintext highlighter-rouge">command &gt;&gt; file</code> appends a command’s output to a file.</li>
+    <li><code class="language-plaintext highlighter-rouge">&lt;</code> operator redirects input to a command</li>
+    <li><code class="language-plaintext highlighter-rouge">first | second</code> is a pipeline: the output of the first command is used as the input to the second.</li>
+    <li>The best way to use the shell is to use pipes to combine simple single-purpose programs (filters).</li>
+  </ul>
+
+</div>
+
+<h2 id="lets-get-started">Let’s Get Started</h2>
+
+<p>Now that we know a few basic commands, we can look at the shell’s most powerful feature: the ease with which it lets us combine existing programs in new ways. We’ll start with a directory called <code class="language-plaintext highlighter-rouge">molecules</code> that contains six files describing
+some simple organic molecules. The <code class="language-plaintext highlighter-rouge">.pdb</code> extension indicates that these files are in Protein Data Bank format, a simple text format that specifies the type and position of each atom in the molecule.</p>
+
+<div class="alert alert-secondary" role="alert">
+
+  <p>Input:</p>
+
+  <div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nv">$ </span><span class="nb">ls </span>molecules
+</code></pre></div>  </div>
+
+  <p>Output:</p>
+
+  <div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code>cubane.pdb    ethane.pdb    methane.pdb
+octane.pdb    pentane.pdb   propane.pdb
+</code></pre></div>  </div>
+</div>
+
+<p>Let’s go into that directory with <code class="language-plaintext highlighter-rouge">cd</code> and run the command <code class="language-plaintext highlighter-rouge">wc *.pdb</code>. <code class="language-plaintext highlighter-rouge">wc</code> is the “word count” command: it counts the number of lines, words, and characters in files (from left to right, in that order).</p>
+
+<p>The <code class="language-plaintext highlighter-rouge">*</code> in <code class="language-plaintext highlighter-rouge">*.pdb</code> matches zero or more characters, so the shell turns <code class="language-plaintext highlighter-rouge">*.pdb</code> into a list of all <code class="language-plaintext highlighter-rouge">.pdb</code> files in the current directory:</p>
+
+<div class="alert alert-secondary" role="alert">
+
+  <p>Input:</p>
+
+  <div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nv">$ </span><span class="nb">cd </span>molecules
+<span class="nv">$ </span><span class="nb">wc</span> <span class="k">*</span>.pdb
+</code></pre></div>  </div>
+
+  <p>Output:</p>
+
+  <div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code>20  156  1158  cubane.pdb
+12  84   622   ethane.pdb
+ 9  57   422   methane.pdb
+30  246  1828  octane.pdb
+21  165  1226  pentane.pdb
+15  111  825   propane.pdb
+107  819  6081  total
+</code></pre></div>  </div>
+</div>
+
+<p>If we run <code class="language-plaintext highlighter-rouge">wc -l</code> instead of just <code class="language-plaintext highlighter-rouge">wc</code>, the output shows only the number of lines per file:</p>
+
+<div class="alert alert-secondary" role="alert">
+
+  <p>Input:</p>
+
+  <div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nv">$ </span><span class="nb">wc</span> <span class="nt">-l</span> <span class="k">*</span>.pdb
+</code></pre></div>  </div>
+
+  <p>Output:</p>
+
+  <div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code>20  cubane.pdb
+12  ethane.pdb
+ 9  methane.pdb
+30  octane.pdb
+21  pentane.pdb
+15  propane.pdb
+107  total
+</code></pre></div>  </div>
+</div>
+
+<h2 id="why-isnt-it-doing-anything">Why Isn’t It Doing Anything?</h2>
+
+<div class="alert alert-warning" role="alert">
+  <p><i class="fa-solid fa-triangle-exclamation fa-xl"></i> <strong>Why Isn’t This Working?</strong></p>
+  <hr />
+
+  <p>What happens if a command is supposed to process a file, but we
+ don’t give it a filename? For example, what if we type:</p>
+
+  <div class="alert alert-secondary" role="alert">
+    <p>Input:</p>
+
+    <div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code> <span class="nv">$ </span><span class="nb">wc</span> <span class="nt">-l</span>
+</code></pre></div>    </div>
+  </div>
+
+  <p>but don’t type <code class="language-plaintext highlighter-rouge">*.pdb</code> (or anything else) after the command? Since it doesn’t have any filenames, <code class="language-plaintext highlighter-rouge">wc</code> assumes it is supposed to process input given at the command prompt, so it just sits there and waits for us to give it some data interactively. From the outside, though, all we see is it sitting there: the command doesn’t appear to do anything.</p>
+
+  <p>If you make this kind of mistake, you can escape out of this state by holding down the control key (<kbd>Ctrl</kbd>) and typing the letter <kbd>C</kbd> once and letting go of the <kbd>Ctrl</kbd> key. <kbd>Ctrl</kbd>+<kbd>C</kbd></p>
+</div>
+
+<p>We can also use <code class="language-plaintext highlighter-rouge">-w</code> to get only the number of words, or <code class="language-plaintext highlighter-rouge">-c</code> to get only the number of characters.</p>
+
+<p>Which of these files contains the fewest lines? It’s an easy question to answer when there are only six files, but what if there were 6000? Our first step toward a solution is to run the command:</p>
+
+<div class="alert alert-secondary" role="alert">
+
+  <p>Input:</p>
+
+  <div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nv">$ </span><span class="nb">wc</span> <span class="nt">-l</span> <span class="k">*</span>.pdb <span class="o">&gt;</span> lengths.txt
+</code></pre></div>  </div>
+</div>
+
+<p>The <code class="language-plaintext highlighter-rouge">&gt;</code> symbol redirects command output to a file instead of displaying it on the screen. This explains the lack of screen output; everything that <code class="language-plaintext highlighter-rouge">wc</code> would have printed goes into the <code class="language-plaintext highlighter-rouge">lengths.txt</code> file. If the file doesn’t exist, the shell creates it. If it does, it’s silently overwritten, so be cautious. <code class="language-plaintext highlighter-rouge">ls lengths.txt</code> confirms that the file exists:</p>
+
+<div class="alert alert-secondary" role="alert">
+
+  <p>Input:</p>
+
+  <div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nv">$ </span><span class="nb">ls </span>lengths.txt
+</code></pre></div>  </div>
+  <p>Output:</p>
+
+  <div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nv">$ </span>lengths.txt
+</code></pre></div>  </div>
+</div>
+
+<p>We can now send the content of <code class="language-plaintext highlighter-rouge">lengths.txt</code> to the screen using <code class="language-plaintext highlighter-rouge">cat lengths.txt</code>. <code class="language-plaintext highlighter-rouge">cat</code> stands for “concatenate”: it prints the contents of files one after another. There’s only one file in this case, so <code class="language-plaintext highlighter-rouge">cat</code> just shows us what it contains:</p>
+
+<div class="alert alert-secondary" role="alert">
+
+  <p>Input:</p>
+
+  <div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nv">$ </span><span class="nb">cat </span>lengths.txt
+</code></pre></div>  </div>
+  <p>Output:</p>
+
+  <div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code>20  cubane.pdb
+12  ethane.pdb
+ 9  methane.pdb
+30  octane.pdb
+21  pentane.pdb
+15  propane.pdb
+107  total
+</code></pre></div>  </div>
+</div>
+
+<h2 id="output-page-by-page">Output Page by Page</h2>
+
+<p>We’ll use <code class="language-plaintext highlighter-rouge">cat</code> in this lesson for convenience and consistency, but it has the disadvantage of dumping the whole file onto your screen. In practice, the more useful  <code class="language-plaintext highlighter-rouge">less</code>, which you use with <code class="language-plaintext highlighter-rouge">less lengths.txt</code>. This displays a screenful of the file, and then stops. You can go forward one screenful by pressing the spacebar, or back one by pressing <code class="language-plaintext highlighter-rouge">b</code>.  Press <code class="language-plaintext highlighter-rouge">q</code> to quit.</p>
+
+<p>Now let’s use the <code class="language-plaintext highlighter-rouge">sort</code> command to sort its contents.</p>
+
+<p>We will use the <code class="language-plaintext highlighter-rouge">-n</code> option to specify that the sort is numerical instead of alphanumerical. This does <em>not</em> change the file; instead, it sends the sorted result to the screen:</p>
+
+<div class="alert alert-secondary" role="alert">
+
+  <p>Input:</p>
+
+  <div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nv">$ </span><span class="nb">sort</span> <span class="nt">-n</span> lengths.txt
+</code></pre></div>  </div>
+
+  <p>Output:</p>
+
+  <div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code>9  methane.pdb
+12  ethane.pdb
+15  propane.pdb
+20  cubane.pdb
+21  pentane.pdb
+30  octane.pdb
+107  total
+</code></pre></div>  </div>
+</div>
+
+<p>We can put the sorted list of lines in another temporary file called <code class="language-plaintext highlighter-rouge">sorted-lengths.txt</code> by putting <code class="language-plaintext highlighter-rouge">&gt; sorted-lengths.txt</code> after the command, just as we used <code class="language-plaintext highlighter-rouge">&gt; lengths.txt</code> to put the output of <code class="language-plaintext highlighter-rouge">wc</code> into <code class="language-plaintext highlighter-rouge">lengths.txt</code>. Once we’ve done that, we can
+run another command called <code class="language-plaintext highlighter-rouge">head</code> to get the first few lines in <code class="language-plaintext highlighter-rouge">sorted-lengths.txt</code>:</p>
+
+<div class="alert alert-secondary" role="alert">
+
+  <p>Input:</p>
+
+  <div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nv">$ </span><span class="nb">sort</span> <span class="nt">-n</span> lengths.txt <span class="o">&gt;</span> sorted-lengths.txt
+<span class="nv">$ </span><span class="nb">head</span> <span class="nt">-n</span> 1 sorted-lengths.txt
+</code></pre></div>  </div>
+
+  <p>Output:</p>
+
+  <div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code>  9  methane.pdb
+</code></pre></div>  </div>
+</div>
+
+<p>Using <code class="language-plaintext highlighter-rouge">-n 1</code> with <code class="language-plaintext highlighter-rouge">head</code> tells it that we only want the first line of the file; <code class="language-plaintext highlighter-rouge">-n 20</code> would get the first 20, and so on. Since <code class="language-plaintext highlighter-rouge">sorted-lengths.txt</code> contains the lengths of our files ordered from least to greatest, the output of <code class="language-plaintext highlighter-rouge">head</code> must be the
+file with the fewest lines.</p>
+
+<div class="alert alert-warning" role="alert">
+  <p><i class="fa-solid fa-triangle-exclamation fa-xl"></i> <strong>Redirecting to the same file</strong></p>
+  <hr />
+
+  <p>It’s a very bad idea to try redirecting
+the output of a command that operates on a file
+to the same file. For example:</p>
+
+  <div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nv">$ </span><span class="nb">sort</span> <span class="nt">-n</span> lengths.txt  lengths.txt
+</code></pre></div>  </div>
+
+  <p>Doing something like this may give you incorrect results and/or delete the contents of <code class="language-plaintext highlighter-rouge">lengths.txt</code>.</p>
+
+</div>
+
+<h2 id="what-does--mean">What Does <code class="language-plaintext highlighter-rouge">&gt;&gt;</code> Mean?</h2>
+
+<p>We have seen the use of <code class="language-plaintext highlighter-rouge">&gt;</code>, but there is a similar operator <code class="language-plaintext highlighter-rouge">&gt;&gt;</code> which works slightly differently. We’ll learn about the differences between these two operators by printing some strings. We can use the <code class="language-plaintext highlighter-rouge">echo</code> command to print strings e.g.</p>
+
+<div class="alert alert-secondary" role="alert">
+  <p>Input:</p>
+
+  <div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code> <span class="nv">$ </span><span class="nb">echo </span>The <span class="nb">echo command </span>prints text
+</code></pre></div>  </div>
+  <p>Output:</p>
+
+  <div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code> The <span class="nb">echo command </span>prints text
+</code></pre></div>  </div>
+</div>
+
+<div class="alert alert-secondary" role="alert">
+  <p><i class="fa-solid fa-user-pen fa-xl"></i>  <strong>Exercise: echo</strong></p>
+  <hr />
+
+  <p>Now test the commands below to reveal the difference between the two operators:</p>
+
+  <p>Input:</p>
+
+  <div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code> <span class="nv">$ </span><span class="nb">echo </span>hello <span class="o">&gt;</span> testfile01.txt
+</code></pre></div>  </div>
+  <p>and</p>
+
+  <p>Input:</p>
+
+  <div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code> <span class="nv">$ </span><span class="nb">echo </span>hello <span class="o">&gt;&gt;</span> testfile02.txt
+</code></pre></div>  </div>
+  <p>Hint: Try executing each command twice in a row and then examining the output files.</p>
+
+  <details>
+    <summary>Solution</summary>
+    <p>In the first example with the string “hello” is written to ‘testfile01.txt’, but the file gets overwritten each time we run the command.</p>
+
+    <p>We see from the second example that the ‘»’ operator also writes “hello” to a file (in this case ‘testfile02.txt’), but appends the string to the file if it already exists (i.e. when we run it for the second time).</p>
+
+  </details>
+</div>
+
+<h2 id="appending-data">Appending Data</h2>
+
+<p>We have already met the <code class="language-plaintext highlighter-rouge">head</code> command, which prints lines from the start of a file. <code class="language-plaintext highlighter-rouge">tail</code> is similar, but prints lines from the end of a file instead.</p>
+
+<div class="alert alert-secondary" role="alert">
+  <p><i class="fa-solid fa-user-pen fa-xl"></i> <strong>Exercise: tail</strong></p>
+  <hr />
+
+  <p>Consider the file <code class="language-plaintext highlighter-rouge">data-shell/data/animals.txt</code>. After these commands, select the answer that corresponds to the file <code class="language-plaintext highlighter-rouge">animals-subset.txt</code>:</p>
+
+  <div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code> <span class="nv">$ </span><span class="nb">head</span> <span class="nt">-n</span> 3 animals.txt <span class="o">&gt;</span> animals-subset.txt
+ <span class="nv">$ </span><span class="nb">tail</span> <span class="nt">-n</span> 2 animals.txt <span class="o">&gt;&gt;</span> animals-subset.txt
+</code></pre></div>  </div>
+
+  <ol>
+    <li>The first three lines of <code class="language-plaintext highlighter-rouge">animals.txt</code></li>
+    <li>The last two lines of <code class="language-plaintext highlighter-rouge">animals.txt</code></li>
+    <li>The first three lines and the last two lines of <code class="language-plaintext highlighter-rouge">animals.txt</code></li>
+    <li>The second and third lines of <code class="language-plaintext highlighter-rouge">animals.txt</code></li>
+  </ol>
+
+  <details>
+    <summary>Solution</summary>
+
+    <p>Option 3 is correct.</p>
+
+    <ul>
+      <li>For option 1 to be correct we would only run the ‘head’ command</li>
+      <li>For option 2 to be correct we would only run the ‘tail’ command.</li>
+      <li>For option 4 to be correct we would have to pipe the output of ‘head’ into ‘tail -n 2’ by doing <code class="language-plaintext highlighter-rouge">head -n 3 animals.txt | tail -n 2  animals-subset.txt</code></li>
+    </ul>
+
+  </details>
+</div>
+
+<p>If you think this is confusing, you’re in good company: even once you understand what <code class="language-plaintext highlighter-rouge">wc</code>, <code class="language-plaintext highlighter-rouge">sort</code>, and <code class="language-plaintext highlighter-rouge">head</code> do, all those intermediate files make it hard to follow what’s going on. We can make it easier to understand by running <code class="language-plaintext highlighter-rouge">sort</code> and <code class="language-plaintext highlighter-rouge">head</code>
+together:</p>
+
+<div class="alert alert-secondary" role="alert">
+  <p>Input:</p>
+
+  <div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nv">$ </span><span class="nb">sort</span> <span class="nt">-n</span> lengths.txt | <span class="nb">head</span> <span class="nt">-n</span> 1
+</code></pre></div>  </div>
+
+  <p>Output:</p>
+
+  <div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code>  9  methane.pdb
+</code></pre></div>  </div>
+</div>
+
+<p>The vertical bar, <code class="language-plaintext highlighter-rouge">|</code>, between the two commands is called a <strong>pipe</strong>. It tells the shell that we want to use the output of the command on the left as the input to the command on the right.</p>
+
+<p>Nothing prevents us from chaining pipes consecutively. That is, we can for example send the output of <code class="language-plaintext highlighter-rouge">wc</code> directly to <code class="language-plaintext highlighter-rouge">sort</code>, and then the resulting output to <code class="language-plaintext highlighter-rouge">head</code>. Thus we first use a pipe to send the output of <code class="language-plaintext highlighter-rouge">wc</code> to <code class="language-plaintext highlighter-rouge">sort</code>:</p>
+
+<div class="alert alert-secondary" role="alert">
+
+  <p>Input:</p>
+
+  <div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nv">$ </span><span class="nb">wc</span> <span class="nt">-l</span> <span class="k">*</span>.pdb | <span class="nb">sort</span> <span class="nt">-n</span>
+</code></pre></div>  </div>
+  <p>Output:</p>
+
+  <div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code>9 methane.pdb
+12 ethane.pdb
+15 propane.pdb
+20 cubane.pdb
+21 pentane.pdb
+30 octane.pdb
+107 total
+</code></pre></div>  </div>
+</div>
+
+<p>And now we send the output of this pipe, through another pipe, to <code class="language-plaintext highlighter-rouge">head</code>, so that the full pipeline becomes:</p>
+
+<div class="alert alert-secondary" role="alert">
+
+  <p>Input:</p>
+
+  <div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nv">$ </span><span class="nb">wc</span> <span class="nt">-l</span> <span class="k">*</span>.pdb | <span class="nb">sort</span> <span class="nt">-n</span> | <span class="nb">head</span> <span class="nt">-n</span> 1
+</code></pre></div>  </div>
+  <p>Output:</p>
+
+  <div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code>   9  methane.pdb
+</code></pre></div>  </div>
+</div>
+
+<p>The redirection and pipes used in the last few commands are illustrated below:</p>
+
+<figure>
+  
+    <img src="/morea/scientific-software-basics/fig/redirects-and-pipes.png" style="max-width: 100%;" alt="/Node%20anatomy" class="img-fluid mx-auto d-block border" />
+  
+  <figcaption style="text-align: center">
+    <small>
+      
+    </small>
+  </figcaption>
+</figure>
+
+<h2 id="piping-commands-together">Piping Commands Together</h2>
+
+<div class="alert alert-secondary" role="alert">
+  <p><i class="fa-solid fa-user-pen fa-xl"></i> <strong>Exercise: pipes</strong></p>
+  <hr />
+
+  <p>In our current directory, we want to find the 3 files which have the least number of
+lines. Which command listed below would work?</p>
+
+  <div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code>1. <span class="sb">`</span><span class="nb">wc</span> <span class="nt">-l</span> <span class="k">*</span>  <span class="nb">sort</span> <span class="nt">-n</span>  <span class="nb">head</span> <span class="nt">-n</span> 3<span class="sb">`</span>
+2. <span class="sb">`</span><span class="nb">wc</span> <span class="nt">-l</span> <span class="k">*</span> | <span class="nb">sort</span> <span class="nt">-n</span> | <span class="nb">head</span> <span class="nt">-n</span> 1-3<span class="sb">`</span>
+3. <span class="sb">`</span><span class="nb">wc</span> <span class="nt">-l</span> <span class="k">*</span> | <span class="nb">head</span> <span class="nt">-n</span> 3 | <span class="nb">sort</span> <span class="nt">-n</span><span class="sb">`</span>
+4. <span class="sb">`</span><span class="nb">wc</span> <span class="nt">-l</span> <span class="k">*</span> | <span class="nb">sort</span> <span class="nt">-n</span> | <span class="nb">head</span> <span class="nt">-n</span> 3<span class="sb">`</span>
+</code></pre></div>  </div>
+
+  <details>
+    <summary>Solution</summary>
+    <p>Option 4 is the solution.</p>
+
+    <p>The pipe character <code class="language-plaintext highlighter-rouge">|</code> is used to connect the output from one command to
+ the input of another.</p>
+
+    <p><code class="language-plaintext highlighter-rouge">&gt;</code> is used to redirect standard output to a file.</p>
+
+    <p>Try it in the <code class="language-plaintext highlighter-rouge">data-shell/molecules</code> directory!</p>
+  </details>
+</div>
+
+<p>The idea of linking programs together is why Unix is so successful. Instead of creating enormous programs that do many different things, Unix programmers focus on creating lots of simple tools that each do one job well, and work
+well with each other. This programming model is called “pipes and filters”.</p>
+
+<p>We’ve already seen pipes; a <strong>filter</strong> is a program like <code class="language-plaintext highlighter-rouge">wc</code> or <code class="language-plaintext highlighter-rouge">sort</code> that transforms a stream of input into a stream of output. Most Unix tools operate similarly: unless told to do otherwise, they read from standard input, do
+something with what they’ve read, and write to standard output.</p>
+
+<p>Any program reading and writing lines of text through standard input and output can be combined with other programs similarly. You can <em>and should</em> write your programs this way so that you and other people can put those programs into pipes.</p>
+
+<div class="alert alert-secondary" role="alert">
+  <p><i class="fa-solid fa-circle-info fa-xl"></i> <strong>Exercise: Pipe Reading Comprehension</strong></p>
+  <hr />
+
+  <p>A file called <code class="language-plaintext highlighter-rouge">animals.txt</code> (in the <code class="language-plaintext highlighter-rouge">data-shell/data</code> folder) contains the following data:</p>
+
+  <div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code>2012-11-05,deer
+2012-11-05,rabbit
+2012-11-05,raccoon
+2012-11-06,rabbit
+2012-11-06,deer
+2012-11-06,fox
+2012-11-07,rabbit
+2012-11-07,bear
+</code></pre></div>  </div>
+
+  <p>What text passes through each of the pipes and the final redirect in the pipeline below?</p>
+
+  <div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nv">$ </span><span class="nb">cat </span>animals.txt | <span class="nb">head</span> <span class="nt">-n</span> 5 | <span class="nb">tail</span> <span class="nt">-n</span> 3 | <span class="nb">sort</span> <span class="nt">-r</span> <span class="o">&gt;</span> final.txt
+</code></pre></div>  </div>
+  <p>Hint: build the pipeline up one command at a time to test your understanding</p>
+
+  <details>
+    <summary>Solution</summary>
+    <p>The ‘head’ command extracts the first 5 lines from ‘animals.txt’.</p>
+
+    <p>Then, the last 3 lines are extracted from the previous 5 by using the ‘tail’ command.</p>
+
+    <p>With the ‘sort -r’ command those 3 lines are sorted in reverse order and finally,
+  the output is redirected to a file ‘final.txt’.</p>
+
+    <p>The content of this file can be checked by executing <code class="language-plaintext highlighter-rouge">cat final.txt</code>.</p>
+
+    <p>The file should contain the following lines:</p>
+    <div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code>  2012-11-06,rabbit
+  2012-11-06,deer
+  2012-11-05,raccoon
+</code></pre></div>    </div>
+  </details>
+</div>
+
+<h2 id="pipe-construction">Pipe Construction</h2>
+
+<div class="alert alert-secondary" role="alert">
+  <p><i class="fa-solid fa-circle-info fa-xl"></i> <strong>Exercise: More piping</strong></p>
+  <hr />
+
+  <p>For the file <code class="language-plaintext highlighter-rouge">animals.txt</code> from the previous exercise, consider the following command:</p>
+
+  <div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code> <span class="nv">$ </span><span class="nb">cut</span> <span class="nt">-d</span> , <span class="nt">-f</span> 2 animals.txt
+</code></pre></div>  </div>
+
+  <p>The <code class="language-plaintext highlighter-rouge">cut</code> command removes or “cut out” sections of each line in a file. It uses the optional <code class="language-plaintext highlighter-rouge">-d</code> flag to set the <strong>delimiter</strong>, is a character that is used to separate each line of text into columns. By default, the delimiter is <kbd>Tab</kbd>. Meaning <code class="language-plaintext highlighter-rouge">cut</code> automatically assumes values in different columns is separated by a tab. The <code class="language-plaintext highlighter-rouge">-f</code> flag specifies the field (column) to cut out.</p>
+
+  <p>The command above uses the <code class="language-plaintext highlighter-rouge">-d</code> option to split each line by comma, and the <code class="language-plaintext highlighter-rouge">-f</code> option
+ to print the second field in each line, to give the following output:</p>
+
+  <div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code> deer
+ rabbit
+ raccoon
+ rabbit
+ deer
+ fox
+ rabbit
+ bear
+</code></pre></div>  </div>
+
+  <p>The <code class="language-plaintext highlighter-rouge">uniq</code> command filters out adjacent matching lines in a file.</p>
+  <hr />
+
+  <p>How could you extend this pipeline (using <code class="language-plaintext highlighter-rouge">uniq</code> and another command) to find out what animals the file contains (without any duplicates in their names)?</p>
+
+  <details>
+    <summary>Solution</summary>
+    <div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code>  <span class="nv">$ </span><span class="nb">cut</span> <span class="nt">-d</span> , <span class="nt">-f</span> 2 animals.txt | <span class="nb">sort</span> | <span class="nb">uniq</span>
+</code></pre></div>    </div>
+  </details>
+</div>
+
+<h2 id="which-pipe">Which Pipe?</h2>
+
+<div class="alert alert-secondary" role="alert">
+  <p><i class="fa-solid fa-user-pen fa-xl"></i> <strong>Exercise: animals.txt</strong></p>
+  <hr />
+
+  <p>The file <code class="language-plaintext highlighter-rouge">animals.txt</code> contains 8 lines of data formatted as follows:</p>
+
+  <div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code>2012-11-05,deer
+2012-11-05,rabbit
+2012-11-05,raccoon
+2012-11-06,rabbit
+2012-11-06,deer
+2012-11-06,fox
+2012-11-07,rabbit
+2012-11-07,bear
+</code></pre></div>  </div>
+
+  <p>The <code class="language-plaintext highlighter-rouge">uniq</code> command has a <code class="language-plaintext highlighter-rouge">-c</code> option which gives a count of the number of times a line occurs in its input.  Assuming your current directory is <code class="language-plaintext highlighter-rouge">data-shell/data/</code>, what command would you use to produce a table that shows the total count of each type of animal in the file?</p>
+
+  <ol>
+    <li><code class="language-plaintext highlighter-rouge">sort animals.txt | uniq -c</code></li>
+    <li><code class="language-plaintext highlighter-rouge">sort -t, -k2,2 animals.txt | uniq -c</code></li>
+    <li><code class="language-plaintext highlighter-rouge">cut -d, -f 2 animals.txt | uniq -c</code></li>
+    <li><code class="language-plaintext highlighter-rouge">cut -d, -f 2 animals.txt | sort | uniq -c</code></li>
+    <li><code class="language-plaintext highlighter-rouge">cut -d, -f 2 animals.txt | sort | uniq -c | wc -l</code></li>
+  </ol>
+
+  <details>
+    <summary>Solution</summary>
+    <p>Option 4. is the correct answer.</p>
+
+    <p>If you have difficulty understanding why, try running the commands, or sub-sections of
+   the pipelines (make sure you are in the ‘data-shell/data’ directory).</p>
+  </details>
+</div>
+
+<h2 id="nelles-pipeline-checking-files">Nelle’s Pipeline: Checking Files</h2>
+
+<p>Nelle has run her samples through the assay machines
+and created 17 files in the <code class="language-plaintext highlighter-rouge">north-pacific-gyre/2012-07-03</code> directory described earlier.
+As a quick sanity check, starting from her home directory, Nelle types:</p>
+
+<div class="alert alert-secondary" role="alert">
+
+  <p>Input:</p>
+  <div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nv">$ </span><span class="nb">cd </span>north-pacific-gyre/2012-07-03
+<span class="nv">$ </span><span class="nb">wc</span> <span class="nt">-l</span> <span class="k">*</span>.txt
+</code></pre></div>  </div>
+</div>
+
+<p>The output is 18 lines that look like this:</p>
+
+<div class="alert alert-secondary" role="alert">
+
+  <p>Output:</p>
+  <div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code>300 NENE01729A.txt
+300 NENE01729B.txt
+300 NENE01736A.txt
+300 NENE01751A.txt
+300 NENE01751B.txt
+300 NENE01812A.txt
+</code></pre></div>  </div>
+</div>
+
+<p>Now she types this:</p>
+
+<div class="alert alert-secondary" role="alert">
+  <p>Input:</p>
+  <div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nv">$ </span><span class="nb">wc</span> <span class="nt">-l</span> <span class="k">*</span>.txt | <span class="nb">sort</span> <span class="nt">-n</span> | <span class="nb">head</span> <span class="nt">-n</span> 5
+</code></pre></div>  </div>
+  <p>Output:</p>
+
+  <div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code>240 NENE02018B.txt
+300 NENE01729A.txt
+300 NENE01729B.txt
+300 NENE01736A.txt
+300 NENE01751A.txt
+</code></pre></div>  </div>
+</div>
+
+<p>Whoops: one of the files is 60 lines shorter than the others. When she goes back and checks it, she sees that she did that assay at 8:00 on a Monday morning — someone was probably in using the machine on the weekend, and she forgot to reset it. Before re-running that sample, she checks to see if any files have too much data:</p>
+
+<div class="alert alert-secondary" role="alert">
+
+  <p>Input:</p>
+  <div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nv">$ </span><span class="nb">wc</span> <span class="nt">-l</span> <span class="k">*</span>.txt | <span class="nb">sort</span> <span class="nt">-n</span> | <span class="nb">tail</span> <span class="nt">-n</span> 5
+</code></pre></div>  </div>
+  <p>Output:</p>
+  <div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code>300 NENE02040B.txt
+300 NENE02040Z.txt
+300 NENE02043A.txt
+300 NENE02043B.txt
+5040 total
+</code></pre></div>  </div>
+</div>
+
+<p>Those numbers look good — but what’s that ‘Z’ doing there in the third-to-last line? All of her samples should be marked ‘A’ or ‘B’; by convention, her lab uses ‘Z’ to indicate samples with missing information. To find others like it, she does
+this:</p>
+
+<div class="alert alert-secondary" role="alert">
+
+  <p>Input:</p>
+  <div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nv">$ </span><span class="nb">ls</span> <span class="k">*</span>Z.txt
+</code></pre></div>  </div>
+  <p>Output:</p>
+  <div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code>NENE01971Z.txt    NENE02040Z.txt
+</code></pre></div>  </div>
+</div>
+
+<p>When checking the log on her laptop, there’s no depth recorded for two samples. Since it’s too late to get the information now, she decides to exclude those files from her analysis. Rather than deleting them using <code class="language-plaintext highlighter-rouge">rm</code>, she might want to so some analysis later where depth is irrelevant so she’ll be careful and use a wildcard expression <code class="language-plaintext highlighter-rouge">*[AB].txt</code>.</p>
+
+<p>As always, the <code class="language-plaintext highlighter-rouge">*</code> matches any number of characters; the expression <code class="language-plaintext highlighter-rouge">[AB]</code> matches either an ‘A’ or a ‘B’, so this matches all the valid data files she has.</p>
+
+<div class="alert alert-secondary" role="alert">
+  <p><i class="fa-solid fa-circle-info fa-xl"></i> <strong>Exercise: Removing Unneeded Files</strong></p>
+  <hr />
+
+  <p>Imagine you want to clear out your processed data files, keeping only the raw files and the processing script to save space. Raw files have names ending in <code class="language-plaintext highlighter-rouge">.dat</code>, while processed files end in <code class="language-plaintext highlighter-rouge">.txt</code>. Which of the following options will remove <em>only</em> the processed data files, leaving the rest intact?</p>
+
+  <ol>
+    <li><code class="language-plaintext highlighter-rouge">rm ?.txt</code></li>
+    <li><code class="language-plaintext highlighter-rouge">rm *.txt</code></li>
+    <li><code class="language-plaintext highlighter-rouge">rm * .txt</code></li>
+    <li><code class="language-plaintext highlighter-rouge">rm *.*</code></li>
+  </ol>
+
+  <details>
+    <summary>Solution</summary>
+
+    <ol>
+      <li>This would remove ‘.txt’ files with one-character names</li>
+      <li>This is correct answer</li>
+      <li>The shell would expand ‘ * ‘ to match everything in the current directory,
+so the command would try to remove all matched files and an additional
+file called ‘.txt’</li>
+      <li>The shell would expand ‘<em>.</em>’ to match all files with any extension,
+so this command would delete all files</li>
+    </ol>
+  </details>
+</div>
+
+<div class="alert alert-warning" role="alert">
+  <p><i class="fa-solid fa-circle-info fa-xl"></i> <strong>Bio Break!</strong></p>
+  <hr />
+
+  <p>Let’s take a brief break to stretch before moving on to the next page.  See you in a few minutes.</p>
+</div>
+
+<div style="text-align: right; padding-bottom: 10px">
+  <hr />
+  <button type="button" onclick="window.location='/morea/scientific-software-basics/experience-ssb-loop.html'" class="btn btn-primary">
+    <p style="font-size:16px; margin: 0">Loops -&gt;</p>
+    <p style="font-size:12px; margin: 0">3:20pm</p>
+    </button>
+</div>
+
+
+</div>
+
+
+
+
+<!-- Maybe find a different way?
+<script src="/js/scrollIfAnchor.js"></script>
+-->
+
+<footer class="footer footer-background" style="padding-top: 1em; padding-bottom: 1em">
+  <div class="container text-center">
+    
+    
+
+    
+    <p style="margin: 0">Powered by the <a class="footer-link" href="https://morea-framework.github.io/">Morea Framework</a> (Theme: spacelab)<br>
+      Last update on: <span>2023-12-01 13:58:35 -1000</span></p>
+
+    <p style="margin: 0">
+      
+      18 modules
+      
+      | 17 outcomes
+      
+      
+      | 55 readings
+      
+      
+      | 100 experiences
+      
+      
+      | 15 assessments
+      
+    </p>
+  </div>
+</footer>
+
+
+<!-- Load Bootstrap JavaScript components -->
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM" crossorigin="anonymous"></script>
+
+
+<script type="text/javascript" async
+        src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.7/latest.js?config=TeX-MML-AM_CHTML">
+</script>
+
+
+<!-- Add anchors to pages. -->
+<script>anchors.add();</script>
+
+
+</body>
+</html>

@@ -1,0 +1,344 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <title> Change-HI/EDU | 3. Connecting to a remote HPC System </title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta charset="utf-8">
+
+  <link rel="stylesheet" href="/css/themes/spacelab/bootstrap.min.css">
+  <link rel="stylesheet" href="/css/style.css">
+  <link rel="stylesheet" href="/css/syntax.css">
+  <link rel="shortcut icon" href="/favicon.ico" type="image/x-icon" />
+  <link href="/css/fontawesome/css/fontawesome.css" rel="stylesheet">
+  <link href="/css/fontawesome/css/brands.css" rel="stylesheet">
+  <link href="/css/fontawesome/css/solid.css" rel="stylesheet">
+  <script src="https://cdn.jsdelivr.net/npm/anchor-js/anchor.min.js"></script>
+
+  
+
+  <!-- Load JQuery, then use it to attach the class 'active' to navbar item currently displayed. -->
+  <script src="https://code.jquery.com/jquery-3.6.0.min.js" integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4=" crossorigin="anonymous"></script>
+  <script>
+    $(window).on('load', function () {
+      $('.nav-item').find('a[href="' + location.pathname + '"]').addClass('active');
+    });
+  </script>
+
+</head>
+<body>
+
+<div class="navbar navbar-expand-lg fixed-top navbar-light bg-light">
+  <div class="container">
+    <a class="navbar-brand" href="/index.html"> Change-HI/EDU </a>
+    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarResponsive" aria-controls="navbarResponsive" aria-expanded="false" aria-label="Toggle navigation">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+    <div class="collapse navbar-collapse" id="navbarResponsive">
+      <ul class="navbar-nav">
+        
+        <li class="nav-item"><a class="nav-link" href="/modules/">Modules</a></li>
+        
+        <li class="nav-item"><a class="nav-link" href="/outcomes/">Outcomes</a></li>
+        
+        
+        <li class="nav-item"><a class="nav-link" href="/readings/">Readings</a></li>
+        
+        
+        <li class="nav-item"><a class="nav-link" href="/experiences/">Experiences</a></li>
+        
+        
+        <li class="nav-item"><a class="nav-link" href="/assessments/">Assessments</a></li>
+        
+        
+      </ul>
+    </div>
+  </div>
+</div>
+
+<!-- Internal fragment for displaying the breadcrumb bar -->
+<div class="breadcrumb-background" style="padding-top: 1em; padding-bottom: .01em">
+  <div class="container">
+    <nav aria-label="breadcrumb">
+      <ol class="breadcrumb">
+        
+        <li class="breadcrumb-item"><a href="/">Home</a></li>
+        <li class="breadcrumb-item"><a href="/modules">Modules</a></li>
+        <li class="breadcrumb-item"><a href="/modules/hpc">High Performance Computing</a></li>
+        <li class="breadcrumb-item active">3. Connecting to a remote HPC System</li>
+      </ol>
+    </nav>
+  </div>
+</div>
+
+
+<div class="container">
+  <h1 id="3-connecting-to-a-remote-hpc-system">3. Connecting to a remote HPC System</h1>
+
+<div class="alert alert-success mt-3" role="alert">
+  <p><i class="fa-solid fa-globe fa-xl"></i> <strong>Overview</strong></p>
+  <hr />
+
+  <p><strong>Questions</strong></p>
+  <ul>
+    <li>How do I log in to a remote HPC system?</li>
+    <li>What is Open OnDemand and how do I use it?</li>
+  </ul>
+
+  <p><strong>Objectives</strong></p>
+  <ul>
+    <li>Understand how to connect to an HPC system.</li>
+    <li>Understand basics of Open OnDemand.</li>
+  </ul>
+</div>
+
+<p>The first step in using a cluster is to establish a connection from our laptop to the cluster. When we are sitting at a computer (or standing, or holding it in our hands or on our wrists), we have come to expect a visual display with icons, widgets, and perhaps some windows or applications: a graphical user interface, or GUI. Since HPC systems are remote resources that we connect to over often slow or laggy interfaces (WiFi and Virtual private networks (VPN)s especially), it is more practical to use a command-line interface, or CLI, in which commands and results are transmitted via text, only. Anything other than text (images, for example) must be written to disk and opened with a separate program.</p>
+
+<p>If you have ever opened the Windows Command Prompt or macOS Terminal, you have seen a CLI. If you have already taken a Carpentries’ course on the UNIX Shell or Version Control, you have used the CLI. The only leap to be made here is to open a CLI on a <em>remote</em> machine, while taking some precautions so that other folks on the network can’t see (or change) the commands you’re running or the results the remote machine sends back. These days, we use the Secure SHell protocol (or SSH) to open an encrypted network connection between two machines, allowing you to send &amp; receive text and data without having to worry about prying eyes.</p>
+
+<figure>
+  
+    <img src="/morea/hpc/fig/connect-to-remote.png" style="max-width: 50%;" alt="/Connect%20to%20cluster" class="img-fluid mx-auto d-block border" />
+  
+  <figcaption style="text-align: center">
+    <small>
+      
+    </small>
+  </figcaption>
+</figure>
+
+<h2 id="traditional-hpc-system-access-using-secure-shell-ssh">Traditional HPC system access using Secure Shell (SSH)</h2>
+
+<p>Most modern computers have a built in SSH client to their terminal. Alternative clients exist, primarily for windows or add-ons to web browsers, but they all operate in a similar manner. SSH clients are usually command-line tools, where you provide the remote machine address as the only required argument. If your username on the remote system differs from what you use locally, you must provide that as well. If your SSH client has a graphical front-end, such as PuTTY, MobaXterm, you will set these arguments before clicking “connect.” From the terminal, you’ll write something like <code class="language-plaintext highlighter-rouge">ssh userName@hostname</code>, where the “@” symbol is used to separate the two parts of a single argument.</p>
+
+<h3 id="activity-learn-how-to-login-using-ssh">Activity: Learn how to login using SSH</h3>
+
+<div class="alert alert-secondary" role="alert">
+  <p><i class="fa-solid fa-user-pen fa-xl"></i> <strong>Exercise: Login to Koa</strong></p>
+  <hr />
+
+  <div class="language-shell highlighter-rouge"><div class="highlight"><pre class="highlight"><code>ssh dav@koa.its.hawaii.edu
+</code></pre></div>  </div>
+
+  <p>You may be asked for your password. <strong>Watch out</strong>: the characters you type after the password prompt are not displayed on the screen. Normal output will resume once you press <code class="language-plaintext highlighter-rouge">Enter</code>.</p>
+
+</div>
+
+<h2 id="open-ondemand---an-alternative-to-ssh">Open OnDemand - An alternative to SSH</h2>
+
+<p>While, SSH is a common method to connect to remote systems (HPC or even servers), tools that provide the same functionality and more exist.  One such tool is Open OnDemand (OOD).</p>
+
+<div class="alert alert-info" role="alert">
+  <p><i class="fa-solid fa-circle-info fa-xl"></i> <strong>Learn more about Open OnDemand</strong></p>
+  <hr />
+
+  <p>Created by Ohio Supercomputer Center, U. of Buffalo CCR, and Virginia Tech and development funded by National Science Foundation under grant numbers 1534949 and 1835725. <a href="https://openondemand.org/">Learn more about Open OnDemand</a></p>
+
+</div>
+
+<h3 id="features-of-open-ondemand">Features of Open OnDemand</h3>
+
+<p>Open OnDemand works with a web browser making it possible to connect to an HPC system with almost any device.  It has built in functionality for file browsing, uploading and downloading smaller files, text editing, SSH terminal, and submitting interactive applications such as a remote desktop on a compute node, Jupyter Lab and Rstudio.</p>
+
+<div class="alert alert-info" role="alert">
+  <p><i class="fa-solid fa-circle-info fa-xl"></i> <strong>Interactive applications at other institutions</strong></p>
+  <hr />
+
+  <p>Various other interactive applications have been made for Open OnDemand but are not available by default. See <a href="https://osc.github.io/ood-documentation/master/install-ihpc-apps.html#">here</a> for a list of known interact applications.</p>
+
+</div>
+
+<div class="alert alert-info" role="alert">
+  <p><i class="fa-solid fa-circle-info fa-xl"></i> <strong>Browser choice and using an incognito or private browsing window</strong></p>
+  <hr />
+
+  <p>While almost any modern browser should work with Open OnDemand, the developers recommend google chrome as it has the widest support for the tools used to create Open OnDemand. <a href="https://osc.github.io/ood-documentation/latest/requirements.html#browser-requirements">browser
+requirements</a></p>
+
+  <p>For security it is recommend you use a private browsing window with Open OnDemand as this allows you completely log out by just simply closing the browser window.  While logout does exist in Open OnDemand, it may not work as expected and really keep you logged in even after hitting logout.</p>
+
+</div>
+
+<h3 id="activity-learn-how-to-login-using-open-ondemand">Activity: Learn how to login using Open OnDemand</h3>
+
+<div class="alert alert-secondary" role="alert">
+  <p><i class="fa-solid fa-user-pen fa-xl"></i>  <strong>Exercise: Login to Koa</strong></p>
+  <hr />
+
+  <p>Open up your web browser and start a private browsing window.  Now, connect to the instance of Open OnDemand used with Koa by pointing your browser at <a href="https://koa.its.hawaii.edu">https://koa.its.hawaii.edu</a>.</p>
+
+  <figure>
+  
+    <img src="/morea/hpc/fig/koa_ood_landing.png" style="max-width: 75%;" alt="/Connect%20to%20cluster" class="img-fluid mx-auto d-block border" />
+  
+  <figcaption style="text-align: center">
+    <small>
+      
+    </small>
+  </figcaption>
+</figure>
+
+</div>
+
+<h3 id="feature-file-browsing-and-editing">Feature: File browsing and editing</h3>
+
+<p>The file browser allows you to perform directory manipulation, create new files, upload and download files without having to know the command line. The file browser can even has the ability to do text editing on files which is useful if you are not familiar with a command line text editor.</p>
+
+<h3 id="feature-command-line-text-editors">Feature: Command line text editors</h3>
+
+<p>Common text editors you find on HPC systems or linx systems include:</p>
+<ul>
+  <li><a href="https://www.vim.org/">Vi/Vim</a></li>
+  <li><a href="https://www.gnu.org/software/emacs/">Emacs</a></li>
+  <li><a href="https://www.nano-editor.org/">nano</a></li>
+</ul>
+
+<p>Of the three, nano is the simplest to use.</p>
+
+<figure>
+  
+    <img src="/morea/hpc/fig/koa_ood_file_edit.png" style="max-width: 75%;" alt="/Connect%20to%20cluster" class="img-fluid mx-auto d-block border" />
+  
+  <figcaption style="text-align: center">
+    <small>
+      
+    </small>
+  </figcaption>
+</figure>
+
+<h3 id="feature-terminal-in-the-browser">Feature: Terminal in the browser</h3>
+
+<p>As Open OnDemand doesn’t really replace the traditional commandline/SSH access method to HPC systems, and instead makes the use of certain applications simpler, it still provides a way to bring up a commandline on an HPC system within your web browser.</p>
+
+<figure>
+  
+    <img src="/morea/hpc/fig/koa_ood_shell_merged.png" style="max-width: 80%;" alt="/Connect%20to%20cluster" class="img-fluid mx-auto d-block border" />
+  
+  <figcaption style="text-align: center">
+    <small>
+      
+    </small>
+  </figcaption>
+</figure>
+
+<h3 id="feature-interactive-applications">Feature: Interactive applications</h3>
+
+<p>While Open OnDemand can allow you to access HPC systems using the terminal, it also has the ability to expand the ways and HPC can be easily used though allowing the use of interactive applications that many have come to depend on.</p>
+
+<figure>
+  
+    <img src="/morea/hpc/fig/koa_ood_interact.png" style="max-width: 75%;" alt="/Connect%20to%20cluster" class="img-fluid mx-auto d-block border" />
+  
+  <figcaption style="text-align: center">
+    <small>
+      
+    </small>
+  </figcaption>
+</figure>
+
+<h3 id="feature-email-notification-when-jobs-start">Feature: Email notification when jobs start</h3>
+
+<p>Each application has a form which you use to define the resources your job requires so that Open OnDemand can submit it on your behalf. It also has the ability to email you once your job starts as not all jobs will begin immediately.</p>
+
+<figure>
+  
+    <img src="/morea/hpc/fig/koa_ood_form.png" style="max-width: 50%;" alt="/Connect%20to%20cluster" class="img-fluid mx-auto d-block border" />
+  
+  <figcaption style="text-align: center">
+    <small>
+      
+    </small>
+  </figcaption>
+</figure>
+
+<p>Finally, when a job begins, it presents you with a button you can click to start up your interactive application and use it within your browser.</p>
+
+<figure>
+  
+    <img src="/morea/hpc/fig/koa_ood_job.png" style="max-width: 100%;" alt="/Connect%20to%20cluster" class="img-fluid mx-auto d-block border" />
+  
+  <figcaption style="text-align: center">
+    <small>
+      
+    </small>
+  </figcaption>
+</figure>
+
+<div class="alert alert-success" role="alert">
+  <p><i class="fa-solid fa-globe fa-xl"></i> <strong>Key Points</strong></p>
+  <hr />
+
+  <ul>
+    <li>SSH is the traditional method of connecting to HPC systems.</li>
+    <li>Alternative tools like Open OnDemand exist to enhance the utility of and simplify the access to an HPC system</li>
+  </ul>
+</div>
+
+<div class="alert alert-info" role="alert">
+  <p><i class="fa-solid fa-circle-info fa-xl"></i> <strong>For more information</strong></p>
+  <hr />
+
+  <p>This chapter used and modified material from the <a href="https://carpentries-incubator.github.io/hpc-intro/">Introduction to High-Performance Computing Incubator workshop</a>.</p>
+</div>
+
+<div style="text-align: right; padding-bottom: 10px">
+  <hr />
+  <button type="button" onclick="window.location='/morea/hpc/experience-hpc-jupyter.html'" class="btn btn-primary">
+    <p style="font-size:16px; margin: 0">Launch a Jupyter Lab in Open OnDemand -&gt;</p>
+    <p style="font-size:12px; margin: 0">2:40pm</p>
+    </button>
+</div>
+
+
+</div>
+
+
+
+
+<!-- Maybe find a different way?
+<script src="/js/scrollIfAnchor.js"></script>
+-->
+
+<footer class="footer footer-background" style="padding-top: 1em; padding-bottom: 1em">
+  <div class="container text-center">
+    
+    
+
+    
+    <p style="margin: 0">Powered by the <a class="footer-link" href="https://morea-framework.github.io/">Morea Framework</a> (Theme: spacelab)<br>
+      Last update on: <span>2023-12-01 13:58:35 -1000</span></p>
+
+    <p style="margin: 0">
+      
+      18 modules
+      
+      | 17 outcomes
+      
+      
+      | 55 readings
+      
+      
+      | 100 experiences
+      
+      
+      | 15 assessments
+      
+    </p>
+  </div>
+</footer>
+
+
+<!-- Load Bootstrap JavaScript components -->
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM" crossorigin="anonymous"></script>
+
+
+<script type="text/javascript" async
+        src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.7/latest.js?config=TeX-MML-AM_CHTML">
+</script>
+
+
+<!-- Add anchors to pages. -->
+<script>anchors.add();</script>
+
+
+</body>
+</html>

@@ -1,0 +1,260 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <title> Change-HI/EDU | 2. Connecting to Jupyter </title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta charset="utf-8">
+
+  <link rel="stylesheet" href="/css/themes/spacelab/bootstrap.min.css">
+  <link rel="stylesheet" href="/css/style.css">
+  <link rel="stylesheet" href="/css/syntax.css">
+  <link rel="shortcut icon" href="/favicon.ico" type="image/x-icon" />
+  <link href="/css/fontawesome/css/fontawesome.css" rel="stylesheet">
+  <link href="/css/fontawesome/css/brands.css" rel="stylesheet">
+  <link href="/css/fontawesome/css/solid.css" rel="stylesheet">
+  <script src="https://cdn.jsdelivr.net/npm/anchor-js/anchor.min.js"></script>
+
+  
+
+  <!-- Load JQuery, then use it to attach the class 'active' to navbar item currently displayed. -->
+  <script src="https://code.jquery.com/jquery-3.6.0.min.js" integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4=" crossorigin="anonymous"></script>
+  <script>
+    $(window).on('load', function () {
+      $('.nav-item').find('a[href="' + location.pathname + '"]').addClass('active');
+    });
+  </script>
+
+</head>
+<body>
+
+<div class="navbar navbar-expand-lg fixed-top navbar-light bg-light">
+  <div class="container">
+    <a class="navbar-brand" href="/index.html"> Change-HI/EDU </a>
+    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarResponsive" aria-controls="navbarResponsive" aria-expanded="false" aria-label="Toggle navigation">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+    <div class="collapse navbar-collapse" id="navbarResponsive">
+      <ul class="navbar-nav">
+        
+        <li class="nav-item"><a class="nav-link" href="/modules/">Modules</a></li>
+        
+        <li class="nav-item"><a class="nav-link" href="/outcomes/">Outcomes</a></li>
+        
+        
+        <li class="nav-item"><a class="nav-link" href="/readings/">Readings</a></li>
+        
+        
+        <li class="nav-item"><a class="nav-link" href="/experiences/">Experiences</a></li>
+        
+        
+        <li class="nav-item"><a class="nav-link" href="/assessments/">Assessments</a></li>
+        
+        
+      </ul>
+    </div>
+  </div>
+</div>
+
+<!-- Internal fragment for displaying the breadcrumb bar -->
+<div class="breadcrumb-background" style="padding-top: 1em; padding-bottom: .01em">
+  <div class="container">
+    <nav aria-label="breadcrumb">
+      <ol class="breadcrumb">
+        
+        <li class="breadcrumb-item"><a href="/">Home</a></li>
+        <li class="breadcrumb-item"><a href="/modules">Modules</a></li>
+        <li class="breadcrumb-item"><a href="/modules/"></a></li>
+        <li class="breadcrumb-item active">2. Connecting to Jupyter</li>
+      </ol>
+    </nav>
+  </div>
+</div>
+
+
+<div class="container">
+  <h1 id="2-connecting-to-jupyter">2. Connecting to Jupyter</h1>
+
+<div class="alert alert-success mt-3" role="alert">
+  <p><i class="fa-solid fa-globe fa-xl"></i> <strong>Overview</strong></p>
+  <hr />
+
+  <p><strong>Questions</strong></p>
+  <ul>
+    <li>How do we deploy and access a Jupyter notebook server using MANA?</li>
+  </ul>
+
+  <p><strong>Objectives</strong></p>
+  <ul>
+    <li>Use MANA’s web interface to deploy a Jupyter notebook server job and connect to the server.</li>
+  </ul>
+</div>
+
+<h2 id="creating-a-jupyter-notebook-server">Creating a Jupyter notebook server</h2>
+
+<p>We will use MANA to deploy and access a Jupyter notebook with python scripts demonstrating the usage of the Tapis Streams API. The web interface for MANA includes a built in interface for creating and deploying a Jupyter notebook server.</p>
+
+<div class="alert alert-info" role="alert">
+  <p><i class="fa-solid fa-circle-info fa-xl"></i> <strong>Note</strong></p>
+  <hr />
+
+  <p>If you are already familiar with an alternative method to deploy a Jupyter notebook, e.g. Google Colab, feel free to use that instead.</p>
+</div>
+
+<h3 id="deploying-a-jupyter-notebook-server-on-mana">Deploying a Jupyter notebook server on MANA</h3>
+
+<p>Go to <a href="https://uhhpc.its.hawaii.edu/" target="_blank">https://uhhpc.its.hawaii.edu/</a> in a web browser and log in with your UH credentials. This will bring you to the MANA web interface.</p>
+
+<p>At the top of this interface there should be a dropdown menu labeled “Interactive Apps”. Click this and select “Jupyter Notebook” from the dropdown menu. This will bring you to a form for configuring and deploying the server as a job on MANA.</p>
+
+<figure>
+  
+    <img src="/morea/smart-data-collection/fig/mana_jupyter.PNG" style="max-width: 50%;" alt="/Connect%20to%20cluster" class="img-fluid mx-auto d-block border" />
+  
+  <figcaption style="text-align: center">
+    <small>
+      
+    </small>
+  </figcaption>
+</figure>
+
+<p>We will deploy this job to the workshop partition. Most of the default settings for this job should work, but increase the “Number of hours” to 2. These values should be as follows:</p>
+
+<table class="table">
+  <thead>
+    <tr>
+      <th>Field</th>
+      <th>Value</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>SLURM Account</td>
+      <td>(blank)</td>
+    </tr>
+    <tr>
+      <td>Partition</td>
+      <td>workshop</td>
+    </tr>
+    <tr>
+      <td>Number of hours</td>
+      <td>2</td>
+    </tr>
+    <tr>
+      <td>Number of cores</td>
+      <td>1</td>
+    </tr>
+    <tr>
+      <td>GB of RAM</td>
+      <td>6</td>
+    </tr>
+    <tr>
+      <td>Number of GPUs requested</td>
+      <td>0</td>
+    </tr>
+    <tr>
+      <td>GPU Type</td>
+      <td>Any</td>
+    </tr>
+  </tbody>
+</table>
+
+<p>Click the “Launch” button to schedule the job. This should display a tile with information about the job including its status. The job will likely start with the “Queued” status indicating that it has been queued and is waiting for resources to become available to execute the job.</p>
+
+<figure>
+  
+    <img src="/morea/smart-data-collection/fig/job_queued.PNG" style="max-width: 50%;" alt="/Connect%20to%20cluster" class="img-fluid mx-auto d-block border" />
+  
+  <figcaption style="text-align: center">
+    <small>
+      
+    </small>
+  </figcaption>
+</figure>
+
+<p>Shortly, the job status should change to “Running” indicating the job has been launched, and a “Connect to Jupyter” button should be available at the bottom of the tile. Clicking this will connect you to the deployed Jupyter notebook server.</p>
+
+<figure>
+  
+    <img src="/morea/smart-data-collection/fig/job_running.PNG" style="max-width: 50%;" alt="/Connect%20to%20cluster" class="img-fluid mx-auto d-block border" />
+  
+  <figcaption style="text-align: center">
+    <small>
+      
+    </small>
+  </figcaption>
+</figure>
+
+<p>The Jupyter notebook server will display the files available in your account’s home directory on MANA. We will need to download the notebook file for this workshop and install some dependencies the notebook relies on. The next section will describe how to install these dependencies and load the notebook.</p>
+
+<div class="alert alert-success mt-3" role="alert">
+  <p><i class="fa-solid fa-globe fa-xl"></i> <strong>Key Points</strong></p>
+  <hr />
+
+  <ul>
+    <li>MANA’s web interface provides a built in function for deploying a Jupyter notebook server.</li>
+    <li>After configuring and submitting a job to MANA for deploying the Jupyter notebook server, we can connect to the server and use it to access notebook files stored in the user’s home directory.</li>
+  </ul>
+</div>
+
+<div style="text-align: right; padding-bottom: 10px">
+  <hr />
+  <button type="button" onclick="window.location='/morea/smart-data-collection/experience-smart-data-collection-installation.html'" class="btn btn-primary">
+    <p style="font-size:16px; margin: 0">3. Installing Tapis Libraries -&gt;</p>
+    <p style="font-size:12px; margin: 0">2:30pm</p>
+    </button>
+</div>
+
+
+</div>
+
+
+
+
+<!-- Maybe find a different way?
+<script src="/js/scrollIfAnchor.js"></script>
+-->
+
+<footer class="footer footer-background" style="padding-top: 1em; padding-bottom: 1em">
+  <div class="container text-center">
+    
+    
+
+    
+    <p style="margin: 0">Powered by the <a class="footer-link" href="https://morea-framework.github.io/">Morea Framework</a> (Theme: spacelab)<br>
+      Last update on: <span>2023-12-01 13:58:35 -1000</span></p>
+
+    <p style="margin: 0">
+      
+      18 modules
+      
+      | 17 outcomes
+      
+      
+      | 55 readings
+      
+      
+      | 100 experiences
+      
+      
+      | 15 assessments
+      
+    </p>
+  </div>
+</footer>
+
+
+<!-- Load Bootstrap JavaScript components -->
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM" crossorigin="anonymous"></script>
+
+
+<script type="text/javascript" async
+        src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.7/latest.js?config=TeX-MML-AM_CHTML">
+</script>
+
+
+<!-- Add anchors to pages. -->
+<script>anchors.add();</script>
+
+
+</body>
+</html>

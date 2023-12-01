@@ -1,0 +1,594 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <title> Change-HI/EDU | File Transfers with Remote Computers </title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta charset="utf-8">
+
+  <link rel="stylesheet" href="/css/themes/spacelab/bootstrap.min.css">
+  <link rel="stylesheet" href="/css/style.css">
+  <link rel="stylesheet" href="/css/syntax.css">
+  <link rel="shortcut icon" href="/favicon.ico" type="image/x-icon" />
+  <link href="/css/fontawesome/css/fontawesome.css" rel="stylesheet">
+  <link href="/css/fontawesome/css/brands.css" rel="stylesheet">
+  <link href="/css/fontawesome/css/solid.css" rel="stylesheet">
+  <script src="https://cdn.jsdelivr.net/npm/anchor-js/anchor.min.js"></script>
+
+  
+
+  <!-- Load JQuery, then use it to attach the class 'active' to navbar item currently displayed. -->
+  <script src="https://code.jquery.com/jquery-3.6.0.min.js" integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4=" crossorigin="anonymous"></script>
+  <script>
+    $(window).on('load', function () {
+      $('.nav-item').find('a[href="' + location.pathname + '"]').addClass('active');
+    });
+  </script>
+
+</head>
+<body>
+
+<div class="navbar navbar-expand-lg fixed-top navbar-light bg-light">
+  <div class="container">
+    <a class="navbar-brand" href="/index.html"> Change-HI/EDU </a>
+    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarResponsive" aria-controls="navbarResponsive" aria-expanded="false" aria-label="Toggle navigation">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+    <div class="collapse navbar-collapse" id="navbarResponsive">
+      <ul class="navbar-nav">
+        
+        <li class="nav-item"><a class="nav-link" href="/modules/">Modules</a></li>
+        
+        <li class="nav-item"><a class="nav-link" href="/outcomes/">Outcomes</a></li>
+        
+        
+        <li class="nav-item"><a class="nav-link" href="/readings/">Readings</a></li>
+        
+        
+        <li class="nav-item"><a class="nav-link" href="/experiences/">Experiences</a></li>
+        
+        
+        <li class="nav-item"><a class="nav-link" href="/assessments/">Assessments</a></li>
+        
+        
+      </ul>
+    </div>
+  </div>
+</div>
+
+<!-- Internal fragment for displaying the breadcrumb bar -->
+<div class="breadcrumb-background" style="padding-top: 1em; padding-bottom: .01em">
+  <div class="container">
+    <nav aria-label="breadcrumb">
+      <ol class="breadcrumb">
+        
+        <li class="breadcrumb-item"><a href="/">Home</a></li>
+        <li class="breadcrumb-item"><a href="/modules">Modules</a></li>
+        <li class="breadcrumb-item"><a href="/modules/data-movement">Data Movement</a></li>
+        <li class="breadcrumb-item active">File Transfers with Remote Computers</li>
+      </ol>
+    </nav>
+  </div>
+</div>
+
+
+<div class="container">
+  <h1 id="file-transfers-with-remote-computers">File Transfers with Remote Computers</h1>
+
+<div class="alert alert-success mt-3" role="alert">
+  <p><i class="fa-solid fa-globe fa-xl"></i> <strong>Overview</strong></p>
+  <hr />
+
+  <p><strong>Questions</strong></p>
+  <ul>
+    <li>How do I transfer files using wget, scp, or rsync?</li>
+  </ul>
+
+  <p><strong>Objectives</strong></p>
+  <ul>
+    <li>Be able to transfer files to a computing cluster using wget, scp and rsync.</li>
+  </ul>
+
+</div>
+
+<p>Computing with a remote computer offers very limited use if we cannot get files
+to or from the cluster. There are several options for transferring data between
+computing resources, from command line options to GUI programs, which we will
+cover here.</p>
+
+<h3 id="download-files-from-the-internet">Download Files From the Internet</h3>
+
+<p>One of the most straightforward ways to download files is to use either <code class="language-plaintext highlighter-rouge">curl</code>
+or <code class="language-plaintext highlighter-rouge">wget</code>, one of these is usually installed in most Linux shells, on Mac OS
+terminal and in GitBash. Any file that can be downloaded in your web browser 
+through a direct link can be downloaded using <code class="language-plaintext highlighter-rouge">curl -O</code> or <code class="language-plaintext highlighter-rouge">wget</code>. This is a 
+quick way to download datasets or source code.</p>
+
+<p>The syntax for these commands is: <code class="language-plaintext highlighter-rouge">curl -O https://some/link/to/a/file</code> 
+and <code class="language-plaintext highlighter-rouge">wget https://some/link/to/a/file</code>. Try it out by downloading
+some material we’ll use later on, from a terminal on your local machine.</p>
+
+<div class="alert alert-secondary" role="alert">
+
+  <div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>[user@laptop ~]$ curl -O https://github.com/change-hi/change-hi.github.io/raw/main/morea/data-movement/hpc-intro-data.tar.gz
+</code></pre></div>  </div>
+
+  <p>or</p>
+  <div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>[user@laptop ~]$ wget https://github.com/change-hi/change-hi.github.io/raw/main/morea/data-movement/hpc-intro-data.tar.gz
+</code></pre></div>  </div>
+
+</div>
+
+<div class="alert alert-info" role="alert">
+  <p><i class="fa-solid fa-circle-info fa-xl"></i> <strong><code class="language-plaintext highlighter-rouge">tar.gz</code>?</strong></p>
+
+  <blockquote>
+
+    <p>This is an archive file format, just like <code class="language-plaintext highlighter-rouge">.zip</code>, commonly used and supported
+by default on Linux, which is the operating system the majority of HPC
+cluster machines run. You may also see the extension <code class="language-plaintext highlighter-rouge">.tgz</code>, which is exactly
+the same. We’ll talk more about “tarballs,” since “tar-dot-g-z” is a
+mouthful, later on.</p>
+  </blockquote>
+</div>
+
+<h3 id="transferring-single-files-and-folders-with-scp">Transferring Single Files and Folders With <code class="language-plaintext highlighter-rouge">scp</code></h3>
+
+<p>To copy a single file to or from the cluster, we can use <code class="language-plaintext highlighter-rouge">scp</code> (“secure copy”).
+The syntax can be a little complex for new users, but we’ll break it down.</p>
+
+<p>To <em>upload to</em> another computer:</p>
+
+<div class="alert alert-secondary" role="alert">
+
+  <div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>[user@laptop ~]$ scp path/to/local/file.txt yourUsername@hpc-dtn1.its.hawaii.edu:/path/on/yourUsername
+</code></pre></div>  </div>
+</div>
+
+<p>To <em>download from</em> another computer:</p>
+
+<div class="alert alert-secondary" role="alert">
+
+  <div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>[user@laptop ~]$ scp yourUsername@hpc-dtn1.its.hawaii.edu:/path/on/yourUsername/file.txt path/to/local/
+</code></pre></div>  </div>
+</div>
+
+<p>Note that everything after the <code class="language-plaintext highlighter-rouge">:</code> is relative to our home directory on the
+remote computer. We can leave it at that if we don’t care where the file goes.</p>
+
+<div class="alert alert-secondary" role="alert">
+
+  <div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>[user@laptop ~]$ scp local-file.txt yourUsername@hpc-dtn1.its.hawaii.edu:
+</code></pre></div>  </div>
+</div>
+
+<div class="alert alert-secondary" role="alert">
+  <p><i class="fa-solid fa-user-pen fa-xl"></i> <strong>Exercise: Upload a File</strong></p>
+  <hr />
+
+  <p>Copy the file you just downloaded from the Internet to your home directory on yourUsername</p>
+
+  <details>
+    <summary>Solution</summary>
+
+    <div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>[user@laptop ~]$ scp hpc-intro-data.tar.gz yourUsername@hpc-dtn1.its.hawaii.edu:~/
+</code></pre></div>    </div>
+
+  </details>
+</div>
+
+<div class="alert alert-info" role="alert">
+  <p><i class="fa-solid fa-circle-info fa-xl"></i> <strong>Why Not Download on yourUsername Directly?</strong></p>
+
+  <p>Some computer clusters are behind firewalls set to only allow transfers
+initiated from the <em>outside</em>. This means that the <code class="language-plaintext highlighter-rouge">curl</code> command will fail,
+as an address outside the firewall is unreachable from the inside. To get
+around this, run the <code class="language-plaintext highlighter-rouge">curl</code> or <code class="language-plaintext highlighter-rouge">wget</code> command from your local machine to 
+download the file, then use the <code class="language-plaintext highlighter-rouge">scp</code> command (just below here) to upload
+it to the cluster.</p>
+
+  <p><code class="language-plaintext highlighter-rouge">curl -O</code> from hpc-dtn1.its.hawaii.edu</p>
+
+  <p>or</p>
+
+  <p><code class="language-plaintext highlighter-rouge">wget</code> from hpc-dtn1.its.hawaii.edu</p>
+
+</div>
+
+<div class="alert alert-secondary" role="alert">
+  <p><i class="fa-solid fa-user-pen fa-xl"></i> <strong>Exercise: File Download</strong></p>
+  <hr />
+
+  <blockquote>
+    <blockquote>
+      <p>Try downloading the file directly. Note that it may well fail, and that’s
+OK!</p>
+    </blockquote>
+  </blockquote>
+
+  <details>
+    <summary>Solution</summary>
+
+    <div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>[user@laptop ~]$ ssh yourUsername@hpc-dtn1.its.hawaii.edu
+[yourUsername@hpc-dtn01 ~]$ curl -O https://github.com/change-hi/change-hi.github.io/raw/main/morea/data-movement/hpc-intro-data.tar.gz
+</code></pre></div>    </div>
+    <p>or</p>
+
+    <div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>[yourUsername@hpc-dtn01 ~]$ wget https://github.com/change-hi/change-hi.github.io/raw/main/morea/data-movement/hpc-intro-data.tar.gz
+</code></pre></div>    </div>
+    <p>Did it work? If not, what does the terminal output tell you about what happened?</p>
+  </details>
+</div>
+
+<p>To copy a whole directory, we add the <code class="language-plaintext highlighter-rouge">-r</code> flag, for “<strong>r</strong>ecursive”: copy the
+item specified, and every item below it, and every item below those… until it
+reaches the bottom of the directory tree rooted at the folder name you
+provided.</p>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>[user@laptop ~]$ scp -r some-local-folder yourUsername@hpc-dtn1.its.hawaii.edu:target-directory/
+</code></pre></div></div>
+<div class="alert alert-warning" role="alert">
+  <p><i class="fa-solid fa-triangle-exclamation fa-xl"></i> <strong>Caution</strong></p>
+  <hr />
+
+  <p>For a large directory — either in size or number of files — copying with <code class="language-plaintext highlighter-rouge">-r</code> can take a long time to complete.</p>
+</div>
+
+<h2 id="whats-in-a-">What’s in a <code class="language-plaintext highlighter-rouge">/</code>?</h2>
+
+<p>When using <code class="language-plaintext highlighter-rouge">scp</code>, you may have noticed that a <code class="language-plaintext highlighter-rouge">:</code> <em>always</em> follows the remote
+computer name; sometimes a <code class="language-plaintext highlighter-rouge">/</code> follows that, and sometimes not, and sometimes
+there’s a final <code class="language-plaintext highlighter-rouge">/</code>. On Linux computers, <code class="language-plaintext highlighter-rouge">/</code> is the <strong><em>root</em></strong> directory, the
+location where the entire filesystem (and others attached to it) is anchored. A
+path starting with a <code class="language-plaintext highlighter-rouge">/</code> is called <em>absolute</em>, since there can be nothing above
+the root <code class="language-plaintext highlighter-rouge">/</code>. A path that does not start with <code class="language-plaintext highlighter-rouge">/</code> is called <em>relative</em>, since
+it is not anchored to the root.</p>
+
+<p>If you want to upload a file to a location inside your home directory —
+which is often the case — then you don’t need a leading <code class="language-plaintext highlighter-rouge">/</code>. After the
+<code class="language-plaintext highlighter-rouge">:</code>, start writing the sequence of folders that lead to the final storage
+location for the file or, as mentioned above, provide nothing if your home
+directory <em>is</em> the destination.</p>
+
+<p>A trailing slash on the target directory is optional, and has no effect for
+<code class="language-plaintext highlighter-rouge">scp -r</code>, but is important in other commands, like <code class="language-plaintext highlighter-rouge">rsync</code>.</p>
+
+<h2 id="a-note-on-rsync">A Note on <code class="language-plaintext highlighter-rouge">rsync</code></h2>
+
+<p>As you gain experience with transferring files, you may find the <code class="language-plaintext highlighter-rouge">scp</code>
+command limiting. The <a href="https://rsync.samba.org/">rsync</a> utility provides
+advanced features for file transfer and is typically faster compared to both
+<code class="language-plaintext highlighter-rouge">scp</code> and <code class="language-plaintext highlighter-rouge">sftp</code> (see below). It is especially useful for transferring large
+and/or many files and creating synced backup folders.</p>
+
+<p>The syntax is similar to <code class="language-plaintext highlighter-rouge">scp</code>. To transfer <em>to</em> another computer with
+commonly used options:</p>
+
+<div class="alert alert-secondary" role="alert">
+  <div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>[user@laptop ~]$ rsync -avzP path/to/local/file.txt yourUsername@hpc-dtn1.its.hawaii.edu:directory/path/on/yourUsername/
+</code></pre></div>  </div>
+</div>
+
+<p>The <code class="language-plaintext highlighter-rouge">a</code> (archive) option preserves file timestamps and permissions among
+other things; the <code class="language-plaintext highlighter-rouge">v</code> (verbose) option gives verbose output to help monitor
+the transfer; the <code class="language-plaintext highlighter-rouge">z</code> (compression) option compresses the file during transit
+to reduce size and transfer time; and the <code class="language-plaintext highlighter-rouge">P</code> (partial/progress) option
+preserves partially transferred files in case of an interruption and also
+displays the progress of the transfer.</p>
+
+<p>To recursively copy a directory, we can use the same options:</p>
+
+<div class="alert alert-secondary" role="alert">
+  <div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>[user@laptop ~]$ rsync -avzP path/to/local/dir yourUsername@hpc-dtn1.its.hawaii.edu:directory/path/on/yourUsername/
+</code></pre></div>  </div>
+</div>
+
+<p>As written, this will place the local directory and its contents under the
+specified directory on the remote system. If the trailing slash is omitted on
+the destination, a new directory corresponding to the transferred directory
+(‘dir’ in the example) will not be created, and the contents of the source
+directory will be copied directly into the destination directory.</p>
+
+<p>The <code class="language-plaintext highlighter-rouge">a</code> (archive) option implies recursion.</p>
+
+<p>To download a file, we simply change the source and destination:</p>
+
+<div class="alert alert-secondary" role="alert">
+  <div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>[user@laptop ~]$ rsync -avzP yourUsername@hpc-dtn1.its.hawaii.edu:path/on/yourUsername/file.txt path/to/local/
+</code></pre></div>  </div>
+</div>
+
+<h2 id="a-note-on-ports">A Note on Ports</h2>
+
+<p>All file transfers using the above methods use SSH to encrypt data sent
+through the network. So, if you can connect via SSH, you will be able to
+transfer files. By default, SSH uses network port 22. If a custom SSH port is
+in use, you will have to specify it using the appropriate flag, often <code class="language-plaintext highlighter-rouge">-p</code>,
+<code class="language-plaintext highlighter-rouge">-P</code>, or <code class="language-plaintext highlighter-rouge">--port</code>. Check <code class="language-plaintext highlighter-rouge">--help</code> or the <code class="language-plaintext highlighter-rouge">man</code> page if you’re unsure.</p>
+
+<div class="alert alert-secondary" role="alert">
+  <p><i class="fa-solid fa-user-pen fa-xl"></i> <strong>Exercise: Rsync Port</strong></p>
+  <hr />
+
+  <p>Say we have to connect <code class="language-plaintext highlighter-rouge">rsync</code> through port 768 instead of 22. How would we
+modify this command?</p>
+  <div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>[user@laptop ~]$ rsync test.txt yourUsername@hpc-dtn1.its.hawaii.edu:
+</code></pre></div>  </div>
+  <details>
+    <summary>Solution</summary>
+
+    <div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>[user@laptop ~]$ rsync --help | grep port
+     --port=PORT             specify double-colon alternate port number
+See http://rsync.samba.org/ for updates, bug reports, and answers
+[user@laptop ~]$ rsync --port=768 test.txt yourUsername@hpc-dtn1.its.hawaii.edu:
+</code></pre></div>    </div>
+
+  </details>
+</div>
+
+<h2 id="transferring-files-interactively-with-filezilla">Transferring Files Interactively with FileZilla</h2>
+
+<p>FileZilla is a cross-platform client for downloading and uploading files to and
+from a remote computer. It is absolutely fool-proof and always works quite
+well. It uses the <code class="language-plaintext highlighter-rouge">sftp</code> protocol. You can read more about using the <code class="language-plaintext highlighter-rouge">sftp</code>
+protocol in the command line …</p>
+
+<p>Download and install the FileZilla client from
+<a href="https://filezilla-project.org">https://filezilla-project.org</a>. After
+installing and opening the program, you should end up with a window with a file
+browser of your local system on the left hand side of the screen. When you
+connect to the cluster, your cluster files will appear on the right hand side.</p>
+
+<p>To connect to the cluster, we’ll just need to enter our credentials at the top
+of the screen:</p>
+
+<ul>
+  <li>Host: <code class="language-plaintext highlighter-rouge">sftp://</code></li>
+  <li>User: Your cluster username</li>
+  <li>Password: Your cluster password</li>
+  <li>Port: (leave blank to use the default port)</li>
+</ul>
+
+<p>Hit “Quickconnect” to connect. You should see your remote files appear on the
+right hand side of the screen. You can drag-and-drop files between the left
+(local) and right (remote) sides of the screen to transfer files.</p>
+
+<p>Finally, if you need to move large files (typically larger than a gigabyte)
+from one remote computer to another remote computer, SSH in to the computer
+hosting the files and use <code class="language-plaintext highlighter-rouge">scp</code> or <code class="language-plaintext highlighter-rouge">rsync</code> to transfer over to the other. This
+will be more efficient than using FileZilla (or related applications) that
+would copy from the source to your local machine, then to the destination
+machine.</p>
+
+<h2 id="archiving-files">Archiving Files</h2>
+
+<p>One of the biggest challenges we often face when transferring data between
+remote HPC systems is that of large numbers of files. There is an overhead to
+transferring each individual file and when we are transferring large numbers of
+files these overheads combine to slow down our transfers to a large degree.</p>
+
+<p>The solution to this problem is to <em>archive</em> multiple files into smaller
+numbers of larger files before we transfer the data to improve our transfer
+efficiency. Sometimes we will combine archiving with <em>compression</em> to reduce
+the amount of data we have to transfer and so speed up the transfer.</p>
+
+<p>The most common archiving command you will use on a (Linux) HPC cluster is
+<code class="language-plaintext highlighter-rouge">tar</code>. <code class="language-plaintext highlighter-rouge">tar</code> can be used to combine files into a single archive file and,
+optionally, compress it.</p>
+
+<p>Let’s start with the file we downloaded from the lesson site,
+<code class="language-plaintext highlighter-rouge">hpc-intro-data.tar.gz</code>. The “gz” part stands for <em>gzip</em>, which is a
+compression library. Reading this file name, it appears somebody took a folder
+named “hpc-intro-data,” wrapped up all its contents in a single file with
+<code class="language-plaintext highlighter-rouge">tar</code>, then compressed that archive with <code class="language-plaintext highlighter-rouge">gzip</code> to save space. Let’s check
+using <code class="language-plaintext highlighter-rouge">tar</code> with the <code class="language-plaintext highlighter-rouge">-t</code> flag, which prints the “<strong>t</strong>able of contents”
+without unpacking the file, specified by <code class="language-plaintext highlighter-rouge">-f &lt;filename&gt;</code>, on the remote
+computer. Note that you can concatenate the two flags, instead of writing
+<code class="language-plaintext highlighter-rouge">-t -f</code> separately.</p>
+
+<div class="alert alert-secondary" role="alert">
+  <div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code> ssh @
+ tar -tf hpc-intro-data.tar.gz
+hpc-intro-data/
+hpc-intro-data/north-pacific-gyre/
+hpc-intro-data/north-pacific-gyre/NENE01971Z.txt
+hpc-intro-data/north-pacific-gyre/goostats
+hpc-intro-data/north-pacific-gyre/goodiff
+hpc-intro-data/north-pacific-gyre/NENE02040B.txt
+hpc-intro-data/north-pacific-gyre/NENE01978B.txt
+hpc-intro-data/north-pacific-gyre/NENE02043B.txt
+hpc-intro-data/north-pacific-gyre/NENE02018B.txt
+hpc-intro-data/north-pacific-gyre/NENE01843A.txt
+hpc-intro-data/north-pacific-gyre/NENE01978A.txt
+hpc-intro-data/north-pacific-gyre/NENE01751B.txt
+hpc-intro-data/north-pacific-gyre/NENE01736A.txt
+hpc-intro-data/north-pacific-gyre/NENE01812A.txt
+hpc-intro-data/north-pacific-gyre/NENE02043A.txt
+hpc-intro-data/north-pacific-gyre/NENE01729B.txt
+hpc-intro-data/north-pacific-gyre/NENE02040A.txt
+hpc-intro-data/north-pacific-gyre/NENE01843B.txt
+hpc-intro-data/north-pacific-gyre/NENE01751A.txt
+hpc-intro-data/north-pacific-gyre/NENE01729A.txt
+hpc-intro-data/north-pacific-gyre/NENE02040Z.txt
+</code></pre></div>  </div>
+</div>
+
+<p>This shows a folder containing another folder, which contains a bunch of files.
+ Let’s see about that compression, using <code class="language-plaintext highlighter-rouge">du</code> for “<strong>d</strong>isk
+<strong>u</strong>sage”.</p>
+
+<div class="alert alert-secondary" role="alert">
+  <div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>[yourUsername@hpc-dtn01 ~]$ du -sh hpc-intro-data.tar.gz
+36K     hpc-intro-data.tar.gz
+</code></pre></div>  </div>
+</div>
+
+<h2 id="files-occupy-at-least-one-block">Files Occupy at Least One “Block”</h2>
+
+<p>If the filesystem block size is larger than 36 KB, you’ll see a larger
+number: files cannot be smaller than one block.</p>
+
+<p>Now let’s unpack the archive. We’ll run <code class="language-plaintext highlighter-rouge">tar</code> with a few common flags:</p>
+
+<ul>
+  <li><code class="language-plaintext highlighter-rouge">-x</code> to e<strong>x</strong>tract the archive</li>
+  <li><code class="language-plaintext highlighter-rouge">-v</code> for <strong>v</strong>erbose output</li>
+  <li><code class="language-plaintext highlighter-rouge">-z</code> for g<strong>z</strong>ip compression</li>
+  <li><code class="language-plaintext highlighter-rouge">-f</code> for the file to be unpacked</li>
+</ul>
+
+<p>When it’s done, check the directory size with <code class="language-plaintext highlighter-rouge">du</code> and compare.</p>
+
+<div class="alert alert-secondary" role="alert">
+  <p><i class="fa-solid fa-user-pen fa-xl"></i> <strong>Exercise: Extract the Archive</strong></p>
+  <hr />
+
+  <p>Using the four flags above, unpack the lesson data using <code class="language-plaintext highlighter-rouge">tar</code>.
+Then, check the size of the whole unpacked directory using <code class="language-plaintext highlighter-rouge">du</code>.</p>
+
+  <p>Hint: <code class="language-plaintext highlighter-rouge">tar</code> lets you concatenate flags.</p>
+
+  <details>
+    <summary>Solution</summary>
+
+    <div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>[yourUsername@hpc-dtn01 ~]$ tar -xvzf hpc-lesson-data.tar.gz
+</code></pre></div>    </div>
+    <p>Output</p>
+    <div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>hpc-intro-data/
+hpc-intro-data/north-pacific-gyre/
+hpc-intro-data/north-pacific-gyre/NENE01971Z.txt
+hpc-intro-data/north-pacific-gyre/goostats
+hpc-intro-data/north-pacific-gyre/goodiff
+hpc-intro-data/north-pacific-gyre/NENE02040B.txt
+hpc-intro-data/north-pacific-gyre/NENE01978B.txt
+hpc-intro-data/north-pacific-gyre/NENE02043B.txt
+hpc-intro-data/north-pacific-gyre/NENE02018B.txt
+hpc-intro-data/north-pacific-gyre/NENE01843A.txt
+hpc-intro-data/north-pacific-gyre/NENE01978A.txt
+hpc-intro-data/north-pacific-gyre/NENE01751B.txt
+hpc-intro-data/north-pacific-gyre/NENE01736A.txt
+hpc-intro-data/north-pacific-gyre/NENE01812A.txt
+hpc-intro-data/north-pacific-gyre/NENE02043A.txt
+hpc-intro-data/north-pacific-gyre/NENE01729B.txt
+hpc-intro-data/north-pacific-gyre/NENE02040A.txt
+hpc-intro-data/north-pacific-gyre/NENE01843B.txt
+hpc-intro-data/north-pacific-gyre/NENE01751A.txt
+hpc-intro-data/north-pacific-gyre/NENE01729A.txt
+hpc-intro-data/north-pacific-gyre/NENE02040Z.txt
+</code></pre></div>    </div>
+
+    <p>Note that we did not type out <code class="language-plaintext highlighter-rouge">-x -v -z -f</code>, thanks to the flag
+concatenation, though the command works identically either way.</p>
+
+    <div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code> du -sh hpc-lesson-data
+144K    hpc-intro-data
+</code></pre></div>    </div>
+
+  </details>
+</div>
+
+<div class="alert alert-info" role="alert">
+  <p><i class="fa-solid fa-circle-info fa-xl"></i> <strong>Was the Data Compressed?</strong></p>
+  <blockquote>
+    <blockquote>
+
+      <p>Text files compress nicely: the “tarball” is one-quarter the total size of
+the raw data!</p>
+    </blockquote>
+  </blockquote>
+</div>
+
+<p>If you want to reverse the process — compressing raw data instead of
+extracting it — set a <code class="language-plaintext highlighter-rouge">c</code> flag instead of <code class="language-plaintext highlighter-rouge">x</code>, set the archive filename,
+then provide a directory to compress:</p>
+
+<div class="alert alert-secondary" role="alert">
+  <div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>[user@laptop ~]$ tar -cvzf compressed_data.tar.gz hpc-intro-data
+</code></pre></div>  </div>
+</div>
+
+<h2 id="working-with-windows">Working with Windows</h2>
+
+<p>When you transfer text files to from a Windows system to a Unix system (Mac,
+Linux, BSD, Solaris, etc.) this can cause problems. Windows encodes its files
+slightly different than Unix, and adds an extra character to every line.</p>
+
+<p>On a Unix system, every line in a file ends with a <code class="language-plaintext highlighter-rouge">\n</code> (newline). On
+Windows, every line in a file ends with a <code class="language-plaintext highlighter-rouge">\r\n</code> (carriage return + newline).
+This causes problems sometimes.</p>
+
+<p>Though most modern programming languages and software handles this correctly,
+in some rare instances, you may run into an issue. The solution is to convert
+a file from Windows to Unix encoding with the <code class="language-plaintext highlighter-rouge">dos2unix</code> command.</p>
+
+<p>You can identify if a file has Windows line endings with <code class="language-plaintext highlighter-rouge">cat -A filename</code>. A
+file with Windows line endings will have <code class="language-plaintext highlighter-rouge">^M$</code> at the end of every line. A
+file with Unix line endings will have <code class="language-plaintext highlighter-rouge">$</code> at the end of a line.</p>
+
+<p>To convert the file, just run <code class="language-plaintext highlighter-rouge">dos2unix filename</code>. (Conversely, to convert
+back to Windows format, you can run <code class="language-plaintext highlighter-rouge">unix2dos filename</code>.)</p>
+
+<div class="alert alert-success mt-3" role="alert">
+  <p><i class="fa-solid fa-globe fa-xl"></i> <strong>Key Points</strong></p>
+  <hr />
+
+  <ul>
+    <li><code class="language-plaintext highlighter-rouge">wget</code> and <code class="language-plaintext highlighter-rouge">curl -O</code> download a file from the internet</li>
+    <li><code class="language-plaintext highlighter-rouge">scp</code> transfers files to and from your computer</li>
+    <li>You can use an SFTP client like FileZilla to transfer files through a GUI.</li>
+  </ul>
+</div>
+
+
+</div>
+
+
+
+
+<!-- Maybe find a different way?
+<script src="/js/scrollIfAnchor.js"></script>
+-->
+
+<footer class="footer footer-background" style="padding-top: 1em; padding-bottom: 1em">
+  <div class="container text-center">
+    
+    
+
+    
+    <p style="margin: 0">Powered by the <a class="footer-link" href="https://morea-framework.github.io/">Morea Framework</a> (Theme: spacelab)<br>
+      Last update on: <span>2023-12-01 13:58:35 -1000</span></p>
+
+    <p style="margin: 0">
+      
+      18 modules
+      
+      | 17 outcomes
+      
+      
+      | 55 readings
+      
+      
+      | 100 experiences
+      
+      
+      | 15 assessments
+      
+    </p>
+  </div>
+</footer>
+
+
+<!-- Load Bootstrap JavaScript components -->
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM" crossorigin="anonymous"></script>
+
+
+<script type="text/javascript" async
+        src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.7/latest.js?config=TeX-MML-AM_CHTML">
+</script>
+
+
+<!-- Add anchors to pages. -->
+<script>anchors.add();</script>
+
+
+</body>
+</html>

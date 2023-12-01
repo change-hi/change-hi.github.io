@@ -1,0 +1,436 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <title> Change-HI/EDU | 4. Data Analysis and Collaboration  </title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta charset="utf-8">
+
+  <link rel="stylesheet" href="/css/themes/spacelab/bootstrap.min.css">
+  <link rel="stylesheet" href="/css/style.css">
+  <link rel="stylesheet" href="/css/syntax.css">
+  <link rel="shortcut icon" href="/favicon.ico" type="image/x-icon" />
+  <link href="/css/fontawesome/css/fontawesome.css" rel="stylesheet">
+  <link href="/css/fontawesome/css/brands.css" rel="stylesheet">
+  <link href="/css/fontawesome/css/solid.css" rel="stylesheet">
+  <script src="https://cdn.jsdelivr.net/npm/anchor-js/anchor.min.js"></script>
+
+  
+
+  <!-- Load JQuery, then use it to attach the class 'active' to navbar item currently displayed. -->
+  <script src="https://code.jquery.com/jquery-3.6.0.min.js" integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4=" crossorigin="anonymous"></script>
+  <script>
+    $(window).on('load', function () {
+      $('.nav-item').find('a[href="' + location.pathname + '"]').addClass('active');
+    });
+  </script>
+
+</head>
+<body>
+
+<div class="navbar navbar-expand-lg fixed-top navbar-light bg-light">
+  <div class="container">
+    <a class="navbar-brand" href="/index.html"> Change-HI/EDU </a>
+    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarResponsive" aria-controls="navbarResponsive" aria-expanded="false" aria-label="Toggle navigation">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+    <div class="collapse navbar-collapse" id="navbarResponsive">
+      <ul class="navbar-nav">
+        
+        <li class="nav-item"><a class="nav-link" href="/modules/">Modules</a></li>
+        
+        <li class="nav-item"><a class="nav-link" href="/outcomes/">Outcomes</a></li>
+        
+        
+        <li class="nav-item"><a class="nav-link" href="/readings/">Readings</a></li>
+        
+        
+        <li class="nav-item"><a class="nav-link" href="/experiences/">Experiences</a></li>
+        
+        
+        <li class="nav-item"><a class="nav-link" href="/assessments/">Assessments</a></li>
+        
+        
+      </ul>
+    </div>
+  </div>
+</div>
+
+<!-- Internal fragment for displaying the breadcrumb bar -->
+<div class="breadcrumb-background" style="padding-top: 1em; padding-bottom: .01em">
+  <div class="container">
+    <nav aria-label="breadcrumb">
+      <ol class="breadcrumb">
+        
+        <li class="breadcrumb-item"><a href="/">Home</a></li>
+        <li class="breadcrumb-item"><a href="/modules">Modules</a></li>
+        <li class="breadcrumb-item"><a href="/modules/"></a></li>
+        <li class="breadcrumb-item active">4. Data Analysis and Collaboration </li>
+      </ol>
+    </nav>
+  </div>
+</div>
+
+
+<div class="container">
+  <h1 id="4-data-analysis-and-collaboration-using-hydroshare-workflows">4. Data Analysis and Collaboration using Hydroshare Workflows</h1>
+
+<div class="alert alert-success mt-3" role="alert">
+  <p><i class="fa-solid fa-globe fa-xl"></i> <strong>Overview</strong></p>
+  <hr />
+
+  <p><strong>Questions</strong></p>
+  <ul>
+    <li>How do users discover and join an existing research group in HydroShare?</li>
+    <li>How do users access existing resources and scientific workflows in a group?</li>
+    <li>How can users use an existing workflow to carry out data analysis?</li>
+  </ul>
+
+  <p><strong>Objectives</strong></p>
+  <ul>
+    <li>Allow the audience some experience using science gateways and existing workflows for data analysis in a collaborative environment</li>
+  </ul>
+</div>
+
+<p>In the following sections, examples are provided to gain hands-on experience discovering groups and resources of interest, joining a collaborative environment, and performing analysis on data who’s results can be written back to HydroShare to share with others in the group.</p>
+
+<p>More specifically, users will learn the following:</p>
+<ul>
+  <li>How to discover and join an existing group of interest</li>
+  <li>How to navigate the groups landing page and access its resources</li>
+  <li>How to use an existing workflow to carry out some data analysis using a JupyterHub workflow</li>
+  <li>How to write results back into HydroShare as a new resource to share your analysis with others.</li>
+</ul>
+
+<p>Before starting this activity please be sure to be logged into <a href="https://https://www.hydroshare.org/">HydroShare</a>.</p>
+
+<h2 id="discoveringfinding-a-hydroshare-group">Discovering/Finding a HydroShare Group</h2>
+<p>HydroShare provides a simple search functionality to help users discover and find groups within its site. Use the Collaborate tab at the top of the HydroShare page.</p>
+
+<figure>
+  
+    <img src="/morea/scientific-workflows/fig/exp_collaboration_1groups.png" style="max-width: 100%;" alt="/Node%20anatomy" class="img-fluid mx-auto d-block border" />
+  
+  <figcaption style="text-align: center">
+    <small>
+      
+    </small>
+  </figcaption>
+</figure>
+
+<p>The “Find Groups” page can then be used to find a listing of discoverable and public groups available. Using the search function users can enter keywords which may be associated with group names, purpose, descriptions and other keywords indexed by the group owner.</p>
+
+<figure>
+  
+    <img src="/morea/scientific-workflows/fig/exp_collaboration_2groups.png" style="max-width: 100%;" alt="/Node%20anatomy" class="img-fluid mx-auto d-block border" />
+  
+  <figcaption style="text-align: center">
+    <small>
+      
+    </small>
+  </figcaption>
+</figure>
+
+<div class="alert alert-info" role="alert">
+  <p><i class="fa-solid fa-circle-info fa-xl"></i> <strong>Discover the HIDSI Workshop Group</strong></p>
+  <hr />
+
+  <ul>
+    <li>Use HydroShare’s <a href="https://www.hydroshare.org/groups">search</a> functionality to find the HydroShare group named, “HIDSI Workshop 042123”.</li>
+  </ul>
+</div>
+
+<p>Click on the title of any listed group to view the groups landing page. Members of public groups can be seen by searching users while the members of a discoverable group can not be seen. Either way users can request group membership.</p>
+
+<h2 id="joining-a-group">Joining a Group</h2>
+<p>Once a group of interest is found, users can request access by clicking the “Ask to join” button. If the owner of the group has not set the “auto accept” option for new requests, users may experience a wait time until their request is processed. Otherwise, access may be granted almost immediately.</p>
+
+<div class="alert alert-info" role="alert">
+  <p><i class="fa-solid fa-circle-info fa-xl"></i> <strong>Join the HIDSI Workshop Group</strong></p>
+  <hr />
+
+  <ul>
+    <li>Once the “HIDSI Workshop 042123” group is found, request access by clicking, “Ask to join”.</li>
+  </ul>
+</div>
+
+<h2 id="about-groups">About Groups</h2>
+<p>A groups landing page will provide some information about the group such as the groups title, purpose and description of the group. From the landing page, users will be able to see all resources shared with the group as well as all members of the group. It should be noted that resources within the group are not owned by all members. While they are shared, ownership is retained by the individual user which created the resource.</p>
+
+<figure>
+  
+    <img src="/morea/scientific-workflows/fig/exp_collaboration_3groups.png" style="max-width: 100%;" alt="/Node%20anatomy" class="img-fluid mx-auto d-block border" />
+  
+  <figcaption style="text-align: center">
+    <small>
+      
+    </small>
+  </figcaption>
+</figure>
+
+<h2 id="exercise-using-resources-and-workflows-within-a-group-to-collaborate-on-data-analysis">Exercise: Using Resources and Workflows Within a Group to Collaborate On Data Analysis</h2>
+<p>For this exercise, attendees who have joined the HIDSI group will use an existing shared resource containing both data and a Jupyter Notebook workflow to perform some visualization and data analysis. The purpose of this exercise is to:</p>
+
+<ul>
+  <li>Demonstrate how a gateway can provide a collaborative environment</li>
+  <li>Demonstrate how data workflows can ease the researchers burden of programming certain computational tasks from scratch.</li>
+  <li>Exemplify the usefulness of gateways and workflows in the reproducibility of scientific results.</li>
+</ul>
+
+<p>HydroShare supports various web apps which workflows and models can be built in. Typically, most hydrological modeling and data analysis is done on a personal computer or on some centralized computing system. A user’s knowledge of such centralized computing system could all be barriers to the user’s research. Some examples could be:</p>
+
+<ul>
+  <li>Knowledge about high-performance computing systems</li>
+  <li>Capacity of a local computer</li>
+  <li>Compatability and dependency requirements for installation on local computers, and</li>
+  <li>Time taken to get local model installations properly configured and validated</li>
+</ul>
+
+<p>By providing and supporting web apps such as JupyterHub and its Jupyter Notebook functionality, HydroShare enables a more flexible environment for model execution and data analysis. This gives users a preconfigured environment free of worry about cyberinfrastructure and dependencies thus lowering the forementioned barriers to research.</p>
+
+<p>A Jupyter notebook contains live code, equations, visualization, and explanatory text. They can be used to implement scientific workflows and other computational tasks. HydroShare users can either create and share their own workflows using Jupyter notebooks or discover and use existing workflows implemented as Jupyter notebooks.</p>
+
+<div class="alert alert-info" role="alert">
+  <p><i class="fa-solid fa-circle-info fa-xl"></i> <strong>Jupyter Notebook functionality within HydroShare:</strong></p>
+  <hr />
+
+  <ul>
+    <li>Notebooks can be launched from HydroShare</li>
+    <li>Notebooks can access the contents of HydroShare resources</li>
+    <li>Notebooks can save results back into HydroShare</li>
+  </ul>
+</div>
+
+<ul>
+  <li><strong>Ease of Use For the User</strong></li>
+</ul>
+
+<p>The code within a Jupyter notebook can execute operating and language specific commands within the hosting environment. This provides users with access to the hosting environment’s computational capabilities while eliminating the need for users to install and configure software.</p>
+
+<p>While this does not relieve the user from needing to learn the programming language, operating system commands, or commands associated with the program being used for analysis, it does remove the need for users to install and have the capacity to run these programs locally.</p>
+
+<h2 id="about-the-following-exercise">About the Following Exercise</h2>
+<p>For this exercise attendees will be performing some visualization and data analysis on the stock performance in the United States. They will use an existing workflow to perform some common computational tasks on the type of data provided using several trading indicators of technical analysis. Attendees will then perform further analysis on the data and write their results back to HydroShare as a new separate resource. This resource can then be shared with a group for further scientific collaboration.</p>
+
+<ul>
+  <li><strong>The Data</strong></li>
+</ul>
+
+<p>The data used in this workshop is daily stock data from Yahoo Finance. Yahoo Finance is an online platform that provides financial news and market data, including historical stock quotes and financial reports.</p>
+
+<h2 id="workflow-for-technical-analysis-of-us-stock">Workflow for Technical Analysis of U.S. Stock</h2>
+<p>The Jupyter Notebook extracts daily stock data from Yahoo Finance and illustrates the technical analysis of US stocks.</p>
+
+<div class="alert alert-info" role="alert">
+  <p><i class="fa-solid fa-circle-info fa-xl"></i> <strong>Investment Disclaimer</strong></p>
+  <hr />
+
+  <p>The information contained on this website and the resources available for this workshop through this website are not intended as, and shall not be understood or construed as, financial advice.</p>
+</div>
+
+<h3 id="preparation-step-accessing-the-jupyterhub-notebook">Preparation Step: Accessing the JupyterHub Notebook</h3>
+<ul>
+  <li>Once on the <a href="https://www.hydroshare.org/group/241">group landing page</a>, select the resource titled “Technical Analysis of US Stock”</li>
+  <li>Click “Open with” at the top right.</li>
+  <li>Choose CUAHSI JupyterHub as the webapp.</li>
+  <li>Agree to the terms of use and click “Sign in with HydroShare”.</li>
+  <li>Authorize CUAHSI JupyterHub. The JupyterHub session will open.</li>
+  <li>Select the Python environment ‘Python - v3.8’</li>
+  <li>Select the file at the top of the list named ‘workshop-technical_analysis.ipynb’.</li>
+</ul>
+
+<h3 id="step-1-install-and-import-libraries">Step 1: Install and Import Libraries</h3>
+
+<div class="alert alert-secondary" role="alert">
+  <div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="o">!</span>pip <span class="nb">install </span>yfinance
+<span class="o">!</span>pip <span class="nb">install </span>pandas-datareader
+<span class="o">!</span>pip <span class="nb">install </span>matplotlib
+</code></pre></div>  </div>
+</div>
+
+<h3 id="step-2-conduct-technical-analysis-of-stock-prices">Step 2: Conduct Technical Analysis of Stock Prices</h3>
+
+<h4 id="first-choose-your-stock-ticker-for-technical-analysis"><strong>First, Choose Your Stock Ticker for Technical Analysis</strong></h4>
+<ul>
+  <li>Ticker Examples:</li>
+</ul>
+
+<p>AA (Alcoa) / AAPL (Apple) / AMZN (Amazon.com) / BA (Boeing Company) / BAC (Bank of America Corporation) / CAT (Caterpillar) / KO (Coca-Cola) / GE (General Electric Company) / IBM (International Business Machines Corporation) / INTC (Intel Corp) / JNJ (Johnson &amp; Johnson) / MCD (McDonald’s Corp) / MSFT (Microsoft) / NKE (NIKE) / PFE (Pfizer) / T (AT&amp;T) / TRV (Travelers Companies) / TSLA (Tesla) / VZ (Verizon Communications) / WMT (Walmart)</p>
+
+<ul>
+  <li>More Stock Ticker Information: <a href="https://marketstack.com/search">https://marketstack.com/search</a></li>
+</ul>
+
+<div class="alert alert-secondary" role="alert">
+  <div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code>Your_Stock <span class="o">=</span> <span class="s1">'Your_Stock_Ticker_Here'</span>
+</code></pre></div>  </div>
+</div>
+
+<div class="alert alert-secondary" role="alert">
+  <div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code>from pandas_datareader import data as pdr
+import yfinance as yf
+import matplotlib.pyplot as plt
+yf.pdr_override<span class="o">()</span>
+
+stock <span class="o">=</span> pdr.get_data_yahoo<span class="o">(</span>Your_Stock, start <span class="o">=</span> <span class="s1">'2022-01-01'</span><span class="o">)</span>
+SP500 <span class="o">=</span> pdr.get_data_yahoo<span class="o">(</span><span class="s1">'^GSPC'</span>, start <span class="o">=</span> <span class="s1">'2022-01-01'</span><span class="o">)</span>
+</code></pre></div>  </div>
+</div>
+
+<h4 id="second-plot-relative-performance-to-stock-index-sp500-index"><strong>Second, Plot Relative Performance to Stock Index (S&amp;P500 Index)</strong></h4>
+<div class="alert alert-secondary" role="alert">
+  <div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code>stock_chg <span class="o">=</span> <span class="o">(</span>stock[<span class="s1">'Close'</span><span class="o">]</span><span class="nt">-stock</span><span class="o">[</span><span class="s1">'Close'</span><span class="o">]</span>.shift<span class="o">(</span>1<span class="o">))</span>/stock[<span class="s1">'Close'</span><span class="o">]</span>.shift<span class="o">(</span>1<span class="o">)</span> <span class="k">*</span> 100 
+stock_chg.iloc[0] <span class="o">=</span> 0
+stock_chgcum <span class="o">=</span> stock_chg.cumsum<span class="o">()</span>
+
+SP500_chg <span class="o">=</span> <span class="o">(</span>SP500[<span class="s1">'Close'</span><span class="o">]</span><span class="nt">-SP500</span><span class="o">[</span><span class="s1">'Close'</span><span class="o">]</span>.shift<span class="o">(</span>1<span class="o">))</span>/SP500[<span class="s1">'Close'</span><span class="o">]</span>.shift<span class="o">(</span>1<span class="o">)</span> <span class="k">*</span> 100 
+SP500_chg.iloc[0] <span class="o">=</span> 0
+SP500_chgcum <span class="o">=</span> SP500_chg.cumsum<span class="o">()</span>
+
+plt.plot<span class="o">(</span>stock.index, stock_chgcum, <span class="s1">'r'</span>, <span class="nv">label</span><span class="o">=</span>Your_Stock<span class="o">)</span>
+plt.plot<span class="o">(</span>SP500.index, SP500_chgcum, <span class="s1">'k'</span>, <span class="nv">label</span><span class="o">=</span><span class="s1">'SP500'</span><span class="o">)</span>
+plt.xlabel<span class="o">(</span><span class="s1">'Date'</span><span class="o">)</span>
+plt.ylabel<span class="o">(</span><span class="s1">'Cumulative Return (%)'</span><span class="o">)</span>
+plt.legend<span class="o">(</span><span class="nv">loc</span><span class="o">=</span><span class="s1">'best'</span><span class="o">)</span>
+plt.title<span class="o">(</span><span class="s1">'Relative Performance to S&amp;P500'</span><span class="o">)</span>
+plt.show<span class="o">()</span>
+</code></pre></div>  </div>
+</div>
+
+<h4 id="third-plot-bollinger-bands"><strong>Third, Plot Bollinger Bands</strong></h4>
+<h5 id="bollinger-bands-are-two-standard-deviations-above-and-below-the-20-day-moving-average">Bollinger Bands are two standard deviations above and below the 20-day moving average.</h5>
+<div class="alert alert-secondary" role="alert">
+  <div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code>stock[<span class="s1">'UpperBand'</span><span class="o">]</span> <span class="o">=</span> stock[<span class="s1">'Close'</span><span class="o">]</span>.rolling<span class="o">(</span>20<span class="o">)</span>.mean<span class="o">()</span> + stock[<span class="s1">'Close'</span><span class="o">]</span>.rolling<span class="o">(</span>20<span class="o">)</span>.std<span class="o">()</span> <span class="k">*</span> 2
+stock[<span class="s1">'LowerBand'</span><span class="o">]</span> <span class="o">=</span> stock[<span class="s1">'Close'</span><span class="o">]</span>.rolling<span class="o">(</span>20<span class="o">)</span>.mean<span class="o">()</span> - stock[<span class="s1">'Close'</span><span class="o">]</span>.rolling<span class="o">(</span>20<span class="o">)</span>.std<span class="o">()</span> <span class="k">*</span> 2
+plt.plot<span class="o">(</span>stock.UpperBand, <span class="s1">'b--'</span>, <span class="nv">label</span><span class="o">=</span><span class="s1">'UpperBand'</span><span class="o">)</span>
+plt.plot<span class="o">(</span>stock.Close, <span class="s1">'r'</span>, <span class="nv">label</span><span class="o">=</span><span class="s1">'Price'</span><span class="o">)</span>
+plt.plot<span class="o">(</span>stock.LowerBand, <span class="s1">'c--'</span>, <span class="nv">label</span><span class="o">=</span><span class="s1">'LowerBand'</span><span class="o">)</span>
+plt.legend<span class="o">(</span><span class="nv">loc</span><span class="o">=</span><span class="s1">'best'</span><span class="o">)</span>
+plt.title<span class="o">(</span><span class="s1">'Bollinger Bands'</span><span class="o">)</span>
+plt.show<span class="o">()</span>
+</code></pre></div>  </div>
+</div>
+
+<h4 id="fourth-plot-stochastic-oscillator"><strong>Fourth, Plot Stochastic Oscillator</strong></h4>
+<h5 id="stochastic-oscillator-is-a-momentum-indicator-comparing-the-current-close-price-with-the-recent-price-range">Stochastic Oscillator is a momentum indicator comparing the current close price with the recent price range.</h5>
+<ul>
+  <li>
+    <p>Fast K (%K) = 100 * (Current Close Price - Lowest Close Price for recent 15 days) / (Highest Close Price for recent 15 days - Lowest Close Price for recent 15 days)</p>
+  </li>
+  <li>
+    <p>Slow K = 5-day moving average of Fast K</p>
+  </li>
+  <li>
+    <p>Slow D (%D) = 3-day moving average of Slow K</p>
+  </li>
+</ul>
+<div class="alert alert-secondary" role="alert">
+  <div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code>n_day <span class="o">=</span>15
+m_day <span class="o">=</span> 5
+t_day <span class="o">=</span> 3
+stock[<span class="s1">'FastK'</span><span class="o">]</span> <span class="o">=</span> <span class="o">(</span>stock[<span class="s1">'Close'</span><span class="o">]</span> - stock[<span class="s1">'Close'</span><span class="o">]</span>.rolling<span class="o">(</span>n_day<span class="o">)</span>.min<span class="o">())</span> / <span class="o">(</span>stock[<span class="s1">'Close'</span><span class="o">]</span>.rolling<span class="o">(</span>n_day<span class="o">)</span>.max<span class="o">()</span> - stock[<span class="s1">'Close'</span><span class="o">]</span>.rolling<span class="o">(</span>n_day<span class="o">)</span>.min<span class="o">())</span> <span class="k">*</span> 100
+stock[<span class="s1">'SlowK'</span><span class="o">]</span> <span class="o">=</span> stock[<span class="s1">'FastK'</span><span class="o">]</span>.rolling<span class="o">(</span>m_day<span class="o">)</span>.mean<span class="o">()</span>
+stock[<span class="s1">'SlowD'</span><span class="o">]</span> <span class="o">=</span> stock[<span class="s1">'SlowK'</span><span class="o">]</span>.rolling<span class="o">(</span>t_day<span class="o">)</span>.mean<span class="o">()</span>
+stock[<span class="s1">'Lowthred'</span><span class="o">]</span> <span class="o">=</span> 20
+stock[<span class="s1">'Highthred'</span><span class="o">]</span> <span class="o">=</span> 80
+plt.plot<span class="o">(</span>stock.SlowK, <span class="s1">'b'</span>, <span class="nv">label</span><span class="o">=</span><span class="s1">'Slow%K'</span><span class="o">)</span>
+plt.plot<span class="o">(</span>stock.SlowD, <span class="s1">'g'</span>, <span class="nv">label</span><span class="o">=</span><span class="s1">'Slow%D'</span><span class="o">)</span>
+plt.plot<span class="o">(</span>stock.Lowthred, <span class="s1">'y'</span><span class="o">)</span>
+plt.plot<span class="o">(</span>stock.Highthred, <span class="s1">'y'</span><span class="o">)</span>
+plt.legend<span class="o">(</span><span class="nv">loc</span><span class="o">=</span><span class="s1">'best'</span><span class="o">)</span>
+plt.title<span class="o">(</span><span class="s1">'Stochastic Oscillator'</span><span class="o">)</span>
+plt.show<span class="o">()</span>
+</code></pre></div>  </div>
+</div>
+
+<h4 id="fifth-interpret-a-trading-signal-from-stochastic-oscillator"><strong>Fifth, Interpret a Trading Signal from Stochastic Oscillator</strong></h4>
+<div class="alert alert-secondary" role="alert">
+
+  <p>Input:</p>
+
+  <div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code>length <span class="o">=</span> stock_chgcum.size
+
+<span class="k">if </span>stock.SlowK[length-1] &lt; 20:
+    print<span class="o">(</span><span class="s2">"Stochastic Oscillator indicates BUYING your stock."</span><span class="o">)</span>
+<span class="k">elif </span>stock.SlowK[length-1] <span class="o">&gt;</span> 80:
+    print<span class="o">(</span><span class="s2">"Stochastic Oscillator indicates SELLING your stock."</span><span class="o">)</span>
+<span class="k">else</span>:
+    print<span class="o">(</span><span class="s2">"Stochastic Oscillator indicates HOLDING your stock."</span><span class="o">)</span>
+</code></pre></div>  </div>
+
+  <p>Output:</p>
+
+  <div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code>Stochastic Oscillator indicates <span class="o">[</span>BUYING / SELLING / HOLDING] your stock.
+</code></pre></div>  </div>
+</div>
+
+<div class="alert alert-info" role="alert">
+  <p><i class="fa-solid fa-circle-info fa-xl"></i> <strong>Key Points</strong></p>
+  <hr />
+
+  <ul>
+    <li>Scienctific gateways, such as HydroShare, enable researchers to form and join groups and communities, within the gateway, with similar research interests.</li>
+    <li>Existing workflows can be discovered and used to aid researchers perform visualization and analysis on their data, eliminating the need to write all the necessary foundational codes.</li>
+  </ul>
+</div>
+
+<div style="text-align: right; padding-bottom: 10px">
+  <hr />
+  <button type="button" onclick="window.location='/morea/scientific-workflows/assessment-swg-workshop.html'" class="btn btn-primary">
+    <p style="font-size:16px; margin: 0">Assessments -&gt;</p>
+    <p style="font-size:12px; margin: 0">3:50pm</p>
+    </button>
+</div>
+
+</div>
+
+
+
+
+<!-- Maybe find a different way?
+<script src="/js/scrollIfAnchor.js"></script>
+-->
+
+<footer class="footer footer-background" style="padding-top: 1em; padding-bottom: 1em">
+  <div class="container text-center">
+    
+    
+
+    
+    <p style="margin: 0">Powered by the <a class="footer-link" href="https://morea-framework.github.io/">Morea Framework</a> (Theme: spacelab)<br>
+      Last update on: <span>2023-12-01 13:58:35 -1000</span></p>
+
+    <p style="margin: 0">
+      
+      18 modules
+      
+      | 17 outcomes
+      
+      
+      | 55 readings
+      
+      
+      | 100 experiences
+      
+      
+      | 15 assessments
+      
+    </p>
+  </div>
+</footer>
+
+
+<!-- Load Bootstrap JavaScript components -->
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM" crossorigin="anonymous"></script>
+
+
+<script type="text/javascript" async
+        src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.7/latest.js?config=TeX-MML-AM_CHTML">
+</script>
+
+
+<!-- Add anchors to pages. -->
+<script>anchors.add();</script>
+
+
+</body>
+</html>

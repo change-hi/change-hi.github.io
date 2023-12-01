@@ -1,0 +1,284 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <title> Change-HI/EDU | 6. FAIR: Accessible </title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta charset="utf-8">
+
+  <link rel="stylesheet" href="/css/themes/spacelab/bootstrap.min.css">
+  <link rel="stylesheet" href="/css/style.css">
+  <link rel="stylesheet" href="/css/syntax.css">
+  <link rel="shortcut icon" href="/favicon.ico" type="image/x-icon" />
+  <link href="/css/fontawesome/css/fontawesome.css" rel="stylesheet">
+  <link href="/css/fontawesome/css/brands.css" rel="stylesheet">
+  <link href="/css/fontawesome/css/solid.css" rel="stylesheet">
+  <script src="https://cdn.jsdelivr.net/npm/anchor-js/anchor.min.js"></script>
+
+  
+
+  <!-- Load JQuery, then use it to attach the class 'active' to navbar item currently displayed. -->
+  <script src="https://code.jquery.com/jquery-3.6.0.min.js" integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4=" crossorigin="anonymous"></script>
+  <script>
+    $(window).on('load', function () {
+      $('.nav-item').find('a[href="' + location.pathname + '"]').addClass('active');
+    });
+  </script>
+
+</head>
+<body>
+
+<div class="navbar navbar-expand-lg fixed-top navbar-light bg-light">
+  <div class="container">
+    <a class="navbar-brand" href="/index.html"> Change-HI/EDU </a>
+    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarResponsive" aria-controls="navbarResponsive" aria-expanded="false" aria-label="Toggle navigation">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+    <div class="collapse navbar-collapse" id="navbarResponsive">
+      <ul class="navbar-nav">
+        
+        <li class="nav-item"><a class="nav-link" href="/modules/">Modules</a></li>
+        
+        <li class="nav-item"><a class="nav-link" href="/outcomes/">Outcomes</a></li>
+        
+        
+        <li class="nav-item"><a class="nav-link" href="/readings/">Readings</a></li>
+        
+        
+        <li class="nav-item"><a class="nav-link" href="/experiences/">Experiences</a></li>
+        
+        
+        <li class="nav-item"><a class="nav-link" href="/assessments/">Assessments</a></li>
+        
+        
+      </ul>
+    </div>
+  </div>
+</div>
+
+<!-- Internal fragment for displaying the breadcrumb bar -->
+<div class="breadcrumb-background" style="padding-top: 1em; padding-bottom: .01em">
+  <div class="container">
+    <nav aria-label="breadcrumb">
+      <ol class="breadcrumb">
+        
+        <li class="breadcrumb-item"><a href="/">Home</a></li>
+        <li class="breadcrumb-item"><a href="/modules">Modules</a></li>
+        <li class="breadcrumb-item"><a href="/modules/"></a></li>
+        <li class="breadcrumb-item active">6. FAIR: Accessible</li>
+      </ol>
+    </nav>
+  </div>
+</div>
+
+
+<div class="container">
+  <h1 id="fair-accessible">FAIR: Accessible</h1>
+
+<p>This section will describe what it means for research to be accessible</p>
+
+<h2 id="for-data--software-to-be-accessible">For data &amp; software to be accessible:</h2>
+
+<p>(Meta)data are retrievable by their identifier using a standardized communications protocol:</p>
+<ul>
+  <li>the protocol is open, free, and universally implementable</li>
+  <li>the protocol allows for an authentication and authorization procedure, where necessary</li>
+  <li>metadata remain accessible, even when the data are no longer available</li>
+</ul>
+
+<h2 id="what-is-a-protocol">What is a protocol?</h2>
+
+<p>Simply put, it’s an access method of exchanging data over a computer network. Each protocol has its rules for how data is formatted, compressed, checked for errors. Research repositories often use the OAI-PMH or REST API protocols to interface with data in the repository. The following image from <a href="https://tutorialedge.net/general/what-is-a-rest-api/">TutorialEdge.net: What is a RESTful API by Elliot Forbes</a> provides a useful overview of how RESTful interfaces work:</p>
+
+<figure>
+  
+    <img src="/morea/fair/fig/rest-api.png" style="max-width: 80%;" alt="TutorialEdge.net: What is a RESTful API? by Elliot Forbes" class="img-fluid mx-auto d-block border" />
+  
+  <figcaption style="text-align: center">
+    <small>
+      
+    </small>
+  </figcaption>
+</figure>
+
+<p>Hydroshare offers a REST API protocol which will enable many of the functions that are accessible through the web user interface, to be done programmatically:</p>
+
+<div class="alert alert-info" role="alert">
+  <p><i class="fa-solid fa-circle-info fa-xl"></i> <strong>For more information</strong></p>
+  <hr />
+
+  <p>See the <a href="https://www.hydroshare.org/hsapi">Hydroshare REST API</a></p>
+</div>
+
+<p>Wikipedia has a list of <a href="https://en.wikipedia.org/wiki/Lists_of_network_protocols">commonly used network protocols</a> but check the service you are using for documentation on the protocols it uses and whether it corresponds with the FAIR Principles. For instance, see <a href="https://help.hydroshare.org/introduction-to-hydroshare/getting-started/use-the-api/">Hydroshare’s API Instructions</a> page.</p>
+
+<h2 id="contributor-information">Contributor information</h2>
+
+<p>Alternatively, for sensitive/protected data, if the protocol cannot guarantee secure access, an e-mail or other contact information of a person/data manager should be provided, via the metadata, with whom access to the data can be discussed. The <a href="https://schema.datacite.org/">DataCite metadata schema</a> includes contributor type and name as fields where contact information is included. Collaborative projects such as <a href="https://project-thor.readme.io/">THOR</a>, <a href="https://www.project-freya.eu/en/resources">FREYA</a>, and <a href="https://odin-project.eu/project-outputs/deliverables/">ODIN</a> are working towards improving the interoperability and exchange of metadata such as contributor information.</p>
+
+<h2 id="author-disambiguation-and-authentication">Author disambiguation and authentication</h2>
+
+<p>Across the research ecosystem, publishers, repositories, funders, research information systems, have recognized the need to address the problem of author disambiguation. The illustrative example below of the many variations of the name <em>Jens Åge Smærup Sørensen demonstrations</em> the challenge of wrangling the correct name for each individual author or contributor:</p>
+
+<figure>
+  
+  <a href="https://slideplayer.com/13579783/82/images/5/Jens+%C3%85ge+Sm%C3%A6rup+S%C3%B8rensen.jpg">
+  
+    <img src="https://slideplayer.com/13579783/82/images/5/Jens+%C3%85ge+Sm%C3%A6rup+S%C3%B8rensen.jpg" style="max-width: 80%;" alt="/Jens%20%C3%85ge%20Sm%C3%A6rup%20S%C3%B8rensen" class="img-fluid mx-auto d-block border" />
+  
+  </a>
+  
+  <figcaption style="text-align: center">
+    <small>
+      
+    </small>
+  </figcaption>
+</figure>
+
+<p>Thankfully, a number of research systems are now integrating ORCID into their authentication systems. Zenodo provides the login ORCID authentication option. Once logged in, your ORCID will be assigned to your authored and deposited works.</p>
+
+<h2 id="create-a-hydroshare-account">Create a Hydroshare Account</h2>
+
+<div class="alert alert-secondary" role="alert">
+  <p><i class="fa-solid fa-user-pen fa-xl"></i>  <strong>Exercise: Create a hydroshare account</strong></p>
+  <hr />
+
+  <p>If you haven’t already, please create a Hydroshare account now:</p>
+
+  <ol>
+    <li><a href="https://www.hydroshare.org/sign-up/">Register</a> for Hydroshare.</li>
+    <li>You will receive a confirmation email. Click the link in the email…</li>
+    <li>Go to <a href="https://www.hydroshare.org">Hydroshare</a> and select Log in.</li>
+  </ol>
+
+  <figure>
+  
+    <img src="/morea/fair/fig/hydrosharesignup.png" style="max-width: 80%;" alt="/Hydroshare%20Registration" class="img-fluid mx-auto d-block border" />
+  
+  <figcaption style="text-align: center">
+    <small>
+      
+    </small>
+  </figcaption>
+</figure>
+
+</div>
+
+<h2 id="understand-if-something-is-open-free-and-universally-implementable">Understand if something is open, free, and universally implementable</h2>
+
+<div class="alert alert-secondary" role="alert">
+  <p><i class="fa-solid fa-user-pen fa-xl"></i>  <strong>Exercise: ORCID and Accessibility</strong></p>
+  <hr />
+
+  <p>ORCID features a <a href="https://orcid.org/about/what-is-orcid/principles">principles page</a> where we can assess where it lies on the spectrum of these criteria. Can you identify statements that speak to these conditions: open, free, and universally implemetable?</p>
+
+  <details>
+  <summary>Solution</summary>
+<ol>
+<li>ORCID is a non-profit that collects fees from its members to sustain its operations [Creative Commons CC0 1.0 Universal (CC0)](https://tldrlegal.com/license/creative-commons-cc0-1.0-universal) license releases data into the public domain, or otherwise grants permission to use it for any purpose</li>
+<li>It is open to any organization and transcends borders</li>
+</ol>
+
+Followup Questions:
+<ul>
+<li>Where can you download the freely available data?</li>
+<li>How does ORCID solicit community input outside of its governance?</li>
+<li>Are the tools used to create, read, update, delete ORCID data open?</li>
+</ul>
+</details>
+</div>
+
+<h2 id="tombstones-a-very-grave-subject">Tombstones, a very grave subject</h2>
+
+<p>There are a variety of reasons why a placeholder with metadata or tombstone of the removed research object exists including but not limited to staff removal, spam, request from owner, data center does not exist is still, etc. A tombstone page is needed when data and software is no longer accessible. A tombstone page communicates that the record is gone, why it is gone, and in case you really must know, there is a copy of the metadata for the record. A tombstone page should include: DOI, date of deaccession, reason for deaccession, message explaining the data center’s policies, and a message that a copy of the metadata is kept for record keeping purposes as well as checksums of the files.</p>
+
+<p>DataCite offers <a href="https://stats.datacite.org/">statistics</a> where the failure to resolve DOIs after a certain number of attempts is reported (see <a href="https://support.datacite.org/docs/datacite-statistics">DataCite statistics support page</a>for more information). In the case of Zenodo and the GitHub issue above, the hidden field reveals thousands of records that are a result of spam.</p>
+
+<figure>
+  
+    <img src="/morea/fair/fig/datacite_statistics.png" style="max-width: 80%;" alt="/DataCite%20Statistics%20Page" class="img-fluid mx-auto d-block border" />
+  
+  <figcaption style="text-align: center">
+    <small>
+      
+    </small>
+  </figcaption>
+</figure>
+
+<p>If a DOI is no longer available and the data center does not have the resources to create a tombstone page, DataCite provides a generic <a href="https://support.datacite.org/docs/tombstone-pages">tombstone page</a>.</p>
+
+<p><strong>See the following tombstone examples:</strong></p>
+
+<ul>
+  <li>Zenodo tombstone: “https://zenodo.org/record/1098445”</li>
+  <li>Figshare tombstone: “https://figshare.com/articles/Climate_Change/1381402”</li>
+</ul>
+
+<div class="alert alert-info" role="alert">
+  <p><i class="fa-solid fa-circle-info fa-xl"></i> <strong>For more information</strong></p>
+  <hr />
+
+  <p>The content of this chapter was adapted from: <a href="https://librarycarpentry.org/lc-fair-research">https://librarycarpentry.org/lc-fair-research</a>.</p>
+</div>
+
+<div style="text-align: right; padding-bottom: 10px">
+  <hr />
+  <button type="button" onclick="window.location='/morea/fair/07-Interoperable.html'" class="btn btn-primary">
+    <p style="font-size:16px; margin: 0">FAIR: Interoperable -&gt;</p>
+    <p style="font-size:12px; margin: 0">2:45pm</p>
+    </button>
+</div>
+
+
+</div>
+
+
+
+
+<!-- Maybe find a different way?
+<script src="/js/scrollIfAnchor.js"></script>
+-->
+
+<footer class="footer footer-background" style="padding-top: 1em; padding-bottom: 1em">
+  <div class="container text-center">
+    
+    
+
+    
+    <p style="margin: 0">Powered by the <a class="footer-link" href="https://morea-framework.github.io/">Morea Framework</a> (Theme: spacelab)<br>
+      Last update on: <span>2023-12-01 13:58:35 -1000</span></p>
+
+    <p style="margin: 0">
+      
+      18 modules
+      
+      | 17 outcomes
+      
+      
+      | 55 readings
+      
+      
+      | 100 experiences
+      
+      
+      | 15 assessments
+      
+    </p>
+  </div>
+</footer>
+
+
+<!-- Load Bootstrap JavaScript components -->
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM" crossorigin="anonymous"></script>
+
+
+<script type="text/javascript" async
+        src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.7/latest.js?config=TeX-MML-AM_CHTML">
+</script>
+
+
+<!-- Add anchors to pages. -->
+<script>anchors.add();</script>
+
+
+</body>
+</html>

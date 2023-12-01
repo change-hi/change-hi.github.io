@@ -1,0 +1,582 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <title> Change-HI/EDU | 11. Configuring and Using Rclone </title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta charset="utf-8">
+
+  <link rel="stylesheet" href="/css/themes/spacelab/bootstrap.min.css">
+  <link rel="stylesheet" href="/css/style.css">
+  <link rel="stylesheet" href="/css/syntax.css">
+  <link rel="shortcut icon" href="/favicon.ico" type="image/x-icon" />
+  <link href="/css/fontawesome/css/fontawesome.css" rel="stylesheet">
+  <link href="/css/fontawesome/css/brands.css" rel="stylesheet">
+  <link href="/css/fontawesome/css/solid.css" rel="stylesheet">
+  <script src="https://cdn.jsdelivr.net/npm/anchor-js/anchor.min.js"></script>
+
+  
+
+  <!-- Load JQuery, then use it to attach the class 'active' to navbar item currently displayed. -->
+  <script src="https://code.jquery.com/jquery-3.6.0.min.js" integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4=" crossorigin="anonymous"></script>
+  <script>
+    $(window).on('load', function () {
+      $('.nav-item').find('a[href="' + location.pathname + '"]').addClass('active');
+    });
+  </script>
+
+</head>
+<body>
+
+<div class="navbar navbar-expand-lg fixed-top navbar-light bg-light">
+  <div class="container">
+    <a class="navbar-brand" href="/index.html"> Change-HI/EDU </a>
+    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarResponsive" aria-controls="navbarResponsive" aria-expanded="false" aria-label="Toggle navigation">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+    <div class="collapse navbar-collapse" id="navbarResponsive">
+      <ul class="navbar-nav">
+        
+        <li class="nav-item"><a class="nav-link" href="/modules/">Modules</a></li>
+        
+        <li class="nav-item"><a class="nav-link" href="/outcomes/">Outcomes</a></li>
+        
+        
+        <li class="nav-item"><a class="nav-link" href="/readings/">Readings</a></li>
+        
+        
+        <li class="nav-item"><a class="nav-link" href="/experiences/">Experiences</a></li>
+        
+        
+        <li class="nav-item"><a class="nav-link" href="/assessments/">Assessments</a></li>
+        
+        
+      </ul>
+    </div>
+  </div>
+</div>
+
+<!-- Internal fragment for displaying the breadcrumb bar -->
+<div class="breadcrumb-background" style="padding-top: 1em; padding-bottom: .01em">
+  <div class="container">
+    <nav aria-label="breadcrumb">
+      <ol class="breadcrumb">
+        
+        <li class="breadcrumb-item"><a href="/">Home</a></li>
+        <li class="breadcrumb-item"><a href="/modules">Modules</a></li>
+        <li class="breadcrumb-item"><a href="/modules/data-movement">Data Movement</a></li>
+        <li class="breadcrumb-item active">11. Configuring and Using Rclone</li>
+      </ol>
+    </nav>
+  </div>
+</div>
+
+
+<div class="container">
+  <div class="alert alert-success mt-3" role="alert">
+  <p><i class="fa-solid fa-globe fa-xl"></i> <strong>Overview</strong></p>
+  <hr />
+
+  <p><strong>Questions</strong></p>
+  <ul>
+    <li>How do I configure Rclone?</li>
+  </ul>
+
+  <p><strong>Objectives</strong></p>
+  <ul>
+    <li>Make Rclone ready for data transfer with gdrive.</li>
+  </ul>
+
+</div>
+
+<h1 id="11-using-rclone">11. Using Rclone</h1>
+<hr />
+
+<figure>
+  
+    <img src="/morea/data-movement/fig/globus_and_rclone21.png" style="max-width: 75%;" alt="/Node%20anatomy" class="img-fluid mx-auto d-block border" />
+  
+  <figcaption style="text-align: center">
+    <small>
+      
+    </small>
+  </figcaption>
+</figure>
+
+<p>Rclone is a free utility for syncing directories between object storage systems (such as Amazon S3, Dropbox, Google Drive etc) and file based storage (e.g. home or scratch))</p>
+
+<p>https://rclone.org</p>
+
+<hr />
+<h1 id="rclone-in-koa">Rclone in KOA</h1>
+
+<p>Rclone is installed on KOA and can be used in the command line via</p>
+<div class="alert alert-secondary" role="alert">
+
+  <div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>$ rclone
+</code></pre></div>  </div>
+
+</div>
+
+<h1 id="configuring-rclone">Configuring Rclone</h1>
+
+<p>Before you can use Rclone, you must configure it 
+This configuration step will set up access for the remote object storage system that you want to transfer data to and from
+In this tutorial we will configure Google Drive since UH has Google for Education and everyone at UH has it</p>
+
+<h1 id="open-a-shell-session-on-koa">Open a Shell Session on KOA</h1>
+<p>1.) Start a shell session on KOA through your own terminal or you can use Open OnDemand via [https://koa.its.hawaii.edu/]
+*You WILL be prompted for DUO two-factor verification.</p>
+
+<p>2.) Navigate to Clusters -&gt; _Koa_Shell_Access, to start your session</p>
+
+<figure>
+  
+    <img src="/morea/data-movement/fig/RClone_KOA_0.png" style="max-width: 75%;" alt="/koa%20access%20cluser" class="img-fluid mx-auto d-block border" />
+  
+  <figcaption style="text-align: center">
+    <small>
+      
+    </small>
+  </figcaption>
+</figure>
+
+<hr />
+
+<h1 id="configuring-rclone-1">Configuring Rclone</h1>
+
+<div class="alert alert-secondary" role="alert">
+  <div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>$ rclone config
+</code></pre></div>  </div>
+
+</div>
+
+<figure>
+  
+    <img src="/morea/data-movement/fig/RClone3.png" style="max-width: 75%;" alt="/Node%20anatomy" class="img-fluid mx-auto d-block border" />
+  
+  <figcaption style="text-align: center">
+    <small>
+      
+    </small>
+  </figcaption>
+</figure>
+
+<hr />
+<div class="alert alert-secondary" role="alert">
+  <div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>$ n
+</code></pre></div>  </div>
+
+</div>
+
+<p>No remotes found - make a new one</p>
+
+<p>n) New remote</p>
+
+<p>s) Set configuration password</p>
+
+<p>q) Quit config</p>
+
+<hr />
+
+<p>Choose a name for the remote object storage system</p>
+
+<figure>
+  
+    <img src="/morea/data-movement/fig/RClone_KOA_1.png" style="max-width: 75%;" alt="/Node%20anatomy" class="img-fluid mx-auto d-block border" />
+  
+  <figcaption style="text-align: center">
+    <small>
+      
+    </small>
+  </figcaption>
+</figure>
+
+<p>You’ll be prompted for the name of the remote object storage system\, we use “rclone-gdrive” in this tutorial</p>
+
+<div class="alert alert-secondary" role="alert">
+  <div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>$ rclone-gdrive
+</code></pre></div>  </div>
+
+</div>
+
+<hr />
+
+<h1 id="choosing-a-storage-option">Choosing a Storage Option</h1>
+
+<figure>
+  
+    <img src="/morea/data-movement/fig/RClone_KOA_2.png" style="max-width: 75%;" alt="/Node%20anatomy" class="img-fluid mx-auto d-block border" />
+  
+  <figcaption style="text-align: center">
+    <small>
+      
+    </small>
+  </figcaption>
+</figure>
+
+<div class="alert alert-secondary" role="alert">
+  <div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>$ 18
+</code></pre></div>  </div>
+
+</div>
+
+<ul>
+  <li>Choose #18, Google Drive as Storage Option
+** See help for drive backend at: https://rclone.org/drive/ **</li>
+</ul>
+
+<hr />
+
+<h1 id="google-application-client-id">Google Application Client Id</h1>
+
+<figure>
+  
+    <img src="/morea/data-movement/fig/RClone7.png" style="max-width: 75%;" alt="/Node%20anatomy" class="img-fluid mx-auto d-block border" />
+  
+  <figcaption style="text-align: center">
+    <small>
+      
+    </small>
+  </figcaption>
+</figure>
+
+<p>*Setting your own is recommended, see https://rclone.org/drive/#making-your-own-client-id for how to create your own.</p>
+<ul>
+  <li>If you leave this blank, it will use an internal key which is low performance.</li>
+  <li>I leave this blank in my tutorial</li>
+</ul>
+
+<p>Client Secret</p>
+<ul>
+  <li>I also leave this blank in my tutorial</li>
+</ul>
+
+<p>OAuth Client Secret</p>
+<ul>
+  <li>Leave blank normally.</li>
+</ul>
+
+<p>Scope</p>
+<ul>
+  <li>
+    <p>1  Full access all files, excluding Application Data Folder.
+  “drive”</p>
+  </li>
+  <li>2  Read-only access to file metadata and file contents.
+  “drive.readonly”
+  Access to files created by rclone only.</li>
+  <li>3 These are visible in the drive website.
+  File authorization is revoked when the user deauthorizes the app.
+  “drive.file”
+  Allows read and write access to the Application Data folder.</li>
+  <li>4 This is not visible in the drive website.
+  “drive.appfolder”
+  Allows read-only access to file metadata but</li>
+  <li>5 does not allow any access to read or download file content.
+  “drive.metadata.readonly”</li>
+</ul>
+
+<figure>
+  
+    <img src="/morea/data-movement/fig/RClone8.png" style="max-width: 75%;" alt="/Node%20anatomy" class="img-fluid mx-auto d-block border" />
+  
+  <figcaption style="text-align: center">
+    <small>
+      
+    </small>
+  </figcaption>
+</figure>
+
+<div class="alert alert-secondary" role="alert">
+  <div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>$ 1
+</code></pre></div>  </div>
+
+</div>
+
+<figure>
+  
+    <img src="/morea/data-movement/fig/RClone9.png" style="max-width: 75%;" alt="/Node%20anatomy" class="img-fluid mx-auto d-block border" />
+  
+  <figcaption style="text-align: center">
+    <small>
+      
+    </small>
+  </figcaption>
+</figure>
+
+<hr />
+
+<p>Leave ID of the root folder blank normally</p>
+
+<figure>
+  
+    <img src="/morea/data-movement/fig/RClone10.png" style="max-width: 75%;" alt="/Node%20anatomy" class="img-fluid mx-auto d-block border" />
+  
+  <figcaption style="text-align: center">
+    <small>
+      
+    </small>
+  </figcaption>
+</figure>
+
+<hr />
+<h1 id="advanced-configuration">Advanced Configuration</h1>
+
+<div class="alert alert-secondary" role="alert">
+  <div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>$ n
+</code></pre></div>  </div>
+
+</div>
+
+<figure>
+  
+    <img src="/morea/data-movement/fig/RClone_KOA_3.png" style="max-width: 75%;" alt="/Node%20anatomy" class="img-fluid mx-auto d-block border" />
+  
+  <figcaption style="text-align: center">
+    <small>
+      
+    </small>
+  </figcaption>
+</figure>
+
+<hr />
+
+<hr />
+<h1 id="auto-authenticate">Auto Authenticate</h1>
+
+<p>In this tutorial we are running RClone on a remote machine (KOA).</p>
+
+<div class="alert alert-secondary" role="alert">
+  <div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>$ n
+</code></pre></div>  </div>
+
+</div>
+
+<figure>
+  
+    <img src="/morea/data-movement/fig/RClone_KOA_4.png" style="max-width: 75%;" alt="/Node%20anatomy" class="img-fluid mx-auto d-block border" />
+  
+  <figcaption style="text-align: center">
+    <small>
+      
+    </small>
+  </figcaption>
+</figure>
+
+<hr />
+<p># Optional config_token</p>
+
+<figure>
+  
+    <img src="/morea/data-movement/fig/RClone_KOA_5.png" style="max-width: 75%;" alt="/Node%20anatomy" class="img-fluid mx-auto d-block border" />
+  
+  <figcaption style="text-align: center">
+    <small>
+      
+    </small>
+  </figcaption>
+</figure>
+
+<p># Access the config_token from your local RClone <br />
+ 1.) Confirm RClone is successfully installed on your machine by running <code class="language-plaintext highlighter-rouge">rclone version</code> in your CLI of choice. <br />
+ 2.) From the KOA shell copy/paste and run the <code class="language-plaintext highlighter-rouge">rclone authorize</code> command into your local CLI <br /></p>
+
+<div class="alert alert-secondary" role="alert">
+  <div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>$  rclone authorize "drive" "&lt;AUTH CODE&gt;"
+</code></pre></div>  </div>
+
+</div>
+
+<p>Example: Windows Powershell</p>
+<figure>
+  
+    <img src="/morea/data-movement/fig/RClone_KOA_6_PS.png" style="max-width: 75%;" alt="/Node%20anatomy" class="img-fluid mx-auto d-block border" />
+  
+  <figcaption style="text-align: center">
+    <small>
+      
+    </small>
+  </figcaption>
+</figure>
+
+<p>3.) A browser window should open, prompting you to sign into your Google Drive Account</p>
+<figure>
+  
+    <img src="/morea/data-movement/fig/RClone_KOA_6_google.png" style="max-width: 75%;" alt="/Node%20anatomy" class="img-fluid mx-auto d-block border" />
+  
+  <figcaption style="text-align: center">
+    <small>
+      
+    </small>
+  </figcaption>
+</figure>
+
+<p>4.) Allow RClone to access your Google Drive</p>
+<figure>
+  
+    <img src="/morea/data-movement/fig/RClone_KOA_6_google_allow.png" style="max-width: 75%;" alt="/Node%20anatomy" class="img-fluid mx-auto d-block border" />
+  
+  <figcaption style="text-align: center">
+    <small>
+      
+    </small>
+  </figcaption>
+</figure>
+
+<p>5.) Once you allow access, you will see a ‘Success’ screen:</p>
+<figure>
+  
+    <img src="/morea/data-movement/fig/RClone_KOA_6_google_success.png" style="max-width: 75%;" alt="/Node%20anatomy" class="img-fluid mx-auto d-block border" />
+  
+  <figcaption style="text-align: center">
+    <small>
+      
+    </small>
+  </figcaption>
+</figure>
+
+<p>6.) Navigate back to your CLI, to view the generated token, copy the token</p>
+
+<p>Example: Windows Powershell</p>
+<figure>
+  
+    <img src="/morea/data-movement/fig/RClone_KOA_7_PS.png" style="max-width: 75%;" alt="/Node%20anatomy" class="img-fluid mx-auto d-block border" />
+  
+  <figcaption style="text-align: center">
+    <small>
+      
+    </small>
+  </figcaption>
+</figure>
+
+<p>7.) Paste the token into KOA</p>
+<div class="alert alert-secondary" role="alert">
+  <div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>$  config_token&gt; &lt;YOUR CONFIG TOKEN&gt;
+</code></pre></div>  </div>
+
+</div>
+
+<h1 id="configuring-of-google-drive">Configuring of Google Drive</h1>
+
+<p>-Do not configure as a team drive</p>
+
+<figure>
+  
+    <img src="/morea/data-movement/fig/RClone20.png" style="max-width: 75%;" alt="/Node%20anatomy" class="img-fluid mx-auto d-block border" />
+  
+  <figcaption style="text-align: center">
+    <small>
+      
+    </small>
+  </figcaption>
+</figure>
+
+<div class="alert alert-secondary" role="alert">
+  <div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>$ n
+</code></pre></div>  </div>
+
+</div>
+
+<hr />
+
+<figure>
+  
+    <img src="/morea/data-movement/fig/Rcloneconfig.png" style="max-width: 75%;" alt="/Node%20anatomy" class="img-fluid mx-auto d-block border" />
+  
+  <figcaption style="text-align: center">
+    <small>
+      
+    </small>
+  </figcaption>
+</figure>
+
+<div class="alert alert-secondary" role="alert">
+  <div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>$ y
+</code></pre></div>  </div>
+
+</div>
+
+<hr />
+
+<ul>
+  <li>Quit Configuration</li>
+</ul>
+
+<div class="alert alert-secondary" role="alert">
+  <div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>$ q
+</code></pre></div>  </div>
+
+</div>
+
+<hr />
+
+<div class="alert alert-success mt-3" role="alert">
+  <p><i class="fa-solid fa-globe fa-xl"></i> <strong>Key Points</strong></p>
+  <hr />
+
+  <ul>
+    <li>Rclone must be configured on a server for your user before it can be used to transfer data.</li>
+  </ul>
+</div>
+
+<div style="text-align: right; padding-bottom: 10px">
+  <hr />
+  <button type="button" onclick="window.location='/morea/data-movement/experience-transferring-rclone.html'" class="btn btn-primary">
+    <p style="font-size:16px; margin: 0">Transfer RClone -&gt;</p>
+    <p style="font-size:12px; margin: 0">3:25pm</p>
+    </button>
+</div>
+
+</div>
+
+
+
+
+<!-- Maybe find a different way?
+<script src="/js/scrollIfAnchor.js"></script>
+-->
+
+<footer class="footer footer-background" style="padding-top: 1em; padding-bottom: 1em">
+  <div class="container text-center">
+    
+    
+
+    
+    <p style="margin: 0">Powered by the <a class="footer-link" href="https://morea-framework.github.io/">Morea Framework</a> (Theme: spacelab)<br>
+      Last update on: <span>2023-12-01 13:58:35 -1000</span></p>
+
+    <p style="margin: 0">
+      
+      18 modules
+      
+      | 17 outcomes
+      
+      
+      | 55 readings
+      
+      
+      | 100 experiences
+      
+      
+      | 15 assessments
+      
+    </p>
+  </div>
+</footer>
+
+
+<!-- Load Bootstrap JavaScript components -->
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM" crossorigin="anonymous"></script>
+
+
+<script type="text/javascript" async
+        src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.7/latest.js?config=TeX-MML-AM_CHTML">
+</script>
+
+
+<!-- Add anchors to pages. -->
+<script>anchors.add();</script>
+
+
+</body>
+</html>

@@ -1,0 +1,478 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <title> Change-HI/EDU | 1. Introduction to smart data collection for sensor networks </title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta charset="utf-8">
+
+  <link rel="stylesheet" href="/css/themes/spacelab/bootstrap.min.css">
+  <link rel="stylesheet" href="/css/style.css">
+  <link rel="stylesheet" href="/css/syntax.css">
+  <link rel="shortcut icon" href="/favicon.ico" type="image/x-icon" />
+  <link href="/css/fontawesome/css/fontawesome.css" rel="stylesheet">
+  <link href="/css/fontawesome/css/brands.css" rel="stylesheet">
+  <link href="/css/fontawesome/css/solid.css" rel="stylesheet">
+  <script src="https://cdn.jsdelivr.net/npm/anchor-js/anchor.min.js"></script>
+
+  
+
+  <!-- Load JQuery, then use it to attach the class 'active' to navbar item currently displayed. -->
+  <script src="https://code.jquery.com/jquery-3.6.0.min.js" integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4=" crossorigin="anonymous"></script>
+  <script>
+    $(window).on('load', function () {
+      $('.nav-item').find('a[href="' + location.pathname + '"]').addClass('active');
+    });
+  </script>
+
+</head>
+<body>
+
+<div class="navbar navbar-expand-lg fixed-top navbar-light bg-light">
+  <div class="container">
+    <a class="navbar-brand" href="/index.html"> Change-HI/EDU </a>
+    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarResponsive" aria-controls="navbarResponsive" aria-expanded="false" aria-label="Toggle navigation">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+    <div class="collapse navbar-collapse" id="navbarResponsive">
+      <ul class="navbar-nav">
+        
+        <li class="nav-item"><a class="nav-link" href="/modules/">Modules</a></li>
+        
+        <li class="nav-item"><a class="nav-link" href="/outcomes/">Outcomes</a></li>
+        
+        
+        <li class="nav-item"><a class="nav-link" href="/readings/">Readings</a></li>
+        
+        
+        <li class="nav-item"><a class="nav-link" href="/experiences/">Experiences</a></li>
+        
+        
+        <li class="nav-item"><a class="nav-link" href="/assessments/">Assessments</a></li>
+        
+        
+      </ul>
+    </div>
+  </div>
+</div>
+
+<!-- Internal fragment for displaying the breadcrumb bar -->
+<div class="breadcrumb-background" style="padding-top: 1em; padding-bottom: .01em">
+  <div class="container">
+    <nav aria-label="breadcrumb">
+      <ol class="breadcrumb">
+        
+        <li class="breadcrumb-item"><a href="/">Home</a></li>
+        <li class="breadcrumb-item"><a href="/modules">Modules</a></li>
+        <li class="breadcrumb-item"><a href="/modules/"></a></li>
+        <li class="breadcrumb-item active">1. Introduction to smart data collection for sensor networks</li>
+      </ol>
+    </nav>
+  </div>
+</div>
+
+
+<div class="container">
+  <h1 id="1-introduction-to-smart-data-collection-for-sensor-networks">1. Introduction to smart data collection for sensor networks</h1>
+
+<div class="alert alert-success mt-3" role="alert">
+  <p><i class="fa-solid fa-globe fa-xl"></i> <strong>Overview</strong></p>
+  <hr />
+
+  <p><strong>Questions</strong></p>
+  <ul>
+    <li>What is Tapis?</li>
+    <li>What is the Streams API?</li>
+    <li>What is Abaco?</li>
+  </ul>
+
+  <p><strong>Objectives</strong></p>
+  <ul>
+    <li>Learn background about the Tapis’ Streams API and its organization.</li>
+  </ul>
+</div>
+
+<h2 id="tapis">Tapis</h2>
+
+<p><a href="https://docs.google.com/presentation/d/1WvLGXWgIGMaVLLVm1miT3rY76bx3egaLxpE7mo6fBYY/edit#slide=id.gd1fbb4c590_0_742" target="_blank">Tapis Slide presentation</a></p>
+
+<p>Tapis is a National Science Foundation (NSF) funded web-based API framework for securely managing computational workloads across infrastructures and institutions. The newest iteration, Tapis V3, has several new capabilities, including a multi-site security kernel, streaming data APIs, and high-level support for containerized applications. Tapis provides several APIs for data management and processing. We will be working with the streams API for handling stream style data typical of a sensor network.</p>
+
+<h2 id="streams-api">Streams API</h2>
+
+<p>Tapis V3 introduces a Streams API for representing physical sensor networks and streaming and handling reported data. The API provides data-driven event support for real-time data coming through the API.</p>
+
+<figure>
+  
+    <img src="/morea/smart-data-collection/fig/tapis-v3-streams-api.png" style="max-width: 50%;" alt="/Connect%20to%20cluster" class="img-fluid mx-auto d-block border" />
+  
+  <figcaption style="text-align: center">
+    <small>
+      
+    </small>
+  </figcaption>
+</figure>
+
+<p>The API is structured into a hierarchy of organizational objects describing the sensor network being represented.</p>
+
+<h3 id="projects">Projects</h3>
+
+<p>This is the broadest organizational structure available in the Streams API. This provides information describing the top level project data collection falls under.</p>
+
+<table class="table">
+  <thead>
+    <tr>
+      <th>Property</th>
+      <th>Description</th>
+      <th>Required</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>project_name</td>
+      <td>Project name</td>
+      <td>true</td>
+    </tr>
+    <tr>
+      <td>description</td>
+      <td>Project description</td>
+      <td>false</td>
+    </tr>
+    <tr>
+      <td>owner</td>
+      <td>string: Project owner</td>
+      <td>true</td>
+    </tr>
+    <tr>
+      <td>pi</td>
+      <td>string: Project principle investigator (project lead)</td>
+      <td>true</td>
+    </tr>
+    <tr>
+      <td>funding_resource</td>
+      <td>string: Funding source of the project</td>
+      <td>false</td>
+    </tr>
+    <tr>
+      <td>project_url</td>
+      <td>string: URL for project online resources</td>
+      <td>false</td>
+    </tr>
+    <tr>
+      <td>active</td>
+      <td>boolean: Current status of the project</td>
+      <td>false</td>
+    </tr>
+    <tr>
+      <td>metadata</td>
+      <td>Object: Additional metadata for the project</td>
+      <td>false</td>
+    </tr>
+  </tbody>
+</table>
+
+<h3 id="sites">Sites</h3>
+
+<p>Sites are registered to projects and represent the physical location of the data collection instrumentation.</p>
+
+<table class="table">
+  <thead>
+    <tr>
+      <th>Property</th>
+      <th>Description</th>
+      <th>Required</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>project_id</td>
+      <td>string: ID of the project this site is associated with</td>
+      <td>true</td>
+    </tr>
+    <tr>
+      <td>site_name</td>
+      <td>string: Project Site name</td>
+      <td>true</td>
+    </tr>
+    <tr>
+      <td>site_id</td>
+      <td>string: Site ID</td>
+      <td>false</td>
+    </tr>
+    <tr>
+      <td>description</td>
+      <td>string: Site description</td>
+      <td>true</td>
+    </tr>
+    <tr>
+      <td>latitude</td>
+      <td>number: Site latitude</td>
+      <td>true</td>
+    </tr>
+    <tr>
+      <td>longitude</td>
+      <td>number: Site longitude</td>
+      <td>true</td>
+    </tr>
+    <tr>
+      <td>elevation</td>
+      <td>number: Site elevation</td>
+      <td>true</td>
+    </tr>
+    <tr>
+      <td>metadata</td>
+      <td>Object: Additional metadata for the site</td>
+      <td>false</td>
+    </tr>
+  </tbody>
+</table>
+
+<h3 id="instruments">Instruments</h3>
+
+<p>Instruments represent the physical instruments/sensors available at a given site. This is the hardware performing the data collection being monitored.</p>
+
+<table class="table">
+  <thead>
+    <tr>
+      <th>Property</th>
+      <th>Description</th>
+      <th>Required</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>project_id</td>
+      <td>string: ID of the project this instrument is associated with</td>
+      <td>true</td>
+    </tr>
+    <tr>
+      <td>site_id</td>
+      <td>string: ID of the site this instrument is located at</td>
+      <td>true</td>
+    </tr>
+    <tr>
+      <td>inst_name</td>
+      <td>string: Instrument name</td>
+      <td>false</td>
+    </tr>
+    <tr>
+      <td>inst_id</td>
+      <td>string: Instrument ID</td>
+      <td>false</td>
+    </tr>
+    <tr>
+      <td>inst_description</td>
+      <td>string: Instrument description</td>
+      <td>false</td>
+    </tr>
+    <tr>
+      <td>topic_category_id</td>
+      <td>string: Instrument category</td>
+      <td>false</td>
+    </tr>
+    <tr>
+      <td>tags</td>
+      <td>string[]: Array of instrument tags</td>
+      <td>false</td>
+    </tr>
+    <tr>
+      <td>metadata</td>
+      <td>Object: Additional metadata for the isntrument</td>
+      <td>false</td>
+    </tr>
+  </tbody>
+</table>
+
+<h3 id="variables">Variables</h3>
+
+<p>Instruments will typically record properties of the environment they are placed in and report out these values. For example, a climatological sensor station may record levels of rainfall, air temperature, and relative humidity for its location. These would each be stored as a variable. The variable objects provide metadata for each of these measured properties.</p>
+
+<table class="table">
+  <thead>
+    <tr>
+      <th>Property</th>
+      <th>Description</th>
+      <th>Required</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>project_id</td>
+      <td>string: ID of the project this variable is associated with</td>
+      <td>true</td>
+    </tr>
+    <tr>
+      <td>site_id</td>
+      <td>string: ID of the site this variable’s instrument is located at</td>
+      <td>true</td>
+    </tr>
+    <tr>
+      <td>inst_id</td>
+      <td>string: ID of the instrument this variable is recorded by</td>
+      <td>true</td>
+    </tr>
+    <tr>
+      <td>var_id</td>
+      <td>string: Variable ID</td>
+      <td>false</td>
+    </tr>
+    <tr>
+      <td>var_name</td>
+      <td>string: Variable name</td>
+      <td>false</td>
+    </tr>
+    <tr>
+      <td>units</td>
+      <td>string: Units variable is measured in</td>
+      <td>false</td>
+    </tr>
+    <tr>
+      <td>measured_property_id</td>
+      <td>string: ID of the property measured by this variable type</td>
+      <td>false</td>
+    </tr>
+    <tr>
+      <td>shortname</td>
+      <td>string: Short name for the variable</td>
+      <td>false</td>
+    </tr>
+    <tr>
+      <td>metadata</td>
+      <td>Object: Additional metadata for the isntrument</td>
+      <td>false</td>
+    </tr>
+  </tbody>
+</table>
+
+<h3 id="measurements">Measurements</h3>
+
+<p>The final structure in the Streams API is the actual measurments recorded by the instruments. Measurement objects contain all the recorded measurements indexed by variable and the datetime of their recording.</p>
+
+<h4 id="measurement-creation">Measurement Creation</h4>
+
+<table class="table">
+  <thead>
+    <tr>
+      <th>Property</th>
+      <th>Description</th>
+      <th>Required</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>inst_id</td>
+      <td>string: ID of the instrument this variable is recorded by</td>
+      <td>true</td>
+    </tr>
+    <tr>
+      <td>var_id</td>
+      <td>Measurement[]: Measurment definitions</td>
+      <td>true</td>
+    </tr>
+  </tbody>
+</table>
+
+<h4 id="measurments-definition-object">Measurments Definition Object</h4>
+
+<div class="language-javascript highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="p">{</span>
+  <span class="nl">datetime</span><span class="p">:</span> <span class="nx">string</span>
+  <span class="p">[</span><span class="nx">variable_id</span><span class="p">:</span> <span class="nx">string</span><span class="p">]:</span> <span class="nx">number</span>
+<span class="p">}</span>
+</code></pre></div></div>
+
+<h4 id="measurements-return-object">Measurements Return Object</h4>
+
+<div class="language-javascript highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="p">{</span>
+  <span class="nl">instrument</span><span class="p">:</span> <span class="nx">Instrument</span>
+  <span class="nx">site</span><span class="p">:</span> <span class="nx">Site</span>
+  <span class="nx">measurments_in_file</span><span class="p">:</span> <span class="nx">number</span>
+  <span class="p">[</span><span class="nx">variable_id</span><span class="p">:</span> <span class="nx">string</span><span class="p">]:</span> <span class="p">{</span>
+    <span class="p">[</span><span class="nx">datetime</span><span class="p">:</span> <span class="nx">string</span><span class="p">]:</span> <span class="nx">number</span>
+  <span class="p">}</span>
+<span class="p">}</span>
+</code></pre></div></div>
+
+<h2 id="abaco-containers">Abaco Containers</h2>
+
+<p>Tapis provides functions-as-a-service (FaaS) through Abaco, which is based on the actor model of concurrent computation and Docker. Users define computational primitives called actors with a Docker image, and Abaco assigns each actor a unique URL over which it can receive messages. Users send the actor a message by making an HTTP POST request to the URL. In response to an actor receiving a message, Abaco launches a container from the associated image, injecting the message into the container. Typically, the container execution is asynchronous from the message request, though Abaco does provide an endpoint for sending a message to an actor and blocking until the execution completes, providing synchronous execution semantics. Abaco maintains a queue of messages for each actor, and is capable of launching containers in parallel for a given actor when the actor is registered as stateless. The functions run with an authenticated context that allows them to make requests to other Tapis APIs to perform actions such as data transfers or job submissions.</p>
+
+<p>Here is an actor we will use today for generating a plot of some of our mock-sensor data and uploading it to Jetstream Virtual Machine:</p>
+
+<p><a href="https://github.com/scleveland/workshop_actor">https://github.com/scleveland/workshop_actor</a></p>
+
+<h2 id="streams-event-handling">Streams Event Handling</h2>
+
+<p>The streams API includes the ability to register and kick off Abaco containers when a measurement hits a defined threshold, sending the measurement definition to the container. Messages sent to the container are stored in an environment variable called MSG. This will allow users to automatically receive notifications or start processing tasks for measurements in real time.</p>
+
+<div class="alert alert-success mt-3" role="alert">
+  <p><i class="fa-solid fa-globe fa-xl"></i> <strong>Key Points</strong></p>
+  <hr />
+
+  <ul>
+    <li>Tapis is an API framework for managing computational workloads.</li>
+    <li>The Tapis streams API provides organizational structures for representing sensor networks and streaming real time data.</li>
+    <li>Abaco provides function-as-a-service functionality to Tapis by allowing containerized workflows to be kicked off via messages sent by a client.</li>
+  </ul>
+</div>
+
+<div style="text-align: right; padding-bottom: 10px">
+  <hr />
+  <button type="button" onclick="window.location='/morea/smart-data-collection/experience-smart-data-collection-jupyter.html'" class="btn btn-primary">
+    <p style="font-size:16px; margin: 0">2. Connecting to Jupyter -&gt;</p>
+    <p style="font-size:12px; margin: 0">2:15pm</p>
+    </button>
+</div>
+
+
+</div>
+
+
+
+
+<!-- Maybe find a different way?
+<script src="/js/scrollIfAnchor.js"></script>
+-->
+
+<footer class="footer footer-background" style="padding-top: 1em; padding-bottom: 1em">
+  <div class="container text-center">
+    
+    
+
+    
+    <p style="margin: 0">Powered by the <a class="footer-link" href="https://morea-framework.github.io/">Morea Framework</a> (Theme: spacelab)<br>
+      Last update on: <span>2023-12-01 13:58:35 -1000</span></p>
+
+    <p style="margin: 0">
+      
+      18 modules
+      
+      | 17 outcomes
+      
+      
+      | 55 readings
+      
+      
+      | 100 experiences
+      
+      
+      | 15 assessments
+      
+    </p>
+  </div>
+</footer>
+
+
+<!-- Load Bootstrap JavaScript components -->
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM" crossorigin="anonymous"></script>
+
+
+<script type="text/javascript" async
+        src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.7/latest.js?config=TeX-MML-AM_CHTML">
+</script>
+
+
+<!-- Add anchors to pages. -->
+<script>anchors.add();</script>
+
+
+</body>
+</html>

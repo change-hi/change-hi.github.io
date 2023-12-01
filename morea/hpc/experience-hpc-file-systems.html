@@ -1,0 +1,292 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <title> Change-HI/EDU | 7. Staging and File System Choice </title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta charset="utf-8">
+
+  <link rel="stylesheet" href="/css/themes/spacelab/bootstrap.min.css">
+  <link rel="stylesheet" href="/css/style.css">
+  <link rel="stylesheet" href="/css/syntax.css">
+  <link rel="shortcut icon" href="/favicon.ico" type="image/x-icon" />
+  <link href="/css/fontawesome/css/fontawesome.css" rel="stylesheet">
+  <link href="/css/fontawesome/css/brands.css" rel="stylesheet">
+  <link href="/css/fontawesome/css/solid.css" rel="stylesheet">
+  <script src="https://cdn.jsdelivr.net/npm/anchor-js/anchor.min.js"></script>
+
+  
+
+  <!-- Load JQuery, then use it to attach the class 'active' to navbar item currently displayed. -->
+  <script src="https://code.jquery.com/jquery-3.6.0.min.js" integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4=" crossorigin="anonymous"></script>
+  <script>
+    $(window).on('load', function () {
+      $('.nav-item').find('a[href="' + location.pathname + '"]').addClass('active');
+    });
+  </script>
+
+</head>
+<body>
+
+<div class="navbar navbar-expand-lg fixed-top navbar-light bg-light">
+  <div class="container">
+    <a class="navbar-brand" href="/index.html"> Change-HI/EDU </a>
+    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarResponsive" aria-controls="navbarResponsive" aria-expanded="false" aria-label="Toggle navigation">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+    <div class="collapse navbar-collapse" id="navbarResponsive">
+      <ul class="navbar-nav">
+        
+        <li class="nav-item"><a class="nav-link" href="/modules/">Modules</a></li>
+        
+        <li class="nav-item"><a class="nav-link" href="/outcomes/">Outcomes</a></li>
+        
+        
+        <li class="nav-item"><a class="nav-link" href="/readings/">Readings</a></li>
+        
+        
+        <li class="nav-item"><a class="nav-link" href="/experiences/">Experiences</a></li>
+        
+        
+        <li class="nav-item"><a class="nav-link" href="/assessments/">Assessments</a></li>
+        
+        
+      </ul>
+    </div>
+  </div>
+</div>
+
+<!-- Internal fragment for displaying the breadcrumb bar -->
+<div class="breadcrumb-background" style="padding-top: 1em; padding-bottom: .01em">
+  <div class="container">
+    <nav aria-label="breadcrumb">
+      <ol class="breadcrumb">
+        
+        <li class="breadcrumb-item"><a href="/">Home</a></li>
+        <li class="breadcrumb-item"><a href="/modules">Modules</a></li>
+        <li class="breadcrumb-item"><a href="/modules/hpc">High Performance Computing</a></li>
+        <li class="breadcrumb-item active">7. Staging and File System Choice</li>
+      </ol>
+    </nav>
+  </div>
+</div>
+
+
+<div class="container">
+  <h1 id="7-staging-and-file-system-choice">7. Staging and File System Choice</h1>
+
+<div class="alert alert-success mt-3" role="alert">
+  <p><i class="fa-solid fa-globe fa-xl"></i> <strong>Overview</strong></p>
+  <hr />
+
+  <p><strong>Questions</strong></p>
+  <ul>
+    <li>What is a file system?</li>
+    <li>What is a distributed file system?</li>
+    <li>How do you optimize the file system on Koa?</li>
+  </ul>
+
+  <p><strong>Objectives</strong></p>
+  <ul>
+    <li>Understand general file system and distributed file system concepts. Understand the general HPC System architecture.</li>
+    <li>Be able to stage files on Koa scratch.</li>
+  </ul>
+</div>
+
+<h2 id="what-is-a-file-system">What is a file system?</h2>
+
+<p>The term file system is ubiquitous among operating systems. At some point in time, you may have had to format a USB flash drive (SD card, memory stick) and may have to choose between different file systems such as FAT32 or NTFS (on a Windows OS), exFat or Mac OS Extended (on a Mac).</p>
+
+<figure>
+  
+    <img src="/morea/hpc/fig/inode.png" style="max-width: 100%;" alt="/Inode" class="img-fluid mx-auto d-block border" />
+  
+  <figcaption style="text-align: center">
+    <small>
+      Inode Table (https://www.bluematador.com/blog/what-is-an-inode-and-what-are-they-used-for) 
+    </small>
+  </figcaption>
+</figure>
+
+<p>File systems are ways in which operating systems organize data (i.e. documents, movies, music) on storage devices. From the storage device hardware perspective, data is represented as a sequence of blocks of bytes, however that by itself isn’t useful to regular users. Regular users mostly care about file and directory level abstraction and rarely work with blocks of bytes! Luckily, the file system under the hood handles the organization and locating logic of these blocks of bytes for the users so that you can run your favorite commands (e.g., ls) and applications. For example in a Linux file system, “file” information is stored in an inode table (illustrated in figure above) as sort of a lookup table for locating corresponding blocks of a particular file on disk. Located blocks are combined together to form a single file which the end user can work with.</p>
+
+<h2 id="what-is-a-distributed-file-system">What is a distributed file system?</h2>
+
+<p>On a cluster, blocks of data that make up a single file are distributed among network attached storage or NAS devices. Similar principles apply here, the goal of a cluster file system is still to organize and locate blocks of data (but across network!) and present them to the end user as one contiguous file. One main benefit of stringing storage devices together into a network connected cluster is to increase storage capacity beyond what a single computer can have. Imagine working with 100 TB files on your laptop. Of course, the storage can be shared with different cluster users further increasing utilization of these storage devices.</p>
+
+<p>Koa users have a special foldera called koa_scratch where they can temporarily store data on the cluster. Note that the scratch folders will be purged after some period of time, please save your important files into your home directory.</p>
+
+<div class="alert alert-secondary" role="alert">
+  <p><i class="fa-solid fa-user-pen fa-xl"></i>  <strong>Exercise: Locate Lustre File System Scratch On Koa</strong></p>
+  <hr />
+
+  <p>Let’s locate our scratch folder.</p>
+
+  <p>First create a new cell in our Jupyter Lab Notebook after the first cell.</p>
+
+  <p>Paste the code into the cell and run.</p>
+
+  <p>The pwd command will print where you are in the directory tree and it should be something like “/home/username”.</p>
+
+  <p>The ls command will print files and directory that are available in your home/username directory. You should see “koa_scratch” listed in the print out.</p>
+
+  <p>Note that the ‘!’ symbol below allows us to execute terminal commands in our Jupyter Lab Notebook cell.</p>
+
+  <div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="err">!</span><span class="n">pwd</span>
+<span class="err">!</span><span class="n">ls</span>
+</code></pre></div>  </div>
+</div>
+
+<h3 id="the-lustre-file-system">The Lustre File System.</h3>
+
+<figure>
+  
+    <img src="/morea/hpc/fig/lustre.png" style="max-width: 60%;" alt="/Lustre%20File%20System" class="img-fluid mx-auto d-block border" />
+  
+  <figcaption style="text-align: center">
+    <small>
+      Lustre File System (https://wiki.lustre.org/Introduction_to_Lustre)
+    </small>
+  </figcaption>
+</figure>
+
+<p>Lustre is a parallel distributed file system, where file operations are distributed across multiple file system servers. In Lustre, storage is divided among multiple servers allowing for ease of scalability and fault tolerance. This file system is great for high speed read/write performance.</p>
+
+<h3 id="the-nfs-file-system">The NFS File System</h3>
+
+<figure>
+  
+    <img src="/morea/hpc/fig/nfs.png" style="max-width: 40%;" alt="/NFS%20File%20System" class="img-fluid mx-auto d-block border" />
+  
+  <figcaption style="text-align: center">
+    <small>
+      NFS File System (https://www.geeksforgeeks.org/what-is-dfsdistributed-file-system/)
+    </small>
+  </figcaption>
+</figure>
+
+<p>NFS is a single server distributed file system where file operations are not parallel across servers but a single server serves requests to the cluster. NFS is an older technology and has the advantage of having gone through the test of time and is trusted among cluster architects.</p>
+
+<h2 id="choosing-the-right-file-system-for-performance">Choosing the right file system for performance</h2>
+
+<p>Depending on the user’s need, different file systems are optimized for different purposes. One may be optimized for random access speed, one with error correcting capability, or one with high redundancy to prevent loss of data.</p>
+
+<p>On Koa we have 2 locations for file storage: “home/user” and “koa_scratch” folders available to us.</p>
+
+<p>On Koa, our “home/user” directory resides on an NFS file system server. Though “home/user” is great for storing our files on the cluster, it’s serverly lacking in read/write performance.</p>
+
+<p>For the best performance (read/write speed) we will mostly want to use “koa_scratch”. As discussed above, the reason is because Lustre file system distributes workload accross multiple meta servers, while NFS is a single server file system. In addition, Koa lustre file system is configured with solid state drives while NFS file system is configured with hard drives, improving Koa lustre file system read/write speed further.</p>
+
+<div class="alert alert-info" role="alert">
+  <p><i class="fa-solid fa-circle-info fa-xl"></i> <strong>Solid State Drive vs. Hard Drive Performance</strong></p>
+  <hr />
+
+  <p>Solid state drives can read up to 10 times faster and writes up to 20 times faster than hard disk drives.</p>
+
+  <p>You can read more about it <a href="https://www.avg.com/en/signal/ssd-hdd-which-is-best#:~:text=A%20solid%20state%20drive%20reads,PCIe%203.0%20to%204.0%20connectors">here</a>.</p>
+</div>
+
+<div class="alert alert-secondary" role="alert">
+  <p><i class="fa-solid fa-user-pen fa-xl"></i>  <strong>Exercise: List Disk Usage Information</strong></p>
+  <hr />
+
+  <p>On Koa, there’s a command that lists disk usage on the cluster.</p>
+
+  <p>Create a new cell below our previous block.</p>
+
+  <p>Paste the code into the cell and run.</p>
+
+  <p>You should see a table that lists disk space used and remaining space.</p>
+
+  <div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="err">!</span><span class="n">usage</span>
+</code></pre></div>  </div>
+  <p>You can also see your personal disk usage upon logging into the cluster.</p>
+
+  <figure>
+  
+    <img src="/morea/hpc/fig/koa_storage.png" style="max-width: 100%;" alt="/View%20storage%20use%20on%20cluster." class="img-fluid mx-auto d-block border" />
+  
+  <figcaption style="text-align: center">
+    <small>
+      
+    </small>
+  </figcaption>
+</figure>
+
+</div>
+
+<div class="alert alert-success" role="alert">
+  <p><i class="fa-solid fa-globe fa-xl"></i> <strong>Key Points</strong></p>
+  <hr />
+
+  <ul>
+    <li>File system is a way in which operating systems organize data on storage devices.</li>
+    <li>Distributed file system organizes data accross network attached storage devices.</li>
+    <li>Distributed file system has the advantage of supporting larger scale storage capacity.</li>
+    <li>Koa supports lustre and NFS file systems.</li>
+    <li>Lustre on Koa is setup with solid state drives.</li>
+    <li>NFS on Koa is setup with spinning (hard disk) drives.</li>
+  </ul>
+</div>
+
+<div style="text-align: right; padding-bottom: 10px">
+  <hr />
+  <button type="button" onclick="window.location='/morea/hpc/assessment-hpc-workshop.html'" class="btn btn-primary">
+    <p style="font-size:16px; margin: 0">Assessment -&gt;</p>
+    <p style="font-size:12px; margin: 0">3:50pm</p>
+    </button>
+</div>
+
+
+</div>
+
+
+
+
+<!-- Maybe find a different way?
+<script src="/js/scrollIfAnchor.js"></script>
+-->
+
+<footer class="footer footer-background" style="padding-top: 1em; padding-bottom: 1em">
+  <div class="container text-center">
+    
+    
+
+    
+    <p style="margin: 0">Powered by the <a class="footer-link" href="https://morea-framework.github.io/">Morea Framework</a> (Theme: spacelab)<br>
+      Last update on: <span>2023-12-01 13:58:35 -1000</span></p>
+
+    <p style="margin: 0">
+      
+      18 modules
+      
+      | 17 outcomes
+      
+      
+      | 55 readings
+      
+      
+      | 100 experiences
+      
+      
+      | 15 assessments
+      
+    </p>
+  </div>
+</footer>
+
+
+<!-- Load Bootstrap JavaScript components -->
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM" crossorigin="anonymous"></script>
+
+
+<script type="text/javascript" async
+        src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.7/latest.js?config=TeX-MML-AM_CHTML">
+</script>
+
+
+<!-- Add anchors to pages. -->
+<script>anchors.add();</script>
+
+
+</body>
+</html>
