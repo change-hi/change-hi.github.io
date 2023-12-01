@@ -31,6 +31,12 @@ morea_labels:
 ###
 
 # Mini Lab #4: Cross-Correlation and Causality
+1. Global Temperature vs. Solar Activity → Is there a correlation? 
+2. Global Temperature vs. CO2 Concentration → Is there a correlation? 
+3. Concentration vs. CO2 Emission → Is there a correlation? 
+4. CO2 Emission vs. Natural Disasters → Is there a correlation?  
+
+
 
 {% include next-button.html
 top-label="Assess this workshop ->"

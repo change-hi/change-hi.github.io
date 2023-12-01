@@ -14,12 +14,6 @@ This workshop will cover the fundamentals of descriptive models and methods for 
 3. Acquire practical experience using R as a tool for exploratory time series analysis.
 4. Recognize the significance of exploratory data analysis in time series, acknowledging its pivotal role in achieving a more precise understanding of time series data.
 
-# Pre-Requisites:
-Basic understanding of statistics and data analysis concepts, and some familiarity with R/R-Studio.
-
-# Syllabus
-[Click Here for Syllabus](https://docs.google.com/document/d/1TIL6w2p6mZXlDmt9UePpA5zl2CgORzbr5A-rh9ANXVo/edit?usp=sharing)
-
 ### Primary Outcomes
 * Understand the workflow for decomposing time-series using climate change data provided in the workshops R-Studio server. 
 * Understand key methods for additive/multiplicative models of time-series. 

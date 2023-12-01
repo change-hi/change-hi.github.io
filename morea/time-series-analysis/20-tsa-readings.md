@@ -9,8 +9,14 @@ morea_labels:
   - Pre-workshop
 ---
 
-## Preparations 
+# Preparations 
 To facilitate a smooth and productive experience, please complete this checklist to ensure your readiness for this workshop. 
+
+### Pre-Requisites:
+Basic understanding of statistics and data analysis concepts, and some familiarity with R/R-Studio.
+
+### Syllabus
+[Click Here for Syllabus](https://docs.google.com/document/d/1TIL6w2p6mZXlDmt9UePpA5zl2CgORzbr5A-rh9ANXVo/edit?usp=sharing)
 
 
 ### Install R and R-Studio:
