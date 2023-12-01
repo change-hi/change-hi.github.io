@@ -1,32 +1,44 @@
 ---
-title: "Lab & Mini Lecture 1: What is Time Series Analysis?"
+title: "Lab & Mini Lecture 1: What is Time Series Data?"
 published: true
 morea_id: 32-tsa-experience-lab & mini lecture 1
 morea_type: experience
-morea_summary: "Basic concepts of time series analysis"
+morea_summary: "Introduction to Time Series Data"
 morea_sort_order: 3
 morea_labels:
   - 2:10pm-2:40pm
 ---
 
-# What is time series analysis?
- Why do we use time series analysis?
- What are the types of time series?
- What are the components of time series? 
+# What is a Time Series?
+![What is a Time Series slide](<Screenshot 2023-12-01 at 1.33.13 AM.png>)
 
-# LAB
- Decomposition: separating trends, seasonality, and residuals/remainders
+# What Are Its Components?
+![Time Series components](<Screenshot 2023-12-01 at 1.33.32 AM.png>)
 
- Seasonal subseries plots and lag plots.
- 
- Detrending: removing trends using differencing.
- 
- Outlier detection and handling.
- 
- Additive v. multiplicative modeling of a time series. 
+###
 
-# Mini Lecture
- Why do some data have seasonal changes?
+### 
+
+
+# Mini Lab #1: Plotting Time Series Data
+1. Download and run R-Studio. Refer to the "Preparations" module.
+
+2. Load the designated R Notebook by running it in R-Studio. You can also copy and paste into the Console (then run the code). Install all necessary packages.
+
+3. Import Climate Change Excel file into the notebook or console. 
+
+![R Notebook load code](<Screenshot 2023-12-01 at 1.45.01 AM.png>)
+
+
+4. Convert the global temperature data set into a time series using the ts() command.
+
+5. View the data using the View() command.
+
+6. Use the ggplot package to plot the global temperature data. 
+
+7. What can you observe from these visual plots?
+
+
 
 
 {% include next-button.html
