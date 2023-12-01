@@ -11,17 +11,17 @@ morea_labels:
 
 # What is Exploratory Data Analysis? Why Do We Use It?
  
-![What is EDA?](<Screenshot 2023-12-01 at 2.09.06 AM.png>)
+<img src="Screenshot 2023-12-01 at 2.09.06 AM.png" alt="What is EDA?" width="1000"/>
 
 ### 
 
-![EDA Guidelines](<Screenshot 2023-12-01 at 2.51.58 AM.png>)
+<img src="Screenshot 2023-12-01 at 2.51.58 AM.png" alt="EDA Guidelines" width="1000"/>
 
 ###
 
 # What is Stationarity?
 
-![What is Stationarity?](<Screenshot 2023-12-01 at 2.14.01 AM.png>)
+<img src="Screenshot 2023-12-01 at 2.14.01 AM.png" alt="What is Stationarity?" width="1000"/>
 
 ###
 
@@ -35,7 +35,7 @@ morea_labels:
 
 4. Test for stationarity using two common methods (using the annual global temperature data):  
 
-      ![STATIONARITY TESTING](<Screenshot 2023-12-01 at 2.21.19 AM.png>)
+      <img src="Screenshot 2023-12-01 at 2.21.19 AM.png" alt="STATIONARITY TESTING" width="1000"/>
 
     * adf.test(annual_data)
 

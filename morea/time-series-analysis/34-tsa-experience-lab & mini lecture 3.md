@@ -10,7 +10,7 @@ morea_labels:
 ---
 
 # Decomposing/Modeling Time Series
-![Decomposing Time Series](<Screenshot 2023-12-01 at 2.59.48 AM.png>)
+<img src="Screenshot 2023-12-01 at 2.59.48 AM.png" alt="Decomposing Time Series" width="1000"/>
 
 
 ###
@@ -25,7 +25,8 @@ morea_labels:
 
 ###
 
-![Next Step](<Screenshot 2023-12-01 at 3.01.30 AM.png>)
+<img src="Screenshot 2023-12-01 at 3.01.30 AM.png" alt="Next Step" width="1000"/>
+
 
 ###
 

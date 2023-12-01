@@ -10,10 +10,10 @@ morea_labels:
 ---
 
 # What is a Time Series?
-<img src="Screenshot 2023-12-01 at 1.33.13 AM.png" alt="What is a Time Series slide" width="500"/>
+<img src="Screenshot 2023-12-01 at 1.33.13 AM.png" alt="What is a Time Series slide" width="1000"/>
 
 # What Are Its Components?
-![Time Series components](<Screenshot 2023-12-01 at 1.33.32 AM.png>)
+<img src="Screenshot 2023-12-01 at 1.33.32 AM.png" alt="What is a Time Series slide" width="1000"/>
 
 ###
 
