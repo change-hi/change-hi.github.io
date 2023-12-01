@@ -149,16 +149,18 @@ Does CO2 concentration correlate?
 View(CC_data$`01_CO2 Concentration`)
 CO2.ts <- ts(CC_data$`01_CO2 Concentration`$`Monthly Data (PPM)`, start=c(1958,3), frequency = 12)
 plot(CO2.ts)
-
+#######################
 CO2_decomp <- decompose(CO2.ts, type = "a")
 plot(CO2_decomp)
+
 # show correlation with global temp trend
-# match time range for global temp and solar activity
-subset(CC_data$`02_Global Temperature Index`, year >= 1959 & year <= 2022) -> gt
+# match time range for global temp and CO2
 subset(CC_data$`01_CO2 Concentration`, year >= 1959 & year <= 2022) -> co2
 
-ccf(gt$`temperature index`, co2$`Monthly Data (PPM)`)
-cor(gt$`temperature index`, co2$`Monthly Data (PPM)`)^2 # R2
+xts(CO2.ts, order.by=as.Date(time(CO2.ts)), frequency = 12) -> CO2.xts
+# xts(global_temp.ts, order.by=as.Date(time(global_temp.ts)), frequency = 12) -> global_temp.xts
+ccf(as.numeric(CO2.xts['1959::2022']),as.numeric(global_temp.xts['1959::2022']))
+cor(as.numeric(CO2.xts['1959::2022']),as.numeric(global_temp.xts['1959::2022']))^2 # R2
 ```
 Strongly positively correlated. CO2 concentration explains about 83% of the variability in global temp.
 
@@ -167,12 +169,13 @@ What explains rise in CO2 concentration?
 View(CC_data$`CO2 Emissions`)
 CO2_emission.ts <- ts(CC_data$`CO2 Emissions`$Tons, start=1750, frequency = 1)
 plot(CO2_emission.ts)
+xts(CO2_emission.ts, order.by=as.Date(time(CO2_emission.ts)), frequency = 12) -> CO2_emission.xts
 
 # convert CO2.ts to yearly 
-CO2_annual.xts <- to.period(as.xts(CO2.ts), period = "years", OHLC = FALSE)
+CO2_annual.xts <- to.period(as.xts(CO2.ts), period = "years", frequency = 1, OHLC = FALSE)
 
 # show correlation of CO2 concentration with CO2 emissions
-ccf(as.numeric(CO2_annual.xts[1:64]),as.numeric(CO2_emission.ts[time(CO2_emission.ts) >= 1958]))
+ccf(as.numeric(CO2_emission.xts['1959::2022']),as.numeric(CO2_annual.xts['1959::2022']))
 cor(as.numeric(CO2_annual.xts[1:64]),as.numeric(CO2_emission.ts[time(CO2_emission.ts) >= 1958]))^2
 ```
 CO2 emissions explain nearly 96% of the variability in CO2 concentration.
@@ -195,4 +198,9 @@ ccf(as.numeric(disasters.ts[time(disasters.ts) <= 2021]),as.numeric(CO2_emission
 cor(as.numeric(disasters.ts[time(disasters.ts) <= 2021]),as.numeric(CO2_emission.ts[time(CO2_emission.ts) >= 1980]))^2
 ```
 CO2 emissions explain about 63% of the variability in climate disasters
+
+```{r}
+df = data.frame(disaster_freq=as.numeric(disasters.ts[time(disasters.ts) <= 2021]), co2_emissions=as.numeric(CO2_emission.ts[time(CO2_emission.ts) >= 1980]))
+summary(m1 <- glm(disaster_freq ~ co2_emissions , family="poisson", data=df))
+```
 
