@@ -1,16 +1,16 @@
 ---
-title: "5. Loops"
+title: "6. Loops"
 published: true
 morea_id: experience-ssb-loop
 morea_type: experience
 morea_summary: "Looping Functions"
-morea_sort_order: 2
+morea_sort_order: 8
 morea_labels:
-  - 3:10pm
+  - 3:20pm
 morea_enable_toc: true
 ---
 
-# 5. Loops
+# 6. Loops
 
 <div class="alert alert-success mt-3" role="alert" markdown="1">
 <i class="fa-solid fa-globe fa-xl"></i> **Overview**
@@ -281,28 +281,6 @@ How would the output differ from using this command instead?
 </details>
  </div>
 
-## Saving to a File in a Loop - Part One
-
-<div class="alert alert-secondary" role="alert" markdown="1">
-<i class="fa-solid fa-user-pen fa-xl"></i> **Exercise: Yet More Loops**
-<hr/>
-
-In the `data-shell/molecules` directory, what is the effect of this loop?
-
-```bash
-for alkanes in *.pdb
-do
-    echo $alkanes
-    cat $alkanes  alkanes.pdb
-done
-```
-1.  Prints `cubane.pdb`, `ethane.pdb`, `methane.pdb`, `octane.pdb`, `pentane.pdb` and `propane.pdb`,
-    and the text from `propane.pdb` will be saved to a file called `alkanes.pdb`.
-2.  Prints `cubane.pdb`, `ethane.pdb`, and `methane.pdb`, and the text from all three files would be
-    concatenated and saved to a file called `alkanes.pdb`.
-3.  Prints `cubane.pdb`, `ethane.pdb`, `methane.pdb`, `octane.pdb`, and `pentane.pdb`, and the text
-    from `propane.pdb` will be saved to a file called `alkanes.pdb`.
-4.  None of the above.
 
 <details markdown="1">
  <summary>Solution</summary>
@@ -312,7 +290,7 @@ done
 </details>
 </div>
 
-## Saving to a File in a Loop - Part Two
+## Saving to a File in a Loop
 
 <div class="alert alert-secondary" role="alert" markdown="1">
 <i class="fa-solid fa-user-pen fa-xl"></i> **Exercise: Loops, loops, loops**
@@ -341,6 +319,8 @@ done
  Given the output from the `cat` command has been redirected, nothing is printed to the screen.
 </details>
 </div>
+
+NOTE: If you do NOT add '>', then each `$datafile` will be overwritten as the next file in `*.pdb` is added to `all.pdb`. The finished `all.pdb` will only contain the contents of the last file in `*.pdb`.
 
 Let's continue with our example in the `data-shell/creatures` directory.
 Here's a slightly more complicated loop:
@@ -813,5 +793,5 @@ $ for species in cubane ethane methane
 
 {% include next-button.html
 top-label="Shell Scripts ->"
-bottom-label="3:25pm"
+bottom-label="3:35pm"
 url="/morea/scientific-software-basics/experience-ssb-script.html" %}

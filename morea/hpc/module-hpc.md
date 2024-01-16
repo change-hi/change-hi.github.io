@@ -1,7 +1,7 @@
 ---
 title: "High Performance Computing"
 published: true
-morea_coming_soon: true
+morea_coming_soon: false
 morea_id: hpc
 morea_outcomes:
   - outcome-hpc
@@ -9,6 +9,7 @@ morea_readings:
   - reading-code-of-conduct
   - reading-hpc-preparation
 morea_experiences:
+  - experience-hpc-icebreaker
   - experience-hpc-intro
   - experience-hpc-connecting
   - experience-hpc-jupyter

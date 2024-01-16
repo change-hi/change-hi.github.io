@@ -1,14 +1,16 @@
 ---
-title: "1. What is High Performance Computing (HPC)?"
+title: "2. What is High Performance Computing (HPC)?"
 published: true
 morea_id: experience-hpc-intro
 morea_type: experience
 morea_summary: "What is an HPC System? What are the components of an HPC system?"
 morea_sort_order: 2
 morea_labels:
-  - 2:00pm
+  - 2:10pm-2:20pm
 morea_enable_toc: true
 ---
+
+# 2. What is High Performance Computing (HPC)?
 
 <div class="alert alert-success mt-3" role="alert" markdown="1">
 <i class="fa-solid fa-globe fa-xl"></i> **Overview**
@@ -21,9 +23,6 @@ morea_enable_toc: true
 **Objectives**
   * Understand the general HPC System architecture. 
 </div>
-
-
-## What is High Performance Computing?
 
 The words "cloud" and the phrase cluster or high-performance computing (HPC) are used a lot in different contexts and with various related meanings. So what do they mean? And more importantly, how do we use them in our work?
 
@@ -58,10 +57,10 @@ Serves as an access point to the cluster. As a gateway, it is suitable for uploa
 If you want to transfer larger amounts of data to or from a cluster, some systems offer dedicated nodes for data transfers only. The motivation for this lies in the fact that larger data transfers should not obstruct operation of the login node. As a rule of thumb, consider all transfers of a volume larger than 500 MB to 1 GB as large. But these numbers change, e.g., depending on the network connection of yourself and of your cluster or other factors.
 
 <div class="alert alert-info" role="alert" markdown="1">
-<i class="fa-solid fa-circle-info fa-xl"></i> **Data transfer nodes on Mana**
+<i class="fa-solid fa-circle-info fa-xl"></i> **Data transfer nodes on Koa**
 <hr/>
 
-Mana has two such [data transfer nodes](https://www.hawaii.edu/bwiki/display/HPC/Data+transfer+Questions) that are available for use.
+Koa has four such data transfer nodes that are available for use with [Globus](https://www.globus.org/). 
 
 </div>
 
@@ -81,10 +80,10 @@ Many HPC clusters have a variety of nodes optimized for particular workloads. So
 All interaction with the compute nodes is handled by a specialized piece of software called a scheduler.
 
 <div class="alert alert-info" role="alert" markdown="1">
-<i class="fa-solid fa-circle-info fa-xl"></i> **Mana scheduler**
+<i class="fa-solid fa-circle-info fa-xl"></i> **Koa scheduler**
 <hr/>
 
-Mana utilizes a scheduler known as the [Slurm Workload Manager](https://slurm.schedmd.com/overview.html).
+Koa utilizes a scheduler known as the [Slurm Workload Manager](https://slurm.schedmd.com/overview.html).
 
 </div>
 
@@ -111,5 +110,5 @@ This chapter used and modified material from the [Introduction to High-Performan
 
 {% include next-button.html 
            top-label="Connecting to a remote HPC system ->" 
-           bottom-label="2:10pm" 
+           bottom-label="2:20pm" 
            url="/morea/hpc/experience-hpc-connecting.html" %}

@@ -13,7 +13,40 @@ morea_labels:
 
 In this section, you'll commit your changes and make a pull request so that the Change-HI administrators can merge your workshop into the published site. 
 
+## Give GitPod permission to make pull requests at GitHub
+
+The first step is to verify that GitPod can make pull requests to GitHub. To do this, open a new browser tab and go to <https://gitpod.io>:
+
+
+<img src="./fig/gitpod-12.png" width="100%">
+
+Now click on the avatar associated with you at the top right of the page to pull down a menu of items:
+
+<img src="./fig/gitpod-13.png" width="100%">
+
+Select "User Settings" to go to this page:
+
+<img src="./fig/gitpod-14.png" width="100%">
+
+Select "Git Providers" to go to this page:
+
+<img src="./fig/gitpod-15.png" width="100%">
+
+Now click the three vertical dots next to "GitHub":
+
+<img src="./fig/gitpod-16.png" width="100%">
+
+Select "Edit Permissions" to pop up the following dialog box:
+
+<img src="./fig/gitpod-17.png" width="100%">
+
+Make sure all of the permissions are selected, then click "Update Permissions". 
+
+Now GitPod has all of the permissions necessary to commit your changes and make a pull request, which we'll do in the next step.
+
 ## Commit your changes to your fork of the change-hi.github.io repository
+
+Now return to the browser tab that displays your repository.
 
 After having edited files in the best-recipe-ever directory, you should see a notification disk on the left side of your browser window next to the Source Control icon. If you click on it, it should reveal the Source Control changes pane and a summary of what you've done. For example:
 

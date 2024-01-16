@@ -1,14 +1,16 @@
 ---
-title: "3. Launch a Jupyter Lab in Open OnDemand"
+title: "4. Launch a Jupyter Lab in Open OnDemand"
 published: true
 morea_id: experience-hpc-jupyter
 morea_type: experience
-morea_summary: "Requesting computing resources on Mana"
+morea_summary: "Requesting computing resources on Koa"
 morea_sort_order: 4
 morea_labels:
-  - 2:30pm
+  - 2:40pm-2:50pm
 morea_enable_toc: true
 ---
+
+# 4. Launch a Jupyter Lab in Open OnDemand
 
 <div class="alert alert-success mt-3" role="alert" markdown="1">
 <i class="fa-solid fa-globe fa-xl"></i> **Overview**
@@ -19,20 +21,20 @@ morea_enable_toc: true
 * Why use Jupyter labs and notebooks?
 
 **Objectives**
-* Request resources on Mana.
-* Start a jupyter lab session with Open OnDemand.
+* Request resources on Koa.
+* Start a Jupyter Lab session with Open OnDemand.
 </div>
 
 ### Download the workshop Jupyter notebook
 
-If you haven't already, please download [participants-copy-2022.ipynb](code/participants-copy-2022.ipynb) to your local computer (use "save as", i.e. right click).
+If you haven't already, please download [participants-copy-2023.ipynb](code/participants-copy-2023.ipynb) to your local computer (use "save as", i.e. right click).
 
 ## Review: Jupyter Lab as an Interactive Application in Open OnDemand
 
 As we previously saw, Open OnDemand allows us to use interactive applications, one of which is Juypter Lab.
 
 {% include figure.html url="" max-width="50%"
-file="/morea/hpc/fig/ood_form.png"
+file="/morea/hpc/fig/koa_ood_form.png"
 alt="Connect to cluster" caption="" %}
 
 The form is used to specify what resources you want, which are then placed into a queue with other waiting jobs and will start to run your job  as soon as the resources requested are available.
@@ -66,7 +68,7 @@ Once the interactive session is running, connect to the jupyter session by click
 
 <details>
   <summary>Solution</summary>
-{% include figure.html url="" max-width="100%" file="/morea/hpc/fig/ood_job.png" alt="Connect to cluster" caption="" %}
+{% include figure.html url="" max-width="100%" file="/morea/hpc/fig/koa_ood_job.png" alt="Connect to cluster" caption="" %}
 </details>
 </div>
 
@@ -97,5 +99,5 @@ Note the difference between file extensions: .ipynb file is a python notebook wh
 
 {% include next-button.html 
            top-label="Install Modules and Setup an Environment ->" 
-           bottom-label="2:40pm" 
+           bottom-label="2:50pm" 
            url="/morea/hpc/experience-hpc-environment.html" %}

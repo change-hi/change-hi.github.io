@@ -1,16 +1,16 @@
 ---
-title: "5. Transmission Control Protocol (TCP)"
+title: "6. Transmission Control Protocol (TCP)"
 published: true
 morea_id: experience-transmission-control-protocol
 morea_type: experience
 morea_summary: "Understand what transmission control protocol is."
-morea_sort_order: 5
+morea_sort_order: 6
 morea_labels:
-  - 2:40pm
+  - 2:25pm
 morea_enable_toc: true
 ---
 
-# 5. Transmission Control Protocol (TCP)
+# 6. Transmission Control Protocol (TCP)
 
 <div class="alert alert-success mt-3" role="alert" markdown="1">
 <i class="fa-solid fa-globe fa-xl"></i> **Overview**
@@ -144,5 +144,5 @@ Globus GridFTP opens on the order of several hundred connections at once.
 
 {% include next-button.html
   top-label="Transfer Programs ->"
-  bottom-label="2:50pm"
+  bottom-label="2:30pm"
   url="/morea/data-movement/experience-transfer-programs.html" %}
