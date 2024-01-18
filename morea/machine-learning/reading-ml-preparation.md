@@ -19,7 +19,7 @@ We recommend you go through the [Software Carpentry shell-novice tutorial](https
 
 ### Setup a Jupyter IDE
 
-You can run Jupyter on Google Colab, your own machine, on the UH Mana HPC cluster. 
+You can run Jupyter on Google Colab, your own machine, on the UH KOA HPC cluster. 
 
 #### Google Colab
 
@@ -29,7 +29,7 @@ You can run Jupyter on Google Colab, your own machine, on the UH Mana HPC cluste
 
 Alternatively, you run code on your local machine. First install [Anaconda](https://www.anaconda.com/). Then install the new [Jupyterlab desktop application](https://github.com/jupyterlab/jupyterlab-desktop#installation). 
 
-#### Mana HPC Cluster
+#### KOA HPC Cluster
 
-If you have a [Mana](https://mana.its.hawaii.edu/) HPC account, you can run a JupyterLab through Open OnDemand.
+If you have a [KOA](https://koa.its.hawaii.edu/) HPC account, you can run a JupyterLab through Open OnDemand.
 

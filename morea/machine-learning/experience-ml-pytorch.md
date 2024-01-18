@@ -6,7 +6,7 @@ morea_type: experience
 morea_summary: "Pytorch tutorial for timeseries prediction of solar irradiance in Manoa Valley"
 morea_sort_order: 20
 morea_labels:
-  - 2:40pm
+  - 3:05pm - 3:50pm
 morea_enable_toc: true
 ---
 
@@ -300,6 +300,6 @@ If we want to improve the model, the first thing to ask ourselves is whether we 
 </div>
 
 {% include next-button.html 
-           top-label="NLP Example ->" 
-           bottom-label="3:30pm" 
-           url="/morea/machine-learning/experience-ml-nlp-example.html" %}
+           top-label="Assessment ->" 
+           bottom-label="3:50pm" 
+           url="/morea/machine-learning/assessment-machine-learning-workshop.html" %}

@@ -6,7 +6,7 @@ morea_type: experience
 morea_summary: "A basic Scikit-learn tutorial using Gaussian Processes to model CO2 levels on Mauna Loa"
 morea_sort_order: 10
 morea_labels:
-  - 2:00pm
+  - 2:10pm - 2.55pm
 morea_enable_toc: true
 ---
 
@@ -21,11 +21,9 @@ morea_enable_toc: true
 * Understand how to fit decision trees in SciKit-Learn
 </div>
 
-<!-- <div class="alert alert-info" role="warning" markdown="1">
-<i class="fa-solid fa-circle-info fa-xl"></i> **Jupyter Lab Binder**
-<hr/>
-**Note:** Click [here](https://mybinder.org/v2/gh/scikit-learn/scikit-learn/1.2.X?urlpath=lab/tree/notebooks/auto_examples/gaussian_process/plot_gpr_co2.ipynb) to download the full example code or to run this example in your browser via Binder
-</div> -->
+<a target="_blank" href="https://colab.research.google.com/github/AmilaIndika789/change-hi.github.io/blob/1_sklearn/morea/machine-learning/Notebooks/01-scikit-learn-climate-example.ipynb">
+  <img src="https://colab.research.google.com/assets/colab-badge.svg" alt="Open In Colab"/>
+</a>
 
 # Decision Trees on Mauna Loa CO2 data
 
@@ -38,7 +36,7 @@ We will derive a dataset from the Mauna Loa Observatory that collected air sampl
 
 <div class="alert alert-secondary" role="alert" markdown="1">
 
-~~~Python
+~~~python
 from sklearn.datasets import fetch_openml
 
 co2 = fetch_openml(data_id=41187, as_frame=True, parser="pandas")
@@ -48,7 +46,7 @@ co2.frame.head()
 First, we process the original dataframe to create a date index and select only the CO2 column.
 <div class="alert alert-secondary" role="alert" markdown="1">
 
-~~~Python
+~~~python
 import pandas as pd
 
 co2_data = co2.frame
@@ -59,7 +57,7 @@ co2_data.head()
 </div>
 <div class="alert alert-secondary" role="alert" markdown="1">
 
-~~~Python
+~~~python
 co2_data.index.min(), co2_data.index.max()
 ~~~
 </div>
@@ -68,7 +66,7 @@ Out: `(Timestamp('1958-03-29 00:00:00'), Timestamp('2001-12-29 00:00:00'))`
 We see that we get CO2 concentration for some days from March, 1958 to December, 2001. We can plot these raw information to have a better understanding.
 <div class="alert alert-secondary" role="alert" markdown="1">
 
-~~~Python
+~~~python
 import matplotlib.pyplot as plt
 
 co2_data.plot()
@@ -81,7 +79,7 @@ _ = plt.title("Raw air samples measurements from the Mauna Loa Observatory")
 We will preprocess the dataset by taking a monthly average and drop month for which no measurements were collected. Such a processing will have an smoothing effect on the data.
 <div class="alert alert-secondary" role="alert" markdown="1">
 
-~~~Python
+~~~python
 co2_data = co2_data.resample("M").mean().dropna(axis="index", how="any")
 co2_data.plot()
 plt.ylabel("Monthly average of CO$_2$ concentration (ppm)")
@@ -97,7 +95,7 @@ The idea in this example will be to predict the CO2 concentration in function of
 As a first step, we will divide the data and the target to estimate. The data being a date, we will convert it into a numeric.
 <div class="alert alert-secondary" role="alert" markdown="1">
 
-~~~Python
+~~~python
 X = (co2_data.index.year + co2_data.index.month / 12).to_numpy().reshape(-1, 1)
 y = co2_data["co2"].to_numpy()
 ~~~
@@ -114,7 +112,7 @@ Decision trees learn from data to approximate a function with a set of if-then-e
 
 <div class="alert alert-secondary" role="alert" markdown="1">
 
-~~~Python
+~~~python
 from sklearn import tree
 regr_1 = tree.DecisionTreeRegressor(max_depth=2)
 regr_2 = tree.DecisionTreeRegressor(max_depth=11)
@@ -133,7 +131,7 @@ Thus, we create synthetic data from 1958 to the current month.
 
 <div class="alert alert-secondary" role="alert" markdown="1">
 
-~~~Python
+~~~python
 import datetime
 import numpy as np
 
@@ -144,14 +142,14 @@ X_test = np.linspace(start=1958, stop=current_month, num=1_000).reshape(-1, 1)
 </div>
 <div class="alert alert-secondary" role="alert" markdown="1">
 
-~~~Python
+~~~python
 y_1 = regr_1.predict(X_test)
 y_2 = regr_2.predict(X_test)
 ~~~
 </div>
 <div class="alert alert-secondary" role="alert" markdown="1">
 
-~~~Python
+~~~python
 plt.figure()
 plt.scatter(X, y, s=20, edgecolor="black", c="darkorange", label="data")
 plt.plot(X_test, y_1, color="cornflowerblue", label=f"max_depth={regr_1.max_depth}", linewidth=2)
@@ -173,7 +171,7 @@ To improve the model's generalization, we will predict on differences in CO2 rat
 We will also normalize the data.
 <div class="alert alert-secondary" role="alert" markdown="1">
 
-~~~Python
+~~~python
 from sklearn.preprocessing import StandardScaler
 from numpy import diff
 
@@ -206,7 +204,7 @@ We will train 3 decision trees at different max depths.
 
 <div class="alert alert-secondary" role="alert" markdown="1">
 
-~~~Python
+~~~python
 regr_3 = tree.DecisionTreeRegressor(max_depth=2)
 regr_3.fit(in_data, out_data)
 
@@ -221,7 +219,7 @@ regr_5.fit(in_data, out_data)
 Now we will generate test data that runs all the way to the present day to see the model's predictions. We use the model's own prediction as part of the sliding window for the next prediction, to extrapolate arbitrarily far into the future.
 <div class="alert alert-secondary" role="alert" markdown="1">
 
-~~~Python
+~~~python
 dates = pd.period_range("1958", "2023", freq='M').to_timestamp()
 
 
@@ -250,12 +248,12 @@ Let's plot the results. Note that it is still showing the differences (derivativ
 
 <div class="alert alert-secondary" role="alert" markdown="1">
 
-~~~Python
+~~~python
 plt.figure()
 plt.plot(dates, fut_pred_3, label=f"max_depth={regr_3.max_depth}", linewidth=2)
 plt.plot(dates, fut_pred_4, label=f"max_depth={regr_4.max_depth}", linewidth=2)
 plt.plot(dates, fut_pred_5, label=f"max_depth={regr_5.max_depth}", linewidth=2)
-plt.plot(dates[0:526], normalized_data, label=f"true value", linewidth=2)
+plt.plot(dates[0:521], normalized_data, label=f"true value", linewidth=2)
 plt.xlabel("data")
 plt.ylabel("target")
 plt.title("Decision Tree Regression on Derivative")
@@ -271,7 +269,7 @@ We can see that all of the decision trees are fitting the past data nearly perfe
 Let's convert the predictions back into absolute CO2 levels.
 <div class="alert alert-secondary" role="alert" markdown="1">
 
-~~~Python
+~~~python
 def postprocess_data(output_data, scaler, first_input):
     #unscale the output
     output = scaler.inverse_transform(np.array(output_data).reshape(-1, 1)).reshape(-1)
@@ -290,7 +288,7 @@ And plot the results:
 
 <div class="alert alert-secondary" role="alert" markdown="1">
 
-~~~Python
+~~~python
 plt.figure()
 plt.plot(dates, decoded_3, label=f"max_depth={regr_3.max_depth}", linewidth=2)
 plt.plot(dates, decoded_4, label=f"max_depth={regr_4.max_depth}", linewidth=2)
@@ -311,7 +309,7 @@ The results can vary quite a bit between runs. The method for fitting the decisi
 
 <div class="alert alert-secondary" role="alert" markdown="1">
 
-~~~Python
+~~~python
 
 ~~~
 </div>
@@ -344,5 +342,5 @@ License: BSD 3 clause
 
 {% include next-button.html 
            top-label="Pytorch ->" 
-           bottom-label="2:40pm" 
+           bottom-label="3:05pm" 
            url="/morea/machine-learning/experience-ml-pytorch.html" %}
