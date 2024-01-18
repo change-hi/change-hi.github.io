@@ -342,5 +342,5 @@ License: BSD 3 clause
 
 {% include next-button.html 
            top-label="Pytorch ->" 
-           bottom-label="2:40pm" 
+           bottom-label="3:05pm" 
            url="/morea/machine-learning/experience-ml-pytorch.html" %}
