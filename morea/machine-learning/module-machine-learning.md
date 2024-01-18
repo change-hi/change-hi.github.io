@@ -10,7 +10,6 @@ morea_readings:
 morea_experiences:
   - experience-ml-sklearn
   - experience-ml-pytorch
-  - experience-ml-nlp-example
 morea_assessments:
   - assessment-machine-learning-workshop
 morea_prerequisites:
