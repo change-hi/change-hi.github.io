@@ -21,11 +21,9 @@ morea_enable_toc: true
 * Understand how to fit decision trees in SciKit-Learn
 </div>
 
-<!-- <div class="alert alert-info" role="warning" markdown="1">
-<i class="fa-solid fa-circle-info fa-xl"></i> **Jupyter Lab Binder**
-<hr/>
-**Note:** Click [here](https://mybinder.org/v2/gh/scikit-learn/scikit-learn/1.2.X?urlpath=lab/tree/notebooks/auto_examples/gaussian_process/plot_gpr_co2.ipynb) to download the full example code or to run this example in your browser via Binder
-</div> -->
+<a target="_blank" href="https://colab.research.google.com/github/AmilaIndika789/change-hi.github.io/blob/1_sklearn/morea/machine-learning/Notebooks/01-scikit-learn-climate-example.ipynb">
+  <img src="https://colab.research.google.com/assets/colab-badge.svg" alt="Open In Colab"/>
+</a>
 
 # Decision Trees on Mauna Loa CO2 data
 
