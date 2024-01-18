@@ -6,7 +6,7 @@ morea_type: experience
 morea_summary: "A basic Scikit-learn tutorial using Gaussian Processes to model CO2 levels on Mauna Loa"
 morea_sort_order: 10
 morea_labels:
-  - 2:00pm
+  - 2:10pm - 2.55pm
 morea_enable_toc: true
 ---
 
@@ -255,7 +255,7 @@ plt.figure()
 plt.plot(dates, fut_pred_3, label=f"max_depth={regr_3.max_depth}", linewidth=2)
 plt.plot(dates, fut_pred_4, label=f"max_depth={regr_4.max_depth}", linewidth=2)
 plt.plot(dates, fut_pred_5, label=f"max_depth={regr_5.max_depth}", linewidth=2)
-plt.plot(dates[0:526], normalized_data, label=f"true value", linewidth=2)
+plt.plot(dates[0:521], normalized_data, label=f"true value", linewidth=2)
 plt.xlabel("data")
 plt.ylabel("target")
 plt.title("Decision Tree Regression on Derivative")
