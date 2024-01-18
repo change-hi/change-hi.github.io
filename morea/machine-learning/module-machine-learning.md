@@ -1,7 +1,7 @@
 ---
 title: "Machine Learning Approaches in Climate Science"
 published: true
-morea_coming_soon: true
+morea_coming_soon: false
 morea_id: machine-learning-climate-science
 morea_outcomes:
   - outcome-ml
