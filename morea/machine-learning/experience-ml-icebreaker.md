@@ -22,6 +22,6 @@ Task:
  You have 10 minutes to discuss with your group.
 
  {% include next-button.html
-top-label="Scikit-Learn ->"
-bottom-label="2:10pm"
-url="/morea/data-movement/experience-ml-sklearn.html" %}
+  top-label="Scikit-Learn ->"
+  bottom-label="2:10pm"
+  url="/morea/machine-learning/experience-ml-sklearn.html" %}
