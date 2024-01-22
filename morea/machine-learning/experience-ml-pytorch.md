@@ -101,7 +101,7 @@ print(test_data)
 ```
 </div>
 
-<div class="alert alert-info" role="alert" markdown="1">
+<div class="alert alert-success" role="alert" markdown="1">
 
 Output:
 ```
@@ -196,7 +196,7 @@ print(model)
 ```
 </div>
 
-<div class="alert alert-info" role="alert" markdown="1">
+<div class="alert alert-success" role="alert" markdown="1">
 
 Output:
 ```
@@ -210,6 +210,145 @@ CNN(
 ```
 </div>
 
+#### Train the model
+
+Now we are ready to train the model. We first define the loss function and the optimizer. The loss function is a measure of how well the model is performing. The optimizer is the algorithm that will update the model parameters to minimize the loss function. Here we use the cross entropy loss function and the Adam optimizer.
+
+<div class="alert alert-secondary" role="alert" markdown="1">
+Code:
+
+```python
+loss_fn = nn.CrossEntropyLoss()
+optimizer = torch.optim.Adam(model.parameters(), lr=0.001)
+```
+</div>
+
+We then define the training loop. This is where we iterate through the training examples, make predictions, and update the model parameters. We keep track of the average loss over the training set, and report it every time we iterate through the training dataset --- each iteration through the training set is called an __epoch__.
+
+<div class="alert alert-secondary" role="alert" markdown="1">
+Code:
+
+```python
+epochs = 10
+train_loss = []
+
+for epoch in range(epochs):
+    epoch_loss = []
+    for batch_idx, (data, target) in enumerate(train_dataloader):
+        # zero the parameter gradients
+        # this is because the gradients are accumulated
+        # so we need to zero them out at each iteration
+        optimizer.zero_grad()
+
+        # forward + backward + optimize
+        output = model(data)
+        loss = loss_fn(output, target)
+
+        # we save the epoch loss to plot it later
+        # it is multiplied by the batch size to account for the fact that
+        # the loss is averaged over the batch
+        epoch_loss.append(loss.item() * data.size(0))
+
+        loss.backward()
+        optimizer.step()
+
+        # print statistics
+        if batch_idx % 400 == 0:
+            print(f"Epoch: {epoch}, Batch: {batch_idx}, Loss: {loss.item()}")
+    train_loss.append(sum(epoch_loss) / len(train_data))
+```
+</div>
+
+<div class="alert alert-success" role="alert" markdown="1">
+
+Output:
+```
+Epoch: 0, Batch: 0, Loss: 2.2953178882598877
+Epoch: 0, Batch: 400, Loss: 0.1260863095521927
+Epoch: 0, Batch: 800, Loss: 0.09389975666999817
+Epoch: 1, Batch: 0, Loss: 0.09787891060113907
+Epoch: 1, Batch: 400, Loss: 0.11758307367563248
+Epoch: 1, Batch: 800, Loss: 0.036535874009132385
+Epoch: 2, Batch: 0, Loss: 0.046887561678886414
+Epoch: 2, Batch: 400, Loss: 0.1413286328315735
+Epoch: 2, Batch: 800, Loss: 0.06275244057178497
+Epoch: 3, Batch: 0, Loss: 0.03601439297199249
+Epoch: 3, Batch: 400, Loss: 0.015198128297924995
+Epoch: 3, Batch: 800, Loss: 0.09274444729089737
+Epoch: 4, Batch: 0, Loss: 0.03338999301195145
+Epoch: 4, Batch: 400, Loss: 0.07038191705942154
+Epoch: 4, Batch: 800, Loss: 0.031227435916662216
+Epoch: 5, Batch: 0, Loss: 0.026214195415377617
+Epoch: 5, Batch: 400, Loss: 0.08040269464254379
+Epoch: 5, Batch: 800, Loss: 0.036881931126117706
+Epoch: 6, Batch: 0, Loss: 0.011896200478076935
+Epoch: 6, Batch: 400, Loss: 0.02070874534547329
+Epoch: 6, Batch: 800, Loss: 0.007654137443751097
+Epoch: 7, Batch: 0, Loss: 0.041317518800497055
+Epoch: 7, Batch: 400, Loss: 0.009546480141580105
+Epoch: 7, Batch: 800, Loss: 0.0049569271504879
+Epoch: 8, Batch: 0, Loss: 0.011140662245452404
+Epoch: 8, Batch: 400, Loss: 0.00222363555803895
+Epoch: 8, Batch: 800, Loss: 0.012186938896775246
+Epoch: 9, Batch: 0, Loss: 0.005119095090776682
+Epoch: 9, Batch: 400, Loss: 0.006383874453604221
+Epoch: 9, Batch: 800, Loss: 0.0005414403858594596
+```
+</div>
+
+<div class="alert alert-info" role="alert" markdown="1">
+<i class="fa-solid fa-circle-info fa-xl"></i> **How do I know if it's working?**
+<hr/>
+Training a neural network is notoriously difficult. The problem is that we are performing __stochastic gradient descent__ optimization on a very non-convex function. You should look to see that the loss function decreases during the first few epochs, indicating that the model is improving. If it doesn't, try decreasing the learning rate. If that doesn't help, then you have a bug or the model is not appropriate for your problem.
+</div>
+
+<div class="alert alert-info" role="alert" markdown="1">
+<i class="fa-solid fa-circle-info fa-xl"></i> **How long do I train?**
+<hr/>
+It is hard to know when to stop training, because even when the model seems to have converged, it might suddenly have "a revelation" that allows it to explain the training data perfectly. To build your intuition, we highly recommend playing with the toy neural networks in [Tensorflow Playground](https://playground.tensorflow.org/).
+
+In practice, we train until we run out of patience or when we start overfitting to a held out test set (known as __early stopping__).
+</div>
+
+#### Evaluate the model
+
+Now we can evaluate the model on the test set. We first set the model to evaluation mode, then we iterate through the test set and make predictions. We then compare the predictions to the ground truth labels and compute the accuracy.
+
+<div class="alert alert-secondary" role="alert" markdown="1">
+Code:
+
+```python
+# set model to evaluation mode
+model.eval()
+
+# variables to keep track of accuracy
+test_loss = []
+correct = 0
+total = 0
+
+# we don't need to compute gradients for the test set
+with torch.no_grad():
+    for data, target in test_dataloader:
+        output = model(data)
+        loss = loss_fn(output, target)
+        test_loss.append(loss.item() * data.size(0))
+        _, predicted = torch.max(output.data, 1)
+        total += target.size(0)
+        correct += (predicted == target).sum().item()
+
+print(f"Test Loss: {sum(test_loss) / len(test_data)}")
+print(f"Test Accuracy: {100 * correct / total}%")
+```
+</div>
+
+<div class="alert alert-success" role="alert" markdown="1">
+
+Output:
+```
+Test Loss: 0.03719360748641193
+Test Accuracy: 98.71%
+```
+</div>
 
 
 ### Sea Surface Temperature Data: NOAA Extended Reconstructed Sea Surface Temperature (ERSST) v5
