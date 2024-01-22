@@ -3,7 +3,7 @@ title: "3. Pytorch"
 published: true
 morea_id: experience-ml-pytorch
 morea_type: experience
-morea_summary: "Pytorch tutorial for timeseries prediction of solar irradiance in Manoa Valley"
+morea_summary: "Pytorch tutorial for prediction of El Niño Southern Oscillation (ENSO) phase using sea surface temperature maps"
 morea_sort_order: 20
 morea_labels:
   - 3:00pm - 3:50pm
@@ -15,18 +15,19 @@ morea_enable_toc: true
 <hr/>
 
 **Questions**
-* How can we forecast timeseries data with machine learning?
-* How can we gap-fill missing data in timeseries?
-* How do we prepare timeseries data for neural networks?
+* How can we use images as inputs in a machine learning problem?
+* How do we prepare the data for a deep learning model?
+* What should we consider when designing a neural network architecture?
 
 **Objectives**
-* Understand how to train a neural network in Pytorch
-* Understand how to use Pandas for handling timeseries data.
+* Understand how to train a deep learning model in Keras
+* Understand how to use common data formats in climate science.
 </div>
 
-## Tutorial of Timeseries Modeling with Deep Learning
+## Tutorial of ENSO phase prediction with Deep Learning
 
-This is a time series prediction tutorial using Pytorch. Pytorch is an open source software used in machine learning particularly for training neural networks. This tutorial will use a Pytorch recurrent neural network model to step through the basic workflow of a machine learning project:
+This is a classification tutorial using Pytorch. Pytorch is an open source software used in machine learning particularly for training neural networks. Pytorch is an easy-to-use framework that is popular in the research community. It is similar to Tensorflow, but has a more pythonic interface.
+This tutorial will use a Pytorch convolutional neural network model to step through the basic workflow of a machine learning project involving image data:
 
 1. Install and import software libraries
 2. Download and preprocess data
@@ -38,23 +39,195 @@ This is a time series prediction tutorial using Pytorch. Pytorch is an open sour
 <div class="alert alert-info" role="alert" markdown="1">
 <i class="fa-solid fa-circle-info fa-xl"></i> **Installing Pytorch**
 <hr/>
-Installing deep learning software stacks can be tricky. Pytorch and other deep learning frameworks like Tensorflow and JAX are under rapid development and often depend on particular versions of dependencies. 
+Installing deep learning software stacks can be tricky. Pytorch and other deep learning frameworks like Tensorflow and JAX are under rapid development and often depend on particular versions of dependencies.
 
 Google Colab is the easiest way to do the following activity because Pytorch comes preinstalled. Otherwise, use Anaconda to install Pytorch in a [new conda environment](/morea/hpc/experience-hpc-environment).
 
-
 </div>
 
-### The TsangStreamLab dataset 
+### Getting familiar with deep learning with image data
 
-UH Professor Yinphan Tsang's lab monitors rainfall and stream flow in Manoa Valley. Sensors at Lyon's arboretum take data at regular 15 minute intervals. Raw data can be downloaded from her [website](https://tsangstreamlab.github.io/#stream-lyon-aihualama-stream-above-diversion). 
+Before we start looking at climate data, we will build a simple image classification model using the MNIST dataset. This dataset consists of 70,000 images of handwritten digits (0-9) that are 28x28 pixels. The goal is to train a model that can correctly classify the digits.
 
-A subset of the data has already been downloaded for this workshop. In particular, we will use the pyranometer data which quantifies the amount of solar radiation hitting the ground. We will perform timeseries forecasting with a recurrent neural network. Forecasting solar irradiation is important for managing the variability in renewable energy production.
+#### Import Libraries
 
-{% include figure.html url="" max-width="50%" file="/morea/machine-learning/fig/lyons_variables.jpg" alt="Lyons" caption="Example timeseries data from the TsangStreamLab" %}
+To start, import all the relevant libraries.
+
+<div class="alert alert-secondary" role="alert" markdown="1">
+
+Code:
+```python
+import matplotlib.pyplot as plt
+import torch
+import torch.nn as nn
+from torch.utils.data import DataLoader
+from torchvision import datasets
+from torchvision.transforms import ToTensor
+```
+</div>
+
+#### Download the MNIST dataset
+
+As the MNIST dataset is a common dataset, it is already available in the torchvision package. We can download the data and preprocess it using the following code.
+
+<div class="alert alert-secondary" role="alert" markdown="1">
+
+Code:
+```python
+train_data = datasets.MNIST(
+    root="data",
+    train=True,
+    download=True,
+    transform=ToTensor(),
+)
+
+test_data = datasets.MNIST(
+    root="data",
+    train=False,
+    download=True,
+    transform=ToTensor(),
+)
+```
+</div>
+
+Here we also split the data into training and test sets. The training set is used to train the model, while the test set is used to evaluate the model. Machine learning models perform well on the data they are trained on, but the real test is how well they perform on unseen data. This is known as __cross-validation__.
+
+<div class="alert alert-secondary" role="alert" markdown="1">
+
+Code:
+```python
+print(train_data)
+print(test_data)
+```
+</div>
+
+<div class="alert alert-info" role="alert" markdown="1">
+
+Output:
+```
+Train data:
+ Dataset MNIST
+    Number of datapoints: 60000
+    Root location: data
+    Split: Train
+    StandardTransform
+Transform: ToTensor()
+
+Test data:
+ Dataset MNIST
+    Number of datapoints: 10000
+    Root location: data
+    Split: Test
+    StandardTransform
+Transform: ToTensor()
+```
+</div>
+
+The MNIST dataset is already split into training and test sets, but in general we need to do this ourselves. It is important to split the data randomly, but also to make sure that the training and test sets are representative of the entire dataset. For example, if the dataset is 90% class A and 10% class B, then the training and test sets should also be 90% class A and 10% class B.
+
+We can plot some examples from the dataset to get a sense of what the data looks like.
+
+<div class="alert alert-secondary" role="alert" markdown="1">
+
+```python
+figure = plt.figure(figsize=(8, 8))
+cols, rows = 4, 4
+for i in range(1, cols * rows + 1):
+    sample_idx = torch.randint(len(train_data), size=(1,)).item()
+    img, label = train_data[sample_idx]
+    figure.add_subplot(rows, cols, i)
+    plt.title(f"Label: {label}")
+    plt.axis("off")
+    plt.imshow(img.squeeze(), cmap="gray")
+plt.show()
+```
+</div>
+
+{% include figure.html url="" max-width="50%" file="/morea/machine-learning/fig/mnist_example.png" alt="MNIST" caption="MNIST dataset" %}
+
+#### Prepare the data for training
+
+We need to prepare the data for training. This involves creating a __data loader__ that will feed the data into the model in batches. This is important because it is not feasible to load the entire dataset into memory at once. Instead, we load a small batch of data, perform a forward pass through the model, compute the loss, and then update the model parameters. This is known as __stochastic gradient descent__.
+
+<div class="alert alert-secondary" role="alert" markdown="1">
+
+```python
+train_dataloader = DataLoader(train_data, batch_size=64, shuffle=True)
+test_dataloader = DataLoader(test_data, batch_size=64, shuffle=True)
+```
+</div>
+
+#### Define the model
+
+For this particular problem, we will use a convolutional neural network (CNN). CNNs are a type of neural network that are particularly adept at processing image data. They are composed of a series of convolutional layers, which are layers that apply a filter to the input image. The filters can be thought of as small windows that slide across the image and extract features.
+
+In Pytorch, we can define a CNN model by creating a class that inherits from the `nn.Module` class. We then define the layers of the model in the `__init__` method, and define the forward pass in the `forward` method. The `forward` method takes in an input tensor and returns an output tensor.
+
+<div class="alert alert-secondary" role="alert" markdown="1">
+
+```python
+class CNN(nn.Module):
+    def __init__(self):
+        super().__init__()
+        self.conv1 = nn.Conv2d(in_channels=1, out_channels=8, kernel_size=3)
+        self.pool = nn.MaxPool2d(kernel_size=2)
+        self.conv2 = nn.Conv2d(in_channels=8, out_channels=16, kernel_size=3)
+        self.fc1 = nn.Linear(in_features=16 * 5 * 5, out_features=128)
+        self.fc2 = nn.Linear(in_features=128, out_features=10)
+
+    def forward(self, x):
+        x = self.pool(torch.relu(self.conv1(x)))
+        x = self.pool(torch.relu(self.conv2(x)))
+        x = torch.flatten(x, 1)
+        x = torch.relu(self.fc1(x))
+        x = self.fc2(x)
+        return x
+```
+</div>
+
+The model can be used by assigning it to a variable and calling it like a function.
+
+<div class="alert alert-secondary" role="alert" markdown="1">
+
+Code:
+```python
+model = CNN()
+print(model)
+```
+</div>
+
+<div class="alert alert-info" role="alert" markdown="1">
+
+Output:
+```
+CNN(
+  (conv1): Conv2d(1, 8, kernel_size=(3, 3), stride=(1, 1))
+  (pool): MaxPool2d(kernel_size=2, stride=2, padding=0, dilation=1, ceil_mode=False)
+  (conv2): Conv2d(8, 16, kernel_size=(3, 3), stride=(1, 1))
+  (fc1): Linear(in_features=400, out_features=128, bias=True)
+  (fc2): Linear(in_features=128, out_features=10, bias=True)
+)
+```
+</div>
 
 
-## Activity: Timeseries Model in Pytorch
+
+### Sea Surface Temperature Data: NOAA Extended Reconstructed Sea Surface Temperature (ERSST) v5
+
+The NOAA Extended Reconstructed Sea Surface Temperature (ERSST) v5 dataset is a global monthly sea surface temperature dataset. It is a blend of in situ and satellite data that begins in 1854 and is updated monthly. The data is available in netCDF format from the [NOAA website](https://psl.noaa.gov/data/gridded/data.noaa.ersst.v5.html).
+
+A subset of the data has already been prepared for this workshop. In particular, we will focus our attention on the tropical Pacific region (30S-30N, 120E-100W) from 1950-2023. The data is stored in a 3D array (time, lat, lon) in netCDF format, which is a common format for climate data.
+
+<!-- ### The TsangStreamLab dataset
+
+UH Professor Yinphan Tsang's lab monitors rainfall and stream flow in Manoa Valley. Sensors at Lyon's arboretum take data at regular 15 minute intervals. Raw data can be downloaded from her [website](https://tsangstreamlab.github.io/#stream-lyon-aihualama-stream-above-diversion).
+
+A subset of the data has already been downloaded for this workshop. In particular, we will use the pyranometer data which quantifies the amount of solar radiation hitting the ground. We will perform timeseries forecasting with a recurrent neural network. Forecasting solar irradiation is important for managing the variability in renewable energy production. -->
+
+{% include figure.html url="" max-width="50%" file="/morea/machine-learning/fig/ERSSTv5.png" alt="ERSSTv5" caption="Sea surface temperature map from the ERSSTv5 dataset (Courtesy of NCAR)" %}
+
+
+<!-- ## Activity: Timeseries Model in Pytorch
 
 <div class="alert alert-secondary" role="alert" markdown="1">
 <i class="fa-solid fa-user-pen fa-xl"></i>  **Exercise: Import dataset, check configuration**
@@ -62,7 +235,7 @@ A subset of the data has already been downloaded for this workshop. In particula
 
 ### Import Libraries
 
-To start, import all the relevant libraries. 
+To start, import all the relevant libraries.
 
 ```python
 import numpy as np
@@ -97,9 +270,9 @@ df = df.set_index(['timestamp'])
 df = df.resample('15min').last().ffill()
 ```
 
-Now we convert the radiation column into a numpy vector (removing meta data), and scale the values to be between zero and one. Large data values make it much more difficult to train the neural network, so it is critical to make the data (both inputs and outputs) _neural network friendly_. The Scikit-Learn package has nice tools for doing this. Remember that after training, any model predictions will need to undergo the inverse transform to get useful predictions. 
+Now we convert the radiation column into a numpy vector (removing meta data), and scale the values to be between zero and one. Large data values make it much more difficult to train the neural network, so it is critical to make the data (both inputs and outputs) _neural network friendly_. The Scikit-Learn package has nice tools for doing this. Remember that after training, any model predictions will need to undergo the inverse transform to get useful predictions.
 
-We also convert the timeseries vector into a torch FloatTensor, since that is the data format expected by Pytorch. 
+We also convert the timeseries vector into a torch FloatTensor, since that is the data format expected by Pytorch.
 
 ```python
 data = df['radiation'].to_numpy(dtype='float32')
@@ -110,7 +283,7 @@ data_normalized = torch.FloatTensor(data_normalized).view(-1)
 
 ### Define the Training Set
 
-Training a neural network model is done by presenting sets of (input, output) example pairs. We need to specify what those examples should look like. Our inputs can be of arbitrary length, but we choose to only consider a finite length of 100 timesteps because this is approximately one day (15min * 4 * 24 hrs/day = 1 day). 
+Training a neural network model is done by presenting sets of (input, output) example pairs. We need to specify what those examples should look like. Our inputs can be of arbitrary length, but we choose to only consider a finite length of 100 timesteps because this is approximately one day (15min * 4 * 24 hrs/day = 1 day).
 
 ```python
 
@@ -127,7 +300,7 @@ train_window = 100
 in_out_data = create_in_out_pairs(data_normalized, train_window)
 ```
 
-We select a small sample of the total dataset as our training set, leaving some examples for evaluating the model. 
+We select a small sample of the total dataset as our training set, leaving some examples for evaluating the model.
 
 ```python
 train_in_out_data = in_out_data[100:1000:10]
@@ -165,11 +338,11 @@ class LSTM(nn.Module):
         lstm_out, self.hidden_cell = self.lstm(input_seq.view(len(input_seq) ,1, -1), self.hidden_cell)
         predictions = self.linear(lstm_out.view(len(input_seq), -1))
         return predictions[-1]
-    
+
 model = LSTM(input_size=1, hidden_layer_size=10, output_size=1)
 ```
 
-We now have a Pytorch neural network model that takes in a sequence of values, and outputs a prediction (a single scalar). The model parameters have been initialized randomly, so the predictions are random. Now we need to train the model using our dataset. 
+We now have a Pytorch neural network model that takes in a sequence of values, and outputs a prediction (a single scalar). The model parameters have been initialized randomly, so the predictions are random. Now we need to train the model using our dataset.
 
 <div class="alert alert-info" role="alert" markdown="1">
 <i class="fa-solid fa-circle-info fa-xl"></i> **Designing a neural network architecture**
@@ -247,7 +420,7 @@ Training a neural network is notoriously difficult. The problem is that we are p
 <hr/>
 It is hard to know when to stop training, because even when the model seems to have converged, it might suddenly have "a revelation" that allows it to explain the training data perfectly. To build your intuition, we highly recommend playing with the toy neural networks in [Tensorflow Playground](https://playground.tensorflow.org/).
 
-In practice, we train until we run out of patience or when we start overfitting to a held out test set (known as __early stopping__). 
+In practice, we train until we run out of patience or when we start overfitting to a held out test set (known as __early stopping__).
 </div>
 
 
@@ -270,7 +443,7 @@ for i in range(fut_pred):
         model.hidden = (torch.zeros(1, 1, model.hidden_layer_size),
                         torch.zeros(1, 1, model.hidden_layer_size))
         test_inputs.append(model(seq).item())
-        
+
 # Predictions need to be scaled back into W/m^2
 actual_predictions = scaler.inverse_transform(np.array(test_inputs[train_window:] ).reshape(-1, 1))
 ```
@@ -284,8 +457,8 @@ plt.grid(True)
 plt.autoscale(axis='x', tight=True)
 plt.plot(data[-train_window:], label='Observed')
 plt.plot(np.arange(train_window, train_window +fut_pred), actual_predictions, label='Predicted')
-plt.xticks(ticks=np.arange(0, train_window, 20), 
-           labels=df['radiation'][-train_window:].index[np.arange(0, 100, 20)], 
+plt.xticks(ticks=np.arange(0, train_window, 20),
+           labels=df['radiation'][-train_window:].index[np.arange(0, 100, 20)],
            rotation=45)
 plt.legend()
 plt.show()
@@ -294,12 +467,12 @@ plt.show()
 <div class="alert alert-info" role="alert" markdown="1">
 <i class="fa-solid fa-circle-info fa-xl"></i> **Improving the model**
 <hr/>
-If we want to improve the model, the first thing to ask ourselves is whether we are __underfitting__ or __overfitting__. If we are not overfitting, then we are underfitting and we should increase the size of the model and train longer. If we are overfitting, then we should add regularization or get more training data. 
+If we want to improve the model, the first thing to ask ourselves is whether we are __underfitting__ or __overfitting__. If we are not overfitting, then we are underfitting and we should increase the size of the model and train longer. If we are overfitting, then we should add regularization or get more training data.
 </div>
 
-</div>
+</div> -->
 
-{% include next-button.html 
-           top-label="Assessment ->" 
-           bottom-label="3:50pm" 
+{% include next-button.html
+           top-label="Assessment ->"
+           bottom-label="3:50pm"
            url="/morea/machine-learning/assessment-machine-learning-workshop.html" %}
