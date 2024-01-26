@@ -27,7 +27,7 @@ morea_enable_toc: true
 
 # Decision Trees on Mauna Loa CO2 data
 
-This example uses data that consists of the monthly average atmospheric CO$_2$ concentrations (in parts per million by volume (ppm)) collected at the Mauna Loa Observatory in Hawaii, between 1958 and 2001. The objective is to model the CO2 concentration as a function of the time *t*.
+This example uses data that consists of the monthly average atmospheric CO2 concentrations (in parts per million by volume (ppm)) collected at the Mauna Loa Observatory in Hawaii, between 1958 and 2001. The objective is to model the CO2 concentration as a function of the time *t*.
 
 
 ### Build the dataset
@@ -76,7 +76,21 @@ _ = plt.title("Raw air samples measurements from the Mauna Loa Observatory")
 </div>
 {% include figure.html url="" max-width="60%" file="morea/machine-learning/fig/co2_data.png" alt="Basic Binder Webpage" caption="" %}
 
-We will preprocess the dataset by taking a monthly average and drop month for which no measurements were collected. Such a processing will have an smoothing effect on the data.
+**Cross validation** is an important step in machine learning. In cross validation, the machine learning model is trained and evaluated on different subsets of input data. This step is crucial for clean evaluation, increased generalizability, and minimize underfitting & overfitting.
+
+<div class="alert alert-secondary" role="alert" markdown="1">
+
+~~~python
+from sklearn.model_selection import train_test_split
+
+RANDOM_SEED = 42  # Ensures reproducibility of split
+co2_train, co2_validation = train_test_split(
+    co2_data, test_size=0.25, shuffle=False, random_state=RANDOM_SEED
+)
+~~~
+</div>
+
+Also, we will preprocess the dataset by taking a monthly average and drop month for which no measurements were collected. Such a processing will have an smoothing effect on the data.
 <div class="alert alert-secondary" role="alert" markdown="1">
 
 ~~~python
