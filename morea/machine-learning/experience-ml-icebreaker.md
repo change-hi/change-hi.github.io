@@ -6,7 +6,7 @@ morea_type: experience
 morea_summary: "ML for Climate data Ice Breaker"
 morea_sort_order: 1
 morea_labels:
-  - 2:00pm - 2:10pm
+  - 2:00pm - 2:05pm
 ---
 
 # 1. Ice Breaker: ML for Climate data
@@ -19,9 +19,9 @@ Task:
 
  2. Discuss how you would think Artificial Intelligence (AI) technologies can be beneficial for existing problems in Climate Science.
 
- You have 10 minutes to discuss with your group.
+ You have 5 minutes to discuss with your group.
 
  {% include next-button.html
   top-label="Scikit-Learn ->"
-  bottom-label="2:10pm"
+  bottom-label="2:05pm"
   url="/morea/machine-learning/experience-ml-sklearn.html" %}

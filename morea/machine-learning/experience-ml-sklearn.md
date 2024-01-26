@@ -6,7 +6,7 @@ morea_type: experience
 morea_summary: "A basic Scikit-learn tutorial using Gaussian Processes to model CO2 levels on Mauna Loa"
 morea_sort_order: 10
 morea_labels:
-  - 2:10pm - 2.55pm
+  - 2:05pm - 2.55pm
 morea_enable_toc: true
 ---
 
@@ -342,5 +342,5 @@ License: BSD 3 clause
 
 {% include next-button.html 
            top-label="Pytorch ->" 
-           bottom-label="3:05pm" 
+           bottom-label="3:00pm" 
            url="/morea/machine-learning/experience-ml-pytorch.html" %}

@@ -6,7 +6,7 @@ morea_type: experience
 morea_summary: "Pytorch tutorial for timeseries prediction of solar irradiance in Manoa Valley"
 morea_sort_order: 20
 morea_labels:
-  - 3:05pm - 3:50pm
+  - 3:00pm - 3:50pm
 morea_enable_toc: true
 ---
 
