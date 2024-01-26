@@ -8,6 +8,7 @@ morea_outcomes:
 morea_readings:
   - reading-ml-preparation
 morea_experiences:
+  - experience-ml-icebreaker
   - experience-ml-sklearn
   - experience-ml-pytorch
 morea_assessments:
