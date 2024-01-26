@@ -762,8 +762,12 @@ Authors:
 
 License: BSD 3 clause
 
-[SciKit-Learn Decision Tree Regression tutorial](https://scikit-learn.org/stable/auto_examples/tree/plot_tree_regression.html)
-[SciKit-Learn Decision Tree tutorial](https://scikit-learn.org/stable/modules/tree.html#decision-trees)
+#### Resources and Further Reading
+* [SciKit-Learn Decision Tree Regression tutorial](https://scikit-learn.org/stable/auto_examples/tree/plot_tree_regression.html)
+* [SciKit-Learn Decision Tree documentation](https://scikit-learn.org/stable/modules/generated/sklearn.tree.DecisionTreeRegressor.html#sklearn.tree.DecisionTreeRegressor)
+* [SciKit-Learn Decision Tree tutorial](https://scikit-learn.org/stable/modules/tree.html#decision-trees)
+* [PyTorch LSTM documentation](https://pytorch.org/docs/stable/generated/torch.nn.LSTM.html)
+* [PyTorch LSTM tutorial](https://pytorch.org/tutorials/beginner/nlp/sequence_models_tutorial.html#sequence-models-and-long-short-term-memory-networks)
 </div>
 
 
