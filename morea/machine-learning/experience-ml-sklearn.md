@@ -27,7 +27,7 @@ morea_enable_toc: true
 
 # Decision Trees on Mauna Loa CO2 data
 
-This example uses data that consists of the monthly average atmospheric CO2 concentrations (in parts per million by volume (ppm)) collected at the Mauna Loa Observatory in Hawaii, between 1958 and 2001. The objective is to model the CO2 concentration as a function of the time *t*.
+This example uses data that consists of the monthly average atmospheric CO$_2$ concentrations (in parts per million by volume (ppm)) collected at the Mauna Loa Observatory in Hawaii, between 1958 and 2001. The objective is to model the CO2 concentration as a function of the time *t*.
 
 
 ### Build the dataset
