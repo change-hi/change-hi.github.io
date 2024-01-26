@@ -21,9 +21,10 @@ morea_enable_toc: true
 * Understand how to fit decision trees in SciKit-Learn
 </div>
 
-<a target="_blank" href="https://colab.research.google.com/github.com/AmilaIndika789/change-hi.github.io/blob/1_sklearn/morea/machine-learning/Notebooks/01_Mauna_Loa_CO2_climate_example.ipynb">
+<a target="_blank" href="https://colab.research.google.com/github/AmilaIndika789/change-hi.github.io/blob/1_sklearn/morea/machine-learning/Notebooks/01_Mauna_Loa_CO2_climate_example.ipynb">
   <img src="https://colab.research.google.com/assets/colab-badge.svg" alt="Open In Colab"/>
 </a>
+
 
 # Decision Trees on Mauna Loa CO2 data
 
