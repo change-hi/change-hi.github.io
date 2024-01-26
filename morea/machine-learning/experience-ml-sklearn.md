@@ -180,6 +180,9 @@ print(f"Validation MSE for Decision Tree with depth 2: {mse_of_regr_1:.4f}")
 print(f"Validation MSE for Decision Tree with depth 11: {mse_of_regr_2:.4f}")
 ~~~
 </div>
+Out: <br>
+`Validation MSE for Decision Tree with depth 2: 210.6841` <br>
+`Validation MSE for Decision Tree with depth 11: 96.5067`
 
 Now, we will use the the fitted models to predict on:
 
@@ -243,88 +246,161 @@ We will also normalize the data.
 <div class="alert alert-secondary" role="alert" markdown="1">
 
 ~~~python
-from sklearn.preprocessing import StandardScaler
-from numpy import diff
+def preprocess_data(input_data, train_window, scaler, forecast_window=1, is_test=False):
+    """
+    Function that takes data and reformat for the autoregressive task
+    """
 
-def preprocess_data(input_data, train_window):
     # Take derivative
-    input_data = np.concatenate([[0], diff(input_data)])
-    
+    input_data = np.concatenate([[0], np.diff(input_data)])
+
     # Scale values
-    scaler = StandardScaler()
-    normalized_data = scaler.fit_transform(input_data.reshape(-1, 1)).reshape(-1)
-    
+    scaler = scaler
+
+    # Important: Not to leak information from training data to test data (clean evaluation)
+    if is_test:
+        normalized_data = scaler.transform(input_data.reshape(-1, 1)).reshape(-1)
+    else:
+        normalized_data = scaler.fit_transform(input_data.reshape(-1, 1)).reshape(-1)
+
     # Create input-output pairs
     in_seq = []
     out_seq = []
     L = len(normalized_data)
-    for i in range(L-train_window-1):
-        train_seq = normalized_data[i:i+train_window]
-        train_label = normalized_data[i+train_window:i+train_window+1]
-        
+
+    # Reformat training data for autoregressive task
+    for i in range(0, L - train_window - forecast_window, forecast_window):
+        train_seq = normalized_data[i : i + train_window]
+        train_label = normalized_data[
+            i + train_window : i + train_window + forecast_window
+        ]
+
         in_seq.append(train_seq)
         out_seq.append(train_label)
-    return normalized_data, in_seq, out_seq, scaler
 
-train_window = 50
-normalized_data, in_data, out_data, scaler = preprocess_data(list(co2_data["co2"]), train_window)
+    return normalized_data, in_seq, out_seq, scaler
 ~~~
 </div>
+
+<div class="alert alert-secondary" role="alert" markdown="1">
+
+~~~python
+from sklearn.preprocessing import StandardScaler
+
+# Paramters
+TRAIN_WINDOW = 50  # No of months looked back
+FORECAST_WINDOW = 1  # No of months predicted forward
+standardScaler = StandardScaler()
+
+# Create training data for autoregrssive task
+normalized_train, X_train, y_train, scaler = preprocess_data(
+    list(co2_train["co2"]),
+    TRAIN_WINDOW,
+    standardScaler,
+    forecast_window=FORECAST_WINDOW,
+    is_test=False,
+)
+~~~
+</div>
+
 
 We will train 3 decision trees at different max depths.
 
 <div class="alert alert-secondary" role="alert" markdown="1">
 
 ~~~python
-regr_3 = tree.DecisionTreeRegressor(max_depth=2)
-regr_3.fit(in_data, out_data)
+# Train models
+decistion_tree_3 = tree.DecisionTreeRegressor(max_depth=2)
+decistion_tree_3.fit(X_train, y_train)
 
-regr_4 = tree.DecisionTreeRegressor(max_depth=10)
-regr_4.fit(in_data, out_data)
+decision_tree_4 = tree.DecisionTreeRegressor(max_depth=10)
+decision_tree_4.fit(X_train, y_train)
 
-regr_5 = tree.DecisionTreeRegressor(max_depth=25)
-regr_5.fit(in_data, out_data)
+decision_tree_5 = tree.DecisionTreeRegressor(max_depth=25)
+decision_tree_5.fit(X_train, y_train)
 ~~~
 </div>
+
+Next, we will evaluate trained decision trees on the validation data.
+<div class="alert alert-secondary" role="alert" markdown="1">
+
+~~~python
+# Create validation data for autoregrssive task
+normalized_test, X_validation, y_validation, _ = preprocess_data(
+    list(co2_validation["co2"]),
+    TRAIN_WINDOW,
+    standardScaler,
+    forecast_window=FORECAST_WINDOW,
+    is_test=True,
+)
+
+# Make predictions on validation data
+y_predictions_3 = decistion_tree_3.predict(X_validation)
+y_predictions_4 = decision_tree_4.predict(X_validation)
+y_predictions_5 = decision_tree_5.predict(X_validation)
+~~~
+</div>
+
+<div class="alert alert-secondary" role="alert" markdown="1">
+
+~~~python
+# Calculate evaluation metrics
+mse_of_decision_tree_3 = mean_squared_error(y_validation, y_predictions_3)
+mse_of_decision_tree_4 = mean_squared_error(y_validation, y_predictions_4)
+mse_of_decision_tree_5 = mean_squared_error(y_validation, y_predictions_5)
+
+print(f"Validation MSE for Decision Tree with depth 2: {mse_of_decision_tree_3:.4f}")
+print(f"Validation MSE for Decision Tree with depth 10: {mse_of_decision_tree_4:.4f}")
+print(f"Validation MSE for Decision Tree with depth 25: {mse_of_decision_tree_5:.4f}")
+~~~
+</div>
+Out: <br>
+`Validation MSE for Decision Tree with depth 2: 0.1530` <br>
+`Validation MSE for Decision Tree with depth 10: 0.1828` <br>
+`Validation MSE for Decision Tree with depth 25: 0.1621`
 
 Now we will generate test data that runs all the way to the present day to see the model's predictions. We use the model's own prediction as part of the sliding window for the next prediction, to extrapolate arbitrarily far into the future.
 <div class="alert alert-secondary" role="alert" markdown="1">
 
 ~~~python
-dates = pd.period_range("1958", "2023", freq='M').to_timestamp()
+dates = pd.period_range("1958", "2023", freq="M").to_timestamp()
 
+test_inputs = list(normalized_train)
+future_predictions_3 = test_inputs.copy()
+future_predictions_4 = test_inputs.copy()
+future_predictions_5 = test_inputs.copy()
 
-test_inputs = list(normalized_data)
-fut_pred_3 = test_inputs.copy()
-fut_pred_4 = test_inputs.copy()
-fut_pred_5 = test_inputs.copy()
-fut_pred_num = len(dates) - len(test_inputs)  # Number of predictions to make.
-for i in range(fut_pred_num):
-    seq = fut_pred_3[-train_window:]
-    prediction = regr_3.predict([seq])
-    fut_pred_3.append(prediction[0])
-    
-    seq = fut_pred_4[-train_window:]
-    prediction = regr_4.predict([seq])
-    fut_pred_4.append(prediction[0])
-    
-    seq = fut_pred_5[-train_window:]
-    prediction = regr_5.predict([seq])
-    fut_pred_5.append(prediction[0])
+# Make predictions on validation data
+future_predictions_count = len(dates) - len(test_inputs)
+
+# Iteratively make predictions by moving the training window forward
+for i in range(future_predictions_count):
+    seq = future_predictions_3[-TRAIN_WINDOW:]
+    prediction = decistion_tree_3.predict([seq])
+    future_predictions_3.append(prediction[0])
+
+    seq = future_predictions_4[-TRAIN_WINDOW:]
+    prediction = decision_tree_4.predict([seq])
+    future_predictions_4.append(prediction[0])
+
+    seq = future_predictions_5[-TRAIN_WINDOW:]
+    prediction = decision_tree_5.predict([seq])
+    future_predictions_5.append(prediction[0])
 ~~~
 </div>
 
 Let's plot the results. Note that it is still showing the differences (derivative) rather than the absolute value, and it's still normalized.
-
-
 <div class="alert alert-secondary" role="alert" markdown="1">
 
 ~~~python
-plt.figure()
-plt.plot(dates, fut_pred_3, label=f"max_depth={regr_3.max_depth}", linewidth=2)
-plt.plot(dates, fut_pred_4, label=f"max_depth={regr_4.max_depth}", linewidth=2)
-plt.plot(dates, fut_pred_5, label=f"max_depth={regr_5.max_depth}", linewidth=2)
-plt.plot(dates[0:521], normalized_data, label=f"true value", linewidth=2)
+plt.figure(figsize=(10, 6))
+
+# Plots of derivative predictions
+plt.plot(dates, future_predictions_3, label=f"max_depth={decistion_tree_3.max_depth}", linewidth=2)
+plt.plot(dates, future_predictions_4, label=f"max_depth={decision_tree_4.max_depth}", linewidth=2)
+plt.plot(dates, future_predictions_5, label=f"max_depth={decision_tree_5.max_depth}", linewidth=2)
+plt.plot(dates[0:len(normalized_train)], normalized_train, label=f"true value", linewidth=2)
+
 plt.xlabel("data")
 plt.ylabel("target")
 plt.title("Decision Tree Regression on Derivative")
@@ -342,16 +418,21 @@ Let's convert the predictions back into absolute CO2 levels.
 
 ~~~python
 def postprocess_data(output_data, scaler, first_input):
-    #unscale the output
+    """
+    Function to convert CO2 differences back to absolute CO2 levels
+    """
+    # Unscale the output
     output = scaler.inverse_transform(np.array(output_data).reshape(-1, 1)).reshape(-1)
-    
+
+    # Get cumulative sum
     output = np.cumsum(output) + first_input
-    
+
     return output
 
-decoded_3 = postprocess_data(fut_pred_3, scaler, list(co2_data["co2"])[0])
-decoded_4 = postprocess_data(fut_pred_4, scaler, list(co2_data["co2"])[0])
-decoded_5 = postprocess_data(fut_pred_5, scaler, list(co2_data["co2"])[0])
+# Post process data
+decoded_3 = postprocess_data(future_predictions_3, scaler, list(co2_data["co2"])[0])
+decoded_4 = postprocess_data(future_predictions_4, scaler, list(co2_data["co2"])[0])
+decoded_5 = postprocess_data(future_predictions_5, scaler, list(co2_data["co2"])[0])
 ~~~
 </div>
 
@@ -360,10 +441,25 @@ And plot the results:
 <div class="alert alert-secondary" role="alert" markdown="1">
 
 ~~~python
-plt.figure()
-plt.plot(dates, decoded_3, label=f"max_depth={regr_3.max_depth}", linewidth=2)
-plt.plot(dates, decoded_4, label=f"max_depth={regr_4.max_depth}", linewidth=2)
-plt.plot(dates, decoded_5, label=f"max_depth={regr_5.max_depth}", linewidth=2)
+plt.figure(figsize=(10, 6))
+
+# Plot model outputs
+plt.plot(dates, decoded_3, label=f"max_depth={decistion_tree_3.max_depth}", linewidth=2)
+plt.plot(dates, decoded_4, label=f"max_depth={decision_tree_4.max_depth}", linewidth=2)
+plt.plot(dates, decoded_5, label=f"max_depth={decision_tree_5.max_depth}", linewidth=2)
+
+# Plot training and validation data
+plt.plot(co2_train, label="train", linewidth=1)
+plt.plot(co2_validation, label="validation", linewidth=1)
+
+# Vertical dashed line to show the position of validation split
+plt.axvline(co2_validation.index[0], linestyle="--", c="k")
+plt.text(co2_validation.index[0], 320, "validation split", rotation=90)
+
+# Vertical dashed line to show the position where future forecasts start
+plt.axvline(co2_validation.index[-1], linestyle="--", c="k")
+plt.text(co2_validation.index[-1], 320, "future forecasts start", rotation=90)
+
 plt.xlabel("data")
 plt.ylabel("target")
 plt.title("Decision Tree Regression")
