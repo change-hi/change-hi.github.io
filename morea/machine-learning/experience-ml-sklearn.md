@@ -33,7 +33,6 @@ This example uses data that consists of the monthly average atmospheric CO2 conc
 ### Build the dataset
 
 We will derive a dataset from the Mauna Loa Observatory that collected air samples. We are interested in estimating the concentration of CO2 and extrapolate it for further year. First, we load the original dataset available in OpenML.
-
 <div class="alert alert-secondary" role="alert" markdown="1">
 
 ~~~python
@@ -43,18 +42,21 @@ co2 = fetch_openml(data_id=41187, as_frame=True, parser="pandas")
 co2.frame.head()
 ~~~
 </div>
+
 First, we process the original dataframe to create a date index and select only the CO2 column.
 <div class="alert alert-secondary" role="alert" markdown="1">
 
 ~~~python
 import pandas as pd
 
+# Do necessary data type conversion and extract only required columns
 co2_data = co2.frame
 co2_data["date"] = pd.to_datetime(co2_data[["year", "month", "day"]])
 co2_data = co2_data[["date", "co2"]].set_index("date")
 co2_data.head()
 ~~~
 </div>
+
 <div class="alert alert-secondary" role="alert" markdown="1">
 
 ~~~python
@@ -76,6 +78,15 @@ _ = plt.title("Raw air samples measurements from the Mauna Loa Observatory")
 </div>
 {% include figure.html url="" max-width="60%" file="morea/machine-learning/fig/co2_data.png" alt="Basic Binder Webpage" caption="" %}
 
+We will preprocess the dataset by taking a monthly average and drop month for which no measurements were collected. Such a processing will have an smoothing effect on the data.
+<div class="alert alert-secondary" role="alert" markdown="1">
+
+~~~python
+# Resample data monthly
+co2_data = co2_data.resample("M").mean().dropna(axis="index", how="any")
+~~~
+</div>
+
 **Cross validation** is an important step in machine learning. In cross validation, the machine learning model is trained and evaluated on different subsets of input data. This step is crucial for clean evaluation, increased generalizability, and minimize underfitting & overfitting.
 
 <div class="alert alert-secondary" role="alert" markdown="1">
@@ -90,18 +101,20 @@ co2_train, co2_validation = train_test_split(
 ~~~
 </div>
 
-Also, we will preprocess the dataset by taking a monthly average and drop month for which no measurements were collected. Such a processing will have an smoothing effect on the data.
 <div class="alert alert-secondary" role="alert" markdown="1">
 
 ~~~python
-co2_data = co2_data.resample("M").mean().dropna(axis="index", how="any")
-co2_data.plot()
+plt.plot(co2_train)
+plt.plot(co2_validation)
 plt.ylabel("Monthly average of CO$_2$ concentration (ppm)")
+plt.xlabel("Date")
 _ = plt.title(
     "Monthly average of air samples measurements\nfrom the Mauna Loa Observatory"
 )
+plt.legend(["train", "validation"])
 ~~~
 </div>
+
 {% include figure.html url="" max-width="60%" file="morea/machine-learning/fig/co2_data_smoothed.png" alt="Basic Binder Webpage" caption="" %}
 
 The idea in this example will be to predict the CO2 concentration in function of the date. We are as well interested in extrapolating for upcoming year after 2001.
