@@ -472,6 +472,120 @@ plt.show()
 
 The results can vary quite a bit between runs. The method for fitting the decision trees is stochastic, and our many input variables are all similarly informative, so the tree's hierarchy can vary significantly. Decision trees are not robust, so slight changes in input or in the tree structure can drastically alter predictions.
 
+
+### Recurrent Neural Networks - RNN 
+#### Long-Short Term Memory (LSTM) network
+
+Training a Neural Network (NN) is an expensive computation. Training gets high resource consuming when the NN model is complex. Thus, we will use hardware acceleration (GPU) to speed up the computation.
+<div class="alert alert-secondary" role="alert" markdown="1">
+
+~~~python
+# Check if GPU is available and set device
+device = torch.device("cuda" if torch.cuda.is_available() else "cpu")
+device
+~~~
+</div>
+Out: `device(type='cuda')`
+
+**Hyperparameters** are external configuration settings for a machine learning model that are not learned from the data but are set prior to training, influencing the model's performance and behavior. Tuning hyperparameters for research projects require use of systematic approaches and packages (e.g. SHERPA, Optuna). However, we will do manual hyperparamter tuning (trial and error) for now.
+<div class="alert alert-secondary" role="alert" markdown="1">
+
+~~~python
+# Define hyperparameters
+TRAIN_WINDOW = 84
+FORECAST_WINDOW = 1
+
+input_size = TRAIN_WINDOW  # Input layer size
+hidden_size = 32  # No of hidden layer neurons
+output_size = FORECAST_WINDOW  # Output layer size
+
+n_hidden_layers = 1
+num_epochs = 75  # Number of training epochs
+learning_rate = 0.005
+~~~
+</div>
+
+Then, we will reformat the input data for the autoregressive task using LSTM.
+<div class="alert alert-secondary" role="alert" markdown="1">
+
+~~~python
+standardScaler = StandardScaler()
+
+# Generate training data for RNN
+normalized_train, X_train, y_train, scaler = preprocess_data(
+    list(co2_train["co2"]),
+    TRAIN_WINDOW,
+    standardScaler,
+    forecast_window=FORECAST_WINDOW,
+    is_test=False,
+)
+
+# Generate validation data for RNN
+normalized_validation, X_validation, y_validation, scaler = preprocess_data(
+    list(co2_validation["co2"]),
+    TRAIN_WINDOW,
+    standardScaler,
+    forecast_window=FORECAST_WINDOW,
+    is_test=True,
+)
+~~~
+</div>
+
+There are different python frameworks for building neural network models. Two most popular ones are:
+1. PyTorch
+2. TensorFlow
+
+We will use PyTorch in this example. First, we need to convert data to be feasible with PyTorch.
+<div class="alert alert-secondary" role="alert" markdown="1">
+
+~~~python
+# PyTorch
+import torch
+import torch.nn as nn
+import torch.optim as optim
+from torch.utils.data import DataLoader, TensorDataset
+
+# Convert data to tensors and transfer to GPU (if available)
+X_train_tensor = torch.Tensor(np.array(X_train)).to(device)
+y_train_tensor = torch.Tensor(np.array(y_train)).to(device)
+
+X_validation_tensor = torch.Tensor(np.array(X_validation)).to(device)
+y_validation_tensor = torch.Tensor(np.array(y_validation)).to(device)
+~~~
+</div>
+
+After that, we define the LSTM model and instantiate other model configuration parameters. Out of these optimizer and loss function are two important configurations that affect the trained LSTM model.
+<div class="alert alert-secondary" role="alert" markdown="1">
+
+~~~python
+# Define the LSTM model
+class SimpleLSTM(nn.Module):
+    def __init__(self, input_size, hidden_size, output_size):
+        super(SimpleLSTM, self).__init__()
+        # Define LSTM model
+        self.lstm = nn.LSTM(input_size, hidden_size, num_layers=n_hidden_layers).to(
+            device
+        )
+        self.fc = nn.Linear(hidden_size, output_size)
+
+    def forward(self, x):
+        out, _ = self.lstm(x)
+        out = self.fc(out)
+        return out
+~~~
+</div>
+
+<div class="alert alert-secondary" role="alert" markdown="1">
+
+~~~python
+# Instantiate the model, loss function, and optimizer
+model = SimpleLSTM(input_size, hidden_size, output_size).to(device)
+loss_function = nn.MSELoss()
+optimizer = optim.Adam(model.parameters(), lr=learning_rate)
+~~~
+</div>
+
+
 <!-- Template code block
 
 <div class="alert alert-secondary" role="alert" markdown="1">
