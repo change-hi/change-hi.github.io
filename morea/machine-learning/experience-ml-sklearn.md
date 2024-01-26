@@ -123,8 +123,8 @@ As a first step, we will divide the data and the target to estimate. The data be
 <div class="alert alert-secondary" role="alert" markdown="1">
 
 ~~~python
-X = (co2_data.index.year + co2_data.index.month / 12).to_numpy().reshape(-1, 1)
-y = co2_data["co2"].to_numpy()
+X = (co2_train.index.year + co2_train.index.month / 12).to_numpy().reshape(-1, 1)
+y = co2_train["co2"].to_numpy()
 ~~~
 </div>
 
@@ -141,18 +141,53 @@ Decision trees learn from data to approximate a function with a set of if-then-e
 
 ~~~python
 from sklearn import tree
-regr_1 = tree.DecisionTreeRegressor(max_depth=2)
-regr_2 = tree.DecisionTreeRegressor(max_depth=11)
-regr_1.fit(X, y)
-regr_2.fit(X, y)
+
+# Train models
+decision_tree_1 = tree.DecisionTreeRegressor(max_depth=2)
+decision_tree_2 = tree.DecisionTreeRegressor(max_depth=11)
+decision_tree_1.fit(X, y)
+decision_tree_2.fit(X, y)
+~~~
+</div>
+
+Next, we evaluate the performance on the validation data.
+<div class="alert alert-secondary" role="alert" markdown="1">
+
+~~~python
+# Make predictions on validation data
+X_validation = (
+    (co2_validation.index.year + co2_validation.index.month / 12)
+    .to_numpy()
+    .reshape(-1, 1)
+)
+y_validation = co2_validation["co2"].to_numpy()
+
+y_predictions_1 = decision_tree_1.predict(X_validation)
+y_predictions_2 = decision_tree_2.predict(X_validation)
+~~~
+</div>
+
+<div class="alert alert-secondary" role="alert" markdown="1">
+
+~~~python
+from sklearn.metrics import mean_squared_error
+
+# Calculate evaluation metrics
+mse_of_regr_1 = mean_squared_error(y_validation, y_predictions_1)
+mse_of_regr_2 = mean_squared_error(y_validation, y_predictions_2)
+
+print(f"Validation MSE for Decision Tree with depth 2: {mse_of_regr_1:.4f}")
+print(f"Validation MSE for Decision Tree with depth 11: {mse_of_regr_2:.4f}")
 ~~~
 </div>
 
 Now, we will use the the fitted models to predict on:
 
-training data to inspect the goodness of fit;
+* training data to inspect the goodness of fit;
 
-future data to see the extrapolation done by the models.
+* validation data to inspect the generalizability;
+
+* future data to see the extrapolation done by the models.
 
 Thus, we create synthetic data from 1958 to the current month. 
 
@@ -162,25 +197,34 @@ Thus, we create synthetic data from 1958 to the current month.
 import datetime
 import numpy as np
 
+# Get dates from 1958 to 2023
 today = datetime.datetime.now()
 current_month = today.year + today.month / 12
 X_test = np.linspace(start=1958, stop=current_month, num=1_000).reshape(-1, 1)
 ~~~
 </div>
+
 <div class="alert alert-secondary" role="alert" markdown="1">
 
 ~~~python
-y_1 = regr_1.predict(X_test)
-y_2 = regr_2.predict(X_test)
+# Make predictions
+y_1 = decision_tree_1.predict(X_test)
+y_2 = decision_tree_2.predict(X_test)
 ~~~
 </div>
+
 <div class="alert alert-secondary" role="alert" markdown="1">
 
 ~~~python
-plt.figure()
+plt.figure(figsize=(10, 6))
 plt.scatter(X, y, s=20, edgecolor="black", c="darkorange", label="data")
-plt.plot(X_test, y_1, color="cornflowerblue", label=f"max_depth={regr_1.max_depth}", linewidth=2)
-plt.plot(X_test, y_2, color="yellowgreen", label=f"max_depth={regr_2.max_depth}", linewidth=2)
+
+# Plot predictions of decision tree 1
+plt.plot(X_test, y_1, color="cornflowerblue", label=f"max_depth={decision_tree_1.max_depth}", linewidth=2)
+
+# Plot predictionso f decision tree 2
+plt.plot(X_test, y_2, color="yellowgreen", label=f"max_depth={decision_tree_2.max_depth}", linewidth=2)
+
 plt.xlabel("data")
 plt.ylabel("target")
 plt.title("Decision Tree Regression")
