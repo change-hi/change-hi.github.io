@@ -476,7 +476,7 @@ The results can vary quite a bit between runs. The method for fitting the decisi
 ### Recurrent Neural Networks - RNN 
 #### Long-Short Term Memory (LSTM) network
 
-Training a Neural Network (NN) is an expensive computation. Training gets high resource consuming when the NN model is complex. Thus, we will use hardware acceleration (GPU) to speed up the computation.
+Training a Neural Network (NN) is computationally expensive. Training gets high resource consuming when the NN model is complex. Thus, we will use hardware acceleration (GPU) to speed up the computation.
 <div class="alert alert-secondary" role="alert" markdown="1">
 
 ~~~python
@@ -585,6 +585,151 @@ optimizer = optim.Adam(model.parameters(), lr=learning_rate)
 ~~~
 </div>
 
+Afterward, we train the LSTM model for multiple epochs (epoch = single pass through the entire training dataset during the training).
+<div class="alert alert-secondary" role="alert" markdown="1">
+
+~~~python
+# Training loop
+for epoch in range(num_epochs):
+    # Forward pass
+    output = model(X_train_tensor)
+
+    # Compute the loss
+    loss = loss_function(output, y_train_tensor)
+
+    # Backward pass and optimization
+    optimizer.zero_grad()
+    loss.backward()
+    optimizer.step()
+
+    # Print the loss every 25 epochs
+    if (epoch + 1) % 25 == 0:
+        print(f"Epoch [{epoch + 1}/{num_epochs}], Loss: {loss.item():.4f}")
+~~~
+</div> 
+
+Then, we make evaluate the trained model on validation data.
+<div class="alert alert-secondary" role="alert" markdown="1">
+
+~~~python
+# Make predictions on validation data
+with torch.no_grad():
+    y_predictions_rnn = model(X_validation_tensor)
+
+# Calculate evaluation metrics
+mse_of_rnn = mean_squared_error(y_validation_tensor.cpu(), y_predictions_rnn.cpu())
+
+print(f"Validation MSE for RNN: {mse_of_rnn:.4f}")
+~~~
+</div>
+Out: `Validation MSE for RNN: 0.0710`
+
+Next, we make predictions on train data, validation data and extrapolate to future data similar to the way we did in decision trees example. 
+
+<div class="alert alert-secondary" role="alert" markdown="1">
+
+~~~python
+dates = pd.period_range("1958", "2023", freq="M").to_timestamp()
+test_inputs = list(normalized_train)
+
+# Number of predictions to make
+future_predictions_count = int(
+    np.ceil((len(dates) - len(test_inputs)) / FORECAST_WINDOW)
+)
+~~~
+</div>
+<div class="alert alert-secondary" role="alert" markdown="1">
+
+~~~python
+# Iteratively make predictions by moving the training window forward
+for i in range(future_predictions_count):
+    # Get the last set of input features
+    X_test = torch.Tensor(X_train[-1]).view(1, -1).to(device)
+    # Get the last target variable
+    y_test = torch.Tensor(y_train[-1]).to(device)
+
+    # Predict forecast window forward
+    with torch.no_grad():
+        y_pred = model(X_test)
+
+    # Append current y values to X
+    X_train.append(
+        torch.cat((X_test[0][-(TRAIN_WINDOW - FORECAST_WINDOW) :], y_test))
+        .cpu()
+        .data.numpy()
+    )
+
+    # Append prediction to the target values
+    y_train.append(y_pred.cpu().data.numpy()[0])
+~~~
+</div>
+<div class="alert alert-secondary" role="alert" markdown="1">
+
+~~~python
+# First value (0) + first values in first training data
+#       + y values in y_train (e.g. forecast window values)
+predictions = (
+    [np.array(0)]
+    + [np.array(value) for value in X_train[0]]
+    + [np.array(value) for y in y_train for value in y]
+)
+~~~
+</div>
+
+Finally, we convert CO2 derivates to absolute CO2 levels and compare with the results we got with Decision Trees.
+<div class="alert alert-secondary" role="alert" markdown="1">
+
+~~~python
+# Post process data
+decoded = postprocess_data(predictions, scaler, list(co2_train["co2"])[0])
+~~~
+</div>
+<div class="alert alert-secondary" role="alert" markdown="1">
+
+~~~python
+dates = pd.period_range("1958", "2023", freq="M").to_timestamp()
+plt.figure(figsize=(10, 6))
+
+# Plots for model predictions
+plt.plot(dates, decoded_3, label=f"max_depth={decistion_tree_3.max_depth}", linewidth=2)
+plt.plot(dates, decoded_4, label=f"max_depth={decision_tree_4.max_depth}", linewidth=2)
+plt.plot(dates, decoded_5, label=f"max_depth={decision_tree_5.max_depth}", linewidth=2)
+plt.plot(dates, decoded[: len(dates)], label=f"LSTM", linewidth=2)
+
+# Plot training and validation data
+plt.plot(co2_train, label="train", linewidth=1)
+plt.plot(co2_validation, label="validation", linewidth=1)
+
+# Vertical dashed line to show the position of validation split
+plt.axvline(co2_validation.index[0], linestyle="--", c="k")
+plt.text(co2_validation.index[0], 320, "validation split", rotation=90)
+
+# Vertical dashed line to show the position where future forecasts start
+plt.axvline(co2_validation.index[-1], linestyle="--", c="k")
+plt.text(co2_validation.index[-1], 320, "future forecasts start", rotation=90)
+
+plt.xlabel("data")
+plt.ylabel("target")
+plt.title("Regression models comparison")
+plt.legend()
+plt.show()
+~~~
+</div>
+
+{% include figure.html url="" max-width="60%" file="morea/machine-learning/fig/co2_rnn_decision_tree_comparison.png" alt="Basic Binder Webpage" caption="" %}
+
+<div class="alert alert-secondary" role="alert" markdown="1">
+
+~~~python
+# Print evaluation metrics for comparison
+print(f"Validation MSE for Decision Tree with depth 2  : {mse_of_decision_tree_3:.4f}")
+print(f"Validation MSE for Decision Tree with depth 10 : {mse_of_decision_tree_4:.4f}")
+print(f"Validation MSE for Decision Tree with depth 25 : {mse_of_decision_tree_5:.4f}")
+print(f"Validation MSE for Recurrent Neural Network    : {mse_of_rnn:.4f}")
+~~~
+</div>
+
+Based on the visualization and validation mean squared error, it is clear that LSTM (RNN) model successfully fits the training data, and extrapolate to future learning the underlying pattern unlike decision tree models. 
 
 <!-- Template code block
 
