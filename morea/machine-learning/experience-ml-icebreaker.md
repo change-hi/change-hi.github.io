@@ -22,6 +22,6 @@ Task:
  You have 5 minutes to discuss with your group.
 
  {% include next-button.html
-  top-label="Scikit-Learn ->"
+  top-label="2. Scikit-Learn ->"
   bottom-label="2:05pm"
   url="/morea/machine-learning/experience-ml-sklearn.html" %}

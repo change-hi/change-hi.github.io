@@ -10,6 +10,8 @@ morea_labels:
 morea_enable_toc: true
 ---
 
+# 2. Scikit-learn
+
 <div class="alert alert-success mt-3" role="alert" markdown="1">
 <i class="fa-solid fa-globe fa-xl"></i> **Overview**
 <hr/>
@@ -770,8 +772,13 @@ License: BSD 3 clause
 * [PyTorch LSTM tutorial](https://pytorch.org/tutorials/beginner/nlp/sequence_models_tutorial.html#sequence-models-and-long-short-term-memory-networks)
 </div>
 
+<div class="alert alert-warning" role="alert" markdown="1">
+<i class="fa-solid fa-circle-info fa-xl"></i> **Bio Break!**
+We will start again at 3:00 PM.
+<hr/>
+</div>
 
 {% include next-button.html 
-           top-label="Pytorch ->" 
+           top-label="3. Pytorch ->" 
            bottom-label="3:00pm" 
            url="/morea/machine-learning/experience-ml-pytorch.html" %}
