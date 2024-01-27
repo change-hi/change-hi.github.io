@@ -655,7 +655,7 @@ Prediction for March 2024: 1
 If we want to improve the model, the first thing to ask ourselves is whether we are __underfitting__ or __overfitting__. If we are not overfitting, then we are underfitting and we should increase the size of the model and train longer. If we are overfitting, then we should add regularization or get more training data.
 </div>
 
-</div> -->
+</div>
 
 {% include next-button.html
            top-label="Assessment ->"
