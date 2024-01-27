@@ -47,6 +47,10 @@ Google Colab is the easiest way to do the following activity because Pytorch com
 
 ### Getting familiar with deep learning with image data
 
+<a target="_blank" href="https://colab.research.google.com/github/change-hi/change-hi.github.io/tree/main/morea/machine-learning/Notebooks/02_pytorch_mnist.ipynb">
+  <img src="https://colab.research.google.com/assets/colab-badge.svg" alt="Open In Colab"/>
+</a>
+
 Before we start looking at climate data, we will build a simple image classification model using the MNIST dataset. This dataset consists of 70,000 images of handwritten digits (0-9) that are 28x28 pixels. The goal is to train a model that can correctly classify the digits.
 
 #### Import Libraries
@@ -367,6 +371,10 @@ NetCDF is a common data format for climate data. It is a self-describing format 
 </div>
 
 ## Activity: ENSO Phase Prediction with Deep Learning
+
+<a target="_blank" href="https://colab.research.google.com/github/change-hi/change-hi.github.io/tree/main/morea/machine-learning/Notebooks/03_pytorch_ENSO.ipynb">
+  <img src="https://colab.research.google.com/assets/colab-badge.svg" alt="Open In Colab"/>
+</a>
 
 <div class="alert alert-secondary" role="alert" markdown="1">
 <i class="fa-solid fa-user-pen fa-xl"></i>  **Exercise: Import dataset, check configuration**
