@@ -403,7 +403,7 @@ ssta = (
 
 {% include figure.html url="" max-width="50%" file="/morea/machine-learning/fig/ersst_anom.png" alt="ERSSTv5" caption="Sea surface temperature anomaly map from the ERSSTv5 dataset" %}
 
-We will now load the labels for the ENSO phase which has been prepared for this workshop. The labels are stored in a pandas dataframe with 4 columns: date, lead_1, lead_2, lead_3. The date column is the date of the observation, while the lead columns are the ENSO phase 1, 2, and 3 months in the future. The ENSO phase has been converted to a categorical variable with 3 classes: 0 (Neutral), 1 (El Niño), and 2 (La Niña).
+We will now load the labels for the ENSO phase which has been prepared for this workshop and can be downloaded from [this link](https://drive.google.com/file/d/11V-9OriJuDuzGjUL1xg9fnxIrXI80qsD/view?usp=sharing). The labels are stored in a pandas dataframe with 4 columns: date, lead_1, lead_2, lead_3. The date column is the date of the observation, while the lead columns are the ENSO phase 1, 2, and 3 months in the future. The ENSO phase has been converted to a categorical variable with 3 classes: 0 (Neutral), 1 (El Niño), and 2 (La Niña).
 
 ```python
 labels_df = pd.read_csv("data/labels.csv")
@@ -619,7 +619,7 @@ Accuracy Lead 3: 60.69%
 
 ### Forecast with December 2023
 
-We can now use the model to make a forecast. We will use the December 2023 data as input to the model and see what the model predicts for the next 3 months.
+We can now use the model to make a forecast. We will use the December 2023 data as input to the model and see what the model predicts for the next 3 months. You can download the data from [this link](https://drive.google.com/file/d/19Aom-ta1M6R4gg1u5b-cOFybgzpTUo6W/view?usp=sharing)
 
 ```python
 dec2023 = xr.open_dataset("data/ersst_anom_dec2023.nc").ssta
