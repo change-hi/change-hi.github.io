@@ -49,7 +49,7 @@ Google Colab is the easiest way to do the following activity because Pytorch com
 
 ### Getting familiar with deep learning with image data
 
-<a target="_blank" href="https://colab.research.google.com/github/AmilaIndika789/change-hi.github.io/blob/main/morea/machine-learning/Notebooks/02_pytorch_mnist.ipynb">
+<a target="_blank" href="https://colab.research.google.com/github/change-hi/change-hi.github.io/blob/main/morea/machine-learning/Notebooks/02_pytorch_mnist.ipynb">
   <img src="https://colab.research.google.com/assets/colab-badge.svg" alt="Open In Colab"/>
 </a>
 
@@ -374,7 +374,7 @@ NetCDF is a common data format for climate data. It is a self-describing format 
 
 ## Activity: ENSO Phase Prediction with Deep Learning
 
-<a target="_blank" href="https://colab.research.google.com/github/AmilaIndika789/change-hi.github.io/blob/main/morea/machine-learning/Notebooks/03_pytorch_ENSO.ipynb">
+<a target="_blank" href="https://colab.research.google.com/github/change-hi/change-hi.github.io/blob/main/morea/machine-learning/Notebooks/03_pytorch_ENSO.ipynb">
   <img src="https://colab.research.google.com/assets/colab-badge.svg" alt="Open In Colab"/>
 </a>
 

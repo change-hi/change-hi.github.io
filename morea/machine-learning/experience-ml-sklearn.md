@@ -23,7 +23,7 @@ morea_enable_toc: true
 * Understand how to fit decision trees in SciKit-Learn
 </div>
 
-<a target="_blank" href="https://colab.research.google.com/github/AmilaIndika789/change-hi.github.io/blob/1_sklearn/morea/machine-learning/Notebooks/01_Mauna_Loa_CO2_climate_example.ipynb">
+<a target="_blank" href="https://colab.research.google.com/github/change-hi/change-hi.github.io/blob/main/morea/machine-learning/Notebooks/01_Mauna_Loa_CO2_climate_example.ipynb">
   <img src="https://colab.research.google.com/assets/colab-badge.svg" alt="Open In Colab"/>
 </a>
 
@@ -195,7 +195,7 @@ Now, we will use the the fitted models to predict on:
 
 * future data to see the extrapolation done by the models.
 
-Thus, we create synthetic data from 1958 to the current month. 
+Thus, we create synthetic data from 1958 to the current month.
 
 <div class="alert alert-secondary" role="alert" markdown="1">
 
@@ -244,7 +244,7 @@ As you can see, the decision tree regression was able to fit data within the exi
 
 ### Model the derivative of the data
 
-To improve the model's generalization, we will predict on differences in CO2 rather than absolute CO2 levels, using a "sliding window" of recent CO2 differences as the input. 
+To improve the model's generalization, we will predict on differences in CO2 rather than absolute CO2 levels, using a "sliding window" of recent CO2 differences as the input.
 We will also normalize the data.
 <div class="alert alert-secondary" role="alert" markdown="1">
 
@@ -476,7 +476,7 @@ plt.show()
 The results can vary quite a bit between runs. The method for fitting the decision trees is stochastic, and our many input variables are all similarly informative, so the tree's hierarchy can vary significantly. Decision trees are not robust, so slight changes in input or in the tree structure can drastically alter predictions.
 
 
-### Recurrent Neural Networks - RNN 
+### Recurrent Neural Networks - RNN
 #### Long-Short Term Memory (LSTM) network
 
 Training a Neural Network (NN) is computationally expensive. Training gets high resource consuming when the NN model is complex. Thus, we will use hardware acceleration (GPU) to speed up the computation.
@@ -609,7 +609,7 @@ for epoch in range(num_epochs):
     if (epoch + 1) % 25 == 0:
         print(f"Epoch [{epoch + 1}/{num_epochs}], Loss: {loss.item():.4f}")
 ~~~
-</div> 
+</div>
 
 Then, we make evaluate the trained model on validation data.
 <div class="alert alert-secondary" role="alert" markdown="1">
@@ -627,7 +627,7 @@ print(f"Validation MSE for RNN: {mse_of_rnn:.4f}")
 </div>
 Out: `Validation MSE for RNN: 0.0710`
 
-Next, we make predictions on train data, validation data and extrapolate to future data similar to the way we did in decision trees example. 
+Next, we make predictions on train data, validation data and extrapolate to future data similar to the way we did in decision trees example.
 
 <div class="alert alert-secondary" role="alert" markdown="1">
 
@@ -732,7 +732,7 @@ print(f"Validation MSE for Recurrent Neural Network    : {mse_of_rnn:.4f}")
 ~~~
 </div>
 
-Based on the visualization and validation mean squared error, it is clear that LSTM (RNN) model successfully fits the training data, and extrapolate to future learning the underlying pattern unlike decision tree models. 
+Based on the visualization and validation mean squared error, it is clear that LSTM (RNN) model successfully fits the training data, and extrapolate to future learning the underlying pattern unlike decision tree models.
 
 <!-- Template code block
 
@@ -749,7 +749,7 @@ Based on the visualization and validation mean squared error, it is clear that L
 <i class="fa-solid fa-circle-info fa-xl"></i> **For more information**
 <hr/>
 
-### Attribution: 
+### Attribution:
 This workshop was modified from the following:
 
 [Gaussian process regression (GPR) on Mauna Loa CO2 data](https://scikit-learn.org/stable/auto_examples/gaussian_process/plot_gpr_co2.html)
@@ -758,7 +758,7 @@ This workshop was modified from the following:
    "Gaussian processes in machine learning."
    Summer school on machine learning. Springer, Berlin, Heidelberg, 2003](http://www.gaussianprocess.org/gpml/chapters/RW.pdf).
 
-Authors: 
+Authors:
 - Jan Hendrik Metzen <jhm@informatik.uni-bremen.de>
 - Guillaume Lemaitre <g.lemaitre58@gmail.com>
 
@@ -778,7 +778,7 @@ We will start again at 3:00 PM.
 <hr/>
 </div>
 
-{% include next-button.html 
-           top-label="3. Pytorch ->" 
-           bottom-label="3:00pm" 
+{% include next-button.html
+           top-label="3. Pytorch ->"
+           bottom-label="3:00pm"
            url="/morea/machine-learning/experience-ml-pytorch.html" %}
