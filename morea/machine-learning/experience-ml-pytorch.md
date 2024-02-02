@@ -334,6 +334,23 @@ It is hard to know when to stop training, because even when the model seems to h
 In practice, we train until we run out of patience or when we start overfitting to a held out test set (known as __early stopping__).
 </div>
 
+It is useful to plot the training loss to see how the model is improving.
+
+<div class="alert alert-secondary" role="alert" markdown="1">
+Code:
+
+```python
+plt.plot(train_loss)
+plt.title("Training Loss")
+plt.xlabel("Epoch")
+plt.ylabel("Loss")
+plt.show()
+```
+
+</div>
+
+{% include figure.html url="" max-width="50%" file="/morea/machine-learning/fig/mnist_train_loss.png" alt="Training Loss" caption="Training Loss" %}
+
 #### Evaluate the model
 
 Now we can evaluate the model on the test set. We first set the model to evaluation mode, then we iterate through the test set and make predictions. We then compare the predictions to the ground truth labels and compute the accuracy.
@@ -374,6 +391,7 @@ Test Accuracy: 98.71%
 ```
 </div>
 
+We can also visualize some of the predictions to get a sense of how well the model is performing after training.
 
 <div class="alert alert-secondary" role="alert" markdown="1">
 Code:
@@ -408,7 +426,7 @@ The El Niño Southern Oscillation (ENSO) is a climate phenomenon that occurs in 
 
 The NOAA Extended Reconstructed Sea Surface Temperature (ERSST) v5 dataset is a global monthly sea surface temperature dataset. It is a blend of in situ and satellite data that begins in 1854 and is updated monthly. The data is available in netCDF format from the [NOAA website](https://psl.noaa.gov/data/gridded/data.noaa.ersst.v5.html).
 
-A subset of the data has already been prepared for this workshop. In particular, we will focus our attention on a region in the Pacific ocean (40S-40N, 120E-100W) from 1854-2023. The data is stored in a 3D array (time, lat, lon) in netCDF format, which is a common format for climate data.
+A subset of the data has already been prepared for this workshop. In particular, we will focus our attention on a region in the Pacific ocean (40S-40N, 120E-100W) from 1854-2023. More specifically, we will use the sea surface temperature anomaly (SSTA) data, which is the difference between the sea surface temperature and the long-term average. This data is stored in a 3D array (time, lat, lon) in netCDF format, which is a common format for climate data.
 
 {% include figure.html url="" max-width="50%" file="/morea/machine-learning/fig/ERSSTv5.png" alt="ERSSTv5" caption="Sea surface temperature map from the ERSSTv5 dataset (Courtesy of NCAR)" %}
 
