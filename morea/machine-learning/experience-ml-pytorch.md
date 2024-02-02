@@ -72,6 +72,24 @@ from torchvision.transforms import ToTensor
 ```
 </div>
 
+#### Select a device
+
+Before we start, we need to select a device to train the model on. If you are using Google Colab, you can use a GPU by selecting Runtime -> Change runtime type -> Hardware accelerator -> GPU. If you are using your own computer, you can use a GPU if you have one available. Otherwise, you can use the CPU.
+
+<div class="alert alert-secondary" role="alert" markdown="1">
+
+Code:
+```python
+torch.device(
+    "cuda"
+    if torch.cuda.is_available()
+    else "mps"
+    if torch.backends.mps.is_available()
+    else "cpu"
+)
+```
+</div>
+
 #### Download the MNIST dataset
 
 As the MNIST dataset is a common dataset, it is already available in the torchvision package. We can download the data and preprocess it using the following code.
@@ -425,6 +443,18 @@ import xarray as xr
 from torch.utils.data import DataLoader
 ```
 
+First we select a device to train the model on. If you are using Google Colab, you can use a GPU by selecting Runtime -> Change runtime type -> Hardware accelerator -> GPU. If you are using your own computer, you can use a GPU if you have one available. Otherwise, you can use the CPU.
+
+```python
+torch.device(
+    "cuda"
+    if torch.cuda.is_available()
+    else "mps"
+    if torch.backends.mps.is_available()
+    else "cpu"
+)
+```
+
 ### Download and Preprocess Data
 
 Download the data from [this link](https://drive.google.com/file/d/1EyPzfpMj51YaIKxhL3ol54fBmt0O4Dn-/view?usp=sharing) and move or upload the file into your jupyterlab workspace. Load the data into an xarray dataset using the `xr.open_dataset` function and select the variable ssta (sea surface temperature anomaly). The data is a 3D array (time, lat, lon) with missing values. We will fill in the missing values with zeros.
@@ -545,18 +575,6 @@ Experienced practicioners know which architectures tend to work best for certain
 ### Training the Model
 
 Training the model is an iterative process. Starting from randomly initialized parameters, we iterate through the training examples, make predictions, and update the weight parameters to minimize the __loss function__. In this case, we use the cross entropy loss. We keep track of the average loss over the training set, and report it every time we iterate through the training dataset --- each iteration through the training set is called an __epoch__.
-
-First we select a device to train the model on. If you are using Google Colab, you can use a GPU by selecting Runtime -> Change runtime type -> Hardware accelerator -> GPU. If you are using your own computer, you can use a GPU if you have one available. Otherwise, you can use the CPU.
-
-```python
-torch.device(
-    "cuda"
-    if torch.cuda.is_available()
-    else "mps"
-    if torch.backends.mps.is_available()
-    else "cpu"
-)
-```
 
 We can now write the training loop.
 
