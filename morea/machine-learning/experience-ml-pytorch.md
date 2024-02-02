@@ -47,7 +47,7 @@ Google Colab is the easiest way to do the following activity because Pytorch com
 
 </div>
 
-### Getting familiar with deep learning with image data
+### Getting familiar with deep learning on images data: MNIST dataset
 
 <a target="_blank" href="https://colab.research.google.com/github/change-hi/change-hi.github.io/blob/main/morea/machine-learning/Notebooks/02_pytorch_mnist.ipynb">
   <img src="https://colab.research.google.com/assets/colab-badge.svg" alt="Open In Colab"/>
@@ -357,7 +357,36 @@ Test Accuracy: 98.71%
 </div>
 
 
-### Sea Surface Temperature Data: NOAA Extended Reconstructed Sea Surface Temperature (ERSST) v5
+<div class="alert alert-secondary" role="alert" markdown="1">
+Code:
+
+```python
+fig, ax = plt.subplots(3, 3, figsize=(8, 8))
+for i in range(3):
+    for j in range(3):
+        sample_idx = torch.randint(len(test_data), size=(1,)).item()
+        img, label = test_data[sample_idx]
+        output = model(img.unsqueeze(0))
+        _, predicted = torch.max(output.data, 1)
+        ax[i, j].imshow(img.squeeze(), cmap="gray")
+        ax[i, j].set_title(f"Predicted: {predicted.item()}, True: {label}")
+        ax[i, j].axis("off")
+plt.show()
+```
+
+</div>
+
+{% include figure.html url="" max-width="50%" file="/morea/machine-learning/fig/mnist_prediction.png" alt="MNIST Prediction" caption="MNIST Prediction" %}
+
+<br/>
+<hr/>
+<br/>
+
+### Climate Data: El Niño Southern Oscillation (ENSO) Phase Prediction
+
+The El Niño Southern Oscillation (ENSO) is a climate phenomenon that occurs in the Pacific ocean. It is characterized by a periodic warming and cooling of the sea surface temperature. The ENSO phase can be classified into three categories: El Niño, La Niña, and Neutral. This event has a significant impact on weather patterns around the world, and is of great interest to climate scientists.
+
+#### Sea Surface Temperature Data: NOAA Extended Reconstructed Sea Surface Temperature (ERSST) v5
 
 The NOAA Extended Reconstructed Sea Surface Temperature (ERSST) v5 dataset is a global monthly sea surface temperature dataset. It is a blend of in situ and satellite data that begins in 1854 and is updated monthly. The data is available in netCDF format from the [NOAA website](https://psl.noaa.gov/data/gridded/data.noaa.ersst.v5.html).
 
