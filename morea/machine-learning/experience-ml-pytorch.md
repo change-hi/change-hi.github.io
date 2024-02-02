@@ -22,7 +22,7 @@ morea_enable_toc: true
 * What should we consider when designing a neural network architecture?
 
 **Objectives**
-* Understand how to train a deep learning model in Keras
+* Understand how to train a deep learning model in Pytorch
 * Understand how to use common data formats in climate science.
 </div>
 
@@ -47,7 +47,7 @@ Google Colab is the easiest way to do the following activity because Pytorch com
 
 </div>
 
-### Getting familiar with deep learning with image data
+### Getting familiar with deep learning on images data: MNIST dataset
 
 <a target="_blank" href="https://colab.research.google.com/github/change-hi/change-hi.github.io/blob/main/morea/machine-learning/Notebooks/02_pytorch_mnist.ipynb">
   <img src="https://colab.research.google.com/assets/colab-badge.svg" alt="Open In Colab"/>
@@ -69,6 +69,24 @@ import torch.nn as nn
 from torch.utils.data import DataLoader
 from torchvision import datasets
 from torchvision.transforms import ToTensor
+```
+</div>
+
+#### Select a device
+
+Before we start, we need to select a device to train the model on. If you are using Google Colab, you can use a GPU by selecting Runtime -> Change runtime type -> Hardware accelerator -> GPU. If you are using your own computer, you can use a GPU if you have one available. Otherwise, you can use the CPU.
+
+<div class="alert alert-secondary" role="alert" markdown="1">
+
+Code:
+```python
+torch.device(
+    "cuda"
+    if torch.cuda.is_available()
+    else "mps"
+    if torch.backends.mps.is_available()
+    else "cpu"
+)
 ```
 </div>
 
@@ -316,6 +334,23 @@ It is hard to know when to stop training, because even when the model seems to h
 In practice, we train until we run out of patience or when we start overfitting to a held out test set (known as __early stopping__).
 </div>
 
+It is useful to plot the training loss to see how the model is improving.
+
+<div class="alert alert-secondary" role="alert" markdown="1">
+Code:
+
+```python
+plt.plot(train_loss)
+plt.title("Training Loss")
+plt.xlabel("Epoch")
+plt.ylabel("Loss")
+plt.show()
+```
+
+</div>
+
+{% include figure.html url="" max-width="50%" file="/morea/machine-learning/fig/mnist_train_loss.png" alt="Training Loss" caption="Training Loss" %}
+
 #### Evaluate the model
 
 Now we can evaluate the model on the test set. We first set the model to evaluation mode, then we iterate through the test set and make predictions. We then compare the predictions to the ground truth labels and compute the accuracy.
@@ -356,12 +391,42 @@ Test Accuracy: 98.71%
 ```
 </div>
 
+We can also visualize some of the predictions to get a sense of how well the model is performing after training.
 
-### Sea Surface Temperature Data: NOAA Extended Reconstructed Sea Surface Temperature (ERSST) v5
+<div class="alert alert-secondary" role="alert" markdown="1">
+Code:
+
+```python
+fig, ax = plt.subplots(3, 3, figsize=(8, 8))
+for i in range(3):
+    for j in range(3):
+        sample_idx = torch.randint(len(test_data), size=(1,)).item()
+        img, label = test_data[sample_idx]
+        output = model(img.unsqueeze(0))
+        _, predicted = torch.max(output.data, 1)
+        ax[i, j].imshow(img.squeeze(), cmap="gray")
+        ax[i, j].set_title(f"Predicted: {predicted.item()}, True: {label}")
+        ax[i, j].axis("off")
+plt.show()
+```
+
+</div>
+
+{% include figure.html url="" max-width="50%" file="/morea/machine-learning/fig/mnist_prediction.png" alt="MNIST Prediction" caption="MNIST Prediction" %}
+
+<br/>
+<hr/>
+<br/>
+
+### Climate Data: El Niño Southern Oscillation (ENSO) Phase Prediction
+
+The El Niño Southern Oscillation (ENSO) is a climate phenomenon that occurs in the Pacific ocean. It is characterized by a periodic warming and cooling of the sea surface temperature. The ENSO phase can be classified into three categories: El Niño, La Niña, and Neutral. This event has a significant impact on weather patterns around the world, and is of great interest to climate scientists.
+
+#### Sea Surface Temperature Data: NOAA Extended Reconstructed Sea Surface Temperature (ERSST) v5
 
 The NOAA Extended Reconstructed Sea Surface Temperature (ERSST) v5 dataset is a global monthly sea surface temperature dataset. It is a blend of in situ and satellite data that begins in 1854 and is updated monthly. The data is available in netCDF format from the [NOAA website](https://psl.noaa.gov/data/gridded/data.noaa.ersst.v5.html).
 
-A subset of the data has already been prepared for this workshop. In particular, we will focus our attention on a region in the Pacific ocean (40S-40N, 120E-100W) from 1854-2023. The data is stored in a 3D array (time, lat, lon) in netCDF format, which is a common format for climate data.
+A subset of the data has already been prepared for this workshop. In particular, we will focus our attention on a region in the Pacific ocean (40S-40N, 120E-100W) from 1854-2023. More specifically, we will use the sea surface temperature anomaly (SSTA) data, which is the difference between the sea surface temperature and the long-term average. This data is stored in a 3D array (time, lat, lon) in netCDF format, which is a common format for climate data.
 
 {% include figure.html url="" max-width="50%" file="/morea/machine-learning/fig/ERSSTv5.png" alt="ERSSTv5" caption="Sea surface temperature map from the ERSSTv5 dataset (Courtesy of NCAR)" %}
 
@@ -394,6 +459,18 @@ import torch
 import torch.nn as nn
 import xarray as xr
 from torch.utils.data import DataLoader
+```
+
+First we select a device to train the model on. If you are using Google Colab, you can use a GPU by selecting Runtime -> Change runtime type -> Hardware accelerator -> GPU. If you are using your own computer, you can use a GPU if you have one available. Otherwise, you can use the CPU.
+
+```python
+torch.device(
+    "cuda"
+    if torch.cuda.is_available()
+    else "mps"
+    if torch.backends.mps.is_available()
+    else "cpu"
+)
 ```
 
 ### Download and Preprocess Data
@@ -516,18 +593,6 @@ Experienced practicioners know which architectures tend to work best for certain
 ### Training the Model
 
 Training the model is an iterative process. Starting from randomly initialized parameters, we iterate through the training examples, make predictions, and update the weight parameters to minimize the __loss function__. In this case, we use the cross entropy loss. We keep track of the average loss over the training set, and report it every time we iterate through the training dataset --- each iteration through the training set is called an __epoch__.
-
-First we select a device to train the model on. If you are using Google Colab, you can use a GPU by selecting Runtime -> Change runtime type -> Hardware accelerator -> GPU. If you are using your own computer, you can use a GPU if you have one available. Otherwise, you can use the CPU.
-
-```python
-torch.device(
-    "cuda"
-    if torch.cuda.is_available()
-    else "mps"
-    if torch.backends.mps.is_available()
-    else "cpu"
-)
-```
 
 We can now write the training loop.
 
