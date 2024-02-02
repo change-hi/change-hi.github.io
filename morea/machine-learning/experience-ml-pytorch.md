@@ -22,7 +22,7 @@ morea_enable_toc: true
 * What should we consider when designing a neural network architecture?
 
 **Objectives**
-* Understand how to train a deep learning model in Keras
+* Understand how to train a deep learning model in Pytorch
 * Understand how to use common data formats in climate science.
 </div>
 
