@@ -7,6 +7,7 @@ morea_outcomes:
   - 10-tsa-outcomes
 morea_readings:
   - 20-tsa-readings
+  - 21-tsa-overview
 morea_experiences:
   - 31-tsa-experience-icebreaker
   - 32-tsa-experience-lab & mini lecture 1
