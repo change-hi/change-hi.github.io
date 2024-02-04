@@ -27,7 +27,7 @@
 
 * Download R: [https://cran.r-project.org/mirrors.html](https://cran.r-project.org/mirrors.html) 
 * Download R-Studio: [https://posit.co/download/rstudio-desktop/](https://posit.co/download/rstudio-desktop/) 
-* R Notebook: 
+* R Notebook: [https://bookdown.org/yihui/rmarkdown/notebook.html](https://bookdown.org/yihui/rmarkdown/notebook.html)
 * KOA Access: [https://koa.its.hawaii.edu/](https://koa.its.hawaii.edu/)
 * Presentation: [https://docs.google.com/presentation/d/1YLgclYe3Hkf8lIDctmLbreOeoq1R_nHEQ0Me4weTEMg/edit?usp=sharing](https://docs.google.com/presentation/d/1YLgclYe3Hkf8lIDctmLbreOeoq1R_nHEQ0Me4weTEMg/edit?usp=sharing)
 * Ice Breaker: [https://docs.google.com/presentation/d/13LXlBwBo1M4IRdF3K1uq5_U_FXInqP216wlHB8ESqcM/edit?usp=drive_link](https://docs.google.com/presentation/d/13LXlBwBo1M4IRdF3K1uq5_U_FXInqP216wlHB8ESqcM/edit?usp=drive_link) 
