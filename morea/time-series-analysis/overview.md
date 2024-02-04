@@ -1,3 +1,13 @@
+---
+title: "Preparations"
+published: true
+morea_id: 21-tsa-overview
+morea_type: reading
+morea_summary: "An overview of his workshop"
+morea_sort_order: 1
+morea_labels:
+  - Pre-workshop
+---
 
 ## **HI-DSI WORKSHOP SYLLABUS: EXPLORATORY TIME-SERIES ANALYSIS IN R**
 
@@ -13,8 +23,6 @@
 
 **Learning Objectives:**
 
-
-
 1. Grasp the process of decomposing time series utilizing climate change data available on the R-Studio server during the workshop.
 2. Comprehend the exploratory techniques applied to time series analysis by breaking down climate change trends and variations to discern underlying causes and contributing factors..
 3. Comprehend exploratory methods for time series by breaking down trends and variations in climate change data to identify underlying causes and factors.
@@ -22,8 +30,6 @@
 5. Recognize the significance of exploratory data analysis in time series, acknowledging its pivotal role in achieving a more precise understanding of time series data.
 
 **Workshop Resources:**
-
-
 
 * Download R: [https://cran.r-project.org/mirrors.html](https://cran.r-project.org/mirrors.html) 
 * Download R-Studio: [https://posit.co/download/rstudio-desktop/](https://posit.co/download/rstudio-desktop/) 
