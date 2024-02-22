@@ -10,19 +10,19 @@ morea_labels:
 
 ## Preparation 
 
-Today we will be using Mana so you will require an account in order to run the Jupyter notebooks.
+Today we will be using Koa (previous Mana) so you will require an account in order to run the Jupyter notebooks.
 
 <div class="alert alert-secondary" role="alert" markdown="1">
-<i class="fa-solid fa-user-pen fa-xl"></i>  **Login to Mana**
+<i class="fa-solid fa-user-pen fa-xl"></i>  **Login to Koa (previous Mana)**
 <hr/>
 
-Make sure you have access to Mana. You can test this by running:
+Make sure you have access to Koa (previous Mana). You can test this by running:
 
 ```ssh
-ssh username@uhhpc.its.hawaii.edu
+ssh username@koa.its.hawaii.edu
 ```
 
-or by going to uhhpc.its.hawaii.edu in a web browser and verifying you are able to login using your UH credentials.
+or by going to https://koa.its.hawaii.edu in a web browser and verifying you are able to login using your UH credentials.
 </div>
 
 We will be using a Jetstream virtual machine as a system for Tapis to send and pull files from.

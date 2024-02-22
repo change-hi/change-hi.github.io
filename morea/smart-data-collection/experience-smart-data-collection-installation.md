@@ -41,7 +41,7 @@ You should now be brought to a terminal connected to the virtual machine.
 <i class="fa-solid fa-triangle-exclamation fa-xl"></i> **Heads up!**
 <hr/>
 
-On your first time using a MANA terminal, it will show a "do you trust this system" prompt, simply type "yes" and enter.
+On your first time using a Koa terminal, it will show a "do you trust this system" prompt, simply type "yes" and enter.
 </div>
 
 
@@ -121,7 +121,7 @@ The notebook should now be open, and ready to edit!
 <i class="fa-solid fa-globe fa-xl"></i> **Key Points**
 <hr/>
 
-* MANA’s web interface provides a terminal for the machine that the notebook runs on.
+* Koa’s web interface provides a terminal for the machine that the notebook runs on.
 * You can install and import new python libraries to support a notebook.
 </div>
 

@@ -3,7 +3,7 @@ title: "1. Introduction to smart data collection for sensor networks"
 published: true
 morea_id: experience-smart-data-collection-introduction
 morea_type: experience
-morea_summary: "What is Tapis?  What is the Streams API? What is Abaco?"
+morea_summary: "What is Tapis?  What is the Streams API?  What is Abaco?"
 morea_sort_order: 2
 morea_labels:
   - 2:00 - 2:15pm
@@ -27,6 +27,10 @@ morea_labels:
 ## Tapis
 
 [Tapis Slide presentation](https://docs.google.com/presentation/d/1WvLGXWgIGMaVLLVm1miT3rY76bx3egaLxpE7mo6fBYY/edit#slide=id.gd1fbb4c590_0_742){:target="_blank"}
+
+<div class="responsive-iframe">
+  <iframe src="https://docs.google.com/presentation/d/1WvLGXWgIGMaVLLVm1miT3rY76bx3egaLxpE7mo6fBYY/edit?usp=sharing" frameborder="0" width="1080" height="720" allowfullscreen="true" mozallowfullscreen="true" webkitallowfullscreen="true"></iframe>
+</div>
 
 Tapis is a National Science Foundation (NSF) funded web-based API framework for securely managing computational workloads across infrastructures and institutions. The newest iteration, Tapis V3, has several new capabilities, including a multi-site security kernel, streaming data APIs, and high-level support for containerized applications. Tapis provides several APIs for data management and processing. We will be working with the streams API for handling stream style data typical of a sensor network.
 

@@ -3,7 +3,7 @@ title: "2. Connecting to Jupyter"
 published: true
 morea_id: experience-smart-data-collection-jupyter
 morea_type: experience
-morea_summary: "How do we deploy and access a Jupyter notebook server using MANA?"
+morea_summary: "How do we deploy and access a Jupyter notebook server using Koa?"
 morea_sort_order: 2
 morea_labels:
   - 2:15 - 2:30pm
@@ -17,15 +17,15 @@ morea_enable_toc: true
 <hr/>
 
 **Questions**
-  * How do we deploy and access a Jupyter notebook server using MANA?
+  * How do we deploy and access a Jupyter notebook server using Koa?
 
 **Objectives**
-  * Use MANA’s web interface to deploy a Jupyter notebook server job and connect to the server.
+  * Use Koa’s web interface to deploy a Jupyter notebook server job and connect to the server.
 </div>
 
 ## Creating a Jupyter notebook server
 
-We will use MANA to deploy and access a Jupyter notebook with python scripts demonstrating the usage of the Tapis Streams API. The web interface for MANA includes a built in interface for creating and deploying a Jupyter notebook server.
+We will use Koa to deploy and access a Jupyter notebook with python scripts demonstrating the usage of the Tapis Streams API. The web interface for Koa includes a built-in interface for creating and deploying a Jupyter notebook server.
 
 <div class="alert alert-info" role="alert" markdown="1">
 <i class="fa-solid fa-circle-info fa-xl"></i> **Note**
@@ -33,13 +33,15 @@ We will use MANA to deploy and access a Jupyter notebook with python scripts dem
 If you are already familiar with an alternative method to deploy a Jupyter notebook, e.g. Google Colab, feel free to use that instead.
 </div>
 
-### Deploying a Jupyter notebook server on MANA
+### Deploying a Jupyter notebook server on Koa
 
-Go to [https://uhhpc.its.hawaii.edu/](https://uhhpc.its.hawaii.edu/){:target="_blank"} in a web browser and log in with your UH credentials. This will bring you to the MANA web interface.
+Go to [https://koa.its.hawaii.edu](https://koa.its.hawaii.edu){:target="_blank"} in a web browser and log in with your UH credentials. This will bring you to the Koa web interface.
 
-At the top of this interface there should be a dropdown menu labeled "Interactive Apps". Click this and select "Jupyter Notebook" from the dropdown menu. This will bring you to a form for configuring and deploying the server as a job on MANA.
+At the top of this interface there should be a dropdown menu labeled "Interactive Apps". Click that and select "Jupyter Notebook". This will bring you to a form for configuring and deploying the server as a job on Koa.
 
-{% include figure.html url="" max-width="50%" file="/morea/smart-data-collection/fig/mana_jupyter.PNG" alt="Connect to cluster" caption="" %}
+{% include figure.html url="" max-width="50%"
+file="/morea/hpc/fig/koa_ood_landing.png"
+alt="Connect to cluster" caption="" %}
 
 
 We will deploy this job to the workshop partition. Most of the default settings for this job should work, but increase the "Number of hours" to 2. These values should be as follows:
@@ -49,7 +51,9 @@ We will deploy this job to the workshop partition. Most of the default settings 
 | SLURM Account             | (blank)     |
 | Partition                 | workshop    |
 | Number of hours           | 2           |
-| Number of cores           | 1           |
+| Number of Nodes           | 1           |
+| Number of Tasks per Node  | 1           |
+| Number of cores per task  | 1           |
 | GB of RAM                 | 6           |
 | Number of GPUs requested  | 0           |
 | GPU Type                  | Any         |
@@ -64,14 +68,14 @@ Shortly, the job status should change to "Running" indicating the job has been l
 {% include figure.html url="" max-width="50%" file="/morea/smart-data-collection/fig/job_running.PNG" alt="Connect to cluster" caption="" %}
 
 
-The Jupyter notebook server will display the files available in your account's home directory on MANA. We will need to download the notebook file for this workshop and install some dependencies the notebook relies on. The next section will describe how to install these dependencies and load the notebook.
+The Jupyter notebook server will display the files available in your account's home directory on Koa. We will need to download the notebook file for this workshop and install some dependencies the notebook relies on. The next section will describe how to install these dependencies and load the notebook.
 
 <div class="alert alert-success mt-3" role="alert" markdown="1">
 <i class="fa-solid fa-globe fa-xl"></i> **Key Points**
 <hr/>
 
-* MANA’s web interface provides a built in function for deploying a Jupyter notebook server.
-* After configuring and submitting a job to MANA for deploying the Jupyter notebook server, we can connect to the server and use it to access notebook files stored in the user’s home directory.
+* Koa’s web interface provides a built-in function for deploying a Jupyter notebook server.
+* After configuring and submitting a job to Koa for deploying the Jupyter notebook server, we can connect to the server and use it to access notebook files stored in the user’s home directory.
 </div>
 
 
