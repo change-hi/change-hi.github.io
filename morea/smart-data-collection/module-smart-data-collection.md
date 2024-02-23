@@ -1,7 +1,7 @@
 ---
 title: "Smart Data Collection for Sensor Networks"
 published: true
-morea_coming_soon: true
+morea_coming_soon: false
 morea_id: smart-data-collection
 morea_outcomes:
   - outcome-smart-data-collection
