@@ -16,7 +16,6 @@ morea_enable_toc: true
 <i class="fa-solid fa-globe fa-xl"></i> **Overview**
 <hr/>
 
-
 **Key Points**
   * Most creative ideas develop over time with influence from our environment.
   * Cultivating genuine connections with others helps build a richer human experience and thus creative capacity.
