@@ -1,7 +1,7 @@
 ---
 title: "Creative Thinking"
 published: true
-morea_coming_soon: true
+morea_coming_soon: false
 morea_id: creative-thinking
 morea_outcomes:
   - outcome-test-creative
