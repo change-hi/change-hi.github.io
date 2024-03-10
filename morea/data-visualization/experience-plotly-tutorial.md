@@ -160,6 +160,8 @@ The graphic on the right shows the occupations of Georgia black males over 10. N
 <i class="fa-solid fa-globe fa-xl"></i> **Key Points**
 <hr/>
 There are useful guidelines that one can use to select appropriate charts and visual encodings, and there are tools that will help you create those charts. However, the creation of novel forms of visualization is as much science as it is craft.
+
+Design of visualizations is key to their effective communication of results.
 </div>
 
 {% include next-button.html 
