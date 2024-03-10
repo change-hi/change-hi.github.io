@@ -1,80 +1,110 @@
 ---
-title: "3. Paraview Tutorial"
+title: "3. Creating Visualizations with Code"
 published: true
 morea_id: experience-paraview-tutorial
 morea_type: experience
-morea_summary: "Understand Paraview implementation basics"
+morea_summary: "Understand how to create visualizations with code"
 morea_sort_order: 3
 morea_labels:
   - 2:45pm
 ---
 
-# 3. Paraview Tutorial
+# 3. Creating Visualizations with Code
 
 <div class="alert alert-info mt-3" role="alert" markdown="1">
 <i class="fa-solid fa-globe fa-xl"></i> **Overview**
 <hr/>
 
+
 **Objectives**
-* Provide you with an understanding of the suitability of ParaView for your requirements.
-* Demonstrate a series of simple steps for utilizing ParaView to generate a visual representation.
+* Give you a comprehensive overview of Plot.ly and its benefits over other similar statistical visualization tools.
+* Demonstrate the simplicity of creating Plot.ly charts.
 </div>
 
+Plot.ly is a library (application programming interface) for  creating high quality charts. Plotly has an immensely rich collection of chart types, all of which are interactive. Another popular charting library is [Matplotlib](https://matplotlib.org/). Whereas Matplotlib only supports Python, Plotly supports Javascript, Python, as well as R. At its core, Plot.ly's graphics are created in [D3.js](https://d3js.org/).
 
-### Overview
-[ParaView](https://www.paraview.org/) is an open source tool for scientific visualization. Areas of data visualization that normally fall under scientific visualization include: medical visualization, visualization of simulations from fluid dynamics, atmospheric science, cosmology, finite element meshes.
-
-ParaView was developed by [Kitware](http://www.kitware.com) in collaboration with Lost Alamos National Lab with funding from the Department of Energy. It was developed to make scientific visualization easier to create for non-computer scientists. ParaView is built on top of  the [Visualization Toolkit](https://vtk.org) (often referred to as VTK)- the library Computer Scientists have historically used to hand-craft scientific visualizations for domain scientists. VTK is arguably the most widely used scientific visualization library in the world.
-
-This workshop will:
-1. Explain why ParaView is an ideal tool for scientific visualization;
-2. Show you some fundamentals about the tool;
-3. Show you how to produce a simple visualization;
-4. Point you to a detailed tutorial document and book where you can learn more.
+{% include figure.html url="" max-width="80%" file="/morea/data-visualization/fig/plotly.png" alt="plotly" caption="" %}
 
 
-### Why Paraview
-Scientific simulations often run on high performance computing systems like Supercomputers or Compute Clusters and produce enormous amounts of  simulation data (on the order of terabytes to petabytes).  Common desktop statistical visualization tools like Excel, Tableau, Plotly etc are not well suited for scientific visualizations because they cannot scale to handle large data sets, and there are numerous data formats needed for scientific visualization that they do not support. ParaView solves these problems by being able to run in parallel across large scientific data sets on compute clusters to parallelize its production of visualizations.
-As ParaView has become such a staple for scientific visualization it supports a wide range of scientific data formats (as many as 220 distinct file formats). Here is a list of the [data readers built into ParaView](https://www.paraview.org/Wiki/ParaView/Users_Guide/List_of_readers). For example, [DICOM](https://en.wikipedia.org/wiki/DICOM) is a data file type often used in medical imaging, and [NetCDF](https://www.unidata.ucar.edu/publications/factsheets/current/factsheet_netcdf.pdf) is used in climate science simulations.
+Chart Studio is a web-based tool that allows you to create charts and simple dashboards using Plot.ly, eliminating the need for coding skills. Additionally, charts created in Chart Studio can be exported to either Javascript or Python code, making it an excellent tool for learning and exploration.
 
-Visualizing data in ParaView consists of three basic steps: reading the data with the appropriate data reader, applying filters to the data that generate, extract, or derive features from the data, and rendering to produce an image of the data. As ParaView is designed primarily to handle data with spatial representation, its primary data types are meshes.
+{% include figure.html url="" max-width="80%" file="/morea/data-visualization/fig/chartstudio.png" alt="plotly" caption="" %}
+
+Dash is a Python library for making web-based interactive visualization dashboards of Plot.ly charts. Often to create web-based dashboards you need to code the frontend in Javascript. Dash allows you to do everything in Python.
+
+The best place to go to begin learning is Plotly's [main library page](https://plotly.com/graphing-libraries/), which will then direct you to tutorials for Plotly in [Python](https://plotly.com/python/), [R](https://plotly.com/r/), [Javascript](https://plotly.com/javascript/), as well as [Dash](https://dash.plotly.com/).
+
+Go to the main library page and take a look at either Plotly Python or Plotly Javascript then select one of the basic charts to look at the respective codes. Also take a look at Dash example [galleries](https://dash.gallery/Portal/).
+
+Note: for Plotly Python there are two ways to use Plotly. I recommend most users use Plotly Express (which is a very low-code library to Plotly's most common charts). Most of the examples you will find use Plotly Express. For advanced needs you can learn to use [Plotly Graph Objects](https://plotly.com/python/graph-objects/).
+
+As an example of how easy it is to create charts in Plotly Express here are the lines of code you need to make a scatterplot:
+
+<div class="alert alert-secondary mt-3" role="alert" markdown="1">
+~~~python
+import plotly.express as px
+fig = px.scatter(x=[0, 1, 2, 3, 4], y=[0, 1, 4, 9, 16])
+fig.show()
+~~~
+
+{% include figure.html url="" max-width="60%" file="/morea/data-visualization/fig/scatter.png" alt="plotly" caption="" %}
+</div>
+
+And if you are familiar with using Pandas for data wrangling, here's an example of a scatterplot by first reading a data file into a Pandas data frame:
+
+<div class="alert alert-secondary mt-3" role="alert" markdown="1">
+~~~python
+import plotly.express as px
+import pandas as pd
+
+csv_url = 'https://archive.ics.uci.edu/ml/machine-learning-databases/iris/iris.data'
+
+# using the attribute information as the column names
+col_names = ['sepal_length','sepal_width','petal_length','petal_width','species']
+
+df =  pd.read_csv(csv_url, names = col_names)
+
+fig = px.scatter(df, x="sepal_width", y="sepal_length")
+fig.show()
+~~~
+{% include figure.html url="" max-width="60%" file="/morea/data-visualization/fig/scatterpandas.png" alt="plotly" caption="" %}
+</div>
+
+And if you replaced:
+
+<div class="alert alert-secondary mt-3" role="alert" markdown="1">
+~~~python
+fig = px.scatter(df, x="sepal_width", y="sepal_length")
+~~~
+</div>
+
+with
+
+<div class="alert alert-secondary mt-3" role="alert" markdown="1">
+~~~python
+fig = px.scatter_matrix(df, dimensions=["sepal_width", "sepal_length", "petal_width", "petal_length"], color="species"
+~~~
+</div>
+
+You can get this scatterplot matrix:
+{% include figure.html url="" max-width="80%" file="/morea/data-visualization/fig/scattermatrix.png" alt="plotly" caption="" %}
 
 
-### ParaView's User Interface
-The ParaView interface is shown below with a description of the main elements.
+Lastly, should you venture into creating Dash dashboards, and wish to make them publicly viewable, you will need to host a Python server.
+An easy way to do this is to use [Pythonanywhere](https://www.pythonanywhere.com/).
 
-The menu bar is where you access the majority of features. The toolbars provide quick access to commonly used features. The pipeline browser manages the reading and filtering of data with a pipeline. The pipeline browser lets you view the pipeline structure and select objects in the pipeline. The properties panel allows you to view and change the parameters of the current pipeline object. The advanced toggle shows/hides advaned controls. The 3D view is where your resulting visualization is shown.
 
-{% include figure.html url="" max-width="80%" file="/morea/data-visualization/fig/paraviewui.png" alt="plotly" caption="" %}
+Here is a video illustrating how to do this.
 
-### Getting Started
-Start by [downloading](https://www.paraview.org/download/) ParaView.
-
-Once ParaView has been downloaded, launch it. The Welcome window should appear. From there click on Getting Started Guide.
-
-{% include figure.html url="" max-width="80%" file="/morea/data-visualization/fig/paraviewstart.png" alt="plotly" caption="" %}
-
-The getting started guide is a 2-page PDF document like this:
-
-{% include figure.html url="" max-width="80%" file="/morea/data-visualization/fig/paraviewstarted.png" alt="plotly" caption="" %}
-
-Follow the instructions in the guide to produce your first visualization. Congratulations, you've produced your first ParaView visualization.
-
-If you'd like to try producing another visualization, this video shows how to visualize 3D volumetric data, such as medical data from an MRI scanner.
-
-{% include youtube.html id="wcsSuVGsLoQ" %}
+{% include youtube.html id="0JJ8cM2fcac" %}
 
 <div class="alert alert-success mt-3" role="alert" markdown="1">
 <i class="fa-solid fa-globe fa-xl"></i> **Key Points**
 <hr/>
-* ParaView is a complex and powerful visualization tool
-* It takes time to learn the software but useful [online tutorials](https://www.paraview.org/tutorials/) available to aid understanding
-* Recall that when you started ParaView, it brought up a Welcome screen. On that screen were two options: 
-    * Getting Started Guide and 
-    * Example Visualizations.   
-* If you select Example Visualizations you will be able to see four sample data visualizations. Click on those to explore how their pipelines were created.
-
-{% include figure.html url="" max-width="80%" file="/morea/data-visualization/fig/paraviweexamples.png" alt="plotly" caption="" %}
+* Plot.ly is a popular statistical visualization library that works in multiple programming languages including Python, Javascript, and R
+* Easier to code with Plot.ly
+* <strong>`Chart Studio`</strong> can be used to produce Plot.ly charts and dashboards without coding
+* <strong>`Dash`</strong> allows for creation of visualizations and dashboards using only Python.
 </div>
 
 <div class="alert alert-warning" role="alert" markdown="1">
@@ -86,6 +116,6 @@ Let's take a brief break to stretch before moving on to the next page.  See you 
 
 
 {% include next-button.html 
-           top-label="4. Tableau Tutorial ->" 
+           top-label="4. Creating Visualizations with Tableau ->" 
            bottom-label="3:10pm" 
            url="/morea/data-visualization/experience-tableau-tutorial.html" %}

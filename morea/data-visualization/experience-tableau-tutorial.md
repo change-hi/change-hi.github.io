@@ -1,5 +1,5 @@
 ---
-title: "4. Tableau Tutorial"
+title: "4.Creating Visualizations Using Tableau"
 published: true
 morea_id: experience-tableau-tutorial
 morea_type: experience
@@ -10,7 +10,7 @@ morea_labels:
 morea_enable_toc: true
 ---
 
-# 4. Tableau Tutorial
+# 4. Creating Visualizations Using Tableau
 
 <div class="alert alert-info mt-3" role="alert" markdown="1">
 <i class="fa-solid fa-globe fa-xl"></i> **Overview**

@@ -1,7 +1,7 @@
 ---
 title: "Data Visualization"
 published: true
-morea_coming_soon: true
+morea_coming_soon: false
 morea_id: data-visualization
 morea_outcomes:
   - outcome-data-visualization
