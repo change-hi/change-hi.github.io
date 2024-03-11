@@ -104,7 +104,7 @@ We don't all have time to become visualization experts so there are a number of 
 The ones we are covering are: Plot.ly, ParaView and Tableau.
 Again since we have limited time we can only cover the very basics to get you started.
 
-#### Ploy.ly
+#### Ploty.ly
 
 Plot.ly is a general charting library for producing statistical charts. There are numerous similar tools available (e.g. Matplotlib, Chart.js), however, plot.ly is notable because: it provides an application programming interface for Javascript, R and Python (as well as Jupyter). It also provides Chart Studio- which allows you to produce charts and simple dashboards without programming. And it provides Dash to enable you to create charts as well as fully functioning dashboards purely in Python. Lastly, Plot.ly is free and open source.
 
