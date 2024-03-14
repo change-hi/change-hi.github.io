@@ -10,6 +10,7 @@ morea_readings:
 morea_experiences:
   - experience-introduction
   - experience-plotly-tutorial
+  - beyond-basic-charts
   - experience-paraview-tutorial
   - experience-tableau-tutorial
 morea_assessments:
@@ -19,7 +20,7 @@ morea_type: module
 morea_icon_url: /morea/data-visualization/logo.jpg
 morea_labels:
   - Workshop
-  - Friday, March 22, 2024
+  - Friday, March 15, 2024
 morea_sort_order: 140
 ---
 
