@@ -7,5 +7,5 @@ morea_sort_order: 100
 ---
 
   * You understand basic concepts of the Tapis Streams API and Abaco.
-  * You can deploy and access a Jupyter Notebook using Mana.
+  * You can deploy and access a Jupyter Notebook using Koa (previous Mana).
   * You can use the Streams API to mimic a real-world sensor network.

@@ -1,16 +1,16 @@
 ---
-title: "11. Transferring Data using Globus "
+title: "10. Transferring Data using Globus "
 published: true
 morea_id: experience-transferring-data
 morea_type: experience
 morea_summary: "Understand how to setup and use Globus to move data."
-morea_sort_order: 9
+morea_sort_order: 10
 morea_labels:
-  - 3:40pm
+  - 2:55pm
 morea_enable_toc: true
 ---
 
-# 11. Transferring Data using Globus
+# 10. Transferring Data using Globus
 
 <div class="alert alert-success mt-3" role="alert" markdown="1">
 <i class="fa-solid fa-globe fa-xl"></i> **Overview**
@@ -106,9 +106,13 @@ Do you have any questions about Globus? Ask away!
 * Collections can be hosted on many different kinds of systems.  
 </div>
 
-
+<div class="alert alert-warning" role="alert" markdown="1">
+<i class="fa-solid fa-circle-info fa-xl"></i> **Bio Break!**
+<hr/>
+Let's take a brief break to stretch before moving on to the next page.  See you in a few minutes.
+</div>
 
 {% include next-button.html
-  top-label="Assessment ->"
-  bottom-label="3:50pm"
-  url="/morea/data-movement/assessment-data-movement.html" %}
+  top-label="RClone Config. ->"
+  bottom-label="3:05pm"
+  url="/morea/data-movement/experience-configuring-rclone.html" %}

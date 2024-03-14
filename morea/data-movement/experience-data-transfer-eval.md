@@ -1,15 +1,15 @@
 ---
-title: "3. Data Transfer Evaluation of the Network"
+title: "4. Data Transfer Evaluation of the Network"
 published: true
 morea_id: experience-data-transfer-eval
 morea_type: experience
 morea_summary: "Understand what tools we use to test network throughput."
-morea_sort_order: 3
+morea_sort_order: 4
 morea_labels:
-  - 2:20pm
+  - 2:15pm
 morea_enable_toc: true
 ---
-# 3. Data Transfer Evaluation of the Network
+# 4. Data Transfer Evaluation of the Network
 
 <div class="alert alert-success mt-3" role="alert" markdown="1">
 <i class="fa-solid fa-globe fa-xl"></i> **Overview**
@@ -114,5 +114,5 @@ morea_enable_toc: true
 
 {% include next-button.html
   top-label="Processes and Queues ->"
-  bottom-label="2:30pm"
+  bottom-label="2:20pm"
   url="/morea/data-movement/experience-processes-and-queues.html" %}

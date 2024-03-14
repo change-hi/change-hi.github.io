@@ -1,15 +1,15 @@
 ---
-title: "2. Networks"
+title: "3. Networks"
 published: true
 morea_id: experience-data-movement-networks
 morea_type: experience
 morea_summary: "Understand what networks, and the equipment that connects everything, look like."
-morea_sort_order: 2
+morea_sort_order: 3
 morea_labels:
   - 2:10pm 
 morea_enable_toc: true
 ---
-# 2. Networks
+# 3. Networks
 
 <div class="alert alert-success mt-3" role="alert" markdown="1">
 <i class="fa-solid fa-globe fa-xl"></i> **Overview**
@@ -94,5 +94,5 @@ The infrared laser that transmits over the fiber is visible in the upper connect
 
 {% include next-button.html
   top-label="Data Transfer Evaluation of the Network ->"
-  bottom-label="2:20pm"
+  bottom-label="2:15pm"
   url="/morea/data-movement/experience-data-transfer-eval.html" %}

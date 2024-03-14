@@ -90,7 +90,7 @@ With this mindset, we can cultivate creativity by creating the right **condition
 
 ## Get Those Juices Flowing
 
-Now, let us activate our **Imagination Network** with the help of a [special guest](https://openai.com/blog/chatgpt).
+Now, let us activate our **Imagination Network** with the help of a [special guest](https://openai.com/sora).
 
 {% include next-button.html
   top-label="Conditions for Creativity ->"

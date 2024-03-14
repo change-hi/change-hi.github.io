@@ -25,7 +25,7 @@ The goal is not to reveal a dark secret of your soul to strangers, but rather to
 
 Please spend five minutes having everyone explain one thing that "keeps them up at night", and have the scribe note it down. 
 
-After five minutes, we will move on to the Introduction
+After five minutes, we will move on to the next section.  Don't worry, you'll have an opportunity later in the workshop to present what keeps you up at night! 
 
 {% include next-button.html
 top-label="2. Introduction to Professional Portfolios ->"

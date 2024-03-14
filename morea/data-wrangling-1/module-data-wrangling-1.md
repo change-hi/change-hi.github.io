@@ -1,7 +1,7 @@
 ---
 title: "Data Wrangling, Part 1"
 published: true
-morea_coming_soon: true
+morea_coming_soon: false
 morea_id: data-wrangling-1
 morea_outcomes:
   - outcome-data-wrangling
@@ -11,12 +11,12 @@ morea_experiences:
   - experience-data-wrangling-intro
   - experience-jupyter-interface
   - experience-data-structures
-  - experience-data-wrangling
+  - experience-data-accessing-subsetting
   - experience-dataframe-analysis
-  - experience-real-example-cleaning
-  - experience-real-example-analysis
+  #- experience-real-example-cleaning
+  #- experience-real-example-analysis
 morea_assessments:
-  - assessment-data-wrangling-workshop
+  - assessment-data-wrangling-workshop-1
 morea_prerequisites:
 morea_type: module
 morea_icon_url: /morea/data-wrangling-1/logo.png

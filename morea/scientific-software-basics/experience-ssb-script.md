@@ -1,16 +1,16 @@
 ---
-title: "6. Shell Scripts"
+title: "7. Shell Scripts"
 published: true
 morea_id: experience-ssb-script
 morea_type: experience
 morea_summary: "Saving and Reusing Commands"
-morea_sort_order: 2
+morea_sort_order: 9
 morea_labels:
-  - 3:25pm
+  - 3:35pm
 morea_enable_toc: true
 ---
 
-# 6. Shell Scripts
+# 7. Shell Scripts
 
 <div class="alert alert-success mt-3" role="alert" markdown="1">
 <i class="fa-solid fa-globe fa-xl"></i> **Overview**
@@ -36,12 +36,7 @@ morea_enable_toc: true
 </div>
 
 We are finally ready to see what makes the shell such a powerful programming environment.
-We are going to take the commands we repeat frequently and save them in files
-so that we can re-run all those operations again later by typing a single command.
-For historical reasons,
-a bunch of commands saved in a file is usually called a **shell script**,
-but make no mistake:
-these are actually small programs.
+We're taking the commands we've previously been using up till now and save them in files, allowing us to rerun them with a single command. These files are typically called **shell scripts**, but they're essentially small programs.
 
 Let's start by going back to `molecules/` and creating a new file, `middle.sh` which will
 become our shell script:
@@ -273,11 +268,7 @@ head -n "$2" "$1" | tail -n "$3"
 </div>
 
 A comment starts with a `#` character and runs to the end of the line.
-The computer ignores comments,
-but they're invaluable for helping people (including your future self) understand and use scripts.
-The only caveat is that each time you modify the script,
-you should check that the comment is still accurate:
-an explanation that sends the reader in the wrong direction is worse than none at all.
+The computer ignores comments, but they're invaluable for helping people (including your future self) understand and use scripts. However, each time you change your script remember to check that the comment is still accurate: misleading comments are worse than no comments.
 
 What if we want to process many files in a single pipeline?
 For example, if we want to sort our `.pdb` files by length, we would type:
@@ -290,22 +281,7 @@ $ wc -l *.pdb | sort -n
 
 </div>
 
-because `wc -l` lists the number of lines in the files
-(recall that `wc` stands for 'word count', adding the `-l` option means 'count lines' instead)
-and `sort -n` sorts things numerically.
-We could put this in a file,
-but then it would only ever sort a list of `.pdb` files in the current directory.
-If we want to be able to get a sorted list of other kinds of files,
-we need a way to get all those names into the script.
-We can't use `$1`, `$2`, and so on
-because we don't know how many files there are.
-Instead, we use the special variable `$@`,
-which means,
-"All of the command-line arguments to the shell script."
-We also should put `$@` inside double-quotes
-to handle the case of arguments containing spaces
-(`"$@"` is equivalent to `"$1"` `"$2"` ...)
-Here's an example:
+Since `wc -l` counts lines and `sort -n` sorts numerically, we could create a script. However, it would only work on `.pdb` files in the current directory. To handle various file types, we use `$@`, representing all command-line arguments, enclosed in double-quotes to handle spaces. For example:
 
 <div class="alert alert-secondary" role="alert" markdown="1">
 
@@ -362,7 +338,8 @@ Leah has several hundred data files, each of which is formatted like this:
  ```
  An example of this type of file is given in `data-shell/data/animal-counts/animals.txt`.
 
- We can use the command `cut -d , -f 2 animals.txt | sort | uniq` to produce the unique species in `animals.txt`. In order to avoid having to type out this series of commands every time, a scientist may choose to write a shell script instead.
+
+To find unique species in `animals.txt`, you can use `cut -d , -f 2 animals.txt | sort | uniq`. For convenience, scientists often create a shell script to avoid repetitive typing.
 
  Write a shell script called `species.sh` that takes any number of
  filenames as command-line arguments, and uses and uses a variation of the above command to print a list of the unique species appearing in each of those files separately.
@@ -384,14 +361,8 @@ Leah has several hundred data files, each of which is formatted like this:
 </details>
 </div>
 
-Suppose we have just run a series of commands that did something useful --- for example,
-that created a graph we'd like to use in a paper.
-We'd like to be able to re-create the graph later if we need to,
-so we want to save the commands in a file.
-Instead of typing them in again
-(and potentially getting them wrong)
-we can do this:
 
+Suppose we've executed a useful series of commands, like creating a graph for a paper. To ensure we can recreate it accurately later and avoiding potential errors from retyping them, we can save these commands in a file with the following command: 
 <div class="alert alert-secondary" role="alert" markdown="1">
 
 ```bash
@@ -441,13 +412,7 @@ before running them. Why do you think it does this?
 </details>
 </div>
 
-In practice, most people develop shell scripts by running commands at the shell prompt a few times
-to make sure they're doing the right thing,
-then saving them in a file for re-use.
-This style of work allows people to recycle
-what they discover about their data and their workflow with one call to `history`
-and a bit of editing to clean up the output
-and save it as a shell script.
+In practice, most people develop shell scripts by running commands at the shell prompt a few times to make sure they’re doing the right thing, then saving them in a file for re-use. This style of work allows people to recycle what they discover about their data and their workflow with one call to `history` and a bit of editing to clean up the output and save it as a shell script.
 
 ## Nelle's Pipeline: Creating a Script
 
@@ -602,55 +567,6 @@ with that extension. For example:
 </details>
 </div>
 
-## Script Reading Comprehension
-
-<div class="alert alert-secondary" role="alert" markdown="1">
-<i class="fa-solid fa-user-pen fa-xl"></i> **Exercise: Understand some scripts**
-<hr/>
-
-For this exercise, consider the `data-shell/molecules` directory once again.
-This contains a number of `.pdb` files in addition to any other files you
-may have created.
-Explain what each of the following three scripts would do when run as
-`bash script1.sh *.pdb`, `bash script2.sh *.pdb`, and `bash script3.sh *.pdb` respectively.
-
- ```bash
- # Script 1
- echo *.*
- ```
- ```bash
- # Script 2
- for filename in $1 $2 $3
- do
-     cat $filename
- done
- ```
- ```bash
- # Script 3
- echo $@.pdb
- ```
-<details markdown="1">
-<summary>Solution</summary>
-
-In each case, the shell expands the wildcard in '* .pdb' before passing the resulting
-   list of file names as arguments to the script.
-
-Script 1 would print out a list of all files containing a dot in their name.
-The arguments passed to the script are not actually used anywhere in the script.
-
-Script 2 would print the contents of the first 3 files with a '.pdb' file extension.
-'$1', '$2', and '$3' refer to the first, second, and third argument respectively.
-
-Script 3 would print all the arguments to the script (i.e. all the '.pdb' files),
-followed by '.pdb'.
-'$@' refers to *all* the arguments given to a shell script.
-   
-```bash
-  cubane.pdb ethane.pdb methane.pdb octane.pdb pentane.pdb propane.pdb.pdb
-  ```
- </details>
- </div>
-
 ## Debugging Scripts
 
  <div class="alert alert-secondary" role="alert" markdown="1">
@@ -695,5 +611,5 @@ an empty string.
 
 {% include next-button.html
 top-label="Finding Things ->"
-bottom-label="3:40pm"
+bottom-label="3:50pm"
 url="/morea/scientific-software-basics/experience-ssb-find.html" %}
