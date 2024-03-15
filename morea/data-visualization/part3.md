@@ -12,12 +12,12 @@ morea_labels:
 
 Visualization takes many forms beyond the basic charts. Commonly you will see map based visualizations or node and link graphs. For example,  the following visualizations show a choropleth map based on gridded data and a 3D graph.
 
-{% include figure.html url="" max-width="60%" file="/morea/data-visualization/fig/image14.png" alt="viz-intro" caption="" %}
-{% include figure.html url="" max-width="60%" file="/morea/data-visualization/fig/image12.png" alt="viz-intro" caption="" %}
+{% include figure.html url="" max-width="45%" file="/morea/data-visualization/fig/image_14.png" alt="viz-intro" caption="" %}
+{% include figure.html url="" max-width="45%" file="/morea/data-visualization/fig/image_12.png" alt="viz-intro" caption="" %}
 
 In some cases, an animation is the end product of analysis (for example, simulation of dynamic fluids), in which case, the visualization product is the full animation.
 
-{% include figure.html url="" max-width="60%" file="/morea/data-visualization/fig/image3.png" alt="viz-intro" caption="" %}
+{% include figure.html url="" max-width="70%" file="/morea/data-visualization/fig/image_3.gif" alt="viz-intro" caption="" %}
 
 In other cases, animation can be used:
 * To show change over time in an intuitive way ([cool example](https://www.youtube.com/watch?v=jWoCXLuTIkI)) 
@@ -28,8 +28,8 @@ In other cases, animation can be used:
 
 3D visualizations are another way to convey complex data and, in many cases, represent scientific data that has spatial significance or are based on 3D objects in the real world.
 
-{% include figure.html url="" max-width="60%" file="/morea/data-visualization/fig/image1.png" alt="viz-intro" caption="" %}
-{% include figure.html url="" max-width="60%" file="/morea/data-visualization/fig/image13.png" alt="viz-intro" caption="" %}
+{% include figure.html url="" max-width="45%" file="/morea/data-visualization/fig/image_1.png" alt="viz-intro" caption="" %}
+{% include figure.html url="" max-width="45%" file="/morea/data-visualization/fig/image_13.png" alt="viz-intro" caption="" %}
 
 Paraview is an example of a free tool used by many scientists to visualize 3D elements and explore isosurfaces (surfaces of constant scalar value). The video below (created by Dr. Jason Leigh)  shows a quick demonstration of Pawaview.
 

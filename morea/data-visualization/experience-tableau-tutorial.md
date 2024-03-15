@@ -37,12 +37,12 @@ This is the Tableau initial interface and allows you to upload an array of diffe
 
 {% include figure.html url="" max-width="80%" file="/morea/data-visualization/fig/image_7.png" alt="plotly" caption="" %}
 
-{% include figure.html url="" max-width="80%" file="/morea/data-visualization/fig/image_11.png" alt="plotly" caption="" %}
-
 * Visualization 1: bar graph (x-axis: enrollment, y-axis: institution)
     * Data source tab shows the different components of your uploaded data set to be able to quickly choose what you wish to observe and compare. The sheet tabs allow you to make different figures and use different aspects of your data.
     * Change the name of “Iro Institution Descl” to “Institution” by right clicking the field and pressing “Rename”
-    * Drag “Enrollment” field to the rows section at the top of sheet 1 and “Institution” field to the columns section at the top of sheet 1.
+ {% include figure.html url="" max-width="80%" file="/morea/data-visualization/fig/image_11.png" alt="plotly" caption="" %}
+   
+ * Drag “Enrollment” field to the rows section at the top of sheet 1 and “Institution” field to the columns section at the top of sheet 1.
     * In the “Show Me” window on the right side of the Book click the bar graph icon to display figure
 
 {% include figure.html url="" max-width="80%" file="/morea/data-visualization/fig/image_8.png" alt="plotly" caption="" %}
