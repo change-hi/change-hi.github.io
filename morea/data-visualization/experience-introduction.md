@@ -61,11 +61,11 @@ So, why visualization?
 * Supports side-by-side (or overlaid) visual comparison between pieces of data
 * Geospatial related data is reliant on graphical representation
 
-{% include figure.html url="" max-width="45%" file="/morea/data-visualization/fig/image13.png" alt="viz-intro" caption="" %}
-{% include figure.html url="" max-width="45%" file="/morea/data-visualization/fig/image18.png" alt="viz-intro" caption="" %}
-{% include figure.html url="" max-width="45%" file="/morea/data-visualization/fig/image15.png" alt="viz-intro" caption="" %}
-{% include figure.html url="" max-width="45%" file="/morea/data-visualization/fig/image32.png" alt="viz-intro" caption="" %}
-{% include figure.html url="" max-width="45%" file="/morea/data-visualization/fig/image34.png" alt="viz-intro" caption="" %}
+{% include figure.html url="" max-width="18%" file="/morea/data-visualization/fig/image13.png" alt="viz-intro" caption="" %}
+{% include figure.html url="" max-width="18%" file="/morea/data-visualization/fig/image18.png" alt="viz-intro" caption="" %}
+{% include figure.html url="" max-width="18%" file="/morea/data-visualization/fig/image15.png" alt="viz-intro" caption="" %}
+{% include figure.html url="" max-width="18%" file="/morea/data-visualization/fig/image32.png" alt="viz-intro" caption="" %}
+{% include figure.html url="" max-width="18%" file="/morea/data-visualization/fig/image34.png" alt="viz-intro" caption="" %}
 
 Visualization existed in various forms throughout history, however, some of the first statistical charts (like line and bar charts) were first seen in 1786, when William Playfair, a politician, created them to illustrate the policies he was promoting. Other notable occurrences of historical visualization innovation are Dr. John Snow’s cholera map and Florence Nightingale’s coxcomb diagram illustrating the importance of sanitation. Here we will look at Charles Joseph Minard’s 1861 graphic showing Napoleon's losses during his 1812 march to and from Moscow.
 

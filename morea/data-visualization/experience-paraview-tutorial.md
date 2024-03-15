@@ -93,8 +93,6 @@ Next, we use plotly express to create a bar plot:
 
 <div class="alert alert-secondary mt-3" role="alert" markdown="1">
 ~~~python
-# Define the semesters from Fall 2012 - Fall 2022
-semesters = ['Fall 2012', 'Fall 2013', 'Fall 2014', 'Fall 2015', 'Fall 2016', 'Fall 2017', 'Fall 2018', 'Fall 2019', 'Fall 2020', 'Fall 2021', 'Fall 2022']
 
 # Get unique institution names
 institutions = df['IRO_INSTITUTION_DESCL'].unique()
